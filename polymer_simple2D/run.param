@@ -1,0 +1,11 @@
+deck_filename=2D_THREEPHASE_POLY_HETER.DATA
+output_dir=opm-simulation
+pvt_tab_size=-1
+sat_tab_size=-1
+threephase_model=gwseg
+drs_max_rel=0.3
+dp_max_rel=0.2
+ds_max=0.05
+max_iter=100
+use_cpr=false
+tolerance_wells=0.5

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1'?>
+
+<ParameterGroup name="root">
+  <Parameter name="deck_filename" type="file" value="SPE9_CP.DATA"/>
+  <Parameter name="output_dir" type="string" value="opm-simulation"/>
+  <Parameter name="min_iter" type="int" value="0"/>
+  <Parameter name="tolerance_mb" type="double" value="1.0e-07"/>
+  <Parameter name="tolerance_cnv" type="double" value="1.0e-3"/>
+  <Parameter name="newton_use_gmres" type="bool" value="true"/>
+  <Parameter name="linear_solver_reduction" type="double" value="1.0e-3"/>
+  <Parameter name="linear_solver_maxiter" type="int" value="150"/>
+  <Parameter name="timestep.adaptive" type="bool" value="false"/>
+</ParameterGroup>
+

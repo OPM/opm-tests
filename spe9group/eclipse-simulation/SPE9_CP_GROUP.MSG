@@ -1,0 +1,287 @@
+<eclipse>
+<message date="1/1/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+       3980 KBYTES                                                       
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                          
+ TRANSMISSIBILITIES TO BE CALCULATED                                     
+ USING  NEWTRAN                                                          
+</message>
+<comment date="1/1/2015" time="0.00000000000000">
+ NO NON-NEIGHBOUR CONNECTIONS FOUND                                      
+</comment>
+<message date="1/1/2015" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 9000                                          
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
+      13072 KBYTES                                                       
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+    62397 CHARACTER VARIABLES USED                                       
+</message>
+<warning date="1/1/2015" time="0.00000000000000">
+ SPURIOUS DATA BEFORE PVTO     KEYWORD                                   
+ 	                                                                       
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ THE MAXIMUM PRESSURE ENTERED IN THE PVT TABLES                          
+ FOR THE OIL PHASE IS   4600.000. THIS IS GREATER THAN                   
+ THE MAXIMUM PRESSURE FOR THE GAS PHASE,   4000.000                      
+ AND MAY LEAD TO PVT TABLE EXTRAPOLATION                                 
+</warning>
+<message date="1/1/2015" time="0.00000000000000">
+ OPENING WELL INJE1    AT TIME      0.00   DAYS                          
+ CONTROLLED BY WATER RATE                                                
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ OPENING WELL INJE2    AT TIME      0.00   DAYS                          
+ CONTROLLED BY WATER RATE                                                
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ OPENING WELL PRODU7   AT TIME      0.00   DAYS                          
+ CONTROLLED BY OIL RATE                                                  
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ OPENING WELL PRODU9   AT TIME      0.00   DAYS                          
+ CONTROLLED BY OIL RATE                                                  
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ OPENING WELL PRODU15  AT TIME      0.00   DAYS                          
+ CONTROLLED BY OIL RATE                                                  
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ OPENING WELL PRODU23  AT TIME      0.00   DAYS                          
+ CONTROLLED BY OIL RATE                                                  
+</message>
+<warning date="1/1/2015" time="0.00000000000000">
+ WELL INJE1    HAS A BOTTOM HOLE REFERENCE                               
+ DEPTH OF   9110.0   FEET                                                
+ THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE                     
+ BETWEEN  10359.7 AND  10507.2   FEET                                    
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ WELL PRODU9   HAS A BOTTOM HOLE REFERENCE                               
+ DEPTH OF   9110.0   FEET                                                
+ THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE                     
+ BETWEEN   9704.7 AND   9745.7   FEET                                    
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ WELL PRODU23  HAS A BOTTOM HOLE REFERENCE                               
+ DEPTH OF   9110.0   FEET                                                
+ THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE                     
+ BETWEEN   9756.8 AND   9797.8   FEET                                    
+</warning>
+<message date="1/1/2015" time="0.00000000000000">
+ DRSDT KEYWORD HAS NOT BEEN ENTERED, SO THE                              
+ MAXIMUM GAS RE-SOLUTION RATE IS DEFAULTED TO INFINITY.                  
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ ******************************************                              
+ * WELL INJE1    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME      0.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="11/1/2015" time="10.00000000000000">
+ RESTART FILE WRITTEN   REPORT     1                                     
+</message>
+<message date="21/1/2015" time="20.00000000000000">
+ RESTART FILE WRITTEN   REPORT     2                                     
+</message>
+<message date="21/1/2015" time="20.00000000000000">
+ ******************************************                              
+ * WELL PRODU23  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME     20.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="31/1/2015" time="30.00000000000000">
+ RESTART FILE WRITTEN   REPORT     3                                     
+</message>
+<message date="10/2/2015" time="40.00000000000000">
+ RESTART FILE WRITTEN   REPORT     4                                     
+</message>
+<message date="20/2/2015" time="50.00000000000000">
+ RESTART FILE WRITTEN   REPORT     5                                     
+</message>
+<message date="2/3/2015" time="60.00000000000000">
+ RESTART FILE WRITTEN   REPORT     6                                     
+</message>
+<message date="12/3/2015" time="70.00000000000000">
+ RESTART FILE WRITTEN   REPORT     7                                     
+</message>
+<message date="22/3/2015" time="80.00000000000000">
+ RESTART FILE WRITTEN   REPORT     8                                     
+</message>
+<message date="1/4/2015" time="90.00000000000000">
+ RESTART FILE WRITTEN   REPORT     9                                     
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ RESTART FILE WRITTEN   REPORT    10                                     
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ CONTROL MODE CHANGE IN WELL PRODU7   AT TIME    100.00   DAYS           
+ TO GROUP CONTROL                                                        
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ CONTROL MODE CHANGE IN WELL PRODU9   AT TIME    100.00   DAYS           
+ TO GROUP CONTROL                                                        
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ CONTROL MODE CHANGE IN WELL PRODU15  AT TIME    100.00   DAYS           
+ TO GROUP CONTROL                                                        
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ CONTROL MODE CHANGE IN WELL PRODU23  AT TIME    100.00   DAYS           
+ TO GROUP CONTROL                                                        
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ THE TOP-UP PHASE IS SET TO WATER AS                                     
+ GROUP A        HAS A TARGET OR LIMIT RESERVOIR                          
+ VOLUME RATE OR VOIDAGE REPLACEMENT FRACTION                             
+ FOR WATER INJECTION CONTROL                                             
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ **********************************************                          
+ * WELL INJE1    HAS CHANGED TO GROUP CONTROL *                          
+ * FROM TIME    100.00   DAYS  .              *                          
+ **********************************************                          
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ **********************************************                          
+ * WELL INJE2    HAS CHANGED TO GROUP CONTROL *                          
+ * FROM TIME    100.00   DAYS  .              *                          
+ **********************************************                          
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ ******************************************                              
+ * WELL PRODU7   HAS CHANGED TO           *                              
+ * CONTROL BY OIL RATE                    *                              
+ * FROM TIME    100.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ ******************************************                              
+ * WELL PRODU9   HAS CHANGED TO           *                              
+ * CONTROL BY OIL RATE                    *                              
+ * FROM TIME    100.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ ******************************************                              
+ * WELL PRODU15  HAS CHANGED TO           *                              
+ * CONTROL BY OIL RATE                    *                              
+ * FROM TIME    100.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ ******************************************                              
+ * WELL PRODU23  HAS CHANGED TO           *                              
+ * CONTROL BY OIL RATE                    *                              
+ * FROM TIME    100.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ **********************************                                      
+ * GROUP F        CANNOT MEET ITS *                                      
+ * LIQUID PRODUCTION TARGET       *                                      
+ * AFTER TIME    100.00   DAYS  . *                                      
+ **********************************                                      
+</message>
+<message date="21/4/2015" time="110.00000000000000">
+ RESTART FILE WRITTEN   REPORT    11                                     
+</message>
+<message date="1/5/2015" time="120.00000000000000">
+ RESTART FILE WRITTEN   REPORT    12                                     
+</message>
+<message date="11/5/2015" time="130.00000000000000">
+ RESTART FILE WRITTEN   REPORT    13                                     
+</message>
+<message date="21/5/2015" time="140.00000000000000">
+ RESTART FILE WRITTEN   REPORT    14                                     
+</message>
+<message date="31/5/2015" time="150.00000000000000">
+ RESTART FILE WRITTEN   REPORT    15                                     
+</message>
+<message date="10/6/2015" time="160.00000000000000">
+ RESTART FILE WRITTEN   REPORT    16                                     
+</message>
+<message date="20/6/2015" time="170.00000000000000">
+ RESTART FILE WRITTEN   REPORT    17                                     
+</message>
+<message date="30/6/2015" time="180.00000000000000">
+ RESTART FILE WRITTEN   REPORT    18                                     
+</message>
+<message date="10/7/2015" time="190.00000000000000">
+ RESTART FILE WRITTEN   REPORT    19                                     
+</message>
+<message date="20/7/2015" time="200.00000000000000">
+ RESTART FILE WRITTEN   REPORT    20                                     
+</message>
+<message date="20/7/2015" time="200.00000000000000">
+ **********************************************                          
+ * WELL PRODU7   HAS CHANGED TO GROUP CONTROL *                          
+ * FROM TIME    200.00   DAYS  .              *                          
+ **********************************************                          
+</message>
+<message date="20/7/2015" time="200.00000000000000">
+ **********************************************                          
+ * WELL PRODU9   HAS CHANGED TO GROUP CONTROL *                          
+ * FROM TIME    200.00   DAYS  .              *                          
+ **********************************************                          
+</message>
+<message date="20/7/2015" time="200.00000000000000">
+ **********************************************                          
+ * WELL PRODU15  HAS CHANGED TO GROUP CONTROL *                          
+ * FROM TIME    200.00   DAYS  .              *                          
+ **********************************************                          
+</message>
+<message date="20/7/2015" time="200.00000000000000">
+ **********************************************                          
+ * WELL PRODU23  HAS CHANGED TO GROUP CONTROL *                          
+ * FROM TIME    200.00   DAYS  .              *                          
+ **********************************************                          
+</message>
+<message date="20/7/2015" time="200.00000000000000">
+ **********************************                                      
+ * GROUP F        CAN MEET ITS    *                                      
+ * LIQUID PRODUCTION TARGET       *                                      
+ * AFTER TIME    200.00   DAYS  . *                                      
+ **********************************                                      
+</message>
+<message date="30/7/2015" time="210.00000000000000">
+ RESTART FILE WRITTEN   REPORT    21                                     
+</message>
+<message date="9/8/2015" time="220.00000000000000">
+ RESTART FILE WRITTEN   REPORT    22                                     
+</message>
+<message date="19/8/2015" time="230.00000000000000">
+ RESTART FILE WRITTEN   REPORT    23                                     
+</message>
+<message date="29/8/2015" time="240.00000000000000">
+ RESTART FILE WRITTEN   REPORT    24                                     
+</message>
+<message date="8/9/2015" time="250.00000000000000">
+ RESTART FILE WRITTEN   REPORT    25                                     
+</message>
+<message date="18/9/2015" time="260.00000000000000">
+ RESTART FILE WRITTEN   REPORT    26                                     
+</message>
+<message date="28/9/2015" time="270.00000000000000">
+ RESTART FILE WRITTEN   REPORT    27                                     
+</message>
+<message date="8/10/2015" time="280.00000000000000">
+ RESTART FILE WRITTEN   REPORT    28                                     
+</message>
+<message date="18/10/2015" time="290.00000000000000">
+ RESTART FILE WRITTEN   REPORT    29                                     
+</message>
+<message date="28/10/2015" time="300.00000000000000">
+ RESTART FILE WRITTEN   REPORT    30                                     
+</message>
+</eclipse>

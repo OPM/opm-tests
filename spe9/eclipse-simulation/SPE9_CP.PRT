@@ -1,0 +1,1917 @@
+
+
+
+ $$$$$   $$$   $      $$$  $$$$    $$$   $$$$$     $    $$$    $$$ 
+ $      $   $  $       $   $   $  $   $  $        $$   $   $  $   $
+ $      $      $       $   $   $  $      $         $   $   $  $   $
+ $$$$   $      $       $   $$$$    $$$   $$$$      $   $   $  $   $
+ $      $      $       $   $          $  $         $   $   $  $   $
+ $      $   $  $       $   $      $   $  $         $   $   $  $   $
+ $$$$$   $$$   $$$$$  $$$  $       $$$   $$$$$    $$$   $$$    $$$ 
+
+
+
+                       $$$$$   $$$   $      $$$  $$$$    $$$   $$$$$     $    $$$    $$$ 
+                       $      $   $  $       $   $   $  $   $  $        $$   $   $  $   $
+                       $      $      $       $   $   $  $      $         $   $   $  $   $
+                       $$$$   $      $       $   $$$$    $$$   $$$$      $   $   $  $   $
+                       $      $      $       $   $          $  $         $   $   $  $   $
+                       $      $   $  $       $   $      $   $  $         $   $   $  $   $
+                       $$$$$   $$$   $$$$$  $$$  $       $$$   $$$$$    $$$   $$$    $$$ 
+
+
+
+                                             $$$$$   $$$   $      $$$  $$$$    $$$   $$$$$     $    $$$    $$$ 
+                                             $      $   $  $       $   $   $  $   $  $        $$   $   $  $   $
+                                             $      $      $       $   $   $  $      $         $   $   $  $   $
+                                             $$$$   $      $       $   $$$$    $$$   $$$$      $   $   $  $   $
+                                             $      $      $       $   $          $  $         $   $   $  $   $
+                                             $      $   $  $       $   $      $   $  $         $   $   $  $   $
+                                             $$$$$   $$$   $$$$$  $$$  $       $$$   $$$$$    $$$   $$$    $$$ 
+
+
+
+                                                                   $$$$$   $$$   $      $$$  $$$$    $$$   $$$$$     $    $$$    $$$ 
+                                                                   $      $   $  $       $   $   $  $   $  $        $$   $   $  $   $
+                                                                   $      $      $       $   $   $  $      $         $   $   $  $   $
+                                                                   $$$$   $      $       $   $$$$    $$$   $$$$      $   $   $  $   $
+                                                                   $      $      $       $   $          $  $         $   $   $  $   $
+                                                                   $      $   $  $       $   $      $   $  $         $   $   $  $   $
+                                                                   $$$$$   $$$   $$$$$  $$$  $       $$$   $$$$$    $$$   $$$    $$$ 
+
+Proprietary Notice
+This application contains the confidential and proprietary trade secrets of Schlumberger and may not be copied or stored in an
+information retrieval system, transferred, used, distributed, translated, or retransmitted in any form or by any means, electron
+or mechanical, in whole or in part, without the express written permission of the copyright owner.
+
+ECLIPSE is a mark of Schlumberger. Copyright (c) 1981-2014 Schlumberger. All rights reserved.
+
+Version =  2014.2  
+Arch    =  Linux X86_64 (64 bit, LINUX_REL5IL1364OPT)
+
+Annex    | Modification date    | Update date          | baseline             
+=====    | =================    | ===========          | ========             
+ECLIPSE  | 10-NOV-2014 15:48:03 | 11-NOV-2014 07:23:12 | 2014.2_507827
+petlast  | 29-FEB-2012 11:48:27 | 11-NOV-2014 07:23:15 | 2014.2_507827
+system   | 09-OCT-2014 10:49:54 | 11-NOV-2014 07:23:16 | 2014.2_507827
+tpb      | 17-JUL-2013 16:28:58 | 11-NOV-2014 07:23:16 | 2014.2_507827
+utility  | 28-OCT-2014 11:34:04 | 11-NOV-2014 07:23:16 | 2014.2_507827
+ 
+ HOST tr-lx818760 USER lker ARCH  
+
+1
+
+ ******** ECHO OF INPUT DATA FOR RUN SPE9_CP
+
+ 0: -- This reservoir simulation deck is made available under the Open Database
+ 0: -- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+ 0: -- individual contents of the database are licensed under the Database Contents
+ 0: -- License: http://opendatacommons.org/licenses/dbcl/1.0/
+ 0: 
+ 0: -- Copyright (C) 2015 Statoil
+ 0: 
+ 0: -- This simulation is based on the data given in
+ 0: -- 'Ninth SPE Comparative Solution Project:
+ 0: -- A Reexamination of Black-Oil Simulation',
+ 0: -- by J.E. Killough,
+ 0: -- Journal of Petroleum Technology, 1995
+ 0: 
+ 0: -- A dataset from one of the participants was supplied to the
+ 0: -- participants of SPE 9. Some of the information in this
+ 0: -- dataset has been used here as well.
+ 0: 
+ 0: -- The origin of information or data used in this simulation is
+ 0: -- specified in comments. This does not include data whose origin
+ 0: -- should be obvious to the reader.
+ 0: 
+ 0: 
+ 0: 
+ 0: -- NOTE: Changes should be made to the data entered in keywords PVTW and ROCK
+ 0: -- 	 See comments under these keywords
+ 0: 
+ 0: ----------------------------------------------------------------
+ 0: ------------------------- SPE 9 --------------------------------
+ 0: ----------------------------------------------------------------
+ 0: 
+ 0: RUNSPEC
+ 0: 
+ 0: TITLE
+ 0: 	SPE 9
+ 0: 
+ 0: DIMENS
+ 0: 	24 25 15 /
+ 0: OIL
+ 0: WATER
+ 0: GAS
+ 0: DISGAS
+ 0: -- From figure 7 in Killough's paper it is evident
+ 0: -- that GOR is increasing with time, meaning
+ 0: -- that there must be dissolved gas present
+ 0: 
+ 0: FIELD
+ 0: 
+ 0: START
+ 0: 	1 'JAN' 2015 /
+ 0: 
+ 0: WELLDIMS
+ 0: -- Item 1: maximum number of wells in the model
+ 0: -- 	   - there are 26 wells in SPE9; 1 injector and 25 producers
+ 0: -- Item 2: maximum number of grid blocks connected to any one well
+ 0: -- 	   - the injector is completed in 5 layers
+ 0: -- Item 3: maximum number of groups in the model
+ 0: -- 	   - only one group in model
+ 0: -- Item 4: maximum number of wells in any one group
+ 0: -- 	   - this can definitetly not be more than 26
+ 0: 	26 5 1 26 /
+ 0: TABDIMS
+ 0: -- The number of rows in SWOF exceeds the default maximum,
+ 0: -- so item 3 in this keyword must be changed:
+ 0: 	1* 1* 40 /
+ 0: 
+ 0: EQLDIMS
+ 0: /
+ 0: 
+ 0: --NSTACK
+ 0: --	25 /
+ 0: -- Eclipse suggested increasing NSTACK
+ 0: 
+ 0: UNIFOUT
+ 0: 
+ 0: 
+ 0: GRID
+ 0: -- Killough says 'the grid was in conventional rectangular
+ 0: -- coordinates without corner point geometry or local grid refinements'
+ 0: 
+ 0: 
+ 0: NOECHO
+
+ ******** START OF INCLUDED FILE SPE9.GRDECL                                                                                                                         
+
+
+ ******** END OF INCLUDED FILE 
+
+
+ ******** START OF INCLUDED FILE PERMVALUES.DATA                                                                                                                     
+
+
+ ******** END OF INCLUDED FILE 
+
+ 0: ECHO
+ 0: 
+ 0: PROPS
+ 0: 
+ 0: PVTW
+ 0: -- Item 1: pressure reference (psia)
+ 0: -- Item 2: water FVF (rb per bbl or rb per stb)
+ 0: -- Item 3: water compressibility (psi^{-1})
+ 0: -- Item 4: water viscosity (cp)
+ 0: -- Item 5: water 'viscosibility' (psi^{-1})
+ 0: 
+ 0: -- Item 1 and 2 are stated in Killough, and item 5 is assumed = zero
+ 0: -- Item 3 and 4 are taken from SPE2
+ 0:   	3600 1.0034 3e-6 0.96 0 /
+ 0: 
+ 0: --NOTE:
+ 0: --   a)	It is not explicitly stated in Killough that it is okay to use SPE2-values here.
+ 0: --   b)	I am not 100% sure if the given compressibility value is at ref. pres. 3600psia.
+ 0: --   c)	Item 3 and 4 can probably be explained on the basis of Killough's dataset. In
+ 0: -- 	order to do that I need info about keywords in VIP
+ 0: 
+ 0: ROCK
+ 0: -- Item 1: reference pressure (psia)
+ 0: -- Item 2: rock compressibility (psi^{-1})
+ 0: 
+ 0: -- Using values from SPE2:
+ 0:    	3600 4e-6 /
+ 0: 
+ 0: -- NOTE:
+ 0: --   a) It is not explicitly stated in Killough that it is okay to use SPE2-values here.
+ 0: --   a) I am not 100% sure if the given compressibility value is at 3600psia.
+ 0: --   b) 'Comp. Methods for Multiphase Flow in Porous Media' states
+ 0: --      that rock compr. is 1e-6 inverse psi. This is probably correct, as
+ 0: --   	I think this is based on Killough's dataset - to be sure, I need
+ 0: -- 	more info about keywords in VIP.
+ 0: 
+ 0: DENSITY
+ 0: -- Density (lb per ft³) at surface cond. of
+ 0: -- oil, water and gas, respectively (in that order)
+ 0: 
+ 0: -- The values for oil and water are given by Killough to
+ 0: -- be 0.7206 and 1.0095 gm per cc, or equivalently
+ 0: -- 44.9856 and 63.0210 lb per ft³
+ 0: 
+ 0: -- A gas density of 0.07039 lb per ft³ was calculated using formula at
+ 0: -- petrowiki.org/Calculating_gas_properties:
+ 0: -- (28.967*Specific gravity*pressure)/(Z-factor*gas constant*temperature)
+ 0: -- with the values given in Killough's table 2 at 14.7 psia (1 atm).
+ 0: -- A temperature of 15C=59F was also used in the above formula.
+ 0: 	44.9856 63.0210 0.07039 /
+ 0: 	
+ 0: PVTO
+ 0: -- Column 1: dissolved gas-oil ratio (Mscf per stb)
+ 0: -- Column 2: bubble point pressure for oil (psia)
+ 0: -- Column 3: oil FVF for saturated oil (rb per stb)
+ 0: -- Column 4: oil viscosity for saturated oil (cP)
+ 0: 
+ 0: -- Using values from table 2 in Killough's paper:
+ 0: 0  	 14.7	 1	 1.20 /
+ 0: 0.165	 400	 1.0120	 1.17 /
+ 0: 0.335	 800	 1.0255	 1.14 /
+ 0: 0.500	 1200	 1.0380	 1.11 /
+ 0: 0.665	 1600	 1.0510	 1.08 /
+ 0: 0.828	 2000	 1.0630	 1.06 /
+ 0: 0.985	 2400	 1.0750	 1.03 /
+ 0: 1.130	 2800	 1.0870	 1.00 /
+ 0: 1.270	 3200	 1.0985	 0.98 /
+ 0: 1.390	 3600	 1.1100	 0.95 /
+ 0: 1.500	 4000	 1.1200	 0.94
+ 0:          4600    1.1089  0.94 /
+ 0: --	 5000	 1.1189	 0.94 /
+ 0: /
+ 0: -- Comment in regards to the last row in PVTO:
+ 0: --   Killough says that 'at 1000psi above the saturation
+ 0: --   pressure the Bo is 0.999 times that of the Bo at Psat'
+ 0: --   which means that the FVF (i.e. Bo) at 4600psia is 0.999*0.1100=1.1089
+ 0: --   Killough also says that 'the oil viscosity does not
+ 0: --   increase with increasing pressure in undersaturated conditions'
+ 0: --   which explains why the oil viscosity is 0.94.
+ 0: 
+ 0: PVDG
+ 0: -- Column 1: gas phase pressure (psia)
+ 0: -- Column 2: gas formation volume factor (rb per Mscf)
+ 0: -- 	     - This is calculated using formula:
+ 0: --	       Bg=5.03676*Z*temperature(R)/pressure(psia) rb/Mscf
+ 0: --	       where a constant temperature=100F=559.67R has been used because
+ 0: --	       that is the initial reservoir temperature according to Killough's paper
+ 0: --	       The above formula is retrieved from
+ 0: --	       petrowiki.org/Gas_formation_volume_factor_and_density
+ 0: -- Column 3: gas viscosity (cP)
+ 0: 
+ 0: -- Using values from table 2 in Killough's paper:
+ 0:    14.7	 191.7443 	0.0125
+ 0:    400    5.8979	0.0130
+ 0:    800    2.9493	0.0135
+ 0:    1200	  1.9594	0.0140
+ 0:    1600	  1.4695	0.0145
+ 0:    2000	  1.1797	0.0150
+ 0:    2400	  0.9796	0.0155
+ 0:    2800	  0.8397	0.0160
+ 0:    3200	  0.7398	0.0165
+ 0:    3600	  0.6498	0.0170
+ 0:    4000	  0.5849	0.0175 /
+ 0: 
+ 0: 
+ 0: SGOF
+ 0: -- Column 1: gas saturation
+ 0: -- Column 2: gas relative permeability
+ 0: -- Column 3: oil relative permeability when oil, gas and connate water are present
+ 0: -- Column 4: corresponding oil-gas capillary pressure (psi)
+ 0: 
+ 0: -- Using values from table 3 in Killough's paper:
+ 0: 0  	  0	     1		0
+ 0: 0.04	  0	     0.6	0.2
+ 0: 0.1	  0.022	     0.33	0.5
+ 0: 0.2	  0.1	     0.1	1.0
+ 0: 0.3	  0.24	     0.02	1.5
+ 0: 0.4	  0.34	     0		2.0
+ 0: 0.5	  0.42	     0		2.5
+ 0: 0.6	  0.5	     0		3.0
+ 0: 0.7	  0.8125     0		3.5
+ 0: 0.84891   0.9635     0		3.82 /
+ 0: --0.88491 1	     0		3.9  /
+ 0: -- Comment in regards to the last row in SGOF:
+ 0: --   Changes have been made so that the last row
+ 0: --   is at a gas sat. of Sg=1-Swc=1-0.151090=0.84891
+ 0: --   The Krg and Pcog values corresponding to Sg=0.84891
+ 0: --   have been approximated by assuming linear relation between
+ 0: --   Krg/Pcog and Sg in the range Sg=0.7 to Sg=0.88491
+ 0: 
+ 0: SWOF
+ 0: -- Column 1: water saturation
+ 0: -- Column 2: water relative permeability
+ 0: -- Column 3: oil relative permeability when only oil and water are present
+ 0: -- Column 4: corresponding water-oil capillary pressure (psi)
+ 0: 
+ 0: -- These values are taken from Killough's dataset:
+ 0: 0.151090     0.0     1.0     400.0
+ 0: 0.151230     0.0     0.99997 359.190
+ 0: 0.151740     0.0     0.99993 257.920
+ 0: 0.152460     0.0     0.99991 186.310
+ 0: 0.156470     0.0     0.999510 79.060
+ 0: 0.165850     0.0     0.996290 40.010
+ 0: 0.178350     0.0     0.991590 27.930
+ 0: 0.203350 0.000010    0.978830 20.400
+ 0: 0.253350 0.000030    0.943730 15.550
+ 0: 0.350000 0.000280    0.830230 11.655
+ 0: 0.352000 0.002292    0.804277  8.720
+ 0: 0.354000 0.004304    0.778326  5.947
+ 0: 0.356000 0.006316    0.752374  3.317
+ 0: 0.358000 0.008328    0.726422  1.165
+ 0: 0.360000 0.010340    0.700470  0.463
+ 0: 0.364395 0.015548    0.642258 -0.499
+ 0: 0.368790 0.020756    0.584046 -1.139
+ 0: 0.370000 0.022190    0.568020 -1.194
+ 0: 0.380000 0.035890    0.434980 -1.547
+ 0: 0.400000 0.069530    0.171430 -1.604
+ 0: 0.433450 0.087900    0.125310 -1.710
+ 0: 0.461390 0.104910    0.094980 -1.780
+ 0: 0.489320 0.123290    0.070530 -1.860
+ 0: 0.517250 0.143030    0.051130 -1.930
+ 0: 0.573120 0.186590    0.024640 -2.070
+ 0: 0.601060 0.210380    0.016190 -2.130
+ 0: 0.656930 0.261900    0.005940 -2.260
+ 0: 0.712800 0.318650    0.001590 -2.380
+ 0: 0.811110 0.430920    0.000020 -2.600
+ 0: 0.881490 0.490000    0.000000 -2.750 /
+ 0: 
+ 0: 
+ 0: -- These values are approximated by reading off the graphs
+ 0: -- in figure 1 and 2 in Killough's paper:
+ 0: -- $$$ 0.18	 0	1     21
+ 0: -- $$$ 0.25	 0	0.95  16
+ 0: -- $$$ 0.34	 0.07	0.5   12
+ 0: -- $$$ 0.345	 0.08	0.4    9
+ 0: -- $$$ 0.35	 0.09	0.3    6
+ 0: -- $$$ 0.355	 0.095	0.2    0
+ 0: -- $$$ 0.36	 0.1	0.19  -2
+ 0: -- $$$ 0.75	 0.32	0.02  -2.5
+ 0: -- $$$ 0.88149	 0.5	0     -3 /
+ 0: 
+ 0: 
+ 0: SOLUTION
+ 0: 
+ 0: EQUIL
+ 0: -- Item 1: datum depth (ft)
+ 0: -- Item 2: pressure at datum depth (psia)
+ 0: -- 	   - Killough says initial oil phase pressure is
+ 0: --	   - 3600psia at depth 9035ft
+ 0: -- Item 3: depth of water-oil contact (ft)
+ 0: -- 	   - Given to be 9950 ft in Killough's paper
+ 0: -- Item 4: oil-water capillary pressure at the water oil contact (psi)
+ 0: -- 	   - Given to be 0 in Killough's dataset
+ 0: -- 	   - 0 in SPE2
+ 0: -- Item 5: depth of gas-oil contact (ft)
+ 0: --	   - 8800ft in Killough's dataset
+ 0: -- Item 6: gas-oil capillary pressure at gas-oil contact (psi)
+ 0: -- 	   - Given to be 0 in Killough's dataset
+ 0: -- 	   - 0 in SPE2
+ 0: -- Item 7: RSVD-table
+ 0: -- Item 8: RVVD-table
+ 0: -- Item 9: OPM only supports item 9 equal to zero.
+ 0: 
+ 0: --      #: 1    2    3    4 5    6 7 8 9
+ 0:    	   9035 3600 9950 0 8800 0 1 0 0 /
+ 0: 
+ 0: 
+ 0: RSVD
+ 0: -- The initial oil phase pressure is given to be 3600psia, at
+ 0: -- which the GOR is 1.39 Mscf per stb according to Killough's table 2.
+ 0: -- Since there is no free gas initially present*, the oil
+ 0: -- phase (with dissolved gas) must initially have a constant GOR as
+ 0: -- a function of depth through the reservoir (at the given pressure)
+ 0: 	8800 1.39
+ 0: 	9950 1.39 /
+ 0: -- *)
+ 0: --   This is explicitly stated in Killough's paper.
+ 0: --   Note that the initial oil phase pressure is the same as
+ 0: --   the saturation (bubble point) pressure of the oil.
+ 0: --   This should also imply that there is no free gas initially present.
+ 0: --   Since there is no free gas initially present, the gas-oil
+ 0: --   contact should lie above the reservoir, which it does (EQUIL, item 5)
+ 0: 
+ 0: SUMMARY
+ 0: 
+ 0: 
+ 0: -- Killough's figure 7:
+ 0: FGOR
+ 0: -- Killough's figure 8:
+ 0: FOPR
+ 0: -- Killough's figure 9:
+ 0: FGPR
+ 0: -- Killough's figure 10:
+ 0: FWPR
+ 0: -- Killough's figure 11:
+ 0: BPR
+ 0:  1 1 1 /
+ 0: /
+ 0: -- Killough's figure 12:
+ 0: BGSAT
+ 0:  1 13 1 /
+ 0: /
+ 0: -- Killough's figure 13:
+ 0: BWSAT
+ 0:  10 25 15 /
+ 0: /
+ 0: -- Killough's figure 14:
+ 0: --WWIR
+ 0: -- 'INJE1' /
+ 0: -- Killough's figure 15:
+ 0: --WOPR
+ 0: -- 'PRODU21' /
+ 0: 
+ 0: -- In order to compare Eclipse with Flow:
+ 0: WBHP
+ 0: /
+ 0: WGIR
+ 0: /
+ 0: --WGIT
+ 0: --/
+ 0: WGPR
+ 0: /
+ 0: WGPT
+ 0: /
+ 0: WOIR
+ 0: /
+ 0: --WOIT
+ 0: --/
+ 0: WOPR
+ 0: /
+ 0: WOPT
+ 0: /
+ 0: WWIR
+ 0: /
+ 0: --WWIT
+ 0: --/
+ 0: WWPR
+ 0: /
+ 0: WWPT
+ 0: /
+ 0: 
+ 0: SCHEDULE
+ 0: 
+ 0: RPTRST
+ 0: 	'BASIC=2' /
+ 0: 
+ 0: TUNING
+ 0: 
+ 0: 
+ 0: WELSPECS
+ 0: -- Column 3: I-value of well head or heel
+ 0: -- Column 4: J-value of well head or heel
+ 0: -- 	     - these coordinates are listed in Killough's dataset
+ 0: -- Column 5: ref. depth of BHP (ft)
+ 0: --           - stated in the middle of the top perforated cell
+ 0: -- 	     - not anymore stated to be 9110ft in Killough
+ 0: -- Column 6: preferred phase for well
+ 0: -- 	     - should be water for injector and oil for producers
+ 0: -- Column 7: drainage radius for calc. of productivity or
+ 0: --           injectivity indices (ft)
+ 0: --	     - stated to be 60ft in Killough
+ 0: 
+ 0: -- #: 1	       2   3  4 5	 6	7
+ 0:  'INJE1 '  'P'  24 25  9110 'WATER'	60   /
+ 0:  'PRODU2 '  'P'   5  1  9110 'OIL'	60   /
+ 0:  'PRODU3 '  'P'   8  2  9110 'OIL'	60   /
+ 0:  'PRODU4 '  'P'  11  3  9110 'OIL'	60   /
+ 0:  'PRODU5 '  'P'  10  4  9110 'OIL'	60   /
+ 0:  'PRODU6 '  'P'  12  5  9110 'OIL'	60   /
+ 0:  'PRODU7 '  'P'   4  6  9110 'OIL'	60   /
+ 0:  'PRODU8 '  'P'   8  7  9110 'OIL'	60   /
+ 0:  'PRODU9 '  'P'  14  8  9110 'OIL'	60   /
+ 0:  'PRODU10'  'P'  11  9  9110 'OIL'	60   /
+ 0:  'PRODU11'  'P'  12 10  9110 'OIL'	60   /
+ 0:  'PRODU12'  'P'  10 11  9110 'OIL'	60   /
+ 0:  'PRODU13'  'P'   5 12  9110 'OIL'	60   /
+ 0:  'PRODU14'  'P'   8 13  9110 'OIL'	60   /
+ 0:  'PRODU15'  'P'  11 14  9110 'OIL'	60   /
+ 0:  'PRODU16'  'P'  13 15  9110 'OIL'	60   /
+ 0:  'PRODU17'  'P'  15 16  9110 'OIL'	60   /
+ 0:  'PRODU18'  'P'  11 17  9110 'OIL'	60   /
+ 0:  'PRODU19'  'P'  12 18  9110 'OIL'	60   /
+ 0:  'PRODU20'  'P'   5 19  9110 'OIL'	60   /
+ 0:  'PRODU21'  'P'   8 20  9110 'OIL'	60   /
+ 0:  'PRODU22'  'P'  11 21  9110 'OIL'	60   /
+ 0:  'PRODU23'  'P'  15 22  9110 'OIL'	60   /
+ 0:  'PRODU24'  'P'  12 23  9110 'OIL'	60   /
+ 0:  'PRODU25'  'P'  10 24  9110 'OIL'	60   /
+ 0:  'PRODU26'  'P'  17 25  9110 'OIL'	60   /
+ 0: /
+ 0: 
+ 0: COMPDAT
+ 0: -- Column 2: I-value of connecting grid block
+ 0: -- Column 3: J-value of connecting grid block
+ 0: -- Column 4: K-value of upper connecting grid block
+ 0: -- Column 5: K-value of lower connecting grid block
+ 0: -- 	     - these coordinates are listed in Killough's dataset
+ 0: -- Column 9: well bore diameter
+ 0: -- 	     - Killough says radius is 0.5ft
+ 0: 
+ 0: --Item 8 must be entered in order to get a match between Eclipse and Flow
+ 0: --No match if item 8 is defaulted
+ 0: 
+ 0: -- #: 1	      	     2  3	 4    5	  6	7	8	9
+ 0: 
+ 0:      'INJE1'        24 25	11   15	'OPEN'	1*	1*	1 /
+ 0:      'PRODU2'        5  1	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU3'        8  2	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU4'       11  3	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU5'       10  4	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU6'       12  5	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU7'        4  6	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU8'        8  7	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU9'       14  8	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU10'      11  9	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU11'      12 10	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU12'      10 11	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU13'       5 12	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU14'       8 13	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU15'      11 14	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU16'      13 15	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU17'      15 16	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU18'      11 17	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU19'      12 18	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU20'       5 19	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU21'       8 20	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU22'      11 21	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU23'      15 22	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU24'      12 23	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU25'      10 24	 2    4	'OPEN'	1*	1*	1 /
+ 0:      'PRODU26'      17 25	 2    4	'OPEN'	1*	1*	1 /
+ 0: /
+ 0: 
+ 0: WCONINJE
+ 0: -- Killough says the water injector is set to a max rate of
+ 0: -- 5000 STBW per D with a max BHP of 4000psia at a reference
+ 0: -- depth of 9110ft subsea:
+ 0: --   #:  1	    2       3      4     5       7
+ 0: 	'INJE1' 'WATER' 'OPEN' 'RATE' 5000 1* 4000 /
+ 0: /
+ 0: 
+ 0: WCONPROD
+ 0: -- Killough says the max oil rate for all producers is set to
+ 0: -- 1500 STBO per D at time zero and that the min flowing BHP
+ 0: -- is set to 1000psia (with a ref. depth of 9110ft
+ 0: -- for this pressure in all wells):
+ 0: --   #:   1           2      3     4       9
+ 0:      	 'PRODU*' 'OPEN' 'ORAT' 1500 4* 1000  /
+ 0: -- Here, the wildcard '*' has been used to indicate that this applies
+ 0: -- to all producers; PRODU1-PRODU25.
+ 0: /
+ 0: 
+ 0: 
+ 0: TSTEP
+ 0: 30*10 /
+ 0: 
+ 0: -- At 300 days, the max oil rate for all producers is lowered
+ 0: -- to 100 STBO per D:
+ 0: WCONPROD
+ 0: --   #:   1           2      3     4      9
+ 0:      	 'PRODU*' 'OPEN' 'ORAT' 100 4* 1000 /
+ 0: /
+ 0: 
+ 0: 
+ 0: TSTEP
+ 0: 6*10 /
+ 0: 
+ 0: -- At 360 days, the max oil rate for all producers is changed
+ 0: -- back to 1500 STBO per D:
+ 0: WCONPROD
+ 0: --   #:   1           2      3     4       9
+ 0:      	 'PRODU*' 'OPEN' 'ORAT' 1500 4* 1000 /
+ 0: /
+ 0: 
+ 0: 
+ 0: TSTEP
+ 0: 54*10 /
+ 0: -- End of simulation at 900 days
+ 0: 
+ 0: END
+ 0: 
+ 0: 
+ 0: 
+
+ ******** END OF INPUT DATA FOR RUN SPE9_CP
+     1 READING RUNSPEC 
+     2 READING TITLE   
+     3 READING DIMENS  
+     4 READING OIL     
+     5 READING WATER   
+     6 READING GAS     
+     7 READING DISGAS  
+     8 READING FIELD   
+     9 READING START   
+    10 READING WELLDIMS
+    11 READING TABDIMS 
+    12 READING EQLDIMS 
+    13 READING UNIFOUT 
+    14 READING GRID    
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           CHECKING FOR LICENSES                                           
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS              
+ @                 3482 KBYTES                                               
+    15 READING NOECHO  
+    16 READING INIT    
+    17 READING INCLUDE SPE9.GRDECL                                                                                                                         
+    18 READING SPECGRID
+    19 READING COORD   
+    20 READING ZCORN   
+    21 READING ACTNUM  
+               END OF INCLUDE FILE 
+    22 READING PORO    
+    23 READING INCLUDE PERMVALUES.DATA                                                                                                                     
+    24 READING PERMX   
+    25 READING COPY    
+    26 READING MULTIPLY
+               END OF INCLUDE FILE 
+    27 READING ECHO    
+    28 READING PROPS   
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                  
+ @           TRANSMISSIBILITIES TO BE CALCULATED                             
+ @           USING  NEWTRAN                                                  
+
+ @--COMMENT  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           NO NON-NEIGHBOUR CONNECTIONS FOUND                              
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           NUMBER OF ACTIVE CELLS IS 9000                                  
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS          
+ @                12170 KBYTES                                               
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @              62331 CHARACTER VARIABLES USED                               
+    29 READING PVTW    
+    30 READING ROCK    
+    31 READING DENSITY 
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           SPURIOUS DATA BEFORE PVTO     KEYWORD                           
+ @           	                                                               
+    32 READING PVTO    
+    33 READING PVDG    
+    34 READING SGOF    
+    35 READING SWOF    
+    36 READING SOLUTION
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           THE MAXIMUM PRESSURE ENTERED IN THE PVT TABLES                  
+ @           FOR THE OIL PHASE IS   4600.000. THIS IS GREATER THAN           
+ @           THE MAXIMUM PRESSURE FOR THE GAS PHASE,   4000.000              
+ @           AND MAY LEAD TO PVT TABLE EXTRAPOLATION                         
+    37 READING EQUIL   
+    38 READING RSVD    
+    39 READING SUMMARY 
+    40 READING FGOR    
+    41 READING FOPR    
+    42 READING FGPR    
+    43 READING FWPR    
+    44 READING BPR     
+    45 READING BGSAT   
+    46 READING BWSAT   
+    47 READING WBHP    
+    48 READING WGIR    
+    49 READING WGPR    
+    50 READING WGPT    
+    51 READING WOIR    
+    52 READING WOPR    
+    53 READING WOPT    
+    54 READING WWIR    
+    55 READING WWPR    
+    56 READING WWPT    
+    57 READING SCHEDULE
+    58 READING RPTRST  
+    59 READING TUNING  
+    60 READING WELSPECS
+    61 READING COMPDAT 
+    62 READING WCONINJE
+    63 READING WCONPROD
+    64 READING TSTEP   
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           WELL INJE1    HAS A BOTTOM HOLE REFERENCE                       
+ @           DEPTH OF   9110.0   FEET                                        
+ @           THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE             
+ @           BETWEEN  10359.7 AND  10507.2   FEET                            
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           WELL PRODU9   HAS A BOTTOM HOLE REFERENCE                       
+ @           DEPTH OF   9110.0   FEET                                        
+ @           THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE             
+ @           BETWEEN   9704.7 AND   9745.7   FEET                            
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           WELL PRODU16  HAS A BOTTOM HOLE REFERENCE                       
+ @           DEPTH OF   9110.0   FEET                                        
+ @           THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE             
+ @           BETWEEN   9652.6 AND   9693.6   FEET                            
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           WELL PRODU17  HAS A BOTTOM HOLE REFERENCE                       
+ @           DEPTH OF   9110.0   FEET                                        
+ @           THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE             
+ @           BETWEEN   9756.8 AND   9797.8   FEET                            
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           WELL PRODU23  HAS A BOTTOM HOLE REFERENCE                       
+ @           DEPTH OF   9110.0   FEET                                        
+ @           THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE             
+ @           BETWEEN   9756.8 AND   9797.8   FEET                            
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           WELL PRODU26  HAS A BOTTOM HOLE REFERENCE                       
+ @           DEPTH OF   9110.0   FEET                                        
+ @           THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE             
+ @           BETWEEN   9861.0 AND   9902.0   FEET                            
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           DRSDT KEYWORD HAS NOT BEEN ENTERED, SO THE                      
+ @           MAXIMUM GAS RE-SOLUTION RATE IS DEFAULTED TO INFINITY.          
+1                             **********************************************************************   1
+  SIMULATE AT      0.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   0     1 JAN 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           ******************************************                      
+ @           * WELL INJE1    HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME      0.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           ******************************************                      
+ @           * WELL PRODU21  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME      0.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 1-JAN-2015):
+ @           ******************************************                      
+ @           * WELL PRODU26  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME      0.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP    1 TIME=      4.00  DAYS (    +4.0  DAYS INIT  4 ITS) (5-JAN-2015)       
+  PAV=  3799.0  PSIA   WCT=0.001 GOR=     1.37 MSCF/STB WGR=   0.0007 STB/MSCF   
+
+ @--MESSAGE  AT TIME        4.0   DAYS    ( 5-JAN-2015):
+ @           ******************************************                      
+ @           * WELL PRODU23  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME      4.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP    2 TIME=     10.00  DAYS (    +6.0  DAYS REPT  4 ITS) (11-JAN-2015)      
+  PAV=  3778.4  PSIA   WCT=0.001 GOR=     1.36 MSCF/STB WGR=   0.0008 STB/MSCF   
+
+ @--MESSAGE  AT TIME       10.0   DAYS    (11-JAN-2015):
+ @           RESTART FILE WRITTEN   REPORT     1                             
+1                             **********************************************************************   2
+  SIMULATE AT     10.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   1    11 JAN 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP    3 TIME=     15.00  DAYS (    +5.0  DAYS HALF  3 ITS) (16-JAN-2015)      
+  PAV=  3764.7  PSIA   WCT=0.001 GOR=     1.36 MSCF/STB WGR=   0.0009 STB/MSCF   
+
+ STEP    4 TIME=     20.00  DAYS (    +5.0  DAYS REPT  2 ITS) (21-JAN-2015)      
+  PAV=  3752.3  PSIA   WCT=0.001 GOR=     1.36 MSCF/STB WGR=   0.0010 STB/MSCF   
+
+ @--MESSAGE  AT TIME       20.0   DAYS    (21-JAN-2015):
+ @           RESTART FILE WRITTEN   REPORT     2                             
+1                             **********************************************************************   3
+  SIMULATE AT     20.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   2    21 JAN 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP    5 TIME=     30.00  DAYS (   +10.0  DAYS REPT  4 ITS) (31-JAN-2015)      
+  PAV=  3729.9  PSIA   WCT=0.002 GOR=     1.37 MSCF/STB WGR=   0.0017 STB/MSCF   
+
+ @--MESSAGE  AT TIME       30.0   DAYS    (31-JAN-2015):
+ @           RESTART FILE WRITTEN   REPORT     3                             
+1                             **********************************************************************   4
+  SIMULATE AT     30.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   3    31 JAN 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP    6 TIME=     40.00  DAYS (   +10.0  DAYS REPT  3 ITS) (10-FEB-2015)      
+  PAV=  3709.4  PSIA   WCT=0.004 GOR=     1.38 MSCF/STB WGR=   0.0030 STB/MSCF   
+
+ @--MESSAGE  AT TIME       40.0   DAYS    (10-FEB-2015):
+ @           RESTART FILE WRITTEN   REPORT     4                             
+1                             **********************************************************************   5
+  SIMULATE AT     40.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   4    10 FEB 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP    7 TIME=     50.00  DAYS (   +10.0  DAYS REPT  3 ITS) (20-FEB-2015)      
+  PAV=  3690.2  PSIA   WCT=0.005 GOR=     1.42 MSCF/STB WGR=   0.0039 STB/MSCF   
+
+ @--MESSAGE  AT TIME       50.0   DAYS    (20-FEB-2015):
+ @           RESTART FILE WRITTEN   REPORT     5                             
+1                             **********************************************************************   6
+  SIMULATE AT     50.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   5    20 FEB 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP    8 TIME=     60.00  DAYS (   +10.0  DAYS REPT  2 ITS) (2-MAR-2015)       
+  PAV=  3671.8  PSIA   WCT=0.007 GOR=     1.48 MSCF/STB WGR=   0.0046 STB/MSCF   
+
+ @--MESSAGE  AT TIME       60.0   DAYS    ( 2-MAR-2015):
+ @           RESTART FILE WRITTEN   REPORT     6                             
+1                             **********************************************************************   7
+  SIMULATE AT     60.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   6     2 MAR 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP    9 TIME=     70.00  DAYS (   +10.0  DAYS REPT  3 ITS) (12-MAR-2015)      
+  PAV=  3653.7  PSIA   WCT=0.009 GOR=     1.58 MSCF/STB WGR=   0.0054 STB/MSCF   
+
+ @--MESSAGE  AT TIME       70.0   DAYS    (12-MAR-2015):
+ @           RESTART FILE WRITTEN   REPORT     7                             
+1                             **********************************************************************   8
+  SIMULATE AT     70.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   7    12 MAR 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME       70.0   DAYS    (12-MAR-2015):
+ @           ******************************************                      
+ @           * WELL PRODU9   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME     70.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   10 TIME=     80.00  DAYS (   +10.0  DAYS REPT  3 ITS) (22-MAR-2015)      
+  PAV=  3635.8  PSIA   WCT=0.011 GOR=     1.70 MSCF/STB WGR=   0.0064 STB/MSCF   
+
+ @--MESSAGE  AT TIME       80.0   DAYS    (22-MAR-2015):
+ @           RESTART FILE WRITTEN   REPORT     8                             
+1                             **********************************************************************   9
+  SIMULATE AT     80.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   8    22 MAR 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   11 TIME=     90.00  DAYS (   +10.0  DAYS REPT  4 ITS) (1-APR-2015)       
+  PAV=  3617.9  PSIA   WCT=0.013 GOR=     1.84 MSCF/STB WGR=   0.0073 STB/MSCF   
+
+ @--MESSAGE  AT TIME       90.0   DAYS    ( 1-APR-2015):
+ @           RESTART FILE WRITTEN   REPORT     9                             
+1                             **********************************************************************  10
+  SIMULATE AT     90.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT   9     1 APR 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   12 TIME=    100.00  DAYS (   +10.0  DAYS REPT  3 ITS) (11-APR-2015)      
+  PAV=  3600.0  PSIA   WCT=0.016 GOR=     1.98 MSCF/STB WGR=   0.0081 STB/MSCF   
+
+ @--MESSAGE  AT TIME      100.0   DAYS    (11-APR-2015):
+ @           RESTART FILE WRITTEN   REPORT    10                             
+1                             **********************************************************************  11
+  SIMULATE AT    100.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  10    11 APR 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   13 TIME=    110.00  DAYS (   +10.0  DAYS REPT  3 ITS) (21-APR-2015)      
+  PAV=  3582.0  PSIA   WCT=0.018 GOR=     2.12 MSCF/STB WGR=   0.0088 STB/MSCF   
+
+ @--MESSAGE  AT TIME      110.0   DAYS    (21-APR-2015):
+ @           RESTART FILE WRITTEN   REPORT    11                             
+1                             **********************************************************************  12
+  SIMULATE AT    110.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  11    21 APR 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      110.0   DAYS    (21-APR-2015):
+ @           ******************************************                      
+ @           * WELL PRODU16  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    110.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      110.0   DAYS    (21-APR-2015):
+ @           ******************************************                      
+ @           * WELL PRODU22  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    110.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   14 TIME=    120.00  DAYS (   +10.0  DAYS REPT  3 ITS) (1-MAY-2015)       
+  PAV=  3564.1  PSIA   WCT=0.021 GOR=     2.25 MSCF/STB WGR=   0.0096 STB/MSCF   
+
+ @--MESSAGE  AT TIME      120.0   DAYS    ( 1-MAY-2015):
+ @           RESTART FILE WRITTEN   REPORT    12                             
+1                             **********************************************************************  13
+  SIMULATE AT    120.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  12     1 MAY 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   15 TIME=    130.00  DAYS (   +10.0  DAYS REPT  3 ITS) (11-MAY-2015)      
+  PAV=  3546.3  PSIA   WCT=0.026 GOR=     2.38 MSCF/STB WGR=   0.0111 STB/MSCF   
+
+ @--MESSAGE  AT TIME      130.0   DAYS    (11-MAY-2015):
+ @           RESTART FILE WRITTEN   REPORT    13                             
+1                             **********************************************************************  14
+  SIMULATE AT    130.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  13    11 MAY 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   16 TIME=    140.00  DAYS (   +10.0  DAYS REPT  3 ITS) (21-MAY-2015)      
+  PAV=  3528.5  PSIA   WCT=0.030 GOR=     2.51 MSCF/STB WGR=   0.0122 STB/MSCF   
+
+ @--MESSAGE  AT TIME      140.0   DAYS    (21-MAY-2015):
+ @           RESTART FILE WRITTEN   REPORT    14                             
+1                             **********************************************************************  15
+  SIMULATE AT    140.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  14    21 MAY 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   17 TIME=    150.00  DAYS (   +10.0  DAYS REPT  3 ITS) (31-MAY-2015)      
+  PAV=  3510.5  PSIA   WCT=0.033 GOR=     2.64 MSCF/STB WGR=   0.0130 STB/MSCF   
+
+ @--MESSAGE  AT TIME      150.0   DAYS    (31-MAY-2015):
+ @           RESTART FILE WRITTEN   REPORT    15                             
+1                             **********************************************************************  16
+  SIMULATE AT    150.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  15    31 MAY 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   18 TIME=    160.00  DAYS (   +10.0  DAYS REPT  2 ITS) (10-JUN-2015)      
+  PAV=  3492.4  PSIA   WCT=0.037 GOR=     2.77 MSCF/STB WGR=   0.0137 STB/MSCF   
+
+ @--MESSAGE  AT TIME      160.0   DAYS    (10-JUN-2015):
+ @           RESTART FILE WRITTEN   REPORT    16                             
+1                             **********************************************************************  17
+  SIMULATE AT    160.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  16    10 JUN 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   19 TIME=    170.00  DAYS (   +10.0  DAYS REPT  2 ITS) (20-JUN-2015)      
+  PAV=  3474.1  PSIA   WCT=0.040 GOR=     2.91 MSCF/STB WGR=   0.0144 STB/MSCF   
+
+ @--MESSAGE  AT TIME      170.0   DAYS    (20-JUN-2015):
+ @           RESTART FILE WRITTEN   REPORT    17                             
+1                             **********************************************************************  18
+  SIMULATE AT    170.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  17    20 JUN 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   20 TIME=    180.00  DAYS (   +10.0  DAYS REPT  3 ITS) (30-JUN-2015)      
+  PAV=  3455.5  PSIA   WCT=0.043 GOR=     3.05 MSCF/STB WGR=   0.0149 STB/MSCF   
+
+ @--MESSAGE  AT TIME      180.0   DAYS    (30-JUN-2015):
+ @           RESTART FILE WRITTEN   REPORT    18                             
+1                             **********************************************************************  19
+  SIMULATE AT    180.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  18    30 JUN 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   21 TIME=    190.00  DAYS (   +10.0  DAYS REPT  2 ITS) (10-JLY-2015)      
+  PAV=  3436.7  PSIA   WCT=0.047 GOR=     3.19 MSCF/STB WGR=   0.0153 STB/MSCF   
+
+ @--MESSAGE  AT TIME      190.0   DAYS    (10-JLY-2015):
+ @           RESTART FILE WRITTEN   REPORT    19                             
+1                             **********************************************************************  20
+  SIMULATE AT    190.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  19    10 JLY 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      190.0   DAYS    (10-JLY-2015):
+ @           ******************************************                      
+ @           * WELL PRODU12  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    190.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   22 TIME=    200.00  DAYS (   +10.0  DAYS REPT  2 ITS) (20-JLY-2015)      
+  PAV=  3417.7  PSIA   WCT=0.050 GOR=     3.33 MSCF/STB WGR=   0.0159 STB/MSCF   
+
+ @--MESSAGE  AT TIME      200.0   DAYS    (20-JLY-2015):
+ @           RESTART FILE WRITTEN   REPORT    20                             
+1                             **********************************************************************  21
+  SIMULATE AT    200.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  20    20 JLY 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      200.0   DAYS    (20-JLY-2015):
+ @           ******************************************                      
+ @           * WELL PRODU11  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    200.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   23 TIME=    210.00  DAYS (   +10.0  DAYS REPT  3 ITS) (30-JLY-2015)      
+  PAV=  3398.5  PSIA   WCT=0.054 GOR=     3.45 MSCF/STB WGR=   0.0165 STB/MSCF   
+
+ @--MESSAGE  AT TIME      210.0   DAYS    (30-JLY-2015):
+ @           RESTART FILE WRITTEN   REPORT    21                             
+1                             **********************************************************************  22
+  SIMULATE AT    210.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  21    30 JLY 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      210.0   DAYS    (30-JLY-2015):
+ @           ******************************************                      
+ @           * WELL PRODU6   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    210.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   24 TIME=    220.00  DAYS (   +10.0  DAYS REPT  3 ITS) (9-AUG-2015)       
+  PAV=  3379.2  PSIA   WCT=0.058 GOR=     3.58 MSCF/STB WGR=   0.0171 STB/MSCF   
+
+ @--MESSAGE  AT TIME      220.0   DAYS    ( 9-AUG-2015):
+ @           RESTART FILE WRITTEN   REPORT    22                             
+1                             **********************************************************************  23
+  SIMULATE AT    220.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  22     9 AUG 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   25 TIME=    230.00  DAYS (   +10.0  DAYS REPT  3 ITS) (19-AUG-2015)      
+  PAV=  3359.9  PSIA   WCT=0.062 GOR=     3.69 MSCF/STB WGR=   0.0179 STB/MSCF   
+
+ @--MESSAGE  AT TIME      230.0   DAYS    (19-AUG-2015):
+ @           RESTART FILE WRITTEN   REPORT    23                             
+1                             **********************************************************************  24
+  SIMULATE AT    230.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  23    19 AUG 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   26 TIME=    240.00  DAYS (   +10.0  DAYS REPT  2 ITS) (29-AUG-2015)      
+  PAV=  3340.6  PSIA   WCT=0.066 GOR=     3.79 MSCF/STB WGR=   0.0187 STB/MSCF   
+
+ @--MESSAGE  AT TIME      240.0   DAYS    (29-AUG-2015):
+ @           RESTART FILE WRITTEN   REPORT    24                             
+1                             **********************************************************************  25
+  SIMULATE AT    240.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  24    29 AUG 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      240.0   DAYS    (29-AUG-2015):
+ @           ******************************************                      
+ @           * WELL PRODU2   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    240.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      240.0   DAYS    (29-AUG-2015):
+ @           ******************************************                      
+ @           * WELL PRODU20  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    240.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   27 TIME=    250.00  DAYS (   +10.0  DAYS REPT  2 ITS) (8-SEP-2015)       
+  PAV=  3321.6  PSIA   WCT=0.071 GOR=     3.88 MSCF/STB WGR=   0.0196 STB/MSCF   
+
+ @--MESSAGE  AT TIME      250.0   DAYS    ( 8-SEP-2015):
+ @           RESTART FILE WRITTEN   REPORT    25                             
+1                             **********************************************************************  26
+  SIMULATE AT    250.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  25     8 SEP 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   28 TIME=    260.00  DAYS (   +10.0  DAYS REPT  3 ITS) (18-SEP-2015)      
+  PAV=  3302.7  PSIA   WCT=0.075 GOR=     3.95 MSCF/STB WGR=   0.0206 STB/MSCF   
+
+ @--MESSAGE  AT TIME      260.0   DAYS    (18-SEP-2015):
+ @           RESTART FILE WRITTEN   REPORT    26                             
+1                             **********************************************************************  27
+  SIMULATE AT    260.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  26    18 SEP 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      260.0   DAYS    (18-SEP-2015):
+ @           ******************************************                      
+ @           * WELL PRODU3   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    260.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   29 TIME=    270.00  DAYS (   +10.0  DAYS REPT  3 ITS) (28-SEP-2015)      
+  PAV=  3284.1  PSIA   WCT=0.080 GOR=     4.02 MSCF/STB WGR=   0.0216 STB/MSCF   
+
+ @--MESSAGE  AT TIME      270.0   DAYS    (28-SEP-2015):
+ @           RESTART FILE WRITTEN   REPORT    27                             
+1                             **********************************************************************  28
+  SIMULATE AT    270.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  27    28 SEP 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   30 TIME=    280.00  DAYS (   +10.0  DAYS REPT  2 ITS) (8-OCT-2015)       
+  PAV=  3265.5  PSIA   WCT=0.084 GOR=     4.09 MSCF/STB WGR=   0.0225 STB/MSCF   
+
+ @--MESSAGE  AT TIME      280.0   DAYS    ( 8-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    28                             
+1                             **********************************************************************  29
+  SIMULATE AT    280.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  28     8 OCT 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   31 TIME=    290.00  DAYS (   +10.0  DAYS REPT  2 ITS) (18-OCT-2015)      
+  PAV=  3247.2  PSIA   WCT=0.089 GOR=     4.17 MSCF/STB WGR=   0.0233 STB/MSCF   
+
+ @--MESSAGE  AT TIME      290.0   DAYS    (18-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    29                             
+1                             **********************************************************************  30
+  SIMULATE AT    290.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  29    18 OCT 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   32 TIME=    300.00  DAYS (   +10.0  DAYS REPT  2 ITS) (28-OCT-2015)      
+  PAV=  3228.9  PSIA   WCT=0.093 GOR=     4.24 MSCF/STB WGR=   0.0240 STB/MSCF   
+
+ @--MESSAGE  AT TIME      300.0   DAYS    (28-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    30                             
+    65 READING WCONPROD
+    66 READING TSTEP   
+1                             **********************************************************************  31
+  SIMULATE AT    300.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  30    28 OCT 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   33 TIME=    310.00  DAYS (   +10.0  DAYS REPT  6 ITS) (7-NOV-2015)       
+  PAV=  3224.7  PSIA   WCT=0.150 GOR=     2.32 MSCF/STB WGR=   0.0757 STB/MSCF   
+
+ @--MESSAGE  AT TIME      310.0   DAYS    ( 7-NOV-2015):
+ @           RESTART FILE WRITTEN   REPORT    31                             
+1                             **********************************************************************  32
+  SIMULATE AT    310.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  31     7 NOV 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   34 TIME=    320.00  DAYS (   +10.0  DAYS REPT  4 ITS) (17-NOV-2015)      
+  PAV=  3221.1  PSIA   WCT=0.165 GOR=     2.04 MSCF/STB WGR=   0.0968 STB/MSCF   
+
+ @--MESSAGE  AT TIME      320.0   DAYS    (17-NOV-2015):
+ @           RESTART FILE WRITTEN   REPORT    32                             
+1                             **********************************************************************  33
+  SIMULATE AT    320.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  32    17 NOV 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--WARNING  AT TIME      320.0   DAYS    (17-NOV-2015):
+ @           LINEAR CONVERGENCE FAILURE ON LAST NUPCOL ITERATION.            
+ @           GROUP TARGETS AND LIMITS MAY NOT BE ACCURATELY HONORED.         
+ @           YOU MAY NEED TO INCREASE THE CURRENT VALUE OF    3              
+ @           USING THE NUPCOL KEYWORD.                                       
+
+ @--WARNING  AT TIME      320.0   DAYS    (17-NOV-2015):
+ @           LINEAR EQUATION CONVERGENCE PROBLEMS WERE EXPERIENCED THIS      
+ @           TIME-STEP. IN SOME CASES INCREASING LITMAX                      
+ @           (TUNING KEYWORD) AND/OR NSTACK MAY HELP.                        
+
+ STEP   35 TIME=    330.00  DAYS (   +10.0  DAYS REPT  3 ITS) (27-NOV-2015)      
+  PAV=  3218.0  PSIA   WCT=0.178 GOR=     1.83 MSCF/STB WGR=   0.1182 STB/MSCF   
+
+ @--MESSAGE  AT TIME      330.0   DAYS    (27-NOV-2015):
+ @           RESTART FILE WRITTEN   REPORT    33                             
+1                             **********************************************************************  34
+  SIMULATE AT    330.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  33    27 NOV 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   36 TIME=    340.00  DAYS (   +10.0  DAYS REPT  3 ITS) (7-DEC-2015)       
+  PAV=  3215.2  PSIA   WCT=0.186 GOR=     1.68 MSCF/STB WGR=   0.1360 STB/MSCF   
+
+ @--MESSAGE  AT TIME      340.0   DAYS    ( 7-DEC-2015):
+ @           RESTART FILE WRITTEN   REPORT    34                             
+1                             **********************************************************************  35
+  SIMULATE AT    340.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  34     7 DEC 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   37 TIME=    350.00  DAYS (   +10.0  DAYS REPT  3 ITS) (17-DEC-2015)      
+  PAV=  3212.8  PSIA   WCT=0.191 GOR=     1.56 MSCF/STB WGR=   0.1511 STB/MSCF   
+
+ @--MESSAGE  AT TIME      350.0   DAYS    (17-DEC-2015):
+ @           RESTART FILE WRITTEN   REPORT    35                             
+1                             **********************************************************************  36
+  SIMULATE AT    350.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  35    17 DEC 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   38 TIME=    360.00  DAYS (   +10.0  DAYS REPT  3 ITS) (27-DEC-2015)      
+  PAV=  3210.6  PSIA   WCT=0.195 GOR=     1.49 MSCF/STB WGR=   0.1625 STB/MSCF   
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (27-DEC-2015):
+ @           RESTART FILE WRITTEN   REPORT    36                             
+    67 READING WCONPROD
+    68 READING TSTEP   
+1                             **********************************************************************  37
+  SIMULATE AT    360.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  36    27 DEC 2015   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (27-DEC-2015):
+ @           ******************************************                      
+ @           * WELL PRODU9   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    360.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (27-DEC-2015):
+ @           ******************************************                      
+ @           * WELL PRODU11  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    360.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (27-DEC-2015):
+ @           ******************************************                      
+ @           * WELL PRODU12  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    360.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (27-DEC-2015):
+ @           ******************************************                      
+ @           * WELL PRODU16  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    360.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (27-DEC-2015):
+ @           ******************************************                      
+ @           * WELL PRODU21  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    360.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (27-DEC-2015):
+ @           ******************************************                      
+ @           * WELL PRODU22  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    360.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (27-DEC-2015):
+ @           ******************************************                      
+ @           * WELL PRODU23  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    360.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (27-DEC-2015):
+ @           ******************************************                      
+ @           * WELL PRODU26  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    360.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   39 TIME=    370.00  DAYS (   +10.0  DAYS REPT  8 ITS) (6-JAN-2016)       
+  PAV=  3199.0  PSIA   WCT=0.102 GOR=     2.24 MSCF/STB WGR=   0.0511 STB/MSCF   
+
+ @--MESSAGE  AT TIME      370.0   DAYS    ( 6-JAN-2016):
+ @           RESTART FILE WRITTEN   REPORT    37                             
+1                             **********************************************************************  38
+  SIMULATE AT    370.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  37     6 JAN 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      370.0   DAYS    ( 6-JAN-2016):
+ @           ******************************************                      
+ @           * WELL PRODU2   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    370.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      370.0   DAYS    ( 6-JAN-2016):
+ @           ******************************************                      
+ @           * WELL PRODU20  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    370.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   40 TIME=    380.00  DAYS (   +10.0  DAYS REPT  4 ITS) (16-JAN-2016)      
+  PAV=  3186.4  PSIA   WCT=0.085 GOR=     2.71 MSCF/STB WGR=   0.0343 STB/MSCF   
+
+ @--MESSAGE  AT TIME      380.0   DAYS    (16-JAN-2016):
+ @           RESTART FILE WRITTEN   REPORT    38                             
+1                             **********************************************************************  39
+  SIMULATE AT    380.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  38    16 JAN 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      380.0   DAYS    (16-JAN-2016):
+ @           ******************************************                      
+ @           * WELL PRODU6   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    380.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   41 TIME=    390.00  DAYS (   +10.0  DAYS REPT  3 ITS) (26-JAN-2016)      
+  PAV=  3172.9  PSIA   WCT=0.089 GOR=     3.04 MSCF/STB WGR=   0.0322 STB/MSCF   
+
+ @--MESSAGE  AT TIME      390.0   DAYS    (26-JAN-2016):
+ @           RESTART FILE WRITTEN   REPORT    39                             
+1                             **********************************************************************  40
+  SIMULATE AT    390.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  39    26 JAN 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   42 TIME=    400.00  DAYS (   +10.0  DAYS REPT  3 ITS) (5-FEB-2016)       
+  PAV=  3158.7  PSIA   WCT=0.093 GOR=     3.36 MSCF/STB WGR=   0.0304 STB/MSCF   
+
+ @--MESSAGE  AT TIME      400.0   DAYS    ( 5-FEB-2016):
+ @           RESTART FILE WRITTEN   REPORT    40                             
+1                             **********************************************************************  41
+  SIMULATE AT    400.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  40     5 FEB 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      400.0   DAYS    ( 5-FEB-2016):
+ @           ******************************************                      
+ @           * WELL PRODU3   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    400.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   43 TIME=    410.00  DAYS (   +10.0  DAYS REPT  3 ITS) (15-FEB-2016)      
+  PAV=  3143.5  PSIA   WCT=0.096 GOR=     3.71 MSCF/STB WGR=   0.0287 STB/MSCF   
+
+ @--MESSAGE  AT TIME      410.0   DAYS    (15-FEB-2016):
+ @           RESTART FILE WRITTEN   REPORT    41                             
+1                             **********************************************************************  42
+  SIMULATE AT    410.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  41    15 FEB 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   44 TIME=    420.00  DAYS (   +10.0  DAYS REPT  3 ITS) (25-FEB-2016)      
+  PAV=  3127.7  PSIA   WCT=0.101 GOR=     4.02 MSCF/STB WGR=   0.0278 STB/MSCF   
+
+ @--MESSAGE  AT TIME      420.0   DAYS    (25-FEB-2016):
+ @           RESTART FILE WRITTEN   REPORT    42                             
+1                             **********************************************************************  43
+  SIMULATE AT    420.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  42    25 FEB 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   45 TIME=    430.00  DAYS (   +10.0  DAYS REPT  2 ITS) (6-MAR-2016)       
+  PAV=  3111.2  PSIA   WCT=0.105 GOR=     4.31 MSCF/STB WGR=   0.0273 STB/MSCF   
+
+ @--MESSAGE  AT TIME      430.0   DAYS    ( 6-MAR-2016):
+ @           RESTART FILE WRITTEN   REPORT    43                             
+1                             **********************************************************************  44
+  SIMULATE AT    430.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  43     6 MAR 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   46 TIME=    440.00  DAYS (   +10.0  DAYS REPT  3 ITS) (16-MAR-2016)      
+  PAV=  3094.1  PSIA   WCT=0.110 GOR=     4.56 MSCF/STB WGR=   0.0271 STB/MSCF   
+
+ @--MESSAGE  AT TIME      440.0   DAYS    (16-MAR-2016):
+ @           RESTART FILE WRITTEN   REPORT    44                             
+1                             **********************************************************************  45
+  SIMULATE AT    440.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  44    16 MAR 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   47 TIME=    450.00  DAYS (   +10.0  DAYS REPT  3 ITS) (26-MAR-2016)      
+  PAV=  3076.7  PSIA   WCT=0.116 GOR=     4.79 MSCF/STB WGR=   0.0273 STB/MSCF   
+
+ @--MESSAGE  AT TIME      450.0   DAYS    (26-MAR-2016):
+ @           RESTART FILE WRITTEN   REPORT    45                             
+1                             **********************************************************************  46
+  SIMULATE AT    450.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  45    26 MAR 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   48 TIME=    460.00  DAYS (   +10.0  DAYS REPT  3 ITS) (5-APR-2016)       
+  PAV=  3058.8  PSIA   WCT=0.122 GOR=     5.01 MSCF/STB WGR=   0.0279 STB/MSCF   
+
+ @--MESSAGE  AT TIME      460.0   DAYS    ( 5-APR-2016):
+ @           RESTART FILE WRITTEN   REPORT    46                             
+1                             **********************************************************************  47
+  SIMULATE AT    460.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  46     5 APR 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      460.0   DAYS    ( 5-APR-2016):
+ @           ******************************************                      
+ @           * WELL PRODU13  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    460.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      460.0   DAYS    ( 5-APR-2016):
+ @           ******************************************                      
+ @           * WELL PRODU17  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    460.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ @--MESSAGE  AT TIME      460.0   DAYS    ( 5-APR-2016):
+ @           ******************************************                      
+ @           * WELL PRODU25  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    460.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   49 TIME=    470.00  DAYS (   +10.0  DAYS REPT  3 ITS) (15-APR-2016)      
+  PAV=  3040.8  PSIA   WCT=0.126 GOR=     5.18 MSCF/STB WGR=   0.0278 STB/MSCF   
+
+ @--MESSAGE  AT TIME      470.0   DAYS    (15-APR-2016):
+ @           RESTART FILE WRITTEN   REPORT    47                             
+1                             **********************************************************************  48
+  SIMULATE AT    470.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  47    15 APR 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      470.0   DAYS    (15-APR-2016):
+ @           ******************************************                      
+ @           * WELL PRODU7   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    470.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   50 TIME=    480.00  DAYS (   +10.0  DAYS REPT  2 ITS) (25-APR-2016)      
+  PAV=  3022.8  PSIA   WCT=0.128 GOR=     5.32 MSCF/STB WGR=   0.0275 STB/MSCF   
+
+ @--MESSAGE  AT TIME      480.0   DAYS    (25-APR-2016):
+ @           RESTART FILE WRITTEN   REPORT    48                             
+1                             **********************************************************************  49
+  SIMULATE AT    480.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  48    25 APR 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      480.0   DAYS    (25-APR-2016):
+ @           ******************************************                      
+ @           * WELL PRODU5   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    480.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   51 TIME=    490.00  DAYS (   +10.0  DAYS REPT  2 ITS) (5-MAY-2016)       
+  PAV=  3005.0  PSIA   WCT=0.130 GOR=     5.43 MSCF/STB WGR=   0.0276 STB/MSCF   
+
+ @--MESSAGE  AT TIME      490.0   DAYS    ( 5-MAY-2016):
+ @           RESTART FILE WRITTEN   REPORT    49                             
+1                             **********************************************************************  50
+  SIMULATE AT    490.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  49     5 MAY 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   52 TIME=    500.00  DAYS (   +10.0  DAYS REPT  2 ITS) (15-MAY-2016)      
+  PAV=  2987.4  PSIA   WCT=0.133 GOR=     5.51 MSCF/STB WGR=   0.0277 STB/MSCF   
+
+ @--MESSAGE  AT TIME      500.0   DAYS    (15-MAY-2016):
+ @           RESTART FILE WRITTEN   REPORT    50                             
+1                             **********************************************************************  51
+  SIMULATE AT    500.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  50    15 MAY 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      500.0   DAYS    (15-MAY-2016):
+ @           ******************************************                      
+ @           * WELL PRODU19  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    500.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   53 TIME=    510.00  DAYS (   +10.0  DAYS REPT  3 ITS) (25-MAY-2016)      
+  PAV=  2970.0  PSIA   WCT=0.135 GOR=     5.59 MSCF/STB WGR=   0.0279 STB/MSCF   
+
+ @--MESSAGE  AT TIME      510.0   DAYS    (25-MAY-2016):
+ @           RESTART FILE WRITTEN   REPORT    51                             
+1                             **********************************************************************  52
+  SIMULATE AT    510.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  51    25 MAY 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      510.0   DAYS    (25-MAY-2016):
+ @           ******************************************                      
+ @           * WELL PRODU15  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    510.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   54 TIME=    520.00  DAYS (   +10.0  DAYS REPT  3 ITS) (4-JUN-2016)       
+  PAV=  2952.9  PSIA   WCT=0.138 GOR=     5.65 MSCF/STB WGR=   0.0284 STB/MSCF   
+
+ @--MESSAGE  AT TIME      520.0   DAYS    ( 4-JUN-2016):
+ @           RESTART FILE WRITTEN   REPORT    52                             
+1                             **********************************************************************  53
+  SIMULATE AT    520.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  52     4 JUN 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   55 TIME=    530.00  DAYS (   +10.0  DAYS REPT  2 ITS) (14-JUN-2016)      
+  PAV=  2936.1  PSIA   WCT=0.142 GOR=     5.70 MSCF/STB WGR=   0.0289 STB/MSCF   
+
+ @--MESSAGE  AT TIME      530.0   DAYS    (14-JUN-2016):
+ @           RESTART FILE WRITTEN   REPORT    53                             
+1                             **********************************************************************  54
+  SIMULATE AT    530.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  53    14 JUN 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   56 TIME=    540.00  DAYS (   +10.0  DAYS REPT  2 ITS) (24-JUN-2016)      
+  PAV=  2919.7  PSIA   WCT=0.145 GOR=     5.75 MSCF/STB WGR=   0.0295 STB/MSCF   
+
+ @--MESSAGE  AT TIME      540.0   DAYS    (24-JUN-2016):
+ @           RESTART FILE WRITTEN   REPORT    54                             
+1                             **********************************************************************  55
+  SIMULATE AT    540.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  54    24 JUN 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   57 TIME=    550.00  DAYS (   +10.0  DAYS REPT  2 ITS) (4-JLY-2016)       
+  PAV=  2903.5  PSIA   WCT=0.148 GOR=     5.79 MSCF/STB WGR=   0.0301 STB/MSCF   
+
+ @--MESSAGE  AT TIME      550.0   DAYS    ( 4-JLY-2016):
+ @           RESTART FILE WRITTEN   REPORT    55                             
+1                             **********************************************************************  56
+  SIMULATE AT    550.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  55     4 JLY 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   58 TIME=    560.00  DAYS (   +10.0  DAYS REPT  2 ITS) (14-JLY-2016)      
+  PAV=  2887.7  PSIA   WCT=0.152 GOR=     5.83 MSCF/STB WGR=   0.0307 STB/MSCF   
+
+ @--MESSAGE  AT TIME      560.0   DAYS    (14-JLY-2016):
+ @           RESTART FILE WRITTEN   REPORT    56                             
+1                             **********************************************************************  57
+  SIMULATE AT    560.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  56    14 JLY 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   59 TIME=    570.00  DAYS (   +10.0  DAYS REPT  2 ITS) (24-JLY-2016)      
+  PAV=  2872.2  PSIA   WCT=0.155 GOR=     5.86 MSCF/STB WGR=   0.0312 STB/MSCF   
+
+ @--MESSAGE  AT TIME      570.0   DAYS    (24-JLY-2016):
+ @           RESTART FILE WRITTEN   REPORT    57                             
+1                             **********************************************************************  58
+  SIMULATE AT    570.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  57    24 JLY 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      570.0   DAYS    (24-JLY-2016):
+ @           ******************************************                      
+ @           * WELL PRODU18  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    570.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   60 TIME=    580.00  DAYS (   +10.0  DAYS REPT  2 ITS) (3-AUG-2016)       
+  PAV=  2857.0  PSIA   WCT=0.158 GOR=     5.88 MSCF/STB WGR=   0.0318 STB/MSCF   
+
+ @--MESSAGE  AT TIME      580.0   DAYS    ( 3-AUG-2016):
+ @           RESTART FILE WRITTEN   REPORT    58                             
+1                             **********************************************************************  59
+  SIMULATE AT    580.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  58     3 AUG 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      580.0   DAYS    ( 3-AUG-2016):
+ @           ******************************************                      
+ @           * WELL PRODU10  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    580.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   61 TIME=    590.00  DAYS (   +10.0  DAYS REPT  2 ITS) (13-AUG-2016)      
+  PAV=  2842.1  PSIA   WCT=0.161 GOR=     5.90 MSCF/STB WGR=   0.0324 STB/MSCF   
+
+ @--MESSAGE  AT TIME      590.0   DAYS    (13-AUG-2016):
+ @           RESTART FILE WRITTEN   REPORT    59                             
+1                             **********************************************************************  60
+  SIMULATE AT    590.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  59    13 AUG 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   62 TIME=    600.00  DAYS (   +10.0  DAYS REPT  2 ITS) (23-AUG-2016)      
+  PAV=  2827.6  PSIA   WCT=0.164 GOR=     5.90 MSCF/STB WGR=   0.0333 STB/MSCF   
+
+ @--MESSAGE  AT TIME      600.0   DAYS    (23-AUG-2016):
+ @           RESTART FILE WRITTEN   REPORT    60                             
+1                             **********************************************************************  61
+  SIMULATE AT    600.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  60    23 AUG 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   63 TIME=    610.00  DAYS (   +10.0  DAYS REPT  3 ITS) (2-SEP-2016)       
+  PAV=  2813.4  PSIA   WCT=0.168 GOR=     5.90 MSCF/STB WGR=   0.0342 STB/MSCF   
+
+ @--MESSAGE  AT TIME      610.0   DAYS    ( 2-SEP-2016):
+ @           RESTART FILE WRITTEN   REPORT    61                             
+1                             **********************************************************************  62
+  SIMULATE AT    610.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  61     2 SEP 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   64 TIME=    620.00  DAYS (   +10.0  DAYS REPT  2 ITS) (12-SEP-2016)      
+  PAV=  2799.5  PSIA   WCT=0.171 GOR=     5.89 MSCF/STB WGR=   0.0350 STB/MSCF   
+
+ @--MESSAGE  AT TIME      620.0   DAYS    (12-SEP-2016):
+ @           RESTART FILE WRITTEN   REPORT    62                             
+1                             **********************************************************************  63
+  SIMULATE AT    620.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  62    12 SEP 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   65 TIME=    630.00  DAYS (   +10.0  DAYS REPT  2 ITS) (22-SEP-2016)      
+  PAV=  2785.9  PSIA   WCT=0.174 GOR=     5.88 MSCF/STB WGR=   0.0358 STB/MSCF   
+
+ @--MESSAGE  AT TIME      630.0   DAYS    (22-SEP-2016):
+ @           RESTART FILE WRITTEN   REPORT    63                             
+1                             **********************************************************************  64
+  SIMULATE AT    630.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  63    22 SEP 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   66 TIME=    640.00  DAYS (   +10.0  DAYS REPT  2 ITS) (2-OCT-2016)       
+  PAV=  2772.6  PSIA   WCT=0.177 GOR=     5.88 MSCF/STB WGR=   0.0367 STB/MSCF   
+
+ @--MESSAGE  AT TIME      640.0   DAYS    ( 2-OCT-2016):
+ @           RESTART FILE WRITTEN   REPORT    64                             
+1                             **********************************************************************  65
+  SIMULATE AT    640.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  64     2 OCT 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   67 TIME=    650.00  DAYS (   +10.0  DAYS REPT  2 ITS) (12-OCT-2016)      
+  PAV=  2759.5  PSIA   WCT=0.181 GOR=     5.87 MSCF/STB WGR=   0.0376 STB/MSCF   
+
+ @--MESSAGE  AT TIME      650.0   DAYS    (12-OCT-2016):
+ @           RESTART FILE WRITTEN   REPORT    65                             
+1                             **********************************************************************  66
+  SIMULATE AT    650.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  65    12 OCT 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      650.0   DAYS    (12-OCT-2016):
+ @           ******************************************                      
+ @           * WELL PRODU4   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    650.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   68 TIME=    660.00  DAYS (   +10.0  DAYS REPT  2 ITS) (22-OCT-2016)      
+  PAV=  2746.8  PSIA   WCT=0.184 GOR=     5.86 MSCF/STB WGR=   0.0384 STB/MSCF   
+
+ @--MESSAGE  AT TIME      660.0   DAYS    (22-OCT-2016):
+ @           RESTART FILE WRITTEN   REPORT    66                             
+1                             **********************************************************************  67
+  SIMULATE AT    660.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  66    22 OCT 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   69 TIME=    670.00  DAYS (   +10.0  DAYS REPT  2 ITS) (1-NOV-2016)       
+  PAV=  2734.3  PSIA   WCT=0.186 GOR=     5.84 MSCF/STB WGR=   0.0392 STB/MSCF   
+
+ @--MESSAGE  AT TIME      670.0   DAYS    ( 1-NOV-2016):
+ @           RESTART FILE WRITTEN   REPORT    67                             
+1                             **********************************************************************  68
+  SIMULATE AT    670.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  67     1 NOV 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   70 TIME=    680.00  DAYS (   +10.0  DAYS REPT  2 ITS) (11-NOV-2016)      
+  PAV=  2722.0  PSIA   WCT=0.189 GOR=     5.83 MSCF/STB WGR=   0.0400 STB/MSCF   
+
+ @--MESSAGE  AT TIME      680.0   DAYS    (11-NOV-2016):
+ @           RESTART FILE WRITTEN   REPORT    68                             
+1                             **********************************************************************  69
+  SIMULATE AT    680.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  68    11 NOV 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   71 TIME=    690.00  DAYS (   +10.0  DAYS REPT  3 ITS) (21-NOV-2016)      
+  PAV=  2710.0  PSIA   WCT=0.191 GOR=     5.81 MSCF/STB WGR=   0.0407 STB/MSCF   
+
+ @--MESSAGE  AT TIME      690.0   DAYS    (21-NOV-2016):
+ @           RESTART FILE WRITTEN   REPORT    69                             
+1                             **********************************************************************  70
+  SIMULATE AT    690.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  69    21 NOV 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   72 TIME=    700.00  DAYS (   +10.0  DAYS REPT  2 ITS) (1-DEC-2016)       
+  PAV=  2698.2  PSIA   WCT=0.193 GOR=     5.79 MSCF/STB WGR=   0.0413 STB/MSCF   
+
+ @--MESSAGE  AT TIME      700.0   DAYS    ( 1-DEC-2016):
+ @           RESTART FILE WRITTEN   REPORT    70                             
+1                             **********************************************************************  71
+  SIMULATE AT    700.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  70     1 DEC 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   73 TIME=    710.00  DAYS (   +10.0  DAYS REPT  2 ITS) (11-DEC-2016)      
+  PAV=  2686.6  PSIA   WCT=0.195 GOR=     5.77 MSCF/STB WGR=   0.0418 STB/MSCF   
+
+ @--MESSAGE  AT TIME      710.0   DAYS    (11-DEC-2016):
+ @           RESTART FILE WRITTEN   REPORT    71                             
+1                             **********************************************************************  72
+  SIMULATE AT    710.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  71    11 DEC 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   74 TIME=    720.00  DAYS (   +10.0  DAYS REPT  2 ITS) (21-DEC-2016)      
+  PAV=  2675.2  PSIA   WCT=0.196 GOR=     5.76 MSCF/STB WGR=   0.0424 STB/MSCF   
+
+ @--MESSAGE  AT TIME      720.0   DAYS    (21-DEC-2016):
+ @           RESTART FILE WRITTEN   REPORT    72                             
+1                             **********************************************************************  73
+  SIMULATE AT    720.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  72    21 DEC 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   75 TIME=    730.00  DAYS (   +10.0  DAYS REPT  2 ITS) (31-DEC-2016)      
+  PAV=  2663.9  PSIA   WCT=0.198 GOR=     5.76 MSCF/STB WGR=   0.0429 STB/MSCF   
+
+ @--MESSAGE  AT TIME      730.0   DAYS    (31-DEC-2016):
+ @           RESTART FILE WRITTEN   REPORT    73                             
+1                             **********************************************************************  74
+  SIMULATE AT    730.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  73    31 DEC 2016   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   76 TIME=    740.00  DAYS (   +10.0  DAYS REPT  2 ITS) (10-JAN-2017)      
+  PAV=  2652.9  PSIA   WCT=0.200 GOR=     5.75 MSCF/STB WGR=   0.0435 STB/MSCF   
+
+ @--MESSAGE  AT TIME      740.0   DAYS    (10-JAN-2017):
+ @           RESTART FILE WRITTEN   REPORT    74                             
+1                             **********************************************************************  75
+  SIMULATE AT    740.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  74    10 JAN 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   77 TIME=    750.00  DAYS (   +10.0  DAYS REPT  2 ITS) (20-JAN-2017)      
+  PAV=  2641.9  PSIA   WCT=0.202 GOR=     5.75 MSCF/STB WGR=   0.0439 STB/MSCF   
+
+ @--MESSAGE  AT TIME      750.0   DAYS    (20-JAN-2017):
+ @           RESTART FILE WRITTEN   REPORT    75                             
+1                             **********************************************************************  76
+  SIMULATE AT    750.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  75    20 JAN 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   78 TIME=    760.00  DAYS (   +10.0  DAYS REPT  2 ITS) (30-JAN-2017)      
+  PAV=  2631.2  PSIA   WCT=0.203 GOR=     5.75 MSCF/STB WGR=   0.0444 STB/MSCF   
+
+ @--MESSAGE  AT TIME      760.0   DAYS    (30-JAN-2017):
+ @           RESTART FILE WRITTEN   REPORT    76                             
+1                             **********************************************************************  77
+  SIMULATE AT    760.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  76    30 JAN 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      760.0   DAYS    (30-JAN-2017):
+ @           ******************************************                      
+ @           * WELL PRODU8   HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    760.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   79 TIME=    770.00  DAYS (   +10.0  DAYS REPT  2 ITS) (9-FEB-2017)       
+  PAV=  2620.6  PSIA   WCT=0.205 GOR=     5.75 MSCF/STB WGR=   0.0449 STB/MSCF   
+
+ @--MESSAGE  AT TIME      770.0   DAYS    ( 9-FEB-2017):
+ @           RESTART FILE WRITTEN   REPORT    77                             
+1                             **********************************************************************  78
+  SIMULATE AT    770.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  77     9 FEB 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   80 TIME=    780.00  DAYS (   +10.0  DAYS REPT  2 ITS) (19-FEB-2017)      
+  PAV=  2610.1  PSIA   WCT=0.207 GOR=     5.74 MSCF/STB WGR=   0.0455 STB/MSCF   
+
+ @--MESSAGE  AT TIME      780.0   DAYS    (19-FEB-2017):
+ @           RESTART FILE WRITTEN   REPORT    78                             
+1                             **********************************************************************  79
+  SIMULATE AT    780.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  78    19 FEB 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   81 TIME=    790.00  DAYS (   +10.0  DAYS REPT  2 ITS) (1-MAR-2017)       
+  PAV=  2599.8  PSIA   WCT=0.209 GOR=     5.74 MSCF/STB WGR=   0.0460 STB/MSCF   
+
+ @--MESSAGE  AT TIME      790.0   DAYS    ( 1-MAR-2017):
+ @           RESTART FILE WRITTEN   REPORT    79                             
+1                             **********************************************************************  80
+  SIMULATE AT    790.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  79     1 MAR 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   82 TIME=    800.00  DAYS (   +10.0  DAYS REPT  2 ITS) (11-MAR-2017)      
+  PAV=  2589.7  PSIA   WCT=0.210 GOR=     5.73 MSCF/STB WGR=   0.0465 STB/MSCF   
+
+ @--MESSAGE  AT TIME      800.0   DAYS    (11-MAR-2017):
+ @           RESTART FILE WRITTEN   REPORT    80                             
+1                             **********************************************************************  81
+  SIMULATE AT    800.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  80    11 MAR 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   83 TIME=    810.00  DAYS (   +10.0  DAYS REPT  2 ITS) (21-MAR-2017)      
+  PAV=  2579.7  PSIA   WCT=0.212 GOR=     5.72 MSCF/STB WGR=   0.0470 STB/MSCF   
+
+ @--MESSAGE  AT TIME      810.0   DAYS    (21-MAR-2017):
+ @           RESTART FILE WRITTEN   REPORT    81                             
+1                             **********************************************************************  82
+  SIMULATE AT    810.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  81    21 MAR 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   84 TIME=    820.00  DAYS (   +10.0  DAYS REPT  3 ITS) (31-MAR-2017)      
+  PAV=  2569.9  PSIA   WCT=0.214 GOR=     5.71 MSCF/STB WGR=   0.0477 STB/MSCF   
+
+ @--MESSAGE  AT TIME      820.0   DAYS    (31-MAR-2017):
+ @           RESTART FILE WRITTEN   REPORT    82                             
+1                             **********************************************************************  83
+  SIMULATE AT    820.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  82    31 MAR 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   85 TIME=    830.00  DAYS (   +10.0  DAYS REPT  2 ITS) (10-APR-2017)      
+  PAV=  2560.2  PSIA   WCT=0.217 GOR=     5.71 MSCF/STB WGR=   0.0485 STB/MSCF   
+
+ @--MESSAGE  AT TIME      830.0   DAYS    (10-APR-2017):
+ @           RESTART FILE WRITTEN   REPORT    83                             
+1                             **********************************************************************  84
+  SIMULATE AT    830.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  83    10 APR 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   86 TIME=    840.00  DAYS (   +10.0  DAYS REPT  2 ITS) (20-APR-2017)      
+  PAV=  2550.6  PSIA   WCT=0.219 GOR=     5.70 MSCF/STB WGR=   0.0491 STB/MSCF   
+
+ @--MESSAGE  AT TIME      840.0   DAYS    (20-APR-2017):
+ @           RESTART FILE WRITTEN   REPORT    84                             
+1                             **********************************************************************  85
+  SIMULATE AT    840.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  84    20 APR 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   87 TIME=    850.00  DAYS (   +10.0  DAYS REPT  2 ITS) (30-APR-2017)      
+  PAV=  2541.2  PSIA   WCT=0.220 GOR=     5.70 MSCF/STB WGR=   0.0496 STB/MSCF   
+
+ @--MESSAGE  AT TIME      850.0   DAYS    (30-APR-2017):
+ @           RESTART FILE WRITTEN   REPORT    85                             
+1                             **********************************************************************  86
+  SIMULATE AT    850.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  85    30 APR 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   88 TIME=    860.00  DAYS (   +10.0  DAYS REPT  2 ITS) (10-MAY-2017)      
+  PAV=  2531.9  PSIA   WCT=0.222 GOR=     5.69 MSCF/STB WGR=   0.0501 STB/MSCF   
+
+ @--MESSAGE  AT TIME      860.0   DAYS    (10-MAY-2017):
+ @           RESTART FILE WRITTEN   REPORT    86                             
+1                             **********************************************************************  87
+  SIMULATE AT    860.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  86    10 MAY 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   89 TIME=    870.00  DAYS (   +10.0  DAYS REPT  2 ITS) (20-MAY-2017)      
+  PAV=  2522.7  PSIA   WCT=0.223 GOR=     5.67 MSCF/STB WGR=   0.0507 STB/MSCF   
+
+ @--MESSAGE  AT TIME      870.0   DAYS    (20-MAY-2017):
+ @           RESTART FILE WRITTEN   REPORT    87                             
+1                             **********************************************************************  88
+  SIMULATE AT    870.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  87    20 MAY 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   90 TIME=    880.00  DAYS (   +10.0  DAYS REPT  2 ITS) (30-MAY-2017)      
+  PAV=  2513.6  PSIA   WCT=0.225 GOR=     5.65 MSCF/STB WGR=   0.0512 STB/MSCF   
+
+ @--MESSAGE  AT TIME      880.0   DAYS    (30-MAY-2017):
+ @           RESTART FILE WRITTEN   REPORT    88                             
+1                             **********************************************************************  89
+  SIMULATE AT    880.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  88    30 MAY 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ @--MESSAGE  AT TIME      880.0   DAYS    (30-MAY-2017):
+ @           ******************************************                      
+ @           * WELL PRODU24  HAS CHANGED TO           *                      
+ @           * CONTROL BY BOTTOM HOLE PRESSURE        *                      
+ @           * FROM TIME    880.00   DAYS  .          *                      
+ @           ******************************************                      
+
+ STEP   91 TIME=    890.00  DAYS (   +10.0  DAYS REPT  2 ITS) (9-JUN-2017)       
+  PAV=  2504.7  PSIA   WCT=0.226 GOR=     5.63 MSCF/STB WGR=   0.0518 STB/MSCF   
+
+ @--MESSAGE  AT TIME      890.0   DAYS    ( 9-JUN-2017):
+ @           RESTART FILE WRITTEN   REPORT    89                             
+1                             **********************************************************************  90
+  SIMULATE AT    890.00  DAYS *	SPE 9                                                                  * ECLIPSE  VERSION 2014.2     
+  REPORT  89     9 JUN 2017   *SPE9_CP                                                                 * RUN AT 09:10 ON 17 SEP 2015 
+                              **************************************************************************
+
+ STEP   92 TIME=    900.00  DAYS (   +10.0  DAYS REPT  2 ITS) (19-JUN-2017)      
+  PAV=  2496.0  PSIA   WCT=0.227 GOR=     5.60 MSCF/STB WGR=   0.0525 STB/MSCF   
+
+ @--MESSAGE  AT TIME      900.0   DAYS    (19-JUN-2017):
+ @           RESTART FILE WRITTEN   REPORT    90                             
+    69 READING END     
+           15 Mbytes of storage required                         
+   1.6928     KB/active cell                                     
+          104 Mbytes (image size)                                
+
+ Error summary 
+ Comments               1
+ Warnings              10
+ Problems               0
+ Errors                 0
+ Bugs                   0
+ Final cpu       8.69 elapsed       9.63
+ Total number of time steps forced to be accepted          0

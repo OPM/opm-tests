@@ -1,0 +1,2938 @@
+<eclipse>
+<message date="6/11/1997" time="0.00000000000000">
+ OPTIONS(78) HAS BEEN SET TO USE                                         
+ SCRATCH FILES FOR NNCS                                                  
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+      48126 KBYTES                                                       
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      2 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      3 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      3 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      4 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      4 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      4 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      5 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      5 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      5 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      5 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      6 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      6 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      6 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      6 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      6 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      7 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      7 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      7 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      7 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      7 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      7 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      8 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      8 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      8 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      8 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      8 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      8 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      8 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      9 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      9 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      9 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      9 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      9 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      9 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      9 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS      9 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     10 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     10 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     10 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     10 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     10 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     10 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     10 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     10 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     10 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     11 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     12 AND     11                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND     11                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     13 AND     12                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND     11                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND     12                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     14 AND     13                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND     11                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND     12                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND     13                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     15 AND     14                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND     11                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND     12                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND     13                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND     14                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     16 AND     15                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND     11                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND     12                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND     13                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND     14                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND     15                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     17 AND     16                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND     11                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND     12                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND     13                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND     14                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND     15                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND     16                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     18 AND     17                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND     11                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND     12                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND     13                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND     14                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND     15                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND     16                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND     17                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     19 AND     18                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND      1                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND      2                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND      3                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND      4                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND      5                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND      6                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND      7                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND      8                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND      9                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     10                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     11                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     12                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     13                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     14                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     15                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     16                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     17                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     18                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+  THE FLUXNUM ARRAY WILL BE USED WITH THE MULTREGT                       
+  KEYWORD BETWEEN REGIONS     20 AND     19                              
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+   1598   PINCH-OUT CONNECTIONS GENERATED                                
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+ PRE-PROCESSING HAS FOUND 1598 NON-NEIGHBOUR CONNECTIONS                 
+ WHICH EITHER JOIN ADJACENT CELLS OR CAN BE TREATED AS A                 
+ NORMAL CONNECTION. THE TRANSMISSIBILITY HAS BEEN ADDED TO               
+ THE APPROPRIATE CELL TRANSMISSIBILITY AND THE                           
+ NON-NEIGHBOUR CONNECTION REMOVED FROM THE SIMULATION                    
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+ A FULL LISTING OF THESE NNCS CAN BE OBTAINED BY SETTING                 
+ THE ALLNNC MNEMONIC IN RPTGRID. THE OUTPUT HAS THE                      
+ TITLE MNEMONIC DEL-NNC                                                  
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+       33 NON-NEIGHBOUR CONNECTIONS HAVE BEEN IGNORED                    
+ AS THEIR TRANSMISSIBILITY IS LESS THAN 0.100000E-05                     
+</message>
+<warning date="6/11/1997" time="0.00000000000000">
+ A TOTAL OF 496 CELLS HAVE BECOME INACTIVE BECAUSE                       
+ THEY HAD A PORE VOLUME LESS THAN THAT SUPPLIED VIA THE                  
+ MINPV OR MINPVV KEYWORDS IN THE GRID SECTION.                           
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ THE TOTAL PORE VOLUME HAS BEEN REDUCED BY  1.492E-02 PERCENT            
+ BECAUSE CELLS BELOW THE THRESHOLD PORE VOLUME HAVE BEEN                 
+ REMOVED FROM THE MODEL BY MINPV OR MINPVV                               
+</warning>
+<message date="6/11/1997" time="0.00000000000000">
+ 13455 NON-NEIGHBOUR CONNECTIONS PRESENT                                 
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 44431                                         
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
+     140932 KBYTES                                                       
+</message>
+<message date="6/11/1997" time="0.00000000000000">
+    73310 CHARACTER VARIABLES USED                                       
+</message>
+<warning date="6/11/1997" time="0.00000000000000">
+ TRACER NAMES STARTING WITH A BLANK SPACE OR ANY OF THE                  
+ CHARACTERS F, S OR T ARE NOT RECOMMENDED SINCE THIS MAY CREATE          
+ NAMING AMBIGUITIES FOR POST-PROCESSORS. TRACER: 'SEA'                   
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ TRACER NAMES STARTING WITH A BLANK SPACE OR ANY OF THE                  
+ CHARACTERS F, S OR T ARE NOT RECOMMENDED SINCE THIS MAY CREATE          
+ NAMING AMBIGUITIES FOR POST-PROCESSORS. TRACER: 'S36'                   
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ TRACER NAMES STARTING WITH A NUMBER ARE NOT RECOMMENDED SINCE           
+ THIS MAY CREATE NAMING AMBIGUITIES FOR POST-PROCESSORS. TRACER:         
+ '2FB'                                                                   
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ TRACER NAMES STARTING WITH A NUMBER ARE NOT RECOMMENDED SINCE           
+ THIS MAY CREATE NAMING AMBIGUITIES FOR POST-PROCESSORS. TRACER:         
+ '4FB'                                                                   
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ TRACER NAMES STARTING WITH A BLANK SPACE OR ANY OF THE                  
+ CHARACTERS F, S OR T ARE NOT RECOMMENDED SINCE THIS MAY CREATE          
+ NAMING AMBIGUITIES FOR POST-PROCESSORS. TRACER: 'TFB'                   
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ THE MAXIMUM PRESSURE ENTERED IN THE PVT TABLES                          
+ FOR THE OIL PHASE IS    694.290. THIS IS GREATER THAN                   
+ THE MAXIMUM PRESSURE FOR THE GAS PHASE,    594.290                      
+ AND MAY LEAD TO PVT TABLE EXTRAPOLATION                                 
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ MAXIMUM RS IN EQUILIBRATION REGION 1                                    
+ IS GREATER THAN THE MAXIMUM VALUE ENTERED                               
+ IN THE PVTO TABLE NUMBER 2. THIS MAY LEAD TO PVT                        
+ TABLE EXTRAPOLATION. THIS MESSAGE WILL                                  
+ NOT BE REPEATED                                                         
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+  THRESHOLD PRESSURE FROM REGION      2                                  
+  TO REGION     1                                                        
+  HAS ALREADY BEEN SPECIFIED                                             
+  WILL BE OVER-WRITTEN                                                   
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+  THRESHOLD PRESSURE FROM REGION      3                                  
+  TO REGION     1                                                        
+  HAS ALREADY BEEN SPECIFIED                                             
+  WILL BE OVER-WRITTEN                                                   
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+  THRESHOLD PRESSURE FROM REGION      4                                  
+  TO REGION     1                                                        
+  HAS ALREADY BEEN SPECIFIED                                             
+  WILL BE OVER-WRITTEN                                                   
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ NO REGIONS WERE SPECIFIED FOLLOWING RGFT                                
+ KEYWORD HAS BEEN IGNORED                                                
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ NO REGIONS WERE SPECIFIED FOLLOWING RWFT                                
+ KEYWORD HAS BEEN IGNORED                                                
+</warning>
+<message date="6/11/1997" time="0.00000000000000">
+ DRSDT CONSTRAINT ENABLED FOR RESERVOIR                                  
+ WITH DISSOLVED GAS AND VAPOURISED OIL.                                  
+</message>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE   5 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   10   1   6   5   1              
+ THE BHP =   2.64090E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE   6 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   10   1   3   6   1              
+ THE BHP =   1.95620E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE   3 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   19   1   1   8   1              
+ THE BHP =   3.31239E+03   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  38 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   18   1   2   8   1              
+ THE BHP =   7.99290E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  39 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   18   1   1   7   1              
+ THE BHP =   9.40180E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  40 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   17   1   3   7   1              
+ THE BHP =   5.83550E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  41 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   18   1   8   7   1              
+ THE BHP =   8.28170E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  42 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   18   1   7   7   1              
+ THE BHP =   9.25500E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  43 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   16   8   1   8   1              
+ THE BHP =   2.39790E+03   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  47 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   18   1   1   8   1              
+ THE BHP =   1.44052E+03   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE   9 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =    4   1   6   9   1              
+ THE BHP =   6.92020E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  31 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =    6   1   4   8   1              
+ THE BHP =   2.76070E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  32 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   10   1   7   9   1              
+ THE BHP =   5.30210E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  33 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =    6   1   3   9   1              
+ THE BHP =   4.17480E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  34 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =    7   1   7   9   1              
+ THE BHP =   2.36860E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  35 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   12   3   4   8   1              
+ THE BHP =   5.69330E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ PRODUCTION WELL VFP TABLE  36 CONTAINS AT LEAST ONE                     
+ POINT WHERE THE BHP INCREASES WITH DECREASING THP.                      
+ AT POINT (FLOW, THP, WFR, GFR, ALQ) =   10   1   2   7   1              
+ THE BHP =   3.52500E+02   BARSA .                                       
+ IF THIS BHP VALUE INDICATES THE FLOW IS CHOKED OR                       
+ EXCEEDS EROSION VELOCITY LIMITS, IT MAY BE CORRECT                      
+ AND THE CHECK MAY BE THRESHOLDED WITH KEYWORD VFPCHK.                   
+ OTHERWISE YOU SHOULD EXAMINE THE TABLE WITH VFPi AS                     
+ IT COULD CAUSE WELL CONVERGENCE OR HUNTING PROBLEMS.                    
+</warning>
+<warning date="6/11/1997" time="0.00000000000000">
+ SPURIOUS DATA BEFORE ZIPPY2   KEYWORD                                   
+ /                                                                       
+</warning>
+<message date="6/11/1997" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<warning date="6/11/1997" time="0.00000000000000">
+ PREVIOUSLY SPECIFIED DRSDT CONSTRAINT IS NOW                            
+ DISABLED BY SPECIFICATION OF VAPPARS KEYWORD                            
+</warning>
+<message date="6/11/1997" time="0.00000000000000">
+ RESTART FILE WRITTEN   REPORT     0                                     
+</message>
+<message date="14/11/1997" time="8.00000001157407">
+ RESTART FILE WRITTEN   REPORT     1                                     
+</message>
+<warning date="14/11/1997" time="8.00000001157407">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/12/1997" time="25.00000000000000">
+ RESTART FILE WRITTEN   REPORT     2                                     
+</message>
+<message date="17/12/1997" time="41.00000000000000">
+ RESTART FILE WRITTEN   REPORT     3                                     
+</message>
+<message date="1/1/1998" time="56.00000000000000">
+ RESTART FILE WRITTEN   REPORT     4                                     
+</message>
+<message date="1/1/1998" time="56.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="11/1/1998" time="66.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="21/1/1998" time="76.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="26/1/1998" time="81.50000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="1/2/1998" time="87.00000000000000">
+ RESTART FILE WRITTEN   REPORT     5                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="29/3/1998" time="143.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL B-4H                            
+ HAS BEEN DEFAULTED.  THE DEFAULT VALUE IS                               
+      1.0   BARSA                                                        
+</warning>
+<message date="1/4/1998" time="146.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="7/4/1998" time="152.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="15/4/1998" time="160.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="23/4/1998" time="168.00000000000000">
+ RESTART FILE WRITTEN   REPORT    10                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="26/5/1998" time="201.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL D-4H                            
+ HAS BEEN DEFAULTED.  THE DEFAULT VALUE IS                               
+      1.0   BARSA                                                        
+</warning>
+<warning date="23/6/1998" time="229.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="23/6/1998" time="229.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL C-4H                            
+ HAS BEEN DEFAULTED. THE DEFAULT VALUE IS    6891.   BARSA               
+</warning>
+<message date="1/7/1998" time="237.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="3/7/1998" time="239.79296875000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="7/7/1998" time="243.28417968750000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="11/7/1998" time="247.64208984375000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="16/7/1998" time="252.00000000000000">
+ RESTART FILE WRITTEN   REPORT    19                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="30/8/1998" time="297.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL E-3H                            
+ HAS BEEN DEFAULTED.  THE DEFAULT VALUE IS                               
+      1.0   BARSA                                                        
+</warning>
+<warning date="28/9/1998" time="326.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/10/1998" time="329.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="2/10/1998" time="330.98810593505101">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="5/10/1998" time="333.31051971480628">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="8/10/1998" time="336.21353693950033">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="10/10/1998" time="338.60676846975014">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="13/10/1998" time="341.00000000000000">
+ RESTART FILE WRITTEN   REPORT    27                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="13/10/1998" time="341.00000000000000">
+ WELL C-4H     IS OPEN BUT ALL ITS CONNECTIONS                           
+ ARE CLOSED.  THE WELL WILL THEREFORE BE SHUT.                           
+</warning>
+<message date="13/10/1998" time="341.00000000000000">
+ ****************************************************************        
+ * WELL B-2H     IS STOPPED AT TIME     343.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="13/10/1998" time="341.00000000000000">
+ ****************************************************************        
+ * WELL D-1H     IS STOPPED AT TIME     343.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="13/10/1998" time="341.00000000000000">
+ ****************************************************************        
+ * WELL D-2H     IS STOPPED AT TIME     343.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="13/10/1998" time="341.00000000000000">
+ ****************************************************************        
+ * WELL B-4H     IS STOPPED AT TIME     343.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="13/10/1998" time="341.00000000000000">
+ ****************************************************************        
+ * WELL D-4H     IS STOPPED AT TIME     343.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="13/10/1998" time="341.00000000000000">
+ ****************************************************************        
+ * WELL E-3H     IS STOPPED AT TIME     343.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="1/1/1999" time="421.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="2/1/1999" time="422.50000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="4/1/1999" time="424.00000000000000">
+ RESTART FILE WRITTEN   REPORT    33                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="4/1/1999" time="424.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="19/1/1999" time="439.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="21/1/1999" time="441.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-2H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="24/2/1999" time="475.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="5/3/1999" time="484.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="23/3/1999" time="502.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/4/1999" time="511.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="2/4/1999" time="512.71875000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="4/4/1999" time="514.86718750000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="7/4/1999" time="517.55273437500000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="10/4/1999" time="520.90742242848762">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="15/4/1999" time="525.10078249534718">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="19/4/1999" time="529.87592398609468">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="25/4/1999" time="535.43796199304734">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="1/5/1999" time="541.00000000000000">
+ RESTART FILE WRITTEN   REPORT    44                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="4/5/1999" time="544.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="20/5/1999" time="560.00000000000000">
+ THE PREFERRED PHASE FOR WELL F-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/7/1999" time="602.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="6/7/1999" time="607.62500000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="15/7/1999" time="616.00000000000000">
+ RESTART FILE WRITTEN   REPORT    53                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/10/1999" time="694.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="3/10/1999" time="696.00000000000000">
+ RESTART FILE WRITTEN   REPORT    62                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="3/10/1999" time="696.00000000000000">
+ THE PREFERRED PHASE FOR WELL F-2H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="16/10/1999" time="709.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/11/1999" time="725.00000000000000">
+ ****************************************************************        
+ * WELL B-2H     IS STOPPED AT TIME     729.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="1/11/1999" time="725.00000000000000">
+ ****************************************************************        
+ * WELL D-1H     IS STOPPED AT TIME     729.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="1/11/1999" time="725.00000000000000">
+ ****************************************************************        
+ * WELL D-2H     IS STOPPED AT TIME     729.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="1/11/1999" time="725.00000000000000">
+ ****************************************************************        
+ * WELL B-4H     IS STOPPED AT TIME     729.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="1/11/1999" time="725.00000000000000">
+ ****************************************************************        
+ * WELL D-4H     IS STOPPED AT TIME     729.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="1/11/1999" time="725.00000000000000">
+ ****************************************************************        
+ * WELL E-3H     IS STOPPED AT TIME     729.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="1/11/1999" time="725.00000000000000">
+ ****************************************************************        
+ * WELL B-1H     IS STOPPED AT TIME     729.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="1/11/1999" time="725.00000000000000">
+ ****************************************************************        
+ * WELL B-3H     IS STOPPED AT TIME     729.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<message date="1/11/1999" time="725.00000000000000">
+ ****************************************************************        
+ * WELL E-1H     IS STOPPED AT TIME     729.00   DAYS   BECAUSE *        
+ * THE FIELD      HAS AN OIL RATE   0.0000E+00  SM3/DAY         *        
+ * BELOW THE MINIMUM ECONOMIC VALUE   1.0000E+03  SM3/DAY       *        
+ ****************************************************************        
+</message>
+<warning date="9/11/1999" time="733.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="10/11/1999" time="734.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/1/2000" time="786.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="6/1/2000" time="791.55439581011058">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="12/1/2000" time="797.38651141072671">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="18/1/2000" time="803.51023279137360">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="25/1/2000" time="810.25511639568685">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="1/2/2000" time="817.00000000000000">
+ RESTART FILE WRITTEN   REPORT    72                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="2/3/2000" time="847.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL E-4H                            
+ HAS BEEN DEFAULTED.  THE DEFAULT VALUE IS                               
+      1.0   BARSA                                                        
+</warning>
+<message date="1/4/2000" time="877.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="6/4/2000" time="882.33302459716799">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="11/4/2000" time="887.93270042419431">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="18/4/2000" time="894.93229520797729">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="24/4/2000" time="900.96614760398859">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="1/5/2000" time="907.00000000000000">
+ RESTART FILE WRITTEN   REPORT    77                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/7/2000" time="968.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="2/7/2000" time="969.25000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="3/7/2000" time="970.81250000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="5/7/2000" time="972.76562500000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="8/7/2000" time="975.20703125000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="11/7/2000" time="978.25878906250000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="15/7/2000" time="982.07348632812500">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="19/7/2000" time="986.84185791015625">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="25/7/2000" time="992.80232238769531">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="1/8/2000" time="999.00000000000000">
+ RESTART FILE WRITTEN   REPORT    83                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="2/8/2000" time="1000.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL D-3H                            
+ HAS BEEN DEFAULTED.  THE DEFAULT VALUE IS                               
+      1.0   BARSA                                                        
+</warning>
+<message date="5/8/2000" time="1003.81250000000000">
+ ******************************************                              
+ * WELL D-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1003.81   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/9/2000" time="1030.00000000000000">
+ ******************************************                              
+ * WELL D-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1030.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="9/9/2000" time="1038.00000000000000">
+ THE PREFERRED PHASE FOR WELL F-3H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/10/2000" time="1060.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   3 ITERATIONS                 
+</message>
+<message date="1/10/2000" time="1060.00000000000000">
+ ******************************************                              
+ * WELL D-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1060.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="4/10/2000" time="1063.46718656123085">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="8/10/2000" time="1067.80116976276940">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="14/10/2000" time="1073.21864876469249">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="20/10/2000" time="1079.99049751709640">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="20/10/2000" time="1079.99049751709640">
+ ******************************************                              
+ * WELL F-2H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1079.99   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="26/10/2000" time="1085.49524875854831">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/11/2000" time="1091.00000000000000">
+ RESTART FILE WRITTEN   REPORT    95                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/11/2000" time="1091.00000000000000">
+ ******************************************                              
+ * WELL D-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1091.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/12/2000" time="1121.00000000000000">
+ ******************************************                              
+ * WELL D-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1121.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/1/2001" time="1152.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="8/1/2001" time="1159.32170656393987">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="16/1/2001" time="1167.00949845607670">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="24/1/2001" time="1175.00474922803846">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/2/2001" time="1183.00000000000000">
+ RESTART FILE WRITTEN   REPORT    98                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/4/2001" time="1242.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="10/4/2001" time="1251.69816123181317">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="20/4/2001" time="1261.69816123181317">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="25/4/2001" time="1266.84908061590659">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="1/5/2001" time="1272.00000000000000">
+ RESTART FILE WRITTEN   REPORT   101                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="6/6/2001" time="1308.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL B-4AH                           
+ HAS BEEN DEFAULTED.  THE DEFAULT VALUE IS                               
+      1.0   BARSA                                                        
+</warning>
+<warning date="18/6/2001" time="1320.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="18/6/2001" time="1320.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="19/6/2001" time="1321.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/7/2001" time="1333.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/7/2001" time="1333.50000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="2/7/2001" time="1334.00000000000000">
+ RESTART FILE WRITTEN   REPORT   109                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="2/7/2001" time="1334.00000000000000">
+ THE PREFERRED PHASE FOR WELL F-4H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="16/7/2001" time="1348.00000000000000">
+ RESTART FILE WRITTEN   REPORT   112                                     
+</message>
+<message date="30/7/2001" time="1362.00000000000000">
+ RESTART FILE WRITTEN   REPORT   113                                     
+</message>
+<message date="1/8/2001" time="1364.00000000000000">
+ RESTART FILE WRITTEN   REPORT   114                                     
+</message>
+<message date="10/8/2001" time="1373.00000000000000">
+ RESTART FILE WRITTEN   REPORT   115                                     
+</message>
+<message date="16/8/2001" time="1379.00000000000000">
+ RESTART FILE WRITTEN   REPORT   116                                     
+</message>
+<warning date="16/8/2001" time="1379.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="16/8/2001" time="1379.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1379.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/9/2001" time="1395.00000000000000">
+ RESTART FILE WRITTEN   REPORT   117                                     
+</message>
+<message date="1/9/2001" time="1395.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1395.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="10/9/2001" time="1404.00000000000000">
+ RESTART FILE WRITTEN   REPORT   118                                     
+</message>
+<warning date="10/9/2001" time="1404.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/10/2001" time="1425.00000000000000">
+ RESTART FILE WRITTEN   REPORT   119                                     
+</message>
+<message date="1/10/2001" time="1425.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="6/10/2001" time="1430.31235689498180">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="9/10/2001" time="1433.10134426484728">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="12/10/2001" time="1436.58757847717902">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="16/10/2001" time="1440.94537124259386">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="22/10/2001" time="1446.39261219936225">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="27/10/2001" time="1451.19630609968112">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="1/11/2001" time="1456.00000000000000">
+ RESTART FILE WRITTEN   REPORT   120                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="29/12/2001" time="1514.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="29/12/2001" time="1514.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1514.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/1/2002" time="1517.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="3/1/2002" time="1519.51999999999998">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="5/1/2002" time="1521.42605866607573">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="7/1/2002" time="1523.71687364497825">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="10/1/2002" time="1526.58039236860645">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="14/1/2002" time="1530.15979077314182">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="18/1/2002" time="1534.63403877881092">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="23/1/2002" time="1539.33199918476339">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="27/1/2002" time="1543.66599959238170">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/2/2002" time="1548.00000000000000">
+ RESTART FILE WRITTEN   REPORT   124                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/2/2002" time="1548.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1548.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="13/2/2002" time="1560.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1560.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/3/2002" time="1576.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1576.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/4/2002" time="1607.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/4/2002" time="1607.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1607.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="9/4/2002" time="1615.41426293324798">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="16/4/2002" time="1622.48224379717635">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="23/4/2002" time="1629.74112189858806">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/5/2002" time="1637.00000000000000">
+ RESTART FILE WRITTEN   REPORT   129                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="1/5/2002" time="1637.00000000000000">
+ WELL D-1H     IS OPEN BUT ALL ITS CONNECTIONS                           
+ ARE CLOSED.  THE WELL WILL THEREFORE BE SHUT.                           
+</warning>
+<message date="1/5/2002" time="1637.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1637.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/6/2002" time="1668.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1668.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/7/2002" time="1698.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/7/2002" time="1698.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1698.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="8/7/2002" time="1705.00000000000000">
+ RESTART FILE WRITTEN   REPORT   132                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="8/7/2002" time="1705.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="11/7/2002" time="1708.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="11/7/2002" time="1708.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1708.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="15/7/2002" time="1712.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="14/8/2002" time="1742.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="14/8/2002" time="1742.00000000000000">
+ WELL D-1H     IS OPEN BUT ALL ITS CONNECTIONS                           
+ ARE CLOSED.  THE WELL WILL THEREFORE BE SHUT.                           
+</warning>
+<problem date="14/8/2002" time="1742.00000000000000">
+ NON-LINEAR EQUATION CONVERGENCE FAILURE (EFF+)                          
+ ITERATION LIMIT REACHED - TIME STEP CHOPPED FROM   5.95                 
+</problem>
+<warning date="1/9/2002" time="1760.00000000000000">
+ WELL D-1H     IS OPEN BUT ALL ITS CONNECTIONS                           
+ ARE CLOSED.  THE WELL WILL THEREFORE BE SHUT.                           
+</warning>
+<warning date="2/9/2002" time="1761.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="2/9/2002" time="1761.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="4/9/2002" time="1763.65981305321816">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1763.66   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="15/9/2002" time="1774.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1774.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/10/2002" time="1790.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/10/2002" time="1790.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1790.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="4/10/2002" time="1793.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="7/10/2002" time="1796.00000000000000">
+ RESTART FILE WRITTEN   REPORT   141                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="7/10/2002" time="1796.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="7/10/2002" time="1796.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1796.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="14/10/2002" time="1803.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="24/12/2002" time="1874.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="24/12/2002" time="1874.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1874.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/1/2003" time="1882.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/1/2003" time="1882.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1882.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="2/1/2003" time="1883.00000000000000">
+ RESTART FILE WRITTEN   REPORT   148                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="2/1/2003" time="1883.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="12/1/2003" time="1893.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="12/1/2003" time="1893.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1893.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="20/1/2003" time="1901.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="14/2/2003" time="1926.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="14/2/2003" time="1926.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1926.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/3/2003" time="1941.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1941.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="6/3/2003" time="1946.00000000000000">
+ WELL B-3H     IS OPEN BUT ALL ITS CONNECTIONS                           
+ ARE CLOSED.  THE WELL WILL THEREFORE BE SHUT.                           
+</warning>
+<message date="6/3/2003" time="1946.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1946.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="7/3/2003" time="1947.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1947.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/4/2003" time="1972.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/4/2003" time="1972.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1972.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="8/4/2003" time="1979.69767761230469">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="18/4/2003" time="1989.31977462768555">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="24/4/2003" time="1995.65988731384277">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/5/2003" time="2002.00000000000000">
+ RESTART FILE WRITTEN   REPORT   157                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/5/2003" time="2002.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2002.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/6/2003" time="2033.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2033.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="3/6/2003" time="2035.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2035.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/7/2003" time="2063.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="5/7/2003" time="2067.50000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="10/7/2003" time="2072.00000000000000">
+ RESTART FILE WRITTEN   REPORT   161                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="10/7/2003" time="2072.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="10/7/2003" time="2072.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="12/8/2003" time="2105.00000000000000">
+ RESTART FILE WRITTEN   REPORT   164                                     
+</message>
+<warning date="12/8/2003" time="2105.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="12/8/2003" time="2105.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="12/8/2003" time="2105.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2105.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/9/2003" time="2125.00000000000000">
+ RESTART FILE WRITTEN   REPORT   165                                     
+</message>
+<message date="1/9/2003" time="2125.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2125.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="2/9/2003" time="2126.00000000000000">
+ RESTART FILE WRITTEN   REPORT   166                                     
+</message>
+<warning date="2/9/2003" time="2126.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="10/9/2003" time="2134.00000000000000">
+ RESTART FILE WRITTEN   REPORT   167                                     
+</message>
+<warning date="10/9/2003" time="2134.00000000000000">
+ WELL B-1H     IS OPEN BUT ALL ITS CONNECTIONS                           
+ ARE CLOSED.  THE WELL WILL THEREFORE BE SHUT.                           
+</warning>
+<message date="12/9/2003" time="2136.00000000000000">
+ RESTART FILE WRITTEN   REPORT   168                                     
+</message>
+<message date="13/9/2003" time="2137.00000000000000">
+ RESTART FILE WRITTEN   REPORT   169                                     
+</message>
+<message date="16/9/2003" time="2140.00000000000000">
+ RESTART FILE WRITTEN   REPORT   170                                     
+</message>
+<message date="1/10/2003" time="2155.00000000000000">
+ RESTART FILE WRITTEN   REPORT   171                                     
+</message>
+<warning date="1/10/2003" time="2155.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/10/2003" time="2155.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/10/2003" time="2155.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2155.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="5/10/2003" time="2159.16259765625000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="7/10/2003" time="2161.34796142578125">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="9/10/2003" time="2163.14536259114129">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="11/10/2003" time="2165.39211404784146">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="14/10/2003" time="2168.20055336871656">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="17/10/2003" time="2171.71110251981008">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="23/10/2003" time="2177.00000000000000">
+ RESTART FILE WRITTEN   REPORT   172                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="23/10/2003" time="2177.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2177.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/11/2003" time="2186.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2186.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="18/11/2003" time="2203.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2203.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/12/2003" time="2216.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2216.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/12/2003" time="2216.00000000000000">
+ ******************************************                              
+ * WELL F-2H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2216.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="8/12/2003" time="2223.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4AH    IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="8/12/2003" time="2223.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2223.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="8/12/2003" time="2223.00000000000000">
+ ******************************************                              
+ * WELL F-2H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2223.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="9/12/2003" time="2224.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2224.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="11/12/2003" time="2226.81250000000000">
+ ******************************************                              
+ * WELL F-2H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2226.81   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="18/12/2003" time="2233.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/1/2004" time="2247.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="4/1/2004" time="2250.86818839322223">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="8/1/2004" time="2254.92978620610529">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="13/1/2004" time="2259.96489310305287">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="19/1/2004" time="2265.00000000000000">
+ RESTART FILE WRITTEN   REPORT   180                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="19/1/2004" time="2265.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="1/4/2004" time="2338.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="7/4/2004" time="2344.36494572209585">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="14/4/2004" time="2351.04813873029661">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="22/4/2004" time="2359.40212999054756">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="1/5/2004" time="2368.00000000000000">
+ RESTART FILE WRITTEN   REPORT   185                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/7/2004" time="2429.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="3/7/2004" time="2431.00000000000000">
+ RESTART FILE WRITTEN   REPORT   188                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="25/7/2004" time="2453.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="25/7/2004" time="2453.00000000000000">
+ ******************************************                              
+ * WELL B-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2453.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/8/2004" time="2460.00000000000000">
+ ******************************************                              
+ * WELL B-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2460.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="16/8/2004" time="2475.00000000000000">
+ RESTART FILE WRITTEN   REPORT   192                                     
+</message>
+<message date="1/9/2004" time="2491.00000000000000">
+ RESTART FILE WRITTEN   REPORT   193                                     
+</message>
+<message date="20/9/2004" time="2510.00000000000000">
+ RESTART FILE WRITTEN   REPORT   194                                     
+</message>
+<warning date="20/9/2004" time="2510.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<problem date="20/9/2004" time="2510.00000000000000">
+ NON-LINEAR EQUATION CONVERGENCE FAILURE (HALF)                          
+ ITERATION LIMIT REACHED - TIME STEP CHOPPED FROM   5.50                 
+</problem>
+<message date="25/9/2004" time="2515.07491181439445">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2515.07   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/10/2004" time="2521.00000000000000">
+ RESTART FILE WRITTEN   REPORT   195                                     
+</message>
+<message date="1/10/2004" time="2521.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/10/2004" time="2521.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2521.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/10/2004" time="2521.98276991084276">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="3/10/2004" time="2523.01467831722766">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="3/10/2004" time="2523.88148137859116">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="4/10/2004" time="2524.96498520529531">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="6/10/2004" time="2526.31936498867572">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="8/10/2004" time="2528.01233971790089">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="9/10/2004" time="2529.78996318358759">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="12/10/2004" time="2532.01199251569597">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="14/10/2004" time="2534.78952918083132">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="18/10/2004" time="2538.26145001225041">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="22/10/2004" time="2542.36487267494749">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="27/10/2004" time="2547.18243633747352">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/11/2004" time="2552.00000000000000">
+ RESTART FILE WRITTEN   REPORT   196                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/11/2004" time="2552.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2552.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/12/2004" time="2582.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2582.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/1/2005" time="2613.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/1/2005" time="2613.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2613.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="6/1/2005" time="2618.50000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="12/1/2005" time="2624.00000000000000">
+ RESTART FILE WRITTEN   REPORT   199                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="12/1/2005" time="2624.00000000000000">
+ WELL E-3AH    IS OPEN BUT ALL ITS CONNECTIONS                           
+ ARE CLOSED.  THE WELL WILL THEREFORE BE SHUT.                           
+</warning>
+<message date="12/1/2005" time="2624.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2624.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="26/1/2005" time="2638.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="26/1/2005" time="2638.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4AH    IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="26/1/2005" time="2638.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2638.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/2/2005" time="2644.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2644.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/3/2005" time="2672.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2672.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="23/3/2005" time="2694.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL E-3BH                           
+ HAS BEEN DEFAULTED.  THE DEFAULT VALUE IS                               
+      1.0   BARSA                                                        
+</warning>
+<message date="23/3/2005" time="2694.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2694.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="24/3/2005" time="2695.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2695.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/4/2005" time="2703.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/4/2005" time="2703.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2703.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="3/4/2005" time="2705.02148437500000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="5/4/2005" time="2707.54833984375000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="8/4/2005" time="2710.70690917968750">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="12/4/2005" time="2714.65512084960938">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="17/4/2005" time="2719.59038543701172">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="24/4/2005" time="2726.00000000000000">
+ RESTART FILE WRITTEN   REPORT   206                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="24/4/2005" time="2726.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2726.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/5/2005" time="2733.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2733.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/5/2005" time="2733.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2733.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/6/2005" time="2764.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2764.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/6/2005" time="2764.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2764.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="2/6/2005" time="2765.00000000000000">
+ WELL D-3AH    IS OPEN BUT ALL ITS CONNECTIONS                           
+ ARE CLOSED.  THE WELL WILL THEREFORE BE SHUT.                           
+</warning>
+<message date="2/6/2005" time="2765.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2765.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="2/6/2005" time="2765.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2765.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<warning date="26/6/2005" time="2789.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4AH    IS RE-SET                         
+ TO WATER FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="26/6/2005" time="2789.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2789.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/7/2005" time="2794.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/7/2005" time="2794.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2794.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="3/7/2005" time="2796.68134498660629">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="6/7/2005" time="2799.08954124347383">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="8/7/2005" time="2801.04477062173692">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="10/7/2005" time="2803.00000000000000">
+ RESTART FILE WRITTEN   REPORT   212                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<warning date="10/7/2005" time="2803.00000000000000">
+ WELL E-2H     IS OPEN BUT ALL ITS CONNECTIONS                           
+ ARE CLOSED.  THE WELL WILL THEREFORE BE SHUT.                           
+</warning>
+<message date="10/7/2005" time="2803.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2803.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="16/7/2005" time="2809.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2809.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="16/7/2005" time="2809.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2809.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="29/7/2005" time="2822.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2822.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="29/7/2005" time="2822.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2822.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/8/2005" time="2825.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2825.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="3/8/2005" time="2827.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2827.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<comment date="4/8/2005" time="2828.00000000000000">
+  HEEL TO TOE CONNECTION ORDERING FAILED FOR WELL D-3BH                  
+  AND THE ORDERING WILL DEFAULT TO DEPTH. IF YOU                         
+  HAVE SUPPLIED THE CONNECTIONS IN THE CORRECT ORDER,                    
+  YOU MAY USE THE INPUT OPTION OF THE COMPORD KEYWORD                    
+</comment>
+<message date="4/8/2005" time="2828.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2828.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="10/8/2005" time="2834.77341207066047">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2834.77   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/9/2005" time="2856.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2856.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/9/2005" time="2856.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2856.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="7/9/2005" time="2862.50000000000000">
+ ******************************************                              
+ * WELL E-2AH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2862.50   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="14/9/2005" time="2869.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2869.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="14/9/2005" time="2869.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2869.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/10/2005" time="2886.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/10/2005" time="2886.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2886.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/10/2005" time="2886.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2886.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="6/10/2005" time="2891.54687500000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="13/10/2005" time="2898.48046875000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="22/10/2005" time="2907.14746093750000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/11/2005" time="2917.00000000000000">
+ RESTART FILE WRITTEN   REPORT   221                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/11/2005" time="2917.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2917.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/11/2005" time="2917.00000000000000">
+ **********************************                                      
+ * GROUP FIELD    CANNOT MEET ITS *                                      
+ * WATER  INJECTION  TARGET       *                                      
+ * AFTER TIME   2917.00   DAYS  . *                                      
+ **********************************                                      
+</message>
+<warning date="1/12/2005" time="2947.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL B-1AH                           
+ HAS BEEN DEFAULTED.  THE DEFAULT VALUE IS                               
+      1.0   BARSA                                                        
+</warning>
+<message date="1/12/2005" time="2947.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2947.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/12/2005" time="2947.00000000000000">
+ **********************************************                          
+ * WELL F-1H     HAS CHANGED TO GROUP CONTROL *                          
+ * FROM TIME   2947.00   DAYS  .              *                          
+ **********************************************                          
+</message>
+<message date="1/12/2005" time="2947.00000000000000">
+ **********************************************                          
+ * WELL F-2H     HAS CHANGED TO GROUP CONTROL *                          
+ * FROM TIME   2947.00   DAYS  .              *                          
+ **********************************************                          
+</message>
+<message date="1/12/2005" time="2947.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2947.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/12/2005" time="2947.00000000000000">
+ **********************************                                      
+ * GROUP FIELD    CAN MEET ITS    *                                      
+ * WATER  INJECTION  TARGET       *                                      
+ * AFTER TIME   2947.00   DAYS  . *                                      
+ **********************************                                      
+</message>
+<message date="2/12/2005" time="2948.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2948.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="2/12/2005" time="2948.00000000000000">
+ ******************************************                              
+ * WELL F-1H     HAS CHANGED TO           *                              
+ * CONTROL BY WATER RATE                  *                              
+ * FROM TIME   2948.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="2/12/2005" time="2948.00000000000000">
+ ******************************************                              
+ * WELL F-2H     HAS CHANGED TO           *                              
+ * CONTROL BY WATER RATE                  *                              
+ * FROM TIME   2948.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="2/12/2005" time="2948.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2948.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="2/12/2005" time="2948.00000000000000">
+ **********************************                                      
+ * GROUP FIELD    CANNOT MEET ITS *                                      
+ * WATER  INJECTION  TARGET       *                                      
+ * AFTER TIME   2948.00   DAYS  . *                                      
+ **********************************                                      
+</message>
+<message date="30/12/2005" time="2976.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2976.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="30/12/2005" time="2976.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2976.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/1/2006" time="2978.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/1/2006" time="2978.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2978.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="3/1/2006" time="2980.50000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="6/1/2006" time="2983.62500000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="10/1/2006" time="2987.53125000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="14/1/2006" time="2991.26562500000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="18/1/2006" time="2995.00000000000000">
+ RESTART FILE WRITTEN   REPORT   226                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="18/1/2006" time="2995.00000000000000">
+ ******************************************                              
+ * WELL C-1H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   2995.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/4/2006" time="3068.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="9/4/2006" time="3076.28221778533043">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="17/4/2006" time="3084.14110889266522">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   1 ITERATIONS                 
+</message>
+<message date="25/4/2006" time="3092.00000000000000">
+ RESTART FILE WRITTEN   REPORT   231                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/7/2006" time="3159.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/7/2006" time="3159.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   3159.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="7/7/2006" time="3165.39648437500000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="15/7/2006" time="3173.39208984375000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="23/7/2006" time="3181.69604492187500">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/8/2006" time="3190.00000000000000">
+ RESTART FILE WRITTEN   REPORT   235                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="1/8/2006" time="3190.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   3190.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="15/8/2006" time="3204.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   3204.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="16/8/2006" time="3205.00000000000000">
+ RESTART FILE WRITTEN   REPORT   237                                     
+</message>
+<warning date="16/8/2006" time="3205.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-1H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="16/8/2006" time="3205.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-3H     IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<warning date="16/8/2006" time="3205.00000000000000">
+ THE PREFERRED PHASE FOR WELL C-4AH    IS RE-SET                         
+ TO GAS   FLOW, TO MATCH THE INJECTED PHASE.                             
+</warning>
+<message date="16/8/2006" time="3205.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   3205.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/9/2006" time="3221.00000000000000">
+ RESTART FILE WRITTEN   REPORT   238                                     
+</message>
+<message date="1/9/2006" time="3221.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   3221.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="14/9/2006" time="3234.00000000000000">
+ RESTART FILE WRITTEN   REPORT   239                                     
+</message>
+<warning date="14/9/2006" time="3234.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL K-3H                            
+ HAS BEEN DEFAULTED.  THE DEFAULT VALUE IS                               
+      1.0   BARSA                                                        
+</warning>
+<message date="14/9/2006" time="3234.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   3234.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/10/2006" time="3251.00000000000000">
+ RESTART FILE WRITTEN   REPORT   240                                     
+</message>
+<message date="1/10/2006" time="3251.00000000000000">
+ PRODUCTION NETWORK PRESSURES BALANCED IN   2 ITERATIONS                 
+</message>
+<message date="1/10/2006" time="3251.00000000000000">
+ ******************************************                              
+ * WELL F-4H     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   3251.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/10/2006" time="3251.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   3251.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="10/10/2006" time="3260.00000000000000">
+ RESTART FILE WRITTEN   REPORT   241                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="10/10/2006" time="3260.00000000000000">
+ ******************************************                              
+ * WELL E-3CH    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   3260.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+</eclipse>
