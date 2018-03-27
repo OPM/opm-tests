@@ -1,0 +1,490 @@
+<eclipse>
+<message date="1/1/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+     127480 BYTES                                                        
+</message>
+<warning date="1/1/2015" time="0.00000000000000">
+          200 VALUES NOT DEFINED IN BOX (  1- 10,  1- 10,  1-  3)        
+ OF KEYWORD TOPS                                                         
+</warning>
+<message date="1/1/2015" time="0.00000000000000">
+ UNSPECIFIED TOPS VALUES OBTAINED BY ADDING DZ                           
+ TO TOPS VALUE FOR LAYER ABOVE                                           
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                          
+ BLOCK CENTRE TRANSMISSIBILITIES TO BE CALCULATED                        
+ USING  OLDTRAN                                                          
+</message>
+<comment date="1/1/2015" time="0.00000000000000">
+ NO NON-NEIGHBOUR CONNECTIONS FOUND                                      
+</comment>
+<message date="1/1/2015" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 300                                           
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
+     700264 BYTES                                                        
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+    62178 CHARACTER VARIABLES USED                                       
+</message>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   6531.94138 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.01230                              
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   6842.28621 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.07111                              
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   7152.63103 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.12539                              
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   7462.97586 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.17567                              
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   7773.32069 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.22244                              
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   8083.66552 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.26608                              
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   8394.01034 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.30695                              
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   8704.35517 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.34534                              
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   9014.70000 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.38150                              
+</warning>
+<message date="1/1/2015" time="0.00000000000000">
+ DRSDT KEYWORD HAS NOT BEEN ENTERED, SO THE                              
+ MAXIMUM GAS RE-SOLUTION RATE IS DEFAULTED TO INFINITY.                  
+</message>
+<message date="1/2/2015" time="31.00000000000000">
+ RESTART FILE WRITTEN   REPORT     1                                     
+</message>
+<message date="1/3/2015" time="59.00000000000000">
+ RESTART FILE WRITTEN   REPORT     2                                     
+</message>
+<message date="1/4/2015" time="90.00000000000000">
+ RESTART FILE WRITTEN   REPORT     3                                     
+</message>
+<message date="1/5/2015" time="120.00000000000000">
+ RESTART FILE WRITTEN   REPORT     4                                     
+</message>
+<message date="1/6/2015" time="151.00000000000000">
+ RESTART FILE WRITTEN   REPORT     5                                     
+</message>
+<message date="1/7/2015" time="181.00000000000000">
+ RESTART FILE WRITTEN   REPORT     6                                     
+</message>
+<message date="1/8/2015" time="212.00000000000000">
+ RESTART FILE WRITTEN   REPORT     7                                     
+</message>
+<message date="1/9/2015" time="243.00000000000000">
+ RESTART FILE WRITTEN   REPORT     8                                     
+</message>
+<message date="1/10/2015" time="273.00000000000000">
+ RESTART FILE WRITTEN   REPORT     9                                     
+</message>
+<message date="1/11/2015" time="304.00000000000000">
+ RESTART FILE WRITTEN   REPORT    10                                     
+</message>
+<message date="1/12/2015" time="334.00000000000000">
+ RESTART FILE WRITTEN   REPORT    11                                     
+</message>
+<message date="1/1/2016" time="365.00000000000000">
+ RESTART FILE WRITTEN   REPORT    12                                     
+</message>
+<message date="1/2/2016" time="396.00000000000000">
+ RESTART FILE WRITTEN   REPORT    13                                     
+</message>
+<message date="29/2/2016" time="424.00000000000000">
+ RESTART FILE WRITTEN   REPORT    14                                     
+</message>
+<message date="31/3/2016" time="455.00000000000000">
+ RESTART FILE WRITTEN   REPORT    15                                     
+</message>
+<message date="30/4/2016" time="485.00000000000000">
+ RESTART FILE WRITTEN   REPORT    16                                     
+</message>
+<message date="31/5/2016" time="516.00000000000000">
+ RESTART FILE WRITTEN   REPORT    17                                     
+</message>
+<message date="30/6/2016" time="546.00000000000000">
+ RESTART FILE WRITTEN   REPORT    18                                     
+</message>
+<message date="31/7/2016" time="577.00000000000000">
+ RESTART FILE WRITTEN   REPORT    19                                     
+</message>
+<message date="31/8/2016" time="608.00000000000000">
+ RESTART FILE WRITTEN   REPORT    20                                     
+</message>
+<message date="30/9/2016" time="638.00000000000000">
+ RESTART FILE WRITTEN   REPORT    21                                     
+</message>
+<message date="31/10/2016" time="669.00000000000000">
+ RESTART FILE WRITTEN   REPORT    22                                     
+</message>
+<message date="30/11/2016" time="699.00000000000000">
+ RESTART FILE WRITTEN   REPORT    23                                     
+</message>
+<message date="31/12/2016" time="730.00000000000000">
+ RESTART FILE WRITTEN   REPORT    24                                     
+</message>
+<message date="31/1/2017" time="761.00000000000000">
+ RESTART FILE WRITTEN   REPORT    25                                     
+</message>
+<message date="28/2/2017" time="789.00000000000000">
+ RESTART FILE WRITTEN   REPORT    26                                     
+</message>
+<message date="31/3/2017" time="820.00000000000000">
+ RESTART FILE WRITTEN   REPORT    27                                     
+</message>
+<message date="30/4/2017" time="850.00000000000000">
+ RESTART FILE WRITTEN   REPORT    28                                     
+</message>
+<message date="31/5/2017" time="881.00000000000000">
+ RESTART FILE WRITTEN   REPORT    29                                     
+</message>
+<message date="30/6/2017" time="911.00000000000000">
+ RESTART FILE WRITTEN   REPORT    30                                     
+</message>
+<message date="31/7/2017" time="942.00000000000000">
+ RESTART FILE WRITTEN   REPORT    31                                     
+</message>
+<message date="31/8/2017" time="973.00000000000000">
+ RESTART FILE WRITTEN   REPORT    32                                     
+</message>
+<message date="30/9/2017" time="1003.00000000000000">
+ RESTART FILE WRITTEN   REPORT    33                                     
+</message>
+<message date="31/10/2017" time="1034.00000000000000">
+ RESTART FILE WRITTEN   REPORT    34                                     
+</message>
+<message date="30/11/2017" time="1064.00000000000000">
+ RESTART FILE WRITTEN   REPORT    35                                     
+</message>
+<message date="31/12/2017" time="1095.00000000000000">
+ RESTART FILE WRITTEN   REPORT    36                                     
+</message>
+<message date="31/1/2018" time="1126.00000000000000">
+ RESTART FILE WRITTEN   REPORT    37                                     
+</message>
+<message date="28/2/2018" time="1154.00000000000000">
+ RESTART FILE WRITTEN   REPORT    38                                     
+</message>
+<message date="31/3/2018" time="1185.00000000000000">
+ RESTART FILE WRITTEN   REPORT    39                                     
+</message>
+<message date="30/4/2018" time="1215.00000000000000">
+ RESTART FILE WRITTEN   REPORT    40                                     
+</message>
+<message date="31/5/2018" time="1246.00000000000000">
+ RESTART FILE WRITTEN   REPORT    41                                     
+</message>
+<message date="30/6/2018" time="1276.00000000000000">
+ RESTART FILE WRITTEN   REPORT    42                                     
+</message>
+<message date="31/7/2018" time="1307.00000000000000">
+ RESTART FILE WRITTEN   REPORT    43                                     
+</message>
+<message date="31/8/2018" time="1338.00000000000000">
+ RESTART FILE WRITTEN   REPORT    44                                     
+</message>
+<message date="30/9/2018" time="1368.00000000000000">
+ RESTART FILE WRITTEN   REPORT    45                                     
+</message>
+<message date="31/10/2018" time="1399.00000000000000">
+ RESTART FILE WRITTEN   REPORT    46                                     
+</message>
+<message date="30/11/2018" time="1429.00000000000000">
+ RESTART FILE WRITTEN   REPORT    47                                     
+</message>
+<message date="31/12/2018" time="1460.00000000000000">
+ RESTART FILE WRITTEN   REPORT    48                                     
+</message>
+<message date="31/1/2019" time="1491.00000000000000">
+ RESTART FILE WRITTEN   REPORT    49                                     
+</message>
+<message date="28/2/2019" time="1519.00000000000000">
+ RESTART FILE WRITTEN   REPORT    50                                     
+</message>
+<message date="28/2/2019" time="1519.00000000000000">
+ ******************************************                              
+ * WELL PROD     HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME   1519.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="31/3/2019" time="1550.00000000000000">
+ RESTART FILE WRITTEN   REPORT    51                                     
+</message>
+<message date="30/4/2019" time="1580.00000000000000">
+ RESTART FILE WRITTEN   REPORT    52                                     
+</message>
+<message date="31/5/2019" time="1611.00000000000000">
+ RESTART FILE WRITTEN   REPORT    53                                     
+</message>
+<message date="30/6/2019" time="1641.00000000000000">
+ RESTART FILE WRITTEN   REPORT    54                                     
+</message>
+<message date="31/7/2019" time="1672.00000000000000">
+ RESTART FILE WRITTEN   REPORT    55                                     
+</message>
+<message date="31/8/2019" time="1703.00000000000000">
+ RESTART FILE WRITTEN   REPORT    56                                     
+</message>
+<message date="30/9/2019" time="1733.00000000000000">
+ RESTART FILE WRITTEN   REPORT    57                                     
+</message>
+<message date="31/10/2019" time="1764.00000000000000">
+ RESTART FILE WRITTEN   REPORT    58                                     
+</message>
+<message date="30/11/2019" time="1794.00000000000000">
+ RESTART FILE WRITTEN   REPORT    59                                     
+</message>
+<message date="31/12/2019" time="1825.00000000000000">
+ RESTART FILE WRITTEN   REPORT    60                                     
+</message>
+<message date="31/1/2020" time="1856.00000000000000">
+ RESTART FILE WRITTEN   REPORT    61                                     
+</message>
+<message date="28/2/2020" time="1884.00000000000000">
+ RESTART FILE WRITTEN   REPORT    62                                     
+</message>
+<message date="30/3/2020" time="1915.00000000000000">
+ RESTART FILE WRITTEN   REPORT    63                                     
+</message>
+<message date="29/4/2020" time="1945.00000000000000">
+ RESTART FILE WRITTEN   REPORT    64                                     
+</message>
+<message date="30/5/2020" time="1976.00000000000000">
+ RESTART FILE WRITTEN   REPORT    65                                     
+</message>
+<message date="29/6/2020" time="2006.00000000000000">
+ RESTART FILE WRITTEN   REPORT    66                                     
+</message>
+<message date="30/7/2020" time="2037.00000000000000">
+ RESTART FILE WRITTEN   REPORT    67                                     
+</message>
+<message date="30/8/2020" time="2068.00000000000000">
+ RESTART FILE WRITTEN   REPORT    68                                     
+</message>
+<message date="29/9/2020" time="2098.00000000000000">
+ RESTART FILE WRITTEN   REPORT    69                                     
+</message>
+<message date="30/10/2020" time="2129.00000000000000">
+ RESTART FILE WRITTEN   REPORT    70                                     
+</message>
+<message date="29/11/2020" time="2159.00000000000000">
+ RESTART FILE WRITTEN   REPORT    71                                     
+</message>
+<message date="30/12/2020" time="2190.00000000000000">
+ RESTART FILE WRITTEN   REPORT    72                                     
+</message>
+<message date="30/1/2021" time="2221.00000000000000">
+ RESTART FILE WRITTEN   REPORT    73                                     
+</message>
+<message date="27/2/2021" time="2249.00000000000000">
+ RESTART FILE WRITTEN   REPORT    74                                     
+</message>
+<message date="30/3/2021" time="2280.00000000000000">
+ RESTART FILE WRITTEN   REPORT    75                                     
+</message>
+<message date="29/4/2021" time="2310.00000000000000">
+ RESTART FILE WRITTEN   REPORT    76                                     
+</message>
+<message date="30/5/2021" time="2341.00000000000000">
+ RESTART FILE WRITTEN   REPORT    77                                     
+</message>
+<message date="29/6/2021" time="2371.00000000000000">
+ RESTART FILE WRITTEN   REPORT    78                                     
+</message>
+<message date="30/7/2021" time="2402.00000000000000">
+ RESTART FILE WRITTEN   REPORT    79                                     
+</message>
+<message date="30/8/2021" time="2433.00000000000000">
+ RESTART FILE WRITTEN   REPORT    80                                     
+</message>
+<message date="29/9/2021" time="2463.00000000000000">
+ RESTART FILE WRITTEN   REPORT    81                                     
+</message>
+<message date="30/10/2021" time="2494.00000000000000">
+ RESTART FILE WRITTEN   REPORT    82                                     
+</message>
+<message date="29/11/2021" time="2524.00000000000000">
+ RESTART FILE WRITTEN   REPORT    83                                     
+</message>
+<message date="30/12/2021" time="2555.00000000000000">
+ RESTART FILE WRITTEN   REPORT    84                                     
+</message>
+<message date="30/1/2022" time="2586.00000000000000">
+ RESTART FILE WRITTEN   REPORT    85                                     
+</message>
+<message date="27/2/2022" time="2614.00000000000000">
+ RESTART FILE WRITTEN   REPORT    86                                     
+</message>
+<message date="30/3/2022" time="2645.00000000000000">
+ RESTART FILE WRITTEN   REPORT    87                                     
+</message>
+<message date="29/4/2022" time="2675.00000000000000">
+ RESTART FILE WRITTEN   REPORT    88                                     
+</message>
+<message date="30/5/2022" time="2706.00000000000000">
+ RESTART FILE WRITTEN   REPORT    89                                     
+</message>
+<message date="29/6/2022" time="2736.00000000000000">
+ RESTART FILE WRITTEN   REPORT    90                                     
+</message>
+<message date="30/7/2022" time="2767.00000000000000">
+ RESTART FILE WRITTEN   REPORT    91                                     
+</message>
+<message date="30/8/2022" time="2798.00000000000000">
+ RESTART FILE WRITTEN   REPORT    92                                     
+</message>
+<message date="29/9/2022" time="2828.00000000000000">
+ RESTART FILE WRITTEN   REPORT    93                                     
+</message>
+<message date="30/10/2022" time="2859.00000000000000">
+ RESTART FILE WRITTEN   REPORT    94                                     
+</message>
+<message date="29/11/2022" time="2889.00000000000000">
+ RESTART FILE WRITTEN   REPORT    95                                     
+</message>
+<message date="30/12/2022" time="2920.00000000000000">
+ RESTART FILE WRITTEN   REPORT    96                                     
+</message>
+<message date="30/1/2023" time="2951.00000000000000">
+ RESTART FILE WRITTEN   REPORT    97                                     
+</message>
+<message date="27/2/2023" time="2979.00000000000000">
+ RESTART FILE WRITTEN   REPORT    98                                     
+</message>
+<message date="30/3/2023" time="3010.00000000000000">
+ RESTART FILE WRITTEN   REPORT    99                                     
+</message>
+<message date="29/4/2023" time="3040.00000000000000">
+ RESTART FILE WRITTEN   REPORT   100                                     
+</message>
+<message date="30/5/2023" time="3071.00000000000000">
+ RESTART FILE WRITTEN   REPORT   101                                     
+</message>
+<message date="29/6/2023" time="3101.00000000000000">
+ RESTART FILE WRITTEN   REPORT   102                                     
+</message>
+<message date="30/7/2023" time="3132.00000000000000">
+ RESTART FILE WRITTEN   REPORT   103                                     
+</message>
+<message date="30/8/2023" time="3163.00000000000000">
+ RESTART FILE WRITTEN   REPORT   104                                     
+</message>
+<message date="29/9/2023" time="3193.00000000000000">
+ RESTART FILE WRITTEN   REPORT   105                                     
+</message>
+<message date="30/10/2023" time="3224.00000000000000">
+ RESTART FILE WRITTEN   REPORT   106                                     
+</message>
+<message date="29/11/2023" time="3254.00000000000000">
+ RESTART FILE WRITTEN   REPORT   107                                     
+</message>
+<message date="30/12/2023" time="3285.00000000000000">
+ RESTART FILE WRITTEN   REPORT   108                                     
+</message>
+<message date="30/1/2024" time="3316.00000000000000">
+ RESTART FILE WRITTEN   REPORT   109                                     
+</message>
+<message date="27/2/2024" time="3344.00000000000000">
+ RESTART FILE WRITTEN   REPORT   110                                     
+</message>
+<message date="29/3/2024" time="3375.00000000000000">
+ RESTART FILE WRITTEN   REPORT   111                                     
+</message>
+<message date="28/4/2024" time="3405.00000000000000">
+ RESTART FILE WRITTEN   REPORT   112                                     
+</message>
+<message date="29/5/2024" time="3436.00000000000000">
+ RESTART FILE WRITTEN   REPORT   113                                     
+</message>
+<message date="28/6/2024" time="3466.00000000000000">
+ RESTART FILE WRITTEN   REPORT   114                                     
+</message>
+<message date="29/7/2024" time="3497.00000000000000">
+ RESTART FILE WRITTEN   REPORT   115                                     
+</message>
+<message date="29/8/2024" time="3528.00000000000000">
+ RESTART FILE WRITTEN   REPORT   116                                     
+</message>
+<message date="28/9/2024" time="3558.00000000000000">
+ RESTART FILE WRITTEN   REPORT   117                                     
+</message>
+<message date="29/10/2024" time="3589.00000000000000">
+ RESTART FILE WRITTEN   REPORT   118                                     
+</message>
+<message date="28/11/2024" time="3619.00000000000000">
+ RESTART FILE WRITTEN   REPORT   119                                     
+</message>
+<message date="29/12/2024" time="3650.00000000000000">
+ RESTART FILE WRITTEN   REPORT   120                                     
+</message>
+</eclipse>

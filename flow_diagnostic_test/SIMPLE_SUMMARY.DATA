@@ -1,0 +1,294 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2016 Statoil
+
+-- NOTE: This deck is currently not supported by the OPM
+-- simulator flow due to lack of support for LGR.
+
+
+RUNSPEC  ===============================================================
+
+TITLE
+ SIMPLE 2PH MODEL WITH SEVERAL TYPES OF SUMMARY OUTPUT
+
+DIMENS
+    20  20  10 / 
+
+METRIC
+
+OIL
+
+WATER
+
+TABDIMS
+    2*    24 2*    20    20 1*     1 7* /
+EQLDIMS
+    2* 100 2* /
+REGDIMS
+    2 5* /
+WELLDIMS
+       12   100     4    12     0     0     0     0     0     0     0     0 /
+
+TRACERS
+-- NOTRAC NWTRAC NGTRAC NETRAC Diff/NODiff
+      0      2     0     0      'DIFF' /
+
+
+NSTACK
+  25 /
+START
+9 APR 2015 /
+
+LGR
+      2      10000  / 
+
+AQUDIMS
+ 1 1 /
+
+UNIFOUT
+
+GRID    ===============================================================
+
+INCLUDE
+ 'include/SHIFTTOP.GRDECL'
+/
+
+PORO
+4000*0.3
+/
+
+PERMX
+2000*80.0
+800*150.0
+1200*50.0
+/
+
+PERMY
+2000*80.0
+800*150.0
+1200*50.0
+/
+
+PERMZ
+2000*15.0
+800*25.0
+1200*15.0
+/
+
+NOECHO
+
+CARFIN
+---- Name   I1  I2   J1   J2   K1   K2   NX   NY   NZ
+  'CENTER'   8   12   8    12   4    6   20   20   9 /
+ENDFIN
+CARFIN
+  'WELLI1'   1   3    1    3    1    10  9    9    20 /
+ENDFIN
+
+INIT
+
+AQUNUM
+ 1 10 10 10 10000 1000 1* 1000 1* /
+/
+
+AQUCON
+ 1 5 15 5 15 10 10 K+ /
+/
+
+PROPS     ===============================================================
+
+DENSITY
+    900 1000    1 /
+PVCDO   -- pref  Bo    Co       muo    vo
+           400   1.05  1.0E-05    5      0
+    /
+
+PVTW
+         400    1    1.0E-06    1      0 /
+
+ROCK
+    400  0 /
+
+--Corey parametrization using exponent of 2
+SWOF
+ 0.1000	0.0000	1.0000	0.0000
+ 0.1500	0.0020	0.8789	0.0000
+ 0.2000	0.0078	0.7656	0.0000
+ 0.2500	0.0176	0.6602	0.0000
+ 0.3000	0.0313	0.5625	0.0000
+ 0.3500	0.0488	0.4727	0.0000
+ 0.4000	0.0703	0.3906	0.0000
+ 0.4500	0.0957	0.3164	0.0000
+ 0.5000	0.1250	0.2500	0.0000
+ 0.5500	0.1582	0.1914	0.0000
+ 0.6000	0.1953	0.1406	0.0000
+ 0.6500	0.2363	0.0977	0.0000
+ 0.7000	0.2813	0.0625	0.0000
+ 0.7500	0.3301	0.0352	0.0000
+ 0.8000	0.3828	0.0156	0.0000
+ 0.8500	0.4395	0.0039	0.0000
+ 0.9000	0.5000	0.0000	0.0000
+/
+
+
+TRACER
+ 'TR1' WAT /
+ 'TR2' WAT /
+/
+
+TRACITVD
+ /
+
+
+
+REGIONS   ===============================================================
+
+--  ARRAY   VALUE     ------- BOX ------
+--                    I1   I2   J1   J2   K1   K2
+EQUALS
+ FIPNUM 1 1 10 1 20 1 10  / 
+ FIPNUM 2 11 20 1 20 1 10 /
+/
+
+
+SOLUTION  ===============================================================
+EQUIL
+       0  400    500   0 /
+
+RPTSOL
+ RESTART=2  /
+
+RPTRST
+ FLORES  /
+
+TBLKFTR1
+  4000*0 /
+
+TBLKFTR2
+  4000*0 /
+
+
+SUMMARY   ===============================================================
+ALL
+
+
+-- ANQR
+-- /
+
+FNQT
+
+BPR
+ 10 10 5 /
+/
+
+COFR
+ 'P1' 18 2 5 /
+/
+
+LBOSAT
+-- LGR Name Local Cell
+ 'CENTER' 5 5 5 /
+/
+
+LCWIT
+-- LGR Name Well Name Local Cell
+ 'WELLI1' 'I1' 5 5 5 /
+/
+
+LWWIR
+-- LGR Name Well Name
+ 'WELLI1' 'I1' /
+/
+
+RWFT
+ 1 2 /
+/
+
+ROIP
+/
+
+WTPRTR1 
+/
+
+WTPRTR2 
+/
+
+WTPTTR1 
+/
+
+WTPTTR2 
+/
+
+WTITTR1 
+/
+
+WTITTR2 
+/
+
+
+SCHEDULE   ===============================================================
+
+
+RPTSCHED
+    FIP WELSPECS WELLS /
+
+RPTRST
+   BASIC=2 FLORES /
+
+
+WELSPECS
+--    'I1'   '1'   2    2  1* 'WATER' /
+	'I2'   '1'   2   18  1* 'WATER' /
+  	'P1'   '1'  18    2  1* 'OIL' /
+   	'P2'   '1'  18   18  1* 'OIL' /
+/
+
+COMPDAT
+--   	'I1'   2*    1    10  'OPEN'  2*     0.2 	1*    0 / 
+	'I2'   2*    1    10  'OPEN'  2*     0.2 	1*    0 /
+   	'P1'    2*    1    10  'OPEN'  2*     0.2 	1*    0 / 
+   	'P2'    2*    1    10  'OPEN'  2*     0.2 	1*    0 / 
+/
+
+WELSPECL
+       'I1'   'G' 'WELLI1'   5 5    1*      'WATER'  / Injector
+/
+COMPDATL
+       'I1' 'WELLI1'  1*  1*  1    20  'OPEN' 2*   0.2 1* 0  /  
+/
+
+
+WCONPROD
+    'P1' 'OPEN' 'BHP' 5*  350/
+    'P2' 'OPEN' 'BHP' 5*  345/
+/
+
+WCONINJE
+    'I1'  'WATER'  'OPEN'  'RATE'  40  1* 550/
+    'I2'  'WATER'  'OPEN'  'RATE'  10  1* 550/
+/
+
+WTRACER
+  'I1'   'TR1'   1.0 /
+  'I2'   'TR2'   1.0 /
+/
+
+
+TUNING
+0.1 30 /
+/
+12 1 250 1* 25 /
+
+-- approx 2 year
+TSTEP
+ 24*15 /
+ 
+TSTEP
+ 12*30 /
+ 
+END
+
+

@@ -1,0 +1,95 @@
+<eclipse>
+<message date="1/1/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+     136036 BYTES                                                        
+</message>
+<warning date="1/1/2015" time="0.00000000000000">
+          243 VALUES NOT DEFINED IN BOX (  1-  9,  1-  9,  1-  4)        
+ OF KEYWORD TOPS                                                         
+</warning>
+<message date="1/1/2015" time="0.00000000000000">
+ UNSPECIFIED TOPS VALUES OBTAINED BY ADDING DZ                           
+ TO TOPS VALUE FOR LAYER ABOVE                                           
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                          
+ BLOCK CENTRE TRANSMISSIBILITIES TO BE CALCULATED                        
+ USING  OLDTRAN                                                          
+</message>
+<comment date="1/1/2015" time="0.00000000000000">
+ NO NON-NEIGHBOUR CONNECTIONS FOUND                                      
+</comment>
+<message date="1/1/2015" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 324                                           
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
+     783540 BYTES                                                        
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+    62178 CHARACTER VARIABLES USED                                       
+</message>
+<warning date="1/1/2015" time="0.00000000000000">
+  NEGATIVE COMPRESSIBILITY FOUND IN GAS                                  
+  PRESSURE TABLE     1 AND OIL PRESSURE                                  
+  TABLE     1 AT A SAMPLE PRESSURE VALUE                                 
+   4000.00000 . ADJUST SATURATED FLUID                                   
+  PROPERTY VALUES AT THIS PRESSURE.                                      
+  NEGATIVE COMPRESSIBILITIES OCCUR                                       
+  FOR GAS SATURATIONS LESS THAN     0.07947                              
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ THE MAXIMUM PRESSURE ENTERED IN THE PVT TABLES                          
+ FOR THE OIL PHASE IS   5000.000. THIS IS GREATER THAN                   
+ THE MAXIMUM PRESSURE FOR THE GAS PHASE,   4000.000                      
+ AND MAY LEAD TO PVT TABLE EXTRAPOLATION                                 
+</warning>
+<message date="1/1/2016" time="364.99999997999998">
+ RESTART FILE WRITTEN   REPORT     7                                     
+</message>
+<message date="31/1/2017" time="760.99999997999998">
+ RESTART FILE WRITTEN   REPORT    20                                     
+</message>
+<message date="31/1/2018" time="1125.99999997999998">
+ RESTART FILE WRITTEN   REPORT    32                                     
+</message>
+<message date="31/1/2019" time="1490.99999997999998">
+ RESTART FILE WRITTEN   REPORT    44                                     
+</message>
+<message date="31/1/2020" time="1855.99999997999998">
+ RESTART FILE WRITTEN   REPORT    56                                     
+</message>
+<message date="30/1/2021" time="2220.99999998000021">
+ RESTART FILE WRITTEN   REPORT    68                                     
+</message>
+<message date="30/1/2022" time="2585.99999998000021">
+ RESTART FILE WRITTEN   REPORT    80                                     
+</message>
+<message date="30/1/2023" time="2950.99999998000021">
+ RESTART FILE WRITTEN   REPORT    92                                     
+</message>
+<message date="30/1/2024" time="3315.99999998000021">
+ RESTART FILE WRITTEN   REPORT   104                                     
+</message>
+<message date="29/1/2025" time="3680.99999998000021">
+ RESTART FILE WRITTEN   REPORT   116                                     
+</message>
+<message date="29/1/2026" time="4045.99999998000021">
+ RESTART FILE WRITTEN   REPORT   128                                     
+</message>
+<message date="29/1/2027" time="4410.99999998000021">
+ RESTART FILE WRITTEN   REPORT   140                                     
+</message>
+<message date="29/1/2028" time="4775.99999998000021">
+ RESTART FILE WRITTEN   REPORT   152                                     
+</message>
+<message date="28/1/2029" time="5140.99999998000021">
+ RESTART FILE WRITTEN   REPORT   164                                     
+</message>
+</eclipse>

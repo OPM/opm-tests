@@ -1,0 +1,16 @@
+#!/bin/sh 
+export LM_LICENSE_FILE=7321@eclipse-lic-no.statoil.no
+export F_UFMTENDIAN=big
+export ARCH=`uname -m`
+cd /private/ptau/opm-data/norne
+/bin/rm -f ECL.CFG
+/bin/cp /prog/ecl/grid/macros/CONFIG.ECL ./ECL.CFG 2>> NORNE_ATW2013.ERR
+executable=/prog/ecl/grid/2014.2/bin/linux_x86_64/eclipse.exe
+$executable <<END 
+NORNE_ATW2013
+NORNE_ATW2013
+30000000
+30000000
+$executable
+END
+mv -f /private/ptau/opm-data/norne/NORNE_ATW2013.job /private/ptau/opm-data/norne/NORNE_ATW2013.job.done

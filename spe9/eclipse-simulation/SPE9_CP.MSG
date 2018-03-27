@@ -1,0 +1,617 @@
+<eclipse>
+<message date="1/1/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+       3482 KBYTES                                                       
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                          
+ TRANSMISSIBILITIES TO BE CALCULATED                                     
+ USING  NEWTRAN                                                          
+</message>
+<comment date="1/1/2015" time="0.00000000000000">
+ NO NON-NEIGHBOUR CONNECTIONS FOUND                                      
+</comment>
+<message date="1/1/2015" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 9000                                          
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
+      12170 KBYTES                                                       
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+    62331 CHARACTER VARIABLES USED                                       
+</message>
+<warning date="1/1/2015" time="0.00000000000000">
+ SPURIOUS DATA BEFORE PVTO     KEYWORD                                   
+ 	                                                                       
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ THE MAXIMUM PRESSURE ENTERED IN THE PVT TABLES                          
+ FOR THE OIL PHASE IS   4600.000. THIS IS GREATER THAN                   
+ THE MAXIMUM PRESSURE FOR THE GAS PHASE,   4000.000                      
+ AND MAY LEAD TO PVT TABLE EXTRAPOLATION                                 
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ WELL INJE1    HAS A BOTTOM HOLE REFERENCE                               
+ DEPTH OF   9110.0   FEET                                                
+ THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE                     
+ BETWEEN  10359.7 AND  10507.2   FEET                                    
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ WELL PRODU9   HAS A BOTTOM HOLE REFERENCE                               
+ DEPTH OF   9110.0   FEET                                                
+ THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE                     
+ BETWEEN   9704.7 AND   9745.7   FEET                                    
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ WELL PRODU16  HAS A BOTTOM HOLE REFERENCE                               
+ DEPTH OF   9110.0   FEET                                                
+ THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE                     
+ BETWEEN   9652.6 AND   9693.6   FEET                                    
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ WELL PRODU17  HAS A BOTTOM HOLE REFERENCE                               
+ DEPTH OF   9110.0   FEET                                                
+ THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE                     
+ BETWEEN   9756.8 AND   9797.8   FEET                                    
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ WELL PRODU23  HAS A BOTTOM HOLE REFERENCE                               
+ DEPTH OF   9110.0   FEET                                                
+ THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE                     
+ BETWEEN   9756.8 AND   9797.8   FEET                                    
+</warning>
+<warning date="1/1/2015" time="0.00000000000000">
+ WELL PRODU26  HAS A BOTTOM HOLE REFERENCE                               
+ DEPTH OF   9110.0   FEET                                                
+ THE CENTRE DEPTHS OF THE CONNECTING GRID BLOCKS LIE                     
+ BETWEEN   9861.0 AND   9902.0   FEET                                    
+</warning>
+<message date="1/1/2015" time="0.00000000000000">
+ DRSDT KEYWORD HAS NOT BEEN ENTERED, SO THE                              
+ MAXIMUM GAS RE-SOLUTION RATE IS DEFAULTED TO INFINITY.                  
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ ******************************************                              
+ * WELL INJE1    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME      0.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ ******************************************                              
+ * WELL PRODU21  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME      0.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/1/2015" time="0.00000000000000">
+ ******************************************                              
+ * WELL PRODU26  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME      0.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="5/1/2015" time="4.00000000000000">
+ ******************************************                              
+ * WELL PRODU23  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME      4.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="11/1/2015" time="10.00000000000000">
+ RESTART FILE WRITTEN   REPORT     1                                     
+</message>
+<message date="21/1/2015" time="20.00000000000000">
+ RESTART FILE WRITTEN   REPORT     2                                     
+</message>
+<message date="31/1/2015" time="30.00000000000000">
+ RESTART FILE WRITTEN   REPORT     3                                     
+</message>
+<message date="10/2/2015" time="40.00000000000000">
+ RESTART FILE WRITTEN   REPORT     4                                     
+</message>
+<message date="20/2/2015" time="50.00000000000000">
+ RESTART FILE WRITTEN   REPORT     5                                     
+</message>
+<message date="2/3/2015" time="60.00000000000000">
+ RESTART FILE WRITTEN   REPORT     6                                     
+</message>
+<message date="12/3/2015" time="70.00000000000000">
+ RESTART FILE WRITTEN   REPORT     7                                     
+</message>
+<message date="12/3/2015" time="70.00000000000000">
+ ******************************************                              
+ * WELL PRODU9   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME     70.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="22/3/2015" time="80.00000000000000">
+ RESTART FILE WRITTEN   REPORT     8                                     
+</message>
+<message date="1/4/2015" time="90.00000000000000">
+ RESTART FILE WRITTEN   REPORT     9                                     
+</message>
+<message date="11/4/2015" time="100.00000000000000">
+ RESTART FILE WRITTEN   REPORT    10                                     
+</message>
+<message date="21/4/2015" time="110.00000000000000">
+ RESTART FILE WRITTEN   REPORT    11                                     
+</message>
+<message date="21/4/2015" time="110.00000000000000">
+ ******************************************                              
+ * WELL PRODU16  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    110.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="21/4/2015" time="110.00000000000000">
+ ******************************************                              
+ * WELL PRODU22  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    110.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/5/2015" time="120.00000000000000">
+ RESTART FILE WRITTEN   REPORT    12                                     
+</message>
+<message date="11/5/2015" time="130.00000000000000">
+ RESTART FILE WRITTEN   REPORT    13                                     
+</message>
+<message date="21/5/2015" time="140.00000000000000">
+ RESTART FILE WRITTEN   REPORT    14                                     
+</message>
+<message date="31/5/2015" time="150.00000000000000">
+ RESTART FILE WRITTEN   REPORT    15                                     
+</message>
+<message date="10/6/2015" time="160.00000000000000">
+ RESTART FILE WRITTEN   REPORT    16                                     
+</message>
+<message date="20/6/2015" time="170.00000000000000">
+ RESTART FILE WRITTEN   REPORT    17                                     
+</message>
+<message date="30/6/2015" time="180.00000000000000">
+ RESTART FILE WRITTEN   REPORT    18                                     
+</message>
+<message date="10/7/2015" time="190.00000000000000">
+ RESTART FILE WRITTEN   REPORT    19                                     
+</message>
+<message date="10/7/2015" time="190.00000000000000">
+ ******************************************                              
+ * WELL PRODU12  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    190.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="20/7/2015" time="200.00000000000000">
+ RESTART FILE WRITTEN   REPORT    20                                     
+</message>
+<message date="20/7/2015" time="200.00000000000000">
+ ******************************************                              
+ * WELL PRODU11  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    200.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="30/7/2015" time="210.00000000000000">
+ RESTART FILE WRITTEN   REPORT    21                                     
+</message>
+<message date="30/7/2015" time="210.00000000000000">
+ ******************************************                              
+ * WELL PRODU6   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    210.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="9/8/2015" time="220.00000000000000">
+ RESTART FILE WRITTEN   REPORT    22                                     
+</message>
+<message date="19/8/2015" time="230.00000000000000">
+ RESTART FILE WRITTEN   REPORT    23                                     
+</message>
+<message date="29/8/2015" time="240.00000000000000">
+ RESTART FILE WRITTEN   REPORT    24                                     
+</message>
+<message date="29/8/2015" time="240.00000000000000">
+ ******************************************                              
+ * WELL PRODU2   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    240.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="29/8/2015" time="240.00000000000000">
+ ******************************************                              
+ * WELL PRODU20  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    240.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="8/9/2015" time="250.00000000000000">
+ RESTART FILE WRITTEN   REPORT    25                                     
+</message>
+<message date="18/9/2015" time="260.00000000000000">
+ RESTART FILE WRITTEN   REPORT    26                                     
+</message>
+<message date="18/9/2015" time="260.00000000000000">
+ ******************************************                              
+ * WELL PRODU3   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    260.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="28/9/2015" time="270.00000000000000">
+ RESTART FILE WRITTEN   REPORT    27                                     
+</message>
+<message date="8/10/2015" time="280.00000000000000">
+ RESTART FILE WRITTEN   REPORT    28                                     
+</message>
+<message date="18/10/2015" time="290.00000000000000">
+ RESTART FILE WRITTEN   REPORT    29                                     
+</message>
+<message date="28/10/2015" time="300.00000000000000">
+ RESTART FILE WRITTEN   REPORT    30                                     
+</message>
+<message date="7/11/2015" time="310.00000000000000">
+ RESTART FILE WRITTEN   REPORT    31                                     
+</message>
+<message date="17/11/2015" time="320.00000000000000">
+ RESTART FILE WRITTEN   REPORT    32                                     
+</message>
+<warning date="17/11/2015" time="320.00000000000000">
+ LINEAR CONVERGENCE FAILURE ON LAST NUPCOL ITERATION.                    
+ GROUP TARGETS AND LIMITS MAY NOT BE ACCURATELY HONORED.                 
+ YOU MAY NEED TO INCREASE THE CURRENT VALUE OF    3                      
+ USING THE NUPCOL KEYWORD.                                               
+</warning>
+<warning date="17/11/2015" time="320.00000000000000">
+ LINEAR EQUATION CONVERGENCE PROBLEMS WERE EXPERIENCED THIS              
+ TIME-STEP. IN SOME CASES INCREASING LITMAX                              
+ (TUNING KEYWORD) AND/OR NSTACK MAY HELP.                                
+</warning>
+<message date="27/11/2015" time="330.00000000000000">
+ RESTART FILE WRITTEN   REPORT    33                                     
+</message>
+<message date="7/12/2015" time="340.00000000000000">
+ RESTART FILE WRITTEN   REPORT    34                                     
+</message>
+<message date="17/12/2015" time="350.00000000000000">
+ RESTART FILE WRITTEN   REPORT    35                                     
+</message>
+<message date="27/12/2015" time="360.00000000000000">
+ RESTART FILE WRITTEN   REPORT    36                                     
+</message>
+<message date="27/12/2015" time="360.00000000000000">
+ ******************************************                              
+ * WELL PRODU9   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    360.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="27/12/2015" time="360.00000000000000">
+ ******************************************                              
+ * WELL PRODU11  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    360.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="27/12/2015" time="360.00000000000000">
+ ******************************************                              
+ * WELL PRODU12  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    360.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="27/12/2015" time="360.00000000000000">
+ ******************************************                              
+ * WELL PRODU16  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    360.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="27/12/2015" time="360.00000000000000">
+ ******************************************                              
+ * WELL PRODU21  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    360.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="27/12/2015" time="360.00000000000000">
+ ******************************************                              
+ * WELL PRODU22  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    360.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="27/12/2015" time="360.00000000000000">
+ ******************************************                              
+ * WELL PRODU23  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    360.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="27/12/2015" time="360.00000000000000">
+ ******************************************                              
+ * WELL PRODU26  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    360.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="6/1/2016" time="370.00000000000000">
+ RESTART FILE WRITTEN   REPORT    37                                     
+</message>
+<message date="6/1/2016" time="370.00000000000000">
+ ******************************************                              
+ * WELL PRODU2   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    370.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="6/1/2016" time="370.00000000000000">
+ ******************************************                              
+ * WELL PRODU20  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    370.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="16/1/2016" time="380.00000000000000">
+ RESTART FILE WRITTEN   REPORT    38                                     
+</message>
+<message date="16/1/2016" time="380.00000000000000">
+ ******************************************                              
+ * WELL PRODU6   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    380.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="26/1/2016" time="390.00000000000000">
+ RESTART FILE WRITTEN   REPORT    39                                     
+</message>
+<message date="5/2/2016" time="400.00000000000000">
+ RESTART FILE WRITTEN   REPORT    40                                     
+</message>
+<message date="5/2/2016" time="400.00000000000000">
+ ******************************************                              
+ * WELL PRODU3   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    400.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="15/2/2016" time="410.00000000000000">
+ RESTART FILE WRITTEN   REPORT    41                                     
+</message>
+<message date="25/2/2016" time="420.00000000000000">
+ RESTART FILE WRITTEN   REPORT    42                                     
+</message>
+<message date="6/3/2016" time="430.00000000000000">
+ RESTART FILE WRITTEN   REPORT    43                                     
+</message>
+<message date="16/3/2016" time="440.00000000000000">
+ RESTART FILE WRITTEN   REPORT    44                                     
+</message>
+<message date="26/3/2016" time="450.00000000000000">
+ RESTART FILE WRITTEN   REPORT    45                                     
+</message>
+<message date="5/4/2016" time="460.00000000000000">
+ RESTART FILE WRITTEN   REPORT    46                                     
+</message>
+<message date="5/4/2016" time="460.00000000000000">
+ ******************************************                              
+ * WELL PRODU13  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    460.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="5/4/2016" time="460.00000000000000">
+ ******************************************                              
+ * WELL PRODU17  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    460.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="5/4/2016" time="460.00000000000000">
+ ******************************************                              
+ * WELL PRODU25  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    460.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="15/4/2016" time="470.00000000000000">
+ RESTART FILE WRITTEN   REPORT    47                                     
+</message>
+<message date="15/4/2016" time="470.00000000000000">
+ ******************************************                              
+ * WELL PRODU7   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    470.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="25/4/2016" time="480.00000000000000">
+ RESTART FILE WRITTEN   REPORT    48                                     
+</message>
+<message date="25/4/2016" time="480.00000000000000">
+ ******************************************                              
+ * WELL PRODU5   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    480.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="5/5/2016" time="490.00000000000000">
+ RESTART FILE WRITTEN   REPORT    49                                     
+</message>
+<message date="15/5/2016" time="500.00000000000000">
+ RESTART FILE WRITTEN   REPORT    50                                     
+</message>
+<message date="15/5/2016" time="500.00000000000000">
+ ******************************************                              
+ * WELL PRODU19  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    500.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="25/5/2016" time="510.00000000000000">
+ RESTART FILE WRITTEN   REPORT    51                                     
+</message>
+<message date="25/5/2016" time="510.00000000000000">
+ ******************************************                              
+ * WELL PRODU15  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    510.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="4/6/2016" time="520.00000000000000">
+ RESTART FILE WRITTEN   REPORT    52                                     
+</message>
+<message date="14/6/2016" time="530.00000000000000">
+ RESTART FILE WRITTEN   REPORT    53                                     
+</message>
+<message date="24/6/2016" time="540.00000000000000">
+ RESTART FILE WRITTEN   REPORT    54                                     
+</message>
+<message date="4/7/2016" time="550.00000000000000">
+ RESTART FILE WRITTEN   REPORT    55                                     
+</message>
+<message date="14/7/2016" time="560.00000000000000">
+ RESTART FILE WRITTEN   REPORT    56                                     
+</message>
+<message date="24/7/2016" time="570.00000000000000">
+ RESTART FILE WRITTEN   REPORT    57                                     
+</message>
+<message date="24/7/2016" time="570.00000000000000">
+ ******************************************                              
+ * WELL PRODU18  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    570.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="3/8/2016" time="580.00000000000000">
+ RESTART FILE WRITTEN   REPORT    58                                     
+</message>
+<message date="3/8/2016" time="580.00000000000000">
+ ******************************************                              
+ * WELL PRODU10  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    580.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="13/8/2016" time="590.00000000000000">
+ RESTART FILE WRITTEN   REPORT    59                                     
+</message>
+<message date="23/8/2016" time="600.00000000000000">
+ RESTART FILE WRITTEN   REPORT    60                                     
+</message>
+<message date="2/9/2016" time="610.00000000000000">
+ RESTART FILE WRITTEN   REPORT    61                                     
+</message>
+<message date="12/9/2016" time="620.00000000000000">
+ RESTART FILE WRITTEN   REPORT    62                                     
+</message>
+<message date="22/9/2016" time="630.00000000000000">
+ RESTART FILE WRITTEN   REPORT    63                                     
+</message>
+<message date="2/10/2016" time="640.00000000000000">
+ RESTART FILE WRITTEN   REPORT    64                                     
+</message>
+<message date="12/10/2016" time="650.00000000000000">
+ RESTART FILE WRITTEN   REPORT    65                                     
+</message>
+<message date="12/10/2016" time="650.00000000000000">
+ ******************************************                              
+ * WELL PRODU4   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    650.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="22/10/2016" time="660.00000000000000">
+ RESTART FILE WRITTEN   REPORT    66                                     
+</message>
+<message date="1/11/2016" time="670.00000000000000">
+ RESTART FILE WRITTEN   REPORT    67                                     
+</message>
+<message date="11/11/2016" time="680.00000000000000">
+ RESTART FILE WRITTEN   REPORT    68                                     
+</message>
+<message date="21/11/2016" time="690.00000000000000">
+ RESTART FILE WRITTEN   REPORT    69                                     
+</message>
+<message date="1/12/2016" time="700.00000000000000">
+ RESTART FILE WRITTEN   REPORT    70                                     
+</message>
+<message date="11/12/2016" time="710.00000000000000">
+ RESTART FILE WRITTEN   REPORT    71                                     
+</message>
+<message date="21/12/2016" time="720.00000000000000">
+ RESTART FILE WRITTEN   REPORT    72                                     
+</message>
+<message date="31/12/2016" time="730.00000000000000">
+ RESTART FILE WRITTEN   REPORT    73                                     
+</message>
+<message date="10/1/2017" time="740.00000000000000">
+ RESTART FILE WRITTEN   REPORT    74                                     
+</message>
+<message date="20/1/2017" time="750.00000000000000">
+ RESTART FILE WRITTEN   REPORT    75                                     
+</message>
+<message date="30/1/2017" time="760.00000000000000">
+ RESTART FILE WRITTEN   REPORT    76                                     
+</message>
+<message date="30/1/2017" time="760.00000000000000">
+ ******************************************                              
+ * WELL PRODU8   HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    760.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="9/2/2017" time="770.00000000000000">
+ RESTART FILE WRITTEN   REPORT    77                                     
+</message>
+<message date="19/2/2017" time="780.00000000000000">
+ RESTART FILE WRITTEN   REPORT    78                                     
+</message>
+<message date="1/3/2017" time="790.00000000000000">
+ RESTART FILE WRITTEN   REPORT    79                                     
+</message>
+<message date="11/3/2017" time="800.00000000000000">
+ RESTART FILE WRITTEN   REPORT    80                                     
+</message>
+<message date="21/3/2017" time="810.00000000000000">
+ RESTART FILE WRITTEN   REPORT    81                                     
+</message>
+<message date="31/3/2017" time="820.00000000000000">
+ RESTART FILE WRITTEN   REPORT    82                                     
+</message>
+<message date="10/4/2017" time="830.00000000000000">
+ RESTART FILE WRITTEN   REPORT    83                                     
+</message>
+<message date="20/4/2017" time="840.00000000000000">
+ RESTART FILE WRITTEN   REPORT    84                                     
+</message>
+<message date="30/4/2017" time="850.00000000000000">
+ RESTART FILE WRITTEN   REPORT    85                                     
+</message>
+<message date="10/5/2017" time="860.00000000000000">
+ RESTART FILE WRITTEN   REPORT    86                                     
+</message>
+<message date="20/5/2017" time="870.00000000000000">
+ RESTART FILE WRITTEN   REPORT    87                                     
+</message>
+<message date="30/5/2017" time="880.00000000000000">
+ RESTART FILE WRITTEN   REPORT    88                                     
+</message>
+<message date="30/5/2017" time="880.00000000000000">
+ ******************************************                              
+ * WELL PRODU24  HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    880.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="9/6/2017" time="890.00000000000000">
+ RESTART FILE WRITTEN   REPORT    89                                     
+</message>
+<message date="19/6/2017" time="900.00000000000000">
+ RESTART FILE WRITTEN   REPORT    90                                     
+</message>
+</eclipse>
