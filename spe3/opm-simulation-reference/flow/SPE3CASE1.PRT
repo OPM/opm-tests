@@ -10,10 +10,10 @@
 Flow is a simulator for fully implicit three-phase black-oil flow, and is part of OPM.
 For more information visit: https://opm-project.org 
 
-Flow Version  =  2018.04-pre
+Flow Version  =  2018.10-pre
 System        =  opm-deb (Number of cores: 12, RAM: 32178.65 MB) 
 Architecture  =  Linux x86_64 (Release: 4.9.0-3-amd64, Version: #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) )
-Simulation started on 23-04-2018 at 13:04:24 hrs
+Simulation started on 08-05-2018 at 08:27:47 hrs
 
 
 ===============Saturation Functions Diagnostics===============
@@ -70,7 +70,7 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step  0/175 at day 0/5475, date = 01-Jan-2015
 
 Time step 0, stepsize 1 days.
-Time step summary: well its =  1, newton its =  5, linearizations =  6 ( 0.013 sec), linear its =  17 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  5, linearizations =  6 ( 0.012 sec), linear its =  17 ( 0.002 sec)
 
 Warning: Keyword 'BRS' is unhandled for output to file.
 
@@ -87,7 +87,7 @@ Warning: Keyword 'BOSAT' is unhandled for output to file.
 Warning: Keyword 'BRS' is unhandled for output to file.
 
 Time step 1, stepsize 3 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  12 ( 0.001 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BRS' is unhandled for output to file.
 
@@ -104,7 +104,7 @@ Warning: Keyword 'BOSAT' is unhandled for output to file.
 Warning: Keyword 'BRS' is unhandled for output to file.
 
 Time step 2, stepsize 9 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
 
 Warning: Keyword 'BRS' is unhandled for output to file.
 
@@ -142,7 +142,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at   52.1428  Days *                SPE 3 - CASE 1                                          *
-  Report    1    22 Feb 2015  *                                             Flow  version 2018.04-pre  *
+  Report    1    22 Feb 2015  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -189,11 +189,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step  1/175 at day 52.1428/5475, date = 22-Feb-2015
 
 Time step 0, stepsize 52.1428 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.010 sec), linear its =  22 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  22 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at   104.286  Days *                SPE 3 - CASE 1                                          *
-  Report    2    15 Apr 2015  *                                             Flow  version 2018.04-pre  *
+  Report    2    15 Apr 2015  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -240,11 +240,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step  2/175 at day 104.286/5475, date = 15-Apr-2015
 
 Time step 0, stepsize 52.1428 days.
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.015 sec), linear its =  34 ( 0.005 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.008 sec), linear its =  34 ( 0.003 sec)
 
                               **************************************************************************
   Balance  at   156.429  Days *                SPE 3 - CASE 1                                          *
-  Report    3    06 Jun 2015  *                                             Flow  version 2018.04-pre  *
+  Report    3    06 Jun 2015  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -291,11 +291,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step  3/175 at day 156.429/5475, date = 06-Jun-2015
 
 Time step 0, stepsize 52.1428 days.
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.013 sec), linear its =  30 ( 0.005 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.007 sec), linear its =  30 ( 0.003 sec)
 
                               **************************************************************************
   Balance  at   208.571  Days *                SPE 3 - CASE 1                                          *
-  Report    4    28 Jul 2015  *                                             Flow  version 2018.04-pre  *
+  Report    4    28 Jul 2015  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -346,7 +346,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at   260.714  Days *                SPE 3 - CASE 1                                          *
-  Report    5    18 Sep 2015  *                                             Flow  version 2018.04-pre  *
+  Report    5    18 Sep 2015  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -397,7 +397,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at   312.857  Days *                SPE 3 - CASE 1                                          *
-  Report    6    09 Nov 2015  *                                             Flow  version 2018.04-pre  *
+  Report    6    09 Nov 2015  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -448,7 +448,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at       365  Days *                SPE 3 - CASE 1                                          *
-  Report    7    31 Dec 2015  *                                             Flow  version 2018.04-pre  *
+  Report    7    31 Dec 2015  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -499,7 +499,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at       396  Days *                SPE 3 - CASE 1                                          *
-  Report    8    31 Jan 2016  *                                             Flow  version 2018.04-pre  *
+  Report    8    31 Jan 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -552,7 +552,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at       424  Days *                SPE 3 - CASE 1                                          *
-  Report    9    28 Feb 2016  *                                             Flow  version 2018.04-pre  *
+  Report    9    28 Feb 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -599,11 +599,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step  9/175 at day 424/5475, date = 28-Feb-2016
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.007 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       455  Days *                SPE 3 - CASE 1                                          *
-  Report   10    30 Mar 2016  *                                             Flow  version 2018.04-pre  *
+  Report   10    30 Mar 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -650,11 +650,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 10/175 at day 455/5475, date = 30-Mar-2016
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.007 sec), linear its =  20 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       485  Days *                SPE 3 - CASE 1                                          *
-  Report   11    29 Apr 2016  *                                             Flow  version 2018.04-pre  *
+  Report   11    29 Apr 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -705,7 +705,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at       516  Days *                SPE 3 - CASE 1                                          *
-  Report   12    30 May 2016  *                                             Flow  version 2018.04-pre  *
+  Report   12    30 May 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -752,11 +752,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 12/175 at day 516/5475, date = 30-May-2016
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       546  Days *                SPE 3 - CASE 1                                          *
-  Report   13    29 Jun 2016  *                                             Flow  version 2018.04-pre  *
+  Report   13    29 Jun 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -803,11 +803,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 13/175 at day 546/5475, date = 29-Jun-2016
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       577  Days *                SPE 3 - CASE 1                                          *
-  Report   14    30 Jul 2016  *                                             Flow  version 2018.04-pre  *
+  Report   14    30 Jul 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -854,11 +854,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 14/175 at day 577/5475, date = 30-Jul-2016
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       608  Days *                SPE 3 - CASE 1                                          *
-  Report   15    30 Aug 2016  *                                             Flow  version 2018.04-pre  *
+  Report   15    30 Aug 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -905,11 +905,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 15/175 at day 608/5475, date = 30-Aug-2016
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       638  Days *                SPE 3 - CASE 1                                          *
-  Report   16    29 Sep 2016  *                                             Flow  version 2018.04-pre  *
+  Report   16    29 Sep 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -960,7 +960,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at       669  Days *                SPE 3 - CASE 1                                          *
-  Report   17    30 Oct 2016  *                                             Flow  version 2018.04-pre  *
+  Report   17    30 Oct 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1007,11 +1007,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 17/175 at day 669/5475, date = 30-Oct-2016
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       699  Days *                SPE 3 - CASE 1                                          *
-  Report   18    29 Nov 2016  *                                             Flow  version 2018.04-pre  *
+  Report   18    29 Nov 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1062,7 +1062,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at       730  Days *                SPE 3 - CASE 1                                          *
-  Report   19    30 Dec 2016  *                                             Flow  version 2018.04-pre  *
+  Report   19    30 Dec 2016  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1109,11 +1109,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 19/175 at day 730/5475, date = 30-Dec-2016
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  12 ( 0.001 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  12 ( 0.001 sec)
 
                               **************************************************************************
   Balance  at       761  Days *                SPE 3 - CASE 1                                          *
-  Report   20    30 Jan 2017  *                                             Flow  version 2018.04-pre  *
+  Report   20    30 Jan 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1162,11 +1162,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 20/175 at day 761/5475, date = 30-Jan-2017
 
 Time step 0, stepsize 28 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  18 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  18 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       789  Days *                SPE 3 - CASE 1                                          *
-  Report   21    27 Feb 2017  *                                             Flow  version 2018.04-pre  *
+  Report   21    27 Feb 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1213,11 +1213,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 21/175 at day 789/5475, date = 27-Feb-2017
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       820  Days *                SPE 3 - CASE 1                                          *
-  Report   22    30 Mar 2017  *                                             Flow  version 2018.04-pre  *
+  Report   22    30 Mar 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1264,11 +1264,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 22/175 at day 820/5475, date = 30-Mar-2017
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       850  Days *                SPE 3 - CASE 1                                          *
-  Report   23    29 Apr 2017  *                                             Flow  version 2018.04-pre  *
+  Report   23    29 Apr 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1315,11 +1315,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 23/175 at day 850/5475, date = 29-Apr-2017
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at       881  Days *                SPE 3 - CASE 1                                          *
-  Report   24    30 May 2017  *                                             Flow  version 2018.04-pre  *
+  Report   24    30 May 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1366,11 +1366,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 24/175 at day 881/5475, date = 30-May-2017
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  12 ( 0.001 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  12 ( 0.001 sec)
 
                               **************************************************************************
   Balance  at       911  Days *                SPE 3 - CASE 1                                          *
-  Report   25    29 Jun 2017  *                                             Flow  version 2018.04-pre  *
+  Report   25    29 Jun 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1421,7 +1421,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at       942  Days *                SPE 3 - CASE 1                                          *
-  Report   26    30 Jul 2017  *                                             Flow  version 2018.04-pre  *
+  Report   26    30 Jul 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1472,7 +1472,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at       973  Days *                SPE 3 - CASE 1                                          *
-  Report   27    30 Aug 2017  *                                             Flow  version 2018.04-pre  *
+  Report   27    30 Aug 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1523,7 +1523,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1003  Days *                SPE 3 - CASE 1                                          *
-  Report   28    29 Sep 2017  *                                             Flow  version 2018.04-pre  *
+  Report   28    29 Sep 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1574,7 +1574,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1034  Days *                SPE 3 - CASE 1                                          *
-  Report   29    30 Oct 2017  *                                             Flow  version 2018.04-pre  *
+  Report   29    30 Oct 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1625,7 +1625,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1064  Days *                SPE 3 - CASE 1                                          *
-  Report   30    29 Nov 2017  *                                             Flow  version 2018.04-pre  *
+  Report   30    29 Nov 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1672,11 +1672,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 30/175 at day 1064/5475, date = 29-Nov-2017
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  22 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  22 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      1095  Days *                SPE 3 - CASE 1                                          *
-  Report   31    30 Dec 2017  *                                             Flow  version 2018.04-pre  *
+  Report   31    30 Dec 2017  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1727,7 +1727,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1126  Days *                SPE 3 - CASE 1                                          *
-  Report   32    30 Jan 2018  *                                             Flow  version 2018.04-pre  *
+  Report   32    30 Jan 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1780,7 +1780,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1154  Days *                SPE 3 - CASE 1                                          *
-  Report   33    27 Feb 2018  *                                             Flow  version 2018.04-pre  *
+  Report   33    27 Feb 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1831,7 +1831,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1185  Days *                SPE 3 - CASE 1                                          *
-  Report   34    30 Mar 2018  *                                             Flow  version 2018.04-pre  *
+  Report   34    30 Mar 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1882,7 +1882,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1215  Days *                SPE 3 - CASE 1                                          *
-  Report   35    29 Apr 2018  *                                             Flow  version 2018.04-pre  *
+  Report   35    29 Apr 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1933,7 +1933,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1246  Days *                SPE 3 - CASE 1                                          *
-  Report   36    30 May 2018  *                                             Flow  version 2018.04-pre  *
+  Report   36    30 May 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -1984,7 +1984,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1276  Days *                SPE 3 - CASE 1                                          *
-  Report   37    29 Jun 2018  *                                             Flow  version 2018.04-pre  *
+  Report   37    29 Jun 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2035,7 +2035,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1307  Days *                SPE 3 - CASE 1                                          *
-  Report   38    30 Jul 2018  *                                             Flow  version 2018.04-pre  *
+  Report   38    30 Jul 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2086,7 +2086,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1338  Days *                SPE 3 - CASE 1                                          *
-  Report   39    30 Aug 2018  *                                             Flow  version 2018.04-pre  *
+  Report   39    30 Aug 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2137,7 +2137,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1368  Days *                SPE 3 - CASE 1                                          *
-  Report   40    29 Sep 2018  *                                             Flow  version 2018.04-pre  *
+  Report   40    29 Sep 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2188,7 +2188,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1399  Days *                SPE 3 - CASE 1                                          *
-  Report   41    30 Oct 2018  *                                             Flow  version 2018.04-pre  *
+  Report   41    30 Oct 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2239,7 +2239,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1429  Days *                SPE 3 - CASE 1                                          *
-  Report   42    29 Nov 2018  *                                             Flow  version 2018.04-pre  *
+  Report   42    29 Nov 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2290,7 +2290,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1460  Days *                SPE 3 - CASE 1                                          *
-  Report   43    30 Dec 2018  *                                             Flow  version 2018.04-pre  *
+  Report   43    30 Dec 2018  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2337,11 +2337,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 43/175 at day 1460/5475, date = 30-Dec-2018
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      1491  Days *                SPE 3 - CASE 1                                          *
-  Report   44    30 Jan 2019  *                                             Flow  version 2018.04-pre  *
+  Report   44    30 Jan 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2394,7 +2394,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1519  Days *                SPE 3 - CASE 1                                          *
-  Report   45    27 Feb 2019  *                                             Flow  version 2018.04-pre  *
+  Report   45    27 Feb 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2445,7 +2445,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1550  Days *                SPE 3 - CASE 1                                          *
-  Report   46    30 Mar 2019  *                                             Flow  version 2018.04-pre  *
+  Report   46    30 Mar 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2492,11 +2492,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 46/175 at day 1550/5475, date = 30-Mar-2019
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  13 ( 0.001 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  13 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      1580  Days *                SPE 3 - CASE 1                                          *
-  Report   47    29 Apr 2019  *                                             Flow  version 2018.04-pre  *
+  Report   47    29 Apr 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2547,7 +2547,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1611  Days *                SPE 3 - CASE 1                                          *
-  Report   48    30 May 2019  *                                             Flow  version 2018.04-pre  *
+  Report   48    30 May 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2598,7 +2598,7 @@ Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.007 s
 
                               **************************************************************************
   Balance  at      1641  Days *                SPE 3 - CASE 1                                          *
-  Report   49    29 Jun 2019  *                                             Flow  version 2018.04-pre  *
+  Report   49    29 Jun 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2649,7 +2649,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1672  Days *                SPE 3 - CASE 1                                          *
-  Report   50    30 Jul 2019  *                                             Flow  version 2018.04-pre  *
+  Report   50    30 Jul 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2700,7 +2700,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1703  Days *                SPE 3 - CASE 1                                          *
-  Report   51    30 Aug 2019  *                                             Flow  version 2018.04-pre  *
+  Report   51    30 Aug 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2751,7 +2751,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1733  Days *                SPE 3 - CASE 1                                          *
-  Report   52    29 Sep 2019  *                                             Flow  version 2018.04-pre  *
+  Report   52    29 Sep 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2802,7 +2802,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1764  Days *                SPE 3 - CASE 1                                          *
-  Report   53    30 Oct 2019  *                                             Flow  version 2018.04-pre  *
+  Report   53    30 Oct 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2853,7 +2853,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1794  Days *                SPE 3 - CASE 1                                          *
-  Report   54    29 Nov 2019  *                                             Flow  version 2018.04-pre  *
+  Report   54    29 Nov 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2904,7 +2904,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1825  Days *                SPE 3 - CASE 1                                          *
-  Report   55    30 Dec 2019  *                                             Flow  version 2018.04-pre  *
+  Report   55    30 Dec 2019  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -2955,7 +2955,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1856  Days *                SPE 3 - CASE 1                                          *
-  Report   56    30 Jan 2020  *                                             Flow  version 2018.04-pre  *
+  Report   56    30 Jan 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3004,11 +3004,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 56/175 at day 1856/5475, date = 30-Jan-2020
 
 Time step 0, stepsize 28 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  17 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  17 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      1884  Days *                SPE 3 - CASE 1                                          *
-  Report   57    27 Feb 2020  *                                             Flow  version 2018.04-pre  *
+  Report   57    27 Feb 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3059,7 +3059,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1915  Days *                SPE 3 - CASE 1                                          *
-  Report   58    29 Mar 2020  *                                             Flow  version 2018.04-pre  *
+  Report   58    29 Mar 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3110,7 +3110,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1945  Days *                SPE 3 - CASE 1                                          *
-  Report   59    28 Apr 2020  *                                             Flow  version 2018.04-pre  *
+  Report   59    28 Apr 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3161,7 +3161,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      1976  Days *                SPE 3 - CASE 1                                          *
-  Report   60    29 May 2020  *                                             Flow  version 2018.04-pre  *
+  Report   60    29 May 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3212,7 +3212,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2006  Days *                SPE 3 - CASE 1                                          *
-  Report   61    28 Jun 2020  *                                             Flow  version 2018.04-pre  *
+  Report   61    28 Jun 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3263,7 +3263,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2037  Days *                SPE 3 - CASE 1                                          *
-  Report   62    29 Jul 2020  *                                             Flow  version 2018.04-pre  *
+  Report   62    29 Jul 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3314,7 +3314,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2068  Days *                SPE 3 - CASE 1                                          *
-  Report   63    29 Aug 2020  *                                             Flow  version 2018.04-pre  *
+  Report   63    29 Aug 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3365,7 +3365,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2098  Days *                SPE 3 - CASE 1                                          *
-  Report   64    28 Sep 2020  *                                             Flow  version 2018.04-pre  *
+  Report   64    28 Sep 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3416,7 +3416,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2129  Days *                SPE 3 - CASE 1                                          *
-  Report   65    29 Oct 2020  *                                             Flow  version 2018.04-pre  *
+  Report   65    29 Oct 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3467,7 +3467,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2159  Days *                SPE 3 - CASE 1                                          *
-  Report   66    28 Nov 2020  *                                             Flow  version 2018.04-pre  *
+  Report   66    28 Nov 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3518,7 +3518,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2190  Days *                SPE 3 - CASE 1                                          *
-  Report   67    29 Dec 2020  *                                             Flow  version 2018.04-pre  *
+  Report   67    29 Dec 2020  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3569,7 +3569,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2221  Days *                SPE 3 - CASE 1                                          *
-  Report   68    29 Jan 2021  *                                             Flow  version 2018.04-pre  *
+  Report   68    29 Jan 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3618,11 +3618,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 68/175 at day 2221/5475, date = 29-Jan-2021
 
 Time step 0, stepsize 28 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  16 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  16 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      2249  Days *                SPE 3 - CASE 1                                          *
-  Report   69    26 Feb 2021  *                                             Flow  version 2018.04-pre  *
+  Report   69    26 Feb 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3669,11 +3669,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 69/175 at day 2249/5475, date = 26-Feb-2021
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      2280  Days *                SPE 3 - CASE 1                                          *
-  Report   70    29 Mar 2021  *                                             Flow  version 2018.04-pre  *
+  Report   70    29 Mar 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3724,7 +3724,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2310  Days *                SPE 3 - CASE 1                                          *
-  Report   71    28 Apr 2021  *                                             Flow  version 2018.04-pre  *
+  Report   71    28 Apr 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3775,7 +3775,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at      2341  Days *                SPE 3 - CASE 1                                          *
-  Report   72    29 May 2021  *                                             Flow  version 2018.04-pre  *
+  Report   72    29 May 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3822,11 +3822,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 72/175 at day 2341/5475, date = 29-May-2021
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  17 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  17 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      2371  Days *                SPE 3 - CASE 1                                          *
-  Report   73    28 Jun 2021  *                                             Flow  version 2018.04-pre  *
+  Report   73    28 Jun 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3877,7 +3877,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2402  Days *                SPE 3 - CASE 1                                          *
-  Report   74    29 Jul 2021  *                                             Flow  version 2018.04-pre  *
+  Report   74    29 Jul 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3924,11 +3924,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 74/175 at day 2402/5475, date = 29-Jul-2021
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      2433  Days *                SPE 3 - CASE 1                                          *
-  Report   75    29 Aug 2021  *                                             Flow  version 2018.04-pre  *
+  Report   75    29 Aug 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -3979,7 +3979,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2463  Days *                SPE 3 - CASE 1                                          *
-  Report   76    28 Sep 2021  *                                             Flow  version 2018.04-pre  *
+  Report   76    28 Sep 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4030,7 +4030,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2494  Days *                SPE 3 - CASE 1                                          *
-  Report   77    29 Oct 2021  *                                             Flow  version 2018.04-pre  *
+  Report   77    29 Oct 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4077,11 +4077,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 77/175 at day 2494/5475, date = 29-Oct-2021
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      2524  Days *                SPE 3 - CASE 1                                          *
-  Report   78    28 Nov 2021  *                                             Flow  version 2018.04-pre  *
+  Report   78    28 Nov 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4132,7 +4132,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2555  Days *                SPE 3 - CASE 1                                          *
-  Report   79    29 Dec 2021  *                                             Flow  version 2018.04-pre  *
+  Report   79    29 Dec 2021  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4183,7 +4183,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2586  Days *                SPE 3 - CASE 1                                          *
-  Report   80    29 Jan 2022  *                                             Flow  version 2018.04-pre  *
+  Report   80    29 Jan 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4232,11 +4232,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 80/175 at day 2586/5475, date = 29-Jan-2022
 
 Time step 0, stepsize 28 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.010 sec), linear its =  18 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  18 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      2614  Days *                SPE 3 - CASE 1                                          *
-  Report   81    26 Feb 2022  *                                             Flow  version 2018.04-pre  *
+  Report   81    26 Feb 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4283,11 +4283,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 81/175 at day 2614/5475, date = 26-Feb-2022
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.010 sec), linear its =  21 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  21 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      2645  Days *                SPE 3 - CASE 1                                          *
-  Report   82    29 Mar 2022  *                                             Flow  version 2018.04-pre  *
+  Report   82    29 Mar 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4334,11 +4334,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 82/175 at day 2645/5475, date = 29-Mar-2022
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.008 sec), linear its =  20 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      2675  Days *                SPE 3 - CASE 1                                          *
-  Report   83    28 Apr 2022  *                                             Flow  version 2018.04-pre  *
+  Report   83    28 Apr 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4389,7 +4389,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2706  Days *                SPE 3 - CASE 1                                          *
-  Report   84    29 May 2022  *                                             Flow  version 2018.04-pre  *
+  Report   84    29 May 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4440,7 +4440,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2736  Days *                SPE 3 - CASE 1                                          *
-  Report   85    28 Jun 2022  *                                             Flow  version 2018.04-pre  *
+  Report   85    28 Jun 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4491,7 +4491,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2767  Days *                SPE 3 - CASE 1                                          *
-  Report   86    29 Jul 2022  *                                             Flow  version 2018.04-pre  *
+  Report   86    29 Jul 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4542,7 +4542,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2798  Days *                SPE 3 - CASE 1                                          *
-  Report   87    29 Aug 2022  *                                             Flow  version 2018.04-pre  *
+  Report   87    29 Aug 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4589,11 +4589,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 87/175 at day 2798/5475, date = 29-Aug-2022
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  12 ( 0.001 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  12 ( 0.001 sec)
 
                               **************************************************************************
   Balance  at      2828  Days *                SPE 3 - CASE 1                                          *
-  Report   88    28 Sep 2022  *                                             Flow  version 2018.04-pre  *
+  Report   88    28 Sep 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4644,7 +4644,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2859  Days *                SPE 3 - CASE 1                                          *
-  Report   89    29 Oct 2022  *                                             Flow  version 2018.04-pre  *
+  Report   89    29 Oct 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4695,7 +4695,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2889  Days *                SPE 3 - CASE 1                                          *
-  Report   90    28 Nov 2022  *                                             Flow  version 2018.04-pre  *
+  Report   90    28 Nov 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4746,7 +4746,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2920  Days *                SPE 3 - CASE 1                                          *
-  Report   91    29 Dec 2022  *                                             Flow  version 2018.04-pre  *
+  Report   91    29 Dec 2022  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4797,7 +4797,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      2951  Days *                SPE 3 - CASE 1                                          *
-  Report   92    29 Jan 2023  *                                             Flow  version 2018.04-pre  *
+  Report   92    29 Jan 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4846,11 +4846,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 92/175 at day 2951/5475, date = 29-Jan-2023
 
 Time step 0, stepsize 28 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  18 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  18 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      2979  Days *                SPE 3 - CASE 1                                          *
-  Report   93    26 Feb 2023  *                                             Flow  version 2018.04-pre  *
+  Report   93    26 Feb 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4901,7 +4901,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3010  Days *                SPE 3 - CASE 1                                          *
-  Report   94    29 Mar 2023  *                                             Flow  version 2018.04-pre  *
+  Report   94    29 Mar 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -4952,7 +4952,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3040  Days *                SPE 3 - CASE 1                                          *
-  Report   95    28 Apr 2023  *                                             Flow  version 2018.04-pre  *
+  Report   95    28 Apr 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5003,7 +5003,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3071  Days *                SPE 3 - CASE 1                                          *
-  Report   96    29 May 2023  *                                             Flow  version 2018.04-pre  *
+  Report   96    29 May 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5054,7 +5054,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3101  Days *                SPE 3 - CASE 1                                          *
-  Report   97    28 Jun 2023  *                                             Flow  version 2018.04-pre  *
+  Report   97    28 Jun 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5105,7 +5105,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3132  Days *                SPE 3 - CASE 1                                          *
-  Report   98    29 Jul 2023  *                                             Flow  version 2018.04-pre  *
+  Report   98    29 Jul 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5156,7 +5156,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3163  Days *                SPE 3 - CASE 1                                          *
-  Report   99    29 Aug 2023  *                                             Flow  version 2018.04-pre  *
+  Report   99    29 Aug 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5207,7 +5207,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3193  Days *                SPE 3 - CASE 1                                          *
-  Report  100    28 Sep 2023  *                                             Flow  version 2018.04-pre  *
+  Report  100    28 Sep 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5258,7 +5258,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3224  Days *                SPE 3 - CASE 1                                          *
-  Report  101    29 Oct 2023  *                                             Flow  version 2018.04-pre  *
+  Report  101    29 Oct 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5309,7 +5309,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3254  Days *                SPE 3 - CASE 1                                          *
-  Report  102    28 Nov 2023  *                                             Flow  version 2018.04-pre  *
+  Report  102    28 Nov 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5356,11 +5356,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 102/175 at day 3254/5475, date = 28-Nov-2023
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      3285  Days *                SPE 3 - CASE 1                                          *
-  Report  103    29 Dec 2023  *                                             Flow  version 2018.04-pre  *
+  Report  103    29 Dec 2023  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5407,11 +5407,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 103/175 at day 3285/5475, date = 29-Dec-2023
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      3316  Days *                SPE 3 - CASE 1                                          *
-  Report  104    29 Jan 2024  *                                             Flow  version 2018.04-pre  *
+  Report  104    29 Jan 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5460,11 +5460,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 104/175 at day 3316/5475, date = 29-Jan-2024
 
 Time step 0, stepsize 28 days.
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.007 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.008 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      3344  Days *                SPE 3 - CASE 1                                          *
-  Report  105    26 Feb 2024  *                                             Flow  version 2018.04-pre  *
+  Report  105    26 Feb 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5515,7 +5515,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3375  Days *                SPE 3 - CASE 1                                          *
-  Report  106    28 Mar 2024  *                                             Flow  version 2018.04-pre  *
+  Report  106    28 Mar 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5566,7 +5566,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3405  Days *                SPE 3 - CASE 1                                          *
-  Report  107    27 Apr 2024  *                                             Flow  version 2018.04-pre  *
+  Report  107    27 Apr 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5617,7 +5617,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3436  Days *                SPE 3 - CASE 1                                          *
-  Report  108    28 May 2024  *                                             Flow  version 2018.04-pre  *
+  Report  108    28 May 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5668,7 +5668,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3466  Days *                SPE 3 - CASE 1                                          *
-  Report  109    27 Jun 2024  *                                             Flow  version 2018.04-pre  *
+  Report  109    27 Jun 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5719,7 +5719,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3497  Days *                SPE 3 - CASE 1                                          *
-  Report  110    28 Jul 2024  *                                             Flow  version 2018.04-pre  *
+  Report  110    28 Jul 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5770,7 +5770,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3528  Days *                SPE 3 - CASE 1                                          *
-  Report  111    28 Aug 2024  *                                             Flow  version 2018.04-pre  *
+  Report  111    28 Aug 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5821,7 +5821,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3558  Days *                SPE 3 - CASE 1                                          *
-  Report  112    27 Sep 2024  *                                             Flow  version 2018.04-pre  *
+  Report  112    27 Sep 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5872,7 +5872,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3589  Days *                SPE 3 - CASE 1                                          *
-  Report  113    28 Oct 2024  *                                             Flow  version 2018.04-pre  *
+  Report  113    28 Oct 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5923,7 +5923,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3619  Days *                SPE 3 - CASE 1                                          *
-  Report  114    27 Nov 2024  *                                             Flow  version 2018.04-pre  *
+  Report  114    27 Nov 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -5974,7 +5974,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3650  Days *                SPE 3 - CASE 1                                          *
-  Report  115    28 Dec 2024  *                                             Flow  version 2018.04-pre  *
+  Report  115    28 Dec 2024  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6025,7 +6025,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at      3681  Days *                SPE 3 - CASE 1                                          *
-  Report  116    28 Jan 2025  *                                             Flow  version 2018.04-pre  *
+  Report  116    28 Jan 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6078,7 +6078,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at      3709  Days *                SPE 3 - CASE 1                                          *
-  Report  117    25 Feb 2025  *                                             Flow  version 2018.04-pre  *
+  Report  117    25 Feb 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6129,7 +6129,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3740  Days *                SPE 3 - CASE 1                                          *
-  Report  118    28 Mar 2025  *                                             Flow  version 2018.04-pre  *
+  Report  118    28 Mar 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6180,7 +6180,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3770  Days *                SPE 3 - CASE 1                                          *
-  Report  119    27 Apr 2025  *                                             Flow  version 2018.04-pre  *
+  Report  119    27 Apr 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6231,7 +6231,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3801  Days *                SPE 3 - CASE 1                                          *
-  Report  120    28 May 2025  *                                             Flow  version 2018.04-pre  *
+  Report  120    28 May 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6278,11 +6278,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 120/175 at day 3801/5475, date = 28-May-2025
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  17 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  17 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      3831  Days *                SPE 3 - CASE 1                                          *
-  Report  121    27 Jun 2025  *                                             Flow  version 2018.04-pre  *
+  Report  121    27 Jun 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6329,11 +6329,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 121/175 at day 3831/5475, date = 27-Jun-2025
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  18 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  18 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      3862  Days *                SPE 3 - CASE 1                                          *
-  Report  122    28 Jul 2025  *                                             Flow  version 2018.04-pre  *
+  Report  122    28 Jul 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6384,7 +6384,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      3893  Days *                SPE 3 - CASE 1                                          *
-  Report  123    28 Aug 2025  *                                             Flow  version 2018.04-pre  *
+  Report  123    28 Aug 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6435,7 +6435,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at      3923  Days *                SPE 3 - CASE 1                                          *
-  Report  124    27 Sep 2025  *                                             Flow  version 2018.04-pre  *
+  Report  124    27 Sep 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6486,7 +6486,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at      3954  Days *                SPE 3 - CASE 1                                          *
-  Report  125    28 Oct 2025  *                                             Flow  version 2018.04-pre  *
+  Report  125    28 Oct 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6533,11 +6533,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 125/175 at day 3954/5475, date = 28-Oct-2025
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  18 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  18 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      3984  Days *                SPE 3 - CASE 1                                          *
-  Report  126    27 Nov 2025  *                                             Flow  version 2018.04-pre  *
+  Report  126    27 Nov 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6584,11 +6584,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 126/175 at day 3984/5475, date = 27-Nov-2025
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  18 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  18 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      4015  Days *                SPE 3 - CASE 1                                          *
-  Report  127    28 Dec 2025  *                                             Flow  version 2018.04-pre  *
+  Report  127    28 Dec 2025  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6639,7 +6639,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4046  Days *                SPE 3 - CASE 1                                          *
-  Report  128    28 Jan 2026  *                                             Flow  version 2018.04-pre  *
+  Report  128    28 Jan 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6688,11 +6688,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 128/175 at day 4046/5475, date = 28-Jan-2026
 
 Time step 0, stepsize 28 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  16 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  16 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      4074  Days *                SPE 3 - CASE 1                                          *
-  Report  129    25 Feb 2026  *                                             Flow  version 2018.04-pre  *
+  Report  129    25 Feb 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6739,11 +6739,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 129/175 at day 4074/5475, date = 25-Feb-2026
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.007 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      4105  Days *                SPE 3 - CASE 1                                          *
-  Report  130    28 Mar 2026  *                                             Flow  version 2018.04-pre  *
+  Report  130    28 Mar 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6794,7 +6794,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at      4135  Days *                SPE 3 - CASE 1                                          *
-  Report  131    27 Apr 2026  *                                             Flow  version 2018.04-pre  *
+  Report  131    27 Apr 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6845,7 +6845,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4166  Days *                SPE 3 - CASE 1                                          *
-  Report  132    28 May 2026  *                                             Flow  version 2018.04-pre  *
+  Report  132    28 May 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6896,7 +6896,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4196  Days *                SPE 3 - CASE 1                                          *
-  Report  133    27 Jun 2026  *                                             Flow  version 2018.04-pre  *
+  Report  133    27 Jun 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6947,7 +6947,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4227  Days *                SPE 3 - CASE 1                                          *
-  Report  134    28 Jul 2026  *                                             Flow  version 2018.04-pre  *
+  Report  134    28 Jul 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -6998,7 +6998,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4258  Days *                SPE 3 - CASE 1                                          *
-  Report  135    28 Aug 2026  *                                             Flow  version 2018.04-pre  *
+  Report  135    28 Aug 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7049,7 +7049,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4288  Days *                SPE 3 - CASE 1                                          *
-  Report  136    27 Sep 2026  *                                             Flow  version 2018.04-pre  *
+  Report  136    27 Sep 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7096,11 +7096,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 136/175 at day 4288/5475, date = 27-Sep-2026
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      4319  Days *                SPE 3 - CASE 1                                          *
-  Report  137    28 Oct 2026  *                                             Flow  version 2018.04-pre  *
+  Report  137    28 Oct 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7151,7 +7151,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at      4349  Days *                SPE 3 - CASE 1                                          *
-  Report  138    27 Nov 2026  *                                             Flow  version 2018.04-pre  *
+  Report  138    27 Nov 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7198,11 +7198,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 138/175 at day 4349/5475, date = 27-Nov-2026
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      4380  Days *                SPE 3 - CASE 1                                          *
-  Report  139    28 Dec 2026  *                                             Flow  version 2018.04-pre  *
+  Report  139    28 Dec 2026  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7253,7 +7253,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4411  Days *                SPE 3 - CASE 1                                          *
-  Report  140    28 Jan 2027  *                                             Flow  version 2018.04-pre  *
+  Report  140    28 Jan 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7302,11 +7302,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 140/175 at day 4411/5475, date = 28-Jan-2027
 
 Time step 0, stepsize 28 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  18 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  18 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      4439  Days *                SPE 3 - CASE 1                                          *
-  Report  141    25 Feb 2027  *                                             Flow  version 2018.04-pre  *
+  Report  141    25 Feb 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7357,7 +7357,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4470  Days *                SPE 3 - CASE 1                                          *
-  Report  142    28 Mar 2027  *                                             Flow  version 2018.04-pre  *
+  Report  142    28 Mar 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7404,11 +7404,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 142/175 at day 4470/5475, date = 28-Mar-2027
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      4500  Days *                SPE 3 - CASE 1                                          *
-  Report  143    27 Apr 2027  *                                             Flow  version 2018.04-pre  *
+  Report  143    27 Apr 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7459,7 +7459,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4531  Days *                SPE 3 - CASE 1                                          *
-  Report  144    28 May 2027  *                                             Flow  version 2018.04-pre  *
+  Report  144    28 May 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7510,7 +7510,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4561  Days *                SPE 3 - CASE 1                                          *
-  Report  145    27 Jun 2027  *                                             Flow  version 2018.04-pre  *
+  Report  145    27 Jun 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7561,7 +7561,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at      4592  Days *                SPE 3 - CASE 1                                          *
-  Report  146    28 Jul 2027  *                                             Flow  version 2018.04-pre  *
+  Report  146    28 Jul 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7612,7 +7612,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4623  Days *                SPE 3 - CASE 1                                          *
-  Report  147    28 Aug 2027  *                                             Flow  version 2018.04-pre  *
+  Report  147    28 Aug 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7663,7 +7663,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4653  Days *                SPE 3 - CASE 1                                          *
-  Report  148    27 Sep 2027  *                                             Flow  version 2018.04-pre  *
+  Report  148    27 Sep 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7714,7 +7714,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4684  Days *                SPE 3 - CASE 1                                          *
-  Report  149    28 Oct 2027  *                                             Flow  version 2018.04-pre  *
+  Report  149    28 Oct 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7761,11 +7761,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 149/175 at day 4684/5475, date = 28-Oct-2027
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  21 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  21 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      4714  Days *                SPE 3 - CASE 1                                          *
-  Report  150    27 Nov 2027  *                                             Flow  version 2018.04-pre  *
+  Report  150    27 Nov 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7816,7 +7816,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4745  Days *                SPE 3 - CASE 1                                          *
-  Report  151    28 Dec 2027  *                                             Flow  version 2018.04-pre  *
+  Report  151    28 Dec 2027  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7867,7 +7867,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4776  Days *                SPE 3 - CASE 1                                          *
-  Report  152    28 Jan 2028  *                                             Flow  version 2018.04-pre  *
+  Report  152    28 Jan 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7920,7 +7920,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4804  Days *                SPE 3 - CASE 1                                          *
-  Report  153    25 Feb 2028  *                                             Flow  version 2018.04-pre  *
+  Report  153    25 Feb 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -7971,7 +7971,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 s
 
                               **************************************************************************
   Balance  at      4835  Days *                SPE 3 - CASE 1                                          *
-  Report  154    27 Mar 2028  *                                             Flow  version 2018.04-pre  *
+  Report  154    27 Mar 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8022,7 +8022,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4865  Days *                SPE 3 - CASE 1                                          *
-  Report  155    26 Apr 2028  *                                             Flow  version 2018.04-pre  *
+  Report  155    26 Apr 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8073,7 +8073,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4896  Days *                SPE 3 - CASE 1                                          *
-  Report  156    27 May 2028  *                                             Flow  version 2018.04-pre  *
+  Report  156    27 May 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8124,7 +8124,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4926  Days *                SPE 3 - CASE 1                                          *
-  Report  157    26 Jun 2028  *                                             Flow  version 2018.04-pre  *
+  Report  157    26 Jun 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8175,7 +8175,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      4957  Days *                SPE 3 - CASE 1                                          *
-  Report  158    27 Jul 2028  *                                             Flow  version 2018.04-pre  *
+  Report  158    27 Jul 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8222,11 +8222,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 158/175 at day 4957/5475, date = 27-Jul-2028
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  20 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      4988  Days *                SPE 3 - CASE 1                                          *
-  Report  159    27 Aug 2028  *                                             Flow  version 2018.04-pre  *
+  Report  159    27 Aug 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8273,11 +8273,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 159/175 at day 4988/5475, date = 27-Aug-2028
 
 Time step 0, stepsize 30 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  18 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.007 sec), linear its =  18 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      5018  Days *                SPE 3 - CASE 1                                          *
-  Report  160    26 Sep 2028  *                                             Flow  version 2018.04-pre  *
+  Report  160    26 Sep 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8328,7 +8328,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5049  Days *                SPE 3 - CASE 1                                          *
-  Report  161    27 Oct 2028  *                                             Flow  version 2018.04-pre  *
+  Report  161    27 Oct 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8379,7 +8379,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5079  Days *                SPE 3 - CASE 1                                          *
-  Report  162    26 Nov 2028  *                                             Flow  version 2018.04-pre  *
+  Report  162    26 Nov 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8430,7 +8430,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5110  Days *                SPE 3 - CASE 1                                          *
-  Report  163    27 Dec 2028  *                                             Flow  version 2018.04-pre  *
+  Report  163    27 Dec 2028  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8481,7 +8481,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5141  Days *                SPE 3 - CASE 1                                          *
-  Report  164    27 Jan 2029  *                                             Flow  version 2018.04-pre  *
+  Report  164    27 Jan 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8530,11 +8530,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 164/175 at day 5141/5475, date = 27-Jan-2029
 
 Time step 0, stepsize 28 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  17 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  17 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      5169  Days *                SPE 3 - CASE 1                                          *
-  Report  165    24 Feb 2029  *                                             Flow  version 2018.04-pre  *
+  Report  165    24 Feb 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8585,7 +8585,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5200  Days *                SPE 3 - CASE 1                                          *
-  Report  166    27 Mar 2029  *                                             Flow  version 2018.04-pre  *
+  Report  166    27 Mar 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8636,7 +8636,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5230  Days *                SPE 3 - CASE 1                                          *
-  Report  167    26 Apr 2029  *                                             Flow  version 2018.04-pre  *
+  Report  167    26 Apr 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8683,11 +8683,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 167/175 at day 5230/5475, date = 26-Apr-2029
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  17 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  17 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      5261  Days *                SPE 3 - CASE 1                                          *
-  Report  168    27 May 2029  *                                             Flow  version 2018.04-pre  *
+  Report  168    27 May 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8738,7 +8738,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5291  Days *                SPE 3 - CASE 1                                          *
-  Report  169    26 Jun 2029  *                                             Flow  version 2018.04-pre  *
+  Report  169    26 Jun 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8785,11 +8785,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 169/175 at day 5291/5475, date = 26-Jun-2029
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  17 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  17 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      5322  Days *                SPE 3 - CASE 1                                          *
-  Report  170    27 Jul 2029  *                                             Flow  version 2018.04-pre  *
+  Report  170    27 Jul 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8840,7 +8840,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5353  Days *                SPE 3 - CASE 1                                          *
-  Report  171    27 Aug 2029  *                                             Flow  version 2018.04-pre  *
+  Report  171    27 Aug 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8891,7 +8891,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5383  Days *                SPE 3 - CASE 1                                          *
-  Report  172    26 Sep 2029  *                                             Flow  version 2018.04-pre  *
+  Report  172    26 Sep 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8938,11 +8938,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 172/175 at day 5383/5475, date = 26-Sep-2029
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  18 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  18 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      5414  Days *                SPE 3 - CASE 1                                          *
-  Report  173    27 Oct 2029  *                                             Flow  version 2018.04-pre  *
+  Report  173    27 Oct 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -8993,7 +8993,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 s
 
                               **************************************************************************
   Balance  at      5444  Days *                SPE 3 - CASE 1                                          *
-  Report  174    26 Nov 2029  *                                             Flow  version 2018.04-pre  *
+  Report  174    26 Nov 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -9040,11 +9040,11 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 Report step 174/175 at day 5444/5475, date = 26-Nov-2029
 
 Time step 0, stepsize 31 days.
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.002 sec)
 
                               **************************************************************************
   Balance  at      5475  Days *                SPE 3 - CASE 1                                          *
-  Report  175    27 Dec 2029  *                                             Flow  version 2018.04-pre  *
+  Report  175    27 Dec 2029  *                                             Flow  version 2018.10-pre  *
                               **************************************************************************
 
 
@@ -9091,12 +9091,12 @@ Warning: Keyword 'BRS' is unhandled for output to file.
 
 ================    End of simulation     ===============
 
-Total time (seconds):         1.60191
-Solver time (seconds):        1.51853
- Assembly time (seconds):     1.01779 (Failed: 0; 0%)
- Linear solve time (seconds): 0.343386 (Failed: 0; 0%)
- Update time (seconds):       0.069219 (Failed: 0; 0%)
- Output write time (seconds): 0.0721839
+Total time (seconds):         1.54606
+Solver time (seconds):        1.46913
+ Assembly time (seconds):     0.974072 (Failed: 0; 0%)
+ Linear solve time (seconds): 0.334895 (Failed: 0; 0%)
+ Update time (seconds):       0.0670976 (Failed: 0; 0%)
+ Output write time (seconds): 0.0668522
 Overall Well Iterations:      179 (Failed: 0; 0%)
 Overall Linearizations:       544 (Failed: 0; 0%)
 Overall Newton Iterations:    365 (Failed: 0; 0%)
