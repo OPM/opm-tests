@@ -24,15 +24,15 @@ Time step    0 at day 0/5475, date = 01-Jan-2015
 
 Time step 0, stepsize 1 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =   9 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =   9 ( 0.005 sec)
 
 Time step 1, stepsize 3 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  12 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  12 ( 0.004 sec)
 
 Time step 2, stepsize 9 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  15 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  15 ( 0.004 sec)
 
 Time step 3, stepsize 19.5714 days.
 well converged iter: 1
@@ -67,7 +67,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.099918 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.103582 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -83,7 +83,7 @@ Time step    1 at day 52.1428/5475, date = 22-Feb-2015
 
 Time step 0, stepsize 52.1428 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  21 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  21 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3468.75  PSIA                 :
@@ -110,7 +110,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.120995 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.124400 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -126,7 +126,7 @@ Time step    2 at day 104.286/5475, date = 15-Apr-2015
 
 Time step 0, stepsize 52.1428 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.020 sec), linear its =  30 ( 0.007 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.021 sec), linear its =  30 ( 0.007 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3437.84  PSIA                 :
@@ -153,7 +153,7 @@ Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.020 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.149187 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.153220 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -169,7 +169,7 @@ Time step    3 at day 156.429/5475, date = 06-Jun-2015
 
 Time step 0, stepsize 52.1428 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  4, linearizations =  5 ( 0.025 sec), linear its =  38 ( 0.008 sec)
+Time step summary: well its =  1, newton its =  4, linearizations =  5 ( 0.024 sec), linear its =  38 ( 0.008 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3416.67  PSIA                 :
@@ -196,7 +196,7 @@ Time step summary: well its =  1, newton its =  4, linearizations =  5 ( 0.025 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.183791 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.187566 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -212,7 +212,7 @@ Time step    4 at day 208.571/5475, date = 28-Jul-2015
 
 Time step 0, stepsize 52.1428 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.020 sec), linear its =  31 ( 0.006 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.021 sec), linear its =  31 ( 0.006 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3399.74  PSIA                 :
@@ -239,7 +239,7 @@ Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.020 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.211114 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.216186 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -282,7 +282,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.230905 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.236133 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -325,7 +325,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.251058 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.256304 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -341,7 +341,7 @@ Time step    7 at day 365/5475, date = 31-Dec-2015
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  16 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  16 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3354.75  PSIA                 :
@@ -368,7 +368,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.270866 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.277327 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -384,7 +384,7 @@ Time step    8 at day 396/5475, date = 31-Jan-2016
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  15 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.018 sec), linear its =  15 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3345.17  PSIA                 :
@@ -411,7 +411,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.290899 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.300754 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -454,7 +454,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.310975 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.320990 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -497,7 +497,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.331129 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.341398 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -513,7 +513,7 @@ Time step   11 at day 485/5475, date = 29-Apr-2016
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  12 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  12 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3313.06  PSIA                 :
@@ -540,7 +540,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.350710 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.361220 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -583,7 +583,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.370655 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.381646 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -599,7 +599,7 @@ Time step   13 at day 546/5475, date = 29-Jun-2016
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3291.37  PSIA                 :
@@ -626,7 +626,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.390896 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.403658 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -669,7 +669,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.410727 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.424016 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -712,7 +712,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.430410 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.444216 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -755,7 +755,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.450250 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.464337 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -798,7 +798,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.470567 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.485044 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -814,7 +814,7 @@ Time step   18 at day 699/5475, date = 29-Nov-2016
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  11 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3235.48  PSIA                 :
@@ -841,7 +841,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.491175 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.504998 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -884,7 +884,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.510947 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.524871 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -900,7 +900,7 @@ Time step   20 at day 761/5475, date = 30-Jan-2017
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3213.62  PSIA                 :
@@ -927,7 +927,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.531870 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.545310 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -970,7 +970,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.552472 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.565684 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1013,7 +1013,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.572655 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.586242 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1029,7 +1029,7 @@ Time step   23 at day 850/5475, date = 29-Apr-2017
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  18 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  18 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =        3179.2  PSIA                 :
@@ -1056,7 +1056,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.593278 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.607639 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1072,7 +1072,7 @@ Time step   24 at day 881/5475, date = 30-May-2017
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  11 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3167.92  PSIA                 :
@@ -1099,7 +1099,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.613116 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.627991 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1142,7 +1142,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.633459 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.648447 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1158,7 +1158,7 @@ Time step   26 at day 942/5475, date = 30-Jul-2017
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3144.48  PSIA                 :
@@ -1185,7 +1185,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.653590 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.669326 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1228,7 +1228,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.673996 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.690351 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1244,7 +1244,7 @@ Time step   28 at day 1003/5475, date = 29-Sep-2017
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  12 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  12 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3121.42  PSIA                 :
@@ -1271,7 +1271,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.693659 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.711466 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1314,7 +1314,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.714074 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.731993 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1357,7 +1357,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.734281 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.752220 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1400,7 +1400,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.754415 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.772378 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1416,7 +1416,7 @@ Time step   32 at day 1126/5475, date = 30-Jan-2018
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  10 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  10 ( 0.005 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3075.91  PSIA                 :
@@ -1443,7 +1443,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.774362 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.793406 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1486,7 +1486,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.794666 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.813876 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1529,7 +1529,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.815035 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.834278 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1572,7 +1572,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.835150 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.854668 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1615,7 +1615,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.855419 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.875213 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1658,7 +1658,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.876047 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.895494 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1701,7 +1701,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.896364 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.915763 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1744,7 +1744,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.916711 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.936414 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1787,7 +1787,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.936735 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.956728 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1830,7 +1830,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.957319 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.977381 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1846,7 +1846,7 @@ Time step   42 at day 1429/5475, date = 29-Nov-2018
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  11 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  11 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2969.25  PSIA                 :
@@ -1873,7 +1873,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.979174 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.998257 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1916,7 +1916,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 0.999464 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.018664 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1932,7 +1932,7 @@ Time step   44 at day 1491/5475, date = 30-Jan-2019
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.003 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2952.32  PSIA                 :
@@ -1959,7 +1959,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.019238 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.038436 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1975,7 +1975,7 @@ Time step   45 at day 1519/5475, date = 27-Feb-2019
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  10 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  10 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2943.47  PSIA                 :
@@ -2002,7 +2002,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.038823 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.058579 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2045,7 +2045,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.058337 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.078669 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2088,7 +2088,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.078011 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.098631 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2104,7 +2104,7 @@ Time step   48 at day 1611/5475, date = 30-May-2019
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.020 sec), linear its =  19 ( 0.005 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.020 sec), linear its =  19 ( 0.006 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2917.76  PSIA                 :
@@ -2131,7 +2131,7 @@ Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.020 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.104447 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.125746 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2174,7 +2174,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.125191 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.146196 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2190,7 +2190,7 @@ Time step   50 at day 1672/5475, date = 30-Jul-2019
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  12 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  12 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2900.55  PSIA                 :
@@ -2217,7 +2217,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.145876 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.166081 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2233,7 +2233,7 @@ Time step   51 at day 1703/5475, date = 30-Aug-2019
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.005 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2892.28  PSIA                 :
@@ -2260,7 +2260,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.166075 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.187391 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2276,7 +2276,7 @@ Time step   52 at day 1733/5475, date = 29-Sep-2019
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2883.77  PSIA                 :
@@ -2303,7 +2303,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.186794 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.207814 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2319,7 +2319,7 @@ Time step   53 at day 1764/5475, date = 30-Oct-2019
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2875.58  PSIA                 :
@@ -2346,7 +2346,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.200305 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.221191 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2362,7 +2362,7 @@ Time step   54 at day 1794/5475, date = 29-Nov-2019
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2867.17  PSIA                 :
@@ -2389,7 +2389,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.220943 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.241474 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2405,7 +2405,7 @@ Time step   55 at day 1825/5475, date = 30-Dec-2019
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2858.81  PSIA                 :
@@ -2432,7 +2432,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.241713 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.261726 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2448,7 +2448,7 @@ Time step   56 at day 1856/5475, date = 30-Jan-2020
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2851.29  PSIA                 :
@@ -2475,7 +2475,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.255547 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.274936 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2491,7 +2491,7 @@ Time step   57 at day 1884/5475, date = 27-Feb-2020
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  16 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  16 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2843.02  PSIA                 :
@@ -2518,7 +2518,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.276338 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.295196 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2561,7 +2561,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.296716 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.315288 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2604,7 +2604,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.316864 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.335640 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2647,7 +2647,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.337106 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.356117 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2663,7 +2663,7 @@ Time step   61 at day 2006/5475, date = 28-Jun-2020
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  11 ( 0.003 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2810.72  PSIA                 :
@@ -2690,7 +2690,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.357123 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.376872 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2706,7 +2706,7 @@ Time step   62 at day 2037/5475, date = 29-Jul-2020
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  13 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  13 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2802.54  PSIA                 :
@@ -2733,7 +2733,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.377623 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.396884 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2749,7 +2749,7 @@ Time step   63 at day 2068/5475, date = 29-Aug-2020
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  11 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2794.63  PSIA                 :
@@ -2776,7 +2776,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.397985 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.417036 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2819,7 +2819,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.418000 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.437010 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2862,7 +2862,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.431487 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.450463 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2878,7 +2878,7 @@ Time step   66 at day 2159/5475, date = 28-Nov-2020
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2770.67  PSIA                 :
@@ -2905,7 +2905,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.445614 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.463718 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2921,7 +2921,7 @@ Time step   67 at day 2190/5475, date = 29-Dec-2020
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2762.67  PSIA                 :
@@ -2948,7 +2948,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.460503 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.477175 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2964,7 +2964,7 @@ Time step   68 at day 2221/5475, date = 29-Jan-2021
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  15 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  15 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2755.45  PSIA                 :
@@ -2991,7 +2991,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.481541 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.497599 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3034,7 +3034,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.501890 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.518007 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3050,7 +3050,7 @@ Time step   70 at day 2280/5475, date = 29-Mar-2021
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.012 sec), linear its =   8 ( 0.003 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2739.81  PSIA                 :
@@ -3077,7 +3077,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.515670 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.533735 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3120,7 +3120,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.529022 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.547340 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3136,7 +3136,7 @@ Time step   72 at day 2341/5475, date = 29-May-2021
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  12 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  12 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2724.29  PSIA                 :
@@ -3163,7 +3163,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.549244 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.568242 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3179,7 +3179,7 @@ Time step   73 at day 2371/5475, date = 28-Jun-2021
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.003 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2716.41  PSIA                 :
@@ -3206,7 +3206,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.569247 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.588130 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3222,7 +3222,7 @@ Time step   74 at day 2402/5475, date = 29-Jul-2021
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2708.54  PSIA                 :
@@ -3249,7 +3249,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.583023 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.601585 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3292,7 +3292,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.603545 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.621847 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3335,7 +3335,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.623849 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.642510 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3351,7 +3351,7 @@ Time step   77 at day 2494/5475, date = 29-Oct-2021
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   8 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2685.57  PSIA                 :
@@ -3378,7 +3378,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.637401 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.655867 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3394,7 +3394,7 @@ Time step   78 at day 2524/5475, date = 28-Nov-2021
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   8 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2677.79  PSIA                 :
@@ -3421,7 +3421,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.651516 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.669129 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3464,7 +3464,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.665352 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.682763 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3480,7 +3480,7 @@ Time step   80 at day 2586/5475, date = 29-Jan-2022
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  12 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  12 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2663.07  PSIA                 :
@@ -3507,7 +3507,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.686360 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.703141 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3523,7 +3523,7 @@ Time step   81 at day 2614/5475, date = 26-Feb-2022
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2655.34  PSIA                 :
@@ -3550,7 +3550,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.699947 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.716504 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3593,7 +3593,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.713505 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.730236 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3636,7 +3636,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.727418 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.743816 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3652,7 +3652,7 @@ Time step   84 at day 2706/5475, date = 29-May-2022
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.003 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2632.82  PSIA                 :
@@ -3679,7 +3679,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.741240 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.758551 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3722,7 +3722,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.755329 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.772068 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3738,7 +3738,7 @@ Time step   86 at day 2767/5475, date = 29-Jul-2022
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   7 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   7 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2617.62  PSIA                 :
@@ -3765,7 +3765,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.768973 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.785350 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3808,7 +3808,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.789488 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.805491 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3824,7 +3824,7 @@ Time step   88 at day 2828/5475, date = 28-Sep-2022
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.005 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2602.68  PSIA                 :
@@ -3851,7 +3851,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.810921 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.826340 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3867,7 +3867,7 @@ Time step   89 at day 2859/5475, date = 29-Oct-2022
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   8 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2595.35  PSIA                 :
@@ -3894,7 +3894,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.824266 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.839750 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3910,7 +3910,7 @@ Time step   90 at day 2889/5475, date = 28-Nov-2022
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   8 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =        2587.8  PSIA                 :
@@ -3937,7 +3937,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.838067 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.852961 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3953,7 +3953,7 @@ Time step   91 at day 2920/5475, date = 29-Dec-2022
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  14 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  14 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2580.25  PSIA                 :
@@ -3980,7 +3980,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.858551 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.873136 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3996,7 +3996,7 @@ Time step   92 at day 2951/5475, date = 29-Jan-2023
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   8 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2573.45  PSIA                 :
@@ -4023,7 +4023,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.872588 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.886521 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4066,7 +4066,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.886183 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.900188 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4082,7 +4082,7 @@ Time step   94 at day 3010/5475, date = 29-Mar-2023
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   8 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =        2558.7  PSIA                 :
@@ -4109,7 +4109,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.899763 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.913555 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4125,7 +4125,7 @@ Time step   95 at day 3040/5475, date = 28-Apr-2023
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2551.23  PSIA                 :
@@ -4152,7 +4152,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.912973 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.927039 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4168,7 +4168,7 @@ Time step   96 at day 3071/5475, date = 29-May-2023
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.022 sec), linear its =  18 ( 0.006 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.021 sec), linear its =  18 ( 0.006 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2543.99  PSIA                 :
@@ -4195,7 +4195,7 @@ Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.022 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.942132 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.954901 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4238,7 +4238,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.955584 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.968713 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4254,7 +4254,7 @@ Time step   98 at day 3132/5475, date = 29-Jul-2023
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  11 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  11 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2529.07  PSIA                 :
@@ -4281,7 +4281,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.975673 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.990163 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4297,7 +4297,7 @@ Time step   99 at day 3163/5475, date = 29-Aug-2023
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.003 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2521.88  PSIA                 :
@@ -4324,7 +4324,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 1.989159 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.005053 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4340,7 +4340,7 @@ Time step  100 at day 3193/5475, date = 28-Sep-2023
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   8 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.012 sec), linear its =   8 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2514.47  PSIA                 :
@@ -4367,7 +4367,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.002745 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.019791 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4383,7 +4383,7 @@ Time step  101 at day 3224/5475, date = 29-Oct-2023
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2507.32  PSIA                 :
@@ -4410,7 +4410,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.023822 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.040487 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4426,7 +4426,7 @@ Time step  102 at day 3254/5475, date = 28-Nov-2023
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2500.02  PSIA                 :
@@ -4453,7 +4453,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.044589 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.061096 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4496,7 +4496,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.064902 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.081492 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4512,7 +4512,7 @@ Time step  104 at day 3316/5475, date = 29-Jan-2024
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.021 sec), linear its =  19 ( 0.006 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.020 sec), linear its =  19 ( 0.006 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2486.37  PSIA                 :
@@ -4539,7 +4539,7 @@ Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.021 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.092741 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.108307 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4555,7 +4555,7 @@ Time step  105 at day 3344/5475, date = 26-Feb-2024
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2479.35  PSIA                 :
@@ -4582,7 +4582,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.113768 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.128832 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4598,7 +4598,7 @@ Time step  106 at day 3375/5475, date = 28-Mar-2024
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  12 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  12 ( 0.005 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =        2472.6  PSIA                 :
@@ -4625,7 +4625,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.134466 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.150062 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4641,7 +4641,7 @@ Time step  107 at day 3405/5475, date = 27-Apr-2024
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2465.65  PSIA                 :
@@ -4668,7 +4668,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.148057 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.163429 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4684,7 +4684,7 @@ Time step  108 at day 3436/5475, date = 28-May-2024
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2458.95  PSIA                 :
@@ -4711,7 +4711,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.162646 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.176714 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4727,7 +4727,7 @@ Time step  109 at day 3466/5475, date = 27-Jun-2024
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2452.05  PSIA                 :
@@ -4754,7 +4754,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.176475 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.190006 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4797,7 +4797,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.190236 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.203470 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4840,7 +4840,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.204080 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.217136 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4883,7 +4883,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.224531 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.237544 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4899,7 +4899,7 @@ Time step  113 at day 3589/5475, date = 28-Oct-2024
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  12 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  12 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2425.07  PSIA                 :
@@ -4926,7 +4926,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.245310 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.257630 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4942,7 +4942,7 @@ Time step  114 at day 3619/5475, date = 27-Nov-2024
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 sec), linear its =   9 ( 0.002 sec)
+Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.010 sec), linear its =   9 ( 0.002 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2418.22  PSIA                 :
@@ -4969,7 +4969,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.259261 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.270938 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4985,7 +4985,7 @@ Time step  115 at day 3650/5475, date = 28-Dec-2024
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2391.57  PSIA                 :
@@ -5012,7 +5012,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.280277 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.291411 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5055,7 +5055,7 @@ Time step summary: well its =  1, newton its =  1, linearizations =  2 ( 0.011 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.293908 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.304779 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5071,7 +5071,7 @@ Time step  117 at day 3709/5475, date = 25-Feb-2025
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  18 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  18 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2340.89  PSIA                 :
@@ -5098,7 +5098,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.314814 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.325310 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5114,7 +5114,7 @@ Time step  118 at day 3740/5475, date = 28-Mar-2025
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  18 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  18 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2315.25  PSIA                 :
@@ -5141,7 +5141,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.336640 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.346832 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5157,7 +5157,7 @@ Time step  119 at day 3770/5475, date = 27-Apr-2025
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2288.84  PSIA                 :
@@ -5184,7 +5184,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.358541 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.367392 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5200,7 +5200,7 @@ Time step  120 at day 3801/5475, date = 28-May-2025
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  15 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  15 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2263.33  PSIA                 :
@@ -5227,7 +5227,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.379592 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.387828 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5270,7 +5270,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.400732 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.408545 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5286,7 +5286,7 @@ Time step  122 at day 3862/5475, date = 28-Jul-2025
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  19 ( 0.005 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2210.86  PSIA                 :
@@ -5313,7 +5313,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.423281 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.429442 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5329,7 +5329,7 @@ Time step  123 at day 3893/5475, date = 28-Aug-2025
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  20 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  20 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2185.58  PSIA                 :
@@ -5356,7 +5356,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.444508 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.450335 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5372,7 +5372,7 @@ Time step  124 at day 3923/5475, date = 27-Sep-2025
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  20 ( 0.005 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  20 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2159.52  PSIA                 :
@@ -5399,7 +5399,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.466198 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.471117 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5415,7 +5415,7 @@ Time step  125 at day 3954/5475, date = 28-Oct-2025
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  16 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  16 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2134.38  PSIA                 :
@@ -5442,7 +5442,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.487908 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.493803 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5458,7 +5458,7 @@ Time step  126 at day 3984/5475, date = 27-Nov-2025
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2108.46  PSIA                 :
@@ -5485,7 +5485,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.509353 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.514694 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5528,7 +5528,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.530453 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.536297 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5544,7 +5544,7 @@ Time step  128 at day 4046/5475, date = 28-Jan-2026
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  16 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  16 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2059.32  PSIA                 :
@@ -5571,7 +5571,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.551267 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.556622 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5587,7 +5587,7 @@ Time step  129 at day 4074/5475, date = 25-Feb-2026
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  16 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  16 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       2033.59  PSIA                 :
@@ -5614,7 +5614,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.572428 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.576952 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5657,7 +5657,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.593232 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.597230 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5700,7 +5700,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.614315 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.618202 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5716,7 +5716,7 @@ Time step  132 at day 4166/5475, date = 28-May-2026
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1957.93  PSIA                 :
@@ -5743,7 +5743,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.635441 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.638566 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5786,7 +5786,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.656063 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.658838 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5802,7 +5802,7 @@ Time step  134 at day 4227/5475, date = 28-Jul-2026
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1906.44  PSIA                 :
@@ -5829,7 +5829,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.676905 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.679172 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5845,7 +5845,7 @@ Time step  135 at day 4258/5475, date = 28-Aug-2026
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  18 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  18 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1881.61  PSIA                 :
@@ -5872,7 +5872,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.697882 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.699586 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5888,7 +5888,7 @@ Time step  136 at day 4288/5475, date = 27-Sep-2026
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  19 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1856.02  PSIA                 :
@@ -5915,7 +5915,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.718890 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.721471 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5931,7 +5931,7 @@ Time step  137 at day 4319/5475, date = 28-Oct-2026
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1831.31  PSIA                 :
@@ -5958,7 +5958,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.740244 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.742268 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5974,7 +5974,7 @@ Time step  138 at day 4349/5475, date = 27-Nov-2026
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1805.83  PSIA                 :
@@ -6001,7 +6001,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.761348 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.762797 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6017,7 +6017,7 @@ Time step  139 at day 4380/5475, date = 28-Dec-2026
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1780.41  PSIA                 :
@@ -6044,7 +6044,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.782349 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.783608 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6060,7 +6060,7 @@ Time step  140 at day 4411/5475, date = 28-Jan-2027
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  16 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  16 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1757.49  PSIA                 :
@@ -6087,7 +6087,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.802957 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.804196 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6130,7 +6130,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.823639 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.824830 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6146,7 +6146,7 @@ Time step  142 at day 4470/5475, date = 28-Mar-2027
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  16 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  16 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =        1707.7  PSIA                 :
@@ -6173,7 +6173,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.844519 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.845477 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6216,7 +6216,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.865322 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.866216 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6259,7 +6259,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.886305 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.887090 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6302,7 +6302,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.906784 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.907545 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6345,7 +6345,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.927756 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.929111 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6388,7 +6388,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.948621 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.949836 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6431,7 +6431,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.969594 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.971877 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6447,7 +6447,7 @@ Time step  149 at day 4684/5475, date = 28-Oct-2027
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1534.46  PSIA                 :
@@ -6474,7 +6474,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.990337 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 2.994928 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6490,7 +6490,7 @@ Time step  150 at day 4714/5475, date = 27-Nov-2027
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1509.54  PSIA                 :
@@ -6517,7 +6517,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.011652 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.015819 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6533,7 +6533,7 @@ Time step  151 at day 4745/5475, date = 28-Dec-2027
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.018 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1483.89  PSIA                 :
@@ -6560,7 +6560,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.032571 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.039187 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6576,7 +6576,7 @@ Time step  152 at day 4776/5475, date = 28-Jan-2028
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1460.35  PSIA                 :
@@ -6603,7 +6603,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.054901 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.060020 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6646,7 +6646,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.076490 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.080961 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6689,7 +6689,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.097265 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.101717 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6705,7 +6705,7 @@ Time step  155 at day 4865/5475, date = 26-Apr-2028
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =        1383.3  PSIA                 :
@@ -6732,7 +6732,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.117737 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.122368 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6775,7 +6775,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.138027 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.143195 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6791,7 +6791,7 @@ Time step  157 at day 4926/5475, date = 26-Jun-2028
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.007 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1332.45  PSIA                 :
@@ -6818,7 +6818,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.158723 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.166401 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6834,7 +6834,7 @@ Time step  158 at day 4957/5475, date = 27-Jul-2028
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1306.67  PSIA                 :
@@ -6861,7 +6861,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.179749 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.187159 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6904,7 +6904,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.200332 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.207812 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6947,7 +6947,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.220979 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.228504 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6963,7 +6963,7 @@ Time step  161 at day 5049/5475, date = 27-Oct-2028
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  18 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  18 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1231.24  PSIA                 :
@@ -6990,7 +6990,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.241946 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.248943 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7033,7 +7033,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.262609 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.269639 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7049,7 +7049,7 @@ Time step  163 at day 5110/5475, date = 27-Dec-2028
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  19 ( 0.007 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1180.04  PSIA                 :
@@ -7076,7 +7076,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.283380 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.292990 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7092,7 +7092,7 @@ Time step  164 at day 5141/5475, date = 27-Jan-2029
 
 Time step 0, stepsize 28 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  20 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  20 ( 0.005 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1156.97  PSIA                 :
@@ -7119,7 +7119,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.304785 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.314113 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7135,7 +7135,7 @@ Time step  165 at day 5169/5475, date = 24-Feb-2029
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  18 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  18 ( 0.005 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1131.46  PSIA                 :
@@ -7162,7 +7162,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.325662 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.335392 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7205,7 +7205,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.346272 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.356167 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7221,7 +7221,7 @@ Time step  167 at day 5230/5475, date = 26-Apr-2029
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  18 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  18 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1081.36  PSIA                 :
@@ -7248,7 +7248,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.367174 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.377253 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7264,7 +7264,7 @@ Time step  168 at day 5261/5475, date = 27-May-2029
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  18 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  18 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1056.76  PSIA                 :
@@ -7291,7 +7291,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.387825 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.399598 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7334,7 +7334,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.409126 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.421184 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7350,7 +7350,7 @@ Time step  170 at day 5322/5475, date = 27-Jul-2029
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  14 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  14 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       1006.01  PSIA                 :
@@ -7377,7 +7377,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.429734 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.442890 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7420,7 +7420,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.450393 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.465470 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7436,7 +7436,7 @@ Time step  172 at day 5383/5475, date = 26-Sep-2029
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 sec), linear its =  17 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  17 ( 0.005 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       952.535  PSIA                 :
@@ -7463,7 +7463,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.015 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.470932 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.488265 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7479,7 +7479,7 @@ Time step  173 at day 5414/5475, date = 27-Oct-2029
 
 Time step 0, stepsize 30 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  16 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  16 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =        926.04  PSIA                 :
@@ -7506,7 +7506,7 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.491712 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.510452 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7522,7 +7522,7 @@ Time step  174 at day 5444/5475, date = 26-Nov-2029
 
 Time step 0, stepsize 31 days.
 well converged iter: 1
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 sec), linear its =  15 ( 0.004 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.017 sec), linear its =  15 ( 0.004 sec)
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       898.705  PSIA                 :
@@ -7549,19 +7549,19 @@ Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.016 s
 :Originally  in place    :             0       3797199       3797199:      5640574   :      22730662             0      22730662:
 :========================:==========================================:================:==========================================:
 
-Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.512418 seconds.
+Fully implicit solver took: 0.000000 seconds. Total solver time taken: 3.532636 seconds.
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
 
 ================    End of simulation     ===============
 
-Total time (seconds):         3.62248
-Solver time (seconds):        3.51242
- Assembly time (seconds):     2.65131
- Linear solve time (seconds): 0.661662
- Update time (seconds):       0.10347
- Output write time (seconds): 0.0226504
+Total time (seconds):         3.6498
+Solver time (seconds):        3.53264
+ Assembly time (seconds):     2.65111
+ Linear solve time (seconds): 0.67768
+ Update time (seconds):       0.106193
+ Output write time (seconds): 0.0233923
 Overall Well Iterations:      179
 Overall Linearizations:       511
 Overall Newton Iterations:    332
