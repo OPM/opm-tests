@@ -1,0 +1,335 @@
+<eclipse>
+<message source="eclrun" date="" time="0">
+Executing ECLIPSE on linux system with x86_64 architecture named pc-17233
+</message>
+<message source="eclrun" date="" time="0">
+Executing ECLIPSE on linux system with x86_64 architecture named pc-17233
+</message>
+<message source="eclrun" date="" time="0">
+Process ID is 7410
+</message>
+<message source="eclrun" date="" time="0">
+Starting HDF conversion ...
+</message>
+<message source="eclrun" date="" time="0">
+HDF conversion completed successfully.
+</message>
+<message date="6/11/2011" time="0.00000000000000">
+ OPTIONS(78) HAS BEEN SET TO USE                                         
+ SCRATCH FILES FOR NNCS                                                  
+</message>
+<message date="6/11/2011" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="6/11/2011" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="6/11/2011" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+      75584 BYTES                                                        
+</message>
+<comment date="6/11/2011" time="0.00000000000000">
+ NEWTRAN SPECIFIED IN BLOCK-CENTRED GEOMETRY                             
+ IS NOT RECOMMENDED. CHECK THE GRID DATA.                                
+</comment>
+<comment date="6/11/2011" time="0.00000000000000">
+ NO NON-NEIGHBOUR CONNECTIONS FOUND                                      
+</comment>
+<message date="6/11/2011" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 100                                           
+</message>
+<warning date="6/11/2011" time="0.00000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<message date="6/11/2011" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
+     572104 BYTES                                                        
+</message>
+<message date="6/11/2011" time="0.00000000000000">
+    62289 CHARACTER VARIABLES USED                                       
+</message>
+<warning date="6/11/2011" time="0.00000000000000">
+ SPURIOUS DATA BEFORE NOECHO   KEYWORD                                   
+ /                                                                       
+</warning>
+<warning date="6/11/2011" time="0.00000000000000">
+ SPURIOUS DATA BEFORE AQUANCON KEYWORD                                   
+ /                                                                       
+</warning>
+<warning date="6/11/2011" time="0.00000000000000">
+ UNRECOGNISED MNEMONIC SWAT             IN DATA                          
+ FOR KEYWORD RPTRST   IS IGNORED                                         
+</warning>
+<warning date="6/11/2011" time="0.00000000000000">
+ UNRECOGNISED MNEMONIC SGAS             IN DATA                          
+ FOR KEYWORD RPTRST   IS IGNORED                                         
+</warning>
+<warning date="6/11/2011" time="0.00000000000000">
+ UNRECOGNISED MNEMONIC SOIL             IN DATA                          
+ FOR KEYWORD RPTRST   IS IGNORED                                         
+</warning>
+<message date="6/11/2011" time="0.00000000000000">
+ AQUIFER      1 HAS      1 CONNECTIONS IN THE                            
+ GLOBAL GRID                                                             
+</message>
+<comment date="6/11/2011" time="0.00000000000000">
+ THE MINIMUM VALUE FOR NCAMAX IN THE AQUDIMS KEYWORD                     
+ IN RUNSPEC IS         1                                                 
+</comment>
+<message date="6/11/2011" time="0.00000000000000">
+ OPTIONS(137) HAS BEEN SET TO RESTORE PRE-2009.1                         
+ BEHAVIOR FOR VELOCITY CALCULATION                                       
+</message>
+<message date="6/11/2011" time="0.00000000000000">
+ RESTART FILE WRITTEN   REPORT     0                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+</message>
+<warning date="6/11/2011" time="0.00000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<warning date="6/11/2011" time="0.00000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<warning date="7/11/2011" time="1.00000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<warning date="10/11/2011" time="4.00000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<warning date="15/11/2011" time="9.50000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<message date="21/11/2011" time="15.00000000000000">
+ RESTART FILE WRITTEN   REPORT     1                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<warning date="21/11/2011" time="15.00000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<message date="6/12/2011" time="30.00000000000000">
+ RESTART FILE WRITTEN   REPORT     2                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<warning date="6/12/2011" time="30.00000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<message date="21/12/2011" time="45.00000000000000">
+ RESTART FILE WRITTEN   REPORT     3                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<warning date="21/12/2011" time="45.00000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<message date="5/1/2012" time="60.00000000000000">
+ RESTART FILE WRITTEN   REPORT     4                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<warning date="5/1/2012" time="60.00000000000000">
+ NSTACK =     30   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ IT IS RECOMMENDED THAT NSTACK BE REDUCED                                
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ THE CURRENT VALUE OF LITMAX IS     25  .                                
+</warning>
+<warning date="5/1/2012" time="60.00000000000000">
+ NO FURTHER MESSAGES ABOUT                                               
+ EXCESS MEMORY BEING ALLOCATED BY NSTACK                                 
+ WILL BE EMITTED.                                                        
+</warning>
+<message date="5/1/2012" time="60.00000000000000">
+ THE OUTPUT LIMIT FOR THESE MESSAGES                                     
+ CAN BE CHANGED WITH ITEM 13 OF THE                                      
+ MESSAGES KEYWORD OR WITH ITEM 220                                       
+ OF THE OPTIONS KEYWORD.                                                 
+</message>
+<message date="20/1/2012" time="75.00000000000000">
+ RESTART FILE WRITTEN   REPORT     5                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="4/2/2012" time="90.00000000000000">
+ RESTART FILE WRITTEN   REPORT     6                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="19/2/2012" time="105.00000000000000">
+ RESTART FILE WRITTEN   REPORT     7                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="5/3/2012" time="120.00000000000000">
+ RESTART FILE WRITTEN   REPORT     8                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="20/3/2012" time="135.00000000000000">
+ RESTART FILE WRITTEN   REPORT     9                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="4/4/2012" time="150.00000000000000">
+ RESTART FILE WRITTEN   REPORT    10                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="19/4/2012" time="165.00000000000000">
+ RESTART FILE WRITTEN   REPORT    11                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="4/5/2012" time="180.00000000000000">
+ RESTART FILE WRITTEN   REPORT    12                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="19/5/2012" time="195.00000000000000">
+ RESTART FILE WRITTEN   REPORT    13                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="3/6/2012" time="210.00000000000000">
+ RESTART FILE WRITTEN   REPORT    14                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="18/6/2012" time="225.00000000000000">
+ RESTART FILE WRITTEN   REPORT    15                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="3/7/2012" time="240.00000000000000">
+ RESTART FILE WRITTEN   REPORT    16                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="18/7/2012" time="255.00000000000000">
+ RESTART FILE WRITTEN   REPORT    17                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="2/8/2012" time="270.00000000000000">
+ RESTART FILE WRITTEN   REPORT    18                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="17/8/2012" time="285.00000000000000">
+ RESTART FILE WRITTEN   REPORT    19                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="1/9/2012" time="300.00000000000000">
+ RESTART FILE WRITTEN   REPORT    20                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="16/9/2012" time="315.00000000000000">
+ RESTART FILE WRITTEN   REPORT    21                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="1/10/2012" time="330.00000000000000">
+ RESTART FILE WRITTEN   REPORT    22                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="16/10/2012" time="345.00000000000000">
+ RESTART FILE WRITTEN   REPORT    23                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="31/10/2012" time="360.00000000000000">
+ RESTART FILE WRITTEN   REPORT    24                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="15/11/2012" time="375.00000000000000">
+ RESTART FILE WRITTEN   REPORT    25                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="30/11/2012" time="390.00000000000000">
+ RESTART FILE WRITTEN   REPORT    26                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="15/12/2012" time="405.00000000000000">
+ RESTART FILE WRITTEN   REPORT    27                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="30/12/2012" time="420.00000000000000">
+ RESTART FILE WRITTEN   REPORT    28                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="14/1/2013" time="435.00000000000000">
+ RESTART FILE WRITTEN   REPORT    29                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+<message date="29/1/2013" time="450.00000000000000">
+ RESTART FILE WRITTEN   REPORT    30                                     
+ RESTART INCLUDES WATER AND GAS PHASE PRESSURES                          
+                  VELOCITIES                                             
+</message>
+</eclipse>
