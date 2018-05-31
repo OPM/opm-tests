@@ -13,8 +13,7 @@ For more information visit: https://opm-project.org
 Flow Version  =  2018.10-pre
 System        =  opm-deb (Number of cores: 12, RAM: 32178.65 MB) 
 Architecture  =  Linux x86_64 (Release: 4.9.0-3-amd64, Version: #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) )
-User          =  jenkins
-Simulation started on 29-05-2018 at 09:48:00 hrs
+Simulation started on 31-05-2018 at 08:43:17 hrs
 
 
 ===============Saturation Functions Diagnostics===============
@@ -58,16 +57,16 @@ Report step  0/21 at day 0/210, date = 01-Jan-2015
 
 Time step 0, stepsize 1 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.255 sec), linear its =  18 ( 0.091 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.283 sec), linear its =  18 ( 0.104 sec)
 
 Time step 1, stepsize 3 days.
     Switching control mode for well PRODU21 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.231 sec), linear its =  23 ( 0.099 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.255 sec), linear its =  23 ( 0.114 sec)
 
 Time step 2, stepsize 6 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.230 sec), linear its =  22 ( 0.097 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.239 sec), linear its =  22 ( 0.105 sec)
 
                               **************************************************************************
   Balance  at        10  Days *                         SPE 9                                          *
@@ -110,7 +109,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU21 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  4, linearizations =  5 ( 0.309 sec), linear its =  24 ( 0.125 sec)
+Time step summary: well its =  2, newton its =  4, linearizations =  5 ( 0.319 sec), linear its =  24 ( 0.132 sec)
 
                               **************************************************************************
   Balance  at        20  Days *                         SPE 9                                          *
@@ -153,7 +152,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU21 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.242 sec), linear its =  20 ( 0.102 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.264 sec), linear its =  20 ( 0.102 sec)
 
                               **************************************************************************
   Balance  at        30  Days *                         SPE 9                                          *
@@ -171,7 +170,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216465340             0     216465340:    212413191   :       1187530     299725035     300912564:
+:Currently   in place    :     216465340             0     216465340:    212413191   :       1187530     299725035     300912565:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -183,7 +182,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216465340             0     216465340:    212413191   :       1187530     299725035     300912564:
+:Currently   in place    :     216465340             0     216465340:    212413191   :       1187530     299725035     300912565:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -198,7 +197,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
     Switching control mode for well PRODU9 from SURFACE_RATE to BHP
     Switching control mode for well PRODU9 from BHP to SURFACE_RATE
-Time step summary: well its =  2, newton its =  4, linearizations =  5 ( 0.299 sec), linear its =  22 ( 0.110 sec)
+Time step summary: well its =  2, newton its =  4, linearizations =  5 ( 0.321 sec), linear its =  22 ( 0.124 sec)
 
                               **************************************************************************
   Balance  at        40  Days *                         SPE 9                                          *
@@ -241,7 +240,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU21 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.241 sec), linear its =  16 ( 0.084 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.252 sec), linear its =  16 ( 0.090 sec)
 
                               **************************************************************************
   Balance  at        50  Days *                         SPE 9                                          *
@@ -259,7 +258,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     215759250             0     215759250:    212424119   :       2139546     297784324     299923870:
+:Currently   in place    :     215759251             0     215759251:    212424119   :       2139546     297784324     299923870:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -271,7 +270,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     215759250             0     215759250:    212424119   :       2139546     297784324     299923870:
+:Currently   in place    :     215759251             0     215759251:    212424119   :       2139546     297784324     299923870:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -284,7 +283,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU21 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.261 sec), linear its =  15 ( 0.088 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.250 sec), linear its =  15 ( 0.087 sec)
 
                               **************************************************************************
   Balance  at        60  Days *                         SPE 9                                          *
@@ -327,7 +326,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU21 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.236 sec), linear its =  16 ( 0.083 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.253 sec), linear its =  16 ( 0.100 sec)
 
                               **************************************************************************
   Balance  at        70  Days *                         SPE 9                                          *
@@ -371,7 +370,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
     Switching control mode for well PRODU9 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.168 sec), linear its =  11 ( 0.055 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.182 sec), linear its =  11 ( 0.063 sec)
 
                               **************************************************************************
   Balance  at        80  Days *                         SPE 9                                          *
@@ -415,7 +414,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
     Switching control mode for well PRODU9 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.233 sec), linear its =  15 ( 0.078 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.249 sec), linear its =  15 ( 0.090 sec)
 
                               **************************************************************************
   Balance  at        90  Days *                         SPE 9                                          *
@@ -459,7 +458,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU21 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.234 sec), linear its =  17 ( 0.086 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.243 sec), linear its =  17 ( 0.097 sec)
 
                               **************************************************************************
   Balance  at       100  Days *                         SPE 9                                          *
@@ -499,7 +498,7 @@ Report step 10/21 at day 100/210, date = 11-Apr-2015
 
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  4, linearizations =  5 ( 0.302 sec), linear its =  18 ( 0.098 sec)
+Time step summary: well its =  2, newton its =  4, linearizations =  5 ( 0.317 sec), linear its =  18 ( 0.110 sec)
 
                               **************************************************************************
   Balance  at       110  Days *                         SPE 9                                          *
@@ -511,13 +510,13 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3593.64  PSIA                 :
-                                                  :      PORV =     453066936   RB                  :
+                                                  :      PORV =     453066937   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213997127             0     213997127:    212451710   :       4567068     292342563     296909631:
+:Currently   in place    :     213997127             0     213997127:    212451712   :       4567066     292342559     296909625:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -525,11 +524,11 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3593.64  PSIA                 :
-                                                  :      PORV =     453066936   RB                  :
+                                                  :      PORV =     453066937   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213997127             0     213997127:    212451710   :       4567068     292342563     296909631:
+:Currently   in place    :     213997127             0     213997127:    212451712   :       4567066     292342559     296909625:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -539,7 +538,7 @@ Report step 11/21 at day 110/210, date = 21-Apr-2015
 
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.238 sec), linear its =  16 ( 0.085 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.259 sec), linear its =  16 ( 0.094 sec)
 
                               **************************************************************************
   Balance  at       120  Days *                         SPE 9                                          *
@@ -557,7 +556,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213972117             0     213972117:    212459716   :       4571278     292306010     296877288:
+:Currently   in place    :     213972116             0     213972116:    212459718   :       4571276     292306006     296877283:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -569,7 +568,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213972117             0     213972117:    212459716   :       4571278     292306010     296877288:
+:Currently   in place    :     213972116             0     213972116:    212459718   :       4571276     292306006     296877283:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -579,7 +578,7 @@ Report step 12/21 at day 120/210, date = 01-May-2015
 
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.232 sec), linear its =  15 ( 0.077 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.261 sec), linear its =  15 ( 0.090 sec)
 
                               **************************************************************************
   Balance  at       130  Days *                         SPE 9                                          *
@@ -597,7 +596,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213947175             0     213947175:    212467882   :       4574487     292270827     296845314:
+:Currently   in place    :     213947175             0     213947175:    212467884   :       4574485     292270823     296845308:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -609,7 +608,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213947175             0     213947175:    212467882   :       4574487     292270827     296845314:
+:Currently   in place    :     213947175             0     213947175:    212467884   :       4574485     292270823     296845308:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -619,7 +618,7 @@ Report step 13/21 at day 130/210, date = 11-May-2015
 
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.234 sec), linear its =  15 ( 0.078 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.243 sec), linear its =  15 ( 0.086 sec)
 
                               **************************************************************************
   Balance  at       140  Days *                         SPE 9                                          *
@@ -637,7 +636,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213922270             0     213922270:    212476153   :       4578506     292234857     296813362:
+:Currently   in place    :     213922270             0     213922270:    212476155   :       4578504     292234853     296813357:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -649,7 +648,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213922270             0     213922270:    212476153   :       4578506     292234857     296813362:
+:Currently   in place    :     213922270             0     213922270:    212476155   :       4578504     292234853     296813357:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -659,7 +658,7 @@ Report step 14/21 at day 140/210, date = 21-May-2015
 
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.247 sec), linear its =  15 ( 0.081 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.246 sec), linear its =  15 ( 0.090 sec)
 
                               **************************************************************************
   Balance  at       150  Days *                         SPE 9                                          *
@@ -677,7 +676,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213897295             0     213897295:    212484521   :       4584499     292196759     296781258:
+:Currently   in place    :     213897295             0     213897295:    212484523   :       4584497     292196755     296781253:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -689,7 +688,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213897295             0     213897295:    212484521   :       4584499     292196759     296781258:
+:Currently   in place    :     213897295             0     213897295:    212484523   :       4584497     292196755     296781253:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -699,7 +698,7 @@ Report step 15/21 at day 150/210, date = 31-May-2015
 
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.242 sec), linear its =  15 ( 0.083 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.255 sec), linear its =  15 ( 0.085 sec)
 
                               **************************************************************************
   Balance  at       160  Days *                         SPE 9                                          *
@@ -717,7 +716,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213872310             0     213872310:    212492982   :       4592889     292156194     296749083:
+:Currently   in place    :     213872310             0     213872310:    212492983   :       4592887     292156190     296749077:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -729,7 +728,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213872310             0     213872310:    212492982   :       4592889     292156194     296749083:
+:Currently   in place    :     213872310             0     213872310:    212492983   :       4592887     292156190     296749077:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -742,7 +741,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
     Switching control mode for well PRODU21 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  5, linearizations =  6 ( 0.363 sec), linear its =  18 ( 0.113 sec)
+Time step summary: well its =  2, newton its =  5, linearizations =  6 ( 0.380 sec), linear its =  18 ( 0.121 sec)
 
                               **************************************************************************
   Balance  at       170  Days *                         SPE 9                                          *
@@ -760,7 +759,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213522747             0     213522747:    212495418   :       5120572     291154216     296274788:
+:Currently   in place    :     213522747             0     213522747:    212495419   :       5120570     291154214     296274784:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -772,7 +771,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213522747             0     213522747:    212495418   :       5120572     291154216     296274788:
+:Currently   in place    :     213522747             0     213522747:    212495419   :       5120570     291154214     296274784:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -786,7 +785,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
     Switching control mode for well PRODU9 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  5, linearizations =  6 ( 0.360 sec), linear its =  21 ( 0.118 sec)
+Time step summary: well its =  2, newton its =  5, linearizations =  6 ( 0.375 sec), linear its =  21 ( 0.130 sec)
 
                               **************************************************************************
   Balance  at       180  Days *                         SPE 9                                          *
@@ -804,7 +803,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213176536             0     213176536:    212497023   :       5636861     290104497     295741358:
+:Currently   in place    :     213176536             0     213176536:    212497024   :       5636860     290104496     295741356:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -816,7 +815,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     213176536             0     213176536:    212497023   :       5636861     290104497     295741358:
+:Currently   in place    :     213176536             0     213176536:    212497024   :       5636860     290104496     295741356:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -831,7 +830,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
     Switching control mode for well PRODU22 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.230 sec), linear its =  18 ( 0.086 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.249 sec), linear its =  18 ( 0.096 sec)
 
                               **************************************************************************
   Balance  at       190  Days *                         SPE 9                                          *
@@ -843,13 +842,13 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3536.78  PSIA                 :
-                                                  :      PORV =     452962511   RB                  :
+                                                  :      PORV =     452962512   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     212834337             0     212834337:    212497755   :       6143251     288956266     295099518:
+:Currently   in place    :     212834337             0     212834337:    212497756   :       6143250     288956267     295099517:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -857,11 +856,11 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3536.78  PSIA                 :
-                                                  :      PORV =     452962511   RB                  :
+                                                  :      PORV =     452962512   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     212834337             0     212834337:    212497755   :       6143251     288956266     295099518:
+:Currently   in place    :     212834337             0     212834337:    212497756   :       6143250     288956267     295099517:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -877,7 +876,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
     Switching control mode for well PRODU16 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.231 sec), linear its =  17 ( 0.088 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.255 sec), linear its =  17 ( 0.097 sec)
 
                               **************************************************************************
   Balance  at       200  Days *                         SPE 9                                          *
@@ -895,7 +894,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     212496305             0     212496305:    212497522   :       6638649     287724826     294363475:
+:Currently   in place    :     212496306             0     212496306:    212497523   :       6638648     287724827     294363475:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -907,7 +906,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     212496305             0     212496305:    212497522   :       6638649     287724826     294363475:
+:Currently   in place    :     212496306             0     212496306:    212497523   :       6638648     287724827     294363475:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -923,7 +922,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU22 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
     Switching control mode for well PRODU26 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.229 sec), linear its =  16 ( 0.077 sec)
+Time step summary: well its =  2, newton its =  3, linearizations =  4 ( 0.252 sec), linear its =  16 ( 0.090 sec)
 
                               **************************************************************************
   Balance  at       210  Days *                         SPE 9                                          *
@@ -941,7 +940,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     212162432             0     212162432:    212496314   :       7122985     286432801     293555786:
+:Currently   in place    :     212162432             0     212162432:    212496315   :       7122984     286432802     293555787:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -953,7 +952,7 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     212162432             0     212162432:    212496314   :       7122985     286432801     293555786:
+:Currently   in place    :     212162432             0     212162432:    212496315   :       7122984     286432802     293555787:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
 :Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
 :========================:==========================================:================:==========================================:
@@ -962,12 +961,12 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
 
 ================    End of simulation     ===============
 
-Total time (seconds):         8.4465
-Solver time (seconds):        8.35909
- Assembly time (seconds):     5.8453 (Failed: 0; 0%)
- Linear solve time (seconds): 2.08113 (Failed: 0; 0%)
- Update time (seconds):       0.27266 (Failed: 0; 0%)
- Output write time (seconds): 0.0926259
+Total time (seconds):         9.04366
+Solver time (seconds):        8.95515
+ Assembly time (seconds):     6.20094 (Failed: 0; 0%)
+ Linear solve time (seconds): 2.298 (Failed: 0; 0%)
+ Update time (seconds):       0.283332 (Failed: 0; 0%)
+ Output write time (seconds): 0.094682
 Overall Well Iterations:      43 (Failed: 0; 0%)
 Overall Linearizations:       98 (Failed: 0; 0%)
 Overall Newton Iterations:    75 (Failed: 0; 0%)
