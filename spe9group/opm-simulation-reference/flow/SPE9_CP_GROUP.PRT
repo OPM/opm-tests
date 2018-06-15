@@ -11,9 +11,10 @@ Flow is a simulator for fully implicit three-phase black-oil flow, and is part o
 For more information visit: https://opm-project.org 
 
 Flow Version  =  2018.10-pre
-System        =  kaib-WS (Number of cores: 24, RAM: 128889.46 MB) 
-Architecture  =  Linux x86_64 (Release: 4.4.0-127-generic, Version: #153-Ubuntu SMP Sat May 19 10:58:46 UTC 2018 )
-Simulation started on 31-05-2018 at 14:15:56 hrs
+System        =  opm-deb (Number of cores: 12, RAM: 32178.65 MB) 
+Architecture  =  Linux x86_64 (Release: 4.9.0-3-amd64, Version: #1 SMP Debian 4.9.30-2+deb9u2 (2017-06-26) )
+User          =  jenkins
+Simulation started on 15-06-2018 at 08:13:05 hrs
 
 
 ===============Saturation Functions Diagnostics===============
@@ -29,27 +30,27 @@ Number of saturation regions: 1
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3822.01  PSIA                 :
-                                                  :      PORV =     453453210   RB                  :
+                                                  :      PORV =     453453204   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Currently   in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3822.01  PSIA                 :
-                                                  :      PORV =     453453210   RB                  :
+                                                  :      PORV =     453453204   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Currently   in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -57,13 +58,13 @@ Report step  0/30 at day 0/300, date = 01-Jan-2015
 
 Time step 0, stepsize 1 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
-Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.222 sec), linear its =  11 ( 0.073 sec)
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.251 sec), linear its =  11 ( 0.070 sec)
 
 Time step 1, stepsize 3 days.
-Time step summary: newton its =  2, linearizations =  3 ( 0.148 sec), linear its =  12 ( 0.064 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.166 sec), linear its =  12 ( 0.059 sec)
 
 Time step 2, stepsize 6 days.
-Time step summary: newton its =  2, linearizations =  3 ( 0.144 sec), linear its =  13 ( 0.067 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.164 sec), linear its =  13 ( 0.060 sec)
 
                               **************************************************************************
   Balance  at        10  Days *                         SPE 9                                          *
@@ -75,27 +76,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3816.46  PSIA                 :
-                                                  :      PORV =     453447607   RB                  :
+                                                  :      PORV =     453447600   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217486275             0     217486275:    212420159   :         15981     302288506     302304487:
+:Currently   in place    :     217486240             0     217486240:    212420191   :         15981     302288458     302304439:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3816.46  PSIA                 :
-                                                  :      PORV =     453447607   RB                  :
+                                                  :      PORV =     453447600   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217486275             0     217486275:    212420159   :         15981     302288506     302304487:
+:Currently   in place    :     217486240             0     217486240:    212420191   :         15981     302288458     302304439:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -103,7 +104,7 @@ Report step  1/30 at day 10/300, date = 11-Jan-2015
 
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.129 sec), linear its =  15 ( 0.061 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.166 sec), linear its =  15 ( 0.067 sec)
 
                               **************************************************************************
   Balance  at        20  Days *                         SPE 9                                          *
@@ -115,27 +116,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3811.85  PSIA                 :
-                                                  :      PORV =     453440816   RB                  :
+                                                  :      PORV =     453440810   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217426033             0     217426033:    212447424   :         40384     302181226     302221610:
+:Currently   in place    :     217425999             0     217425999:    212447456   :         40384     302181178     302221562:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3811.85  PSIA                 :
-                                                  :      PORV =     453440816   RB                  :
+                                                  :      PORV =     453440810   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217426033             0     217426033:    212447424   :         40384     302181226     302221610:
+:Currently   in place    :     217425999             0     217425999:    212447456   :         40384     302181178     302221562:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -144,7 +145,7 @@ Report step  2/30 at day 20/300, date = 21-Jan-2015
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  4, linearizations =  5 ( 0.228 sec), linear its =  15 ( 0.082 sec)
+Time step summary: well its =  2, newton its =  4, linearizations =  5 ( 0.293 sec), linear its =  15 ( 0.089 sec)
 
                               **************************************************************************
   Balance  at        30  Days *                         SPE 9                                          *
@@ -156,27 +157,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3807.87  PSIA                 :
-                                                  :      PORV =     453434411   RB                  :
+                                                  :      PORV =     453434405   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217367145             0     217367145:    212474211   :         68202     302072319     302140522:
+:Currently   in place    :     217367111             0     217367111:    212474243   :         68202     302072272     302140474:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3807.87  PSIA                 :
-                                                  :      PORV =     453434411   RB                  :
+                                                  :      PORV =     453434405   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217367145             0     217367145:    212474211   :         68202     302072319     302140522:
+:Currently   in place    :     217367111             0     217367111:    212474243   :         68202     302072272     302140474:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -185,7 +186,7 @@ Report step  3/30 at day 30/300, date = 31-Jan-2015
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.132 sec), linear its =  12 ( 0.055 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.167 sec), linear its =  12 ( 0.060 sec)
 
                               **************************************************************************
   Balance  at        40  Days *                         SPE 9                                          *
@@ -197,27 +198,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3804.46  PSIA                 :
-                                                  :      PORV =     453428623   RB                  :
+                                                  :      PORV =     453428617   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217310321             0     217310321:    212500893   :         97428     301964866     302062295:
+:Currently   in place    :     217310287             0     217310287:    212500925   :         97428     301964819     302062247:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3804.46  PSIA                 :
-                                                  :      PORV =     453428623   RB                  :
+                                                  :      PORV =     453428617   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217310321             0     217310321:    212500893   :         97428     301964866     302062295:
+:Currently   in place    :     217310287             0     217310287:    212500925   :         97428     301964819     302062247:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -226,7 +227,7 @@ Report step  4/30 at day 40/300, date = 10-Feb-2015
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.129 sec), linear its =  16 ( 0.064 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.167 sec), linear its =  16 ( 0.068 sec)
 
                               **************************************************************************
   Balance  at        50  Days *                         SPE 9                                          *
@@ -238,27 +239,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3801.25  PSIA                 :
-                                                  :      PORV =     453423002   RB                  :
+                                                  :      PORV =     453422996   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217253920             0     217253920:    212527252   :        128192     301856501     301984693:
+:Currently   in place    :     217253885             0     217253885:    212527284   :        128192     301856454     301984645:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3801.25  PSIA                 :
-                                                  :      PORV =     453423002   RB                  :
+                                                  :      PORV =     453422996   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217253920             0     217253920:    212527252   :        128192     301856501     301984693:
+:Currently   in place    :     217253885             0     217253885:    212527284   :        128192     301856454     301984645:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -267,7 +268,7 @@ Report step  5/30 at day 50/300, date = 20-Feb-2015
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.130 sec), linear its =  13 ( 0.056 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.169 sec), linear its =  13 ( 0.062 sec)
 
                               **************************************************************************
   Balance  at        60  Days *                         SPE 9                                          *
@@ -279,27 +280,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3798.19  PSIA                 :
-                                                  :      PORV =     453417576   RB                  :
+                                                  :      PORV =     453417570   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217197884             0     217197884:    212553596   :        159744     301747785     301907529:
+:Currently   in place    :     217197850             0     217197850:    212553627   :        159744     301747737     301907482:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3798.19  PSIA                 :
-                                                  :      PORV =     453417576   RB                  :
+                                                  :      PORV =     453417570   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217197884             0     217197884:    212553596   :        159744     301747785     301907529:
+:Currently   in place    :     217197850             0     217197850:    212553627   :        159744     301747737     301907482:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -308,7 +309,7 @@ Report step  6/30 at day 60/300, date = 02-Mar-2015
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.124 sec), linear its =  15 ( 0.061 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.169 sec), linear its =  15 ( 0.065 sec)
 
                               **************************************************************************
   Balance  at        70  Days *                         SPE 9                                          *
@@ -320,27 +321,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3795.17  PSIA                 :
-                                                  :      PORV =     453412187   RB                  :
+                                                  :      PORV =     453412180   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217141834             0     217141834:    212579774   :        192009     301638412     301830421:
+:Currently   in place    :     217141800             0     217141800:    212579806   :        192009     301638364     301830374:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3795.17  PSIA                 :
-                                                  :      PORV =     453412187   RB                  :
+                                                  :      PORV =     453412180   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217141834             0     217141834:    212579774   :        192009     301638412     301830421:
+:Currently   in place    :     217141800             0     217141800:    212579806   :        192009     301638364     301830374:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -349,7 +350,7 @@ Report step  7/30 at day 70/300, date = 12-Mar-2015
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.126 sec), linear its =  12 ( 0.054 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.171 sec), linear its =  12 ( 0.059 sec)
 
                               **************************************************************************
   Balance  at        80  Days *                         SPE 9                                          *
@@ -361,27 +362,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3792.22  PSIA                 :
-                                                  :      PORV =     453406868   RB                  :
+                                                  :      PORV =     453406862   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217086039             0     217086039:    212605841   :        224503     301528963     301753467:
+:Currently   in place    :     217086005             0     217086005:    212605872   :        224503     301528916     301753419:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3792.22  PSIA                 :
-                                                  :      PORV =     453406868   RB                  :
+                                                  :      PORV =     453406862   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217086039             0     217086039:    212605841   :        224503     301528963     301753467:
+:Currently   in place    :     217086005             0     217086005:    212605872   :        224503     301528916     301753419:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -390,7 +391,7 @@ Report step  8/30 at day 80/300, date = 22-Mar-2015
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.126 sec), linear its =  14 ( 0.060 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.168 sec), linear its =  14 ( 0.066 sec)
 
                               **************************************************************************
   Balance  at        90  Days *                         SPE 9                                          *
@@ -402,27 +403,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3789.33  PSIA                 :
-                                                  :      PORV =     453401682   RB                  :
+                                                  :      PORV =     453401676   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217030383             0     217030383:    212631908   :        257527     301419212     301676738:
+:Currently   in place    :     217030349             0     217030349:    212631940   :        257527     301419164     301676691:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3789.33  PSIA                 :
-                                                  :      PORV =     453401682   RB                  :
+                                                  :      PORV =     453401676   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     217030383             0     217030383:    212631908   :        257527     301419212     301676738:
+:Currently   in place    :     217030349             0     217030349:    212631940   :        257527     301419164     301676691:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -431,7 +432,7 @@ Report step  9/30 at day 90/300, date = 01-Apr-2015
 Time step 0, stepsize 10 days.
     Switching control mode for well INJE1 from SURFACE_RATE to BHP
     Switching control mode for well PRODU23 from SURFACE_RATE to BHP
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.123 sec), linear its =  13 ( 0.057 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.169 sec), linear its =  13 ( 0.062 sec)
 
                               **************************************************************************
   Balance  at       100  Days *                         SPE 9                                          *
@@ -443,27 +444,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3786.49  PSIA                 :
-                                                  :      PORV =     453396601   RB                  :
+                                                  :      PORV =     453396595   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216974969             0     216974969:    212657940   :        290724     301309705     301600430:
+:Currently   in place    :     216974935             0     216974935:    212657972   :        290724     301309658     301600382:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3786.49  PSIA                 :
-                                                  :      PORV =     453396601   RB                  :
+                                                  :      PORV =     453396595   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216974969             0     216974969:    212657940   :        290724     301309705     301600430:
+:Currently   in place    :     216974935             0     216974935:    212657972   :        290724     301309658     301600382:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -480,7 +481,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from BHP to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: well its =  5, newton its =  2, linearizations =  3 ( 0.126 sec), linear its =  14 ( 0.060 sec)
+Time step summary: well its =  5, newton its =  2, linearizations =  3 ( 0.168 sec), linear its =  14 ( 0.064 sec)
 
                               **************************************************************************
   Balance  at       110  Days *                         SPE 9                                          *
@@ -492,27 +493,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3785.64  PSIA                 :
-                                                  :      PORV =     453393517   RB                  :
+                                                  :      PORV =     453393511   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216971365             0     216971365:    212661115   :        276586     301318823     301595409:
+:Currently   in place    :     216971330             0     216971330:    212661146   :        276585     301318776     301595362:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3785.64  PSIA                 :
-                                                  :      PORV =     453393517   RB                  :
+                                                  :      PORV =     453393511   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216971365             0     216971365:    212661115   :        276586     301318823     301595409:
+:Currently   in place    :     216971330             0     216971330:    212661146   :        276585     301318776     301595362:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -527,7 +528,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: well its =  3, newton its =  2, linearizations =  3 ( 0.127 sec), linear its =  17 ( 0.071 sec)
+Time step summary: well its =  3, newton its =  2, linearizations =  3 ( 0.172 sec), linear its =  17 ( 0.076 sec)
 
                               **************************************************************************
   Balance  at       120  Days *                         SPE 9                                          *
@@ -539,27 +540,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3784.69  PSIA                 :
-                                                  :      PORV =     453391439   RB                  :
+                                                  :      PORV =     453391433   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216967965             0     216967965:    212664889   :        263373     301327273     301590646:
+:Currently   in place    :     216967931             0     216967931:    212664921   :        263372     301327226     301590598:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3784.69  PSIA                 :
-                                                  :      PORV =     453391439   RB                  :
+                                                  :      PORV =     453391433   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216967965             0     216967965:    212664889   :        263373     301327273     301590646:
+:Currently   in place    :     216967931             0     216967931:    212664921   :        263372     301327226     301590598:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -574,7 +575,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.125 sec), linear its =  17 ( 0.069 sec)
+Time step summary: well its =  2, newton its =  2, linearizations =  3 ( 0.173 sec), linear its =  17 ( 0.076 sec)
 
                               **************************************************************************
   Balance  at       130  Days *                         SPE 9                                          *
@@ -586,27 +587,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3783.68  PSIA                 :
-                                                  :      PORV =     453389543   RB                  :
+                                                  :      PORV =     453389537   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216964565             0     216964565:    212668666   :        250387     301335492     301585878:
+:Currently   in place    :     216964530             0     216964530:    212668698   :        250387     301335444     301585831:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3783.68  PSIA                 :
-                                                  :      PORV =     453389543   RB                  :
+                                                  :      PORV =     453389537   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216964565             0     216964565:    212668666   :        250387     301335492     301585878:
+:Currently   in place    :     216964530             0     216964530:    212668698   :        250387     301335444     301585831:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -621,7 +622,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: newton its =  2, linearizations =  3 ( 0.125 sec), linear its =  19 ( 0.074 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.175 sec), linear its =  19 ( 0.081 sec)
 
                               **************************************************************************
   Balance  at       140  Days *                         SPE 9                                          *
@@ -633,27 +634,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3782.67  PSIA                 :
-                                                  :      PORV =     453387755   RB                  :
+                                                  :      PORV =     453387748   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216961164             0     216961164:    212672446   :        237762     301343345     301581107:
+:Currently   in place    :     216961130             0     216961130:    212672478   :        237762     301343298     301581060:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3782.67  PSIA                 :
-                                                  :      PORV =     453387755   RB                  :
+                                                  :      PORV =     453387748   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216961164             0     216961164:    212672446   :        237762     301343345     301581107:
+:Currently   in place    :     216961130             0     216961130:    212672478   :        237762     301343298     301581060:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -668,7 +669,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: newton its =  2, linearizations =  3 ( 0.127 sec), linear its =  17 ( 0.069 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.174 sec), linear its =  17 ( 0.078 sec)
 
                               **************************************************************************
   Balance  at       150  Days *                         SPE 9                                          *
@@ -680,27 +681,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3781.72  PSIA                 :
-                                                  :      PORV =     453386073   RB                  :
+                                                  :      PORV =     453386067   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216957765             0     216957765:    212676227   :        225810     301350524     301576335:
+:Currently   in place    :     216957730             0     216957730:    212676259   :        225810     301350477     301576287:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3781.72  PSIA                 :
-                                                  :      PORV =     453386073   RB                  :
+                                                  :      PORV =     453386067   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216957765             0     216957765:    212676227   :        225810     301350524     301576335:
+:Currently   in place    :     216957730             0     216957730:    212676259   :        225810     301350477     301576287:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -715,7 +716,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: newton its =  2, linearizations =  3 ( 0.126 sec), linear its =  17 ( 0.069 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.170 sec), linear its =  17 ( 0.077 sec)
 
                               **************************************************************************
   Balance  at       160  Days *                         SPE 9                                          *
@@ -727,27 +728,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3780.84  PSIA                 :
-                                                  :      PORV =     453384509   RB                  :
+                                                  :      PORV =     453384503   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216954366             0     216954366:    212680010   :        214724     301356839     301571562:
+:Currently   in place    :     216954332             0     216954332:    212680042   :        214724     301356791     301571515:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3780.84  PSIA                 :
-                                                  :      PORV =     453384509   RB                  :
+                                                  :      PORV =     453384503   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216954366             0     216954366:    212680010   :        214724     301356839     301571562:
+:Currently   in place    :     216954332             0     216954332:    212680042   :        214724     301356791     301571515:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -762,7 +763,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: newton its =  2, linearizations =  3 ( 0.126 sec), linear its =  17 ( 0.069 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.171 sec), linear its =  17 ( 0.075 sec)
 
                               **************************************************************************
   Balance  at       170  Days *                         SPE 9                                          *
@@ -774,27 +775,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3780.03  PSIA                 :
-                                                  :      PORV =     453383060   RB                  :
+                                                  :      PORV =     453383053   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216950967             0     216950967:    212683794   :        204518     301362270     301566787:
+:Currently   in place    :     216950932             0     216950932:    212683826   :        204518     301362222     301566740:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3780.03  PSIA                 :
-                                                  :      PORV =     453383060   RB                  :
+                                                  :      PORV =     453383053   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216950967             0     216950967:    212683794   :        204518     301362270     301566787:
+:Currently   in place    :     216950932             0     216950932:    212683826   :        204518     301362222     301566740:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -809,7 +810,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: newton its =  2, linearizations =  3 ( 0.125 sec), linear its =  17 ( 0.070 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.166 sec), linear its =  17 ( 0.076 sec)
 
                               **************************************************************************
   Balance  at       180  Days *                         SPE 9                                          *
@@ -821,27 +822,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3779.31  PSIA                 :
-                                                  :      PORV =     453381724   RB                  :
+                                                  :      PORV =     453381718   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216947567             0     216947567:    212687578   :        195203     301366808     301562011:
+:Currently   in place    :     216947533             0     216947533:    212687610   :        195202     301366761     301561963:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3779.31  PSIA                 :
-                                                  :      PORV =     453381724   RB                  :
+                                                  :      PORV =     453381718   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216947567             0     216947567:    212687578   :        195203     301366808     301562011:
+:Currently   in place    :     216947533             0     216947533:    212687610   :        195202     301366761     301561963:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -856,7 +857,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: newton its =  2, linearizations =  3 ( 0.125 sec), linear its =  17 ( 0.070 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.167 sec), linear its =  17 ( 0.077 sec)
 
                               **************************************************************************
   Balance  at       190  Days *                         SPE 9                                          *
@@ -868,27 +869,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3778.66  PSIA                 :
-                                                  :      PORV =     453380505   RB                  :
+                                                  :      PORV =     453380499   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216944168             0     216944168:    212691364   :        186785     301370451     301557236:
+:Currently   in place    :     216944134             0     216944134:    212691396   :        186785     301370404     301557189:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3778.66  PSIA                 :
-                                                  :      PORV =     453380505   RB                  :
+                                                  :      PORV =     453380499   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216944168             0     216944168:    212691364   :        186785     301370451     301557236:
+:Currently   in place    :     216944134             0     216944134:    212691396   :        186785     301370404     301557189:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -903,7 +904,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
 group F can not meet its target!
 group F can not meet its target!
-Time step summary: newton its =  2, linearizations =  3 ( 0.127 sec), linear its =  18 ( 0.072 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.171 sec), linear its =  18 ( 0.078 sec)
 
                               **************************************************************************
   Balance  at       200  Days *                         SPE 9                                          *
@@ -915,27 +916,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3778.09  PSIA                 :
-                                                  :      PORV =     453379388   RB                  :
+                                                  :      PORV =     453379382   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216940768             0     216940768:    212695147   :        179146     301373316     301552462:
+:Currently   in place    :     216940734             0     216940734:    212695179   :        179146     301373269     301552414:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3778.09  PSIA                 :
-                                                  :      PORV =     453379388   RB                  :
+                                                  :      PORV =     453379382   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216940768             0     216940768:    212695147   :        179146     301373316     301552462:
+:Currently   in place    :     216940734             0     216940734:    212695179   :        179146     301373269     301552414:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -948,7 +949,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.126 sec), linear its =  16 ( 0.065 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.169 sec), linear its =  16 ( 0.071 sec)
 
                               **************************************************************************
   Balance  at       210  Days *                         SPE 9                                          *
@@ -960,27 +961,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3777.81  PSIA                 :
-                                                  :      PORV =     453380600   RB                  :
+                                                  :      PORV =     453380593   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216925781             0     216925781:    212711703   :        181528     301350089     301531617:
+:Currently   in place    :     216925747             0     216925747:    212711735   :        181528     301350041     301531569:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3777.81  PSIA                 :
-                                                  :      PORV =     453380600   RB                  :
+                                                  :      PORV =     453380593   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216925781             0     216925781:    212711703   :        181528     301350089     301531617:
+:Currently   in place    :     216925747             0     216925747:    212711735   :        181528     301350041     301531569:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -993,7 +994,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.126 sec), linear its =  11 ( 0.052 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.168 sec), linear its =  11 ( 0.054 sec)
 
                               **************************************************************************
   Balance  at       220  Days *                         SPE 9                                          *
@@ -1005,27 +1006,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3778.06  PSIA                 :
-                                                  :      PORV =     453381060   RB                  :
+                                                  :      PORV =     453381054   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216910791             0     216910791:    212728252   :        184786     301325989     301510775:
+:Currently   in place    :     216910757             0     216910757:    212728284   :        184786     301325941     301510727:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3778.06  PSIA                 :
-                                                  :      PORV =     453381060   RB                  :
+                                                  :      PORV =     453381054   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216910791             0     216910791:    212728252   :        184786     301325989     301510775:
+:Currently   in place    :     216910757             0     216910757:    212728284   :        184786     301325941     301510727:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -1038,7 +1039,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.123 sec), linear its =  14 ( 0.057 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.172 sec), linear its =  14 ( 0.063 sec)
 
                               **************************************************************************
   Balance  at       230  Days *                         SPE 9                                          *
@@ -1050,27 +1051,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3778.22  PSIA                 :
-                                                  :      PORV =     453381790   RB                  :
+                                                  :      PORV =     453381784   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216895798             0     216895798:    212744796   :        188311     301301624     301489934:
+:Currently   in place    :     216895764             0     216895764:    212744828   :        188310     301301577     301489887:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3778.22  PSIA                 :
-                                                  :      PORV =     453381790   RB                  :
+                                                  :      PORV =     453381784   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216895798             0     216895798:    212744796   :        188311     301301624     301489934:
+:Currently   in place    :     216895764             0     216895764:    212744828   :        188310     301301577     301489887:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -1083,7 +1084,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.124 sec), linear its =  13 ( 0.056 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.169 sec), linear its =  13 ( 0.061 sec)
 
                               **************************************************************************
   Balance  at       240  Days *                         SPE 9                                          *
@@ -1095,27 +1096,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3778.51  PSIA                 :
-                                                  :      PORV =     453382246   RB                  :
+                                                  :      PORV =     453382240   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216880793             0     216880793:    212761333   :        191821     301277261     301469082:
+:Currently   in place    :     216880759             0     216880759:    212761365   :        191821     301277213     301469034:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3778.51  PSIA                 :
-                                                  :      PORV =     453382246   RB                  :
+                                                  :      PORV =     453382240   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216880793             0     216880793:    212761333   :        191821     301277261     301469082:
+:Currently   in place    :     216880759             0     216880759:    212761365   :        191821     301277213     301469034:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -1128,7 +1129,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.127 sec), linear its =  13 ( 0.058 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.181 sec), linear its =  13 ( 0.065 sec)
 
                               **************************************************************************
   Balance  at       250  Days *                         SPE 9                                          *
@@ -1140,27 +1141,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3778.73  PSIA                 :
-                                                  :      PORV =     453382815   RB                  :
+                                                  :      PORV =     453382808   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216865804             0     216865804:    212777863   :        195198     301253060     301448258:
+:Currently   in place    :     216865770             0     216865770:    212777895   :        195197     301253013     301448211:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3778.73  PSIA                 :
-                                                  :      PORV =     453382815   RB                  :
+                                                  :      PORV =     453382808   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216865804             0     216865804:    212777863   :        195198     301253060     301448258:
+:Currently   in place    :     216865770             0     216865770:    212777895   :        195197     301253013     301448211:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -1173,7 +1174,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.183 sec), linear its =   9 ( 0.062 sec)
+Time step summary: well its =  1, newton its =  2, linearizations =  3 ( 0.177 sec), linear its =   9 ( 0.054 sec)
 
                               **************************************************************************
   Balance  at       260  Days *                         SPE 9                                          *
@@ -1185,27 +1186,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =          3779  PSIA                 :
-                                                  :      PORV =     453383273   RB                  :
+                                                  :      PORV =     453383267   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216850869             0     216850869:    212794423   :        198413     301229100     301427513:
+:Currently   in place    :     216850835             0     216850835:    212794455   :        198413     301229053     301427465:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =          3779  PSIA                 :
-                                                  :      PORV =     453383273   RB                  :
+                                                  :      PORV =     453383267   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216850869             0     216850869:    212794423   :        198413     301229100     301427513:
+:Currently   in place    :     216850835             0     216850835:    212794455   :        198413     301229053     301427465:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -1218,7 +1219,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: newton its =  2, linearizations =  3 ( 0.157 sec), linear its =   9 ( 0.055 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.177 sec), linear its =   9 ( 0.052 sec)
 
                               **************************************************************************
   Balance  at       270  Days *                         SPE 9                                          *
@@ -1230,27 +1231,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3779.23  PSIA                 :
-                                                  :      PORV =     453383771   RB                  :
+                                                  :      PORV =     453383765   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216835926             0     216835926:    212810981   :        201459     301205302     301406761:
+:Currently   in place    :     216835892             0     216835892:    212811013   :        201459     301205255     301406713:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3779.23  PSIA                 :
-                                                  :      PORV =     453383771   RB                  :
+                                                  :      PORV =     453383765   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216835926             0     216835926:    212810981   :        201459     301205302     301406761:
+:Currently   in place    :     216835892             0     216835892:    212811013   :        201459     301205255     301406713:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -1263,7 +1264,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: newton its =  2, linearizations =  3 ( 0.166 sec), linear its =  13 ( 0.072 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.171 sec), linear its =  13 ( 0.066 sec)
 
                               **************************************************************************
   Balance  at       280  Days *                         SPE 9                                          *
@@ -1275,27 +1276,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3779.47  PSIA                 :
-                                                  :      PORV =     453384159   RB                  :
+                                                  :      PORV =     453384153   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216820942             0     216820942:    212827515   :        204322     301181634     301385956:
+:Currently   in place    :     216820907             0     216820907:    212827547   :        204322     301181587     301385909:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3779.47  PSIA                 :
-                                                  :      PORV =     453384159   RB                  :
+                                                  :      PORV =     453384153   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216820942             0     216820942:    212827515   :        204322     301181634     301385956:
+:Currently   in place    :     216820907             0     216820907:    212827547   :        204322     301181587     301385909:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -1308,7 +1309,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: newton its =  2, linearizations =  3 ( 0.174 sec), linear its =  14 ( 0.076 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.183 sec), linear its =  14 ( 0.068 sec)
 
                               **************************************************************************
   Balance  at       290  Days *                         SPE 9                                          *
@@ -1320,27 +1321,27 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3779.67  PSIA                 :
-                                                  :      PORV =     453384560   RB                  :
+                                                  :      PORV =     453384554   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216805958             0     216805958:    212844046   :        207018     301158138     301365156:
+:Currently   in place    :     216805924             0     216805924:    212844078   :        207018     301158090     301365108:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3779.67  PSIA                 :
-                                                  :      PORV =     453384560   RB                  :
+                                                  :      PORV =     453384554   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216805958             0     216805958:    212844046   :        207018     301158138     301365156:
+:Currently   in place    :     216805924             0     216805924:    212844078   :        207018     301158090     301365108:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
@@ -1353,7 +1354,7 @@ Time step 0, stepsize 10 days.
     Switching control mode for well PRODU9 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU15 from SURFACE_RATE to SURFACE_RATE
     Switching control mode for well PRODU23 from SURFACE_RATE to SURFACE_RATE
-Time step summary: newton its =  2, linearizations =  3 ( 0.169 sec), linear its =  14 ( 0.073 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.166 sec), linear its =  14 ( 0.063 sec)
 
                               **************************************************************************
   Balance  at       300  Days *                         SPE 9                                          *
@@ -1365,39 +1366,39 @@ Warning: Keyword 'BASIC' is unhandled for output to file.
                                                   ===================================================
                                                   :                   Field Totals                  :
                                                   :      PAV  =       3779.88  PSIA                 :
-                                                  :      PORV =     453384904   RB                  :
+                                                  :      PORV =     453384898   RB                  :
                                                   : Pressure is weighted by hydrocarbon pore volume :
                                                   : Pore volumes are taken at reference conditions  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216790975             0     216790975:    212860576   :        209538     301134822     301344360:
+:Currently   in place    :     216790940             0     216790940:    212860608   :        209538     301134775     301344313:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
                                                   ===================================================
                                                   :        FIPNUM report region   1                 :
                                                   :      PAV  =       3779.88  PSIA                 :
-                                                  :      PORV =     453384904   RB                  :
+                                                  :      PORV =     453384898   RB                  :
                          :--------------- Oil    STB ---------------:-- Wat    STB --:--------------- Gas   MSCF ---------------:
                          :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Currently   in place    :     216790975             0     216790975:    212860576   :        209538     301134822     301344360:
+:Currently   in place    :     216790940             0     216790940:    212860608   :        209538     301134775     301344313:
 :------------------------:------------------------------------------:----------------:------------------------------------------:
-:Originally  in place    :     217546282             0     217546282:    212389812   :             0     302387412     302387412:
+:Originally  in place    :     217546248             0     217546248:    212389844   :             0     302387364     302387364:
 :========================:==========================================:================:==========================================:
 
 
 
 ================    End of simulation     ===============
 
-Total time (seconds):         7.06336
-Solver time (seconds):        6.97106
- Assembly time (seconds):     4.49534 (Failed: 0; 0%)
- Linear solve time (seconds): 2.07251 (Failed: 0; 0%)
- Update time (seconds):       0.194005 (Failed: 0; 0%)
- Output write time (seconds): 0.0943184
+Total time (seconds):         8.41753
+Solver time (seconds):        8.31171
+ Assembly time (seconds):     5.66099 (Failed: 0; 0%)
+ Linear solve time (seconds): 2.16263 (Failed: 0; 0%)
+ Update time (seconds):       0.260972 (Failed: 0; 0%)
+ Output write time (seconds): 0.109244
 Overall Well Iterations:      35 (Failed: 0; 0%)
 Overall Linearizations:       99 (Failed: 0; 0%)
 Overall Newton Iterations:    67 (Failed: 0; 0%)
