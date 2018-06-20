@@ -1,0 +1,225 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2016 SINTEF ICT, Applied Mathematics
+-- Copyright (C) 2016 Statoil
+-- Copyright (C) 2018 IRIS
+
+RUNSPEC
+
+DIMENS
+30 20 6/
+
+GRIDOPTS
+ 'YES' 0 /
+
+OIL
+
+WATER
+
+GAS
+
+DISGAS
+
+VAPOIL
+
+
+METRIC
+
+
+START
+ 06  'NOV' 1997 /
+
+EQLDIMS
+1 /
+-- 5  100  20 /
+
+WELLDIMS
+    130  36  15  84 /
+
+
+TABDIMS
+--ntsfun ntpvt nssfun nppvt ntfip nrpvt ntendp
+   1     1     33     60   16    60 /
+
+REGDIMS
+1   1   1   0 /
+
+PIMTDIMS
+1  51 /
+
+NSTACK
+ 30 /
+
+UNIFIN
+UNIFOUT
+
+OPTIONS
+77* 1 /
+
+---------------------------------------------------------
+--
+--	Input of grid geometry
+--
+---------------------------------------------------------
+GRID
+
+NEWTRAN
+
+GRIDFILE
+  2  /
+
+GRIDUNIT
+METRES  /
+
+INIT
+
+NOECHO
+
+--------------------------------------------------------
+--
+--  	Grid and faults
+--
+--------------------------------------------------------
+INCLUDE
+  '../common/GRDECL.INC' /
+
+INCLUDE
+  '../common/ACTNUM.INC' /
+
+--------------------------------------------------------
+--
+--  	Input of grid parametres
+--
+--------------------------------------------------------
+INCLUDE
+   '../common/PORO.INC' /
+
+INCLUDE
+   '../common/PERMX.INC' /
+
+INCLUDE
+   '../common/PERMY.INC' /
+
+INCLUDE
+   '../common/PERMZ.INC' /
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+PROPS
+
+INCLUDE
+   '../common/PROPS.INC' /
+
+NOECHO
+
+
+---------------------------------------------------------------------------------
+SOLUTION
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+   2010   269.46  2120    0.0 2010.0  0.0   1*   0   0/
+
+RPTSOL
+FIP=3  SWAT SGAS PRESS SOIL /
+
+SUMMARY
+
+WOPR
+ 'PROD01'
+ 'PROD02'
+/
+
+WGPR
+ 'PROD01'
+ 'PROD02'
+/
+
+WBHP
+ 'INJE01'
+ 'PROD01'
+ 'PROD02'
+/
+
+WWIR
+ 'INJE01'
+/
+
+WWPR
+ 'PROD01'
+ 'PROD02'
+/
+
+WWCT
+ 'PROD01'
+ 'PROD02'
+/
+
+CWCT
+ 'PROD01' /
+ 'PROD02' /
+/
+
+COPR
+ 'PROD01' /
+ 'PROD02' /
+/
+ALL
+--------------------------------------------------------------------------------
+
+
+SCHEDULE
+
+NOECHO
+
+WELSPECS
+   'INJE01' 'I'    13  10   1* 'WATER'     /
+   'PROD01' 'P'    24  16   1* 'OIL'   7* /
+   'PROD02' 'P'     9   9   1* 'OIL'   7*  /
+/
+
+COMPDAT
+   'INJE01'  13   10  4   6  'OPEN'  1* 181.866 0.5 /
+   'PROD01'  24   16  1   2  'OPEN'  1* 218.457 0.5 /
+   'PROD02'   9    9  1   2  'OPEN'  1* 218.457 0.5 /
+/
+
+WCONPROD
+     'PROD01' 'OPEN'  'BHP' 5* 230 /
+     'PROD02' 'OPEN'  'BHP' 5* 230 /
+/
+
+WECON
+ 'PROD01'   1000  4*   WELL   NO /
+ 'PROD02'   1*  800  0.1  2*   CON   NO /
+/
+
+WTEST
+ 'PROD01' 100 E /
+ 'PROD02' 100 E /
+/
+
+WCONINJE
+    'INJE01' 'WATER' 'OPEN' 'RATE' 250.00  1* 290 /
+/
+
+TSTEP
+1
+3
+5
+10
+/
+
+WCONINJE
+    'INJE01' 'WATER' 'OPEN' 'RATE' 5000.00  1* 290 /
+/
+
+TSTEP
+30*20
+/
+
