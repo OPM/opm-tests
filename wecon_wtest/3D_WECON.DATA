@@ -84,10 +84,10 @@ NOECHO
 --
 --------------------------------------------------------
 INCLUDE
-  '../common/GRDECL.INC' /
+  'common/GRDECL.INC' /
 
 INCLUDE
-  '../common/ACTNUM.INC' /
+  'common/ACTNUM.INC' /
 
 --------------------------------------------------------
 --
@@ -95,16 +95,16 @@ INCLUDE
 --
 --------------------------------------------------------
 INCLUDE
-   '../common/PORO.INC' /
+   'common/PORO.INC' /
 
 INCLUDE
-   '../common/PERMX.INC' /
+   'common/PERMX.INC' /
 
 INCLUDE
-   '../common/PERMY.INC' /
+   'common/PERMY.INC' /
 
 INCLUDE
-   '../common/PERMZ.INC' /
+   'common/PERMZ.INC' /
 
 --------------------------------------------------------------------------------
 
@@ -113,7 +113,7 @@ INCLUDE
 PROPS
 
 INCLUDE
-   '../common/PROPS.INC' /
+   'common/PROPS.INC' /
 
 NOECHO
 
