@@ -5,14 +5,14 @@
 
 -- Copyright (C) 2018 Equinor
 
--- This is the base case for model 1. This case has standard wells. 
+-- This is the base case for model 1. This case has multisegment wells. 
  
 -- 3 wells in the beginning, 3 more are turned on. 
 -- 6 wells, 3 injection wells and 3 production wells, in the end. 
 -- 336 cells in total. All 336 cells are active. 
 
 -- ------------------------------------------------------------------------
--- ----------------------- BASE MODEL 1 -----------------------------------
+-- ----------------------- MSW MODEL 1 -----------------------------------
 -- ------------------------------------------------------------------------
 
 -- ========================================================================
@@ -22,7 +22,7 @@ RUNSPEC
 
 
 TITLE
-   BASE MODEL 1
+   MSW MODEL 1
 
  
 -- Turns off echoing of all the input files to the print file.  
@@ -357,7 +357,7 @@ TUNING
 
 
 INCLUDE
- 'include/history_basemod1.sch' /
+ 'include/history_msw.sch' /
 
 
   
