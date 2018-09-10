@@ -1,3 +1,14 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018 Equinor
+
+-- This deck uses User defined quantities (UDQ) together with the ACTIONX 
+-- keyword to shut well with highest water cut when number of wells on stream
+-- exceeds a defined number.
+
 --------------------------------------------------------
 
 
@@ -29,8 +40,6 @@ START
 --NOSIM
 --
 --
-
---
 -- ----------------------------------------------------
 -- Fluid phases present
 OIL
@@ -44,18 +53,6 @@ DISGAS
 METRIC
 
 --
--- ----------------------------------------------------
---Options to process grid data
---If MULTX-, MULTY- and MULTZ- are used, set first parameter= 'YES'
---GRIDOPTS
----- MULTNUM?   NRMULT
---   'NO'      1*       /
-
---
--- ----------------------------------------------------
---
---
--- ----------------------------------------------------
 --
 --Table dimensions
 TABDIMS
@@ -67,17 +64,6 @@ TABDIMS
 EQLDIMS
   2  100  20  /
 --
--- ----------------------------------------------------
---Regions dimension data
---REGDIMS
--- NTFIP NMFIPR NRFREG NTFREG
---    2    2      0      3      /
---
--- ----------------------------------------------------
---Dimensions for fault data
---FAULTDIM
---  1300  /
-
 --
 -- ----------------------------------------------------
 --Dimension for well data
@@ -85,32 +71,8 @@ WELLDIMS
  230  120 50 80 /
 
 --
--- ----------------------------------------------------
---Production well VFP table dimension
---VFPPDIMS
---  20  20  15  15  15   50  /
-
 --
--- ----------------------------------------------------
--- If injection well VFP data is required, 
--- they should be specified here first
---VFPIDIMS
---  10   2   5  /
-
 --
--- ----------------------------------------------------
---Dimensions and options for tracers
---TRACERS
---NOTRAC NWTRAC NGTRAC NETRAC DIFF/NODIFF
---    0     3     0    0    'NODIFF'      /
-
---
--- ----------------------------------------------------
---SumTESTy file dimensions
---SMRYDIMS
---  15000  /
---
-
 -- ----------------------------------------------------
 -- Input and output files format
 UNIFIN
@@ -165,19 +127,6 @@ INIT
 GRIDFILE
   0 1  /
 
---Message print and stop limits
---MESSAGES
--- 3* 1000 4* 1000000 1000 /
-
---
---Generates connections across pinched-out layers
---PINCH
--- 0.4  NOGAP  1*  TOPBOT  TOP  /
-
---
---Grid data unit
---GRIDUNIT
---  METRES  /
 
 --
 --Input of pre-processor map origin (X1, Y1, X2, Y2, X3, Y3)
@@ -195,28 +144,8 @@ NOECHO
 -- ----------------------------------------------------
 --Include simulation grid
 INCLUDE
-  './include/test_3x5x4.grdecl' /
+  'include/test_3x5x4.grdecl' /
 
---
--- ----------------------------------------------------
---Include ACTNUM data, if any
---INCLUDE
---  '.././include/example_actnum_sim.GRDECL' /
---
-
-
---ENDBOX
-
--- ----------------------------------------------------
-
--- ----------------------------------------------------
---Include FLUXNUM regions
---
--- ---------------------------------------------------
--- Include faults
--- Make sure that faults' name have 8 characters max.
-
---Include porosity
 
 
 PORO
@@ -273,17 +202,17 @@ PROPS
 -- ***************************************************
 
 INCLUDE
- './include/sgof.txt' /
+ 'include/sgof.txt' /
 
 
 INCLUDE
- './include/swof.txt' /
+ 'include/swof.txt' /
 
 -- ---------------------------------------------------
 
 -- Include PVT data
 INCLUDE
-  './include/example_pvt.txt' /
+  'include/example_pvt.txt' /
 
 
 
@@ -302,7 +231,7 @@ EQLNUM
 --
 --
 -- ***************************************************
--- In this section the initialization parameters aand
+-- In this section the initialization parameters and
 -- dynamic parameters are defined
 -- ***************************************************
 
@@ -333,29 +262,11 @@ RSVD
  1500 180.0
  4000 180.0  /
  
--- ---------------------------------------------------
--- Oil vaporization control
---
---VAPPARS
--- 2  0.1  /
-
-
--- ---------------------------------------------------
--- Controls on output from SOLUTION section
---RPTSOL
--- RESTART=2 THPRES FIP=2   /
-
---
 
 -- ---------------------------------------------------
 --Controls on output to the RESTART file
 --RPTRST
 -- ALLPROPS=2 BASIC=2 FIP  /
-
-
-
---RPTSOL
---  'THPRES' /
 
 
 RPTRST
@@ -373,10 +284,7 @@ SUMMARY
 
 
 -- ---------------------------------------------------
--- SumTESTy data to be written to sumTESTy file
---
--- Outputs the date to the sumTESTy file
-
+-- Summary data to be written to summary file
 --
 --
 -- **************************************************************************************
@@ -386,12 +294,7 @@ SUMMARY
 -- **************************************************************************************
 
 INCLUDE
- './include/example_summary.txt' /
-
---CTFAC
--- 'OP_1' /
--- 'WI_1' /
---/ 
+ 'include/example_summary.txt' /
 
 
 FMWIN
