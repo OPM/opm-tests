@@ -1,0 +1,215 @@
+
+
+
+ ########  #          ######   #           #
+ #         #         #      #   #         # 
+ #####     #         #      #    #   #   #  
+ #         #         #      #     # # # #   
+ #         #######    ######       #   #    
+
+Flow is a simulator for fully implicit three-phase black-oil flow, and is part of OPM.
+For more information visit: https://opm-project.org 
+
+Flow Version  =  2018.10-pre
+System        =  hnil-workstation (Number of logical cores: 40, RAM: 128817.50 MB) 
+Architecture  =  Linux x86_64 (Release: 4.15.0-38-generic, Version: #41-Ubuntu SMP Wed Oct 10 10:59:38 UTC 2018 )
+User          =  hnil
+Simulation started on 04-12-2018 at 17:06:25 hrs
+Parameters used by Flow:
+# [known parameters which were specified at run-time]
+EclDeckFileName="/data/hnil/BITBUCKET/mrst-bitbucket/projects/opm-challenge/data/MODEL_1D_DEBUG/inputfiles/MODEL_1D_DEBUG.DATA" # default: ""
+# [parameters which were specified at compile-time]
+AdjointResultsFile="adjoint_results.txt"
+DbhpMaxRel="1"
+DpMaxRel="0.3"
+DsMax="0.2"
+DwellFractionMax="0.2"
+EclOutputDoublePrecision="0"
+EclOutputInterval="-1"
+EnableAdaptiveTimeStepping="1"
+EnableAsyncEclOutput="1"
+EnableAsyncVtkOutput="1"
+EnableDryRun="auto"
+EnableEclOutput="1"
+EnableGravity="1"
+EnableGridAdaptation="0"
+EnableIntensiveQuantityCache="1"
+EnableStorageCache="1"
+EnableTerminalOutput="1"
+EnableThermodynamicHints="0"
+EnableTuning="0"
+EnableVtkOutput="0"
+EnableWriteAllSolutions="0"
+EndTime="1e+100"
+FlowLinearSolverVerbosity="0"
+FlowNewtonMaxIterations="10"
+FlowNewtonMinIterations="1"
+ForceDisableFluidInPlaceOutput="0"
+FullTimeStepInitially="0"
+IluFillinLevel="0"
+IluRedblack="0"
+IluRelaxation="0.9"
+IluReorderSpheres="0"
+InitialTimeStepInDays="1"
+InitialTimeStepSize="1e+100"
+LinearSolverIgnoreConvergenceFailure="0"
+LinearSolverMaxError="1e+07"
+LinearSolverMaxIter="150"
+LinearSolverMaxIterations="1000"
+LinearSolverOverlapSize="2"
+LinearSolverReduction="0.01"
+LinearSolverRequireFullSparsityPattern="0"
+LinearSolverRestart="40"
+LinearSolverTolerance="0.001"
+LinearSolverVerbosity="0"
+MIluVariant="ILU"
+MatrixAddWellContributions="0"
+MaxInnerIterMsWells="10"
+MaxPressureChangeMsWells="200000"
+MaxResidualAllowed="1e+07"
+MaxSinglePrecisionDays="20"
+MaxStrictIter="8"
+MaxTimeStepDivisions="10"
+MaxTimeStepSize="inf"
+MaxWelleqIter="15"
+MinTimeStepSize="0"
+NewtonMaxError="0.1"
+NewtonMaxIterations="14"
+NewtonMaxRelax="0.5"
+NewtonRawTolerance="0.0001"
+NewtonRelaxationType="dampen"
+NewtonTargetIterations="6"
+NewtonVerbose="1"
+NewtonWriteConvergence="0"
+OutputDir=""
+OutputInterval="1"
+OutputMode="all"
+ParameterFile=""
+PreconditionerAddWellContributions="0"
+PreconditionerRelaxation="1"
+PredeterminedTimeStepsFile=""
+PriVarOscilationThreshold="1e-05"
+PrintParameters="2"
+PrintProperties="2"
+RestartTime="-1e+35"
+RestartWritingInterval="16777215"
+SolveWelleqInitially="1"
+SolverGrowthFactor="2"
+SolverMaxGrowth="3"
+SolverMaxRestarts="10"
+SolverMaxTimeStepInDays="365"
+SolverRestartFactor="0.33"
+SolverVerbosity="1"
+ThreadsPerProcess="1"
+TimeStepAfterEventInDays="-1"
+TimeStepControl="pid"
+TimeStepControlDecayRate="0.75"
+TimeStepControlFileName="timesteps"
+TimeStepControlGrowthRate="1.25"
+TimeStepControlTargetIterations="30"
+TimeStepControlTargetNewtonIterations="8"
+TimeStepControlTolerance="0.1"
+TimeStepVerbosity="1"
+ToleranceCnv="0.01"
+ToleranceCnvRelaxed="1e+09"
+ToleranceMb="1e-05"
+TolerancePressureMsWells="1000"
+ToleranceWellControl="1e-07"
+ToleranceWells="0.0001"
+UpdateEquationsScaling="0"
+UseAdjoint="0"
+UseAmg="0"
+UseAmgcl="0"
+UseAmgclDrs="0"
+UseCpr="0"
+UseGmres="0"
+UseInnerIterationsMsWells="1"
+UseMultisegmentWell="0"
+UseUmfpack="0"
+UseUpdateStabilization="1"
+VtkWriteAverageMolarMasses="0"
+VtkWriteDensities="1"
+VtkWriteDofIndex="0"
+VtkWriteExtrusionFactor="0"
+VtkWriteFilterVelocities="0"
+VtkWriteFugacities="0"
+VtkWriteFugacityCoeffs="0"
+VtkWriteGasDissolutionFactor="0"
+VtkWriteGasFormationVolumeFactor="0"
+VtkWriteGasSaturationPressure="0"
+VtkWriteIntrinsicPermeabilities="0"
+VtkWriteMassFractions="0"
+VtkWriteMobilities="0"
+VtkWriteMolarities="0"
+VtkWriteMoleFractions="1"
+VtkWriteOilFormationVolumeFactor="0"
+VtkWriteOilSaturationPressure="0"
+VtkWriteOilVaporizationFactor="0"
+VtkWritePorosity="1"
+VtkWritePotentialGradients="0"
+VtkWritePressures="1"
+VtkWritePrimaryVars="0"
+VtkWritePrimaryVarsMeaning="0"
+VtkWriteProcessRank="0"
+VtkWriteRelativePermeabilities="1"
+VtkWriteSaturatedGasOilVaporizationFactor="0"
+VtkWriteSaturatedOilGasDissolutionFactor="0"
+VtkWriteSaturationRatios="0"
+VtkWriteSaturations="1"
+VtkWriteTemperature="1"
+VtkWriteTotalMassFractions="0"
+VtkWriteTotalMoleFractions="0"
+VtkWriteViscosities="0"
+VtkWriteWaterFormationVolumeFactor="0"
+
+
+===============Saturation Functions Diagnostics===============
+
+System:  Black-oil system.
+Relative permeability input format: Saturation Family I.
+Number of saturation regions: 1
+
+
+
+================ Starting main simulation loop ===============
+
+
+
+---------------    Simulation report step number 0    ---------------
+
+---------------    Simulation step number 0    ---------------
+      Current time (days)     0
+      Current stepsize (days) 91.25
+      Total time (days)       182.5
+
+
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       271.404 BARSA                 :
+                                                  :      PORV =       1999458   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       1301335             0       1301335:       235619   :             0     158852003     158852003:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       1301335             0       1301335:       235619   :             0     158852003     158852003:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       271.404 BARSA                 :
+                                                  :      PORV =       1999458   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       1301335             0       1301335:       235619   :             0     158852003     158852003:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       1301335             0       1301335:       235619   :             0     158852003     158852003:
+:========================:==========================================:================:==========================================:
+
+
+Report step  0/2 at day 0/182.5, date = 06-Nov-2011
+
+Time step 0, stepsize 1 days.
