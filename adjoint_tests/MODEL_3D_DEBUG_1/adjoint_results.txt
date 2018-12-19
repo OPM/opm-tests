@@ -1,0 +1,90 @@
+% Control step 0
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+0	0	0	0	0	0	
+0	246130	-1535.31	-1687.93	-381.822	-448.807	
+0	0.0102384	-0.00210583	-0.00170478	-0.00261737	-0.00223846	
+% Control step 1
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+1	0	0	0	0	0	
+1	264442	-1433.09	-1577.03	-327.538	-415.719	
+1	0.0116116	-0.00232673	-0.00141307	-0.00303987	-0.00249052	
+% Control step 2
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+2	0	0	0	0	0	
+2	274350	-1416.41	-1522.38	-355.482	-452.179	
+2	0.012217	-0.00256073	-0.0012387	-0.00360412	-0.00275179	
+% Control step 3
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+3	0	0	0	0	0	
+3	279162	-1413.97	-1498.77	-404.4	-503.797	
+3	0.0128498	-0.00263808	-0.00080247	-0.00412619	-0.00285884	
+% Control step 4
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+4	0	0	0	0	0	
+4	279228	-1405.16	-1652.54	-458.963	-556.598	
+4	0.0132045	-0.00264236	-0.00058267	-0.0045326	-0.003052	
+% Control step 5
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+5	0	0	0	0	0	
+5	276482	-1389.85	-2789.95	-520.488	-600.029	
+5	0.0132943	-0.00272927	-0.000492568	-0.00496312	-0.00313223	
+% Control step 6
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+6	0	0	0	0	0	
+6	271339	-1366.57	-7529.77	-571.655	-629.02	
+6	0.013436	-0.0026963	-0.000374368	-0.00536111	-0.00309359	
+% Control step 7
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+7	0	0	0	0	0	
+7	266674	-1337.76	-18697.9	-604.19	-647.583	
+7	0.0134122	-0.00272462	-0.000389328	-0.00563694	-0.00309152	
+% Control step 8
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+8	0	0	0	0	0	
+8	263453	-1314.72	-31676.2	-623.485	-674.169	
+8	0.0134592	-0.00274302	-0.000331793	-0.00576634	-0.00298009	
+% Control step 9
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+9	0	0	0	0	0	
+9	260297	-1333.79	-42277.7	-640.402	-763.075	
+9	0.0133794	-0.00267393	-0.000298506	-0.005963	-0.00292535	
+% Control step 10
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+10	0	0	0	0	0	
+10	255807	-1517.98	-50606.6	-670.102	-1077.88	
+10	0.0134043	-0.00259697	-0.000270989	-0.00599204	-0.00292387	
+% Control step 11
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+11	0	0	0	0	0	
+11	249865	-2265.18	-57554.2	-745.491	-2165.78	
+11	0.0133145	-0.00274541	-0.000243217	-0.00606031	-0.00298916	
+% Control step 12
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+12	0	0	0	0	0	
+12	243196	-4642.01	-63397	-950.622	-5294.38	
+12	0.013229	-0.00283327	-0.000229283	-0.00625291	-0.00303508	
+% Control step 13
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+13	0	0	0	0	0	
+13	238128	-10717	-68740.8	-1594.68	-10980.1	
+13	0.0134584	-0.00292713	-0.000273705	-0.00630941	-0.00303709	
+% Control step 14
+% Inj	Prod1	Prod3	Prod4	Prod2	
+% Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	Current control 0  0 0  0	
+14	0	0	0	0	0	
+14	235782	-19933.9	-73388.8	-3283.31	-17187.4	
+14	0.018046	-0.00165782	0.000729817	-0.00514265	-0.00209387	

@@ -1,0 +1,18 @@
+% Control step 0
+% Inj	Prod1	
+% Current control 0  0 0  0	Current control 0  0 0  0	
+0	0	0	
+0	2.03957e+06	-712415	
+0	0.0100348	-0.0135895	
+% Control step 1
+% Inj	Prod1	
+% Current control 0  0 0  0	Current control 0  0 0  0	
+1	0	0	
+1	2.44643e+06	-1.85113e+06	
+1	0.0124861	-0.0161727	
+% Control step 2
+% Inj	Prod1	
+% Current control 0  0 0  0	Current control 0  0 0  0	
+2	0	0	
+2	2.96177e+06	-2.64216e+06	
+2	0.0268315	-0.0158136	

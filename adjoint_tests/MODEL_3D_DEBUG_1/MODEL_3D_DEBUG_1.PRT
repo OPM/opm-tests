@@ -1,0 +1,910 @@
+
+
+
+ ########  #          ######   #           #
+ #         #         #      #   #         # 
+ #####     #         #      #    #   #   #  
+ #         #         #      #     # # # #   
+ #         #######    ######       #   #    
+
+Flow is a simulator for fully implicit three-phase black-oil flow, and is part of OPM.
+For more information visit: https://opm-project.org 
+
+Flow Version  =  2019.04-pre
+System        =  hnil-workstation (Number of logical cores: 40, RAM: 128817.50 MB) 
+Architecture  =  Linux x86_64 (Release: 4.15.0-42-generic, Version: #45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018 )
+User          =  hnil
+Simulation started on 19-12-2018 at 10:07:40 hrs
+Parameters used by Flow:
+# [known parameters which were specified at run-time]
+FullTimeStepInitially="true" # default: "0"
+EnableAdaptiveTimeStepping="false" # default: "1"
+FlowNewtonMaxIterations="100" # default: "20"
+SolveWelleqInitially="true" # default: "1"
+UseAdjoint="true" # default: "0"
+FlowLinearSolverVerbosity="10" # default: "0"
+LinearSolverMaxIter="50" # default: "200"
+LinearSolverReduction="1e-10" # default: "0.01"
+TimeStepVerbosity="10" # default: "1"
+ToleranceCnv="1e-6" # default: "0.01"
+ToleranceCnvRelaxed="1e-5" # default: "1e+09"
+ToleranceMb="1e-5" # default: "1e-06"
+TolerancePressureMsWells="1000" # default: "1000"
+ToleranceWellControl="1e-7" # default: "1e-07"
+ToleranceWells="1e-4" # default: "0.0001"
+OutputDir="/data/hnil/BITBUCKET/mrst-bitbucket/projects/opm-challenge/tmp_data/MODEL_3D_DEBUG_1" # default: ""
+EclDeckFileName="/data/hnil/BITBUCKET/mrst-bitbucket/projects/opm-challenge/tmp_models/MODEL_3D_DEBUG_1/MODEL_3D_DEBUG_1.DATA" # default: ""
+# [parameters which were specified at compile-time]
+AdjointResultsFile="adjoint_results.txt"
+DbhpMaxRel="1"
+DpMaxRel="0.3"
+DsMax="0.2"
+DwellFractionMax="0.2"
+EclOutputDoublePrecision="0"
+EclOutputInterval="-1"
+EnableAsyncEclOutput="1"
+EnableAsyncVtkOutput="1"
+EnableDryRun="auto"
+EnableEclOutput="1"
+EnableGravity="1"
+EnableGridAdaptation="0"
+EnableIntensiveQuantityCache="1"
+EnableOpmRstFile="1"
+EnableStorageCache="1"
+EnableTerminalOutput="1"
+EnableThermodynamicHints="0"
+EnableTracerModel="0"
+EnableTuning="0"
+EnableVtkOutput="0"
+EnableWriteAllSolutions="0"
+EndTime="1e+100"
+FlowNewtonMinIterations="1"
+ForceDisableFluidInPlaceOutput="0"
+IgnoreKeywords=""
+IluFillinLevel="0"
+IluRedblack="0"
+IluRelaxation="0.9"
+IluReorderSpheres="0"
+InitialTimeStepInDays="1"
+InitialTimeStepSize="1e+100"
+LinearSolverAbsTolerance="-1"
+LinearSolverIgnoreConvergenceFailure="0"
+LinearSolverMaxError="1e+07"
+LinearSolverMaxIterations="1000"
+LinearSolverOverlapSize="2"
+LinearSolverRequireFullSparsityPattern="0"
+LinearSolverRestart="40"
+LinearSolverTolerance="0.001"
+LinearSolverVerbosity="0"
+MatrixAddWellContributions="0"
+MaxInnerIterMsWells="10"
+MaxPressureChangeMsWells="200000"
+MaxResidualAllowed="1e+07"
+MaxSinglePrecisionDays="20"
+MaxStrictIter="8"
+MaxTimeStepDivisions="10"
+MaxTimeStepSize="inf"
+MaxWelleqIter="15"
+MiluVariant="ILU"
+MinTimeStepSize="0"
+NewtonMaxError="0.1"
+NewtonMaxIterations="14"
+NewtonMaxRelax="0.5"
+NewtonRawTolerance="0.0001"
+NewtonRelaxationType="dampen"
+NewtonTargetIterations="6"
+NewtonVerbose="1"
+NewtonWriteConvergence="0"
+OutputInterval="1"
+OutputMode="all"
+ParameterFile=""
+PreconditionerAddWellContributions="0"
+PreconditionerRelaxation="1"
+PredeterminedTimeStepsFile=""
+PriVarOscilationThreshold="1e-05"
+PrintParameters="2"
+PrintProperties="2"
+RestartTime="-1e+35"
+RestartWritingInterval="16777215"
+SolverGrowthFactor="2"
+SolverMaxGrowth="3"
+SolverMaxRestarts="10"
+SolverMaxTimeStepInDays="365"
+SolverRestartFactor="0.33"
+SolverVerbosity="1"
+ThreadsPerProcess="1"
+TimeStepAfterEventInDays="-1"
+TimeStepControl="pid"
+TimeStepControlDecayRate="0.75"
+TimeStepControlFileName="timesteps"
+TimeStepControlGrowthRate="1.25"
+TimeStepControlTargetIterations="30"
+TimeStepControlTargetNewtonIterations="8"
+TimeStepControlTolerance="0.1"
+UpdateEquationsScaling="0"
+UseAmg="0"
+UseAmgcl="0"
+UseAmgclDrs="0"
+UseCpr="0"
+UseGmres="0"
+UseInnerIterationsMsWells="1"
+UseMultisegmentWell="0"
+UseUmfpack="0"
+UseUpdateStabilization="1"
+VtkWriteAverageMolarMasses="0"
+VtkWriteDensities="1"
+VtkWriteDofIndex="0"
+VtkWriteEclTracerConcentration="0"
+VtkWriteExtrusionFactor="0"
+VtkWriteFilterVelocities="0"
+VtkWriteFugacities="0"
+VtkWriteFugacityCoeffs="0"
+VtkWriteGasDissolutionFactor="0"
+VtkWriteGasFormationVolumeFactor="0"
+VtkWriteGasSaturationPressure="0"
+VtkWriteIntrinsicPermeabilities="0"
+VtkWriteMassFractions="0"
+VtkWriteMobilities="0"
+VtkWriteMolarities="0"
+VtkWriteMoleFractions="1"
+VtkWriteOilFormationVolumeFactor="0"
+VtkWriteOilSaturationPressure="0"
+VtkWriteOilVaporizationFactor="0"
+VtkWritePorosity="1"
+VtkWritePotentialGradients="0"
+VtkWritePressures="1"
+VtkWritePrimaryVars="0"
+VtkWritePrimaryVarsMeaning="0"
+VtkWriteProcessRank="0"
+VtkWriteRelativePermeabilities="1"
+VtkWriteSaturatedGasOilVaporizationFactor="0"
+VtkWriteSaturatedOilGasDissolutionFactor="0"
+VtkWriteSaturationRatios="0"
+VtkWriteSaturations="1"
+VtkWriteTemperature="1"
+VtkWriteTotalMassFractions="0"
+VtkWriteTotalMoleFractions="0"
+VtkWriteViscosities="0"
+VtkWriteWaterFormationVolumeFactor="0"
+
+
+===============Saturation Functions Diagnostics===============
+
+System:  Black-oil system.
+Relative permeability input format: Saturation Family I.
+Number of saturation regions: 1
+
+
+
+================ Starting main simulation loop ===============
+
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =        261.73 BARSA                 :
+                                                  :      PORV =       7994203   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =        261.73 BARSA                 :
+                                                  :      PORV =       7994203   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  0/15 at day 0/3650, date = 06-Nov-2011
+Time step summary: well its =  1, newton its =  5, linearizations =  6 ( 0.190 sec), linear its =  63 ( 0.390 sec)
+
+                              **************************************************************************
+  Balance  at   243.333  Days *                                                                        *
+  Report    1    06 Jul 2012  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       256.267 BARSA                 :
+                                                  :      PORV =       7992414   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4896930          1956       4898886:      1237920   :      40309214     555533114     595842328:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       256.267 BARSA                 :
+                                                  :      PORV =       7992414   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4896930          1956       4898886:      1237920   :      40309214     555533114     595842328:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  1/15 at day 243.333/3650, date = 06-Jul-2012
+Time step summary: well its =  1, newton its =  5, linearizations =  6 ( 0.182 sec), linear its =  59 ( 0.370 sec)
+
+                              **************************************************************************
+  Balance  at   486.667  Days *                                                                        *
+  Report    2    06 Mar 2013  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       255.667 BARSA                 :
+                                                  :      PORV =       7992508   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4699854          1888       4701742:      1498609   :      39467965     531020662     570488627:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       255.667 BARSA                 :
+                                                  :      PORV =       7992508   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4699854          1888       4701742:      1498609   :      39467965     531020662     570488627:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  2/15 at day 486.667/3650, date = 06-Mar-2013
+Time step summary: newton its =  5, linearizations =  6 ( 0.181 sec), linear its =  60 ( 0.372 sec)
+
+                              **************************************************************************
+  Balance  at       730  Days *                                                                        *
+  Report    3    05 Nov 2013  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       256.302 BARSA                 :
+                                                  :      PORV =       7993044   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4501858          1689       4503547:      1769213   :      35505709     509671321     545177030:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       256.302 BARSA                 :
+                                                  :      PORV =       7993044   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4501858          1689       4503547:      1769213   :      35505709     509671321     545177030:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  3/15 at day 730/3650, date = 05-Nov-2013
+Time step summary: well its =  1, newton its =  5, linearizations =  6 ( 0.185 sec), linear its =  58 ( 0.366 sec)
+
+                              **************************************************************************
+  Balance  at   973.333  Days *                                                                        *
+  Report    4    06 Jul 2014  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       257.337 BARSA                 :
+                                                  :      PORV =       7993693   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4301519          1468       4302987:      2044554   :      30967599     488690472     519658071:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       257.337 BARSA                 :
+                                                  :      PORV =       7993693   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4301519          1468       4302987:      2044554   :      30967599     488690472     519658071:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  4/15 at day 973.333/3650, date = 06-Jul-2014
+Time step summary: newton its =  5, linearizations =  6 ( 0.183 sec), linear its =  59 ( 0.363 sec)
+
+                              **************************************************************************
+  Balance  at   1216.67  Days *                                                                        *
+  Report    5    06 Mar 2015  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       258.614 BARSA                 :
+                                                  :      PORV =       7994395   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4101607          1240       4102847:      2319709   :      26264013     468012602     494276614:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       258.614 BARSA                 :
+                                                  :      PORV =       7994395   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       4101607          1240       4102847:      2319709   :      26264013     468012602     494276614:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  5/15 at day 1216.67/3650, date = 06-Mar-2015
+Time step summary: newton its =  4, linearizations =  5 ( 0.151 sec), linear its =  44 ( 0.276 sec)
+
+                              **************************************************************************
+  Balance  at      1460  Days *                                                                        *
+  Report    6    04 Nov 2015  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       260.207 BARSA                 :
+                                                  :      PORV =       7995186   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3904272          1026       3905298:      2590891   :      21798922     447604399     469403321:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       260.207 BARSA                 :
+                                                  :      PORV =       7995186   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3904272          1026       3905298:      2590891   :      21798922     447604399     469403321:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  6/15 at day 1460/3650, date = 04-Nov-2015
+Time step summary: well its =  1, newton its =  4, linearizations =  5 ( 0.153 sec), linear its =  44 ( 0.277 sec)
+
+                              **************************************************************************
+  Balance  at   1703.33  Days *                                                                        *
+  Report    7    05 Jul 2016  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       261.907 BARSA                 :
+                                                  :      PORV =       7995984   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3713224           843       3714067:      2852132   :      17974491     427484951     445459443:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       261.907 BARSA                 :
+                                                  :      PORV =       7995984   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3713224           843       3714067:      2852132   :      17974491     427484951     445459443:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  7/15 at day 1703.33/3650, date = 05-Jul-2016
+Time step summary: well its =  1, newton its =  5, linearizations =  6 ( 0.184 sec), linear its =  53 ( 0.335 sec)
+
+                              **************************************************************************
+  Balance  at   1946.67  Days *                                                                        *
+  Report    8    05 Mar 2017  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       263.469 BARSA                 :
+                                                  :      PORV =       7996690   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3532147           702       3532850:      3097519   :      15039048     407892559     422931608:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       263.469 BARSA                 :
+                                                  :      PORV =       7996690   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3532147           702       3532850:      3097519   :      15039048     407892559     422931608:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  8/15 at day 1946.67/3650, date = 05-Mar-2017
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.126 sec), linear its =  38 ( 0.232 sec)
+
+                              **************************************************************************
+  Balance  at      2190  Days *                                                                        *
+  Report    9    03 Nov 2017  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       264.897 BARSA                 :
+                                                  :      PORV =       7997291   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3362588           576       3363164:      3326684   :      12409613     389458917     401868530:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       264.897 BARSA                 :
+                                                  :      PORV =       7997291   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3362588           576       3363164:      3326684   :      12409613     389458917     401868530:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step  9/15 at day 2190/3650, date = 03-Nov-2017
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.121 sec), linear its =  31 ( 0.198 sec)
+
+                              **************************************************************************
+  Balance  at   2433.33  Days *                                                                        *
+  Report   10    05 Jul 2018  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       266.465 BARSA                 :
+                                                  :      PORV =       7997884   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3203753           448       3204201:      3541966   :       9736554     372389701     382126256:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       266.465 BARSA                 :
+                                                  :      PORV =       7997884   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3203753           448       3204201:      3541966   :       9736554     372389701     382126256:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step 10/15 at day 2433.33/3650, date = 05-Jul-2018
+Time step summary: newton its =  5, linearizations =  6 ( 0.185 sec), linear its =  53 ( 0.325 sec)
+
+                              **************************************************************************
+  Balance  at   2676.67  Days *                                                                        *
+  Report   11    05 Mar 2019  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       268.396 BARSA                 :
+                                                  :      PORV =       7998558   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3055454           321       3055774:      3743900   :       7043513     356644766     363688280:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       268.396 BARSA                 :
+                                                  :      PORV =       7998558   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       3055454           321       3055774:      3743900   :       7043513     356644766     363688280:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step 11/15 at day 2676.67/3650, date = 05-Mar-2019
+Time step summary: newton its =  4, linearizations =  5 ( 0.160 sec), linear its =  42 ( 0.267 sec)
+
+                              **************************************************************************
+  Balance  at      2920  Days *                                                                        *
+  Report   12    03 Nov 2019  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       270.743 BARSA                 :
+                                                  :      PORV =       7999331   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       2918228           205       2918432:      3931034   :       4555543     342174540     346730083:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       270.743 BARSA                 :
+                                                  :      PORV =       7999331   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       2918228           205       2918432:      3931034   :       4555543     342174540     346730083:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step 12/15 at day 2920/3650, date = 03-Nov-2019
+Time step summary: newton its =  5, linearizations =  6 ( 0.184 sec), linear its =  55 ( 0.349 sec)
+
+                              **************************************************************************
+  Balance  at   3163.33  Days *                                                                        *
+  Report   13    04 Jul 2020  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       273.308 BARSA                 :
+                                                  :      PORV =       8000144   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       2793997           115       2794112:      4099946   :       2585505     328915197     331500702:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       273.308 BARSA                 :
+                                                  :      PORV =       8000144   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       2793997           115       2794112:      4099946   :       2585505     328915197     331500702:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step 13/15 at day 3163.33/3650, date = 04-Jul-2020
+Time step summary: well its =  1, newton its =  5, linearizations =  6 ( 0.186 sec), linear its =  56 ( 0.344 sec)
+
+                              **************************************************************************
+  Balance  at   3406.67  Days *                                                                        *
+  Report   14    04 Mar 2021  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       275.562 BARSA                 :
+                                                  :      PORV =       8000828   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       2685200            61       2685262:      4246041   :       1384470     316985633     318370103:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       275.562 BARSA                 :
+                                                  :      PORV =       8000828   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       2685200            61       2685262:      4246041   :       1384470     316985633     318370103:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+Report step 14/15 at day 3406.67/3650, date = 04-Mar-2021
+Time step summary: well its =  1, newton its =  3, linearizations =  4 ( 0.127 sec), linear its =  34 ( 0.207 sec)
+
+                              **************************************************************************
+  Balance  at      3650  Days *                                                                        *
+  Report   15    02 Nov 2021  *                                             Flow  version 2019.04-pre  *
+                              **************************************************************************
+
+
+Warning: Keyword 'BASIC' is unhandled for output to file.
+
+Warning: Keyword 'PRES' is unhandled for output to file.
+
+Warning: Keyword 'RS' is unhandled for output to file.
+
+Warning: Keyword 'SGAS' is unhandled for output to file.
+
+Warning: Keyword 'WELLS' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       277.178 BARSA                 :
+                                                  :      PORV =       8001295   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       2592983            34       2593017:      4368030   :        776024     306640191     307416215:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       277.178 BARSA                 :
+                                                  :      PORV =       8001295   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       2592983            34       2593017:      4368030   :        776024     306640191     307416215:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       5108192          1384       5109576:       995844   :      27452050     595828618     623280668:
+:========================:==========================================:================:==========================================:
+
+
+
+================ Starting adjoint loop ===============
+
+
+
+================    End of simulation     ===============
+
+Total time (seconds):         7.77071
+Solver time (seconds):        7.7217
+ Assembly time (seconds):     2.49617 (Failed: 0; 0%)
+ Linear solve time (seconds): 4.67183 (Failed: 0; 0%)
+ Update time (seconds):       0.0662745 (Failed: 0; 0%)
+ Output write time (seconds): 0.0468693
+Overall Well Iterations:      9 (Failed: 0; 0%)
+Overall Linearizations:       81 (Failed: 0; 0%)
+Overall Newton Iterations:    66 (Failed: 0; 0%)
+Overall Linear Iterations:    749 (Failed: 0; 0%)
+
+
+
+Error summary:
+Warnings          75
+Info              37
+Errors            0
+Bugs              0
+Debug             0
+Problems          0
+
