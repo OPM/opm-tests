@@ -1,0 +1,378 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018 Equinor
+
+-- This is a test case for implementing WSEGVALV keyword
+
+-- ==========================================================================================
+RUNSPEC
+-- ==========================================================================================
+
+--NOSIM
+
+
+TITLE
+ small testmodel with 1 well 
+
+
+DIMENS
+  12  5  10  /
+
+START
+ 1 'JAN' 2018 /
+
+OIL
+WATER
+GAS
+DISGAS
+
+METRIC
+
+--------------------------------------------------------------
+-- Special options
+--------------------------------------------------------------
+
+
+ENDSCALE
+/
+
+
+--------------------------------------------------------------
+-- Dimensions
+--------------------------------------------------------------
+
+-- Table dimensions
+-- ntsfun: max SATNUM 
+-- ntpvt:  max PVTNUM
+-- nssfun: max saturation nodes in any saturation table 
+-- nppvt:  max pressure nodes in any PVT table or Rock Compaction table
+-- ntfip:  max FIPNUM, = ntfip in REGDIMS
+-- nrpvt:  max Rs nodes in a live oil PVT table
+TABDIMS
+-- ntsfun  ntpvt  nssfun  nppvt  ntfip  nrpvt 
+   1       1      50      50     28     50  /
+
+-- Dimension of equilibration tables
+-- ntequl: max EQLNUM
+-- ndprvd: max depth nodes in any table of pressure vs depth
+-- ndrxvd: max depth nodes in any RSVD, RVVD, PBVD or PDVD table
+EQLDIMS
+-- ntequl  ndprvd  ndrxvd 
+    1 /
+
+-- Regions dimension data
+-- ntfip:  max FIPNUM
+-- nmfipr: max sets of fluid-in-place regions
+-- nrfreg: max independent reservoir regions
+REGDIMS
+-- ntfip  nmfipr  nrfreg
+--    26      4   /
+    1      4       1 /
+
+-- Well dimension data
+-- nwmaxz: max wells in the model
+-- ncwmax: max connections per well
+-- ngmaxz: max groups in the model
+-- nwgmax: max wells in any one group
+WELLDIMS
+-- nwmaxz  ncwmax  ngmaxz  nwgmax
+    10     20       20     22  /
+
+-- Dimensions for multi-segment wells
+-- nswlmx: max multi-segment wells in the model
+-- nsegmx: max segments per well
+-- nlbrmx: max branches per multi-segment well
+WSEGDIMS
+-- nswlmx  nsegmx  nlbrmx
+    2      20      2   /
+
+-- Production well VFP table dimensions
+-- mxmflo: max flow values per table
+-- mxmthp: max tubing head pressure values per table
+-- mxmwpr: max water fraction values per table
+-- mxmgrp: max gas friction values per table
+-- mxmalq: max artificial lift quantities per table
+-- nmmvft: max production well VFP tables
+VFPPDIMS
+-- mxmflo  mxmthp  mxmwpr  mxmgrp  mxmalq  nmmvft  
+  25      12       12       12       5       48 /
+
+
+--------------------------------------------------------------
+-- Run control settings
+--------------------------------------------------------------
+
+
+UNIFIN
+UNIFOUT
+
+NORSSPEC
+NOINSPEC
+
+
+MESSAGES
+-- -----------print------------  -----------stop--------------------
+-- mes  com  war  prb  err  bug  mes    com    war    prb    err bug  
+   1*   1*   1*   1*   1*   1*   300000 300000 300000 100000 10  1   /
+
+
+-- ==========================================================================================
+GRID
+-- ==========================================================================================
+
+GRIDFILE
+ 0  1 /
+
+INIT
+
+NEWTRAN
+
+NOECHO
+
+-- Grid
+INCLUDE 
+ 'include/grid1.grdecl' / 
+
+INCLUDE
+ 'include/perm.grdecl' /
+ 
+-- Poro
+INCLUDE
+ 'include/poro.grdecl' /
+
+INCLUDE
+ 'include/ntg.grdecl' /
+
+
+-- ==========================================================================================
+EDIT
+-- ==========================================================================================
+
+
+-- ==========================================================================================
+PROPS
+-- ==========================================================================================
+NOECHO
+
+-- PVT
+INCLUDE
+ 'include/pvto_pvdg.pvt' /
+ 
+ROCK
+-- P       cf
+144.445  5.17557E-4 /
+
+-- Rel perm
+INCLUDE
+ 'include/relperm.prpecl'  /
+
+-- Swl
+INCLUDE
+ 'include/swl.grdecl' /
+
+MAXVALUE
+ 'SWL'  0.60   /
+/
+
+COPY
+ 'SWL'  'SWCR' /
+ 'SWL'  'SGU'  /
+/
+
+MULTIPLY
+ 'SGU'  -1 /
+/
+
+ADD
+ 'SGU'  1 /
+/
+
+EQUALS
+ 'SGCR'  0.05  /
+/
+
+-- Sowcr, sogcr
+COPY
+ 'SWCR'  'SOWCR'   /
+ 'SWCR'  'SOGCR'   /
+/
+ 
+MULTIPLY
+ 'SOWCR' -1    /
+ 'SOGCR' -1    /
+/
+ 
+ADD
+ 'SOWCR' 0.95      /
+ 'SOGCR' 0.9127    /
+/
+ 
+MAXVALUE
+ 'SOWCR'  0.200    /
+ 'SOGCR'  0.225    /
+ /
+ 
+
+-- Use 3-point scaling to retain kre from curves or keyword
+SCALECRS
+ 'YES' /
+
+
+-- ==========================================================================================
+REGIONS
+-- ==========================================================================================
+
+
+EQUALS
+ 'FIPNUM' 1 /
+/
+ 
+COPY
+ 'FIPNUM'  'EQLNUM' /
+ 'FIPNUM'  'PVTNUM' /
+/
+
+
+-- ==========================================================================================
+SOLUTION
+-- ==========================================================================================
+
+EQUIL
+-- datum    Pres     OWC     Pcow  GOC    Pcog  Rsvd  Rvvd  N
+   1185.0   120.4    1250.000000    0.0   610.0   1*    1     1*   1* /
+
+
+RSVD
+  610.0  24.65
+ 1830.0  24.65 /
+
+
+RPTRST
+ 'BASIC=2' / 
+
+RPTSOL
+ 'RESTART=2'  'FIP=3'  'FIPRESV'  'THPRES' /
+
+
+-- =========================================================================================
+SUMMARY
+-- =========================================================================================
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+INCLUDE
+ 'include/segm_summary.inc' /
+
+
+-- =========================================================================================
+SCHEDULE
+-- =========================================================================================
+
+-- start of simulation:  1 'JAN' 2018  
+
+INCLUDE
+ 'include/liftcurve.vfpprod' /
+
+WELSPECS
+-- Well     Grp  I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD1  GRP1   2  2  1*        OIL   0.0       STD      STOP      YES    0         SEG       0            /
+    /
+
+COMPDAT
+-- Well      I   J   K1   K2   Status   SAT   TR             DIAM      KH   S         Df   DIR
+-- ---- Completions for completion type Perforation ----
+-- Perforation Completion : MD In: 150.579 - MD Out: 156.914 Transmissibility: 162.51
+   PROD1   3   3   2    2    OPEN     1*    1.625100E+02   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 156.914 - MD Out: 248.778 Transmissibility: 4607.32
+   PROD1   4   3   2    2    OPEN     1*    4.607317E+03   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 248.778 - MD Out: 258.857 Transmissibility: 272.898
+   PROD1   4   3   3    3    OPEN     1*    2.728976E+02   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 258.857 - MD Out: 359.92 Transmissibility: 1914.16
+   PROD1   5   3   3    3    OPEN     1*    1.914163E+03   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 359.92 - MD Out: 460.911 Transmissibility: 2963.46
+   PROD1   6   3   3    3    OPEN     1*    2.963462E+03   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 460.911 - MD Out: 528.789 Transmissibility: 1783.18
+   PROD1   7   3   3    3    OPEN     1*    1.783183E+03   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 528.789 - MD Out: 561.161 Transmissibility: 4246.57
+   PROD1   7   3   4    4    OPEN     1*    4.246572E+03   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 561.161 - MD Out: 661.536 Transmissibility: 11699.3
+   PROD1   8   3   4    4    OPEN     1*    1.169926E+04   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 661.536 - MD Out: 706.137 Transmissibility: 4983.28
+   PROD1   9   3   4    4    OPEN     1*    4.983277E+03   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 706.137 - MD Out: 729.195 Transmissibility: 2149.77
+   PROD1   9   3   5    5    OPEN     1*    2.149769E+03   0.21600   1*   0.00000   1*   'X' /
+    /
+
+WELSEGS
+-- Name        Dep 1          Tlen 1      Vol 1     Len&Dep     PresDrop
+   PROD1     1202.59426     0.00000     1*        INC         'HF-'    /
+-- First Seg     Last Seg     Branch Num     Outlet Seg     Length        Depth Change     Diam        Rough  
+-- Main Stem Segments
+   2             2            1              1              54.89890      3.15043          0.15200     0.00001 /
+   3             3            1              2              29.53723      1.69503          0.15200     0.00001 /
+   4             4            1              3              38.61464      2.21594          0.15200     0.00001 /
+   5             5            1              4              33.86334      1.94329          0.15200     0.00001 /
+   6             6            1              5              91.86403      5.20740          0.15200     0.00001 /
+   7             7            1              6              10.07914      0.51525          0.15200     0.00001 /
+   8             8            1              7              101.06244     3.38294          0.15200     0.00001 /
+   9             9            1              8              100.99141     3.33600          0.15200     0.00001 /
+   10            10           1              9              67.87743      2.60985          0.15200     0.00001 /
+   11            11           1              10             32.37265      1.41185          0.15200     0.00001 /
+   12            12           1              11             100.37464     4.61584          0.15200     0.00001 /
+   13            13           1              12             44.60067      2.05617          0.15200     0.00001 /
+   14            14           1              13             23.05799      1.06301          0.15200     0.00001 /
+    /
+
+COMPSEGS
+-- Name   
+   PROD1 /
+-- I     J     K     Branch no     Start Length     End Length     Dir Pen     End Range     Connection Depth
+   3     3     2     1             150.57867        156.91410       /
+   4     3     2     1             156.91410        248.77814       /
+   4     3     3     1             248.77814        258.85728       /
+   5     3     3     1             258.85728        359.91972       /
+   6     3     3     1             359.91972        460.91113       /
+   7     3     3     1             460.91113        528.78856       /
+   7     3     4     1             528.78856        561.16120       /
+   8     3     4     1             561.16120        661.53584       /
+   9     3     4     1             661.53584        706.13651       /
+   9     3     5     1             706.13651        729.19451       /
+    /
+
+WSEGVALV
+  'PROD1'   8         1.000   3.0E-04  0 /  
+  'PROD1'   9         1.000   3.0E-04  0 /   
+  'PROD1'   10        1.000   3.0E-04  0 /   
+  'PROD1'   11        1.000   3.0E-04  0 /   
+  'PROD1'   12        1.000   3.0E-04  0 /   
+  'PROD1'   13        1.000   3.0E-04  0 /   
+  'PROD1'   14        1.000   3.0E-04  0 /   
+/
+
+
+
+
+WCONPROD   
+-- name    state  ctrl   qo     qw   qg    ql  qrv   bhp  thp  vfp                                 
+   PROD1   OPEN   ORAT   500.0   1*   1*   1*   1*   60   2*     /
+/
+
+DATES
+  1 'FEB' 2018 / 
+  1 'MAR' 2018 / 
+  1 'APR' 2018 / 
+  1 'MAY' 2018 / 
+  1 'JUN' 2018 / 
+  1 'JUL' 2018 / 
+  1 'AUG' 2018 / 
+  1 'SEP' 2018 / 
+/
+
+END
+ 
+
