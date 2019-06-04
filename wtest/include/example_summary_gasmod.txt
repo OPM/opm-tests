@@ -1,0 +1,132 @@
+--
+-- Field Data
+-----------------------------
+-- Production Rates
+-----------------------------
+
+FOPR
+FOPRH
+FGPR
+FGPRH
+FWPR
+FWPRH
+-----------------------------
+-- In place
+-----------------------------
+FWIP
+FOIP
+FGIP
+-- Ratios
+FWCT
+FWCTH
+FGOR
+FGORH
+FPR
+--  Region data
+RPR
+/
+ROIP
+/
+ROIPL
+/
+ROIPG
+/
+RGIP
+/
+RGIPL
+/
+RGIPG
+/
+RGPR
+/
+RGPT
+/
+
+-----------------------------
+--  Control Mode           --
+-----------------------------
+-- Well Data
+-- Production Rates
+WOPR
+/
+WOPRH
+/
+WGPR
+/
+WGPRH
+/
+WWPR
+/
+WWPRH
+/
+-- Production Cummulatives
+WOPT
+/
+WWPT
+/
+WGPT
+/
+WOPTH
+/
+WWPTH
+/
+WGPTH
+/
+-- Ratios
+WWCT
+/
+WWCTH
+/
+WGOR
+/
+WGORH
+/
+WWIR
+/
+WWIRH
+/
+WGIR
+/
+WGIRH
+/
+WWIT
+/
+WWITH
+/
+WGIT
+/
+WGITH
+/
+-- Performance
+WBHP
+/
+WTHP
+/
+WPI
+/
+WVPR
+/
+WBP
+/
+WBP4
+/
+WBP9
+/
+WMCTL
+/
+WLPR
+/
+--
+-- Simulatior performance
+TCPU
+TCPUDAY
+
+CWCT
+ 'GP_1' /
+/ 
+COFR
+ 'GP_1' /
+/ 
+CWFR
+ 'GP_1' /
+/ 
