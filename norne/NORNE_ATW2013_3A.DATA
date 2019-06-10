@@ -3,7 +3,7 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2019 Equinor
+-- Copyright (C) 2015 Statoil
 
 -- Norne full field model for SPE ATW 2013
 RUNSPEC
@@ -11,7 +11,12 @@ RUNSPEC
 DIMENS
 46 112 22   /
 
+PARALLEL
+ 8 /
+
 --NOSIM
+
+WATER
 
 GRIDOPTS
  'YES' 0 /
@@ -432,24 +437,45 @@ MLINEARS
 
 --
 INCLUDE
- './INCLUDE/SUMMARY/summary_depletion.data' / 
+ './INCLUDE/SUMMARY/summary.data' / 
 
 --
 --INCLUDE
 -- './INCLUDE/SUMMARY/extra.inc' /
 
 --
---INCLUDE
--- './INCLUDE/SUMMARY/tracer.data' / 
+INCLUDE
+ './INCLUDE/SUMMARY/tracer.data' / 
 --
---INCLUDE
--- './INCLUDE/SUMMARY/gas.inc' / 
+INCLUDE
+ './INCLUDE/SUMMARY/gas.inc' / 
 
 --
---INCLUDE
--- './INCLUDE/SUMMARY/wpave.inc' / 
+INCLUDE
+ './INCLUDE/SUMMARY/wpave.inc' / 
 
 --------------------------------------------------------------------------------
+
+CWFR
+ 'B-3H' /
+ 'D-2H' /
+ 'E-1H' /
+ 'E-2H' /
+/
+
+COFR
+ 'B-3H' /
+ 'D-2H' /
+ 'E-1H' /
+ 'E-2H' /
+/
+
+CWCT
+ 'B-3H' /
+ 'D-2H' /
+ 'E-1H' /
+ 'E-2H' /
+/
 
 
 SCHEDULE
@@ -625,11 +651,6 @@ INCLUDE
 INCLUDE
 './INCLUDE/VFP/F4H.Ecl' / 
 
-TUNING
-1 10  0.1  0.15  3  0.3  0.3  1.20  /
-5*   0.1   0.0001   0.02  0.02  /
-2* 40 1* 15 /
-/
 
 -- only possible for ECL 2006.2+ version
 ZIPPY2
@@ -639,8 +660,23 @@ ZIPPY2
 INCLUDE
 './INCLUDE/PI/pimultab_low-high_aug-2006.inc' / 
 
--- Prediction
-INCLUDE
-'./INCLUDE/MIN_THP_DEPLETION.SCH' / 
+
+GRUPTREE 
+   'PROD'     'RES1'  /
+   'INJE'     'RES1'  /
+/
+
+GCONPROD
+ 'RES1'   ORAT  19000 20000 5.0E6 30000  RATE  'NO' 9* /
+/
+
+GCONINJE
+ 'RES1'      'GAS'    'REIN'  2*   1.0  /
+/ 
+
+  
+INCLUDE 
+ './INCLUDE/PRED_GINJ_MIN_THP_3A.SCH' / 
+
 
 END
