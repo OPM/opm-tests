@@ -43,8 +43,6 @@ OIL
 GAS
 WATER
 DISGAS
-VAPOIL
-
 
 --
 -- ----------------------------------------------------
@@ -55,18 +53,13 @@ METRIC
 --Table dimensions
 TABDIMS
 -- NTSFUN NTPVT NSSFUN NPPVT NTFIP NRPVT
-     1      1     130    60    1    60   /
+     1      1     130    24    1    20   /
 
 
 -- ----------------------------------------------------
 --Dimension for well data
 WELLDIMS
  3  25 3 3 /
-
-
-VFPPDIMS
---max.rate  max.THP   max.fw   max.fg   max.ALQ    max.tabs
-  40        20        20       20       0           1      /
 
 
 -- ----------------------------------------------------
@@ -183,9 +176,7 @@ INCLUDE
 
 -- Include PVT data
 INCLUDE
-  '../include/PVT-WET-GAS.INC' /
-    
---  '../include/example_pvt.txt' /
+  '../include/example_pvt.txt' /
 
 -- ***********************************************************
 -- In this section simulation grid region parameters are given
@@ -214,27 +205,18 @@ SOLUTION
 --
 --   DATUM  DATUM   OWC     OWC    GOC    GOC    RSVD   RVVD   SOLN
 --   Depth  Pres.   Depth   Pcow   Depth  Pcog   Table  Table  Method
---EQUIL
---     2500   382.4   2550  0.0    500    0.0     1     1      0 / 
-    
 EQUIL
--- Datum    P     woc     Pc   goc      Pc  Rsvd  Rvvd  N
- 2550.0  268.56  2550.0   0.0  2000.0  0.0   1     1    0 /  
+     2500   382.4   2550  0.0    500    0.0     1     1      0 / 
+    
 
 --
 -- ---------------------------------------------------
 -- Dissolved gas-oil ratio versus depth, 
 
 RSVD
- 2416.0  120.25
- 2480.0  110.00
- 2550.0  106.77
- 2600.0  106.77 /
-
-RVVD
- 2416.0  0.0004
- 2600.0  0.0004 /
-  
+ 1500 180.0
+ 4000 180.0  /
+ 
 
 RPTSOL
   'THPRES' /
@@ -274,27 +256,16 @@ CTFAC
  'WI_1' /
 / 
 
-WMCTL
- 'OP_1' /
-
-
 
 SCHEDULE
 
 -- ***************************************************
 
-
-INCLUDE
- '../include/op_1.Ecl' /
- 
 TUNING
  1 5 /
  /
  /
 
-RPTSCHED
-  'WELLS=5' /
-  
 
 GRUPTREE 
    'OP'     'FIELD'  /
@@ -304,6 +275,7 @@ GRUPTREE
 WELSPECS 
    'OP_1'	 'OP'	4   1  1*	'OIL'  7* /
    'WI_1'	 'WI'	1   5  1*	'WATER'  7* /
+   'GI_1'	 'GI'	1   1  1*	'GAS'  7* /
 /
 
 
@@ -311,51 +283,117 @@ COMPDAT
 -- WELL        I    J    K1  K2            Sat.     CF       DIAM    KH    SKIN ND    DIR    Ro 
    'OP_1'   4   1    1    8	   'OPEN'   1*	    1*      0.311    1*     2*	      'Z'     /
    'WI_1'   1	5    1    8	   'OPEN'   1*	    1*      0.311    1*     2*	      'Z'     /
+   'GI_1'   1	1    1    4	   'OPEN'   1*	    1*      0.311    1*     2*	      'Z'     /
 /
 
 
 WCONPROD
---                 orat    wrat    grat  lrat   resvol   bhp   thp  vfp
-  'OP_1' OPEN ORAT 3500.0   1*   3.5E06    1*     1*     1*    65.0  1  /
+--                 orat   wrat grat  lrat   resvol bhp   thp vfp
+  'OP_1' OPEN ORAT 4750.0  1*   1*    1*     1*     100.0 0.0  0 /
 /
- 
+
+WECON
+ 'OP_1' 250  4*  WELL /  -- minimum oilrate of 1150
+/
 
 WCONINJE
-  WI_1 WATER OPEN RATE 3000.0 1*     500.0 /
+  WI_1 WATER SHUT RATE 0.0 1*     500.0 /
+  GI_1 GAS SHUT RATE 0.0   1*     500.0 /
 /
 
 DATES
+ 5 'JUL' 2018 /
  1 'AUG' 2018 /
- 1 'NOV' 2018 /
+ 1 'SEP' 2018 /
+ 1 'DEC' 2018 /
 /
 
-
-DATES
- 1 'JAN' 2019 /
- 1 'FEB' 2019 /
- 1 'MAR' 2019 /
- 1 'APR' 2019 /
- 1 'MAY' 2019 /
- 1 'JUN' 2019 /
- 1 'JUL' 2019 /
+WCONINJE
+  WI_1 WATER OPEN RATE 500.0 1*     500.0 /
 /
+
+WCONPROD
+--                 orat   wrat grat  lrat   resvol bhp   thp vfp
+  'OP_1' OPEN ORAT 400.0  1*   1*    1*     1*     100.0 0.0  0 /
+/
+
 
 DATES 
- 1 'JAN' 2020 /
+ 1 'JAN' 2019 /
+/
+
+
+WCONINJE
+  WI_1 WATER OPEN RATE 3500.0 1*     500.0 /
+/
+
+DATES
+ 1 'MAR' 2019 /
 /
 
 WTEST
- 'OP_1' 30  P  1 /
+ 'OP_1' 30  E  3 /
 /
+
+  
+DATES
+ 1 'JAN' 2020 /
+ 1 'FEB' 2020 /
+/
+
+
 
 DATES 
- 1 'APR' 2020 /
+ 1 'AUG' 2020 /
 /
 
+--WCONINJE
+--  WI_1 WATER SHUT RATE 0.0 1*     500.0 /
+--  GI_1 GAS OPEN RATE 1.0E6  1*     600.0 /
+--/
+
+
+--WTEST
+-- 'OP_1' 30  E  5 /
+--/
+
+-- 5)
+--DATES
+-- 20 'OCT' 2020 /
+--/
+
+---- OPEN, 1 extra, shut stops futher testing
+--WELOPEN
+-- 'OP_1' SHUT /
+--/
+  
 
 DATES 
  1 'JAN' 2021 /
 /
- 
 
-END
+-- 4)
+--DATES 
+-- 1 'MAY' 2021 /
+--/
+
+--WTEST
+-- 'OP_1' 30  E  3 /
+--/
+
+DATES
+ 1 'JAN' 2022 /
+/
+
+
+
+DATES
+ 1 'JUL' 2022 /
+/
+
+
+DATES
+ 1 'JAN' 2023 /
+ 1 'JAN' 2024 /
+ 1 'JAN' 2025 /
+/
