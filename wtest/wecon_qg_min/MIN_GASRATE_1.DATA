@@ -376,6 +376,10 @@ TUNING
  /
  /
 
+RPTSCHED
+ 'WELLS=5' /
+
+
 
 GRUPTREE 
    'GP'     'FIELD'  /

@@ -266,6 +266,8 @@ TUNING
  /
  /
 
+RPTSCHED
+ 'WELLS=5' /
 
 GRUPTREE 
    'OP'     'FIELD'  /
@@ -346,39 +348,12 @@ DATES
  1 'AUG' 2020 /
 /
 
---WCONINJE
---  WI_1 WATER SHUT RATE 0.0 1*     500.0 /
---  GI_1 GAS OPEN RATE 1.0E6  1*     600.0 /
---/
-
-
---WTEST
--- 'OP_1' 30  E  5 /
---/
-
--- 5)
---DATES
--- 20 'OCT' 2020 /
---/
-
----- OPEN, 1 extra, shut stops futher testing
---WELOPEN
--- 'OP_1' SHUT /
---/
   
 
 DATES 
  1 'JAN' 2021 /
 /
 
--- 4)
---DATES 
--- 1 'MAY' 2021 /
---/
-
---WTEST
--- 'OP_1' 30  E  3 /
---/
 
 DATES
  1 'JAN' 2022 /
