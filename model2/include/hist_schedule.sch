@@ -7,6 +7,8 @@
 
 -- This file is one of the include files for model2
 
+-- start date:  01  'NOV' 2018 /
+ 
 
 GRUPTREE
    'INJE'     'FIELD'  /
@@ -31,6 +33,22 @@ COMPDAT
 /
 
 WCONHIST
+  'PROD1'  'OPEN'      'RESV'      0.000      0.000      0.000  5* /
+  'INJ1'   'OPEN'      'RESV'      0.000      0.000      0.000  5* /
+/
+
+
+WRFTPLT
+   'PROD1'       'YES'        'NO'        'NO' /
+   'INJ1'        'YES'        'NO'        'NO' /
+/
+
+
+DATES
+ 2 'NOV' 2018 /
+/
+ 
+WCONHIST
   PROD1  OPEN  RESV   2920.9    0.3   316286	5	1*	1*	1* /
 /
 
@@ -52,6 +70,29 @@ COMPDAT
  'PROD2'   10   4   9   9      'OPEN'	0    80.721  0.216  1*   0.00	 0.0 'Z' 1* /
  'PROD2'   10   4   10  10     'OPEN'	0    11.755  0.216  1*   0.00	 0.0 'Z' 1* /
 /
+
+WCONHIST
+  'PROD2'  'OPEN'      'RESV'      0.000      0.000      0.000  5* /
+/
+
+
+WRFTPLT
+   'PROD2'       'YES'        'NO'        'NO' /
+/
+
+DATES
+ 2 'DEC' 2018 /
+/
+
+WCONHIST
+  'PROD2'  'SHUT'      'RESV'      0.000      0.000      0.000  5* /
+/
+
+
+DATES
+ 15 'DEC' 2018 /
+/
+
 
 WCONHIST
   PROD1  OPEN  RESV   2818.4    0.3   304523	5	1*	1*	1* /
@@ -91,6 +132,29 @@ COMPDAT
  'PROD3'   6 19   10  10     'OPEN'   0     11.149  0.216  1*	0.00	0.0 'Z' 1* /
 /
 
+
+WCONHIST
+  'PROD3'  'OPEN'      'RESV'      0.000      0.000      0.000  5* /
+/
+
+
+WRFTPLT
+   'PROD3'       'YES'        'NO'        'NO' /
+/
+
+DATES
+ 2 'FEB' 2019 /
+/
+
+WCONHIST
+  'PROD3'  'SHUT'      'RESV'      0.000      0.000      0.000  5* /
+/
+
+DATES
+ 10 'FEB' 2019 /
+/
+
+
 WCONHIST
   PROD1  OPEN  RESV   2954.7    0.4   324214	5	1*	1*	1* /
   PROD2  OPEN  RESV   2154.5    1.3   241065	5	1*	1*	1* /
@@ -128,6 +192,28 @@ COMPDAT
  'INJ2'   12 20  10  10     'OPEN'   0     18.620  0.216  1*   0.00    0.0 'Z' 1* /
  'INJ2'   12 20  11  11     'OPEN'   0     77.048  0.216  1*   0.00    0.0 'Z' 1* /
 /
+
+WCONHIST
+  'INJ2'  'OPEN'      'RESV'      0.000      0.000      0.000  5* /
+/
+
+
+WRFTPLT
+  'INJ2'     'YES'        'NO'        'NO' /
+/
+
+DATES
+ 2 'APR' 2019 /
+/
+ 
+WCONHIST
+  'INJ2'  'SHUT'      'RESV'      0.000      0.000      0.000  5* /
+/
+
+DATES
+ 12 'APR' 2019 /
+/
+
 
 WCONHIST
   PROD1  OPEN  RESV   2934.7    0.4   335327	5	1*	1*	1* /
