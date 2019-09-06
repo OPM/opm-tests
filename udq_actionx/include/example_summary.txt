@@ -145,8 +145,4 @@ WMCTL
 /
 WLPR
 /
---
--- Simulatior performance
-TCPU
-TCPUDAY
 
