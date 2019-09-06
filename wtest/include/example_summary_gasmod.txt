@@ -123,10 +123,6 @@ WMCTL
 /
 WLPR
 /
---
--- Simulatior performance
-TCPU
-TCPUDAY
 
 CWCT
  'GP_1' /
