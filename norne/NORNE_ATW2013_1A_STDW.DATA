@@ -6,6 +6,10 @@
 -- Copyright (C) 2015 Statoil
 
 -- Norne full field model for SPE ATW 2013
+
+-- Depleation case, wells (standard well model) controlled with maximum rates and minimum bottom hole pressure. 
+-- No Group controls
+
 RUNSPEC
 
 DIMENS
@@ -667,7 +671,7 @@ GRUPTREE
 
   
 INCLUDE 
- './INCLUDE/PRED_DEPLETION_MIN_BHP_1A.SCH' / 
+ './INCLUDE/PRED_DEPLETION_MIN_BHP_1A_STDW.SCH' / 
 
 
 END
