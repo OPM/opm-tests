@@ -387,12 +387,11 @@ DATES
  1 'OCT' 2001 / 
 /
 
---WECON
--- 'B-*'   1* 0.1E6  3*  'WELL' /
--- 'D-*'   1* 0.1E6  3*  'WELL' /
--- 'E-*'   1* 0.1E6  3*  'WELL' /
---/
-
+-- maximum GOR for all wells 
+WECON
+ '*' 3* 3300 1* WELL /
+/
+ 
 
 DATES
  1 'NOV' 2001 / 
@@ -478,10 +477,6 @@ DATES
  1 'JAN'  2014 /
  1 'JAN'  2015 /
  1 'JAN'  2016 /
- 1 'JAN'  2017 /
- 1 'JAN'  2018 /
- 1 'JAN'  2019 /
- 1 'JAN'  2020 /
 /
 
 END
