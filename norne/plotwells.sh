@@ -1,8 +1,8 @@
 #!/bin/bash
-# needs summary.x from ert, gnuplot, and pdflatex
+# needs summary from opm, gnuplot, and pdflatex
 
-# this requires the summary.x binary from ert (if not in search PATH)
-SUMMARY_X=summary.x
+# this is using program summay found in opm-common
+SUMMARY=$1/summary
 
 DIRS="$2"
 test -z "$DIRS" && DIRS="ECL.2014.2 opm-simulation-reference/flow_legacy"
@@ -19,7 +19,7 @@ OPTS="WBHP WOPR WGPR WWPR"
 ALLWELLS=
 ALLOPTS=$OPTS
 for DIR in $DIRS; do
-  ALLWELLS=`$SUMMARY_X --list $DIR/$DECK`
+  ALLWELLS=`$SUMMARY -l $DIR/$DECK`
 done
 
 WELLS=
@@ -55,7 +55,7 @@ for DIR in $DIRS; do
     for OPT in $OPTS; do
       WELLOPTS="$WELLOPTS $OPT:$WELL"
     done
-    $SUMMARY_X $DIR/$DECK $WELLOPTS > $DIR/$WELL.gnu
+    $SUMMARY $DIR/$DECK TIME $WELLOPTS > $DIR/$WELL.gnu
   done
 done
 
@@ -64,9 +64,9 @@ echo "" > $WELLLISTEX
 
 PLOTFILE=$OUTPUT.gnu
 
-PICCOUNT=1 # 1 is days, 2 is date
+PICCOUNT=1 # 1 is days
 for WELL in $WELLS ; do
-  COUNT=3 # 1 is days, 2 is date
+  COUNT=2 # 1 is days
   for OPT in $OPTS; do
     echo "set terminal postscript color" > $PLOTFILE
     echo "set output \"well-${WELL}-${OPT}.eps\"" >> $PLOTFILE
