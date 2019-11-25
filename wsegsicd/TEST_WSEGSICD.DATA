@@ -1,0 +1,427 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018 Equinor
+
+-- This is a test case for ICD related keyword WSEGSICD
+
+-- One producer which is producing with support from gas cap expansion.  
+-- ICDS (WSEGSICD keyword) holds back connections when they get high GOR 
+
+-- ========================================================================
+-- Defines the key parameters for the simulator.
+RUNSPEC 
+-- ========================================================================
+
+
+TITLE
+  TEST_WSEGSICD
+
+ 
+-- Turns off echoing of all the input files to the print file.  
+NOECHO
+
+
+-- Grid dimensions
+DIMENS
+  20 8 15 /
+
+-- Start date
+START
+ 31 'DEC' 1999  /
+
+-- Phases present
+OIL
+WATER
+GAS
+DISGAS           
+VAPOIL
+
+-- Units
+METRIC
+
+--------------------------------------------------------------
+-- Dimensions
+--------------------------------------------------------------
+
+-- TABDIMS keyword
+-- Table dimensions
+-- ntsfun: max SATNUM
+-- ntpvt:  max PVTNUM
+-- nssfun: max saturation nodes in any saturation table
+-- nppvt:  max pressure nodes in any PVT table or Rock Compaction table
+-- ntfip:  max FIPNUM, = the fluid in-place region numbers for each grid block. 
+-- nrpvt:  max Rs nodes in a live oil PVT table
+-- ntendp: max saturation end-point versus depth tables, = ntendp in ENDSCALE
+TABDIMS
+-- ntsfun  ntpvt  nssfun  nppvt  ntfip  nrpvt  unused  ntendp
+      6     2       56      36     1*     36 /
+
+-- Dimension of equilibration tables
+-- ntequl: max EQLNUM. EQLNUM=Equilibration region numbers 
+-- ndprvd: max depth nodes in any table of pressure vs depth
+-- ndrxvd: max depth nodes in any RSVD, RVVD, PBVD or PDVD table
+-- nttrvd: max tables of initial tracer concentration vs depth
+-- nstrvd: max depth nodes in any table of initial tracer concentration vs depth
+EQLDIMS
+-- ntequl  ndprvd  ndrxvd  nttrvd  nstrvd  
+   1 /  
+
+-- Regions dimension data
+-- ntfip:  max FIPNUM
+-- nmfipr: max sets of fluid-in-place regions
+-- nrfreg: max independent reservoir regions
+-- ntfreg: max flux regions for the flux options
+REGDIMS
+-- ntfip  nmfipr  nrfreg  ntfreg
+   4    1 /
+
+-- Define maximum number of summary vectors to be written
+--SMRYDIMS 
+--   40000 /
+
+-- Well dimension data
+-- nwmaxz: max wells in the model
+-- ncwmax: max connections per well
+-- ngmaxz: max groups in the model
+-- nwgmax: max wells in any one group
+WELLDIMS
+-- nwmaxz  ncwmax  ngmaxz  nwgmax
+   6       20       20      5 /
+
+-- Define multi-segment well dimensions
+WSEGDIMS
+-- nswlmx  nsegmx  nlbrmx
+      1       50     20 /
+
+--------------------------------------------------------------
+-- Run control settings
+--------------------------------------------------------------
+
+-- Activates the unified input file option 
+UNIFIN
+-- Activates the unified output file option  
+UNIFOUT
+
+
+-- ====================================================================
+-- This section defines the basic grid properties,
+-- including structure, faults and various static rock properties. 
+GRID 
+-- ====================================================================
+
+-- Set the grid file output options 
+GRIDFILE
+ 0 1 / 
+
+INIT
+
+-- Transmissibilities calculated from cell corner positions
+NEWTRAN
+
+-- Include simulation grid 
+INCLUDE
+ 'include/test_20x8x15.grdecl' /
+
+PERMX
+ 160*2100
+ 160*1200
+ 160*800
+ 160*2500
+ 160*100 
+
+ 160*2100
+ 160*1200
+ 160*800
+ 160*2500
+ 160*100 
+
+ 160*2100
+ 160*1200
+ 160*800
+ 160*2500
+ 160*100 /
+
+PORO
+ 160*0.25
+ 160*0.22
+ 160*0.17
+ 160*0.28
+ 160*0.14 
+
+ 160*0.25
+ 160*0.22
+ 160*0.17
+ 160*0.28
+ 160*0.14 
+
+ 160*0.25
+ 160*0.22
+ 160*0.17
+ 160*0.28
+ 160*0.14  /
+
+
+-- PERMX defines the permability in the x direction for all the cells.
+-- PERMY and PERMZ does the same in y and z direction. 
+COPY
+ 'PERMX' 'PERMY' /
+ 'PERMX' 'PERMZ' /
+/
+
+MULTIPLY
+ 'PERMZ' 0.1 /
+/
+
+
+-- ===================================================================
+EDIT
+-- ===================================================================
+
+
+--  ===================================================================
+-- Section that contains the fluid property keywords used
+-- to define the PVT behavior of the fluids.
+PROPS
+--  ===================================================================
+
+-- Rel perm data - SWOF, SGOF
+-- SWOF: Water-oil saturation tables
+-- SGOF: Gas-oil saturation tables versus gas
+INCLUDE
+  'include/sattab_basemod1.sattab' /
+
+-- Activates stone's first three phase oil relative permeability model. 
+-- There is no data required for this keyword. 
+STONE1
+
+-- PVT data - PVTW, ROCK, DENSITY, PVTO, PVTG
+-- PVTW: Define water fluid properties for various regions 
+-- ROCK: Define the rock compressibility for various regions 
+-- Density: Define the surface oil, water gas densities for the fluids 
+-- PVTO: Oil PVT properties for live oil 
+-- PVTG: Gas PVT properties for wet gas
+
+INCLUDE
+ 'include/pvt_basemod1.pvt' /
+
+
+
+-- ====================================================================
+-- Defines how various properties in the PROPS and SOLUTION 
+-- sections are allocated to individual cells within the model. 
+
+REGIONS
+-- ====================================================================
+
+SATNUM
+ 2400*1 /
+ 
+PVTNUM
+ 2400*1 /
+
+EQLNUM
+ 2400*1 /
+
+-- ====================================================================
+SOLUTION
+-- ====================================================================
+
+-- Defines the parameters used to initialize the model for
+-- when equilibration is calculated by OPM flow. 
+-- datum_depth   P_datum    OWC   Pcow    GOC    Pcog    Rsvd  Rvvd  N
+EQUIL
+  2030.00 250.000 2085.00 0.00  2030.000 0.00 1 1 0 / 
+
+
+-- Defines the dissolved gas-oil ratio versus depth tables. 
+
+PDVD
+   2000.0  220.0
+   2030.0  250.0 /
+
+PBVD
+   2030.0  250.0
+   2100.0  220.0  /
+
+RPTRST
+ 'BASIC=2' 'PBPD' /
+ 
+-- ===================================================================
+SUMMARY
+-- ===================================================================
+
+WOPR
+  /
+ 
+WWPR
+  /
+
+WGPR
+  /
+
+WGOR
+  /
+
+WOPT
+/
+
+WWCT
+  /
+
+WBHP
+  /
+
+CWCT
+ P1 /
+/ 
+
+CGOR
+ P1 /
+/ 
+
+
+-- ===================================================================
+SCHEDULE
+-- ===================================================================
+
+
+-- Defines the parameters used for controlling the commercial simulator's
+-- numerical convergence parameters. 
+ 
+TUNING
+ /
+ /
+ 2* 150 /
+
+ 
+WELSPECS
+-- Well  Grp  I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   P1    TEST   9  7  1*        OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+    /
+
+COMPDAT
+-- Well   I    J   K1   K2   Status   SAT   TR            DIAM      KH   S         Df   DIR
+   P1     10   7   6    6    OPEN     1*    7.655432E+1   0.21600   1*   0.00000   1*   'Z' /
+   P1     10   6   6    6    OPEN     1*    1.339747E+2   0.21600   1*   0.00000   1*   'Z' /
+   P1     10   6   7    7    OPEN     1*    1.196886E+2   0.21600   1*   0.00000   1*   'Z' /
+   P1     11   6   7    7    OPEN     1*    5.457727E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     12   6   7    7    OPEN     1*    3.986729E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     12   5   7    7    OPEN     1*    1.435798E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     13   5   7    7    OPEN     1*    5.368413E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     14   5   7    7    OPEN     1*    5.295487E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     14   4   7    7    OPEN     1*    7.293114E+0   0.21600   1*   0.00000   1*   'X' /
+   P1     15   4   7    7    OPEN     1*    5.449973E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     16   4   7    7    OPEN     1*    2.220985E+1   0.21600   1*   0.00000   1*   'X' /
+   P1     16   4   8    8    OPEN     1*    2.790253E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     16   3   8    8    OPEN     1*    1.118636E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     17   3   8    8    OPEN     1*    2.286764E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     17   3   9    9    OPEN     1*    5.715425E+2   0.21600   1*   0.00000   1*   'X' /
+   P1     17   2   9    9    OPEN     1*    2.410927E+1   0.21600   1*   0.00000   1*   'X' /
+   P1     18   2   9    9    OPEN     1*    1.180714E+3   0.21600   1*   0.00000   1*   'X' /
+   P1     19   2   9    9    OPEN     1*    3.405757E+2   0.21600   1*   0.00000   1*   'X' /
+    /
+
+WELSEGS
+-- Name     Dep 1          Tlen 1      Vol 1     Len&Dep     PresDrop
+   P1       2032.54840     0.00000     1*        INC         'HF-'    /
+-- First Seg     Last Seg     Branch Num     Outlet Seg     Length        Depth Change     Diam        Rough  
+-- Main Stem Segments
+   2             2            1              1              12.31420      2.39612          0.15200     0.00001 /
+   3             3            1              2              25.58967      4.97928          0.15200     0.00001 /
+   4             4            1              3              0.95479       0.18578          0.15200     0.00001 /
+   5             5            1              4              21.23471      4.13188          0.15200     0.00001 /
+   6             6            1              5              20.65284      3.62440          0.15200     0.00001 /
+   7             7            1              6              15.60438      2.59245          0.15200     0.00001 /
+   8             8            1              7              12.20192      1.61394          0.15200     0.00001 /
+   9             9            1              8              15.21242      1.53413          0.15200     0.00001 /
+   10            10           1              9              24.05339      1.91244          0.15200     0.00001 /
+   11            11           1              10             111.27613     0.46019          0.15200     0.00001 /
+   12            12           1              11             81.26714      -0.01810         0.15200     0.00001 /
+   13            13           1              12             29.25728      0.42922          0.15200     0.00001 /
+   14            14           1              13             109.39221     1.60484          0.15200     0.00001 /
+   15            15           1              14             107.90620     1.58304          0.15200     0.00001 /
+   16            16           1              15             1.48612       0.02180          0.15200     0.00001 /
+   17            17           1              16             111.12558     1.68759          0.15200     0.00001 /
+   18            18           1              17             4.52433       0.07525          0.15200     0.00001 /
+   19            19           1              18             85.22370      1.53961          0.15200     0.00001 /
+   20            20           1              19             34.11558      0.67919          0.15200     0.00001 /
+   21            21           1              20             69.73983      1.38966          0.15200     0.00001 /
+   22            22           1              21             55.80231      0.97620          0.15200     0.00001 /
+   23            23           1              22             2.35391       0.03448          0.15200     0.00001 /
+   24            24           1              23             115.44260     0.94958          0.15200     0.00001 /
+   25            25           1              24             67.18445      0.35187          0.15200     0.00001 /
+-- Perforation Valve Segments
+-- Diam: MSW - Tubing Radius
+-- Rough: MSW - Open Hole Roughness Factor
+   26            26           2              8              0.10000       0                0.15200     0.00001 /
+   27            27           3              9              0.10000       0                0.15200     0.00001 /
+   28            28           4              10             0.10000       0                0.15200     0.00001 /
+   29            29           5              11             0.10000       0                0.15200     0.00001 /
+   30            30           6              12             0.10000       0                0.15200     0.00001 /
+   31            31           7              13             0.10000       0                0.15200     0.00001 /
+   32            32           8              14             0.10000       0                0.15200     0.00001 /
+   33            33           9              15             0.10000       0                0.15200     0.00001 /
+   34            34           10             16             0.10000       0                0.15200     0.00001 /
+   35            35           11             17             0.10000       0                0.15200     0.00001 /
+   36            36           12             18             0.10000       0                0.15200     0.00001 /
+   37            37           13             19             0.10000       0                0.15200     0.00001 /
+   38            38           14             20             0.10000       0                0.15200     0.00001 /
+   39            39           15             21             0.10000       0                0.15200     0.00001 /
+   40            40           16             22             0.10000       0                0.15200     0.00001 /
+   41            41           17             23             0.10000       0                0.15200     0.00001 /
+   42            42           18             24             0.10000       0                0.15200     0.00001 /
+   43            43           19             25             0.10000       0                0.15200     0.00001 /
+    /
+
+COMPSEGS
+-- Name
+   P1   /
+-- I      J     K     Branch no     Start Length     End Length     Dir Pen     End Range     Connection Depth
+   10     7     6     2             3.64942          3.74942         /
+   10     6     6     3             0.00000          0.10000         /
+   10     6     7     4             0.00000          0.10000         /
+   11     6     7     5             0.00000          0.10000         /
+   12     6     7     6             0.00000          0.10000         /
+   12     5     7     7             0.00000          0.10000         /
+   13     5     7     8             0.00000          0.10000         /
+   14     5     7     9             0.00000          0.10000         /
+   14     4     7     10            0.00000          0.10000         /
+   15     4     7     11            0.00000          0.10000         /
+   16     4     7     12            0.00000          0.10000         /
+   16     4     8     13            0.00000          0.10000         /
+   16     3     8     14            0.00000          0.10000         /
+   17     3     8     15            0.00000          0.10000         /
+   17     3     9     16            0.00000          0.10000         /
+   17     2     9     17            0.00000          0.10000         /
+   18     2     9     18            0.00000          0.10000         /
+   19     2     9     19            0.00000          0.10000         /
+    /
+
+
+WSEGSICD
+  'P1'   26   43   0.00356   -0.70  1* 1* 0.7 1* 1*  / 
+/
+
+WCONPROD
+  P1  SHUT  ORAT  1500.0 4*  90.0  /
+/  
+
+TSTEP
+ 1 /
+
+WELOPEN
+  P1  OPEN /
+/
+
+
+TSTEP
+ 31 28 31 30 31 30 31 31 30 31 30 31 
+ 31 28 31 30 31 30 31 31 30 31 30 31  
+ 31 28 31 30 31 30 31 31 30 31 30 31  
+ 31 28 31 30 31 30 31 31 30 31 30 31  /
+ 
+ 
+END
