@@ -12,6 +12,7 @@ DECK=NORNE_ATW2013
 
 test -d flow_legacy && DIRS="$DIRS flow_legacy"
 test -d flow && DIRS="$DIRS flow"
+test -d flow_4_proc && DIRS="$DIRS flow_4_proc"
 
 # if empty all options will be plotted
 OPTS="WBHP WOPR WGPR WWPR"
