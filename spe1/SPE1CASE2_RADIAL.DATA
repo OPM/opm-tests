@@ -10,6 +10,9 @@
 -- Black-Oil Reservoir Simulation Problem' by Aziz S. Odeh,
 -- Journal of Petroleum Technology, January 1981
 
+-- The purpose of this data set is to be a test for RADIAL grid and keywords.
+-- In particular RADIAL, COORDSYS, COMP, INRAD, DRV, DTHETAV, PERMR and PERMTHT are used.
+
 ---------------------------------------------------------------------------
 ------------------------ SPE1 - CASE 2 ------------------------------------
 ---------------------------------------------------------------------------
