@@ -2,66 +2,27 @@
 --                                                                              
 --                                              OPM FLOW SIMULATION FILE  
 --                                                                              
--- ---------------------------------------------------------------------------------------------------------------------------------
--- JOB DESCRIPTION                                                             
--- ---------------------------------------------------------------------------------------------------------------------------------
--- RUN NAME                  : MOD01-MULT1-OPMXXXX-R04.DATA                                                      
--- DATE RUN                  : 07-Nov-2019                         
--- TIME RUN                  : 17:11         (HH:MM)                            
--- RUN TYPE                  :               (HISTORY / PREDICTION)                                                   
--- RUN STARTS                :               (YYYY-MM-DD)                                                  
--- RUN ENDS                  :               (YYYY-MM-DD)                                                  
--- RESTART                   :               (DD.MM.YYYY - RESTART 'NNNNNNxx  ??' / AT ????.? DAYS (??.?YEARS))
--- MACHINE ID                :                                                 
--- MACHINE OPERATING SYSTEM  : Windows 7 - Service Pack 1                               
--- MACHINE TYPE              : amd64                               
--- MACHINE CPU TIME          :               (SECS)                            
--- MACHINE ELAPSED TIME      :               (SECS)                            
--- SIMULATED FROM - TO       :               (DAYS)                            
--- SIMULATION STOPPED DUE TO :               (NORMAL/END/ABORT)                 
---                                                                             
+-- COPYRIGHT NOTICE
+-- ----------------
+-- This file is part of the Open Porous Media project (OPM) and is made available under the Open Database License: 
+--                                    http://opendatacommons.org/licenses/odbl/1.0/.
+--
+-- Any rights in individual contents of the database are licensed under the Database Contents License:
+--                                    http://opendatacommons.org/licenses/dbcl/1.0/
+--
+-- Copyright (C) 2020 Equinor
+--
 -- COMMENTS                                                                    
 -- --------                                                                    
 -- MULTX/Y/Z Sensitivity Case:
 --                                                                             
 --   1) Base model with variable permeability values replaced by field averages for all grid blocks.
 --   2) OP01 producing in layers 1 to 3, and WI injecting in layers 4 to 5. 
---   3) EDIT Section Modifications
---       (1) Layer 3 MULTZ x 0.000
---       (2) 
+--   3) GRID Section Modifications
+--      (1) Layer 3 MULTZ x 100.0
+--      (2) Layer 3 MULTZ x  0.01 
 --                                                                              
--- COPYRIGHT NOTICE
--- ----------------
--- This file is part of the Open Porous Media project (OPM).
---
--- OPM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
--- the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
---
--- This file is made available under the Open Database License: 
---                                    http://opendatacommons.org/licenses/odbl/1.0/.
---
--- Any rights in individual contents of the database are licensed under the Database Contents License:
---                                    http://opendatacommons.org/licenses/dbcl/1.0/
---
--- OPM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the aforementioned GNU General Public Licenses for more details.
---
--- Copyright (C) 2019 Equinor
--- Copyright (C) 2019 Equinox International Petroleum Consultants Pte. Ltd
---                                                                         
---                                                                            
--- FILE NAME : D:\Linux\OPM\MOD01\MOD01-MULT1-OPMXXXX-R04.DATA                                                         
--- AUTHOR    : OPMUSER                                                      
---             The Open Porous Media Initiative
---             OPM Web Site : https://opm-project.org
---             OPM GitHub   : https://github.com/opm
---             Email        : opmuser0@gmail.com
--- DATE      : 07-Nov-2019
---                                                                              
--- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
---       1         2         3         4         5         6         7         8         9         0         1         2         3  
---       0         0         0         0         0         0         0         0         0         1         1         1         1  
--- *********************************************************************************************************************************
+-- This option is only available in the commercial simulator and therefore OPM Flow should stop with an error message.
 --
 -- =================================================================================================================================
 -- 
@@ -73,12 +34,12 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN  
 --
 TITLE                                                                           
-MOD01-MULT1-OPMXXXX-R04 - MULTX/Y/Z TEST                                                                                    
+MOD01_MULT2D_GRID2 - MULTZ GRID SENSITIVITY TEST WITH TWO MODIFICATIONS                                                                                    
 --
 --       DEFINE THE START DATE FOR THE RUN 
 --
 START                                                                                                                                                                                                     
-  01 'JAN' 2019                                                                /                                                                               
+  01 'JAN' 2020                                                                /                                                                               
 --                                                                              
 --       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
 --
@@ -255,13 +216,6 @@ PERMY
 -- 
 PERMZ
          100*17.996                                                            /
-         
--- =================================================================================================================================
--- 
--- EDIT SECTION 
--- 
--- =================================================================================================================================
-EDIT
 --
 --       DEFINE INPUT BOX FOR EDITING INPUT ARRAYS
 --       
@@ -273,11 +227,21 @@ BOX
 --       SET MULTZ+ TRANSMISSIBILITY MULTIPLIERS                     
 -- 
 MULTZ
-         20*0.000                                                             /                                                                                 
+         20*100.0                                                             /                                                                                 
+MULTZ
+         20*0.010                                                             /                                                                                 
 --
 --       DEFINE END OF INPUT BOX EDITING OF INPUT ARRAYS
 --       
 ENDBOX         
+         
+-- =================================================================================================================================
+-- 
+-- EDIT SECTION 
+-- 
+-- =================================================================================================================================
+EDIT
+
 
 -- =================================================================================================================================
 -- 

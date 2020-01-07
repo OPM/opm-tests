@@ -2,25 +2,17 @@
 --                                                                              
 --                                              OPM FLOW SIMULATION FILE  
 --                                                                              
--- ---------------------------------------------------------------------------------------------------------------------------------
--- JOB DESCRIPTION                                                             
--- ---------------------------------------------------------------------------------------------------------------------------------
--- RUN NAME                  : MOD01-MULT2-OPMXXXX-R10.DATA                                                      
--- DATE RUN                  : 18-Dec-2019                         
--- TIME RUN                  : 16:11         (HH:MM)                            
--- RUN TYPE                  :               (HISTORY / PREDICTION)                                                   
--- RUN STARTS                :               (YYYY-MM-DD)                                                  
--- RUN ENDS                  :               (YYYY-MM-DD)                                                  
--- RESTART                   :               (DD.MM.YYYY - RESTART 'NNNNNNxx  ??' / AT ????.? DAYS (??.?YEARS))
--- MACHINE ID                :                                                 
--- MACHINE OPERATING SYSTEM  : Windows 7 - Service Pack 1                               
--- MACHINE TYPE              : amd64                               
--- MACHINE CPU TIME          :               (SECS)                            
--- MACHINE ELAPSED TIME      :               (SECS)                            
--- SIMULATED FROM - TO       :               (DAYS)                            
--- SIMULATION STOPPED DUE TO :               (NORMAL/END/ABORT)                 
---                                                                             
--- COMMENTS                                                                    
+-- COPYRIGHT NOTICE
+-- ----------------
+-- This file is part of the Open Porous Media project (OPM) and is made available under the Open Database License:
+--                                    http://opendatacommons.org/licenses/odbl/1.0/.
+--
+-- Any rights in individual contents of the database are licensed under the Database Contents License:
+--                                    http://opendatacommons.org/licenses/dbcl/1.0/
+--
+-- Copyright (C) 2020 Equinor
+--
+-- COMMENTS
 -- --------                                                                    
 -- MULTX/Y/Z Sensitivity Case:
 --
@@ -28,43 +20,15 @@
 --   2) OP01 producing in layers 1 to 3, and WI injecting in layers 4 to 5. 
 --   3) GRID Section Modifications
 --       (1) Base permeability data.
---       (2) 
+--       (2) Multiply PERMX, PERMY AND PERMZ by 0.5000 (should be over written by TRANX, TRANY and TRANZ in the EDIT section).
 --   4) EDIT Section Modifications
 --       (1) Base case TRANX, TRANY, and TRANZ
 --       (2) 
+--   5) SCHEDULE Section
+--       (1) WPIMULT times 2 to offset MULTIPLY on PERMX, PERMY AND PERMZ in the GRID Section.
 --                                                                              
--- COPYRIGHT NOTICE
--- ----------------
--- This file is part of the Open Porous Media project (OPM).
---
--- OPM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
--- the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
---
--- This file is made available under the Open Database License: 
---                                    http://opendatacommons.org/licenses/odbl/1.0/.
---
--- Any rights in individual contents of the database are licensed under the Database Contents License:
---                                    http://opendatacommons.org/licenses/dbcl/1.0/
---
--- OPM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the aforementioned GNU General Public Licenses for more details.
---
--- Copyright (C) 2019 Equinor
--- Copyright (C) 2019 Equinox International Petroleum Consultants Pte. Ltd
---                                                                         
---                                                                            
--- FILE NAME : D:\Linux\OPM\MOD01\MOD01-MULT2-OPMXXXX-R10.DATA                                                         
--- AUTHOR    : OPMUSER                                                      
---             The Open Porous Media Initiative
---             OPM Web Site : https://opm-project.org
---             OPM GitHub   : https://github.com/opm
---             Email        : opmuser0@gmail.com
--- DATE      : 18-Dec-2019
---                                                                              
--- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
---       1         2         3         4         5         6         7         8         9         0         1         2         3  
---       0         0         0         0         0         0         0         0         0         1         1         1         1  
--- *********************************************************************************************************************************
+-- This case checks to see if TRANX, TRANY, TRANZ arrays are applied and used in the EDIT section. The run should give the same
+-- results as the base case.
 --
 -- =================================================================================================================================
 -- 
@@ -76,12 +40,12 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN  
 --
 TITLE                                                                           
-MOD01-MULT2-OPMXXXX-R10 - MULTX/Y/Z TEST                                                                                    
+MOD01_MULT3D_TRANS_GRID - TRANSMISSIBILITY TEST WITH PERMEABILITY MODIFICATION (3D)                                                                                  
 --
 --       DEFINE THE START DATE FOR THE RUN 
 --
 START                                                                                                                                                                                                     
-  01 'JAN' 2019                                                                /                                                                               
+  01 'JAN' 2020                                                                /
 --                                                                              
 --       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
 --
@@ -326,6 +290,15 @@ PERMY
 PERMZ
          300*17.996                                                            /
          
+--
+--       -- ARRAY    CONSTANT --  ---------- BOX ---------                 
+--                                I1  I2   J1  J2   K1  K2                 
+MULTIPLY                                                             
+         'PERMX'     0.50000      1*  1*   1*  1*   1*  1* / PERMX * 0.5   
+         'PERMY'     0.50000      1*  1*   1*  1*   1*  1* / PERMY * 0.5   
+         'PERMZ'     0.50000      1*  1*   1*  1*   1*  1* / PERMZ * 0.5   
+/                                                                    
+                  
 -- =================================================================================================================================
 -- 
 -- EDIT SECTION 
@@ -710,7 +683,7 @@ SCHEDULE
 --       DEFINE SCHEDULE SECTION REPORT OPTION
 --
 RPTSCHED                                                                                                                             
-         PRES  SGAS  SOIL  SWAT                                                /
+         PRES  SGAS  SOIL  SWAT   WELSPECS                                     /
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
@@ -734,6 +707,15 @@ COMPDAT
 'OP01'    20   2   1   3   'OPEN' 1*    1*     0.5                             /
 'WI01'     1   2   4   5   'OPEN' 1*    1*     0.5                             /
 /                                                                              
+--
+--       DEFINE WELL CONNECTION MULTIPLIERS (CORRECTION FOR MULTIPLY ON PERMX, PERMY AND PERMZ IN GRID SECTION)
+--                                                                              
+-- WELL  PI     --LOCATION--  COMPLETION                                     
+-- NAME  MULT     I   J    K  FIRST LAST                                     
+WPIMULT                                                                         
+'OP01'   2.000    1*  1*   1*    1*    1*                  /
+'WI01'   2.000    1*  1*   1*    1*    1*                  /
+/                                                                               
 --
 --       WELL PRODUCTION WELL CONTROLS                                                     
 --                                                                              
