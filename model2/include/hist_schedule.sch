@@ -44,7 +44,7 @@ WRFTPLT
 /
 
 
-DATES
+DATES  -- 1
  2 'NOV' 2018 /
 /
  
@@ -56,7 +56,7 @@ WCONINJH
    INJ1   GAS   OPEN   116286	1*	0	/
 /
 
-DATES
+DATES  -- 2
  1 'DEC' 2018 /
 /
 
@@ -80,7 +80,7 @@ WRFTPLT
    'PROD2'       'YES'        'NO'        'NO' /
 /
 
-DATES
+DATES  -- 3
  2 'DEC' 2018 /
 /
 
@@ -89,7 +89,7 @@ WCONHIST
 /
 
 
-DATES
+DATES  -- 4
  15 'DEC' 2018 /
 /
 
@@ -103,7 +103,7 @@ WCONINJH
    INJ1   GAS   OPEN   334756	1*	0	/
 /
 
-DATES
+DATES  -- 5
  1 'JAN' 2019 /
 /
 
@@ -116,7 +116,7 @@ WCONINJH
    INJ1   GAS   OPEN   350085	1*	0	/
 /
 
-DATES
+DATES  -- 6
  1 'FEB' 2019 /
 /
 
@@ -142,7 +142,7 @@ WRFTPLT
    'PROD3'       'YES'        'NO'        'NO' /
 /
 
-DATES
+DATES  -- 7
  2 'FEB' 2019 /
 /
 
@@ -150,7 +150,7 @@ WCONHIST
   'PROD3'  'SHUT'      'RESV'      0.000      0.000      0.000  5* /
 /
 
-DATES
+DATES  -- 8
  10 'FEB' 2019 /
 /
 
@@ -165,7 +165,7 @@ WCONINJH
    INJ1   GAS   OPEN   548443	1*	0	/
 /
 
-DATES
+DATES  -- 9
  1 'MAR' 2019 /
 /
 
@@ -179,7 +179,7 @@ WCONINJH
    INJ1   GAS   OPEN   541836	1*	0	/
 /
 
-DATES
+DATES  -- 10
  1 'APR' 2019 /
 /
 
@@ -202,7 +202,7 @@ WRFTPLT
   'INJ2'     'YES'        'NO'        'NO' /
 /
 
-DATES
+DATES  -- 11
  2 'APR' 2019 /
 /
  
@@ -210,7 +210,7 @@ WCONHIST
   'INJ2'  'SHUT'      'RESV'      0.000      0.000      0.000  5* /
 /
 
-DATES
+DATES  -- 12
  12 'APR' 2019 /
 /
 
@@ -226,7 +226,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 13
  1 'MAY' 2019 /
 /
 
@@ -241,7 +241,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 14
  1 'JUN' 2019 /
 /
 
@@ -256,7 +256,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 15
  1 'JLY' 2019 /
 /
 
@@ -271,7 +271,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 16
  1 'AUG' 2019 /
 /
 
@@ -286,7 +286,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 17
  1 'SEP' 2019 /
 /
 
@@ -312,7 +312,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 18
  1 'OCT' 2019 /
 /
 
@@ -327,7 +327,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 19
  1 'NOV' 2019 /
 /
 
@@ -342,7 +342,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 20
  1 'DEC' 2019 /
 /
 
@@ -357,7 +357,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 21
  1 'JAN' 2020 /
 /
 
@@ -372,7 +372,7 @@ WCONINJH
    INJ2   GAS   OPEN   701627	1*	0	/
 /
 
-DATES
+DATES  -- 22
  1 'FEB' 2020 /
 /
 
@@ -387,7 +387,7 @@ WCONINJH
    INJ2   GAS   OPEN   733421	1*	0	/
 /
 
-DATES
+DATES  -- 23
  1 'MAR' 2020 /
 /
 
@@ -402,7 +402,7 @@ WCONINJH
    INJ2   GAS   OPEN   801950	1*	0	/
 /
 
-DATES
+DATES  -- 24
  1 'APR' 2020 /
 /
 
@@ -417,7 +417,7 @@ WCONINJH
    INJ2   GAS   OPEN   932786	1*	0	/
 /
 
-DATES
+DATES  -- 25
  1 'MAY' 2020 /
 /
 
@@ -432,7 +432,7 @@ WCONINJH
    INJ2   GAS   OPEN   900347	1*	0	/
 /
 
-DATES
+DATES  -- 26
  1 'JUN' 2020 /
 /
 
@@ -447,7 +447,7 @@ WCONINJH
    INJ2   GAS   OPEN  1023171	1*	0	/
 /
 
-DATES
+DATES  -- 27
  1 'JLY' 2020 /
 /
 
@@ -462,7 +462,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 28
  1 'AUG' 2020 /
 /
 
@@ -477,7 +477,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 29
  1 'SEP' 2020 /
 /
 
@@ -492,7 +492,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 30
  1 'OCT' 2020 /
 /
 
@@ -507,7 +507,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 31
  1 'NOV' 2020 /
 /
 
@@ -522,7 +522,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 32
  1 'DEC' 2020 /
 /
 
@@ -537,7 +537,7 @@ WCONINJH
    INJ2   WATER   OPEN     5500	1*	0	/
 /
 
-DATES
+DATES  -- 33
  1 'JAN' 2021 /
 /
 
@@ -552,7 +552,7 @@ WCONINJH
    INJ2   GAS   OPEN  2283203	1*	0	/
 /
 
-DATES
+DATES  -- 34
  1 'FEB' 2021 /
 /
 
@@ -567,7 +567,7 @@ WCONINJH
    INJ2   GAS   OPEN  2197936	1*	0	/
 /
 
-DATES
+DATES  -- 35
  1 'MAR' 2021 /
 /
 
@@ -582,7 +582,7 @@ WCONINJH
    INJ2   GAS   OPEN  2014074	1*	0	/
 /
 
-DATES
+DATES  -- 36
  1 'APR' 2021 /
 /
 
@@ -597,7 +597,7 @@ WCONINJH
    INJ2   GAS   OPEN  2211744	1*	0	/
 /
 
-DATES
+DATES  -- 37
  1 'MAY' 2021 /
 /
 
@@ -612,7 +612,7 @@ WCONINJH
    INJ2   GAS   OPEN  2484165	1*	0	/
 /
 
-DATES
+DATES  -- 38
  1 'JUN' 2021 /
 /
 
@@ -627,6 +627,6 @@ WCONINJH
    INJ2   GAS   OPEN  2716987	1*	0	/
 /
 
-DATES
+DATES  -- 39
  1 'JLY' 2021 /
 /
