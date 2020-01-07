@@ -6,13 +6,17 @@
 -- Copyright (C) 2015 Statoil
 
 -- Norne full field model for SPE ATW 2013
+
+-- Gas injection case. One gas injector. GCONINJE with reinjection (100%) of
+-- produced gas. Model set up with multi-segment well model
+
 RUNSPEC
 
 DIMENS
 46 112 22   /
 
-PARALLEL
- 8 /
+--PARALLEL
+-- 8 /
 
 --NOSIM
 
@@ -58,6 +62,12 @@ TRACERS
  
 WELLDIMS
  130  36  15  84 /
+
+
+WSEGDIMS
+-- nswlmx  nsegmx  nlbrmx
+  30      200     1 /
+
 
 TABDIMS
 --ntsfun ntpvt nssfun nppvt ntfip nrpvt ntendp
@@ -651,6 +661,7 @@ INCLUDE
 INCLUDE
 './INCLUDE/VFP/F4H.Ecl' / 
 
+
 -- only possible for ECL 2006.2+ version
 ZIPPY2
 'SIM=4.2' 'MINSTEP=1E-6' /
@@ -670,13 +681,12 @@ GCONPROD
 /
 
 GCONINJE
- 'RES1'      'WATER'  'VREP'  3*   1.0  /
  'RES1'      'GAS'    'REIN'  2*   1.0  /
 / 
 
   
 INCLUDE 
- './INCLUDE/PRED_WINJ_MIN_THP_4E.SCH' / 
+ './INCLUDE/PRED_GINJ_MIN_THP_3A_MSW.SCH' / 
 
 
 END

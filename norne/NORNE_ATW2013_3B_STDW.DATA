@@ -6,13 +6,18 @@
 -- Copyright (C) 2015 Statoil
 
 -- Norne full field model for SPE ATW 2013
+
+-- Gas injection case. 100 % reinjection of produced gas from start of 
+-- simulation. Gas export (GCONSALE) from 1st of October 1999.
+-- Model set up with standard well model
+
 RUNSPEC
 
 DIMENS
 46 112 22   /
 
-PARALLEL
- 8 /
+--PARALLEL
+-- 8 /
 
 --NOSIM
 
@@ -671,12 +676,12 @@ GCONPROD
 /
 
 GCONINJE
- 'RES1'      'WATER'  'VREP'  3*   1.0  /
+ 'RES1'      'GAS'    'REIN'  2*   1.0  /
 / 
 
   
 INCLUDE 
- './INCLUDE/PRED_WINJ_MIN_THP_4B.SCH' / 
+ './INCLUDE/PRED_GINJ_MIN_THP_3B_STDW.SCH' / 
 
 
 END

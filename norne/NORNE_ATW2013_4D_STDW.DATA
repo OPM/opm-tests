@@ -6,13 +6,23 @@
 -- Copyright (C) 2015 Statoil
 
 -- Norne full field model for SPE ATW 2013
+
+-- Water and gas injection. Injection wells set up with maximum rates  
+-- and maximum bottom hole pressure constraints. 
+-- Group control (GCONPROD) on production wells with constraints on one group level.
+-- Grup control on gas injection (GCONINJE) -> re-injection of produced gas 
+-- Grup control on water injection (GCONINJE) -> 100% volume replacement 
+-- Gas export and increased gas capacity from Octber 2010
+-- Water injection is top-up.
+-- Model set up with standard well model.
+
 RUNSPEC
 
 DIMENS
 46 112 22   /
 
-PARALLEL
- 8 /
+--PARALLEL
+-- 8 /
 
 --NOSIM
 
@@ -669,9 +679,14 @@ GCONPROD
  'RES1'   ORAT  19000 20000 5.0E6 30000  RATE  'NO' 9* /
 /
 
+GCONINJE
+ 'RES1'      'WATER'  'VREP'  3*   1.0  /
+ 'RES1'      'GAS'    'REIN'  2*   1.0  /
+/ 
+
   
 INCLUDE 
- './INCLUDE/PRED_WINJ_MIN_THP_4A.SCH' / 
+ './INCLUDE/PRED_WINJ_MIN_THP_4D_STDW.SCH' / 
 
 
 END
