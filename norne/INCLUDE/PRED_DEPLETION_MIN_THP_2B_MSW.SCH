@@ -7,8 +7,8 @@
 
 
 WELSPECS
- 'B-2H' 'MANI-B1' 15 31 1* 'OIL' 2* 'STOP' 4* / 
- 'D-1H' 'MANI-D1' 22 22 1* 'OIL' 2* 'STOP' 4* / 
+ 'B-2H' 'MANI-B1' 15 31 1* 'OIL' 2* 'SHUT' 4* / 
+ 'D-1H' 'MANI-D1' 22 22 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -61,7 +61,7 @@ DATES
 /
 
 WELSPECS
- 'D-2H' 'MANI-D2' 14 28 1* 'OIL' 2* 'STOP' 4* / 
+ 'D-2H' 'MANI-D2' 14 28 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -125,7 +125,7 @@ DATES
 /
 
 WELSPECS
- 'B-1H' 'MANI-B2' 14 34 1* 'OIL' 2* 'STOP' 4* / 
+ 'B-1H' 'MANI-B2' 14 34 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -175,7 +175,7 @@ DATES
 /
 
 WELSPECS
- 'B-3H' 'MANI-B2' 9 37 1* 'OIL' 2* 'STOP' 4* / 
+ 'B-3H' 'MANI-B2' 9 37 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -221,7 +221,7 @@ DATES
 /
 
 WELSPECS
- 'E-1H' 'MANI-E' 18 68 1* 'OIL' 2* 'STOP' 4* / 
+ 'E-1H' 'MANI-E' 18 68 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -266,7 +266,7 @@ DATES
 /
 
 WELSPECS
- 'E-2H' 'MANI-E' 13 67 1* 'OIL' 2* 'STOP' 4* / 
+ 'E-2H' 'MANI-E' 13 67 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -313,7 +313,7 @@ DATES
 /
 
 WELSPECS
- 'E-4AH' 'MANI-E' 38 98 1* 'OIL' 2* 'STOP' 4* / 
+ 'E-4AH' 'MANI-E' 38 98 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -356,7 +356,7 @@ DATES
 /
 
 WELSPECS
- 'D-3AH' 'MANI-D1' 19 54 1* 'OIL' 2* 'STOP' 4* / 
+ 'D-3AH' 'MANI-D1' 19 54 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -394,7 +394,7 @@ DATES
 /
 
 WELSPECS
- 'E-3AH' 'MANI-E' 7 64 1* 'OIL' 2* 'STOP' 4* / 
+ 'E-3AH' 'MANI-E' 7 64 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT

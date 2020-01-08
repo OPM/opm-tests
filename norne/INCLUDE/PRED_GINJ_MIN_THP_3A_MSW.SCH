@@ -7,8 +7,8 @@
 
 
 WELSPECS
- 'B-2H' 'PROD' 15 31 1* 'OIL' 2* 'STOP' 4* / 
- 'D-1H' 'PROD' 22 22 1* 'OIL' 2* 'STOP' 4* / 
+ 'B-2H' 'PROD' 15 31 1* 'OIL' 2* 'SHUT' 4* / 
+ 'D-1H' 'PROD' 22 22 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -79,7 +79,7 @@ DATES
 /
 
 WELSPECS
- 'D-2H' 'PROD' 14 28 1* 'OIL' 2* 'STOP' 4* / 
+ 'D-2H' 'PROD' 14 28 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -210,7 +210,7 @@ DATES
 /
 
 WELSPECS
- 'B-1H' 'PROD' 14 34 1* 'OIL' 2* 'STOP' 4* / 
+ 'B-1H' 'PROD' 14 34 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -258,7 +258,7 @@ DATES
 /
 
 WELSPECS
- 'B-3H' 'PROD' 9 37 1* 'OIL' 2* 'STOP' 4* / 
+ 'B-3H' 'PROD' 9 37 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -302,7 +302,7 @@ DATES
 /
 
 WELSPECS
- 'E-1H' 'PROD' 18 68 1* 'OIL' 2* 'STOP' 4* / 
+ 'E-1H' 'PROD' 18 68 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -346,7 +346,7 @@ DATES
 /
 
 WELSPECS
- 'E-2H' 'PROD' 13 67 1* 'OIL' 2* 'STOP' 4* / 
+ 'E-2H' 'PROD' 13 67 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -391,7 +391,7 @@ DATES
 /
 
 WELSPECS
- 'E-4AH' 'PROD' 38 98 1* 'OIL' 2* 'STOP' 4* / 
+ 'E-4AH' 'PROD' 38 98 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -434,7 +434,7 @@ DATES
 /
 
 WELSPECS
- 'D-3AH' 'PROD' 19 54 1* 'OIL' 2* 'STOP' 4* / 
+ 'D-3AH' 'PROD' 19 54 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT
@@ -472,7 +472,7 @@ DATES
 /
 
 WELSPECS
- 'E-3AH' 'PROD' 7 64 1* 'OIL' 2* 'STOP' 4* / 
+ 'E-3AH' 'PROD' 7 64 1* 'OIL' 2* 'SHUT' 4* / 
 /
 
 COMPDAT

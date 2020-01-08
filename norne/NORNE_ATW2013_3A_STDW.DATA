@@ -8,7 +8,8 @@
 -- Norne full field model for SPE ATW 2013
 
 -- Gas injection case. One gas injector. GCONINJE with reinjection (100%) of
--- produced gas. Model set up with standard well model
+-- produced gas. 
+-- Standard well model and STOP for automatic shut-in (WELSPECS item 9)
 
 RUNSPEC
 

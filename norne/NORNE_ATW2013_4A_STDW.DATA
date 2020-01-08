@@ -8,7 +8,8 @@
 -- Water injection case. Injection wells set up with maximum rates  
 -- and maximum bottom hole pressure. No gas injection.
 -- Group control (GCONPROD) on production wells with constraints on 
--- one group level. Model set up with standard well model.
+-- one group level. 
+-- Standard well model and STOP for automatic shut-in (WELSPECS item 9)
 
 RUNSPEC
 

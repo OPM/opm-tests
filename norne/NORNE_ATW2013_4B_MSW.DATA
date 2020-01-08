@@ -11,7 +11,7 @@
 -- and maximum bottom hole pressure constraints. 
 -- Group control (GCONPROD) on production wells with constraints on one group level.
 -- Grup control on water injection (GCONINJE) -> 100% volume replacement 
--- Model set up with multi-segment well model.
+-- Multi-segment well model and SHUT for automatic shut-in (WELSPECS item 9)
 
 
 RUNSPEC
@@ -492,6 +492,8 @@ CWCT
 
 SCHEDULE
 
+WSEGITER
+ 150  50  0.3  2.0 /
 
 DRSDT
  0  /
