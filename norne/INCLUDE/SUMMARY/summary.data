@@ -131,6 +131,22 @@ WLPT
 WLPTH
 /
 
+-- Production and injection potentials
+WOPP
+/
+
+WGPP
+/
+
+WWPP
+/
+
+WWIP
+/
+
+WGIP
+/
+
 -- Injection Rates
 WWIR
   C-1H C-2H C-3H C-4H C-4AH F-1H F-2H F-3H F-4H

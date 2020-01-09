@@ -6,13 +6,20 @@
 -- Copyright (C) 2015 Statoil
 
 -- Norne full field model for SPE ATW 2013
+
+-- Depleation case, wells with set up with maximum rates and 
+-- minimum tubing head pressure. 
+-- GCONPROD with constraints on two group levels.
+-- Standard wells and 'STOP' for automatic shut-in (WELSPECS item 9)
+
+
 RUNSPEC
 
 DIMENS
 46 112 22   /
 
-PARALLEL
- 8 /
+--PARALLEL
+-- 8 /
 
 --NOSIM
 
@@ -661,25 +668,29 @@ INCLUDE
 './INCLUDE/PI/pimultab_low-high_aug-2006.inc' / 
 
 
+
 GRUPTREE 
-   'PROD'     'RES1'  /
-   'INJE'     'RES1'  /
+   'PROD'        'RES1'  /
+   'MANI-B2'     'PROD'  /
+   'MANI-B1'     'PROD'  /
+   'MANI-D1'     'PROD'  /
+   'MANI-D2'     'PROD'  /
+   'MANI-E'      'PROD'  /
 /
 
 GCONPROD
  'RES1'   ORAT  19000 20000 5.0E6 30000  RATE  'NO' 9* /
+
+ 'MANI-B2' NONE   6000   1*  2.0E6  1*  RATE /
+ 'MANI-B1' NONE   6000   1*  2.0E6  1*  RATE /
+ 'MANI-D1' NONE   6000   1*  2.0E6  1*  RATE /
+ 'MANI-D2' NONE   6000   1*  2.0E6  1*  RATE /
+ 'MANI-E'  NONE   5000   1*  2.0E6  1*  RATE /
 /
 
-GCONINJE
- 'RES1'      'GAS'    'REIN'  2*   1.0  /
-/ 
-
-GCONSUMP
- 'RES1' 0.4E6 /
-/
   
 INCLUDE 
- './INCLUDE/PRED_GINJ_MIN_THP_3B.SCH' / 
+ './INCLUDE/PRED_DEPLETION_MIN_THP_2B_STDW.SCH' / 
 
 
 END
