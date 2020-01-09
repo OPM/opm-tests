@@ -1,0 +1,268 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018 Equinor
+--
+--
+-- boxmodel    || 1 horizontal producer, msw completion with spiral icd
+--
+--
+--
+--=====================================================================
+RUNSPEC
+--=====================================================================
+NOECHO
+
+TITLE
+  boxmodel
+
+DIMENS
+-- NX  NY  NZ
+   7  18  20  /
+
+OIL
+GAS
+WATER
+DISGAS
+METRIC
+
+-----------------------------------------------------
+-- Special options
+-----------------------------------------------------
+----     Saturation table end point scaling
+ENDSCALE
+-- directional reversible? NTENDP  NSENDP
+  'NODIR'      'REVERS'       1       20  /
+
+--       Allow 'MULTX-', 'MULTY-' etc.
+GRIDOPTS
+ 'YES'  15 /
+ 
+PATHS
+ 'ECLPATH' '../../eclipse/include' /
+/
+
+--SAVE
+--/ 
+-----------------------------------------------------
+-- Dimensions
+-----------------------------------------------------
+TABDIMS
+-- NTSFUN  NTPVT   NSSFUN  NPPVT  NTFIP  NRPVT
+     3      1       80      20     16     14  /
+EQLDIMS
+-- NTEQUL  NDPRVD  NDRXVD
+     1      1000      11  /
+REGDIMS
+-- NTFIP   NMFIPR  NRFREG  NTFREG
+     15       3       0       0  2* 15 /
+AQUDIMS
+-- MXNAQN  MXNAQC
+     2       20   /
+WELLDIMS
+-- NWMAXZ  NCWMAX  NGMAXZ  NWGMAX
+     9      220      5       5  /
+WSEGDIMS
+-- NSWLMX  NSEGMX  NLBRMX
+     9      450     450      /
+                                          
+VFPPDIMS
+-- MXMFLO MXMTHP MXMWFR MXMGFR MXMALQ NMMVFT
+--     12     11     12     12      7    250   /
+       20     20     20     20     20    250   /
+                                          
+--FAULTDIM
+--1000 /
+
+VFPIDIMS
+-- MXMFLO MXMTHP NMSVFT
+     12     11     2   /
+
+START
+--  DAY   MONTH  YEAR
+     1    'OCT'  2003   /
+
+--NOSIM
+
+
+NUPCOL
+  10  /
+
+
+UNIFIN
+UNIFOUT
+
+---------------------------------------------------------------------------
+MESSAGES
+-- --------print limits----------  
+-- mess comm  warn    prob  err  bug 
+  80000 10000 5000000 5000  300   1 
+----------stop limits------------
+-- mess comm  warn    prob  err bug 
+  80000 10000 5000000 80000 10   1 /
+
+--==========================================================================   
+GRID
+--==========================================================================
+
+GRIDFILE
+ 0  1  /
+
+INIT
+
+INCLUDE
+ 'include/boxmodel.grid' / --boxgrid (local coord) + actnum, without specgrid
+
+-----------------------------------------------------------------------
+
+EQUALS
+ 'PORO'  0.25   1 7  1 18  1 20 /  
+ 'PERMX' 1000   1 7  1 18  1 20 /  
+ 'PERMY' 1000   1 7  1 18  1 20 /  
+ 'PERMZ'  100   1 7  1 18  1 20 /  
+/
+
+----------- 
+
+EQUALS
+ 'MULTNUM'  1   1 7  1 18  1 20 /  
+ 'OPERNUM'  1   1 7  1 18  1 20 /  
+/
+
+
+NEWTRAN 
+
+--=====================================================================
+EDIT 
+--=====================================================================
+
+
+--=====================================================================
+PROPS                                                                
+--=====================================================================
+
+INCLUDE                                                    
+ 'include/test.pvt'       /
+
+-----------------------------------------------------------------------
+
+INCLUDE                                                    
+ 'include/test.relperm1'       /
+INCLUDE                                                    
+ 'include/test.relperm2'       /
+
+------------------------------------------------------------------------
+
+-- activate 3-point scaling option
+SCALECRS
+  'YES'   /
+
+
+
+--=====================================================================
+REGIONS                                                                     
+--=====================================================================
+
+
+EQUALS
+ 'SATNUM'  2   1 7  1 18  1 20 /  
+ 'FIPNUM'  1   1 7  1 18  1 20 /  
+/
+
+--=====================================================================
+SOLUTION                                                                       
+--=====================================================================
+
+RPTRST
+  'BASIC=2'  /
+
+--  1      2      3       4     5       6     7    8    9  
+--Datum   P(dat)  WOC   Pcow  GOC     Pcog  RSVD RDVD   N
+EQUIL
+  2620   266.7  2654.1   0   2620      0     1    0    0   / 
+
+
+RSVD
+-- Depth  RS
+2620      142.1
+2630      141.3
+2640      140.5
+2650      139.8
+2660      139.0
+2670      138.3
+2680      137.6
+2690      136.8
+2700      136.1
+/
+
+RPTSOL 
+ 'RESTART=2'   /
+
+--=====================================================================
+SUMMARY
+--=====================================================================
+ 
+--INCLUDE                                                    
+-- 'include/test.summary1'     /
+--
+INCLUDE                                                    
+ 'include/test.summary2'     /
+--
+--INCLUDE                                                    
+-- 'include/test.summary3'     /
+
+--=====================================================================
+SCHEDULE                                                              
+--=====================================================================
+--SKIPREST
+-----------------------------------------------------------------------
+
+INCLUDE
+   'include/op1.vfp'   / -- table 1
+
+-----------------------------------------------------------------------
+
+EXTRAPMS
+ 3  /
+
+RPTRST
+  'BASIC=4'   / 'FREQ=1'  'FLOWS' 'PBPD' 'PCOW'  /
+
+--RPTSCHED
+--  'FIP=2' 'NEWTON=1' 'CPU=1' 'WELLS=2'  'SUMMARY=1' 'WELSPECS' /
+
+-----------------------------------------------------------------------
+
+DRSDT
+   0.0   /
+
+GRUPTREE 
+   'PROD'    'FIELD'  /
+   'INJ'     'FIELD'  /
+/
+
+
+DATES
+  2  'OCT' 2003  /
+/
+
+
+INCLUDE
+   'include/wells.sch3'   / 
+
+
+WPIMULT
+  'OP1'   1.2   /
+/
+
+
+DATES
+ 15  'OCT' 2003  /
+  1  'NOV' 2003  /
+  1  'DEC' 2003  /
+  1  'JAN' 2004  /
+/
+
+END

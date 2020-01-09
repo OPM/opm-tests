@@ -1,0 +1,42 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+--
+-- Copyright (C) 2018 Equinor
+--
+
+-- Date: 2 OCT 2003
+
+WELSPECS
+--WELL  GROUP  IHEEL JHEEL       DREF PHASE       DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'OP1' 'PROD'      4     4       2643   OIL         1*    1*  SHUT   YES    1*   SEG /
+/
+
+COMPORD
+ 'OP1'  INPUT /
+/
+
+COMPDAT
+--WELL     I     J    K1    K2 OP/SH  SATN       TRAN      WBDIA         KH       SKIN DFACT   DIR      PEQVR
+--------------------------------------------------------------------------------------------------------------
+ 'OP1'     4     4    15    15  OPEN    1* 397.772162      0.248 24635.0747          0    1*     Y 3.42355664 /
+ 'OP1'     4     5    15    15  OPEN    1*  408.50499      0.248 25299.7858          0    1*     Y 3.42355614 /
+ 'OP1'     4     6    15    15  OPEN    1* 408.504745      0.248 25299.7802          0    1*     Y 3.42356042 /
+ 'OP1'     4     7    15    15  OPEN    1* 408.505053      0.248 25299.7908          0    1*     Y 3.42355664 /
+ 'OP1'     4     8    15    15  OPEN    1* 408.505024      0.248 25299.7891          0    1*     Y 3.42355664 /
+ 'OP1'     4     9    15    15  OPEN    1* 408.504802      0.248 25299.7837          0    1*     Y 3.42356042 /
+ 'OP1'     4    10    15    15  OPEN    1* 408.505031      0.248 25299.7894          0    1*     Y 3.42355664 /
+ 'OP1'     4    11    15    15  OPEN    1* 408.504922      0.248 25299.7827          0    1*     Y 3.42355664 /
+ 'OP1'     4    12    15    15  OPEN    1* 408.505055      0.248 25299.7904          0    1*     Y 3.42355639 /
+ 'OP1'     4    13    15    15  OPEN    1* 408.504994      0.248 25299.7872          0    1*     Y 3.42355664 /
+ 'OP1'     4    14    15    15  OPEN    1* 408.504946      0.248 25299.7842          0    1*     Y 3.42355664 /
+ 'OP1'     4    15    15    15  OPEN    1* 408.505053      0.248 25299.7908          0    1*     Y 3.42355664 /
+ 'OP1'     4    16    15    15  OPEN    1*  214.66929      0.248 13295.0368          0    1*     Y 3.42355992 /
+--------------------------------------------------------------------------------------------------------------
+/
+
+WCONPROD
+--WELL OP/SH   CTL       ORAT       WRAT       GRAT       LRAT       RRAT        BHP        THP   VFP        ALQ
+ 'OP1'  OPEN  ORAT       3000       3000     300000       3000         1*         60          0     1         1* /
+/
