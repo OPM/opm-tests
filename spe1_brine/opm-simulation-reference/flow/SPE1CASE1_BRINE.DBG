@@ -10,13 +10,13 @@
 Flow is a simulator for fully implicit three-phase black-oil flow, and is part of OPM.
 For more information visit: https://opm-project.org 
 
-Flow Version     =  2020.04-pre (bc33e48)
+Flow Version     =  2020.04-pre (cf6cb30)
 Machine name     =  P2722 (Number of logical cores: 8, Memory size: 15961.09 MB) 
 Operating system =  Linux x86_64 (Kernel: 4.15.0-74-generic, #83~16.04.1-Ubuntu SMP Wed Dec 18 04:56:23 UTC 2019 )
-Simulation started on 10-01-2020 at 09:27:23 hrs
+Simulation started on 10-01-2020 at 10:56:31 hrs
 Parameters used by Flow:
 # [known parameters which were specified at run-time]
-EclDeckFileName="SPE1CASE2_BRINE" # default: ""
+EclDeckFileName="SPE1CASE1_BRINE" # default: ""
 OutputDir="opm-simulation-reference/flow" # default: ""
 # [parameters which were specified at compile-time]
 ContinueOnConvergenceError="0"
@@ -178,88 +178,88 @@ VtkWriteTotalMoleFractions="0"
 VtkWriteViscosities="0"
 VtkWriteWaterFormationVolumeFactor="0"
 
-    0 Reading RUNSPEC  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 24
-    1 Reading TITLE    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 27
-    2 Reading DIMENS   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 30
-    3 Reading EQLDIMS  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 35
-    4 Reading TABDIMS  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 40
-    5 Reading OIL      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 43
-    6 Reading GAS      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 44
-    7 Reading WATER    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 45
-    8 Reading BRINE    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 46
-    9 Reading DISGAS   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 47
-   10 Reading FIELD    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 51
-   11 Reading START    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 53
-   12 Reading WELLDIMS in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 56
-   13 Reading UNIFOUT  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 67
-   14 Reading GRID     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 69
-   15 Reading INIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 76
-   16 Reading NOECHO   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 80
-   17 Reading DX       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 82
-   18 Reading DY       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 85
-   19 Reading DZ       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 88
-   20 Reading TOPS     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 92
-   21 Reading PORO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 96
-   22 Reading PERMX    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 100
-   23 Reading PERMY    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 104
-   24 Reading PERMZ    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 108
-   25 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 112
-   26 Reading PROPS    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 114
-   27 Reading PVTWSALT in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 129
-   28 Reading ROCK     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 138
-   29 Reading SWOF     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 145
-   30 Reading SGOF     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 174
-   31 Reading DENSITY  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 204
-   32 Reading PVDG     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 214
-   33 Reading PVTO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 235
-   34 Reading SOLUTION in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 265
-   35 Reading EQUIL    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 268
-   36 Reading SALTVD   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 288
-   37 Reading RSVD     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 292
-   38 Reading SUMMARY  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 300
-   39 Reading FOPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 304
-   40 Reading WGOR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 308
-   41 Reading FGOR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 313
-   42 Reading BPR      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 316
-   43 Reading BGSAT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 322
-   44 Reading WBHP     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 335
-   45 Reading WGIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 339
-   46 Reading WGIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 343
-   47 Reading WGPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 347
-   48 Reading WGPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 351
-   49 Reading WOIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 355
-   50 Reading WOIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 359
-   51 Reading WOPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 363
-   52 Reading WOPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 367
-   53 Reading WWIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 371
-   54 Reading WWIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 375
-   55 Reading WWPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 379
-   56 Reading WWPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 383
-   57 Reading SCHEDULE in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 387
-   58 Reading RPTSCHED in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 389
-   59 Reading RPTRST   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 392
-   60 Reading DRSDT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 397
-   61 Reading WELSPECS in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 402
-   62 Reading COMPDAT  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 411
-   63 Reading WCONPROD in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 421
-   64 Reading WCONINJE in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 430
-   65 Reading WSALT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 438
-   66 Reading TSTEP    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 443
+    0 Reading RUNSPEC  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 24
+    1 Reading TITLE    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 27
+    2 Reading DIMENS   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 30
+    3 Reading EQLDIMS  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 35
+    4 Reading TABDIMS  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 40
+    5 Reading OIL      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 43
+    6 Reading GAS      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 44
+    7 Reading WATER    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 45
+    8 Reading BRINE    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 46
+    9 Reading DISGAS   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 47
+   10 Reading FIELD    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 51
+   11 Reading START    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 53
+   12 Reading WELLDIMS in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 56
+   13 Reading UNIFOUT  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 67
+   14 Reading GRID     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 69
+   15 Reading INIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 76
+   16 Reading NOECHO   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 80
+   17 Reading DX       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 82
+   18 Reading DY       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 85
+   19 Reading DZ       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 88
+   20 Reading TOPS     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 92
+   21 Reading PORO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 96
+   22 Reading PERMX    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 100
+   23 Reading PERMY    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 104
+   24 Reading PERMZ    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 108
+   25 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 112
+   26 Reading PROPS    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 114
+   27 Reading PVTWSALT in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 129
+   28 Reading ROCK     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 134
+   29 Reading SWOF     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 141
+   30 Reading SGOF     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 170
+   31 Reading DENSITY  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 200
+   32 Reading PVDG     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 210
+   33 Reading PVTO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 231
+   34 Reading SOLUTION in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 261
+   35 Reading EQUIL    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 264
+   36 Reading SALTVD   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 284
+   37 Reading RSVD     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 288
+   38 Reading SUMMARY  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 296
+   39 Reading FOPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 300
+   40 Reading WGOR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 304
+   41 Reading FGOR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 309
+   42 Reading BPR      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 312
+   43 Reading BGSAT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 318
+   44 Reading WBHP     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 331
+   45 Reading WGIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 335
+   46 Reading WGIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 339
+   47 Reading WGPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 343
+   48 Reading WGPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 347
+   49 Reading WOIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 351
+   50 Reading WOIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 355
+   51 Reading WOPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 359
+   52 Reading WOPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 363
+   53 Reading WWIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 367
+   54 Reading WWIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 371
+   55 Reading WWPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 375
+   56 Reading WWPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 379
+   57 Reading SCHEDULE in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 383
+   58 Reading RPTSCHED in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 385
+   59 Reading RPTRST   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 388
+   60 Reading DRSDT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 393
+   61 Reading WELSPECS in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 398
+   62 Reading COMPDAT  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 407
+   63 Reading WCONPROD in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 417
+   64 Reading WCONINJE in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 426
+   65 Reading WSALT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 434
+   66 Reading TSTEP    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 439
 Keyword 'ECHO' is not supported by flow.
-In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 112
+In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 112
 
 Keyword 'PVTWSALT' is not supported by flow.
-In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 129
+In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 129
 
 All completions in well PROD is shut at 0.000000 days. 
 The well is therefore also shut.
 All completions in well INJ is shut at 0.000000 days. 
 The well is therefore also shut.
 Keyword 'ECHO' is not supported by flow.
-In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 112
+In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 112
 
 Keyword 'PVTWSALT' is not supported by flow.
-In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 129
+In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 129
 
 
 ===============Saturation Functions Diagnostics===============
@@ -313,7 +313,7 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    2  1.860e-06  3.788e-08  9.601e-07  5.892e-11  1.090e-04  1.908e-05  5.627e-05  3.222e-08
    3  5.923e-08  2.524e-12  3.057e-08  7.264e-15  2.001e-07  1.004e-09  1.033e-07  2.438e-12
 Overall linear iterations used: 13
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  13 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 
 Time step 3, stepsize 18 days, at day 13/31, date = 14-Jan-2015
 Well equation solution gets converged with 0 iterations
@@ -402,7 +402,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 17
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 Sub steps started at time = 0 (days)
  step[ 0 ] = 1 (days)
  step[ 1 ] = 3 (days)
@@ -416,14 +416,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:   1/120.  Date: 2015/02/01
 
                               **************************************************************************
   Balance  at        31  Days *                 SPE1 - CASE 1                                          *
   Report    1    01 Feb 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.031469 seconds; total solver time 0.031469 seconds.
+Time step took 0.023961 seconds; total solver time 0.023961 seconds.
 
 
 ---------------    Simulation step number 1    ---------------
@@ -437,6 +436,7 @@ Report step  1/120 at day 31/3650, date = 01-Feb-2015
 
 Time step 0, stepsize 28 days, at day 31/59, date = 01-Feb-2015
 Well equation solution gets converged with 0 iterations
+Restart file written for report step:   1/120.  Date: 2015/02/01
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.758e-03  3.275e-04  8.928e-04  1.273e-06  1.464e-01  1.400e-01  7.631e-02  5.633e-04
    1  6.199e-06  1.353e-05  9.432e-05  8.760e-08  6.303e-03  6.911e-03  2.956e-02  3.288e-05
@@ -522,7 +522,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 17
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 Sub steps started at time = 31 (days)
  step[ 0 ] = 28 (days)
 sub steps end time = 59 (days)
@@ -533,14 +533,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:   2/120.  Date: 2015/03/01
 
                               **************************************************************************
   Balance  at        59  Days *                 SPE1 - CASE 1                                          *
   Report    2    01 Mar 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010980 seconds; total solver time 0.042449 seconds.
+Time step took 0.006269 seconds; total solver time 0.030230 seconds.
 
 
 ---------------    Simulation step number 2    ---------------
@@ -554,6 +553,7 @@ Report step  2/120 at day 59/3650, date = 01-Mar-2015
 
 Time step 0, stepsize 31 days, at day 59/90, date = 01-Mar-2015
 Well equation solution gets converged with 0 iterations
+Restart file written for report step:   2/120.  Date: 2015/03/01
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.948e-03  1.616e-04  1.012e-03  6.404e-07  5.198e-02  4.884e-02  2.750e-02  2.169e-04
    1  3.872e-05  5.178e-05  3.195e-05  1.831e-07  7.300e-02  2.589e-02  2.692e-02  1.041e-04
@@ -639,7 +639,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  3, linearizations =  4 ( 0.005 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 59 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 90 (days)
@@ -656,7 +656,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report    3    01 Apr 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010576 seconds; total solver time 0.053025 seconds.
+Time step took 0.006252 seconds; total solver time 0.036481 seconds.
 
 
 ---------------    Simulation step number 3    ---------------
@@ -756,7 +756,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 90 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 120 (days)
@@ -773,7 +773,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report    4    01 May 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009883 seconds; total solver time 0.062908 seconds.
+Time step took 0.005909 seconds; total solver time 0.042391 seconds.
 
 
 ---------------    Simulation step number 4    ---------------
@@ -891,7 +891,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report    5    01 Jun 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010147 seconds; total solver time 0.073055 seconds.
+Time step took 0.007288 seconds; total solver time 0.049679 seconds.
 
 
 ---------------    Simulation step number 5    ---------------
@@ -905,9 +905,9 @@ Report step  5/120 at day 151/3650, date = 01-Jun-2015
 
 Time step 0, stepsize 30 days, at day 151/181, date = 01-Jun-2015
 Well equation solution gets converged with 0 iterations
-Restart file written for report step:   5/120.  Date: 2015/06/01
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.892e-03  1.114e-04  1.001e-03  4.709e-07  5.359e-02  2.486e-02  1.497e-02  9.339e-05
+Restart file written for report step:   5/120.  Date: 2015/06/01
    1  1.354e-04  1.335e-07  1.444e-04  2.109e-08  7.766e-02  9.874e-05  2.091e-01  6.428e-06
    2  3.044e-05  3.539e-09  2.445e-05  2.181e-11  8.194e-03  6.842e-07  5.446e-02  8.113e-09
    3  2.664e-05  2.492e-09  1.487e-05  9.603e-12  3.258e-04  4.321e-07  6.636e-04  1.624e-09
@@ -992,7 +992,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  20 ( 0.002 sec)
 Sub steps started at time = 151 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 181 (days)
@@ -1009,7 +1009,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report    6    01 Jul 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011960 seconds; total solver time 0.085015 seconds.
+Time step took 0.007522 seconds; total solver time 0.057201 seconds.
 
 
 ---------------    Simulation step number 6    ---------------
@@ -1023,9 +1023,9 @@ Report step  6/120 at day 181/3650, date = 01-Jul-2015
 
 Time step 0, stepsize 31 days, at day 181/212, date = 01-Jul-2015
 Well equation solution gets converged with 0 iterations
-Restart file written for report step:   6/120.  Date: 2015/07/01
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.957e-03  1.106e-04  1.126e-03  4.771e-07  3.769e-02  2.661e-02  1.623e-02  1.014e-04
+Restart file written for report step:   6/120.  Date: 2015/07/01
    1  1.282e-04  9.767e-08  3.849e-05  1.955e-08  5.773e-03  8.376e-05  3.729e-02  6.002e-06
    2  9.422e-08  2.693e-09  3.464e-05  1.142e-11  4.041e-03  4.614e-07  3.329e-03  2.017e-09
    3  1.627e-06  5.784e-10  9.530e-07  2.182e-12  1.276e-04  9.452e-08  7.268e-05  3.661e-10
@@ -1110,7 +1110,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 28
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  28 ( 0.004 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  28 ( 0.002 sec)
 Sub steps started at time = 181 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 212 (days)
@@ -1121,14 +1121,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:   7/120.  Date: 2015/08/01
 
                               **************************************************************************
   Balance  at       212  Days *                 SPE1 - CASE 1                                          *
   Report    7    01 Aug 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.016812 seconds; total solver time 0.101827 seconds.
+Time step took 0.007404 seconds; total solver time 0.064605 seconds.
 
 
 ---------------    Simulation step number 7    ---------------
@@ -1144,6 +1143,7 @@ Time step 0, stepsize 31 days, at day 212/243, date = 01-Aug-2015
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.958e-03  1.072e-04  1.372e-03  4.721e-07  2.864e-02  2.719e-02  1.684e-02  1.074e-04
+Restart file written for report step:   7/120.  Date: 2015/08/01
    1  1.836e-04  6.240e-08  2.118e-04  1.699e-08  1.935e-02  6.282e-05  1.567e-02  5.275e-06
    2  9.374e-06  1.255e-09  2.766e-05  5.722e-12  3.417e-03  1.966e-07  2.500e-03  1.173e-09
    3  6.777e-07  5.970e-10  4.119e-07  2.329e-12  8.046e-05  9.767e-08  4.706e-05  3.891e-10
@@ -1227,7 +1227,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  20 ( 0.002 sec)
 Sub steps started at time = 212 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 243 (days)
@@ -1244,7 +1244,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report    8    01 Sep 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010289 seconds; total solver time 0.112116 seconds.
+Time step took 0.006474 seconds; total solver time 0.071079 seconds.
 
 
 ---------------    Simulation step number 8    ---------------
@@ -1346,7 +1346,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 29
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  29 ( 0.004 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  29 ( 0.002 sec)
 Sub steps started at time = 243 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 273 (days)
@@ -1363,7 +1363,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report    9    01 Oct 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.013069 seconds; total solver time 0.125185 seconds.
+Time step took 0.007585 seconds; total solver time 0.078664 seconds.
 
 
 ---------------    Simulation step number 9    ---------------
@@ -1464,7 +1464,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 25
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  25 ( 0.004 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  25 ( 0.002 sec)
 Sub steps started at time = 273 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 304 (days)
@@ -1481,7 +1481,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   10    01 Nov 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.013401 seconds; total solver time 0.138586 seconds.
+Time step took 0.007371 seconds; total solver time 0.086035 seconds.
 
 
 ---------------    Simulation step number 10    ---------------
@@ -1582,7 +1582,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 22
-Time step summary: newton its =  4, linearizations =  5 ( 0.006 sec), linear its =  22 ( 0.004 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  22 ( 0.002 sec)
 Sub steps started at time = 304 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 334 (days)
@@ -1599,7 +1599,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   11    01 Dec 2015  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.013394 seconds; total solver time 0.151979 seconds.
+Time step took 0.007389 seconds; total solver time 0.093424 seconds.
 
 
 ---------------    Simulation step number 11    ---------------
@@ -1700,7 +1700,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 18
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  18 ( 0.003 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.004 sec), linear its =  18 ( 0.002 sec)
 Sub steps started at time = 334 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 365 (days)
@@ -1717,7 +1717,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   12    01 Jan 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010998 seconds; total solver time 0.162977 seconds.
+Time step took 0.008150 seconds; total solver time 0.101574 seconds.
 
 
 ---------------    Simulation step number 12    ---------------
@@ -1733,8 +1733,8 @@ Time step 0, stepsize 31 days, at day 365/396, date = 01-Jan-2016
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.619e-03  9.884e-05  1.608e-03  4.657e-07  2.746e-02  2.737e-02  1.737e-02  1.220e-04
-   1  5.606e-05  2.207e-09  8.285e-05  8.844e-09  3.597e-03  1.016e-05  1.469e-02  2.802e-06
 Restart file written for report step:  12/120.  Date: 2016/01/01
+   1  5.606e-05  2.207e-09  8.285e-05  8.844e-09  3.597e-03  1.016e-05  1.469e-02  2.802e-06
    2  2.535e-06  1.323e-09  1.090e-05  5.914e-12  1.114e-03  2.195e-07  1.141e-03  1.108e-09
    3  5.304e-07  7.064e-11  3.246e-07  3.126e-13  1.255e-05  1.283e-08  7.421e-06  5.595e-11
 Keyword 'BASIC' is unhandled for output to file.
@@ -1817,7 +1817,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 12
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 365 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 396 (days)
@@ -1834,7 +1834,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   13    01 Feb 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011711 seconds; total solver time 0.174688 seconds.
+Time step took 0.005716 seconds; total solver time 0.107290 seconds.
 
 
 ---------------    Simulation step number 13    ---------------
@@ -1934,7 +1934,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  11 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 396 (days)
  step[ 0 ] = 28 (days)
 sub steps end time = 424 (days)
@@ -1951,7 +1951,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   14    29 Feb 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.007957 seconds; total solver time 0.182645 seconds.
+Time step took 0.005688 seconds; total solver time 0.112978 seconds.
 
 
 ---------------    Simulation step number 14    ---------------
@@ -2051,7 +2051,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.005 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 424 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 455 (days)
@@ -2068,7 +2068,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   15    31 Mar 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014082 seconds; total solver time 0.196727 seconds.
+Time step took 0.007295 seconds; total solver time 0.120274 seconds.
 
 
 ---------------    Simulation step number 15    ---------------
@@ -2082,9 +2082,9 @@ Report step 15/120 at day 455/3650, date = 31-Mar-2016
 
 Time step 0, stepsize 30 days, at day 455/485, date = 31-Mar-2016
 Well equation solution gets converged with 0 iterations
-Restart file written for report step:  15/120.  Date: 2016/03/31
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.417e-03  9.618e-05  1.576e-03  4.617e-07  2.542e-02  2.565e-02  1.649e-02  1.198e-04
+Restart file written for report step:  15/120.  Date: 2016/03/31
    1  2.580e-06  8.789e-09  7.327e-06  6.903e-09  1.190e-03  3.002e-05  8.202e-03  2.040e-06
    2  9.193e-06  1.618e-09  5.763e-06  8.844e-12  8.042e-05  5.942e-07  5.584e-05  2.868e-09
    3  1.107e-07  4.231e-11  7.151e-08  1.838e-13  6.658e-07  6.685e-09  4.289e-07  3.011e-11
@@ -2185,7 +2185,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   16    30 Apr 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.007177 seconds; total solver time 0.203905 seconds.
+Time step took 0.006477 seconds; total solver time 0.126751 seconds.
 
 
 ---------------    Simulation step number 16    ---------------
@@ -2201,8 +2201,8 @@ Time step 0, stepsize 31 days, at day 485/516, date = 30-Apr-2016
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.426e-03  1.005e-04  1.637e-03  4.852e-07  2.558e-02  2.571e-02  1.671e-02  1.226e-04
-Restart file written for report step:  16/120.  Date: 2016/04/30
    1  3.986e-06  1.368e-08  2.075e-05  7.503e-09  2.819e-03  6.146e-05  9.982e-03  2.075e-06
+Restart file written for report step:  16/120.  Date: 2016/04/30
    2  1.256e-05  7.118e-09  7.454e-06  2.896e-11  1.363e-04  1.064e-06  6.120e-05  4.839e-09
    3  9.459e-08  3.274e-11  6.199e-08  1.429e-13  5.660e-07  5.440e-09  3.653e-07  2.477e-11
 Keyword 'BASIC' is unhandled for output to file.
@@ -2285,7 +2285,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  3, linearizations =  4 ( 0.005 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 485 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 516 (days)
@@ -2302,7 +2302,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   17    31 May 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014157 seconds; total solver time 0.218062 seconds.
+Time step took 0.005651 seconds; total solver time 0.132402 seconds.
 
 
 ---------------    Simulation step number 17    ---------------
@@ -2319,6 +2319,7 @@ Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.346e-03  9.811e-05  1.608e-03  4.766e-07  2.400e-02  2.379e-02  1.573e-02  1.163e-04
    1  4.309e-06  7.776e-09  1.520e-05  7.330e-09  2.131e-03  9.823e-05  8.930e-03  1.894e-06
+Restart file written for report step:  17/120.  Date: 2016/05/31
    2  1.190e-05  8.273e-10  7.740e-06  3.994e-12  9.969e-05  1.264e-07  7.408e-05  8.356e-10
    3  7.208e-08  5.951e-11  4.790e-08  2.655e-13  1.272e-06  1.003e-08  8.213e-07  4.607e-11
 Keyword 'BASIC' is unhandled for output to file.
@@ -2401,7 +2402,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 516 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 546 (days)
@@ -2412,15 +2413,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  17/120.  Date: 2016/05/31
-Restart file written for report step:  18/120.  Date: 2016/06/30
 
                               **************************************************************************
   Balance  at       546  Days *                 SPE1 - CASE 1                                          *
   Report   18    30 Jun 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.016244 seconds; total solver time 0.234306 seconds.
+Time step took 0.005567 seconds; total solver time 0.137969 seconds.
 
 
 ---------------    Simulation step number 18    ---------------
@@ -2437,6 +2436,7 @@ Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.360e-03  1.022e-04  1.682e-03  4.995e-07  2.339e-02  2.312e-02  1.539e-02  1.163e-04
    1  5.312e-06  1.414e-08  1.566e-05  8.512e-09  3.111e-03  1.074e-04  9.473e-03  1.842e-06
+Restart file written for report step:  18/120.  Date: 2016/06/30
    2  1.229e-05  9.053e-10  7.789e-06  2.782e-12  7.761e-05  1.303e-06  7.046e-05  4.312e-09
    3  3.296e-08  3.209e-11  2.274e-08  1.422e-13  5.539e-07  5.758e-09  3.585e-07  2.651e-11
 Keyword 'BASIC' is unhandled for output to file.
@@ -2519,7 +2519,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 546 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 577 (days)
@@ -2536,7 +2536,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   19    31 Jul 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009514 seconds; total solver time 0.243820 seconds.
+Time step took 0.007638 seconds; total solver time 0.145607 seconds.
 
 
 ---------------    Simulation step number 19    ---------------
@@ -2552,8 +2552,8 @@ Time step 0, stepsize 31 days, at day 577/608, date = 31-Jul-2016
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.329e-03  1.031e-04  1.706e-03  5.066e-07  2.117e-02  2.085e-02  1.397e-02  1.091e-04
-Restart file written for report step:  19/120.  Date: 2016/07/31
    1  1.054e-06  1.398e-08  1.179e-05  1.051e-08  3.976e-03  1.692e-04  8.675e-03  1.852e-06
+Restart file written for report step:  19/120.  Date: 2016/07/31
    2  6.413e-06  1.748e-09  4.500e-06  3.399e-11  2.631e-04  6.298e-06  1.750e-04  2.251e-08
    3  8.017e-08  8.174e-11  5.434e-08  2.523e-13  6.746e-07  2.066e-08  5.377e-07  8.116e-11
 Keyword 'BASIC' is unhandled for output to file.
@@ -2636,7 +2636,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 10
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  10 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  10 ( 0.001 sec)
 Sub steps started at time = 577 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 608 (days)
@@ -2653,7 +2653,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   20    31 Aug 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009101 seconds; total solver time 0.252921 seconds.
+Time step took 0.007471 seconds; total solver time 0.153078 seconds.
 
 
 ---------------    Simulation step number 20    ---------------
@@ -2671,6 +2671,7 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    0  1.256e-03  1.006e-04  1.676e-03  4.971e-07  1.660e-02  1.628e-02  1.099e-02  9.195e-05
    1  4.441e-06  7.045e-09  8.227e-06  1.425e-08  9.109e-03  1.929e-04  7.387e-03  1.870e-06
    2  3.812e-06  1.371e-09  2.616e-06  3.083e-10  1.680e-04  3.714e-05  1.164e-04  1.445e-07
+Restart file written for report step:  20/120.  Date: 2016/08/31
    3  7.135e-08  2.496e-10  4.999e-08  8.499e-13  6.465e-07  6.125e-08  5.201e-07  2.899e-10
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
@@ -2752,7 +2753,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 10
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  10 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  10 ( 0.001 sec)
 Sub steps started at time = 608 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 638 (days)
@@ -2763,14 +2764,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  20/120.  Date: 2016/08/31
 
                               **************************************************************************
   Balance  at       638  Days *                 SPE1 - CASE 1                                          *
   Report   21    30 Sep 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011381 seconds; total solver time 0.264302 seconds.
+Time step took 0.006300 seconds; total solver time 0.159377 seconds.
 
 
 ---------------    Simulation step number 21    ---------------
@@ -2786,8 +2786,8 @@ Time step 0, stepsize 31 days, at day 638/669, date = 30-Sep-2016
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.268e-03  1.047e-04  1.761e-03  5.205e-07  1.576e-02  1.532e-02  1.046e-02  8.991e-05
-Restart file written for report step:  21/120.  Date: 2016/09/30
    1  6.798e-07  3.140e-09  1.120e-05  1.287e-08  1.003e-03  4.120e-05  7.393e-03  1.968e-06
+Restart file written for report step:  21/120.  Date: 2016/09/30
    2  6.299e-06  4.161e-11  4.408e-06  3.564e-12  3.845e-05  1.515e-08  3.216e-05  6.556e-10
    3  2.684e-08  2.234e-11  1.968e-08  1.030e-13  3.507e-07  3.795e-09  2.811e-07  1.813e-11
 Keyword 'BASIC' is unhandled for output to file.
@@ -2870,7 +2870,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  11 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 638 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 669 (days)
@@ -2887,7 +2887,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   22    31 Oct 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009951 seconds; total solver time 0.274253 seconds.
+Time step took 0.005608 seconds; total solver time 0.164985 seconds.
 
 
 ---------------    Simulation step number 22    ---------------
@@ -2987,7 +2987,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 12
-Time step summary: newton its =  3, linearizations =  4 ( 0.006 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 669 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 699 (days)
@@ -3004,7 +3004,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   23    30 Nov 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011363 seconds; total solver time 0.285616 seconds.
+Time step took 0.005836 seconds; total solver time 0.170822 seconds.
 
 
 ---------------    Simulation step number 23    ---------------
@@ -3104,7 +3104,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 13
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  13 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 Sub steps started at time = 699 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 730 (days)
@@ -3121,7 +3121,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   24    31 Dec 2016  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.008767 seconds; total solver time 0.294384 seconds.
+Time step took 0.005987 seconds; total solver time 0.176809 seconds.
 
 
 ---------------    Simulation step number 24    ---------------
@@ -3137,8 +3137,8 @@ Time step 0, stepsize 31 days, at day 730/761, date = 31-Dec-2016
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.174e-03  1.070e-04  1.873e-03  5.410e-07  1.518e-02  1.390e-02  1.015e-02  7.291e-05
-Restart file written for report step:  24/120.  Date: 2016/12/31
    1  3.513e-06  1.985e-08  1.279e-05  1.381e-08  1.269e-03  2.936e-05  7.324e-03  2.371e-06
+Restart file written for report step:  24/120.  Date: 2016/12/31
    2  3.442e-06  4.750e-11  3.013e-06  3.482e-12  2.568e-05  9.322e-09  3.445e-05  6.149e-10
    3  5.256e-09  2.279e-12  3.414e-09  1.114e-14  7.699e-08  3.820e-10  9.043e-08  1.873e-12
 Keyword 'BASIC' is unhandled for output to file.
@@ -3221,7 +3221,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 13
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  13 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 Sub steps started at time = 730 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 761 (days)
@@ -3238,7 +3238,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   25    31 Jan 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011536 seconds; total solver time 0.305919 seconds.
+Time step took 0.006039 seconds; total solver time 0.182848 seconds.
 
 
 ---------------    Simulation step number 25    ---------------
@@ -3255,8 +3255,8 @@ Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.031e-03  9.726e-05  1.736e-03  4.948e-07  1.444e-02  1.345e-02  9.874e-03  6.082e-05
    1  2.832e-06  1.495e-08  4.288e-06  1.101e-08  1.191e-03  1.463e-05  6.047e-03  1.946e-06
-Restart file written for report step:  25/120.  Date: 2017/01/31
    2  1.647e-07  8.869e-10  3.046e-07  2.032e-12  2.302e-05  1.424e-07  1.629e-05  6.695e-10
+Restart file written for report step:  25/120.  Date: 2017/01/31
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
@@ -3354,7 +3354,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   26    28 Feb 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.006821 seconds; total solver time 0.312740 seconds.
+Time step took 0.004747 seconds; total solver time 0.187595 seconds.
 
 
 ---------------    Simulation step number 26    ---------------
@@ -3372,8 +3372,8 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    0  1.112e-03  1.083e-04  1.971e-03  5.540e-07  1.662e-02  1.571e-02  1.157e-02  6.452e-05
    1  8.283e-08  1.451e-08  9.433e-06  1.347e-08  3.022e-03  1.749e-05  6.501e-03  2.417e-06
    2  2.269e-06  9.229e-10  1.508e-06  3.534e-12  2.997e-05  1.525e-07  2.612e-04  7.721e-10
-   3  1.744e-08  3.752e-11  1.754e-08  1.840e-13  6.553e-07  6.129e-09  5.407e-07  3.050e-11
 Restart file written for report step:  26/120.  Date: 2017/02/28
+   3  1.744e-08  3.752e-11  1.754e-08  1.840e-13  6.553e-07  6.129e-09  5.407e-07  3.050e-11
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
@@ -3454,7 +3454,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 12
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 789 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 820 (days)
@@ -3471,7 +3471,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   27    31 Mar 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.007328 seconds; total solver time 0.320068 seconds.
+Time step took 0.005838 seconds; total solver time 0.193432 seconds.
 
 
 ---------------    Simulation step number 27    ---------------
@@ -3526,6 +3526,13 @@ Keyword 'WELLS' is unhandled for output to file.
 :        :           :    :  STB/DAY  :  STB/DAY  :  MSCF/DAY :  RB/DAY   :           : MSCF/STB :  STB/MSCF  :  PSIA  :  PSIA  :
 =================================================================================================================================
 
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  STB/DAY  :  STB/DAY  :  MSCF/DAY :  RB/DAY   :           : MSCF/STB :  STB/MSCF  :  PSIA  :  PSIA  :
+=================================================================================================================================
+
+Restart file written for report step:  27/120.  Date: 2017/03/31
 :   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
 :--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
 
@@ -3568,7 +3575,6 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1969.9:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  27/120.  Date: 2017/03/31
 Overall linear iterations used: 8
 Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =   8 ( 0.001 sec)
 Sub steps started at time = 820 (days)
@@ -3587,7 +3593,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   28    30 Apr 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.006525 seconds; total solver time 0.326593 seconds.
+Time step took 0.005189 seconds; total solver time 0.198621 seconds.
 
 
 ---------------    Simulation step number 28    ---------------
@@ -3687,7 +3693,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 12
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 850 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 881 (days)
@@ -3704,7 +3710,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   29    31 May 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.007544 seconds; total solver time 0.334137 seconds.
+Time step took 0.005756 seconds; total solver time 0.204377 seconds.
 
 
 ---------------    Simulation step number 29    ---------------
@@ -3722,6 +3728,7 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    0  9.896e-04  1.067e-04  2.072e-03  5.553e-07  1.750e-02  1.738e-02  1.286e-02  7.483e-05
    1  2.459e-06  1.124e-08  1.106e-05  1.138e-08  5.783e-04  7.335e-06  3.874e-03  2.128e-06
    2  2.079e-06  4.883e-10  2.060e-06  2.618e-12  1.365e-05  7.175e-08  2.058e-05  3.679e-10
+Restart file written for report step:  29/120.  Date: 2017/05/31
    3  5.418e-09  2.018e-12  5.645e-09  1.202e-14  9.225e-08  4.711e-10  1.199e-07  2.416e-12
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
@@ -3803,7 +3810,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 13
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  13 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 Sub steps started at time = 881 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 911 (days)
@@ -3814,14 +3821,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  29/120.  Date: 2017/05/31
 
                               **************************************************************************
   Balance  at       911  Days *                 SPE1 - CASE 1                                          *
   Report   30    30 Jun 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011564 seconds; total solver time 0.345700 seconds.
+Time step took 0.005675 seconds; total solver time 0.210052 seconds.
 
 
 ---------------    Simulation step number 30    ---------------
@@ -3919,8 +3925,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2143.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  30/120.  Date: 2017/06/30
 Overall linear iterations used: 14
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  14 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 Sub steps started at time = 911 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 942 (days)
@@ -3931,14 +3938,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  30/120.  Date: 2017/06/30
 
                               **************************************************************************
   Balance  at       942  Days *                 SPE1 - CASE 1                                          *
   Report   31    31 Jul 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.007745 seconds; total solver time 0.353445 seconds.
+Time step took 0.005948 seconds; total solver time 0.216000 seconds.
 
 
 ---------------    Simulation step number 31    ---------------
@@ -3956,7 +3962,6 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    0  9.632e-04  1.114e-04  2.264e-03  5.867e-07  1.849e-02  1.902e-02  1.414e-02  8.429e-05
    1  1.491e-06  1.069e-08  1.106e-05  1.098e-08  3.700e-03  3.533e-06  1.521e-02  2.090e-06
    2  2.847e-06  1.376e-09  3.140e-06  1.604e-11  2.206e-05  2.587e-07  3.711e-04  1.764e-09
-Restart file written for report step:  31/120.  Date: 2017/07/31
    3  7.268e-08  6.452e-11  8.844e-08  3.166e-13  1.044e-06  1.135e-08  1.362e-06  5.880e-11
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
@@ -4037,8 +4042,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2202.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  31/120.  Date: 2017/07/31
 Overall linear iterations used: 12
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 942 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 973 (days)
@@ -4055,7 +4061,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   32    31 Aug 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.007409 seconds; total solver time 0.360854 seconds.
+Time step took 0.005981 seconds; total solver time 0.221981 seconds.
 
 
 ---------------    Simulation step number 32    ---------------
@@ -4072,8 +4078,8 @@ Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  9.049e-04  1.083e-04  2.253e-03  5.740e-07  1.771e-02  1.871e-02  1.387e-02  8.413e-05
    1  2.039e-06  8.592e-09  1.001e-05  9.638e-09  6.241e-04  2.179e-06  2.973e-03  1.840e-06
-Restart file written for report step:  32/120.  Date: 2017/08/31
    2  1.215e-06  2.423e-10  1.397e-06  3.394e-13  1.145e-05  5.559e-08  1.259e-05  2.963e-10
+Restart file written for report step:  32/120.  Date: 2017/08/31
    3  2.353e-09  2.146e-12  2.999e-09  9.395e-15  2.894e-08  2.982e-10  4.037e-08  1.545e-12
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
@@ -4155,7 +4161,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 14
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  14 ( 0.006 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 Sub steps started at time = 973 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1003 (days)
@@ -4172,7 +4178,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   33    30 Sep 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.012168 seconds; total solver time 0.373022 seconds.
+Time step took 0.006255 seconds; total solver time 0.228235 seconds.
 
 
 ---------------    Simulation step number 33    ---------------
@@ -4269,6 +4275,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2320.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  33/120.  Date: 2017/09/30
 Overall linear iterations used: 9
 Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =   9 ( 0.001 sec)
 Sub steps started at time = 1003 (days)
@@ -4281,14 +4288,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  33/120.  Date: 2017/09/30
 
                               **************************************************************************
   Balance  at      1034  Days *                 SPE1 - CASE 1                                          *
   Report   34    31 Oct 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011154 seconds; total solver time 0.384176 seconds.
+Time step took 0.004949 seconds; total solver time 0.233185 seconds.
 
 
 ---------------    Simulation step number 34    ---------------
@@ -4307,6 +4313,7 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    1  2.239e-06  1.064e-09  9.134e-06  8.303e-09  1.856e-03  4.714e-06  2.333e-03  1.569e-06
    2  9.818e-07  9.084e-10  1.284e-06  7.703e-12  9.659e-06  2.937e-07  5.616e-04  1.378e-09
    3  1.620e-07  5.410e-09  2.158e-07  2.872e-11  1.130e-06  1.324e-06  4.795e-06  7.018e-09
+Restart file written for report step:  34/120.  Date: 2017/10/31
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
@@ -4387,7 +4394,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 1034 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1064 (days)
@@ -4398,14 +4405,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  34/120.  Date: 2017/10/31
 
                               **************************************************************************
   Balance  at      1064  Days *                 SPE1 - CASE 1                                          *
   Report   35    30 Nov 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.012682 seconds; total solver time 0.396858 seconds.
+Time step took 0.005802 seconds; total solver time 0.238987 seconds.
 
 
 ---------------    Simulation step number 35    ---------------
@@ -4502,6 +4508,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2439.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  35/120.  Date: 2017/11/30
 Overall linear iterations used: 10
 Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  10 ( 0.001 sec)
 Sub steps started at time = 1064 (days)
@@ -4514,14 +4521,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  35/120.  Date: 2017/11/30
 
                               **************************************************************************
   Balance  at      1095  Days *                 SPE1 - CASE 1                                          *
   Report   36    31 Dec 2017  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009832 seconds; total solver time 0.406690 seconds.
+Time step took 0.005144 seconds; total solver time 0.244130 seconds.
 
 
 ---------------    Simulation step number 36    ---------------
@@ -4537,7 +4543,6 @@ Time step 0, stepsize 31 days, at day 1095/1126, date = 31-Dec-2017
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  8.217e-04  1.138e-04  2.616e-03  6.182e-07  1.749e-02  1.943e-02  1.436e-02  9.238e-05
-Restart file written for report step:  36/120.  Date: 2017/12/31
    1  3.437e-06  1.788e-09  9.612e-06  7.993e-09  4.584e-04  3.456e-06  1.425e-03  1.469e-06
    2  1.423e-07  3.007e-10  2.275e-07  6.375e-13  3.422e-06  4.588e-08  5.540e-06  2.542e-10
 Keyword 'BASIC' is unhandled for output to file.
@@ -4619,8 +4624,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2500.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  36/120.  Date: 2017/12/31
 Overall linear iterations used: 11
-Time step summary: newton its =  2, linearizations =  3 ( 0.009 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 1095 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1126 (days)
@@ -4637,7 +4643,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   37    31 Jan 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014029 seconds; total solver time 0.420719 seconds.
+Time step took 0.004995 seconds; total solver time 0.249125 seconds.
 
 
 ---------------    Simulation step number 37    ---------------
@@ -4654,7 +4660,6 @@ Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  7.160e-04  1.031e-04  2.430e-03  5.641e-07  1.545e-02  1.741e-02  1.276e-02  8.395e-05
    1  2.149e-06  3.119e-09  8.282e-06  6.134e-09  2.634e-04  3.746e-06  6.830e-04  1.105e-06
-Restart file written for report step:  37/120.  Date: 2018/01/31
    2  1.000e-07  1.433e-10  2.424e-07  7.471e-13  2.365e-06  2.204e-08  4.253e-06  1.198e-10
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
@@ -4735,8 +4740,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2561.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  37/120.  Date: 2018/01/31
 Overall linear iterations used: 10
-Time step summary: newton its =  2, linearizations =  3 ( 0.008 sec), linear its =  10 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  10 ( 0.001 sec)
 Sub steps started at time = 1126 (days)
  step[ 0 ] = 28 (days)
 sub steps end time = 1154 (days)
@@ -4753,7 +4759,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   38    28 Feb 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.013235 seconds; total solver time 0.433954 seconds.
+Time step took 0.004936 seconds; total solver time 0.254062 seconds.
 
 
 ---------------    Simulation step number 38    ---------------
@@ -4850,8 +4856,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2617.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  38/120.  Date: 2018/02/28
 Overall linear iterations used: 8
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =   8 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =   8 ( 0.001 sec)
 Sub steps started at time = 1154 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1185 (days)
@@ -4862,14 +4869,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  38/120.  Date: 2018/02/28
 
                               **************************************************************************
   Balance  at      1185  Days *                 SPE1 - CASE 1                                          *
   Report   39    31 Mar 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.015958 seconds; total solver time 0.449911 seconds.
+Time step took 0.004865 seconds; total solver time 0.258927 seconds.
 
 
 ---------------    Simulation step number 39    ---------------
@@ -4966,9 +4972,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2678.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  39/120.  Date: 2018/03/31
 Overall linear iterations used: 9
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =   9 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =   9 ( 0.001 sec)
 Sub steps started at time = 1185 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1215 (days)
@@ -4979,13 +4984,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  39/120.  Date: 2018/03/31
 
                               **************************************************************************
   Balance  at      1215  Days *                 SPE1 - CASE 1                                          *
   Report   40    30 Apr 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.006454 seconds; total solver time 0.456365 seconds.
+Time step took 0.007105 seconds; total solver time 0.266032 seconds.
 
 
 ---------------    Simulation step number 40    ---------------
@@ -5084,7 +5090,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 16
-Time step summary: newton its =  3, linearizations =  4 ( 0.006 sec), linear its =  16 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  16 ( 0.001 sec)
 Sub steps started at time = 1215 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1246 (days)
@@ -5102,7 +5108,7 @@ Restart file written for report step:  40/120.  Date: 2018/04/30
   Report   41    31 May 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.012203 seconds; total solver time 0.468569 seconds.
+Time step took 0.006530 seconds; total solver time 0.272562 seconds.
 
 
 ---------------    Simulation step number 41    ---------------
@@ -5120,7 +5126,6 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    0  6.545e-04  1.110e-04  2.941e-03  6.236e-07  1.448e-02  1.630e-02  1.141e-02  8.340e-05
    1  3.772e-06  1.868e-08  1.354e-05  6.275e-09  1.263e-03  2.702e-05  2.929e-03  8.656e-07
    2  3.099e-07  2.249e-10  5.726e-07  8.350e-13  2.909e-06  3.586e-08  7.485e-06  9.316e-11
-Restart file written for report step:  41/120.  Date: 2018/05/31
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
@@ -5200,8 +5205,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2799.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  41/120.  Date: 2018/05/31
 Overall linear iterations used: 12
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 1246 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1276 (days)
@@ -5218,7 +5224,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   42    30 Jun 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.015180 seconds; total solver time 0.483749 seconds.
+Time step took 0.005158 seconds; total solver time 0.277721 seconds.
 
 
 ---------------    Simulation step number 42    ---------------
@@ -5235,7 +5241,6 @@ Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  6.489e-04  1.145e-04  3.129e-03  6.472e-07  1.413e-02  1.576e-02  1.092e-02  8.214e-05
    1  3.676e-06  1.429e-08  1.350e-05  6.864e-09  9.836e-04  2.492e-05  2.421e-03  8.085e-07
-Restart file written for report step:  42/120.  Date: 2018/06/30
    2  2.209e-07  1.574e-10  4.161e-07  3.711e-13  2.243e-06  2.084e-08  3.442e-06  3.073e-10
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
@@ -5316,6 +5321,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2858.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  42/120.  Date: 2018/06/30
 Overall linear iterations used: 13
 Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 Sub steps started at time = 1276 (days)
@@ -5334,7 +5340,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   43    31 Jul 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.008496 seconds; total solver time 0.492245 seconds.
+Time step took 0.005099 seconds; total solver time 0.282820 seconds.
 
 
 ---------------    Simulation step number 43    ---------------
@@ -5351,7 +5357,6 @@ Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  6.215e-04  1.141e-04  3.216e-03  6.498e-07  1.321e-02  1.459e-02  1.002e-02  7.760e-05
    1  9.872e-07  1.586e-08  1.233e-05  7.221e-09  6.926e-04  2.656e-05  2.295e-03  9.163e-07
-Restart file written for report step:  43/120.  Date: 2018/07/31
    2  9.760e-08  1.070e-11  1.379e-07  6.579e-13  2.606e-06  2.822e-08  7.548e-06  4.305e-10
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
@@ -5432,8 +5437,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2919.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  43/120.  Date: 2018/07/31
 Overall linear iterations used: 14
-Time step summary: newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  14 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 Sub steps started at time = 1307 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1338 (days)
@@ -5450,7 +5456,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   44    31 Aug 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.008902 seconds; total solver time 0.501147 seconds.
+Time step took 0.005386 seconds; total solver time 0.288206 seconds.
 
 
 ---------------    Simulation step number 44    ---------------
@@ -5468,7 +5474,6 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    0  5.778e-04  1.099e-04  3.198e-03  6.305e-07  1.150e-02  1.273e-02  8.584e-03  6.930e-05
    1  2.316e-06  1.404e-08  3.634e-05  7.276e-09  4.354e-04  2.453e-05  9.750e-03  1.071e-06
    2  4.476e-07  5.068e-10  7.340e-07  2.484e-12  8.529e-06  6.348e-08  1.692e-05  4.281e-10
-Restart file written for report step:  44/120.  Date: 2018/08/31
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
@@ -5549,7 +5554,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 1338 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1368 (days)
@@ -5560,13 +5565,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  44/120.  Date: 2018/08/31
 
                               **************************************************************************
   Balance  at      1368  Days *                 SPE1 - CASE 1                                          *
   Report   45    30 Sep 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010302 seconds; total solver time 0.511449 seconds.
+Time step took 0.005057 seconds; total solver time 0.293263 seconds.
 
 
 ---------------    Simulation step number 45    ---------------
@@ -5664,7 +5670,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 13
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  13 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 Sub steps started at time = 1368 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1399 (days)
@@ -5682,7 +5688,7 @@ Restart file written for report step:  45/120.  Date: 2018/09/30
   Report   46    31 Oct 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.008710 seconds; total solver time 0.520158 seconds.
+Time step took 0.005025 seconds; total solver time 0.298288 seconds.
 
 
 ---------------    Simulation step number 46    ---------------
@@ -5697,7 +5703,6 @@ Report step 46/120 at day 1399/3650, date = 31-Oct-2018
 Time step 0, stepsize 30 days, at day 1399/1429, date = 31-Oct-2018
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
-Restart file written for report step:  46/120.  Date: 2018/10/31
    0  5.373e-04  1.084e-04  3.424e-03  6.310e-07  8.821e-03  9.512e-03  9.472e-03  5.512e-05
    1  2.191e-06  1.549e-08  1.039e-05  8.901e-09  3.354e-04  2.093e-05  2.076e-03  1.553e-06
    2  1.647e-07  6.620e-11  4.116e-07  2.410e-12  2.166e-06  1.690e-08  6.954e-06  5.551e-10
@@ -5781,7 +5786,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 1399 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1429 (days)
@@ -5792,13 +5797,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  46/120.  Date: 2018/10/31
 
                               **************************************************************************
   Balance  at      1429  Days *                 SPE1 - CASE 1                                          *
   Report   47    30 Nov 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014920 seconds; total solver time 0.535078 seconds.
+Time step took 0.006905 seconds; total solver time 0.305193 seconds.
 
 
 ---------------    Simulation step number 47    ---------------
@@ -5896,7 +5902,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 12
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 1429 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1460 (days)
@@ -5914,7 +5920,7 @@ Restart file written for report step:  47/120.  Date: 2018/11/30
   Report   48    31 Dec 2018  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009393 seconds; total solver time 0.544471 seconds.
+Time step took 0.007564 seconds; total solver time 0.312757 seconds.
 
 
 ---------------    Simulation step number 48    ---------------
@@ -5925,7 +5931,6 @@ Time step took 0.009393 seconds; total solver time 0.544471 seconds.
 
 
 Report step 48/120 at day 1460/3650, date = 31-Dec-2018
-Restart file written for report step:  48/120.  Date: 2018/12/31
 
 Time step 0, stepsize 31 days, at day 1460/1491, date = 31-Dec-2018
 Well equation solution gets converged with 0 iterations
@@ -6013,7 +6018,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 11
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  11 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 1460 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1491 (days)
@@ -6024,13 +6029,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  48/120.  Date: 2018/12/31
 
                               **************************************************************************
   Balance  at      1491  Days *                 SPE1 - CASE 1                                          *
   Report   49    31 Jan 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.006790 seconds; total solver time 0.551261 seconds.
+Time step took 0.007111 seconds; total solver time 0.319867 seconds.
 
 
 ---------------    Simulation step number 49    ---------------
@@ -6128,8 +6134,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3275.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  49/120.  Date: 2019/01/31
 Overall linear iterations used: 12
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 1491 (days)
  step[ 0 ] = 28 (days)
 sub steps end time = 1519 (days)
@@ -6140,14 +6147,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  49/120.  Date: 2019/01/31
 
                               **************************************************************************
   Balance  at      1519  Days *                 SPE1 - CASE 1                                          *
   Report   50    28 Feb 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011870 seconds; total solver time 0.563131 seconds.
+Time step took 0.005894 seconds; total solver time 0.325761 seconds.
 
 
 ---------------    Simulation step number 50    ---------------
@@ -6160,7 +6166,6 @@ Time step took 0.011870 seconds; total solver time 0.563131 seconds.
 Report step 50/120 at day 1519/3650, date = 28-Feb-2019
 
 Time step 0, stepsize 31 days, at day 1519/1550, date = 28-Feb-2019
-Restart file written for report step:  50/120.  Date: 2019/02/28
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  4.795e-04  1.113e-04  3.924e-03  6.685e-07  8.557e-03  1.031e-02  1.208e-02  6.390e-05
@@ -6246,8 +6251,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3328.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  50/120.  Date: 2019/02/28
 Overall linear iterations used: 14
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  14 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 Sub steps started at time = 1519 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1550 (days)
@@ -6264,7 +6270,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   51    31 Mar 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.017156 seconds; total solver time 0.580287 seconds.
+Time step took 0.006111 seconds; total solver time 0.331873 seconds.
 
 
 ---------------    Simulation step number 51    ---------------
@@ -6282,7 +6288,6 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    0  4.454e-04  1.080e-04  3.900e-03  6.544e-07  8.033e-03  1.018e-02  1.194e-02  6.380e-05
    1  1.337e-05  2.217e-08  2.913e-05  8.965e-09  1.279e-03  8.013e-05  1.462e-02  1.721e-06
    2  2.858e-07  7.819e-10  2.523e-06  1.035e-11  1.570e-05  1.379e-07  5.600e-05  1.420e-09
-Restart file written for report step:  51/120.  Date: 2019/03/31
    3  2.235e-09  4.711e-12  1.365e-08  1.932e-14  4.287e-08  4.105e-10  2.383e-07  2.495e-12
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
@@ -6363,8 +6368,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3388.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  51/120.  Date: 2019/03/31
 Overall linear iterations used: 15
-Time step summary: newton its =  3, linearizations =  4 ( 0.005 sec), linear its =  15 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  15 ( 0.001 sec)
 Sub steps started at time = 1550 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1580 (days)
@@ -6381,7 +6387,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   52    30 Apr 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011929 seconds; total solver time 0.592216 seconds.
+Time step took 0.005954 seconds; total solver time 0.337827 seconds.
 
 
 ---------------    Simulation step number 52    ---------------
@@ -6395,7 +6401,6 @@ Report step 52/120 at day 1580/3650, date = 30-Apr-2019
 
 Time step 0, stepsize 31 days, at day 1580/1611, date = 30-Apr-2019
 Well equation solution gets converged with 0 iterations
-Restart file written for report step:  52/120.  Date: 2019/04/30
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  4.415e-04  1.119e-04  4.145e-03  6.842e-07  8.283e-03  1.063e-02  1.252e-02  6.751e-05
    1  3.414e-05  2.233e-08  8.969e-05  9.129e-09  6.264e-04  2.294e-06  6.174e-03  1.472e-06
@@ -6480,7 +6485,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 13
-Time step summary: newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  13 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 Sub steps started at time = 1580 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1611 (days)
@@ -6491,13 +6496,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  52/120.  Date: 2019/04/30
 
                               **************************************************************************
   Balance  at      1611  Days *                 SPE1 - CASE 1                                          *
   Report   53    31 May 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014430 seconds; total solver time 0.606646 seconds.
+Time step took 0.005687 seconds; total solver time 0.343513 seconds.
 
 
 ---------------    Simulation step number 53    ---------------
@@ -6596,7 +6602,7 @@ Keyword 'WELLS' is unhandled for output to file.
 
 Restart file written for report step:  53/120.  Date: 2019/05/31
 Overall linear iterations used: 12
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 1611 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1641 (days)
@@ -6613,7 +6619,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   54    30 Jun 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009372 seconds; total solver time 0.616018 seconds.
+Time step took 0.006222 seconds; total solver time 0.349735 seconds.
 
 
 ---------------    Simulation step number 54    ---------------
@@ -6624,7 +6630,6 @@ Time step took 0.009372 seconds; total solver time 0.616018 seconds.
 
 
 Report step 54/120 at day 1641/3650, date = 30-Jun-2019
-Restart file written for report step:  54/120.  Date: 2019/06/30
 
 Time step 0, stepsize 31 days, at day 1641/1672, date = 30-Jun-2019
 Well equation solution gets converged with 0 iterations
@@ -6712,8 +6717,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3564.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  54/120.  Date: 2019/06/30
 Overall linear iterations used: 16
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  16 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  16 ( 0.002 sec)
 Sub steps started at time = 1641 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1672 (days)
@@ -6730,7 +6736,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   55    31 Jul 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010110 seconds; total solver time 0.626128 seconds.
+Time step took 0.007135 seconds; total solver time 0.356870 seconds.
 
 
 ---------------    Simulation step number 55    ---------------
@@ -6828,7 +6834,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 12
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 1672 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1703 (days)
@@ -6846,7 +6852,7 @@ Restart file written for report step:  55/120.  Date: 2019/07/31
   Report   56    31 Aug 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010359 seconds; total solver time 0.636487 seconds.
+Time step took 0.006173 seconds; total solver time 0.363043 seconds.
 
 
 ---------------    Simulation step number 56    ---------------
@@ -6864,7 +6870,6 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    0  3.553e-04  1.100e-04  4.396e-03  7.000e-07  9.681e-03  1.050e-02  1.201e-02  7.091e-05
    1  5.332e-06  2.850e-08  2.379e-05  8.119e-09  1.278e-04  3.349e-06  2.031e-02  1.120e-06
    2  3.288e-07  4.940e-10  4.988e-06  1.565e-12  2.792e-06  3.863e-08  4.134e-05  1.588e-10
-Restart file written for report step:  56/120.  Date: 2019/08/31
    3  5.475e-11  7.683e-12  1.021e-08  3.875e-14  5.447e-08  8.836e-10  3.552e-07  3.557e-12
 Keyword 'BASIC' is unhandled for output to file.
 Keyword 'PRES' is unhandled for output to file.
@@ -6946,7 +6951,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 15
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  15 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  15 ( 0.001 sec)
 Sub steps started at time = 1703 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1733 (days)
@@ -6957,13 +6962,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  56/120.  Date: 2019/08/31
 
                               **************************************************************************
   Balance  at      1733  Days *                 SPE1 - CASE 1                                          *
   Report   57    30 Sep 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011583 seconds; total solver time 0.648070 seconds.
+Time step took 0.006055 seconds; total solver time 0.369098 seconds.
 
 
 ---------------    Simulation step number 57    ---------------
@@ -7060,9 +7066,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3744.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  57/120.  Date: 2019/09/30
 Overall linear iterations used: 12
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 1733 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1764 (days)
@@ -7073,13 +7078,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  57/120.  Date: 2019/09/30
 
                               **************************************************************************
   Balance  at      1764  Days *                 SPE1 - CASE 1                                          *
   Report   58    31 Oct 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.007979 seconds; total solver time 0.656050 seconds.
+Time step took 0.006269 seconds; total solver time 0.375367 seconds.
 
 
 ---------------    Simulation step number 58    ---------------
@@ -7176,9 +7182,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3806.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  58/120.  Date: 2019/10/31
 Overall linear iterations used: 11
-Time step summary: newton its =  2, linearizations =  3 ( 0.004 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 Sub steps started at time = 1764 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1794 (days)
@@ -7189,13 +7194,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  58/120.  Date: 2019/10/31
 
                               **************************************************************************
   Balance  at      1794  Days *                 SPE1 - CASE 1                                          *
   Report   59    30 Nov 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.008747 seconds; total solver time 0.664796 seconds.
+Time step took 0.006556 seconds; total solver time 0.381923 seconds.
 
 
 ---------------    Simulation step number 59    ---------------
@@ -7293,7 +7299,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 14
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  14 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 Sub steps started at time = 1794 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1825 (days)
@@ -7311,7 +7317,7 @@ Restart file written for report step:  59/120.  Date: 2019/11/30
   Report   60    31 Dec 2019  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.008260 seconds; total solver time 0.673056 seconds.
+Time step took 0.006403 seconds; total solver time 0.388326 seconds.
 
 
 ---------------    Simulation step number 60    ---------------
@@ -7409,7 +7415,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 12
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 1825 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1856 (days)
@@ -7427,7 +7433,7 @@ Restart file written for report step:  60/120.  Date: 2019/12/31
   Report   61    31 Jan 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.008969 seconds; total solver time 0.682025 seconds.
+Time step took 0.006425 seconds; total solver time 0.394751 seconds.
 
 
 ---------------    Simulation step number 61    ---------------
@@ -7525,7 +7531,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 12
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 Sub steps started at time = 1856 (days)
  step[ 0 ] = 28 (days)
 sub steps end time = 1884 (days)
@@ -7543,7 +7549,7 @@ Restart file written for report step:  61/120.  Date: 2020/01/31
   Report   62    28 Feb 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.012331 seconds; total solver time 0.694356 seconds.
+Time step took 0.006537 seconds; total solver time 0.401288 seconds.
 
 
 ---------------    Simulation step number 62    ---------------
@@ -7641,9 +7647,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4045.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  62/120.  Date: 2020/02/28
 Overall linear iterations used: 21
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  21 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  21 ( 0.002 sec)
 Sub steps started at time = 1884 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1915 (days)
@@ -7654,13 +7659,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  62/120.  Date: 2020/02/28
 
                               **************************************************************************
   Balance  at      1915  Days *                 SPE1 - CASE 1                                          *
   Report   63    30 Mar 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010647 seconds; total solver time 0.705003 seconds.
+Time step took 0.006737 seconds; total solver time 0.408024 seconds.
 
 
 ---------------    Simulation step number 63    ---------------
@@ -7758,7 +7764,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 16
-Time step summary: newton its =  2, linearizations =  3 ( 0.004 sec), linear its =  16 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  16 ( 0.001 sec)
 Sub steps started at time = 1915 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 1945 (days)
@@ -7776,7 +7782,7 @@ Restart file written for report step:  63/120.  Date: 2020/03/30
   Report   64    29 Apr 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.013158 seconds; total solver time 0.718161 seconds.
+Time step took 0.007204 seconds; total solver time 0.415228 seconds.
 
 
 ---------------    Simulation step number 64    ---------------
@@ -7874,7 +7880,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 16
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  16 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  16 ( 0.001 sec)
 Sub steps started at time = 1945 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 1976 (days)
@@ -7892,7 +7898,7 @@ Restart file written for report step:  64/120.  Date: 2020/04/29
   Report   65    30 May 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.008932 seconds; total solver time 0.727092 seconds.
+Time step took 0.007323 seconds; total solver time 0.422552 seconds.
 
 
 ---------------    Simulation step number 65    ---------------
@@ -7990,7 +7996,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 17
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 Sub steps started at time = 1976 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2006 (days)
@@ -8008,7 +8014,7 @@ Restart file written for report step:  65/120.  Date: 2020/05/30
   Report   66    29 Jun 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009813 seconds; total solver time 0.736905 seconds.
+Time step took 0.006939 seconds; total solver time 0.429491 seconds.
 
 
 ---------------    Simulation step number 66    ---------------
@@ -8108,7 +8114,7 @@ Keyword 'WELLS' is unhandled for output to file.
 
 Restart file written for report step:  66/120.  Date: 2020/06/29
 Overall linear iterations used: 22
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  22 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  22 ( 0.002 sec)
 Sub steps started at time = 2006 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2037 (days)
@@ -8125,7 +8131,7 @@ Keyword 'WELLS' is unhandled for output to file.
   Report   67    30 Jul 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010849 seconds; total solver time 0.747754 seconds.
+Time step took 0.007651 seconds; total solver time 0.437142 seconds.
 
 
 ---------------    Simulation step number 67    ---------------
@@ -8223,8 +8229,9 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4356.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  67/120.  Date: 2020/07/30
 Overall linear iterations used: 23
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  23 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  23 ( 0.002 sec)
 Sub steps started at time = 2037 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2068 (days)
@@ -8235,14 +8242,13 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  67/120.  Date: 2020/07/30
 
                               **************************************************************************
   Balance  at      2068  Days *                 SPE1 - CASE 1                                          *
   Report   68    30 Aug 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010855 seconds; total solver time 0.758609 seconds.
+Time step took 0.008346 seconds; total solver time 0.445488 seconds.
 
 
 ---------------    Simulation step number 68    ---------------
@@ -8340,7 +8346,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 16
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  16 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  16 ( 0.002 sec)
 Sub steps started at time = 2068 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2098 (days)
@@ -8358,7 +8364,7 @@ Restart file written for report step:  68/120.  Date: 2020/08/30
   Report   69    29 Sep 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.013303 seconds; total solver time 0.771912 seconds.
+Time step took 0.007478 seconds; total solver time 0.452966 seconds.
 
 
 ---------------    Simulation step number 69    ---------------
@@ -8456,8 +8462,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 18
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  18 ( 0.002 sec)
-Restart file written for report step:  69/120.  Date: 2020/09/29
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 Sub steps started at time = 2098 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2129 (days)
@@ -8468,13 +8473,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  69/120.  Date: 2020/09/29
 
                               **************************************************************************
   Balance  at      2129  Days *                 SPE1 - CASE 1                                          *
   Report   70    30 Oct 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010096 seconds; total solver time 0.782008 seconds.
+Time step took 0.007359 seconds; total solver time 0.460325 seconds.
 
 
 ---------------    Simulation step number 70    ---------------
@@ -8572,7 +8578,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 Sub steps started at time = 2129 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2159 (days)
@@ -8590,7 +8596,7 @@ Restart file written for report step:  70/120.  Date: 2020/10/30
   Report   71    29 Nov 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.012550 seconds; total solver time 0.794558 seconds.
+Time step took 0.007658 seconds; total solver time 0.467982 seconds.
 
 
 ---------------    Simulation step number 71    ---------------
@@ -8688,7 +8694,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 23
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  23 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  23 ( 0.001 sec)
 Sub steps started at time = 2159 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2190 (days)
@@ -8706,7 +8712,7 @@ Restart file written for report step:  71/120.  Date: 2020/11/29
   Report   72    30 Dec 2020  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.008994 seconds; total solver time 0.803552 seconds.
+Time step took 0.007601 seconds; total solver time 0.475583 seconds.
 
 
 ---------------    Simulation step number 72    ---------------
@@ -8803,9 +8809,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4672.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  72/120.  Date: 2020/12/30
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.010 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 2190 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2221 (days)
@@ -8816,13 +8821,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  72/120.  Date: 2020/12/30
 
                               **************************************************************************
   Balance  at      2221  Days *                 SPE1 - CASE 1                                          *
   Report   73    30 Jan 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.019220 seconds; total solver time 0.822772 seconds.
+Time step took 0.007725 seconds; total solver time 0.483308 seconds.
 
 
 ---------------    Simulation step number 73    ---------------
@@ -8920,9 +8926,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4737.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  73/120.  Date: 2021/01/30
 Overall linear iterations used: 23
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  23 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  23 ( 0.002 sec)
 Sub steps started at time = 2221 (days)
  step[ 0 ] = 28 (days)
 sub steps end time = 2249 (days)
@@ -8933,13 +8938,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  73/120.  Date: 2021/01/30
 
                               **************************************************************************
   Balance  at      2249  Days *                 SPE1 - CASE 1                                          *
   Report   74    27 Feb 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009895 seconds; total solver time 0.832668 seconds.
+Time step took 0.007850 seconds; total solver time 0.491159 seconds.
 
 
 ---------------    Simulation step number 74    ---------------
@@ -9037,7 +9043,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 17
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 Sub steps started at time = 2249 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2280 (days)
@@ -9055,7 +9061,7 @@ Restart file written for report step:  74/120.  Date: 2021/02/27
   Report   75    30 Mar 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011047 seconds; total solver time 0.843714 seconds.
+Time step took 0.008429 seconds; total solver time 0.499588 seconds.
 
 
 ---------------    Simulation step number 75    ---------------
@@ -9153,7 +9159,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 18
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 Sub steps started at time = 2280 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2310 (days)
@@ -9171,7 +9177,7 @@ Restart file written for report step:  75/120.  Date: 2021/03/30
   Report   76    29 Apr 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.013808 seconds; total solver time 0.857522 seconds.
+Time step took 0.008308 seconds; total solver time 0.507896 seconds.
 
 
 ---------------    Simulation step number 76    ---------------
@@ -9270,7 +9276,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 22
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  22 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  22 ( 0.002 sec)
 Sub steps started at time = 2310 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2341 (days)
@@ -9288,7 +9294,7 @@ Restart file written for report step:  76/120.  Date: 2021/04/29
   Report   77    30 May 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.015457 seconds; total solver time 0.872979 seconds.
+Time step took 0.008101 seconds; total solver time 0.515997 seconds.
 
 
 ---------------    Simulation step number 77    ---------------
@@ -9307,8 +9313,6 @@ Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)
    1  2.201e-06  1.697e-08  1.428e-05  7.884e-09  2.277e-04  2.664e-06  7.474e-04  5.863e-07
    2  5.582e-07  1.118e-10  2.795e-07  9.471e-13  1.122e-04  2.280e-08  8.971e-06  1.781e-10
 Keyword 'BASIC' is unhandled for output to file.
-Keyword 'BASIC' is unhandled for output to file.
-Restart file written for report step:  77/120.  Date: 2021/05/30
 Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
@@ -9388,7 +9392,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 17
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.006 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 Sub steps started at time = 2341 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2371 (days)
@@ -9399,13 +9403,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  77/120.  Date: 2021/05/30
 
                               **************************************************************************
   Balance  at      2371  Days *                 SPE1 - CASE 1                                          *
   Report   78    29 Jun 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.012412 seconds; total solver time 0.885391 seconds.
+Time step took 0.008107 seconds; total solver time 0.524104 seconds.
 
 
 ---------------    Simulation step number 78    ---------------
@@ -9503,7 +9508,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 17
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 Sub steps started at time = 2371 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2402 (days)
@@ -9521,7 +9526,7 @@ Restart file written for report step:  78/120.  Date: 2021/06/29
   Report   79    30 Jul 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011004 seconds; total solver time 0.896395 seconds.
+Time step took 0.008246 seconds; total solver time 0.532349 seconds.
 
 
 ---------------    Simulation step number 79    ---------------
@@ -9619,7 +9624,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 Sub steps started at time = 2402 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2433 (days)
@@ -9637,7 +9642,7 @@ Restart file written for report step:  79/120.  Date: 2021/07/30
   Report   80    30 Aug 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009992 seconds; total solver time 0.906386 seconds.
+Time step took 0.008586 seconds; total solver time 0.540935 seconds.
 
 
 ---------------    Simulation step number 80    ---------------
@@ -9735,7 +9740,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 18
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 Sub steps started at time = 2433 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2463 (days)
@@ -9753,7 +9758,7 @@ Restart file written for report step:  80/120.  Date: 2021/08/30
   Report   81    29 Sep 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.009806 seconds; total solver time 0.916192 seconds.
+Time step took 0.008268 seconds; total solver time 0.549203 seconds.
 
 
 ---------------    Simulation step number 81    ---------------
@@ -9850,10 +9855,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5248.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  81/120.  Date: 2021/09/29
-Restart file written for report step:  81/120.  Date: 2021/09/29
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.002 sec)
 Sub steps started at time = 2463 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2494 (days)
@@ -9864,13 +9867,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  81/120.  Date: 2021/09/29
 
                               **************************************************************************
   Balance  at      2494  Days *                 SPE1 - CASE 1                                          *
   Report   82    30 Oct 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010181 seconds; total solver time 0.926373 seconds.
+Time step took 0.008656 seconds; total solver time 0.557858 seconds.
 
 
 ---------------    Simulation step number 82    ---------------
@@ -9968,7 +9972,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 Sub steps started at time = 2494 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2524 (days)
@@ -9986,7 +9990,7 @@ Restart file written for report step:  82/120.  Date: 2021/10/30
   Report   83    29 Nov 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010391 seconds; total solver time 0.936764 seconds.
+Time step took 0.008688 seconds; total solver time 0.566546 seconds.
 
 
 ---------------    Simulation step number 83    ---------------
@@ -10084,7 +10088,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 21
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  21 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.002 sec)
 Sub steps started at time = 2524 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2555 (days)
@@ -10102,7 +10106,7 @@ Restart file written for report step:  83/120.  Date: 2021/11/29
   Report   84    30 Dec 2021  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.010177 seconds; total solver time 0.946941 seconds.
+Time step took 0.009579 seconds; total solver time 0.576125 seconds.
 
 
 ---------------    Simulation step number 84    ---------------
@@ -10199,9 +10203,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5450.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  84/120.  Date: 2021/12/30
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 2555 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2586 (days)
@@ -10212,13 +10215,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  84/120.  Date: 2021/12/30
 
                               **************************************************************************
   Balance  at      2586  Days *                 SPE1 - CASE 1                                          *
   Report   85    30 Jan 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011047 seconds; total solver time 0.957988 seconds.
+Time step took 0.008899 seconds; total solver time 0.585024 seconds.
 
 
 ---------------    Simulation step number 85    ---------------
@@ -10316,7 +10320,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 2586 (days)
  step[ 0 ] = 28 (days)
 sub steps end time = 2614 (days)
@@ -10334,7 +10338,7 @@ Restart file written for report step:  85/120.  Date: 2022/01/30
   Report   86    27 Feb 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011292 seconds; total solver time 0.969281 seconds.
+Time step took 0.008859 seconds; total solver time 0.593883 seconds.
 
 
 ---------------    Simulation step number 86    ---------------
@@ -10432,7 +10436,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 2614 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2645 (days)
@@ -10450,7 +10454,7 @@ Restart file written for report step:  86/120.  Date: 2022/02/27
   Report   87    30 Mar 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011853 seconds; total solver time 0.981134 seconds.
+Time step took 0.009265 seconds; total solver time 0.603148 seconds.
 
 
 ---------------    Simulation step number 87    ---------------
@@ -10466,7 +10470,6 @@ Time step 0, stepsize 30 days, at day 2645/2675, date = 30-Mar-2022
 Well equation solution gets converged with 0 iterations
 Iter    MB(O)      MB(W)      MB(G)      MB(B)      CNV(O)     CNV(W)     CNV(G)     CNV(B) 
    0  1.628e-04  1.250e-04  3.657e-03  1.051e-06  5.739e-03  6.993e-03  7.784e-03  5.719e-05
-Restart file written for report step:  87/120.  Date: 2022/03/30
    1  1.619e-06  1.125e-08  6.856e-06  7.594e-09  1.807e-05  5.827e-06  1.740e-04  6.668e-07
    2  1.380e-09  1.264e-10  2.740e-07  4.954e-12  1.606e-07  1.271e-08  1.193e-06  4.105e-10
 Keyword 'BASIC' is unhandled for output to file.
@@ -10549,7 +10552,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.008 sec), linear its =  19 ( 0.005 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 2645 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2675 (days)
@@ -10560,13 +10563,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  87/120.  Date: 2022/03/30
 
                               **************************************************************************
   Balance  at      2675  Days *                 SPE1 - CASE 1                                          *
   Report   88    29 Apr 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.016297 seconds; total solver time 0.997431 seconds.
+Time step took 0.009070 seconds; total solver time 0.612218 seconds.
 
 
 ---------------    Simulation step number 88    ---------------
@@ -10664,7 +10668,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.005 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.002 sec)
 Sub steps started at time = 2675 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2706 (days)
@@ -10682,7 +10686,7 @@ Restart file written for report step:  88/120.  Date: 2022/04/29
   Report   89    30 May 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.012756 seconds; total solver time 1.010186 seconds.
+Time step took 0.009192 seconds; total solver time 0.621411 seconds.
 
 
 ---------------    Simulation step number 89    ---------------
@@ -10780,7 +10784,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 2706 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2736 (days)
@@ -10798,7 +10802,7 @@ Restart file written for report step:  89/120.  Date: 2022/05/30
   Report   90    29 Jun 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011173 seconds; total solver time 1.021360 seconds.
+Time step took 0.009313 seconds; total solver time 0.630724 seconds.
 
 
 ---------------    Simulation step number 90    ---------------
@@ -10896,7 +10900,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 21
-Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.001 sec)
 Sub steps started at time = 2736 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2767 (days)
@@ -10914,7 +10918,7 @@ Restart file written for report step:  90/120.  Date: 2022/06/29
   Report   91    30 Jul 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.013958 seconds; total solver time 1.035317 seconds.
+Time step took 0.009489 seconds; total solver time 0.640213 seconds.
 
 
 ---------------    Simulation step number 91    ---------------
@@ -11012,7 +11016,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 2767 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2798 (days)
@@ -11030,7 +11034,7 @@ Restart file written for report step:  91/120.  Date: 2022/07/30
   Report   92    30 Aug 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.015195 seconds; total solver time 1.050513 seconds.
+Time step took 0.009456 seconds; total solver time 0.649669 seconds.
 
 
 ---------------    Simulation step number 92    ---------------
@@ -11127,9 +11131,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5994.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  92/120.  Date: 2022/08/30
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.004 sec), linear its =  20 ( 0.004 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 Sub steps started at time = 2798 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2828 (days)
@@ -11140,13 +11143,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  92/120.  Date: 2022/08/30
 
                               **************************************************************************
   Balance  at      2828  Days *                 SPE1 - CASE 1                                          *
   Report   93    29 Sep 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.013255 seconds; total solver time 1.063767 seconds.
+Time step took 0.012520 seconds; total solver time 0.662189 seconds.
 
 
 ---------------    Simulation step number 93    ---------------
@@ -11244,7 +11248,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 17
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 Sub steps started at time = 2828 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2859 (days)
@@ -11262,7 +11266,7 @@ Restart file written for report step:  93/120.  Date: 2022/09/29
   Report   94    30 Oct 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.011972 seconds; total solver time 1.075740 seconds.
+Time step took 0.012104 seconds; total solver time 0.674292 seconds.
 
 
 ---------------    Simulation step number 94    ---------------
@@ -11360,7 +11364,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 18
-Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 Sub steps started at time = 2859 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 2889 (days)
@@ -11378,7 +11382,7 @@ Restart file written for report step:  94/120.  Date: 2022/10/30
   Report   95    29 Nov 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.017406 seconds; total solver time 1.093146 seconds.
+Time step took 0.009756 seconds; total solver time 0.684049 seconds.
 
 
 ---------------    Simulation step number 95    ---------------
@@ -11476,7 +11480,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.009 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 Sub steps started at time = 2889 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 2920 (days)
@@ -11494,7 +11498,7 @@ Restart file written for report step:  95/120.  Date: 2022/11/29
   Report   96    30 Dec 2022  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.019751 seconds; total solver time 1.112897 seconds.
+Time step took 0.009839 seconds; total solver time 0.693888 seconds.
 
 
 ---------------    Simulation step number 96    ---------------
@@ -11610,7 +11614,7 @@ Restart file written for report step:  96/120.  Date: 2022/12/30
   Report   97    30 Jan 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014644 seconds; total solver time 1.127542 seconds.
+Time step took 0.010071 seconds; total solver time 0.703959 seconds.
 
 
 ---------------    Simulation step number 97    ---------------
@@ -11726,7 +11730,7 @@ Restart file written for report step:  97/120.  Date: 2023/01/30
   Report   98    27 Feb 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.023338 seconds; total solver time 1.150879 seconds.
+Time step took 0.010367 seconds; total solver time 0.714326 seconds.
 
 
 ---------------    Simulation step number 98    ---------------
@@ -11824,7 +11828,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 21
-Time step summary: newton its =  2, linearizations =  3 ( 0.004 sec), linear its =  21 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.001 sec)
 Sub steps started at time = 2979 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3010 (days)
@@ -11842,7 +11846,7 @@ Restart file written for report step:  98/120.  Date: 2023/02/27
   Report   99    30 Mar 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014312 seconds; total solver time 1.165191 seconds.
+Time step took 0.010097 seconds; total solver time 0.724423 seconds.
 
 
 ---------------    Simulation step number 99    ---------------
@@ -11958,7 +11962,7 @@ Restart file written for report step:  99/120.  Date: 2023/03/30
   Report  100    29 Apr 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014448 seconds; total solver time 1.179639 seconds.
+Time step took 0.010641 seconds; total solver time 0.735064 seconds.
 
 
 ---------------    Simulation step number 100    ---------------
@@ -12056,7 +12060,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 Sub steps started at time = 3040 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3071 (days)
@@ -12074,7 +12078,7 @@ Restart file written for report step: 100/120.  Date: 2023/04/29
   Report  101    30 May 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014495 seconds; total solver time 1.194134 seconds.
+Time step took 0.012695 seconds; total solver time 0.747759 seconds.
 
 
 ---------------    Simulation step number 101    ---------------
@@ -12172,7 +12176,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 21
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  21 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.001 sec)
 Sub steps started at time = 3071 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 3101 (days)
@@ -12190,7 +12194,7 @@ Restart file written for report step: 101/120.  Date: 2023/05/30
   Report  102    29 Jun 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.024241 seconds; total solver time 1.218375 seconds.
+Time step took 0.010462 seconds; total solver time 0.758221 seconds.
 
 
 ---------------    Simulation step number 102    ---------------
@@ -12288,7 +12292,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.006 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.002 sec)
 Sub steps started at time = 3101 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3132 (days)
@@ -12306,7 +12310,7 @@ Restart file written for report step: 102/120.  Date: 2023/06/29
   Report  103    30 Jul 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.025434 seconds; total solver time 1.243809 seconds.
+Time step took 0.010575 seconds; total solver time 0.768796 seconds.
 
 
 ---------------    Simulation step number 103    ---------------
@@ -12403,9 +12407,8 @@ Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6764.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step: 103/120.  Date: 2023/07/30
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.010 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 3132 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3163 (days)
@@ -12416,13 +12419,14 @@ Keyword 'PRES' is unhandled for output to file.
 Keyword 'RS' is unhandled for output to file.
 Keyword 'SGAS' is unhandled for output to file.
 Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step: 103/120.  Date: 2023/07/30
 
                               **************************************************************************
   Balance  at      3163  Days *                 SPE1 - CASE 1                                          *
   Report  104    30 Aug 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.017945 seconds; total solver time 1.261755 seconds.
+Time step took 0.010764 seconds; total solver time 0.779560 seconds.
 
 
 ---------------    Simulation step number 104    ---------------
@@ -12520,7 +12524,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 3163 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 3193 (days)
@@ -12538,7 +12542,7 @@ Restart file written for report step: 104/120.  Date: 2023/08/30
   Report  105    29 Sep 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.019777 seconds; total solver time 1.281532 seconds.
+Time step took 0.014377 seconds; total solver time 0.793937 seconds.
 
 
 ---------------    Simulation step number 105    ---------------
@@ -12636,7 +12640,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 Sub steps started at time = 3193 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3224 (days)
@@ -12654,7 +12658,7 @@ Restart file written for report step: 105/120.  Date: 2023/09/29
   Report  106    30 Oct 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014863 seconds; total solver time 1.296395 seconds.
+Time step took 0.012601 seconds; total solver time 0.806538 seconds.
 
 
 ---------------    Simulation step number 106    ---------------
@@ -12752,7 +12756,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 Sub steps started at time = 3224 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 3254 (days)
@@ -12770,7 +12774,7 @@ Restart file written for report step: 106/120.  Date: 2023/10/30
   Report  107    29 Nov 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.014920 seconds; total solver time 1.311314 seconds.
+Time step took 0.011023 seconds; total solver time 0.817561 seconds.
 
 
 ---------------    Simulation step number 107    ---------------
@@ -12868,7 +12872,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 Sub steps started at time = 3254 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3285 (days)
@@ -12886,7 +12890,7 @@ Restart file written for report step: 107/120.  Date: 2023/11/29
   Report  108    30 Dec 2023  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.028431 seconds; total solver time 1.339746 seconds.
+Time step took 0.010892 seconds; total solver time 0.828453 seconds.
 
 
 ---------------    Simulation step number 108    ---------------
@@ -12984,7 +12988,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.007 sec), linear its =  19 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 3285 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3316 (days)
@@ -13002,7 +13006,7 @@ Restart file written for report step: 108/120.  Date: 2023/12/30
   Report  109    30 Jan 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.015118 seconds; total solver time 1.354864 seconds.
+Time step took 0.011012 seconds; total solver time 0.839466 seconds.
 
 
 ---------------    Simulation step number 109    ---------------
@@ -13100,7 +13104,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 18
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 Sub steps started at time = 3316 (days)
  step[ 0 ] = 28 (days)
 sub steps end time = 3344 (days)
@@ -13118,7 +13122,7 @@ Restart file written for report step: 109/120.  Date: 2024/01/30
   Report  110    27 Feb 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.020601 seconds; total solver time 1.375465 seconds.
+Time step took 0.011355 seconds; total solver time 0.850821 seconds.
 
 
 ---------------    Simulation step number 110    ---------------
@@ -13216,7 +13220,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 23
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  23 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  23 ( 0.002 sec)
 Sub steps started at time = 3344 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3375 (days)
@@ -13234,7 +13238,7 @@ Restart file written for report step: 110/120.  Date: 2024/02/27
   Report  111    29 Mar 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.016905 seconds; total solver time 1.392370 seconds.
+Time step took 0.011651 seconds; total solver time 0.862472 seconds.
 
 
 ---------------    Simulation step number 111    ---------------
@@ -13332,7 +13336,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 19
-Time step summary: newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 Sub steps started at time = 3375 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 3405 (days)
@@ -13350,7 +13354,7 @@ Restart file written for report step: 111/120.  Date: 2024/03/29
   Report  112    28 Apr 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.015573 seconds; total solver time 1.407943 seconds.
+Time step took 0.011351 seconds; total solver time 0.873823 seconds.
 
 
 ---------------    Simulation step number 112    ---------------
@@ -13448,7 +13452,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 22
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  22 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  22 ( 0.001 sec)
 Sub steps started at time = 3405 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3436 (days)
@@ -13466,7 +13470,7 @@ Restart file written for report step: 112/120.  Date: 2024/04/28
   Report  113    29 May 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.015486 seconds; total solver time 1.423428 seconds.
+Time step took 0.011639 seconds; total solver time 0.885462 seconds.
 
 
 ---------------    Simulation step number 113    ---------------
@@ -13565,7 +13569,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 28
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  28 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  28 ( 0.002 sec)
 Sub steps started at time = 3436 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 3466 (days)
@@ -13583,7 +13587,7 @@ Restart file written for report step: 113/120.  Date: 2024/05/29
   Report  114    28 Jun 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.016145 seconds; total solver time 1.439573 seconds.
+Time step took 0.011977 seconds; total solver time 0.897439 seconds.
 
 
 ---------------    Simulation step number 114    ---------------
@@ -13699,7 +13703,7 @@ Restart file written for report step: 114/120.  Date: 2024/06/28
   Report  115    29 Jul 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.016464 seconds; total solver time 1.456037 seconds.
+Time step took 0.012084 seconds; total solver time 0.909523 seconds.
 
 
 ---------------    Simulation step number 115    ---------------
@@ -13797,7 +13801,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 18
-Time step summary: newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 Sub steps started at time = 3497 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3528 (days)
@@ -13815,7 +13819,7 @@ Restart file written for report step: 115/120.  Date: 2024/07/29
   Report  116    29 Aug 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.015564 seconds; total solver time 1.471601 seconds.
+Time step took 0.011703 seconds; total solver time 0.921226 seconds.
 
 
 ---------------    Simulation step number 116    ---------------
@@ -13914,7 +13918,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 22
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  22 ( 0.008 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  22 ( 0.002 sec)
 Sub steps started at time = 3528 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 3558 (days)
@@ -13932,7 +13936,7 @@ Restart file written for report step: 116/120.  Date: 2024/08/29
   Report  117    28 Sep 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.016664 seconds; total solver time 1.488265 seconds.
+Time step took 0.011932 seconds; total solver time 0.933157 seconds.
 
 
 ---------------    Simulation step number 117    ---------------
@@ -14030,7 +14034,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.002 sec)
 Sub steps started at time = 3558 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3589 (days)
@@ -14048,7 +14052,7 @@ Restart file written for report step: 117/120.  Date: 2024/09/28
   Report  118    29 Oct 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.019360 seconds; total solver time 1.507625 seconds.
+Time step took 0.012259 seconds; total solver time 0.945416 seconds.
 
 
 ---------------    Simulation step number 118    ---------------
@@ -14146,7 +14150,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 20
-Time step summary: newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.002 sec)
 Sub steps started at time = 3589 (days)
  step[ 0 ] = 30 (days)
 sub steps end time = 3619 (days)
@@ -14164,7 +14168,7 @@ Restart file written for report step: 118/120.  Date: 2024/10/29
   Report  119    28 Nov 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.017644 seconds; total solver time 1.525269 seconds.
+Time step took 0.012994 seconds; total solver time 0.958410 seconds.
 
 
 ---------------    Simulation step number 119    ---------------
@@ -14262,7 +14266,7 @@ Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Overall linear iterations used: 17
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 Sub steps started at time = 3619 (days)
  step[ 0 ] = 31 (days)
 sub steps end time = 3650 (days)
@@ -14280,20 +14284,20 @@ Restart file written for report step: 119/120.  Date: 2024/11/28
   Report  120    29 Dec 2024  *                                             Flow  version 2020.04-pre  *
                               **************************************************************************
 
-Time step took 0.019185 seconds; total solver time 1.544454 seconds.
+Time step took 0.013224 seconds; total solver time 0.971635 seconds.
 
 
 ================    End of simulation     ===============
 
 Number of MPI processes:      1
 Threads per MPI process:      2
-Total time (seconds):         1.58626
-Solver time (seconds):        1.54445
- Assembly time (seconds):     0.448053 (Failed: 0; 0%)
- Linear solve time (seconds): 0.289693 (Failed: 0; 0%)
- Linear solve setup time (seconds): 0.0134006 (Failed: 0; 0%)
- Update time (seconds):       0.0387719 (Failed: 0; 0%)
- Output write time (seconds): 0.379863
+Total time (seconds):         0.980351
+Solver time (seconds):        0.971635
+ Assembly time (seconds):     0.249482 (Failed: 0; 0%)
+ Linear solve time (seconds): 0.162268 (Failed: 0; 0%)
+ Linear solve setup time (seconds): 0.00843353 (Failed: 0; 0%)
+ Update time (seconds):       0.0223892 (Failed: 0; 0%)
+ Output write time (seconds): 0.276272
 Overall Well Iterations:      0 (Failed: 0; -nan%)
 Overall Linearizations:       424 (Failed: 0; 0%)
 Overall Newton Iterations:    301 (Failed: 0; 0%)

@@ -10,13 +10,13 @@
 Flow is a simulator for fully implicit three-phase black-oil flow, and is part of OPM.
 For more information visit: https://opm-project.org 
 
-Flow Version     =  2020.04-pre (bc33e48)
+Flow Version     =  2020.04-pre (cf6cb30)
 Machine name     =  P2722 (Number of logical cores: 8, Memory size: 15961.09 MB) 
 Operating system =  Linux x86_64 (Kernel: 4.15.0-74-generic, #83~16.04.1-Ubuntu SMP Wed Dec 18 04:56:23 UTC 2019 )
-Simulation started on 10-01-2020 at 09:27:23 hrs
+Simulation started on 10-01-2020 at 10:56:31 hrs
 Parameters used by Flow:
 # [known parameters which were specified at run-time]
-EclDeckFileName="SPE1CASE2_BRINE" # default: ""
+EclDeckFileName="SPE1CASE1_BRINE" # default: ""
 OutputDir="opm-simulation-reference/flow" # default: ""
 # [parameters which were specified at compile-time]
 ContinueOnConvergenceError="0"
@@ -178,80 +178,80 @@ VtkWriteTotalMoleFractions="0"
 VtkWriteViscosities="0"
 VtkWriteWaterFormationVolumeFactor="0"
 
-    0 Reading RUNSPEC  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 24
-    1 Reading TITLE    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 27
-    2 Reading DIMENS   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 30
-    3 Reading EQLDIMS  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 35
-    4 Reading TABDIMS  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 40
-    5 Reading OIL      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 43
-    6 Reading GAS      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 44
-    7 Reading WATER    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 45
-    8 Reading BRINE    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 46
-    9 Reading DISGAS   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 47
-   10 Reading FIELD    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 51
-   11 Reading START    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 53
-   12 Reading WELLDIMS in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 56
-   13 Reading UNIFOUT  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 67
-   14 Reading GRID     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 69
-   15 Reading INIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 76
-   16 Reading NOECHO   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 80
-   17 Reading DX       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 82
-   18 Reading DY       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 85
-   19 Reading DZ       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 88
-   20 Reading TOPS     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 92
-   21 Reading PORO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 96
-   22 Reading PERMX    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 100
-   23 Reading PERMY    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 104
-   24 Reading PERMZ    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 108
-   25 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 112
-   26 Reading PROPS    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 114
-   27 Reading PVTWSALT in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 129
-   28 Reading ROCK     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 138
-   29 Reading SWOF     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 145
-   30 Reading SGOF     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 174
-   31 Reading DENSITY  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 204
-   32 Reading PVDG     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 214
-   33 Reading PVTO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 235
-   34 Reading SOLUTION in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 265
-   35 Reading EQUIL    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 268
-   36 Reading SALTVD   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 288
-   37 Reading RSVD     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 292
-   38 Reading SUMMARY  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 300
-   39 Reading FOPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 304
-   40 Reading WGOR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 308
-   41 Reading FGOR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 313
-   42 Reading BPR      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 316
-   43 Reading BGSAT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 322
-   44 Reading WBHP     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 335
-   45 Reading WGIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 339
-   46 Reading WGIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 343
-   47 Reading WGPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 347
-   48 Reading WGPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 351
-   49 Reading WOIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 355
-   50 Reading WOIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 359
-   51 Reading WOPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 363
-   52 Reading WOPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 367
-   53 Reading WWIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 371
-   54 Reading WWIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 375
-   55 Reading WWPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 379
-   56 Reading WWPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 383
-   57 Reading SCHEDULE in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 387
-   58 Reading RPTSCHED in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 389
-   59 Reading RPTRST   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 392
-   60 Reading DRSDT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 397
-   61 Reading WELSPECS in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 402
-   62 Reading COMPDAT  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 411
-   63 Reading WCONPROD in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 421
-   64 Reading WCONINJE in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 430
-   65 Reading WSALT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 438
-   66 Reading TSTEP    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 443
+    0 Reading RUNSPEC  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 24
+    1 Reading TITLE    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 27
+    2 Reading DIMENS   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 30
+    3 Reading EQLDIMS  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 35
+    4 Reading TABDIMS  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 40
+    5 Reading OIL      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 43
+    6 Reading GAS      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 44
+    7 Reading WATER    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 45
+    8 Reading BRINE    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 46
+    9 Reading DISGAS   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 47
+   10 Reading FIELD    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 51
+   11 Reading START    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 53
+   12 Reading WELLDIMS in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 56
+   13 Reading UNIFOUT  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 67
+   14 Reading GRID     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 69
+   15 Reading INIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 76
+   16 Reading NOECHO   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 80
+   17 Reading DX       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 82
+   18 Reading DY       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 85
+   19 Reading DZ       in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 88
+   20 Reading TOPS     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 92
+   21 Reading PORO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 96
+   22 Reading PERMX    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 100
+   23 Reading PERMY    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 104
+   24 Reading PERMZ    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 108
+   25 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 112
+   26 Reading PROPS    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 114
+   27 Reading PVTWSALT in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 129
+   28 Reading ROCK     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 134
+   29 Reading SWOF     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 141
+   30 Reading SGOF     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 170
+   31 Reading DENSITY  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 200
+   32 Reading PVDG     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 210
+   33 Reading PVTO     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 231
+   34 Reading SOLUTION in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 261
+   35 Reading EQUIL    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 264
+   36 Reading SALTVD   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 284
+   37 Reading RSVD     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 288
+   38 Reading SUMMARY  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 296
+   39 Reading FOPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 300
+   40 Reading WGOR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 304
+   41 Reading FGOR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 309
+   42 Reading BPR      in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 312
+   43 Reading BGSAT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 318
+   44 Reading WBHP     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 331
+   45 Reading WGIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 335
+   46 Reading WGIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 339
+   47 Reading WGPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 343
+   48 Reading WGPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 347
+   49 Reading WOIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 351
+   50 Reading WOIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 355
+   51 Reading WOPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 359
+   52 Reading WOPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 363
+   53 Reading WWIR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 367
+   54 Reading WWIT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 371
+   55 Reading WWPR     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 375
+   56 Reading WWPT     in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 379
+   57 Reading SCHEDULE in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 383
+   58 Reading RPTSCHED in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 385
+   59 Reading RPTRST   in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 388
+   60 Reading DRSDT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 393
+   61 Reading WELSPECS in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 398
+   62 Reading COMPDAT  in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 407
+   63 Reading WCONPROD in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 417
+   64 Reading WCONINJE in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 426
+   65 Reading WSALT    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 434
+   66 Reading TSTEP    in file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 439
 
 Warning: Keyword 'ECHO' is not supported by flow.
-In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 112
+In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 112
 
 
 Warning: Keyword 'PVTWSALT' is not supported by flow.
-In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 129
+In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 129
 
 All completions in well PROD is shut at 0.000000 days. 
 The well is therefore also shut.
@@ -259,11 +259,11 @@ All completions in well INJ is shut at 0.000000 days.
 The well is therefore also shut.
 
 Warning: Keyword 'ECHO' is not supported by flow.
-In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 112
+In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 112
 
 
 Warning: Keyword 'PVTWSALT' is not supported by flow.
-In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE2_BRINE.DATA, line 129
+In file /home/thsa/workspace/opm/opm-tests/spe1_brine/SPE1CASE1_BRINE.DATA, line 129
 
 
 ===============Saturation Functions Diagnostics===============
@@ -287,7 +287,7 @@ Time step 1, stepsize 3 days, at day 1/31, date = 02-Jan-2015
 Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =   8 ( 0.001 sec)
 
 Time step 2, stepsize 9 days, at day 4/31, date = 05-Jan-2015
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  13 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 
 Time step 3, stepsize 18 days, at day 13/31, date = 14-Jan-2015
 
@@ -374,7 +374,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      382.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -385,7 +385,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:   1/120.  Date: 2015/02/01
 
                               **************************************************************************
   Balance  at        31  Days *                 SPE1 - CASE 1                                          *
@@ -396,6 +395,7 @@ Restart file written for report step:   1/120.  Date: 2015/02/01
 Report step  1/120 at day 31/3650, date = 01-Feb-2015
 
 Time step 0, stepsize 28 days, at day 31/59, date = 01-Feb-2015
+Restart file written for report step:   1/120.  Date: 2015/02/01
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -480,7 +480,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      495.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -491,7 +491,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:   2/120.  Date: 2015/03/01
 
                               **************************************************************************
   Balance  at        59  Days *                 SPE1 - CASE 1                                          *
@@ -502,6 +501,7 @@ Restart file written for report step:   2/120.  Date: 2015/03/01
 Report step  2/120 at day 59/3650, date = 01-Mar-2015
 
 Time step 0, stepsize 31 days, at day 59/90, date = 01-Mar-2015
+Restart file written for report step:   2/120.  Date: 2015/03/01
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -586,7 +586,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      573.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.005 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -692,7 +692,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      645.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -904,7 +904,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      771.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  20 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1010,7 +1010,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      828.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  28 ( 0.004 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  28 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1021,7 +1021,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:   7/120.  Date: 2015/08/01
 
                               **************************************************************************
   Balance  at       212  Days *                 SPE1 - CASE 1                                          *
@@ -1032,6 +1031,7 @@ Restart file written for report step:   7/120.  Date: 2015/08/01
 Report step  7/120 at day 212/3650, date = 01-Aug-2015
 
 Time step 0, stepsize 31 days, at day 212/243, date = 01-Aug-2015
+Restart file written for report step:   7/120.  Date: 2015/08/01
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1116,7 +1116,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      886.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  20 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1223,7 +1223,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      942.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  29 ( 0.004 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  29 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1329,7 +1329,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      995.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  25 ( 0.004 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  25 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1435,7 +1435,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1050.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  4, linearizations =  5 ( 0.006 sec), linear its =  22 ( 0.004 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.003 sec), linear its =  22 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1541,7 +1541,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1102.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  4, linearizations =  5 ( 0.005 sec), linear its =  18 ( 0.003 sec)
+Time step summary: newton its =  4, linearizations =  5 ( 0.004 sec), linear its =  18 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1647,7 +1647,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1155.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1753,7 +1753,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1207.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  11 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -1859,7 +1859,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1254.9:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.005 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2071,7 +2071,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1360.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.005 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2092,6 +2092,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 Report step 17/120 at day 516/3650, date = 31-May-2016
 
 Time step 0, stepsize 30 days, at day 516/546, date = 31-May-2016
+Restart file written for report step:  17/120.  Date: 2016/05/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2176,7 +2177,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1414.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2187,8 +2188,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  17/120.  Date: 2016/05/31
-Restart file written for report step:  18/120.  Date: 2016/06/30
 
                               **************************************************************************
   Balance  at       546  Days *                 SPE1 - CASE 1                                          *
@@ -2199,6 +2198,7 @@ Restart file written for report step:  18/120.  Date: 2016/06/30
 Report step 18/120 at day 546/3650, date = 30-Jun-2016
 
 Time step 0, stepsize 31 days, at day 546/577, date = 30-Jun-2016
+Restart file written for report step:  18/120.  Date: 2016/06/30
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2283,7 +2283,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1467.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2389,7 +2389,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1522.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  10 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  10 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2410,6 +2410,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 Report step 20/120 at day 608/3650, date = 31-Aug-2016
 
 Time step 0, stepsize 30 days, at day 608/638, date = 31-Aug-2016
+Restart file written for report step:  20/120.  Date: 2016/08/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2494,7 +2495,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1578.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  10 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  10 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2505,7 +2506,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  20/120.  Date: 2016/08/31
 
                               **************************************************************************
   Balance  at       638  Days *                 SPE1 - CASE 1                                          *
@@ -2601,7 +2601,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1632.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  11 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2707,7 +2707,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1689.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.006 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2813,7 +2813,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1744.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  13 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -2919,7 +2919,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1801.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  13 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3131,7 +3131,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1911.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3194,6 +3194,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :        :           :    :  STB/DAY  :  STB/DAY  :  MSCF/DAY :  RB/DAY   :           : MSCF/STB :  STB/MSCF  :  PSIA  :  PSIA  :
 =================================================================================================================================
 
+Restart file written for report step:  27/120.  Date: 2017/03/31
 :   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
 :--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
 
@@ -3236,7 +3237,6 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     1969.9:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  27/120.  Date: 2017/03/31
 Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =   8 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
@@ -3343,7 +3343,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2026.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3364,6 +3364,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 Report step 29/120 at day 881/3650, date = 31-May-2017
 
 Time step 0, stepsize 30 days, at day 881/911, date = 31-May-2017
+Restart file written for report step:  29/120.  Date: 2017/05/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3448,7 +3449,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2085.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  13 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3459,7 +3460,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  29/120.  Date: 2017/05/31
 
                               **************************************************************************
   Balance  at       911  Days *                 SPE1 - CASE 1                                          *
@@ -3554,7 +3554,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2143.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  14 ( 0.002 sec)
+Restart file written for report step:  30/120.  Date: 2017/06/30
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3565,7 +3566,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  30/120.  Date: 2017/06/30
 
                               **************************************************************************
   Balance  at       942  Days *                 SPE1 - CASE 1                                          *
@@ -3576,7 +3576,6 @@ Restart file written for report step:  30/120.  Date: 2017/06/30
 Report step 31/120 at day 942/3650, date = 31-Jul-2017
 
 Time step 0, stepsize 31 days, at day 942/973, date = 31-Jul-2017
-Restart file written for report step:  31/120.  Date: 2017/07/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3661,7 +3660,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2202.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Restart file written for report step:  31/120.  Date: 2017/07/31
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3767,7 +3767,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2262.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  14 ( 0.006 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3872,6 +3872,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2320.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  33/120.  Date: 2017/09/30
 Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =   9 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
@@ -3883,7 +3884,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  33/120.  Date: 2017/09/30
 
                               **************************************************************************
   Balance  at      1034  Days *                 SPE1 - CASE 1                                          *
@@ -3894,6 +3894,7 @@ Restart file written for report step:  33/120.  Date: 2017/09/30
 Report step 34/120 at day 1034/3650, date = 31-Oct-2017
 
 Time step 0, stepsize 30 days, at day 1034/1064, date = 31-Oct-2017
+Restart file written for report step:  34/120.  Date: 2017/10/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3978,7 +3979,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2381.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  11 ( 0.001 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -3989,7 +3990,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  34/120.  Date: 2017/10/31
 
                               **************************************************************************
   Balance  at      1064  Days *                 SPE1 - CASE 1                                          *
@@ -4084,6 +4084,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2439.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  35/120.  Date: 2017/11/30
 Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  10 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
@@ -4095,7 +4096,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  35/120.  Date: 2017/11/30
 
                               **************************************************************************
   Balance  at      1095  Days *                 SPE1 - CASE 1                                          *
@@ -4106,7 +4106,6 @@ Restart file written for report step:  35/120.  Date: 2017/11/30
 Report step 36/120 at day 1095/3650, date = 31-Dec-2017
 
 Time step 0, stepsize 31 days, at day 1095/1126, date = 31-Dec-2017
-Restart file written for report step:  36/120.  Date: 2017/12/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4191,7 +4190,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2500.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.009 sec), linear its =  11 ( 0.002 sec)
+Restart file written for report step:  36/120.  Date: 2017/12/31
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4212,7 +4212,6 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 Report step 37/120 at day 1126/3650, date = 31-Jan-2018
 
 Time step 0, stepsize 28 days, at day 1126/1154, date = 31-Jan-2018
-Restart file written for report step:  37/120.  Date: 2018/01/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4297,7 +4296,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2561.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.008 sec), linear its =  10 ( 0.001 sec)
+Restart file written for report step:  37/120.  Date: 2018/01/31
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  10 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4402,7 +4402,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2617.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =   8 ( 0.001 sec)
+Restart file written for report step:  38/120.  Date: 2018/02/28
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =   8 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4413,7 +4414,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  38/120.  Date: 2018/02/28
 
                               **************************************************************************
   Balance  at      1185  Days *                 SPE1 - CASE 1                                          *
@@ -4508,8 +4508,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2678.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  39/120.  Date: 2018/03/31
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =   9 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =   9 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4520,6 +4519,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  39/120.  Date: 2018/03/31
 
                               **************************************************************************
   Balance  at      1215  Days *                 SPE1 - CASE 1                                          *
@@ -4614,7 +4614,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2738.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.006 sec), linear its =  16 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  16 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4636,7 +4636,6 @@ Restart file written for report step:  40/120.  Date: 2018/04/30
 Report step 41/120 at day 1246/3650, date = 31-May-2018
 
 Time step 0, stepsize 30 days, at day 1246/1276, date = 31-May-2018
-Restart file written for report step:  41/120.  Date: 2018/05/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4721,7 +4720,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2799.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Restart file written for report step:  41/120.  Date: 2018/05/31
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4742,7 +4742,6 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 Report step 42/120 at day 1276/3650, date = 30-Jun-2018
 
 Time step 0, stepsize 31 days, at day 1276/1307, date = 30-Jun-2018
-Restart file written for report step:  42/120.  Date: 2018/06/30
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4827,6 +4826,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2858.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
+Restart file written for report step:  42/120.  Date: 2018/06/30
 Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
@@ -4848,7 +4848,6 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 Report step 43/120 at day 1307/3650, date = 31-Jul-2018
 
 Time step 0, stepsize 31 days, at day 1307/1338, date = 31-Jul-2018
-Restart file written for report step:  43/120.  Date: 2018/07/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4933,7 +4932,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2919.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  14 ( 0.001 sec)
+Restart file written for report step:  43/120.  Date: 2018/07/31
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -4954,7 +4954,6 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 Report step 44/120 at day 1338/3650, date = 31-Aug-2018
 
 Time step 0, stepsize 30 days, at day 1338/1368, date = 31-Aug-2018
-Restart file written for report step:  44/120.  Date: 2018/08/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5039,7 +5038,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     2980.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5050,6 +5049,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  44/120.  Date: 2018/08/31
 
                               **************************************************************************
   Balance  at      1368  Days *                 SPE1 - CASE 1                                          *
@@ -5144,7 +5144,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3038.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  13 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5166,7 +5166,6 @@ Restart file written for report step:  45/120.  Date: 2018/09/30
 Report step 46/120 at day 1399/3650, date = 31-Oct-2018
 
 Time step 0, stepsize 30 days, at day 1399/1429, date = 31-Oct-2018
-Restart file written for report step:  46/120.  Date: 2018/10/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5251,7 +5250,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3098.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5262,6 +5261,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  46/120.  Date: 2018/10/31
 
                               **************************************************************************
   Balance  at      1429  Days *                 SPE1 - CASE 1                                          *
@@ -5356,7 +5356,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3156.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5376,7 +5376,6 @@ Restart file written for report step:  47/120.  Date: 2018/11/30
 
 
 Report step 48/120 at day 1460/3650, date = 31-Dec-2018
-Restart file written for report step:  48/120.  Date: 2018/12/31
 
 Time step 0, stepsize 31 days, at day 1460/1491, date = 31-Dec-2018
 
@@ -5463,7 +5462,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3215.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  11 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5474,6 +5473,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  48/120.  Date: 2018/12/31
 
                               **************************************************************************
   Balance  at      1491  Days *                 SPE1 - CASE 1                                          *
@@ -5568,7 +5568,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3275.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  12 ( 0.002 sec)
+Restart file written for report step:  49/120.  Date: 2019/01/31
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5579,7 +5580,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  49/120.  Date: 2019/01/31
 
                               **************************************************************************
   Balance  at      1519  Days *                 SPE1 - CASE 1                                          *
@@ -5590,7 +5590,6 @@ Restart file written for report step:  49/120.  Date: 2019/01/31
 Report step 50/120 at day 1519/3650, date = 28-Feb-2019
 
 Time step 0, stepsize 31 days, at day 1519/1550, date = 28-Feb-2019
-Restart file written for report step:  50/120.  Date: 2019/02/28
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5675,7 +5674,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3328.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  14 ( 0.002 sec)
+Restart file written for report step:  50/120.  Date: 2019/02/28
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5696,7 +5696,6 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 Report step 51/120 at day 1550/3650, date = 31-Mar-2019
 
 Time step 0, stepsize 30 days, at day 1550/1580, date = 31-Mar-2019
-Restart file written for report step:  51/120.  Date: 2019/03/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5781,7 +5780,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3388.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.005 sec), linear its =  15 ( 0.002 sec)
+Restart file written for report step:  51/120.  Date: 2019/03/31
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  15 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5802,7 +5802,6 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 Report step 52/120 at day 1580/3650, date = 30-Apr-2019
 
 Time step 0, stepsize 31 days, at day 1580/1611, date = 30-Apr-2019
-Restart file written for report step:  52/120.  Date: 2019/04/30
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5887,7 +5886,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3446.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  13 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  13 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -5898,6 +5897,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  52/120.  Date: 2019/04/30
 
                               **************************************************************************
   Balance  at      1611  Days *                 SPE1 - CASE 1                                          *
@@ -5993,7 +5993,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Restart file written for report step:  53/120.  Date: 2019/05/31
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6012,7 +6012,6 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 
 
 Report step 54/120 at day 1641/3650, date = 30-Jun-2019
-Restart file written for report step:  54/120.  Date: 2019/06/30
 
 Time step 0, stepsize 31 days, at day 1641/1672, date = 30-Jun-2019
 
@@ -6099,7 +6098,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3564.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  16 ( 0.002 sec)
+Restart file written for report step:  54/120.  Date: 2019/06/30
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  16 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6204,7 +6204,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3625.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.001 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6226,7 +6226,6 @@ Restart file written for report step:  55/120.  Date: 2019/07/31
 Report step 56/120 at day 1703/3650, date = 31-Aug-2019
 
 Time step 0, stepsize 30 days, at day 1703/1733, date = 31-Aug-2019
-Restart file written for report step:  56/120.  Date: 2019/08/31
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6311,7 +6310,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3685.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  15 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  15 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6322,6 +6321,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  56/120.  Date: 2019/08/31
 
                               **************************************************************************
   Balance  at      1733  Days *                 SPE1 - CASE 1                                          *
@@ -6416,8 +6416,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3744.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  57/120.  Date: 2019/09/30
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6428,6 +6427,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  57/120.  Date: 2019/09/30
 
                               **************************************************************************
   Balance  at      1764  Days *                 SPE1 - CASE 1                                          *
@@ -6522,8 +6522,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3806.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  58/120.  Date: 2019/10/31
-Time step summary: newton its =  2, linearizations =  3 ( 0.004 sec), linear its =  11 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  11 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6534,6 +6533,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  58/120.  Date: 2019/10/31
 
                               **************************************************************************
   Balance  at      1794  Days *                 SPE1 - CASE 1                                          *
@@ -6628,7 +6628,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3865.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  14 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  14 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6734,7 +6734,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3927.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6840,7 +6840,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     3989.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  12 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  12 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6946,8 +6946,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4045.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  62/120.  Date: 2020/02/28
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  21 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  21 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -6958,6 +6957,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  62/120.  Date: 2020/02/28
 
                               **************************************************************************
   Balance  at      1915  Days *                 SPE1 - CASE 1                                          *
@@ -7052,7 +7052,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4108.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.004 sec), linear its =  16 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  16 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7158,7 +7158,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4168.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  16 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  16 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7264,7 +7264,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4231.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7371,7 +7371,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
 Restart file written for report step:  66/120.  Date: 2020/06/29
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  22 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  22 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7476,7 +7476,8 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4356.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  23 ( 0.003 sec)
+Restart file written for report step:  67/120.  Date: 2020/07/30
+Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  23 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7487,7 +7488,6 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
-Restart file written for report step:  67/120.  Date: 2020/07/30
 
                               **************************************************************************
   Balance  at      2068  Days *                 SPE1 - CASE 1                                          *
@@ -7582,7 +7582,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4420.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  16 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  16 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7688,8 +7688,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4481.9:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  18 ( 0.002 sec)
-Restart file written for report step:  69/120.  Date: 2020/09/29
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7700,6 +7699,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  69/120.  Date: 2020/09/29
 
                               **************************************************************************
   Balance  at      2129  Days *                 SPE1 - CASE 1                                          *
@@ -7794,7 +7794,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4546.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -7900,7 +7900,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4608.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  23 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  23 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8006,8 +8006,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4672.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  72/120.  Date: 2020/12/30
-Time step summary: newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.010 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8018,6 +8017,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  72/120.  Date: 2020/12/30
 
                               **************************************************************************
   Balance  at      2221  Days *                 SPE1 - CASE 1                                          *
@@ -8112,8 +8112,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4737.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  73/120.  Date: 2021/01/30
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  23 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  23 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8124,6 +8123,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  73/120.  Date: 2021/01/30
 
                               **************************************************************************
   Balance  at      2249  Days *                 SPE1 - CASE 1                                          *
@@ -8218,7 +8218,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4796.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8324,7 +8324,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4861.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8430,7 +8430,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4924.7:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  22 ( 0.003 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  22 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8454,9 +8454,6 @@ Report step 77/120 at day 2341/3650, date = 30-May-2021
 Time step 0, stepsize 30 days, at day 2341/2371, date = 30-May-2021
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
-
-Warning: Keyword 'BASIC' is unhandled for output to file.
-Restart file written for report step:  77/120.  Date: 2021/05/30
 
 Warning: Keyword 'PRES' is unhandled for output to file.
 
@@ -8539,7 +8536,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     4990.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.006 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8550,6 +8547,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  77/120.  Date: 2021/05/30
 
                               **************************************************************************
   Balance  at      2371  Days *                 SPE1 - CASE 1                                          *
@@ -8644,7 +8642,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5053.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8750,7 +8748,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5119.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8856,7 +8854,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5184.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8962,8 +8960,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5248.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  81/120.  Date: 2021/09/29
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -8974,6 +8971,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  81/120.  Date: 2021/09/29
 
                               **************************************************************************
   Balance  at      2494  Days *                 SPE1 - CASE 1                                          *
@@ -9068,7 +9066,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5316.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -9174,7 +9172,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5382.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  21 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -9280,8 +9278,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5450.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  84/120.  Date: 2021/12/30
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -9292,6 +9289,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  84/120.  Date: 2021/12/30
 
                               **************************************************************************
   Balance  at      2586  Days *                 SPE1 - CASE 1                                          *
@@ -9386,7 +9384,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5518.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -9492,7 +9490,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5580.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -9514,7 +9512,6 @@ Restart file written for report step:  86/120.  Date: 2022/02/27
 Report step 87/120 at day 2645/3650, date = 30-Mar-2022
 
 Time step 0, stepsize 30 days, at day 2645/2675, date = 30-Mar-2022
-Restart file written for report step:  87/120.  Date: 2022/03/30
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -9599,7 +9596,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5649.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.008 sec), linear its =  19 ( 0.005 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -9610,6 +9607,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  87/120.  Date: 2022/03/30
 
                               **************************************************************************
   Balance  at      2675  Days *                 SPE1 - CASE 1                                          *
@@ -9704,7 +9702,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5716.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.005 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -9810,7 +9808,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5785.9:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -9916,7 +9914,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5853.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -10022,7 +10020,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5923.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -10128,8 +10126,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     5994.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step:  92/120.  Date: 2022/08/30
-Time step summary: newton its =  2, linearizations =  3 ( 0.004 sec), linear its =  20 ( 0.004 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -10140,6 +10137,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step:  92/120.  Date: 2022/08/30
 
                               **************************************************************************
   Balance  at      2828  Days *                 SPE1 - CASE 1                                          *
@@ -10234,7 +10232,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6062.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -10340,7 +10338,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6133.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -10446,7 +10444,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6201.9:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.009 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -10764,7 +10762,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6409.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.004 sec), linear its =  21 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -10976,7 +10974,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6550.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -11082,7 +11080,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6622.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  21 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  21 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -11188,7 +11186,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6691.9:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.006 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -11294,8 +11292,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6764.0:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Restart file written for report step: 103/120.  Date: 2023/07/30
-Time step summary: newton its =  2, linearizations =  3 ( 0.010 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -11306,6 +11303,7 @@ Warning: Keyword 'RS' is unhandled for output to file.
 Warning: Keyword 'SGAS' is unhandled for output to file.
 
 Warning: Keyword 'WELLS' is unhandled for output to file.
+Restart file written for report step: 103/120.  Date: 2023/07/30
 
                               **************************************************************************
   Balance  at      3163  Days *                 SPE1 - CASE 1                                          *
@@ -11400,7 +11398,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6836.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.005 sec), linear its =  19 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -11506,7 +11504,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6906.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -11612,7 +11610,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     6978.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -11718,7 +11716,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7048.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -11824,7 +11822,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7121.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.007 sec), linear its =  19 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -11930,7 +11928,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7193.8:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -12036,7 +12034,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7259.5:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  23 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  23 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -12142,7 +12140,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7332.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  19 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  19 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -12248,7 +12246,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7402.6:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  22 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  22 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -12354,7 +12352,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7475.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.003 sec), linear its =  28 ( 0.002 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  28 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -12566,7 +12564,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7617.9:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  18 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  18 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -12672,7 +12670,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7690.2:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  3, linearizations =  4 ( 0.004 sec), linear its =  22 ( 0.008 sec)
+Time step summary: newton its =  3, linearizations =  4 ( 0.002 sec), linear its =  22 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -12778,7 +12776,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7760.1:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  20 ( 0.003 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -12884,7 +12882,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7832.4:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.006 sec), linear its =  20 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  20 ( 0.002 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -12990,7 +12988,7 @@ Warning: Keyword 'WELLS' is unhandled for output to file.
 :     INJ:    1,    1:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:     7902.3:        0.0:        0.0: 
 :--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
 
-Time step summary: newton its =  2, linearizations =  3 ( 0.003 sec), linear its =  17 ( 0.002 sec)
+Time step summary: newton its =  2, linearizations =  3 ( 0.002 sec), linear its =  17 ( 0.001 sec)
 
 Warning: Keyword 'BASIC' is unhandled for output to file.
 
@@ -13014,13 +13012,13 @@ Restart file written for report step: 119/120.  Date: 2024/11/28
 
 Number of MPI processes:      1
 Threads per MPI process:      2
-Total time (seconds):         1.58626
-Solver time (seconds):        1.54445
- Assembly time (seconds):     0.448053 (Failed: 0; 0%)
- Linear solve time (seconds): 0.289693 (Failed: 0; 0%)
- Linear solve setup time (seconds): 0.0134006 (Failed: 0; 0%)
- Update time (seconds):       0.0387719 (Failed: 0; 0%)
- Output write time (seconds): 0.379863
+Total time (seconds):         0.980351
+Solver time (seconds):        0.971635
+ Assembly time (seconds):     0.249482 (Failed: 0; 0%)
+ Linear solve time (seconds): 0.162268 (Failed: 0; 0%)
+ Linear solve setup time (seconds): 0.00843353 (Failed: 0; 0%)
+ Update time (seconds):       0.0223892 (Failed: 0; 0%)
+ Output write time (seconds): 0.276272
 Overall Well Iterations:      0 (Failed: 0; -nan%)
 Overall Linearizations:       424 (Failed: 0; 0%)
 Overall Newton Iterations:    301 (Failed: 0; 0%)
