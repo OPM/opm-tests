@@ -125,11 +125,18 @@ TSTEP
 -- At 100 days, the max oil rate for all producers is lowered
 -- to 100 STBO per D:
 WELTARG
-  'PRODU*' ORAT 100.0 /  
+  'PRODU*' ORAT 100.0 /
 /
 
 TSTEP
-6*10 /
+4*10 /
+
+DATES
+31 'MAY'  2015 /
+/
+
+TSTEP
+   10 /
 
 -- At 160 days, the max oil rate for all producers is changed
 -- back to 1500 STBO per D:
