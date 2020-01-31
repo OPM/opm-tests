@@ -3,9 +3,10 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2019 Equinor
+-- Copyright (C) 2020 Equinor
 
-
+-- For testing WECON (item 6, max water gas ratio) + WTEST
+-- Gas reservoir with strong aquifer support
 
 -- *****************************************************
 RUNSPEC
@@ -21,7 +22,7 @@ NOECHO
 -- ----------------------------------------------------
 -- Simulation grid dimension (Imax, Jmax, Kmax)
 DIMENS
-    4  5   8  /
+   12  3   8  /
 
 --
 -- ----------------------------------------------------
@@ -34,7 +35,6 @@ START
 --Activate "Data Check Only" option
 --NOSIM
 --
---
 
 --
 -- ----------------------------------------------------
@@ -43,7 +43,6 @@ OIL
 GAS
 WATER
 DISGAS
-
 --
 -- ----------------------------------------------------
 -- Measurement unit used
@@ -59,8 +58,7 @@ TABDIMS
 -- ----------------------------------------------------
 --Dimension for well data
 WELLDIMS
- 3  25 3 3 /
-
+ 3 25 3 3 /
 
 -- ----------------------------------------------------
 -- Input and output files format
@@ -68,6 +66,9 @@ UNIFIN
 UNIFOUT
 
 
+AQUDIMS
+-- mxnaqn  mxnaqc  niftbl  nriftb  nanaqu  ncamax  mxnali  mxaaql
+    1*      1*      1*       1*     1       50  /
 
 -- *************************************************************************
 -- In this section simulation grid and static reservoir parameters are given
@@ -115,7 +116,7 @@ NOECHO
 -- ----------------------------------------------------
 --Include simulation grid
 INCLUDE
-  '../include/test1_4x5x8.grdecl' /
+  '../include/test_12x3x8.grdecl' /
 
 
 --Include porosity
@@ -124,14 +125,14 @@ EQUALS
 /
 
 PERMX
- 20*2000 
- 20*1000 
- 20*500 
- 20*100 
- 20*50 
- 20*10000 
- 20*1000 
- 20*200 
+ 36*2000 
+ 36*1000 
+ 36*500 
+ 36*100 
+ 36*50 
+ 36*10000 
+ 36*1000 
+ 36*200 
 / 
 
 -- ---------------------------------------------------
@@ -144,7 +145,7 @@ COPY
 -- ---------------------------------------------------
 -- Set Kv/Kh 
 MULTIPLY
- PERMZ   0.3     /
+ PERMZ   0.5     /
 /
 
 -- ***************************************************
@@ -157,8 +158,7 @@ EDIT
 
 
 -- ***************************************************
--- In this section fluid-rock properties and 
--- relative permabilities are given
+-- In this section fluid-rock properties and relative
 -- ***************************************************
 
 PROPS
@@ -188,7 +188,6 @@ REGIONS
 --
 -- ***************************************************
 -- In this section the initialization parameters aand
--- dynamic parameters are defined
 -- ***************************************************
 
 EQUALS
@@ -206,7 +205,7 @@ SOLUTION
 --   DATUM  DATUM   OWC     OWC    GOC    GOC    RSVD   RVVD   SOLN
 --   Depth  Pres.   Depth   Pcow   Depth  Pcog   Table  Table  Method
 EQUIL
-     2500   382.4   2520  0.0     2520    0.0     1     1      0 / 
+     2100   480.0   2100  0.0     2100    0.0     1     1      0 / 
     
 
 --
@@ -225,6 +224,19 @@ RPTSOL
 RPTRST
  'BASIC=2'  'PBPD' /
  
+
+AQUFETP
+---- Aqu  	depth	       Pr	vol	  Comp  	 PI	PVTW 
+   1	       2100.0 	      480.0    5.0E+9	   1.5312E-4	995	 1*    /
+/
+
+ 
+AQUANCON
+--Aqu  I1   I2   J1   J2   K1   K2   face   influx coef.   influx coef. multiplier
+    1  12   12	  1    3    6   8    'I+'	 1*		  1*  / 
+/ 
+
+
 
 --
 -- **************************************************************************************
@@ -259,6 +271,15 @@ CTFAC
 WWGR
  'OP_1' /
  
+AAQT
+ 1 /
+
+AAQR
+ 1 /
+
+
+AAQP
+ 1 /
 
 
 SCHEDULE
@@ -272,7 +293,8 @@ TUNING
 
 RPTSCHED
   'WELLS=5' /
-  
+
+
 
 GRUPTREE 
    'OP'     'FIELD'  /
@@ -280,114 +302,55 @@ GRUPTREE
 /
 
 WELSPECS 
-   'OP_1'	 'OP'	4   1  1*	'GAS'  7* /
-   'WI_1'	 'WI'	4   4  1*	'WATER'  7* /
-   'GI_1'	 'GI'	1   1  1*	'GAS'  7* /
+   'OP_1'	 'OP'	2   1  1*	'GAS'  7* /
 /
 
 
 COMPDAT 
 -- WELL        I    J    K1  K2            Sat.     CF       DIAM    KH    SKIN ND    DIR    Ro 
-   'OP_1'   4   1    1    8	   'OPEN'   1*	    1*      0.311    1*     2*	      'Z'     /
-   'WI_1'   4	4    6    8	   'OPEN'   1*	    1*      0.311    1*     2*	      'Z'     /
-   'GI_1'   1	1    1    8	   'OPEN'   1*	    1*      0.311    1*     2*	      'Z'     /
+   'OP_1'   2   1    3    3	   'OPEN'   1*	    1*      0.311    1*     2*	      'Y'     /
+   'OP_1'   2   2    3    3	   'OPEN'   1*	    1*      0.311    1*     2*	      'Y'     /
+   'OP_1'   2   3    3    3	   'OPEN'   1*	    1*      0.311    1*     2*	      'Y'     /
 /
 
 
 WCONPROD
---                  orat   wrat     grat   lrat   resvol   bhp    thp  vfp
-  'OP_1' OPEN GRAT  5000.0   1*     6.0E6    1*    1*     100.0  0.0   0  /
+--                 orat  wrat    grat   lrat  resvol   bhp    thp  vfp
+  'OP_1' OPEN GRAT  1*   1*     6.0E6    1*    1*     100.0   2*  /
 /
-
 
 WECON
- 'OP_1' 4*   0.0004  WELL /  -- maximum water cut of 0.8
-/
-
-WCONINJE
-  WI_1 WATER OPEN RATE   5000.0  1*     500.0 /
-  GI_1 GAS   SHUT RATE      0.0  1*     600.0 /
+ 'OP_1' 4*  0.0001  WELL / 
 /
 
 DATES
   1 'AUG' 2018 /
-  1 'SEP' 2018 /
-  1 'JAN' 2019 /
- 25 'AUG' 2019 /
+  1 'OCT' 2018 /
 /
 
-WCONINJE
-  WI_1 WATER SHUT RATE    5000.0   1*     500.0 /
-  GI_1 GAS   OPEN RATE    5.0E6    1*     500.0 /
+WCONPROD
+--                 orat  wrat     grat   lrat  resvol  bhp    thp  vfp
+  'OP_1' OPEN GRAT  1*    1*     2.0E6    1*    1*     100.0   2*  /
 /
 
 WTEST
- 'OP_1' 30  E  6 /
-/
-
-DATES  
-  1 'DEC' 2019 /
+ 'OP_1' 90  E  4 /
 /
 
 
-WCONINJE
-  WI_1 WATER OPEN RATE   5000.0  1*     500.0 /
-  GI_1 GAS   SHUT RATE      0.0  1*     600.0 /
+DATES
+  1 'JAN' 2019 /
+ 25 'AUG' 2019 /
 /
+ 
 
 
 DATES  
   1 'JAN' 2020 /
   1 'APR' 2020 /
-/
-
-
-WCONINJE
-  WI_1 WATER SHUT RATE    5000.0   1*     500.0 /
-  GI_1 GAS   OPEN RATE    5.0E6    1*     500.0 /
-/
-
-
-DATES
-  1 'MAY' 2020 /
-  1 'JUN' 2020 /
   1 'JUL' 2020 /
-/
-
-WCONINJE
-  WI_1 GAS SHUT RATE      0.0  1*     500.0 /
-  WI_1 WATER OPEN RATE    5000.0   1*     500.0 /
-/
-
-DATES
-  1 'AUG' 2020 /
+  1 'OCT' 2020 /
   1 'JAN' 2021 /
-  1 'JUL' 2021 /
 /
 
-END
-
-WCONINJE
-  WI_1 WATER SHUT RATE 0.0 1*     500.0 /
-  GI_1 GAS OPEN RATE 1.0E6  1*     600.0 /
-/
-
--- testing every 30 days, maximum of 5 test 
-WTEST
- 'OP_1' 30  E  5 /
-/
-
-
-DATES 
- 1 'JAN' 2021 /
- 1 'JUL' 2021 /
-/
-
-WCONINJE
-  GI_1 GAS SHUT RATE 0.0E6  1*     600.0 /
-/
-
-DATES
- 1 'JAN' 2022 /
-/
 
