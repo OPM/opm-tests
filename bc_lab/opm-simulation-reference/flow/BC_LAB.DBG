@@ -1,0 +1,2271 @@
+
+
+
+ ########  #          ######   #           #
+ #         #         #      #   #         # 
+ #####     #         #      #    #   #   #  
+ #         #         #      #     # # # #   
+ #         #######    ######       #   #    
+
+Flow is a simulator for fully implicit three-phase black-oil flow, and is part of OPM.
+For more information visit: https://opm-project.org 
+
+Flow Version     =  2020.04-pre (91167ad*)
+Machine name     =  P2722 (Number of logical cores: 8, Memory size: 15961.09 MB) 
+Operating system =  Linux x86_64 (Kernel: 4.15.0-74-generic, #83~16.04.1-Ubuntu SMP Wed Dec 18 04:56:23 UTC 2019 )
+Simulation started on 30-01-2020 at 10:01:30 hrs
+Parameters used by Flow:
+# [known parameters which were specified at run-time]
+EclDeckFileName="BC_LAB" # default: ""
+OutputDir="opm-simulation-reference/flow" # default: ""
+# [parameters which were specified at compile-time]
+ContinueOnConvergenceError="0"
+CprEllSolvetype="0"
+CprMaxEllIter="20"
+CprReuseSetup="0"
+CprSolverVerbose="0"
+CprUseDrs="0"
+DbhpMaxRel="1"
+DpMaxRel="0.3"
+DsMax="0.2"
+DwellFractionMax="0.2"
+EclEnableDriftCompensation="0"
+EclEnableTuning="0"
+EclMaxTimeStepSizeAfterWellEvent="3.15576e+07"
+EclNewtonRelaxedTolerance="1e+09"
+EclNewtonRelaxedVolumeFraction="0.03"
+EclNewtonStrictIterations="8"
+EclNewtonSumTolerance="0.0001"
+EclNewtonSumToleranceExponent="0.333333"
+EclOutputDoublePrecision="0"
+EclOutputInterval="-1"
+EclRestartShrinkFactor="3"
+EclStrictParsing="0"
+EdgeWeightsMethod="1"
+EnableAdaptiveTimeStepping="1"
+EnableAsyncEclOutput="1"
+EnableAsyncVtkOutput="1"
+EnableDryRun="auto"
+EnableEclOutput="1"
+EnableGravity="1"
+EnableGridAdaptation="0"
+EnableIntensiveQuantityCache="1"
+EnableLoggingFalloutWarning="0"
+EnableOpmRstFile="0"
+EnableStorageCache="1"
+EnableTerminalOutput="1"
+EnableThermodynamicHints="0"
+EnableTracerModel="0"
+EnableTuning="0"
+EnableVtkOutput="0"
+EnableWellOperabilityCheck="1"
+EnableWriteAllSolutions="0"
+EndTime="1e+100"
+FlowLinearSolverVerbosity="0"
+FlowNewtonMaxIterations="20"
+FlowNewtonMinIterations="1"
+ForceDisableFluidInPlaceOutput="0"
+FullTimeStepInitially="0"
+IgnoreKeywords=""
+IluFillinLevel="0"
+IluRedblack="0"
+IluRelaxation="0.9"
+IluReorderSpheres="0"
+InitialTimeStepInDays="1"
+InitialTimeStepSize="86400"
+LinearSolverConfigurationJsonFile="none"
+LinearSolverIgnoreConvergenceFailure="0"
+LinearSolverMaxIter="200"
+LinearSolverReduction="0.01"
+LinearSolverRequireFullSparsityPattern="0"
+LinearSolverRestart="40"
+MatrixAddWellContributions="0"
+MaxInnerIterMsWells="100"
+MaxPressureChangeMsWells="1e+06"
+MaxResidualAllowed="1e+07"
+MaxSinglePrecisionDays="20"
+MaxStrictIter="8"
+MaxTimeStepDivisions="10"
+MaxTimeStepSize="inf"
+MaxWelleqIter="30"
+MiluVariant="ILU"
+MinTimeStepBeforeShuttingProblematicWellsInDays="0.25"
+MinTimeStepSize="0"
+NewtonMaxError="1e+10"
+NewtonMaxIterations="14"
+NewtonMaxRelax="0.5"
+NewtonRelaxationType="dampen"
+NewtonTargetIterations="6"
+NewtonTolerance="0.01"
+NewtonVerbose="1"
+NewtonWriteConvergence="0"
+OutputInterval="1"
+OutputMode="all"
+ParameterFile=""
+PredeterminedTimeStepsFile=""
+PriVarOscilationThreshold="1e-05"
+PrintParameters="2"
+PrintProperties="2"
+RestartTime="-1e+35"
+RestartWritingInterval="16777215"
+ScaleLinearSystem="0"
+SolveWelleqInitially="1"
+SolverGrowthFactor="2"
+SolverMaxGrowth="3"
+SolverMaxRestarts="10"
+SolverMaxTimeStepInDays="365"
+SolverMinTimeStep="0"
+SolverRestartFactor="0.33"
+SolverVerbosity="1"
+SystemStrategy="none"
+ThreadsPerProcess="-1"
+TimeStepAfterEventInDays="-1"
+TimeStepControl="pid"
+TimeStepControlDecayRate="0.75"
+TimeStepControlFileName="timesteps"
+TimeStepControlGrowthRate="1.25"
+TimeStepControlTargetIterations="30"
+TimeStepControlTargetNewtonIterations="8"
+TimeStepControlTolerance="0.1"
+TimeStepVerbosity="1"
+ToleranceCnv="0.01"
+ToleranceCnvRelaxed="1e+09"
+ToleranceMb="1e-06"
+TolerancePressureMsWells="1000"
+ToleranceWellControl="1e-07"
+ToleranceWells="0.0001"
+UpdateEquationsScaling="0"
+UseAmg="0"
+UseCpr="0"
+UseGmres="0"
+UseGpu="0"
+UseInnerIterationsMsWells="1"
+UseMultisegmentWell="1"
+UseUpdateStabilization="1"
+VtkWriteAverageMolarMasses="0"
+VtkWriteDensities="1"
+VtkWriteDofIndex="0"
+VtkWriteEclTracerConcentration="0"
+VtkWriteExtrusionFactor="0"
+VtkWriteFilterVelocities="0"
+VtkWriteFugacities="0"
+VtkWriteFugacityCoeffs="0"
+VtkWriteGasDissolutionFactor="0"
+VtkWriteGasFormationVolumeFactor="0"
+VtkWriteGasSaturationPressure="0"
+VtkWriteIntrinsicPermeabilities="0"
+VtkWriteMassFractions="0"
+VtkWriteMobilities="0"
+VtkWriteMolarities="0"
+VtkWriteMoleFractions="1"
+VtkWriteOilFormationVolumeFactor="0"
+VtkWriteOilSaturationPressure="0"
+VtkWriteOilVaporizationFactor="0"
+VtkWritePorosity="1"
+VtkWritePotentialGradients="0"
+VtkWritePressures="1"
+VtkWritePrimaryVars="0"
+VtkWritePrimaryVarsMeaning="0"
+VtkWriteProcessRank="0"
+VtkWriteRelativePermeabilities="1"
+VtkWriteSaturatedGasOilVaporizationFactor="0"
+VtkWriteSaturatedOilGasDissolutionFactor="0"
+VtkWriteSaturationRatios="0"
+VtkWriteSaturations="1"
+VtkWriteTemperature="1"
+VtkWriteTotalMassFractions="0"
+VtkWriteTotalMoleFractions="0"
+VtkWriteViscosities="0"
+VtkWriteWaterFormationVolumeFactor="0"
+
+    0 Reading RUNSPEC  in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 12
+    1 Reading TITLE    in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 15
+    2 Reading DIMENS   in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 18
+    3 Reading EQLDIMS  in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 23
+    4 Reading TABDIMS  in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 26
+    5 Reading OIL      in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 29
+    6 Reading GAS      in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 30
+    7 Reading WATER    in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 31
+    8 Reading LAB      in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 33
+    9 Reading START    in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 35
+   10 Reading WELLDIMS in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 38
+   11 Reading UNIFOUT  in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 49
+   12 Reading GRID     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 51
+   13 Reading NOECHO   in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 54
+   14 Reading INIT     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 56
+   15 Reading DX       in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 58
+   16 Reading DY       in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 60
+   17 Reading DZ       in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 62
+   18 Reading TOPS     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 65
+   19 Reading PORO     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 69
+   20 Reading PERMX    in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 74
+   21 Reading PERMY    in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 77
+   22 Reading PERMZ    in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 80
+   23 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 83
+   24 Reading PROPS    in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 85
+   25 Reading PVTW     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 88
+   26 Reading ROCK     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 97
+   27 Reading SWFN     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 102
+   28 Reading SGFN     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 109
+   29 Reading SOF3     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 116
+   30 Reading DENSITY  in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 125
+   31 Reading PVDG     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 132
+   32 Reading PVDO     in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 145
+   33 Reading SOLUTION in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 160
+   34 Reading EQUIL    in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 163
+   35 Reading BC       in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 179
+   36 Reading SCHEDULE in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 184
+   37 Reading RPTRST   in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 186
+   38 Reading TSTEP    in file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 190
+Keyword 'ECHO' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 83
+
+Keyword 'ECHO' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/bc_lab/BC_LAB.DATA, line 83
+
+
+===============Saturation Functions Diagnostics===============
+
+System:  Black-oil system.
+Relative permeability input format: Saturation Family II.
+Number of saturation regions: 1
+
+
+
+================ Starting main simulation loop ===============
+
+
+
+---------------    Simulation step number 0    ---------------
+      Current time (days)     0
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  0/24 at day 0/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0/0.0416667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  4.160e-26  0.000e+00  1.840e-02  1.342e-09  0.000e+00  7.748e-01
+   1  4.002e-02  0.000e+00  1.108e-02  1.107e+06  0.000e+00  2.361e+06
+   2  2.523e-02  0.000e+00  8.114e-03  8.767e+05  0.000e+00  5.704e+05
+   3  1.844e-02  0.000e+00  1.315e-02  5.575e+05  0.000e+00  2.560e+05
+   4  7.540e-03  0.000e+00  5.535e-03  4.287e+05  0.000e+00  1.731e+05
+   5  3.436e-02  0.000e+00  3.688e-03  3.839e+05  0.000e+00  1.791e+03
+   6  2.031e+02  0.000e+00  5.250e-03  1.773e+05  0.000e+00  5.345e+01
+   7  1.611e+00  0.000e+00  1.262e-02  1.069e+03  0.000e+00  9.424e+00
+   8  5.785e-02  0.000e+00  6.223e-03  3.200e+01  0.000e+00  2.693e+00
+   9  7.400e-02  0.000e+00  6.292e-03  4.616e+01  0.000e+00  1.840e+00
+  10  5.058e-03  0.000e+00  2.875e-03  5.512e-01  0.000e+00  1.722e+00
+  11  5.288e-03  0.000e+00  1.683e-03  2.339e-01  0.000e+00  1.670e+00
+  12  4.980e-03  0.000e+00  1.196e-03  1.331e-01  0.000e+00  9.001e-01
+  13  4.704e-03  0.000e+00  4.486e-04  9.644e-02  0.000e+00  8.526e-01
+  14  4.616e-03  0.000e+00  1.921e-04  9.270e-02  0.000e+00  8.003e-01
+  15  4.518e-03  0.000e+00  1.547e-05  9.813e-02  0.000e+00  7.481e-01
+  16  4.186e-03  0.000e+00  4.103e-05  6.817e-02  0.000e+00  5.332e-01
+  17  3.886e-03  0.000e+00  9.495e-05  5.076e-02  0.000e+00  3.887e-01
+  18  1.783e-05  0.000e+00  5.236e-05  4.458e-02  0.000e+00  3.565e-01
+  19  2.697e-05  0.000e+00  1.414e-05  2.905e-02  0.000e+00  2.678e-01
+  20  1.344e-06  0.000e+00  4.310e-05  2.297e-02  0.000e+00  1.887e-01
+Caught Exception: [/home/thsa/workspace/opm/opm-simulators/opm/simulators/flow/NonlinearSolverEbos.hpp:196] Solver convergence failure - Failed to complete a time step within 20 iterations.
+    Excessive chopping detected in report step 0, substep 0
+
+Solver convergence failure - Iteration limit reached
+Timestep chopped to 0.013750 days
+
+
+Time step 0, stepsize 0.01375 days, at day 0/0.0416667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.373e-26  0.000e+00  6.073e-03  4.429e-10  0.000e+00  2.557e-01
+   1  5.567e-03  0.000e+00  9.420e-04  3.692e+05  0.000e+00  7.470e+05
+   2  2.916e-03  0.000e+00  2.559e-03  2.925e+05  0.000e+00  1.977e+05
+   3  1.091e-03  0.000e+00  3.019e-03  1.879e+05  0.000e+00  2.485e+03
+   4  3.101e-03  0.000e+00  1.956e-03  7.159e+04  0.000e+00  9.748e+01
+   5  5.240e-03  0.000e+00  7.132e-03  6.436e+04  0.000e+00  7.129e+00
+   6  1.185e-03  0.000e+00  6.548e-03  5.887e+04  0.000e+00  8.825e+00
+   7  6.268e-03  0.000e+00  1.170e-02  5.494e+04  0.000e+00  5.897e+00
+   8  1.330e-03  0.000e+00  6.498e-03  1.006e+05  0.000e+00  2.160e+01
+   9  4.455e+00  0.000e+00  6.623e-03  1.286e+03  0.000e+00  4.979e+01
+  10  3.294e+00  0.000e+00  5.103e-03  9.071e+01  0.000e+00  1.112e+01
+  11  1.170e-02  0.000e+00  1.099e-03  7.418e-01  0.000e+00  1.101e+00
+  12  1.187e-02  0.000e+00  1.567e-03  1.438e-01  0.000e+00  4.651e-01
+  13  5.946e-03  0.000e+00  8.627e-05  2.988e-02  0.000e+00  5.988e-01
+  14  5.377e-03  0.000e+00  1.716e-04  1.044e-02  0.000e+00  2.052e-01
+  15  8.505e-03  0.000e+00  1.076e-05  1.974e-02  0.000e+00  7.638e-02
+  16  5.870e-04  0.000e+00  1.938e-05  3.298e-03  0.000e+00  5.452e-02
+  17  1.277e-04  0.000e+00  7.396e-06  2.219e-03  0.000e+00  3.338e-02
+  18  1.240e-04  0.000e+00  9.725e-06  5.125e-03  0.000e+00  1.988e-02
+  19  1.010e-04  0.000e+00  5.480e-06  1.306e-03  0.000e+00  1.133e-02
+  20  7.695e-05  0.000e+00  1.206e-06  2.061e-03  0.000e+00  6.235e-03
+Caught Exception: [/home/thsa/workspace/opm/opm-simulators/opm/simulators/flow/NonlinearSolverEbos.hpp:196] Solver convergence failure - Failed to complete a time step within 20 iterations.
+    Excessive chopping detected in report step 0, substep 0
+
+Solver convergence failure - Iteration limit reached
+Timestep chopped to 0.004537 days
+
+
+Time step 0, stepsize 0.0045375 days, at day 0/0.0416667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  4.531e-27  0.000e+00  2.004e-03  1.462e-10  0.000e+00  8.438e-02
+   1  1.742e-03  0.000e+00  4.216e-04  1.412e+05  0.000e+00  8.135e+04
+   2  4.252e-04  0.000e+00  1.208e-03  9.697e+04  0.000e+00  6.487e+04
+   3  8.984e-04  0.000e+00  2.059e-03  6.229e+04  0.000e+00  8.392e+02
+   4  1.843e-03  0.000e+00  3.291e-03  2.557e+04  0.000e+00  8.691e+00
+   5  2.308e-03  0.000e+00  1.357e-03  2.060e+04  0.000e+00  7.055e+00
+   6  9.102e-04  0.000e+00  2.274e-03  1.900e+04  0.000e+00  2.865e+00
+   7  2.326e-03  0.000e+00  1.130e-03  1.765e+04  0.000e+00  2.828e+00
+   8  7.872e-04  0.000e+00  1.989e-03  3.268e+04  0.000e+00  1.189e+00
+   9  9.789e-01  0.000e+00  7.581e-04  3.648e+02  0.000e+00  4.791e+00
+  10  1.198e-01  0.000e+00  3.492e-05  1.662e+00  0.000e+00  5.804e-01
+  11  1.748e-02  0.000e+00  7.630e-05  5.482e-02  0.000e+00  1.132e-01
+  12  1.236e-02  0.000e+00  1.608e-05  2.882e-02  0.000e+00  9.574e-03
+  13  5.000e-04  0.000e+00  3.188e-07  1.102e-03  0.000e+00  3.165e-03
+  14  3.950e-04  0.000e+00  4.281e-07  1.471e-03  0.000e+00  4.559e-04
+  15  8.290e-07  0.000e+00  2.571e-08  2.474e-05  0.000e+00  8.034e-05
+Overall linear iterations used: 86
+Time step summary: newton its = 15, linearizations = 16 ( 0.004 sec), linear its =  86 ( 0.003 sec)
+
+Time step 1, stepsize 0.009075 days, at day 0.0045375/0.0416667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  4.010e-03  0.000e+00  4.008e-03  9.006e-02  0.000e+00  9.006e-02
+   1  2.051e-05  0.000e+00  2.143e-05  2.291e-03  0.000e+00  1.673e-02
+   2  7.304e-06  0.000e+00  6.428e-06  3.844e-04  0.000e+00  1.956e-03
+   3  1.019e-06  0.000e+00  2.870e-07  9.243e-05  0.000e+00  9.488e-04
+   4  7.787e-07  0.000e+00  2.684e-07  1.346e-04  0.000e+00  4.261e-04
+Overall linear iterations used: 11
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  11 ( 0.000 sec)
+
+Time step 2, stepsize 0.0280542 days, at day 0.0136125/0.0416667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.239e-02  0.000e+00  1.239e-02  1.920e-01  0.000e+00  1.920e-01
+   1  1.540e-04  0.000e+00  6.226e-06  2.673e-02  0.000e+00  2.226e-01
+   2  1.897e-04  0.000e+00  2.157e-05  1.515e-02  0.000e+00  1.288e-01
+   3  1.853e-04  0.000e+00  2.959e-05  1.090e-02  0.000e+00  9.231e-02
+   4  1.587e-04  0.000e+00  2.394e-05  7.233e-03  0.000e+00  6.084e-02
+   5  2.147e-04  0.000e+00  4.583e-06  4.468e-03  0.000e+00  3.741e-02
+   6  1.960e-04  0.000e+00  8.527e-06  2.821e-03  0.000e+00  2.435e-02
+   7  2.991e-06  0.000e+00  4.613e-07  1.972e-03  0.000e+00  1.550e-02
+   8  1.185e-06  0.000e+00  2.829e-07  9.621e-04  0.000e+00  8.669e-03
+   9  1.877e-06  0.000e+00  1.058e-07  5.377e-04  0.000e+00  3.548e-03
+  10  4.715e-06  0.000e+00  8.765e-08  2.606e-04  0.000e+00  1.332e-05
+  11  9.603e-09  0.000e+00  1.286e-09  2.015e-06  0.000e+00  3.634e-07
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 51
+Time step summary: newton its = 11, linearizations = 12 ( 0.003 sec), linear its =  51 ( 0.002 sec)
+Sub steps started at time = 0 (days)
+ step[ 0 ] = 0.0045375 (days)
+ step[ 1 ] = 0.009075 (days)
+ step[ 2 ] = 0.0280542 (days)
+sub steps end time = 0.0416667 (days)
+Suggested next step size = 0.0841625 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at 0.0416667  Days *                  LAB - CASE 1                                          *
+  Report    1    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.036625 seconds; total solver time 0.036625 seconds.
+
+
+---------------    Simulation step number 1    ---------------
+      Current time (days)     0.0416667
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  1/24 at day 0.0416667/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.0416667/0.0833333, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.840e-02  0.000e+00  1.840e-02  2.373e-01  0.000e+00  2.373e-01
+   1  2.532e-03  0.000e+00  1.045e-03  4.694e-02  0.000e+00  8.246e-02
+   2  1.174e-03  0.000e+00  3.304e-06  2.984e-03  0.000e+00  5.164e-03
+Restart file written for report step:  1/24.  Date: 2019/01/01
+   3  5.262e-06  0.000e+00  4.086e-05  9.927e-04  0.000e+00  8.546e-03
+   4  1.816e-05  0.000e+00  9.268e-07  1.622e-03  0.000e+00  1.791e-05
+   5  3.739e-09  0.000e+00  4.644e-10  3.988e-06  0.000e+00  2.559e-07
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       11.7882             0       11.7882:            0   :       142.158             0       142.158:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       11.7882             0       11.7882:            0   :       142.158             0       142.158:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 33
+Time step summary: newton its =  5, linearizations =  6 ( 0.002 sec), linear its =  33 ( 0.001 sec)
+Sub steps started at time = 0.0416667 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.0833333 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at 0.0833333  Days *                  LAB - CASE 1                                          *
+  Report    2    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.003291 seconds; total solver time 0.039916 seconds.
+
+
+---------------    Simulation step number 2    ---------------
+      Current time (days)     0.0833333
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  2/24 at day 0.0833333/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.0833333/0.125, date = 01-Jan-2019
+Restart file written for report step:  2/24.  Date: 2019/01/01
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.840e-02  0.000e+00  1.840e-02  2.442e-01  0.000e+00  2.442e-01
+   1  2.200e-03  0.000e+00  6.466e-04  2.463e-02  0.000e+00  1.440e-01
+   2  1.209e-03  0.000e+00  3.151e-05  2.626e-03  0.000e+00  1.376e-02
+   3  6.732e-06  0.000e+00  1.416e-07  3.097e-05  0.000e+00  1.041e-04
+   4  2.632e-07  0.000e+00  1.859e-09  1.132e-06  0.000e+00  8.907e-07
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :        11.565             0        11.565:            0   :       212.591             0       212.591:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :        11.565             0        11.565:            0   :       212.591             0       212.591:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 31
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  31 ( 0.001 sec)
+Sub steps started at time = 0.0833333 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.125 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at     0.125  Days *                  LAB - CASE 1                                          *
+  Report    3    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002922 seconds; total solver time 0.042838 seconds.
+
+
+---------------    Simulation step number 3    ---------------
+      Current time (days)     0.125
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  3/24 at day 0.125/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.125/0.166667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.824e-02  0.000e+00  1.824e-02  2.156e-01  0.000e+00  2.156e-01
+Restart file written for report step:  3/24.  Date: 2019/01/01
+   1  1.362e-03  0.000e+00  1.012e-05  2.527e-02  0.000e+00  1.067e-01
+   2  9.251e-04  0.000e+00  5.903e-05  1.946e-03  0.000e+00  4.140e-03
+   3  9.268e-06  0.000e+00  6.951e-07  6.830e-05  0.000e+00  5.732e-04
+   4  5.069e-07  0.000e+00  1.011e-07  1.356e-06  0.000e+00  2.355e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       11.3492             0       11.3492:            0   :       280.696             0       280.696:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       11.3492             0       11.3492:            0   :       280.696             0       280.696:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 28
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  28 ( 0.001 sec)
+Sub steps started at time = 0.125 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.166667 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.166667  Days *                  LAB - CASE 1                                          *
+  Report    4    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002774 seconds; total solver time 0.045612 seconds.
+
+
+---------------    Simulation step number 4    ---------------
+      Current time (days)     0.166667
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  4/24 at day 0.166667/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.166667/0.208333, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.763e-02  0.000e+00  1.763e-02  1.837e-01  0.000e+00  1.837e-01
+Restart file written for report step:  4/24.  Date: 2019/01/01
+   1  1.200e-03  0.000e+00  9.417e-05  1.837e-02  0.000e+00  1.106e-01
+   2  7.023e-04  0.000e+00  3.286e-07  1.616e-03  0.000e+00  3.990e-03
+   3  4.520e-06  0.000e+00  8.741e-08  3.161e-05  0.000e+00  2.734e-04
+   4  2.119e-07  0.000e+00  2.005e-09  7.654e-07  0.000e+00  1.802e-07
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       11.1442             0       11.1442:            0   :       345.397             0       345.397:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       11.1442             0       11.1442:            0   :       345.397             0       345.397:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 30
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  30 ( 0.001 sec)
+Sub steps started at time = 0.166667 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.208333 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.208333  Days *                  LAB - CASE 1                                          *
+  Report    5    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002811 seconds; total solver time 0.048423 seconds.
+
+
+---------------    Simulation step number 5    ---------------
+      Current time (days)     0.208333
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  5/24 at day 0.208333/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.208333/0.25, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.675e-02  0.000e+00  1.675e-02  1.578e-01  0.000e+00  1.578e-01
+Restart file written for report step:  5/24.  Date: 2019/01/01
+   1  7.111e-04  0.000e+00  4.977e-05  1.388e-02  0.000e+00  8.584e-02
+   2  3.428e-04  0.000e+00  4.400e-06  8.466e-04  0.000e+00  2.861e-03
+   3  7.467e-06  0.000e+00  1.146e-07  2.070e-05  0.000e+00  4.651e-05
+   4  1.683e-08  0.000e+00  1.735e-10  4.960e-08  0.000e+00  7.374e-08
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.9518             0       10.9518:            0   :       406.112             0       406.112:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.9518             0       10.9518:            0   :       406.112             0       406.112:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 32
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  32 ( 0.001 sec)
+Sub steps started at time = 0.208333 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.25 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at      0.25  Days *                  LAB - CASE 1                                          *
+  Report    6    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.003164 seconds; total solver time 0.051587 seconds.
+
+
+---------------    Simulation step number 6    ---------------
+      Current time (days)     0.25
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  6/24 at day 0.25/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.25/0.291667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.572e-02  0.000e+00  1.572e-02  1.428e-01  0.000e+00  1.428e-01
+Restart file written for report step:  6/24.  Date: 2019/01/01
+   1  2.317e-04  0.000e+00  5.238e-05  1.227e-02  0.000e+00  6.713e-02
+   2  4.083e-05  0.000e+00  4.755e-06  2.005e-04  0.000e+00  2.559e-03
+   3  6.294e-06  0.000e+00  6.736e-07  2.685e-05  0.000e+00  1.733e-05
+   4  4.267e-09  0.000e+00  5.964e-09  3.899e-08  0.000e+00  8.317e-08
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.7731             0       10.7731:            0   :       462.521             0       462.521:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.7731             0       10.7731:            0   :       462.521             0       462.521:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 36
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  36 ( 0.001 sec)
+Sub steps started at time = 0.25 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.291667 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.291667  Days *                  LAB - CASE 1                                          *
+  Report    7    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.003040 seconds; total solver time 0.054627 seconds.
+
+
+---------------    Simulation step number 7    ---------------
+      Current time (days)     0.291667
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  7/24 at day 0.291667/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.291667/0.333333, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.460e-02  0.000e+00  1.460e-02  1.438e-01  0.000e+00  1.438e-01
+Restart file written for report step:  7/24.  Date: 2019/01/01
+   1  3.166e-04  0.000e+00  3.334e-05  1.389e-02  0.000e+00  6.554e-02
+   2  7.534e-06  0.000e+00  2.254e-06  1.059e-04  0.000e+00  2.898e-03
+   3  7.846e-07  0.000e+00  4.322e-07  2.675e-06  0.000e+00  7.815e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.6087             0       10.6087:            0   :       514.416             0       514.416:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.6087             0       10.6087:            0   :       514.416             0       514.416:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 26
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  26 ( 0.001 sec)
+Sub steps started at time = 0.291667 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.333333 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.333333  Days *                  LAB - CASE 1                                          *
+  Report    8    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002288 seconds; total solver time 0.056915 seconds.
+
+
+---------------    Simulation step number 8    ---------------
+      Current time (days)     0.333333
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  8/24 at day 0.333333/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.333333/0.375, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.344e-02  0.000e+00  1.344e-02  1.438e-01  0.000e+00  1.438e-01
+Restart file written for report step:  8/24.  Date: 2019/01/01
+   1  2.000e-04  0.000e+00  1.098e-05  1.504e-02  0.000e+00  6.109e-02
+   2  1.694e-04  0.000e+00  2.272e-05  4.351e-04  0.000e+00  3.318e-03
+   3  6.220e-06  0.000e+00  2.622e-07  1.743e-05  0.000e+00  1.705e-05
+   4  2.157e-11  0.000e+00  5.966e-12  2.117e-09  0.000e+00  1.951e-08
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.4585             0       10.4585:            0   :         561.8             0         561.8:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.4585             0       10.4585:            0   :         561.8             0         561.8:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 40
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  40 ( 0.001 sec)
+Sub steps started at time = 0.333333 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.375 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at     0.375  Days *                  LAB - CASE 1                                          *
+  Report    9    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002953 seconds; total solver time 0.059867 seconds.
+
+
+---------------    Simulation step number 9    ---------------
+      Current time (days)     0.375
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step  9/24 at day 0.375/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.375/0.416667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.227e-02  0.000e+00  1.227e-02  1.427e-01  0.000e+00  1.427e-01
+Restart file written for report step:  9/24.  Date: 2019/01/01
+   1  3.580e-04  0.000e+00  7.920e-05  1.210e-02  0.000e+00  9.521e-02
+   2  3.597e-06  0.000e+00  1.614e-06  1.732e-04  0.000e+00  3.653e-03
+   3  2.125e-06  0.000e+00  8.383e-07  5.489e-06  0.000e+00  2.200e-05
+   4  1.754e-08  0.000e+00  5.706e-10  5.904e-08  0.000e+00  8.108e-08
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.3204             0       10.3204:            0   :        605.38             0        605.38:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.3204             0       10.3204:            0   :        605.38             0        605.38:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 35
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  35 ( 0.001 sec)
+Sub steps started at time = 0.375 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.416667 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.416667  Days *                  LAB - CASE 1                                          *
+  Report   10    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002815 seconds; total solver time 0.062683 seconds.
+
+
+---------------    Simulation step number 10    ---------------
+      Current time (days)     0.416667
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 10/24 at day 0.416667/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.416667/0.458333, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.128e-02  0.000e+00  1.128e-02  1.396e-01  0.000e+00  1.396e-01
+   1  1.692e-04  0.000e+00  5.892e-05  7.914e-03  0.000e+00  7.533e-02
+Restart file written for report step: 10/24.  Date: 2019/01/01
+   2  2.049e-05  0.000e+00  2.876e-06  7.182e-05  0.000e+00  9.639e-03
+   3  1.627e-06  0.000e+00  9.507e-07  5.438e-06  0.000e+00  4.860e-05
+   4  2.046e-08  0.000e+00  1.641e-08  1.111e-07  0.000e+00  1.963e-07
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.1895             0       10.1895:            0   :       646.693             0       646.693:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.1895             0       10.1895:            0   :       646.693             0       646.693:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 34
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  34 ( 0.001 sec)
+Sub steps started at time = 0.416667 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.458333 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.458333  Days *                  LAB - CASE 1                                          *
+  Report   11    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002902 seconds; total solver time 0.065585 seconds.
+
+
+---------------    Simulation step number 11    ---------------
+      Current time (days)     0.458333
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 11/24 at day 0.458333/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.458333/0.5, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.070e-02  0.000e+00  1.070e-02  1.344e-01  0.000e+00  1.344e-01
+Restart file written for report step: 11/24.  Date: 2019/01/01
+   1  1.295e-04  0.000e+00  5.284e-05  7.126e-03  0.000e+00  1.230e-01
+   2  9.646e-06  0.000e+00  1.889e-05  1.064e-04  0.000e+00  1.310e-02
+   3  1.624e-07  0.000e+00  4.846e-06  9.400e-06  0.000e+00  1.194e-04
+   4  1.036e-07  0.000e+00  1.385e-08  3.326e-07  0.000e+00  6.530e-07
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.0644             0       10.0644:            0   :       686.182             0       686.182:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       10.0644             0       10.0644:            0   :       686.182             0       686.182:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 28
+Time step summary: newton its =  4, linearizations =  5 ( 0.001 sec), linear its =  28 ( 0.001 sec)
+Sub steps started at time = 0.458333 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.5 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at       0.5  Days *                  LAB - CASE 1                                          *
+  Report   12    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002963 seconds; total solver time 0.068547 seconds.
+
+
+---------------    Simulation step number 12    ---------------
+      Current time (days)     0.5
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 12/24 at day 0.5/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.5/0.541667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  1.022e-02  0.000e+00  1.022e-02  1.282e-01  0.000e+00  1.282e-01
+   1  1.552e-04  0.000e+00  7.854e-05  6.513e-03  0.000e+00  3.844e-02
+Restart file written for report step: 12/24.  Date: 2019/01/01
+   2  2.440e-05  0.000e+00  1.648e-05  7.524e-05  0.000e+00  3.765e-03
+   3  7.792e-07  0.000e+00  7.521e-07  2.640e-06  0.000e+00  1.104e-05
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.94474             0       9.94474:            0   :       723.944             0       723.944:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.94474             0       9.94474:            0   :       723.944             0       723.944:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 26
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  26 ( 0.001 sec)
+Sub steps started at time = 0.5 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.541667 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.541667  Days *                  LAB - CASE 1                                          *
+  Report   13    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002500 seconds; total solver time 0.071047 seconds.
+
+
+---------------    Simulation step number 13    ---------------
+      Current time (days)     0.541667
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 13/24 at day 0.541667/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.541667/0.583333, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  9.776e-03  0.000e+00  9.776e-03  1.219e-01  0.000e+00  1.219e-01
+   1  4.503e-05  0.000e+00  1.477e-05  5.926e-03  0.000e+00  3.492e-02
+Restart file written for report step: 13/24.  Date: 2019/01/01
+   2  5.693e-06  0.000e+00  1.906e-05  4.571e-05  0.000e+00  9.044e-04
+   3  1.100e-07  0.000e+00  2.729e-08  5.101e-07  0.000e+00  2.011e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.83057             0       9.83057:            0   :       759.974             0       759.974:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.83057             0       9.83057:            0   :       759.974             0       759.974:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 24
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  24 ( 0.001 sec)
+Sub steps started at time = 0.541667 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.583333 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.583333  Days *                  LAB - CASE 1                                          *
+  Report   14    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002624 seconds; total solver time 0.073671 seconds.
+
+
+---------------    Simulation step number 14    ---------------
+      Current time (days)     0.583333
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 14/24 at day 0.583333/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.583333/0.625, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  9.328e-03  0.000e+00  9.328e-03  1.158e-01  0.000e+00  1.158e-01
+   1  1.626e-04  0.000e+00  5.347e-05  5.343e-03  0.000e+00  2.831e-02
+Restart file written for report step: 14/24.  Date: 2019/01/01
+   2  9.493e-06  0.000e+00  9.590e-06  6.751e-05  0.000e+00  4.406e-04
+   3  5.496e-08  0.000e+00  1.762e-07  2.460e-07  0.000e+00  1.757e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.72198             0       9.72198:            0   :       794.245             0       794.245:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.72198             0       9.72198:            0   :       794.245             0       794.245:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 31
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  31 ( 0.001 sec)
+Sub steps started at time = 0.583333 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.625 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at     0.625  Days *                  LAB - CASE 1                                          *
+  Report   15    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002517 seconds; total solver time 0.076188 seconds.
+
+
+---------------    Simulation step number 15    ---------------
+      Current time (days)     0.625
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 15/24 at day 0.625/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.625/0.666667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  8.873e-03  0.000e+00  8.873e-03  1.136e-01  0.000e+00  1.136e-01
+   1  9.247e-05  0.000e+00  1.952e-05  5.150e-03  0.000e+00  3.010e-02
+Restart file written for report step: 15/24.  Date: 2019/01/01
+   2  4.317e-05  0.000e+00  1.607e-05  1.379e-04  0.000e+00  5.771e-04
+   3  8.263e-08  0.000e+00  1.480e-07  3.008e-07  0.000e+00  2.188e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.61908             0       9.61908:            0   :       826.719             0       826.719:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.61908             0       9.61908:            0   :       826.719             0       826.719:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 26
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  26 ( 0.001 sec)
+Sub steps started at time = 0.625 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.666667 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.666667  Days *                  LAB - CASE 1                                          *
+  Report   16    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002551 seconds; total solver time 0.078738 seconds.
+
+
+---------------    Simulation step number 16    ---------------
+      Current time (days)     0.666667
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 16/24 at day 0.666667/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.666667/0.708333, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  8.408e-03  0.000e+00  8.408e-03  1.102e-01  0.000e+00  1.102e-01
+   1  6.183e-06  0.000e+00  5.294e-05  4.686e-03  0.000e+00  2.619e-02
+Restart file written for report step: 16/24.  Date: 2019/01/01
+   2  6.973e-06  0.000e+00  7.221e-06  3.994e-05  0.000e+00  4.397e-04
+   3  3.629e-08  0.000e+00  1.433e-07  4.157e-07  0.000e+00  1.506e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.52201             0       9.52201:            0   :       857.354             0       857.354:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.52201             0       9.52201:            0   :       857.354             0       857.354:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 26
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  26 ( 0.001 sec)
+Sub steps started at time = 0.666667 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.708333 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.708333  Days *                  LAB - CASE 1                                          *
+  Report   17    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002406 seconds; total solver time 0.081144 seconds.
+
+
+---------------    Simulation step number 17    ---------------
+      Current time (days)     0.708333
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 17/24 at day 0.708333/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.708333/0.75, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  7.931e-03  0.000e+00  7.932e-03  1.116e-01  0.000e+00  1.116e-01
+   1  1.676e-05  0.000e+00  5.916e-05  4.236e-03  0.000e+00  2.422e-02
+Restart file written for report step: 17/24.  Date: 2019/01/01
+   2  8.361e-06  0.000e+00  5.438e-06  3.113e-05  0.000e+00  3.390e-04
+   3  4.658e-08  0.000e+00  7.540e-08  3.318e-07  0.000e+00  9.015e-07
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.43088             0       9.43088:            0   :       886.116             0       886.116:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.43088             0       9.43088:            0   :       886.116             0       886.116:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 23
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  23 ( 0.001 sec)
+Sub steps started at time = 0.708333 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.75 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at      0.75  Days *                  LAB - CASE 1                                          *
+  Report   18    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002389 seconds; total solver time 0.083533 seconds.
+
+
+---------------    Simulation step number 18    ---------------
+      Current time (days)     0.75
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 18/24 at day 0.75/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.75/0.791667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  7.447e-03  0.000e+00  7.446e-03  1.079e-01  0.000e+00  1.079e-01
+   1  5.579e-05  0.000e+00  6.340e-05  3.879e-03  0.000e+00  2.210e-02
+   2  3.538e-06  0.000e+00  1.747e-06  2.089e-05  0.000e+00  3.013e-04
+Restart file written for report step: 18/24.  Date: 2019/01/01
+   3  4.408e-08  0.000e+00  9.090e-08  2.742e-07  0.000e+00  1.240e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.34572             0       9.34572:            0   :       912.992             0       912.992:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.34572             0       9.34572:            0   :       912.992             0       912.992:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 27
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  27 ( 0.001 sec)
+Sub steps started at time = 0.75 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.791667 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.791667  Days *                  LAB - CASE 1                                          *
+  Report   19    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002527 seconds; total solver time 0.086060 seconds.
+
+
+---------------    Simulation step number 19    ---------------
+      Current time (days)     0.791667
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 19/24 at day 0.791667/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.791667/0.833333, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  6.958e-03  0.000e+00  6.958e-03  1.078e-01  0.000e+00  1.078e-01
+   1  1.253e-06  0.000e+00  2.290e-05  3.688e-03  0.000e+00  2.292e-02
+   2  1.817e-07  0.000e+00  1.789e-05  2.710e-05  0.000e+00  2.863e-04
+   3  8.824e-08  0.000e+00  3.211e-08  2.731e-07  0.000e+00  8.265e-07
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.26645             0       9.26645:            0   :       938.009             0       938.009:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.26645             0       9.26645:            0   :       938.009             0       938.009:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 22
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  22 ( 0.001 sec)
+Sub steps started at time = 0.791667 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.833333 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+Restart file written for report step: 19/24.  Date: 2019/01/01
+
+                              **************************************************************************
+  Balance  at  0.833333  Days *                  LAB - CASE 1                                          *
+  Report   20    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002344 seconds; total solver time 0.088405 seconds.
+
+
+---------------    Simulation step number 20    ---------------
+      Current time (days)     0.833333
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 20/24 at day 0.833333/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.833333/0.875, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  6.477e-03  0.000e+00  6.477e-03  1.046e-01  0.000e+00  1.046e-01
+   1  2.002e-05  0.000e+00  2.181e-05  3.684e-03  0.000e+00  2.090e-02
+   2  1.348e-05  0.000e+00  1.240e-05  6.646e-05  0.000e+00  2.174e-04
+   3  6.631e-08  0.000e+00  4.165e-09  1.762e-07  0.000e+00  1.255e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.19282             0       9.19282:            0   :       961.245             0       961.245:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.19282             0       9.19282:            0   :       961.245             0       961.245:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 21
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  21 ( 0.001 sec)
+Sub steps started at time = 0.833333 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.875 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+Restart file written for report step: 20/24.  Date: 2019/01/01
+
+                              **************************************************************************
+  Balance  at     0.875  Days *                  LAB - CASE 1                                          *
+  Report   21    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002301 seconds; total solver time 0.090706 seconds.
+
+
+---------------    Simulation step number 21    ---------------
+      Current time (days)     0.875
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 21/24 at day 0.875/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.875/0.916667, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  6.016e-03  0.000e+00  6.016e-03  1.030e-01  0.000e+00  1.030e-01
+   1  6.770e-05  0.000e+00  1.348e-05  3.433e-03  0.000e+00  2.028e-02
+   2  6.490e-06  0.000e+00  4.832e-06  5.359e-05  0.000e+00  1.941e-04
+   3  1.101e-08  0.000e+00  3.146e-08  8.677e-07  0.000e+00  1.398e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.12441             0       9.12441:            0   :       982.835             0       982.835:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.12441             0       9.12441:            0   :       982.835             0       982.835:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 26
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  26 ( 0.001 sec)
+Sub steps started at time = 0.875 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.916667 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+Restart file written for report step: 21/24.  Date: 2019/01/01
+
+                              **************************************************************************
+  Balance  at  0.916667  Days *                  LAB - CASE 1                                          *
+  Report   22    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002403 seconds; total solver time 0.093109 seconds.
+
+
+---------------    Simulation step number 22    ---------------
+      Current time (days)     0.916667
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 22/24 at day 0.916667/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.916667/0.958333, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  5.590e-03  0.000e+00  5.590e-03  1.002e-01  0.000e+00  1.002e-01
+   1  2.141e-05  0.000e+00  2.910e-06  3.197e-03  0.000e+00  1.938e-02
+   2  1.821e-05  0.000e+00  7.699e-06  5.390e-05  0.000e+00  1.865e-04
+Restart file written for report step: 22/24.  Date: 2019/01/01
+   3  6.120e-08  0.000e+00  9.038e-08  1.869e-07  0.000e+00  1.034e-06
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.06066             0       9.06066:            0   :       1002.96             0       1002.96:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.06066             0       9.06066:            0   :       1002.96             0       1002.96:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 25
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  25 ( 0.001 sec)
+Sub steps started at time = 0.916667 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 0.958333 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at  0.958333  Days *                  LAB - CASE 1                                          *
+  Report   23    01 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002290 seconds; total solver time 0.095398 seconds.
+
+
+---------------    Simulation step number 23    ---------------
+      Current time (days)     0.958333
+      Current stepsize (days) 0.0416667
+      Total time (days)       1
+
+
+
+Report step 23/24 at day 0.958333/1, date = 01-Jan-2019
+
+Time step 0, stepsize 0.0416667 days, at day 0.958333/1, date = 01-Jan-2019
+Iter    MB(O)      MB(W)      MB(G)      CNV(O)     CNV(W)     CNV(G) 
+   0  5.209e-03  0.000e+00  5.209e-03  9.746e-02  0.000e+00  9.746e-02
+   1  6.394e-05  0.000e+00  5.505e-06  3.031e-03  0.000e+00  1.856e-02
+   2  1.104e-06  0.000e+00  5.323e-07  2.159e-05  0.000e+00  1.422e-04
+Restart file written for report step: 23/24.  Date: 2019/01/01
+   3  3.301e-08  0.000e+00  2.069e-08  2.113e-07  0.000e+00  3.283e-07
+Keyword 'BASIC' is unhandled for output to file.
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.00094             0       9.00094:            0   :        1021.8             0        1021.8:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       12.0134             0       12.0134:            0   :       71.0785             0       71.0785:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9.00094             0       9.00094:            0   :        1021.8             0        1021.8:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCC/HR   :  SCC/HR   :  SCC/HR   :    RCC    :  SCC/SCC  :  SCC/SCC :  SCC/SCC   :  ATMA  :  ATMA  :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :   SCC/HR  :  SCC/HR   :  SCC/HR   :  RCC/HR   :  ATMA  :  ATMA  :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :     MSCC  :   MSCC    :    MMSCC  :   MRCC    :    MSCC   :   MSCC    :    MMSCC  :   MRCC    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Overall linear iterations used: 27
+Time step summary: newton its =  3, linearizations =  4 ( 0.001 sec), linear its =  27 ( 0.001 sec)
+Sub steps started at time = 0.958333 (days)
+ step[ 0 ] = 0.0416667 (days)
+sub steps end time = 1 (days)
+Suggested next step size = 0.125 (days)
+
+Keyword 'BASIC' is unhandled for output to file.
+
+                              **************************************************************************
+  Balance  at         1  Days *                  LAB - CASE 1                                          *
+  Report   24    02 Jan 2019  *                                             Flow  version 2020.04-pre  *
+                              **************************************************************************
+
+Time step took 0.002351 seconds; total solver time 0.097750 seconds.
+
+
+================    End of simulation     ===============
+
+Number of MPI processes:      1
+Threads per MPI process:      2
+Total time (seconds):         0.0994332
+Solver time (seconds):        0.0977497
+ Assembly time (seconds):     0.0475622 (Failed: 0.011557; 24.2987%)
+ Linear solve time (seconds): 0.0314366 (Failed: 0.00677711; 21.558%)
+ Linear solve setup time (seconds): 0.00143336 (Failed: 0.000409065; 28.5389%)
+ Update time (seconds):       0.00661064 (Failed: 0.00156565; 23.6839%)
+ Output write time (seconds): 0.00257568
+Overall Well Iterations:      0 (Failed: 0; -nan%)
+Overall Linearizations:       178 (Failed: 42; 23.5955%)
+Overall Newton Iterations:    152 (Failed: 42; 27.6316%)
+Overall Linear Iterations:    992 (Failed: 187; 18.8508%)
+
+
+
+Error summary:
+Warnings          50
+Info              146
+Errors            0
+Bugs              0
+Debug             308
+Problems          2
+
