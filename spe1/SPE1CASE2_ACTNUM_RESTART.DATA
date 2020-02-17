@@ -439,6 +439,13 @@ WCONINJE
 
 TSTEP
 --Advance the simulater once a month for ONE year:
-1 3 9 18 28 31 30 31 30 31 31 30 31 30 31 /
+1 3 9 18 28 /
+
+DATES
+    1 'APR' 2015 /
+/
+
+TSTEP
+   30 31 30 31 31 30 31 30 31 /
 
 END
