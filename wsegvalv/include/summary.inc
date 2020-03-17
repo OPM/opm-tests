@@ -9,6 +9,12 @@
 
 WOPR
  PROD1 / 
+
+WWPR
+ PROD1 / 
+
+WGPR
+ PROD1 / 
  
 WGOR
  PROD1 / 
@@ -20,6 +26,9 @@ WWCT
  PROD1 / 
 
 WOPT
+ PROD1 / 
+
+WGPT
  PROD1 / 
 
 WWPT
