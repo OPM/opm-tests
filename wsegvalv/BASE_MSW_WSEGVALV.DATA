@@ -35,14 +35,6 @@ DISGAS
 
 METRIC
 
---------------------------------------------------------------
--- Special options
---------------------------------------------------------------
-
-
-ENDSCALE
-/
-
 
 --------------------------------------------------------------
 -- Dimensions
@@ -140,15 +132,20 @@ NOECHO
 INCLUDE 
  'include/grid1.grdecl' / 
 
-INCLUDE
- 'include/perm.grdecl' /
- 
--- Poro
-INCLUDE
- 'include/poro.grdecl' /
+PERMX
+ 600*9952 /
 
-INCLUDE
- 'include/ntg.grdecl' /
+PERMY
+ 600*9952 /
+ 
+PERMZ
+ 600*7053 /
+
+NTG
+ 600*0.86 /
+ 
+PORO
+ 600*0.31 /
 
 
 -- ==========================================================================================
@@ -167,62 +164,11 @@ INCLUDE
  
 ROCK
 -- P       cf
-144.445  5.17557E-4 /
+ 144.445  5.17557E-4 /
 
 -- Rel perm
 INCLUDE
  'include/relperm.prpecl'  /
-
--- Swl
-INCLUDE
- 'include/swl.grdecl' /
-
-MAXVALUE
- 'SWL'  0.60   /
-/
-
-COPY
- 'SWL'  'SWCR' /
- 'SWL'  'SGU'  /
-/
-
-MULTIPLY
- 'SGU'  -1 /
-/
-
-ADD
- 'SGU'  1 /
-/
-
-EQUALS
- 'SGCR'  0.05  /
-/
-
--- Sowcr, sogcr
-COPY
- 'SWCR'  'SOWCR'   /
- 'SWCR'  'SOGCR'   /
-/
- 
-MULTIPLY
- 'SOWCR' -1    /
- 'SOGCR' -1    /
-/
- 
-ADD
- 'SOWCR' 0.95      /
- 'SOGCR' 0.9127    /
-/
- 
-MAXVALUE
- 'SOWCR'  0.200    /
- 'SOGCR'  0.225    /
- /
- 
-
--- Use 3-point scaling to retain kre from curves or keyword
-SCALECRS
- 'YES' /
 
 
 -- ==========================================================================================
@@ -239,15 +185,13 @@ COPY
  'FIPNUM'  'PVTNUM' /
 /
 
-
 -- ==========================================================================================
 SOLUTION
 -- ==========================================================================================
 
 EQUIL
--- datum    Pres     OWC     Pcow  GOC    Pcog  Rsvd  Rvvd  N
-   1185.0   120.4    1250.000000    0.0   610.0   1*    1     1*   1* /
-
+-- datum    Pres     OWC      Pcow   GOC    Pcog  Rsvd  Rvvd  N
+   1185.0   150.4    1260.0    0.0   610.0   1*    1     1*   1* /
 
 RSVD
   610.0  24.65
@@ -265,7 +209,6 @@ RPTSOL
 SUMMARY
 -- =========================================================================================
 
-
 INCLUDE
  'include/summary.inc' /
 
@@ -277,10 +220,12 @@ INCLUDE
 SCHEDULE
 -- =========================================================================================
 
+TUNING
+ 0.5 5.0 /
+ /
+ /
+ 
 -- start of simulation:  1 'JAN' 2018  
-
-INCLUDE
- 'include/liftcurve.vfpprod' /
 
 -- WELSPECS and COMPDAT
 INCLUDE
@@ -289,13 +234,12 @@ INCLUDE
 
 -- WELSEGS, COMPSEGS and WSEGVALV
 INCLUDE
-  './include/prod1_msw_wsegvalv_data.inc' /
-
+  'include/prod1_msw_wsegvalv_data.inc' /
 
 
 WCONPROD   
 -- name    state  ctrl   qo     qw   qg    ql  qrv   bhp  thp  vfp                                 
-   PROD1   OPEN   ORAT   750.0   1*   1*   1*   1*   60   2*     /
+   PROD1   OPEN   ORAT   300.0   1*   1*   1*   1*   60   2*     /
 /
 
 DATES
