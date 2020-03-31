@@ -57,7 +57,7 @@ METRIC
 -- nrpvt:  max Rs nodes in a live oil PVT table
 TABDIMS
 -- ntsfun  ntpvt  nssfun  nppvt  ntfip  nrpvt 
-   1        1      50      50     12     50  /
+   1        1      50      50     1      50  /
 
 -- Dimension of equilibration tables
 -- ntequl: max EQLNUM
@@ -73,7 +73,7 @@ EQLDIMS
 -- nrfreg: max independent reservoir regions
 REGDIMS
 -- ntfip  nmfipr  nrfreg
-    2      4       1* /
+    1      1       1* /
 
 -- Well dimension data
 -- nwmaxz: max wells in the model
@@ -82,7 +82,7 @@ REGDIMS
 -- nwgmax: max wells in any one group
 WELLDIMS
 -- nwmaxz  ncwmax  ngmaxz  nwgmax
-    220     200      20     220  /
+    20      10       10     7  /
 
 -- Dimensions for multi-segment wells
 -- nswlmx: max multi-segment wells in the model
@@ -90,7 +90,7 @@ WELLDIMS
 -- nlbrmx: max branches per multi-segment well
 WSEGDIMS
 -- nswlmx  nsegmx  nlbrmx
-    200     500     200   /
+    20      10     10   /
 
 -- Production well VFP table dimensions
 -- mxmflo: max flow values per table
@@ -105,7 +105,7 @@ VFPPDIMS
 
 SMRYDIMS
 -- maximum number of vectors written to the Summary file
-15000 /
+5000 /
 
 --------------------------------------------------------------
 -- Run control settings
@@ -113,7 +113,7 @@ SMRYDIMS
 
 -- No point setting nstack larger than litmax
 NSTACK
- 50 / default value = 10
+ 25 / default value = 10
 
 NUPCOL
  20 / default value = 3
@@ -214,8 +214,8 @@ SOLUTION
 
 EQUIL
 -- datum    Pres     OWC            Pcow  GOC    Pcog  Rsvd  Rvvd  N
-   1500.0   150      1514.0         0.0   610.0   1*    1     1*   1* /
-   1550.0   150      1547.5         0.0   610.0   1*    1     1*   1* /
+   1500.0   150      1513.0         0.0   610.0   1*    1     1*   0 /
+   1550.0   150      1547.5         0.0   610.0   1*    1     1*   0 /
 
 
 RSVD
@@ -256,16 +256,25 @@ INCLUDE
  'include/vfp_opl1.ecl' /
 
 
+--                               FIELD
+--                                 |
 --                                MOD4
---                      -----------+------------------   
---                     |                 |           |
---                   UPPER             LOWER        AQF 
---              ------+------            +--- 
---             |            |               |
---           MAIN          SE             CENTRAL
---      ------+-----
---     |           |   
---    NW          NE
+--                      -----------+-----------------------+
+--                     |                 |                 |
+--                   UPPER             LOWER              AQF
+--              ------+------            +------+       +--+--+
+--             |            |                   |       |     |
+--           MAIN          SE                 CENTRAL  WID1  WID2
+--      ------+-----        +-----+-----+       |
+--     |           |        |     |     |       |
+--    NW          NE       OPU6  OPU7  WIU4     |
+--     |    +-----+-----+                       |
+--     |    |     |     |         +-----+-----+-+---+-----+-----+-----+
+--     |   OPU4  OPU5  WIU3       |     |     |     |     |     |     |
+--     |                         OPL1  OPL2  OPL3  OPL4  OPL5  WIL1  WIL2
+--  ---+--+-----+-----+-----+
+--  |     |     |     |     |
+-- OPU1  OPU2  OPU3  WIU1  WIU2
 --
 
 

@@ -32,7 +32,7 @@ SWOF
 1.00000	1.00000	0.00000 0.0
 /
 
---Mariner gas oil rel perm curves - Colin Mc/fee 2004
+-- gas oil rel perm curves 
 SGOF
 --SG    Krg     Krog    Pcog
 0        0.000   1.000  0
