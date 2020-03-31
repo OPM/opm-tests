@@ -160,6 +160,25 @@ WGPP
 WWPP
  /
 
+
+WOPGR
+/
+WGPGR
+/
+WWPGR
+/
+WVPGR
+/
+
+WOIGR
+/
+WWIGR
+/
+WGIGR
+/
+
+
+
 -- Group data
 
 
