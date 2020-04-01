@@ -9,20 +9,6 @@
 
 -- Summary file for the base case, specific version
 
-DATE
-
-NEWTON
-MLINEARS
-NLINEARS
-ELAPSED
-STEPTYPE
-TCPU
-TCPUDAY
-TIMESTEP
-TCPUTS
-WNEWTON
-
------------------
 -- Field Data
 -----------------
 -- Production rates
