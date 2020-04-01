@@ -1,0 +1,300 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018 Equinor
+
+-- This case is a modefied version of model2. This case has 3 producers and 1 injector
+
+-- test of group control - 2 group levels in addition to FIELD and well levels
+-- multisegment wells
+-- Group PROD has LRAT control, and is limited by ORAT
+-- GUIDERAT data at group level
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 13 22 11 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+--
+GRIDOPTS
+ 'YES'	      0 / 
+
+EQLDIMS
+ 2  100  25 /
+
+
+EQLOPTS
+ THPRES  /   
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          1       1*            2    /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10	    15 	          4	     10   /
+
+WSEGDIMS
+-- nswlmx  nsegmx  nlbrmx
+  10      20     1 /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  10          1      50          60         2         60 /
+
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg	max.ALQ    max.tabs
+  40	    20        20       20	0	   60	    /
+
+--
+FAULTDIM
+120 / max. number os fault segments
+
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+--
+
+
+
+INCLUDE
+ 'include/mod2a_13x22x11.grdecl' /
+
+INCLUDE
+ 'include/fluxmun.grdecl' /
+
+
+INCLUDE
+ 'include/poro.grdecl' /
+
+INCLUDE
+ 'include/permx.grdecl' /
+
+INCLUDE
+ 'include/ntg.grdecl' /
+
+
+COPY
+ PERMX PERMY /
+/
+
+
+INCLUDE
+ 'include/permz.grdecl'/
+
+
+RPTGRID
+ 'ALLNNC' /
+ 
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/norne_pvt.inc' /
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/eqlnum.grdecl' /
+
+INCLUDE
+ 'include/fipnum.grdecl' /
+
+INCLUDE
+ 'include/satnum.grdecl' /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2561.59  268.55  2645.21   0.0 2561.59  0.0   1   0   0 /  
+ 2584.20  268.71 2655.21   0.0 2584.20  0.0   5   0   0 /   
+
+RSVD
+ 2561.59  122.30
+ 2597.0  110.00
+ 2660.7  106.77
+ 2697.0  106.77 /
+
+ 2584.20  122.41
+ 2599.9  110.00
+ 2663.6  106.77
+ 2699.9  106.77 /
+
+
+THPRES
+ 1  2 /
+/
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+TUNING
+ 1* 5 /
+/
+/
+
+
+RPTRST
+ 'BASIC=2' /
+  
+
+-- start date:  01  'NOV' 2018 /
+ 
+
+GRUPTREE
+   'INJE'     'FIELD'  /
+   'WGRP1'     'PROD'  /
+   'WGRP2'     'PROD'  /
+   'PROD'     'FIELD'  /
+/
+
+-- Well proportions
+GUIDERAT
+-- int phase A  B  C D E F incr. damp
+    0  'OIL' 1 0.5 1 1 0 0 'YES' 0.5 / equal to 1/(0.5+WWCT)
+
+
+
+GCONPROD
+  'PROD' 'LRAT'   1000.  1*   1.E6  2500. 'RATE' 'YES' 1* 1*  7* /
+  'WGRP1' 'FLD'   900.  1*   1.E6  2400. 'RATE' 'YES' 1*  'FORM'  7* /
+  'WGRP2' 'FLD'   900.  1*   1.E6  2400. 'RATE' 'YES' 1*  'FORM'  7* /
+/
+
+INCLUDE
+  'include/prod1_compl.inc' /
+
+INCLUDE
+  'include/prod2_compl.inc' /
+
+INCLUDE
+  'include/prod3_compl.inc' /
+
+INCLUDE
+  'include/inj1_compl.inc' /
+
+INCLUDE
+  './include/prod1_msw_def.inc' /
+
+INCLUDE
+  './include/prod2_msw_def.inc' /
+
+INCLUDE
+  './include/prod3_msw_def.inc' /
+
+INCLUDE
+  './include/inj1_msw_def.inc' /
+
+WCONPROD
+-- name      status        ctrl        qo         qw      qg     ql    qr    bhp  thp  vfp  alq 
+  'PROD1'  'OPEN'      'GRUP'    350000.      1*      1*      1*   1*    190. /
+  'PROD2'  'OPEN'      'GRUP'    350000.      1*      1*      1*   1*    190. /
+  'PROD3'  'OPEN'      'GRUP'    350000.      1*      1*      1*   1*    190. /
+/
+
+
+WEFAC
+--    well name      Eff.fact.      
+'PROD1'  1.0 /
+'PROD2'  1.0 /
+'PROD3'  1.0 /
+/
+
+WCONINJE
+-- name   inj type  status      ctrl       surface_qw   res_qw  BHPmax
+  'INJ1'    'WATER'   'OPEN'  'GRUP'    6000.               1*      400. /
+ /
+
+DATES
+ 2 'DEC' 2018 /
+/
+
+
+DATES
+ 15 'DEC' 2018 /
+/
+
+
+DATES
+ 1 'JAN' 2019 /
+/
+
+END
