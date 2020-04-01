@@ -5,10 +5,12 @@
 
 -- Copyright (C) 2018 Equinor
 
--- This case is a modefied version of model2. This case has standard wells, 3 producers and 1 injector
+-- This case is a modefied version of model2. This case has 3 producers and 1 injector
 
--- Group PROD har LRAT control, and is limited by ORAT
--- guiderate on lowest group level is used
+-- test of group control - 2 group levels in addition to FIELD and well levels
+-- standard wells
+-- Group PROD has LRAT control, and is limited by ORAT
+-- GUIDERAT data at group level
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
