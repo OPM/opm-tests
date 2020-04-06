@@ -239,14 +239,34 @@ GCONPROD
   'WGRP2' 'FLD'   900.  1*   1.E6  2400. 'RATE' 'YES' 1*  'FORM'  7* /
 /
 
+WELSPECS
+-- Well   Grp	  I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD1  WGRP1   6  3  1*	  OIL	0.0	  STD	   STOP      YES    0	      SEG	0	     /
+    /
+
 INCLUDE
   'include/prod1_compl.inc' /
+
+WELSPECS
+--- Well   Grp       I   J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD2  'WGRP2'   10  4   1*        OIL   0.0       STD      STOP	 YES	0	  SEG	    0		 /
+    /
 
 INCLUDE
   'include/prod2_compl.inc' /
 
+WELSPECS
+-- Well   Grp	     I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD3  'WGRP1'   11  19  1*        OIL   0.0       STD      STOP	 YES	0	  SEG	    0		 /
+    /
+
 INCLUDE
   'include/prod3_compl.inc' /
+
+WELSPECS
+-- Well  Grp  I  J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   INJ1  INJE	2  13  1*      WATER   0.0	 STD	  STOP      YES    0	     SEG       0	    /
+    /
 
 INCLUDE
   'include/inj1_compl.inc' /

@@ -20,8 +20,6 @@ FLPR
 FOPRH
 FWPRH
 FGPRH
-FVPR
-FSGR
 -- Production cumulatives
 FOPT
 FWPT
@@ -37,12 +35,7 @@ FMCTP
 FMCTW
 FMCTG
 -- Injection rates
-FWIR
-FGIR
-FVIR
 -- Injection cumulatives
-FWIT
-FGIT
 -- Pressure and fluid
 -- In-place volumes
 -- Number of wells
@@ -135,9 +128,6 @@ WWIRH
 WBHP
  'PROD*' 'INJ*' /
 
-WTHP
- 'PROD*'  /
-
 -- potentials 
 
 WGIP
@@ -186,8 +176,7 @@ GGPR
 /
 GLPR
 /
-GSGR
-/
+
 GMCTP
 /
 GMCTW
