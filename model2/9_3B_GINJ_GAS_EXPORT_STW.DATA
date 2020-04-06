@@ -1,0 +1,468 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018 Equinor
+
+-- ------------------------------------------------------------------------
+-- Prediction case based on model2/9_EDITNNC_MODEL2.DATA
+-- ------------------------------------------------------------------------
+
+-- Gas injection case. 100 % reinjection of produced gas from start of 
+-- simulation. Gas export (GCONSALE) and increased gas production capacity
+-- from 1st of June 1999.
+
+-- GCONPROD with constraints on one group level, and standard well model.
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 13 22 11 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+--
+GRIDOPTS
+ 'YES'	      0 / 
+
+SATOPTS
+ HYSTER  /
+
+EQLDIMS
+ 2  100  25 /
+
+
+EQLOPTS
+ THPRES  /   
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          1       1*            2    /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10	    15 	          3	     10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  10          1      50          60         2         60 /
+
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg	max.ALQ    max.tabs
+  40	    20        20       20	0	   60	    /
+
+--
+FAULTDIM
+120 / max. number os fault segments
+
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+--
+PINCH
+ 0.001   GAP  1*   TOPBOT   ALL /
+
+MINPVV
+ 1144*100 2002*300 /
+
+
+
+INCLUDE
+ 'include/mod2a_13x22x11.grdecl' /
+
+INCLUDE
+ 'include/fluxmun.grdecl' /
+
+
+INCLUDE
+ 'include/faults.grdecl' /
+
+
+INCLUDE
+ 'include/poro.grdecl' /
+
+INCLUDE
+ 'include/permx.grdecl' /
+
+INCLUDE
+ 'include/ntg.grdecl' /
+
+
+INCLUDE
+ 'include/multz.grdecl' /
+
+INCLUDE
+ 'include/multx.grdecl' /
+
+INCLUDE
+ 'include/multy.grdecl' /
+
+COPY
+ PERMX PERMY /
+/
+
+
+INCLUDE
+ 'include/permz.grdecl'/
+ 
+
+MULTREGT 
+ 1  2	 0.0  2* F / 
+/
+
+
+RPTGRID
+ 'ALLNNC' /
+ 
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/fault_trans_xy.inc' /
+
+MULTIPLY
+ 'TRANZ'   0.05  1  13  1  22  8  8  /
+/
+
+INCLUDE
+ 'include/fault_editnnc.inc' /
+
+MULTFLT
+ 'F1'  0.1 /
+ 'F2'  0.2 /
+ 'F3'  0.3 /
+ 'F4'  0.4 /
+/
+ 
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/norne_pvt.inc' /
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+INCLUDE
+ 'include/swatinit.grdecl' /
+
+ 
+INCLUDE
+ 'include/swl.grdecl' /
+
+-- SWCR = SWL
+COPY
+  SWL  SWCR /
+/
+
+EQUALS
+ 'SGL' 0.0 /
+/
+
+-- SGU = 1-SWL
+INCLUDE
+ 'include/sgu.grdecl' /
+
+
+EHYSTR
+      0.1  1  0.1 1* KR /
+
+
+COPY
+ 'SGL' 'ISGL'   /
+ 'SGU' 'ISGU'   /
+ 'SWCR' 'ISWCR' /
+ 'SWL' 'ISWL'   /
+/
+
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/eqlnum.grdecl' /
+
+INCLUDE
+ 'include/fipnum.grdecl' /
+
+INCLUDE
+ 'include/satnum.grdecl' /
+
+INCLUDE
+ 'include/imbnum.grdecl' /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2561.59  268.55  2645.21   0.0 2561.59  0.0   1   0   0 /  
+ 2584.20  268.71 2685.21   0.0 2584.20  0.0   5   0   0 /   
+
+RSVD
+ 2561.59  122.30
+ 2597.0  110.00
+ 2660.7  106.77
+ 2697.0  106.77 /
+
+ 2584.20  122.41
+ 2599.9  110.00
+ 2663.6  106.77
+ 2699.9  106.77 /
+
+
+THPRES
+ 1  2 /
+/
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+ 
+RPTRST
+ 'BASIC=2' /
+  
+
+INCLUDE
+ 'include/D-1.Ecl' / 
+
+
+--   			      FIELD
+--   				|
+--   			       RES
+--   		     -----------+-------------------
+--   		    |			           |	      
+--   		  PROD  		         INJE     
+--   	     +-----+------+------+            +----+----+ 
+--   	     |     |	  |	 |            |	        |  
+--   	  PROD1  PROD2  PROD3  PROD4        INJ1      INJ2
+
+
+GRUPTREE
+   'RES'     'FIELD'  /
+   'INJE'     'RES'  /
+   'PROD'     'RES'  /
+/
+
+GCONPROD
+ 'RES'   ORAT  10000 12000 1.6E6  15000 RATE  'NO'  9* /
+/
+
+GCONINJE
+ 'RES'      'GAS'    'REIN'  2*   1.0  /
+/ 
+
+
+WELSPECS
+-- Well   Grp       I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD3  'PROD'   11  19      1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+/
+
+INCLUDE
+ './include/prod3_compl.inc' /
+
+
+WELSPECS
+-- Well  Grp    I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+  'INJ1'  INJE	2  13     1*      GAS   0.0	 STD	  SHUT      YES    0	     SEG       0	    /
+ /
+
+INCLUDE
+ './include/inj1_compl.inc' /
+
+
+WCONPROD
+-- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv   bhp   thp  VfpTab 
+ 'PROD3'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  30.0   5   / 
+/
+
+WCONINJE
+-- WellN  Type  Status  CtrlMode   SurfRate  ResVol   bhp    thp  VfpTab 
+ 'INJ1'   GAS   'OPEN'    'RATE'     2.0E6    1*      500.0   2*     / 
+/
+
+ 
+DATES   -- 2
+ 1 'DEC' 2018 /
+/
+
+
+WELSPECS
+-- Well    Grp     I   J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD2  'PROD'   10  4     1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+/
+
+INCLUDE
+ './include/prod2_compl.inc' /
+
+
+WCONPROD
+-- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv   bhp   thp  VfpTab 
+ 'PROD2'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  30.0   5   / 
+/
+
+
+DATES   -- 3
+ 2 'DEC' 2018 /
+/
+
+DATES   -- 6
+ 1 'JAN' 2019 /
+/
+
+WELSPECS
+-- Well    Grp     I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+  'PROD1'  PROD    6  3      1*     OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+/
+
+INCLUDE
+ './include/prod1_compl.inc' /
+
+WCONPROD
+-- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv   bhp   thp  VfpTab 
+ 'PROD1'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  30.0   5   / 
+/
+
+
+DATES   -- 7
+ 1 'FEB' 2019 /
+/
+
+WELSPECS
+-- Well   Grp    I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   INJ2  'INJE' 12  20      1*     GAS   0.0       STD      SHUT      YES    0         SEG       0            /
+/
+
+INCLUDE
+ './include/inj2_compl.inc' /
+
+
+WCONINJE
+-- WellN  Type    Status  CtrlMode   SurfRate  ResVol   bhp    thp  VfpTab 
+ 'INJ2'   GAS   'OPEN'    'RATE'     2.0E6    1*      500.0   2*     / 
+/
+
+DATES   -- 7
+ 1 'MAR' 2019 /
+/
+
+
+WELOPEN
+ 'INJ1' 'SHUT' 0 0 0 /
+/
+
+INCLUDE
+ './include/inj1_re_compl.inc' /
+
+DATES   -- 10
+ 1 'APR' 2019 /
+/
+
+WELSPECS
+-- Well   Grp       I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD4  'PROD'    11  6      1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+/
+
+
+INCLUDE
+ './include/prod4_compl.inc' /
+
+
+WCONPROD
+-- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv   bhp   thp  VfpTab 
+ 'PROD4'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  30.0   5   / 
+/
+
+
+DATES   -- 11
+ 1 'MAY' 2019 /
+/
+
+
+
+DATES   -- 11
+ 1 'JUN' 2019 /
+/
+
+
+GCONPROD
+ 'RES'   ORAT  10000 12000 2.1E6  15000 RATE  'NO'  9* /
+/
+
+GCONSALE
+ 'RES' 0.75E6 0.80E6  0.5E6  RATE /
+/ 
+
+
+
+DATES   -- 11
+ 1 'OCT' 2019 /
+/
+
+ 
+END

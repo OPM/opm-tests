@@ -7,10 +7,10 @@
 
 -- This file is one of the include files for model2
 
-WELSPECS
--- Well  Grp  I  J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
-   INJ1  INJE   2  13  1*      WATER   0.0       STD      STOP      YES    0         SEG       0            /
-    /
+--WELSPECS
+---- Well  Grp  I  J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+--   INJ1  INJE   2  13  1*      WATER   0.0       STD      STOP      YES    0         SEG       0            /
+--    /
     
 COMPDAT
 -- Well   I   J    K1   K2   Status   SAT   TR            DIAM      KH   S         Df   DIR

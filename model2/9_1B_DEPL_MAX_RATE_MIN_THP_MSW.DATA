@@ -5,12 +5,13 @@
 
 -- Copyright (C) 2018 Equinor
 
--- This case is a modefied version of model2. This case has 3 producers and 1 injector
 
--- test of group control - 2 group levels in addition to FIELD and well levels
--- multisegment wells
--- Group PROD has LRAT control, and is limited by ORAT
--- GUIDERAT data at well level
+-- ------------------------------------------------------------------------
+-- Prediction case based on model2/9_EDITNNC_MODEL2.DATA
+-- ------------------------------------------------------------------------
+
+-- Depleation case, wells (multi segment well model) controlled with maximum 
+-- rates and minimum tubing head pressure. No Group controls
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
@@ -36,6 +37,9 @@ START
 GRIDOPTS
  'YES'	      0 / 
 
+SATOPTS
+ HYSTER  /
+
 EQLDIMS
  2  100  25 /
 
@@ -51,12 +55,12 @@ REGDIMS
 --
 WELLDIMS
 --max.well  max.con/well  max.grup  max.w/grup
- 10	    15 	          4	     10   /
+ 10	    15 	          3	     10   /
 
 
 WSEGDIMS
 -- nswlmx  nsegmx  nlbrmx
-  10      20     1 /
+  10       20     1 /
 
 --
 TABDIMS
@@ -96,6 +100,11 @@ INIT
 
 
 --
+PINCH
+ 0.001   GAP  1*   TOPBOT   ALL /
+
+MINPVV
+ 1144*100 2002*300 /
 
 
 
@@ -104,6 +113,10 @@ INCLUDE
 
 INCLUDE
  'include/fluxmun.grdecl' /
+
+
+INCLUDE
+ 'include/faults.grdecl' /
 
 
 INCLUDE
@@ -116,6 +129,15 @@ INCLUDE
  'include/ntg.grdecl' /
 
 
+INCLUDE
+ 'include/multz.grdecl' /
+
+INCLUDE
+ 'include/multx.grdecl' /
+
+INCLUDE
+ 'include/multy.grdecl' /
+
 COPY
  PERMX PERMY /
 /
@@ -123,6 +145,11 @@ COPY
 
 INCLUDE
  'include/permz.grdecl'/
+ 
+
+MULTREGT 
+ 1  2	 0.0  2* F / 
+/
 
 
 RPTGRID
@@ -132,6 +159,23 @@ RPTGRID
 EDIT
 ------------------------------------------------------------------------------------------------
 
+INCLUDE
+ 'include/fault_trans_xy.inc' /
+
+MULTIPLY
+ 'TRANZ'   0.05  1  13  1  22  8  8  /
+/
+
+INCLUDE
+ 'include/fault_editnnc.inc' /
+
+MULTFLT
+ 'F1'  0.1 /
+ 'F2'  0.2 /
+ 'F3'  0.3 /
+ 'F4'  0.4 /
+/
+ 
 
 ------------------------------------------------------------------------------------------------
 PROPS
@@ -151,6 +195,39 @@ INCLUDE
 INCLUDE
  'include/relperm_go.inc' /
 
+INCLUDE
+ 'include/swatinit.grdecl' /
+
+ 
+INCLUDE
+ 'include/swl.grdecl' /
+
+-- SWCR = SWL
+COPY
+  SWL  SWCR /
+/
+
+EQUALS
+ 'SGL' 0.0 /
+/
+
+-- SGU = 1-SWL
+INCLUDE
+ 'include/sgu.grdecl' /
+
+
+EHYSTR
+      0.1  1  0.1 1* KR /
+
+
+COPY
+ 'SGL' 'ISGL'   /
+ 'SGU' 'ISGU'   /
+ 'SWCR' 'ISWCR' /
+ 'SWL' 'ISWL'   /
+/
+
+
 
 ------------------------------------------------------------------------------------------------
 REGIONS
@@ -165,6 +242,9 @@ INCLUDE
 INCLUDE
  'include/satnum.grdecl' /
 
+INCLUDE
+ 'include/imbnum.grdecl' /
+
 ------------------------------------------------------------------------------------------------
 SOLUTION
 ------------------------------------------------------------------------------------------------
@@ -176,7 +256,7 @@ RPTRST
 EQUIL
 -- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
  2561.59  268.55  2645.21   0.0 2561.59  0.0   1   0   0 /  
- 2584.20  268.71 2655.21   0.0 2584.20  0.0   5   0   0 /   
+ 2584.20  268.71 2685.21   0.0 2584.20  0.0   5   0   0 /   
 
 RSVD
  2561.59  122.30
@@ -207,120 +287,144 @@ INCLUDE
 ------------------------------------------------------------------------------------------------
 SCHEDULE
 ------------------------------------------------------------------------------------------------
-TUNING
- 1* 5 /
-/
-/
 
+WSEGITER
+ 150  50  0.3  2.0 /
 
+ 
 RPTRST
  'BASIC=2' /
   
 
--- start date:  01  'NOV' 2018 /
- 
+INCLUDE
+ 'include/D-1.Ecl' / 
+
+
+--   	           FIELD
+--   	             |
+--   		    PROD
+--         +------+--+---+-------+    
+--         |      |	 |	 |    
+--      PROD1  PROD2   PROD3  PROD4  
+
 
 GRUPTREE
-   'INJE'     'FIELD'  /
-   'WGRP1'     'PROD'  /
-   'WGRP2'     'PROD'  /
-   'PROD'     'FIELD'  /
-/
-
-
--- Well proportions
-GUIDERAT
--- int phase A  B  C D E F incr. damp
-    0  'OIL' 1 0.5 1 1 0 0 'YES' 0.5 / equal to 1/(0.5+WWCT)
-
-
-
-GCONPROD
-  'PROD' 'LRAT'   1000.  1*   1.E6  2500. 'RATE' 'YES' 1* 1*  7* /
-  'WGRP1' 'FLD'   900.  1*   1.E6  2400. 'RATE' 'YES' 1*  / 
-  'WGRP2' 'FLD'   900.  1*   1.E6  2400. 'RATE' 'YES' 1*  / 
+   'PROD'     'FIELD' /
 /
 
 WELSPECS
--- Well   Grp	  I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
-   PROD1  'WGRP1'   6  3  1*	  OIL	0.0	  STD	   STOP      YES    0	      SEG	0	     /
-    /
+-- Well    Grp      I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD3  'PROD'   11  19      1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+/
 
 INCLUDE
-  'include/prod1_compl.inc' /
-
-WELSPECS
---- Well   Grp       I   J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
-   PROD2  'WGRP2'   10  4   1*        OIL   0.0       STD      STOP	 YES	0	  SEG	    0		 /
-    /
+ './include/prod3_compl.inc' /
 
 INCLUDE
-  'include/prod2_compl.inc' /
-
-WELSPECS
--- Well   Grp	     I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
-   PROD3  'WGRP1'   11  19  1*        OIL   0.0       STD      STOP	 YES	0	  SEG	    0		 /
-    /
-
-INCLUDE
-  'include/prod3_compl.inc' /
-
-
-WELSPECS
--- Well  Grp  I  J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
-   INJ1  'INJE'	2  13  1*      WATER   0.0	 STD	  STOP      YES    0	     SEG       0	    /
- /
- 
-INCLUDE
-  'include/inj1_compl.inc' /
-
-INCLUDE
-  './include/prod1_msw_def.inc' /
-
-INCLUDE
-  './include/prod2_msw_def.inc' /
-
-INCLUDE
-  './include/prod3_msw_def.inc' /
-
-INCLUDE
-  './include/inj1_msw_def.inc' /
-
+ 'include/prod3_msw_def.inc' /
 
 WCONPROD
--- name      status        ctrl        qo         qw      qg     ql    qr    bhp  thp  vfp  alq 
-  'PROD1'  'OPEN'      'GRUP'    350000.      1*      1*      1*   1*    190. /
-  'PROD2'  'OPEN'      'GRUP'    350000.      1*      1*      1*   1*    190. /
-  'PROD3'  'OPEN'      'GRUP'    350000.      1*      1*      1*   1*    190. /
+-- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv   bhp   thp  VfpTab 
+ 'PROD3'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  30.0   5   / 
+/
+
+ 
+DATES   -- 2
+ 1 'DEC' 2018 /
 /
 
 
 
-WEFAC
---    well name      Eff.fact.      
-'PROD1'  1.0 /
-'PROD2'  1.0 /
-'PROD3'  1.0 /
+WELSPECS
+-- Well    Grp     I   J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD2  'PROD'   10  4     1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
 /
 
-WCONINJE
--- name   inj type  status      ctrl       surface_qw   res_qw  BHPmax
-  'INJ1'    'WATER'   'OPEN'  'GRUP'    6000.               1*      400. /
- /
+INCLUDE
+ './include/prod2_compl.inc' /
+
+INCLUDE
+ 'include/prod2_msw_def.inc' /
+
+WCONPROD
+-- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv   bhp   thp  VfpTab 
+ 'PROD2'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  30.0   5   / 
+/
 
 
-DATES
+DATES   -- 3
  2 'DEC' 2018 /
 /
 
-
-DATES
- 15 'DEC' 2018 /
-/
-
-
-DATES
+DATES   -- 6
  1 'JAN' 2019 /
 /
 
+WELSPECS
+-- Well     Grp     I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+  'PROD1'  'PROD'    6  3      1*     OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+/
+
+INCLUDE
+ './include/prod1_compl.inc' /
+
+INCLUDE
+ 'include/prod1_msw_def.inc' /
+
+WCONPROD
+-- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv   bhp   thp  VfpTab 
+ 'PROD1'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  30.0   5   / 
+/
+
+
+DATES   -- 7
+ 1 'FEB' 2019 /
+/
+
+
+WELSPECS
+-- Well    Grp       I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD4  'PROD'    11  6      1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+/
+
+
+INCLUDE
+ './include/prod4_compl.inc' /
+
+INCLUDE
+ 'include/prod4_msw_def.inc' /
+
+
+WCONPROD
+-- WellN  Status  CtrlMode  Qo     Qw     Qg     Qliq    Qresv   bhp   thp  VfpTab 
+ 'PROD4'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  30.0   5   / 
+/
+
+
+DATES   -- 7
+ 1 'MAR' 2019 /
+/
+
+DATES   -- 10
+ 1 'APR' 2019 /
+/
+
+
+DATES   -- 11
+ 1 'MAY' 2019 /
+/
+
+
+
+DATES   -- 11
+ 1 'JUN' 2019 /
+/
+
+
+
+DATES   -- 11
+ 1 'OCT' 2019 /
+/
+
+ 
 END
