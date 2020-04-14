@@ -111,7 +111,7 @@ UDADIMS
 -- nwgmax: max wells in any one group
 WELLDIMS
 -- nwmaxz  ncwmax  ngmaxz  nwgmax
-    20      10       10     5  /
+    20      10       10     7  /
 
 -- Dimensions for multi-segment wells
 -- nswlmx: max multi-segment wells in the model
@@ -282,6 +282,10 @@ INCLUDE
 SCHEDULE
 -- =========================================================================================
 
+TUNING
+ 1* 1 /
+/
+/
  
 INCLUDE 
  'include/vfp_opu1.ecl' /
