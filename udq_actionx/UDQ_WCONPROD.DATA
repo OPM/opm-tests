@@ -296,17 +296,6 @@ INCLUDE
  'include/example_summary.txt' /
 
 
-FMWIN
-
-FMWPR
-
-GMWPR 
- 'UPPER' 'LOWER' /
-
-GMWIN 
- 'UPPER' 'LOWER' /
-
-
 WUOPRL
  'OPL01' 'OPL02' 'OPU01' 'OPU02' /
 

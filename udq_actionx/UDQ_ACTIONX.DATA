@@ -297,17 +297,6 @@ INCLUDE
  'include/example_summary.txt' /
 
 
-FMWIN
-
-FMWPR
-
-GMWPR 
- 'UPPER' 'LOWER' /
-
-GMWIN 
- 'UPPER' 'LOWER' /
-
-
 WUPR1 
  'OP*' /
 
