@@ -1,0 +1,35 @@
+-- ***************************************************
+
+
+------------------------------------------------------
+--
+--Simulation model initialisation data
+--
+--   DATUM  DATUM   OWC     OWC    GOC    GOC    RSVD   RVVD   SOLN
+--   Depth  Pres.   Depth   Pcow   Depth  Pcog   Table  Table  Method
+EQUIL
+     2030   382.4   2030  0.0    500    0.0     1     1      0 / 
+     2050   382.4   2050  0.0    500    0.0     1     1      0 / 
+    
+
+
+--
+-- ---------------------------------------------------
+-- Dissolved gas-oil ratio versus depth, 
+
+RSVD
+ 1500 180.0
+ 4000 180.0  /
+ 1500 180.0
+ 4000 180.0  /
+ 
+
+-- ---------------------------------------------------
+--Controls on output to the RESTART file
+--RPTRST
+-- ALLPROPS=2 BASIC=2 FIP  /
+
+
+RPTRST
+ 'BASIC=2'  'PBPD' /
+ 

@@ -145,41 +145,9 @@ NOECHO
 INCLUDE
   'include/test_3x5x4.grdecl' /
 
-
-
-PORO
- 15*0.25
- 15*0.20 
- 15*0.23 
- 15*0.18 
-/ 
-
-PERMX
- 15*500 
- 15*100 
- 15*1000 
- 15*250 
-/ 
-
--- ---------------------------------------------------
--- Copy PERMX to PERMY  & PERMZ 
-COPY
- PERMX   PERMY   /
- PERMX   PERMZ   /
-/
---
--- ---------------------------------------------------
--- Set Kv/Kh 
-MULTIPLY
- PERMZ   0.1     /
-/
-
-
-MULTZ 
- 15*1.0
- 15*0.0
- 30*1.0
-/ 
+INCLUDE
+  'include/props.grdecl' /
+ 
 
 -- ***************************************************
 -- In this section simulation grid parameters are edited
@@ -236,41 +204,9 @@ EQLNUM
 
 SOLUTION
 
--- ***************************************************
+INCLUDE
+  'include/solution.txt' /
 
-
-------------------------------------------------------
---
---Simulation model initialisation data
---
---   DATUM  DATUM   OWC     OWC    GOC    GOC    RSVD   RVVD   SOLN
---   Depth  Pres.   Depth   Pcow   Depth  Pcog   Table  Table  Method
-EQUIL
-     2030   382.4   2030  0.0    500    0.0     1     1      0 / 
-     2050   382.4   2050  0.0    500    0.0     1     1      0 / 
-    
-
-
---
--- ---------------------------------------------------
--- Dissolved gas-oil ratio versus depth, 
-
-RSVD
- 1500 180.0
- 4000 180.0  /
- 1500 180.0
- 4000 180.0  /
- 
-
--- ---------------------------------------------------
---Controls on output to the RESTART file
---RPTRST
--- ALLPROPS=2 BASIC=2 FIP  /
-
-
-RPTRST
- 'BASIC=2'  'PBPD' /
- 
 
 --
 -- **************************************************************************************
@@ -294,17 +230,6 @@ SUMMARY
 
 INCLUDE
  'include/example_summary.txt' /
-
-
-FMWIN
-
-FMWPR
-
-GMWPR 
- 'UPPER' 'LOWER' /
-
-GMWIN 
- 'UPPER' 'LOWER' /
 
 
 WUOPRL

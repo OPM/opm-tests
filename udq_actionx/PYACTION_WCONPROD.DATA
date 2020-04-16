@@ -5,9 +5,8 @@
 
 -- Copyright (C) 2018 Equinor
 
--- This deck uses User defined quantities (UDQ) together with the ACTIONX 
--- keyword to shut well with highest water cut when number of wells on stream
--- exceeds a defined number.
+-- This deck uses User defined quantities (UDQ) to calculated
+-- production constraints which are set with keyword WCONPROD.
 
 --------------------------------------------------------
 
@@ -147,8 +146,7 @@ INCLUDE
   'include/test_3x5x4.grdecl' /
 
 INCLUDE
-   'include/props.grdecl' /
-
+  'include/props.grdecl' /
  
 
 -- ***************************************************
@@ -210,6 +208,7 @@ INCLUDE
   'include/solution.txt' /
 
 
+--
 -- **************************************************************************************
 -- In this section simulation output data to be written to sumTESTy file are defined
 -- **************************************************************************************
@@ -233,12 +232,17 @@ INCLUDE
  'include/example_summary.txt' /
 
 
-WUPR1 
- 'OP*' /
+WUOPRL
+ 'OPL01' 'OPL02' 'OPU01' 'OPU02' /
 
-WUPR3 
- 'OP*' /
+WULPRL
+ 'OPL01' 'OPL02' 'OPU01' 'OPU02' /
 
+WUOPRU
+ 'OPL01' 'OPL02' 'OPU01' 'OPU02' /
+
+WULPRU
+ 'OPL01' 'OPL02' 'OPU01' 'OPU02' /
 
 SCHEDULE
 
@@ -284,19 +288,24 @@ WCONPROD
 
 WCONINJE
 -- name   inj type  status   ctrl    surface_qw   res_qw  BHPmax
-  'WIU*'  'WATER'   'SHUT'  'GRUP'    10500.      1*      500. /
-  'WIL*'  'WATER'   'SHUT'  'GRUP'    10500.      1*      500. /
+  'WIU*'  'WATER'   'SHUT'  'GRUP'    10500.      1*      400. /
+  'WIL*'  'WATER'   'SHUT'  'GRUP'    10500.      1*      400. /
 /
 
 
+-- We define the UDQ keywords with the 'UNITS' statement here,
+-- but actually giving the values is done in the Python code.
 UDQ
--- WUPR3 sorts production wells from poorest (highest wct) to best. ACTIONX will shut #1 in this list 
-DEFINE WUPR1 1/(WWCT 'OP*') /   
-DEFINE WUPR3 SORTA(WUPR1) /
--- units ignored
+UNITS  WUOPRL SM3/DAY /
+UNITS  WULPRL SM3/DAY /
+UNITS  WUOPRU SM3/DAY /
+UNITS  WULPRU SM3/DAY /
 /
 
 
+PYACTION
+  'UDQ'  UNLIMITED /
+  'udq.py' /
 
 
 --start files/gconprod0.tmpl
@@ -308,7 +317,7 @@ GCONPROD
 
 GCONINJE
 'LOWER'      'WATER'   'VREP'  3*   1.2  /
-'UPPER'      'WATER'   'VREP'  3*   2.0  /
+'UPPER'      'WATER'   'VREP'  3*   1.2  /
 /
 
 -- Well proportions
@@ -318,18 +327,21 @@ GUIDERAT
 
 
 
---start files/actionxprod.tmpl
-ACTIONX
-ACT01 10 /
-FMWPR >= 4 AND /
-WUPR3 'OP*' = 1 /
+
+-- Well production rate targets/limits:
+-- testing UDQs as production constrains
+WCONPROD
+-- name      status  ctrl   qo     qw  qg  ql	 qr bhp  thp  vfp  alq 
+  'OPL02'     'OPEN'  'GRUP' WUOPRL  1*  1*  WULPRL 1* 60.0   / single wells
 /
 
-WELOPEN
-'?' SHUT 0 0 0 2* /
-/
 
-ENDACTIO
+-- Well production rate targets/limits:
+-- testing UDQs as production constrains
+WCONPROD
+-- name      status  ctrl   qo     qw  qg  ql	 qr bhp  thp  vfp  alq 
+  'OPU02'     'OPEN'  'GRUP' WUOPRU  1*  1*  WULPRU 1* 60.0   / single wells
+/
 
 
 DATES
@@ -370,7 +382,7 @@ WELOPEN
 /
 
 DATES
- 1 'MAY' 2019 / 
+ 1 'JAN' 2019 / 
 /
 
 
@@ -379,7 +391,7 @@ WELOPEN
 /
 
 DATES
- 1 'JUN' 2019 / 
+ 1 'FEB' 2019 / 
 /
 
 
@@ -388,5 +400,10 @@ WELOPEN
 /
 
 DATES
- 1 'JAN' 2021 / 
+ 1 'MAR' 2019 / 
+ 1 'APR' 2019 / 
+ 1 'MAY' 2019 / 
+ 1 'JUN' 2019 / 
+ 1 'JUL' 2019 / 
+ 1 'JAN' 2020 / 
 /
