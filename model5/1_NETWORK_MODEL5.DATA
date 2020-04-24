@@ -5,7 +5,7 @@
 
 -- Copyright (C) 2020 Equinor
 
--- This model is based on the base case for model5. 
+-- This model is based on the base case for model5.
 -- Added extended network option
 
 
@@ -31,13 +31,13 @@ START
 
 --
 GRIDOPTS
- 'YES'	      0 / 
+ 'YES'        0 /
 
 EQLDIMS
  1  100  25 /
 
 
-NETWORK 
+NETWORK
  3 2 /
 
 
@@ -53,11 +53,11 @@ TABDIMS
 --
 WELLDIMS
 --max.well  max.con/well  max.grup  max.w/grup
- 10	    15 	          9	     10   /
+ 10     15            9      10   /
 
 --FLOW   THP  WCT  GCT  ALQ  VFP
 VFPPDIMS
-  22     13   10   13    13   50  / 
+  22     13   10   13    13   50  /
 
 
 
@@ -74,7 +74,7 @@ NEWTRAN
 --
 GRIDFILE
  0  1/
- 
+
 --
 GRIDUNIT
 METRES  /
@@ -107,10 +107,10 @@ RPTGRID
 
 EQUALS
   'MULTY'  0.01 1 20  14 14  1 10 /
-/  
+/
 
- 
-------------------------------------------------------------------------------------------------  
+
+------------------------------------------------------------------------------------------------
 EDIT
 ------------------------------------------------------------------------------------------------
 
@@ -138,7 +138,7 @@ REGIONS
 
 EQLNUM
  6000*1 /
- 
+
 FIPNUM
  6000*1 /
 
@@ -156,11 +156,11 @@ RPTRST
 
 EQUIL
 -- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
- 2000.00  195.0  2070     0.0  500.00  0.0   1   0   0 /  
+ 2000.00  195.0  2070     0.0  500.00  0.0   1   0   0 /
 
 PBVD
   2000.00    75.00
-  2150.00    75.00  / 
+  2150.00    75.00  /
 
 
 
@@ -172,7 +172,7 @@ SUMMARY
 INCLUDE
  'include/summary.inc' /
 
- 
+
 
 
 
@@ -182,26 +182,26 @@ SCHEDULE
 ------------------------------------------------------------------------------------------------
 
 --
---   					 FIELD
---   					   |	     
---   					 PLAT-A       
---   			    ---------------+---------------------
---   			   |					| 
---   			 M5N				       M5S     
---   		 ---------+----------			  -----+-------
---   		|		    |			 |	      |
---   	       B1		   F1			C1	     G1
---   	   ----+------  	---+--- 	     ---+---	   ---+--- 
---   	  |    |     |         |      | 	    |	   |	  |	 |
---   	B-1H  B-2H  B-3H     F-1H    F-2H	  C-1H   C-2H	 G-1H	G-2H
+--                                   FIELD
+--                                    |
+--                                 PLAT-A
+--                    ---------------+-----------------
+--                    |                               |
+--                   M5N                             M5S
+--           ---------+----------                -----+-----
+--          |                   |               |          |
+--          B1                 F1              C1         G1
+--      ----+------          ---+---        ---+---    ---+---
+--      |    |     |         |      |      |      |    |      |
+--    B-1H  B-2H  B-3H     F-1H    F-2H   C-1H   C-2H  G-1H G-2H
 --
 
 TUNING
  0.5 5.0 /
  /
  /
- 
- 
+
+
 GRUPTREE
  'PROD'    'FIELD' /
 
@@ -213,7 +213,7 @@ GRUPTREE
  'B1'     'M5S'  /
  'G1'     'M5S'  /
  /
- 
+
 RPTRST
  'BASIC=2' /
 
@@ -227,46 +227,46 @@ INCLUDE
 INCLUDE
  'include/flowl_c_vfp.ecl' /
 
-  
-WELSPECS 
---WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS	
- 'B-1H'  'B1'   11    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /	
- 'B-2H'  'B1'    4    7      1*   OIL     1*   1*   SHUT 1* 1* 1* /	
- 'B-3H'  'B1'   11   12      1*   OIL     1*   1*   SHUT 1* 1* 1* /	
- 'C-1H'  'C1'   13   20      1*   OIL     1*   1*   SHUT 1* 1* 1* /	
- 'C-2H'  'C1'   12   27      1*   OIL     1*   1*   SHUT 1* 1* 1* /	
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'B-1H'  'B1'   11    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-2H'  'B1'    4    7      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-3H'  'B1'   11   12      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'C-1H'  'C1'   13   20      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'C-2H'  'C1'   12   27      1*   OIL     1*   1*   SHUT 1* 1* 1* /
 /
 
-WELSPECS 
- 'F-1H'  'F1'   19    4      1*   WATER   1*   1*   SHUT 1* 1* 1* /	
- 'F-2H'  'F1'   19   12      1*   WATER   1*   1*   SHUT 1* 1* 1* /	
- 'G-3H'  'G1'   19   21      1*   WATER   1*   1*   SHUT 1* 1* 1* /	
- 'G-4H'  'G1'   19   25      1*   WATER   1*   1*   SHUT 1* 1* 1* /	
+WELSPECS
+ 'F-1H'  'F1'   19    4      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-2H'  'F1'   19   12      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'G-3H'  'G1'   19   21      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'G-4H'  'G1'   19   25      1*   WATER   1*   1*   SHUT 1* 1* 1* /
 /
 
-COMPDAT 
---WELL      I   J    K1   K2 OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR	
- 'B-1H'    11   3    1    5   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /	
- 'B-2H'     4   7    1    6   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /	
- 'B-3H'    11  12    1    4   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /	
- 'C-1H'    13  20    1    4   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /	
- 'C-2H'    12  27    1    5   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /	
+COMPDAT
+--WELL      I   J    K1   K2 OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+ 'B-1H'    11   3    1    5   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'B-2H'     4   7    1    6   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'B-3H'    11  12    1    4   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'C-1H'    13  20    1    4   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'C-2H'    12  27    1    5   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
 /
 
-COMPDAT 
- 'F-1H'    19   4    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /	
- 'F-2H'    19  12    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /	
- 'G-3H'    19  21    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /	
- 'G-4H'    19  25    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /	
-/ 
+COMPDAT
+ 'F-1H'    19   4    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'F-2H'    19  12    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'G-3H'    19  21    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'G-4H'    19  25    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+/
 
 WCONPROD
---  Well_name	Status	Ctrl	Orate	Wrate	Grate	Lrate	RFV	FBHP	WHP	VFP	Glift	 
-   'B-1H' 	OPEN	ORAT	1500.0	1*	 1*	3000.0	1*	100.0	30	1	1*	/
-   'B-2H' 	SHUT	ORAT	1500.0	1*	 1*	3000.0	1*	100.0	30	1	1*	/
-   'B-3H' 	OPEN	ORAT	1500.0	1*	 1*	3000.0	1*	100.0	30	1	1*	/
-   'C-1H' 	OPEN	ORAT	1500.0	1*	 1*	3000.0	1*	100.0	30	1	1*	/
-   'C-2H' 	SHUT	ORAT	1500.0	1*	 1*	3000.0	1*	100.0	30	1	1*	/
+--  Well_name Status  Ctrl  Orate Wrate Grate Lrate RFV FBHP  WHP VFP Glift
+   'B-1H'   OPEN  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
+   'B-2H'   SHUT  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
+   'B-3H'   OPEN  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
+   'C-1H'   OPEN  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
+   'C-2H'   SHUT  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
 /
 
 GCONINJE
@@ -275,35 +275,35 @@ GCONINJE
 
 
 WCONINJE
--- Well_name	Type	Status	Ctrl	SRate1	Rrate	BHP	THP	VFP	 
-  'F-1H' 	WATER	OPEN	GRUP	4000	1*	225.0	 1* 	 1*	/
-  'F-2H' 	WATER	OPEN	GRUP	4000	1*	225.0	 1* 	 1*	/
-  'G-3H' 	WATER	OPEN	GRUP	4000	1*	225.0	 1* 	 1*	/
-  'G-4H' 	WATER	OPEN	GRUP	4000	1*	225.0	 1* 	 1*	/
+-- Well_name  Type  Status  Ctrl  SRate1  Rrate BHP THP VFP
+  'F-1H'  WATER OPEN  GRUP  4000  1*  225.0  1*    1* /
+  'F-2H'  WATER OPEN  GRUP  4000  1*  225.0  1*    1* /
+  'G-3H'  WATER OPEN  GRUP  4000  1*  225.0  1*    1* /
+  'G-4H'  WATER OPEN  GRUP  4000  1*  225.0  1*    1* /
 /
 
 
-BRANPROP    
---  Downtree  Uptree   #VFP    ALQ      
+BRANPROP
+--  Downtree  Uptree   #VFP    ALQ
     B1         PLAT-A    5      1*      /
     C1         PLAT-A    4      1*      /
 /
 
-NODEPROP   
---  Node_name	Pr    autoChock?      addGasLift?     Group_name       
-     PLAT-A	21.0	 NO		  NO		1*	/
-     B1 	 1*	 NO		  NO		1*	/
-     C1 	 1*	 NO		  NO		1*	/
+NODEPROP
+--  Node_name Pr    autoChock?      addGasLift?     Group_name
+     PLAT-A 21.0   NO     NO    1*  /
+     B1    1*  NO     NO    1*  /
+     C1    1*  NO     NO    1*  /
 /
 
 DATES
  1 FEB 2020 /
-/ 
+/
 
 
 WELOPEN
  'B-2H' OPEN /
-/ 
+/
 
 DATES
  1 MAR 2020 /
@@ -311,15 +311,15 @@ DATES
 
 WELOPEN
  'C-2H' OPEN /
-/ 
+/
 
-DATES 
+DATES
  1 APR 2020 /
 /
 
 WELOPEN
  'B-3H' OPEN /
-/ 
+/
 
 DATES
  1 MAY 2020 /
