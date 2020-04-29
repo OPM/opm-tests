@@ -9,9 +9,15 @@
 -- Prediction case based on model2/9_EDITNNC_MODEL2.DATA
 -- ------------------------------------------------------------------------
 
--- Depleation case, set up with maximum rates and minimum tubing head pressure. 
--- GCONPROD with constraints on one group level
--- Model set up with multi segment wells.
+-- Gas injection case. 100 % reinjection of produced gas from start of 
+-- simulation. Loosing injector INJ1 from 20th of May 2019.
+-- Gas export (GCONSALE) and increased gas production capacity
+-- from 1st of June 1999. 
+-- Maximum bottom hole pressure limit reached for INJ2.
+-- Group production limit is then reduced when maximum export (GCONSALE, item3) 
+-- is reached. 
+
+-- GCONPROD with constraints on one group level, and multi segment well model.
 
 
 ------------------------------------------------------------------------------------------------
@@ -284,7 +290,6 @@ SUMMARY
 INCLUDE
  'include/summary.inc' /
 
-
 ------------------------------------------------------------------------------------------------
 SCHEDULE
 ------------------------------------------------------------------------------------------------
@@ -297,7 +302,7 @@ TUNING
 WSEGITER
  150  50  0.3  2.0 /
 
- 
+
 RPTRST
  'BASIC=2' /
   
@@ -307,31 +312,38 @@ INCLUDE
 
 
 --   			      FIELD
---   			        |
---   			      PROD
---   		     ----------+------------
---   		    |                      |	      
---   		  MANI-A  	         MANI-B	   
---   	     +-----+------+	    +-----+------+
---   	     |     	  |         |	         |
---   	  PROD1         PROD2	  PROD3	       PROD4
+--   				|
+--   			       RES
+--   		     -----------+-------------------
+--   		    |			           |	      
+--   		  PROD  		         INJE     
+--   	     +-----+------+------+            +----+----+ 
+--   	     |     |	  |	 |            |	        |  
+--   	  PROD1  PROD2  PROD3  PROD4        INJ1      INJ2
 
 
 GRUPTREE
-   'PROD'     'FIELD' /
-   'MANI-A'   'PROD'  /
-   'MANI-B'   'PROD'  /
+   'RES'     'FIELD'  /
+   'INJE'     'RES'  /
+   'PROD'     'RES'  /
 /
 
 GCONPROD
- 'PROD'    ORAT  10000 12000 1.6E6  15000 RATE  'NO'  9* /
- 'MANI-A'  FLD    6000 12000 1.6E6  15000 RATE  'YES'  9* /
- 'MANI-B'  FLD    6000 12000 1.6E6  15000 RATE  'YES'  9* /
+ 'RES'   ORAT  10000 12000 1.6E6  15000 RATE  'NO'  9* /
 /
+
+GCONSUMP
+ 'RES' 0.25E6 /
+/
+
+GCONINJE
+ 'RES'      'GAS'    'REIN'  2*   1.0  /
+/ 
+
 
 WELSPECS
 -- Well   Grp       I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
-   PROD3  'MANI-B'   11  19      1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+   PROD3  'PROD'   11  19      1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
 /
 
 INCLUDE
@@ -340,9 +352,27 @@ INCLUDE
 INCLUDE
  'include/prod3_msw_def.inc' /
 
+
+WELSPECS
+-- Well  Grp    I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+  'INJ1'  INJE	2  13     1*      GAS   0.0	 STD	  SHUT      YES    0	     SEG       0	    /
+ /
+
+INCLUDE
+ './include/inj1_compl.inc' /
+
+INCLUDE
+ 'include/inj1_msw_def.inc' /
+
+
 WCONPROD
 -- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv   bhp   thp  VfpTab 
  'PROD3'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  30.0   5   / 
+/
+
+WCONINJE
+-- WellN  Type  Status  CtrlMode   SurfRate  ResVol   bhp    thp  VfpTab 
+ 'INJ1'   GAS   'OPEN'    'RATE'     2.0E6    1*      500.0   2*     / 
 /
 
  
@@ -351,10 +381,9 @@ DATES   -- 2
 /
 
 
-
 WELSPECS
 -- Well    Grp     I   J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
-   PROD2  'MANI-A'   10  4     1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+   PROD2  'PROD'   10  4     1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
 /
 
 INCLUDE
@@ -380,7 +409,7 @@ DATES   -- 6
 
 WELSPECS
 -- Well    Grp     I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
-  'PROD1'  MANI-A    6  3      1*     OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+  'PROD1'  PROD    6  3      1*     OIL   0.0       STD      SHUT      YES    0         SEG       0            /
 /
 
 INCLUDE
@@ -399,10 +428,45 @@ DATES   -- 7
  1 'FEB' 2019 /
 /
 
+WELSPECS
+-- Well   Grp    I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   INJ2  'INJE' 12  20      1*     GAS   0.0       STD      SHUT      YES    0         SEG       0            /
+/
+
+INCLUDE
+ './include/inj2_compl.inc' /
+
+INCLUDE
+ 'include/inj2_msw_def.inc' /
+
+
+WCONINJE
+-- WellN  Type    Status  CtrlMode   SurfRate  ResVol   bhp    thp  VfpTab 
+ 'INJ2'   GAS   'OPEN'    'RATE'     2.0E6    1*      235.0   2*     / 
+/
+
+DATES   -- 7
+ 1 'MAR' 2019 /
+/
+
+
+WELOPEN
+ 'INJ1' 'SHUT' 0 0 0 /
+/
+
+INCLUDE
+ './include/inj1_re_compl.inc' /
+
+INCLUDE
+ 'include/inj1_reperf_msw_def.inc' /
+
+DATES   -- 10
+ 1 'APR' 2019 /
+/
 
 WELSPECS
 -- Well   Grp       I   J   RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
-   PROD4  'MANI-B'    11  6      1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+   PROD4  'PROD'    11  6      1*      OIL   0.0       STD      SHUT      YES    0         SEG       0            /
 /
 
 
@@ -419,29 +483,37 @@ WCONPROD
 /
 
 
-DATES   -- 7
- 1 'MAR' 2019 /
-/
-
-DATES   -- 10
- 1 'APR' 2019 /
-/
-
-
 DATES   -- 11
  1 'MAY' 2019 /
 /
 
+DATES   -- 11
+ 20 'MAY' 2019 /
+/
+
+-- loosing injector INJ1, only remaining injector is INJ2
+WELOPEN
+ 'INJ1' 'SHUT' /
+/
 
 
 DATES   -- 11
  1 'JUN' 2019 /
 /
 
+-- starting gas export
+GCONPROD
+ 'RES'   ORAT  10000 12000 2.3E6  15000 RATE  'NO'  9* /
+/
+
+GCONSALE
+ 'RES' 0.30E6 0.40E6  0.05E6  RATE /
+/ 
+
 
 
 DATES   -- 11
- 1 'OCT' 2019 /
+ 1 'SEP' 2019 /
 /
 
  

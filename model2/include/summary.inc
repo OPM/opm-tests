@@ -16,6 +16,7 @@ FPR
 FOPR
 FWPR
 FGPR
+FGSR
 FLPR
 FOPRH
 FWPRH
@@ -128,6 +129,9 @@ WWIRH
 WBHP
  'PROD*' 'INJ*' /
 
+WTHP
+ 'PROD*'  /
+ 
 -- potentials 
 
 WGIP
@@ -173,6 +177,8 @@ GOPR
 GWPR
 /
 GGPR
+/
+GGSR
 /
 GLPR
 /
