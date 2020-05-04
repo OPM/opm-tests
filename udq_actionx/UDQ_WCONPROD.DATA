@@ -343,7 +343,12 @@ WCONPROD
 -- testing UDQs as production constrains
 WCONPROD
 -- name      status  ctrl   qo     qw  qg  ql	 qr bhp  thp  vfp  alq 
-  'OPU02'     'OPEN'  'GRUP' WUOPRU  1*  1*  WULPRU 1* 60.0   / single wells
+  'OPU02'     'OPEN'  'GRUP' 0 1*  1*  0 1* 60.0   / single wells
+/
+
+WELTARG
+  'OPU02' 'ORAT'  'WUOPRU' /
+  'OPU02' 'LRAT'  'WULPRU' /
 /
 
 
