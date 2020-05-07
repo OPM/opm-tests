@@ -389,8 +389,8 @@ WCONPROD
 
 
 WCONINJE
- 'WID*' 'WATER'   'SHUT'  'RATE'    WUWI3       1*      210. /
  'WI*'  'WATER'   'SHUT'  'GRUP'    2000        1*      210. /
+ 'WID*' 'WATER'   'SHUT'  'RATE'    WUWI3       1*      210. /
 /
 
 -- Specifying economic limits for the oil producers
