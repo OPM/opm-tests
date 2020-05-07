@@ -53,7 +53,7 @@ TABDIMS
 --
 WELLDIMS
 --max.well  max.con/well  max.grup  max.w/grup
- 10     15            9      10   /
+ 10         15            9          10   /
 
 --FLOW   THP  WCT  GCT  ALQ  VFP
 VFPPDIMS
@@ -182,18 +182,18 @@ SCHEDULE
 ------------------------------------------------------------------------------------------------
 
 --
---                                   FIELD
---                                    |
---                                 PLAT-A
---                    ---------------+-----------------
---                    |                               |
---                   M5N                             M5S
---           ---------+----------                -----+-----
---          |                   |               |          |
---          B1                 F1              C1         G1
---      ----+------          ---+---        ---+---    ---+---
---      |    |     |         |      |      |      |    |      |
---    B-1H  B-2H  B-3H     F-1H    F-2H   C-1H   C-2H  G-1H G-2H
+--                                       FIELD
+--                                         |
+--                                       PLAT-A
+--                          ---------------+---------------------
+--                         |                                    |
+--                        M5S                                  M5N
+--                ---------+----------                     -----+-------
+--               |                   |                    |            |
+--              B1                  G1                   C1           F1
+--           ----+------          ---+---              ---+---       ---+---
+--          |    |     |         |      |             |      |      |      |
+--        B-1H  B-2H  B-3H     G-3H    G-4H         C-1H   C-2H    F-1H   F-2H
 --
 
 TUNING
@@ -261,12 +261,12 @@ COMPDAT
 /
 
 WCONPROD
---  Well_name Status  Ctrl  Orate Wrate Grate Lrate RFV FBHP  WHP VFP Glift
-   'B-1H'   OPEN  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
-   'B-2H'   SHUT  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
-   'B-3H'   OPEN  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
-   'C-1H'   OPEN  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
-   'C-2H'   SHUT  ORAT  1500.0  1*   1* 3000.0  1*  100.0 30  1 1*  /
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate   RFV  FBHP   WHP  VFP Glift
+   'B-1H'      OPEN    ORAT  1500.0  1*     1*    3000.0  1*   100.0  30   1   1*  /
+   'B-2H'      SHUT    ORAT  1500.0  1*     1*    3000.0  1*   100.0  30   1   1*  /
+   'B-3H'      OPEN    ORAT  1500.0  1*     1*    3000.0  1*   100.0  30   1   1*  /
+   'C-1H'      OPEN    ORAT  1500.0  1*     1*    3000.0  1*   100.0  30   1   1*  /
+   'C-2H'      SHUT    ORAT  1500.0  1*     1*    3000.0  1*   100.0  30   1   1*  /
 /
 
 GCONINJE
@@ -275,25 +275,26 @@ GCONINJE
 
 
 WCONINJE
--- Well_name  Type  Status  Ctrl  SRate1  Rrate BHP THP VFP
-  'F-1H'  WATER OPEN  GRUP  4000  1*  225.0  1*    1* /
-  'F-2H'  WATER OPEN  GRUP  4000  1*  225.0  1*    1* /
-  'G-3H'  WATER OPEN  GRUP  4000  1*  225.0  1*    1* /
-  'G-4H'  WATER OPEN  GRUP  4000  1*  225.0  1*    1* /
+-- Well_name    Type    Status  Ctrl    SRate1  Rrate   BHP     THP     VFP
+  'F-1H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
+  'F-2H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
+  'G-3H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
+  'G-4H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
 /
+
 
 
 BRANPROP
 --  Downtree  Uptree   #VFP    ALQ
-    B1         PLAT-A    5      1*      /
-    C1         PLAT-A    4      1*      /
+    B1        PLAT-A   5       1* /
+    C1        PLAT-A   4       1* /
 /
 
 NODEPROP
---  Node_name Pr    autoChock?      addGasLift?     Group_name
-     PLAT-A 21.0   NO     NO    1*  /
-     B1    1*  NO     NO    1*  /
-     C1    1*  NO     NO    1*  /
+--  Node_name  Press  autoChoke?  addGasLift?  Group_name
+     PLAT-A    21.0   NO          NO           1*  /
+     B1        1*     NO          NO           1*  /
+     C1        1*     NO          NO           1*  /
 /
 
 DATES
