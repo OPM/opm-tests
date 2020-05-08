@@ -404,6 +404,9 @@ SCHEDULE
 RPTRST
 	'BASIC=2' /
 
+RPTSCHED
+  FIP=2 'WELSPECS' 'WELLS=2'/
+
 TUNING
  4.0  60.0  0.1    /
                    /
