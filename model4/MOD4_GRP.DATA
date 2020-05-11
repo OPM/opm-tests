@@ -214,8 +214,8 @@ SOLUTION
 
 EQUIL
 -- datum    Pres     OWC            Pcow  GOC    Pcog  Rsvd  Rvvd  N
-   1500.0   150      1513.0         0.0   610.0   1*    1     1*   0 /
-   1550.0   150      1547.5         0.0   610.0   1*    1     1*   0 /
+   1500.0   150      1513.0         0.0   610.0   1*    1     1*   1* /
+   1550.0   150      1547.5         0.0   610.0   1*    1     1*   1* /
 
 
 RSVD
@@ -326,8 +326,8 @@ WCONPROD
 
 
 WCONINJE
- 'WID*' 'WATER'   'SHUT'  'RATE'    2000        1*      210. /
  'WI*'  'WATER'   'SHUT'  'GRUP'    2000        1*      210. /
+ 'WID*' 'WATER'   'SHUT'  'RATE'    2000        1*      210. /
 /
 
 -- Specifying economic limits for the oil producers
