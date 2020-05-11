@@ -243,13 +243,8 @@ SOLUTION
 
 EQUIL
 -- datum    Pres     OWC            Pcow  GOC    Pcog  Rsvd  Rvvd  N
-   1500.0   150      1513.0         0.0   610.0   1*    1     1*   0 /
-   1550.0   150      1547.5         0.0   610.0   1*    1     1*   0 /
-
--- replace above with these when Item 9 (N equilibrario)
--- is supported in Flow 
---   1500.0   150      1514.0         0.0   610.0   1*    1     1*   1* /
---   1550.0   150      1547.5         0.0   610.0   1*    1     1*   1* /
+   1500.0   150      1513.0         0.0   610.0   1*    1     1*   1* /
+   1550.0   150      1547.5         0.0   610.0   1*    1     1*   1* /
 
 
 RSVD
