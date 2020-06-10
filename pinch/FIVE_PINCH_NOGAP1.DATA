@@ -1,0 +1,204 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018,2020 Equinor
+-- Copyright (C) 2019 NORCE
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 1 1 5 /
+
+-- The number of equilibration regions is inferred from the EQLDIMS
+-- keyword.
+EQLDIMS
+/
+
+TABDIMS
+/
+
+OIL
+GAS
+WATER
+
+LAB
+
+START
+ 10 'OCT' 2018 /
+
+WELLDIMS
+-- Item 1: maximum number of wells in the model
+--         - there are no wells in the problem; 
+-- Item 2: maximum number of grid blocks connected to any one well
+--         - must be one as the wells are located at specific grid blocks
+-- Item 3: maximum number of groups in the model
+--         - we are dealing with only one 'group'
+-- Item 4: maximum number of wells in any one group
+--         - there must be two wells in a group as there are two wells in total
+ 2 / 
+
+UNIFOUT
+
+GRID
+
+NOECHO
+
+INIT
+
+DX
+   5*1 /
+DY
+   5*1 /
+DZ
+   1 .1 1 1 1 /
+
+TOPS
+-- The depth of the top of each grid block
+   0 /
+
+PORO
+   5*1.0
+/
+
+MINPV
+   0.5
+/
+
+PINCH
+   0.5   NOGAP   1*   1*
+/
+
+ACTNUM
+    5*1
+/
+
+PERMX
+        5*100 /
+
+PERMY
+        5*100 /
+
+PERMZ
+        5*100 /
+
+ECHO
+
+PROPS
+-- -------------------------------------------------------------------------
+
+PVTW
+-- Item 1: pressure reference (atma)
+-- Item 2: water FVF (rcc per scc)
+-- Item 3: water compressibility (amt^{-1})
+-- Item 4: water viscosity (cp)
+-- Item 5: water 'viscosibility' (atm^{-1})
+-- In LAB units:
+        1.0 1.0 4E-5 0.5 0.0 /
+
+ROCK
+-- Item 1: reference pressure (psia)
+-- Item 2: rock compressibility (psi^{-1})
+        1.0 1.0 /
+
+SWFN
+-- Column 1: water saturation
+-- Column 2: water relative permeability
+-- Column 3: water-oil capillary pressure (psi) 
+0.0     0       0.0
+1.0     1.00     0.0 /
+
+SGFN
+-- Column 1: gas saturation
+-- Column 2: gas relative permeability
+-- Column 3: oil-gas capillary pressure (psi)
+0       0.0     0
+1.0     1.0     0.0/
+
+SOF3
+-- Column 1: oil saturation
+-- Column 2: oil relative permeability when oil, gas and connate water are present
+-- Column 3: oil relative permeability when only oil and water are present
+--  SOIL     KROW     KROG
+0       0.0     0.0
+1.0     1.0     1.0 /
+
+
+DENSITY
+-- Density (lb per ft³) at surface cond. of 
+-- oil, water and gas, respectively (in that order)
+-- In LAB units: 
+      0.703 1.0 1.977e-3 /
+
+
+PVDG
+177.646 0.00366771 4.07825e-02
+181.594 0.00358797 4.19988e-02
+185.542 0.00351272 4.29535e-02
+189.489 0.00344747 4.4076e-02
+193.437 0.00338594 4.51018e-02
+197.385 0.00332806 4.59933e-02
+201.332 0.00327625 4.68878e-02
+205.28 0.00322943 4.78366e-02
+209.228 0.00318451 4.87435e-02
+213.175 0.00314264 4.95567e-02
+/
+
+PVDO
+177.646 1.043 0.390672
+181.594 1.04236 0.392326
+185.542 1.04168 0.393986
+189.489 1.04102 0.395651
+193.437 1.0405 0.397258
+197.385 1.03988 0.398881
+201.332 1.03919 0.400553
+205.28 1.03862 0.402196
+209.228 1.03811 0.403768
+213.175 1.03746 0.405411
+
+
+/
+
+SOLUTION
+-- -------------------------------------------------------------------------
+
+EQUIL
+-- Item 1: datum depth (ft)
+-- Item 2: pressure at datum depth (psia)
+-- Item 3: depth of water-oil contact (ft)
+--         - chosen to be directly under the reservoir
+-- Item 4: oil-water capillary pressure at the water oil contact (psi)
+-- Item 5: depth of gas-oil contact (ft)
+--         - chosen to be directly above the reservoir
+-- Item 6: gas-oil capillary pressure at gas-oil contact (psi)
+-- Item 7: RSVD-table
+-- Item 8: RVVD-table
+-- Item 9: Set to 0 as this is the only value supported by OPM
+
+-- Item #: 1 2    3    4 5    6 7 8 9
+        0 200 1000 0 0 0 1 0 0 /
+
+--BC
+-- 1 1 1 1 5 10 RATE X- GAS -0.01 /
+-- 20 20 1 1 1 10 FREE X /
+--/
+
+--SUMMARY
+--ALL
+
+
+SCHEDULE
+
+RPTRST
+        'BASIC=1' /
+
+-- 1 day
+TSTEP
+1
+/
+
+END
