@@ -5,6 +5,15 @@
 
 -- Copyright (C) 2018,2020 Equinor
 -- Copyright (C) 2019 NORCE
+--
+-- The deck is a simple example of 5 vertically stacked cells, with MINPV and
+-- PINCH directives included.
+-- It is meant to take a look at the grid and transmissibilities and compare
+-- to the examples with or without PINCH.
+-- The combination of MINPV and PINCH with the NOGAP option should result in
+-- cell 1 (0-based indexing) and 2 getting pinch out and cause a connection between
+-- cells 0 and 3.
+--
 ------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------
