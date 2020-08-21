@@ -5,10 +5,8 @@
 
 -- Copyright (C) 2018 Equinor
 
--- This deck uses User defined quantities (UDQ).
--- These user defined quanteties are written to the summary to be compared with
--- referense simulation results.
-
+-- The main testing exposed in this deck is the UDQ function UADD. The UADD
+-- symbol should be treated as '+' by the UDQ parser.
 
 --------------------------------------------------------
 
