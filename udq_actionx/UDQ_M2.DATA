@@ -5,9 +5,19 @@
 
 -- Copyright (C) 2018 Equinor
 
--- This deck uses User defined quantities (UDQ).
--- These user defined quanteties are written to the summary to be compared with
--- referense simulation results.
+-- It is allowed to use an undefined UDQ in a subsequent UDQ expression. When an
+-- undefined UDQ is encountered the whole UDQ expression is undefined:
+--
+-- UDQ
+--    DEFINE FU1 FU2 + 100 /
+-- /
+--
+-- When the udq FU1 is evaluated the undefined udq FU2 is encountered, and also FU1
+-- becomes undefined. If FU2 is defined at a later stage also FU1 will be defined,
+-- the undefined values will be output as numerical zero to the summary files.
+--
+-- Testing and veryfing the undefined UDQ behavior is the main purpose of this
+-- testcase.
 
 
 --------------------------------------------------------
