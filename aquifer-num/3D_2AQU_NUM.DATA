@@ -1,0 +1,263 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2020 Equinor
+
+-- Testing Numeric aquifers . Two separate aquifers attached to 
+-- one side of the model. 
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 20 5 10 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+--
+GRIDOPTS
+ 'YES'	      0 / 
+
+EQLDIMS
+ 1  100  25 /
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+     1          1       1*            0    /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  2	    15 	          3	     10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+    1          1      50          60         2         60 /
+
+
+UNIFIN
+UNIFOUT
+
+
+-- Dimensions for aquifers
+-- mxnaqn: max lines of numerical aquifer data in AQUNUM
+-- mxnaqc: max lines of connection data for numerical aquifers in AQUCON
+-- niftbl: max influence tables for Carter-Tracy aquifers in AQUTAB
+-- nriftb: max rows in Carter-Tracy aquifer table
+-- nanaqu: max analytic aquifers
+-- ncamax: max grid blocks connected to a single analytic aquifer
+-- mxnali: max aquifer lists
+-- mxaaql: max analytic aquifers in any aquifer list
+AQUDIMS
+-- mxnaqn  mxnaqc  niftbl  nriftb  nanaqu  ncamax  mxnali  mxaaql
+    2      2      1*       1*     1*       50      1*      1*  /
+
+--FMTOUT
+  
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/grid1.grdecl' /
+
+EQUALS
+ 'PORO'  0.25 /
+ 'PERMX' 1000.0 /
+ 'PERMY' 1000.0 /
+ 'PERMZ'  200.0 /
+/
+
+EQUALS
+ 'PORO' 0.0 2 3 2 2 2 2 /
+/
+ 
+
+AQUNUM
+--AQnr.  I  J  K     Area      Length   PHI     K     Depth  Initial.Pr   PVTNUM   SATNUM
+   1   20   1  10   1000000.0   10000   0.25   500    2000  250   1   1  / 
+   2   20  2   10   4000000.5    3000   0.22   3000   2000  250   1   1  / 
+/
+ 
+ 
+AQUCON
+--  Connect numerical aquifer to the reservoir
+--  Id.nr  I1   I2     J1  J2    K1  K2    Face    Trans.mult.  Trans.opt.
+     1     20   20     1    5     7  10   'I+'      0.88      1  /
+     2     20   20     1    5     4   6   'I+'      0.55      1  /
+/ 
+
+
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+ 
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ './include/norne_pvt.inc' /
+
+
+
+-- ROCK COMPRESSIBILITY
+--
+--   REF.PRES.   COMPR.
+ROCK
+      277.0      6.11423e-05 /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQUALS
+ 'EQLNUM' 1 /
+ 'FIPNUM' 1 /
+/
+ 
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' 'FIP' /
+
+EQUIL
+-- Datum    P     woc       Pc   goc     Pc  Rsvd  Rvvd
+ 2000.00  250.00  2055.00   0.0 1800.00  0.0   1    1   0 /  
+
+RSVD
+ 2000.0  122.30
+ 2100.0  110.00 /
+
+
+RVVD
+ 2000.0  1E-4
+ 2100.0  1E-4 /
+
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+TCPU
+
+FOPR
+
+WOPR
+/
+
+WBHP
+/
+
+WWCT
+/
+
+WGOR
+/
+
+FPR
+
+BPR
+ 19 3 1 /
+/
+ 
+ANQR
+1 2 /
+
+ANQT
+ 1 2 /
+
+
+ANQP
+ 1 2 /
+ 
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+ 
+TUNING
+ 0.5 5.0 /
+ /
+ /
+
+RPTRST
+ 'BASIC=2' /
+  
+
+WELSPECS
+ 'PROD1'  'PROD'   2    3   1*      'OIL'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'PROD1'   2   3   1   7   'OPEN'   0    6.145  0.216  1*   0.00	 0.0 'Z' 1* /
+/
+
+WCONHIST
+  PROD1  OPEN  RESV   1000.0    0.3   304523	0	1*	1*	1* /
+/
+
+DATES
+ 01  'DEC' 2018 /
+ 01  'JAN' 2019 /
+/
+
+TUNING
+ 0.5 5.0 /
+ /
+ /
+
+DATES 
+ 01  'MAR' 2019 /
+ 01  'APR' 2019 /
+ 01  'JLY' 2019 /
+ 01  'SEP' 2019 /
+/
+  
+ 
+END
