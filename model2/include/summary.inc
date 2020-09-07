@@ -253,6 +253,36 @@ BGSAT
  11 13 9 /
 / 
 
+BWSAT
+7 15 10
+/
+BGSAT
+7 15 10
+/
+BOSAT
+7 15 10
+/
+
+BKRW
+7 15 10
+/
+
+BKRO
+7 15 10
+/
+
+BKROW
+7 15 10
+/
+
+BKROG
+7 15 10
+/
+
+BKRG
+7 15 10
+/
+
 -- Region data
 
 RPR
