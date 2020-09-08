@@ -193,6 +193,10 @@ COPY
   SWL  SWCR /
 /
 
+ADD
+   SWCR 0.05  1  13   1   22  1  11 /
+/
+
 EQUALS
  'SGL' 0.0 /
 /
