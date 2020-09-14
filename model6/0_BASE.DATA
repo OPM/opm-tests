@@ -1,0 +1,364 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2020 Equinor
+
+-- 2 phase (oil + water) model with standard well model. Wells controlled with 
+-- WCONPROD (maximum oil rate and minimum bottom hole pressure) and 
+-- WCONINJE (maximum water injection rate and maximum bottom hole pressure)
+
+ 
+RUNSPEC
+
+ECHO
+
+--NOSIM
+
+TITLE
+ TESTCASE - MODEL6 
+
+START
+  1  SEP  2020 /                                      
+
+
+METRIC
+
+-- Define the simulated phases
+OIL
+WATER
+
+ENDSCALE
+  NODIR  REVERS  /
+
+
+
+-- Options to process grid data
+--GRIDOPTS
+---- FLAG  NRMULT  NRPINC
+--    1*    40        1* /
+
+DIMENS
+  12 14 15 / 
+
+
+-- Dimensions of equilibration tables
+EQLDIMS
+-- NTEQL   NDPRVD   NDRXVD   NTTRVD   NSTRVD
+     1       50       20       5        20 /
+
+-- NTEQUL= Nb of equilibration regions entered using EQLNUM in REGIONS
+-- NDPRVD= Nb of depth nodes in any table of pressure vs depth (def 100)
+-- NDRXVD= Max nb of depth nodes in any RSVD,RVVD,PBVD,PDVD in SOLUTION
+-- NTTRVD= Max nb of tables of initial tracer concentration
+-- NSTRVD= Max nb of depth nodes in any table of init tracer conc vs depth
+
+
+REGDIMS
+-- NTFIP   NMFIPR     NRFREG    NTFREG    ??    NOPERNUM
+-- FIPNUM  REG SETS   INDEP     FLUXNUM
+     1       1         0         5        2*    3  100 100 /
+
+--NTFIP=  Max nb of FIP regions defined with FIPNUM (+FIP regions)
+--NMFIPR= Nb of sets of fluid-in-place regions.
+--NRFREG= Max nb of independent reservoir regions.
+--NTFREG= Max nb of flux regions for Eclipse 200 flux option
+
+-- Dimensions for analytical and numerical aquifers
+
+
+TABDIMS
+-- NTSFUN  NTPVT  NSSFUN  NPPVT  NTFIP
+     3       1      60     35      1 /
+-- NTSFUN= The nb of sat. tables entered using SGFNetc in the PROPS sect
+-- NTPVT=  Nb of PVT tables entered using PVTG, PVTO,... in the PROPS sect
+-- NSSFUN= Max nb of saturation nodes in any saturation table (def 20)
+-- NPPVT=  Max nb of pressure nodes in any PVT table or in ROCKTAB
+-- NTFIP=  Max nb of FIP regions defined using FIPNUM
+-- NRPVT=  Max nb of Rs nodes in a PVTO table. Ignored if DISGAS/VAPOIL
+-- nu=     not used
+-- NTENDP= Max nb of saturation end-point versus depth tables.
+
+-- Well dimension data
+WELLDIMS
+-- NWMAXZ  NCWMAX  NGMAXZ  NWGMAX
+   5        20      5      5 /
+--NWMAXZ= Max nb of wells in the model
+--NCWMAX= Max nb of connections per well
+--NGMAXZ= Max nb of groups in the model
+--NWGMAX= Max nb of wells in any group
+
+-- This indicates that output files which may be either multiple 
+-- or unified are to be multiple
+--MULTOUT
+
+-- Indicates that output /input files are unified
+UNIFIN
+UNIFOUT
+
+-- Warning messages will be printed at the end of a timestep in
+-- which the PVT tables have been extrapolated  
+EXTRAPMS
+ 4 /  
+
+-- ========================================================================
+-- = SECTION GRID : geometry                                              =
+-- ========================================================================
+--
+GRID
+
+ECHO
+
+-- Request output for an INIT file
+INIT
+
+-- Control output of the grid geometry file
+GRIDFILE
+  0 1 /
+--  0 0 /  -- no grid file is generated
+
+-- Set a minimum pore volume that each cell must have to be active
+MINPV
+  100 /
+
+NOECHO
+
+
+-- NNC due to MINPV are taken care of in option 'GAP' in keyword PINCH
+-- Generate connections across pinched-out layers at 0.5 m.
+PINCH
+-- threshold  gap or  empty    pinch    pinch
+-- thickness  no gap   gap     tranz    multz
+     0.5       GAP    1.0E20    ALL  /
+
+-- Grid cells corners XYZ
+INCLUDE
+  './include/test1.grdecl' /
+  
+
+
+INCLUDE
+ 'include/base0_permx.inc' /
+ 
+INCLUDE
+ 'include/base0_permz.inc' /
+
+INCLUDE
+ 'include/base0_poro.inc' /
+
+INCLUDE
+ 'include/base0_opernum.inc' /
+
+COPY
+  PERMX  PERMY /
+/
+
+
+
+
+-- ========================================================================
+-- = SECTION PROPS : PVT, KR properties                                   =
+-- ========================================================================
+--
+PROPS
+
+ECHO
+
+
+DENSITY
+  966.0	 1066.0  0.99999 /
+
+-- Water PVT data
+PVTW
+  30.0  1.026  3.52E-05  0.43070  -5.39E-05 / 
+
+-- Dead oil PVT properties (no dissolved gas)
+PVDO
+ 23.0  1.10770  52.630
+ 27.5  1.08610  53.660
+ 32.1  1.06460  54.730
+ 50.0  1.06350  58.940
+ 100.0  1.06090  71.300
+ 125.0  1.05960  77.810
+ 150.0  1.05840  84.540
+ 175.0  1.05730  91.480
+ 200.0  1.05620  98.650
+ 234.0  1.05480  108.740
+ 250.0  1.05410  113.630
+ 300.0  1.05220  129.480
+ 350.0  1.05050  146.200
+ 400.0  1.04880  163.790
+ 450.0  1.04730  182.260
+/
+
+
+--   REF.PRES.   COMPR.
+ROCK
+      250.0      6.11423e-05 /
+
+INCLUDE
+ 'include/base0_swatinit.inc' /
+
+-- SWL: scaled connate water saturations within each grid cell
+-- Smallest water sat. in a water sat. function table
+
+INCLUDE
+ 'include/base0_swl.inc' /
+
+-- OPERATERs to set MAXLIMs the SWATINIT and SWL per FIPSAT
+
+OPERATER
+SWL       1   'MAXLIM'  SWL	  0.876645   /	      
+SWL       2   'MAXLIM'  SWL	  0.860063   /	      
+SWL       3   'MAXLIM'  SWL	  0.914018   /	      
+SWATINIT  1   'MAXLIM'  SWATINIT  0.876645   /	      
+SWATINIT  2   'MAXLIM'  SWATINIT  0.860063   /	      
+SWATINIT  3   'MAXLIM'  SWATINIT  0.914018   /	      
+/
+
+-- Set the critical water saturation equal to the connate water
+COPY
+  SWL SWCR /
+/
+
+INCLUDE
+ 'include/base0_swof.inc' /
+
+EQUALS
+  SWU     1.0 /
+  SOWCR   1.0 /
+/
+
+OPERATER
+--To      ONR     OPR    from  alpha       beta
+  SOWCR    1   'MULTA'  SOWCR   0.0    0.11450000  /     
+  SOWCR    2   'MULTA'  SOWCR   0.0    0.13125000  /     
+  SOWCR    3   'MULTA'  SOWCR   0.0    0.07675000  /     
+/
+
+
+-- Controls the end point scaling method
+-- YES: Preserves the relperms at three saturation nodes
+--      Krw: SWCR, (1.0-SOWCR-SGL) and SWU
+--      Krow: SOWCR, (1.0-SWCR-SGL) and (1.0-SWL-SGL)
+-- NO: Preserves the relperms at two saturation nodes
+--      Krw: SWCR and SWU
+--      Krow: SOWCR and (1.0-SWL-SGL)
+SCALECRS
+   YES /
+
+-- ========================================================================
+-- = SECTION REGIONS : partition of the grid into regions                 =
+-- ========================================================================
+--
+
+REGIONS
+
+ECHO
+
+
+INCLUDE
+ 'include/base0_satnum.inc' /
+
+ 
+EQUALS
+ 'EQLNUM' 1 /
+ 'PVTNUM' 1 /
+/ 
+
+
+-- ========================================================================
+-- = SECTION SOLUTION : initial state of SOLUTIONS vatiables              =
+-- ========================================================================
+--
+SOLUTION
+
+
+EQUIL
+-- DATUM     DATUM     OWC    OWC    GOC    GOC   RSVD   RVVD    SOLN
+-- DEPTH     PRESS    DEPTH   PCOW  DEPTH   PCOG  TABLE  TABLE   METH
+    2040     236.68    2040    0      1*     1*     1*     1*   0 /  -- SW
+
+
+-- Controls on output from SOLUTION section
+RPTSOL
+   RESTART=2 FIP=3 FIPRESV /
+--  NOTHING /
+
+RPTRST
+ 'BASIC=2' 'FIP' /
+
+
+-- ========================================================================
+-- = SECTION SUMMARY : summary reporting                                  =
+-- ========================================================================
+--
+SUMMARY
+
+ECHO
+
+
+FOPT
+
+FWCT
+
+
+WOPR
+ /
+ 
+WOPT
+/ 
+
+WBHP
+ / 
+ 
+WWCT
+ /
+
+FOPR
+ 
+FWPR
+
+FOPT
+ 
+FWPT
+
+  
+NOECHO
+-- ========================================================================
+-- = SECTION SCHEDULE : definition of operations to simulate              =
+-- ========================================================================
+--
+SCHEDULE
+
+TUNING
+ 0.5 2.0  /
+ /
+ /
+
+
+INCLUDE
+ 'include/welldef_prod_stdw.inc' /
+ 
+INCLUDE
+ 'include/welldef_inj_stdw.inc' /
+
+
+WCONPROD
+ 'PROD1' 'OPEN' ORAT 1000.0 4*  90.0 /
+ 'PROD2' 'OPEN' ORAT 1000.0 4*  90.0 /
+ 'PROD3' 'OPEN' ORAT 1000.0 4*  90.0 /
+/
+ 
+WCONINJE
+ 'INJ1'  'WATER'  OPEN  RATE  3500.0   1*  350.0 /
+/
+  
+WCONINJE
+ 'INJ2'  'WATER'  OPEN  RATE  3500.0   1*  350.0 /
+/
+ 
+TSTEP
+ 10 10 10 30 30 30 30 30 30 30 30 30  /
+
