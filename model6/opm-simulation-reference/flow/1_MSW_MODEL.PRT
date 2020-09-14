@@ -1,0 +1,1809 @@
+
+
+
+ ########  #          ######   #           #
+ #         #         #      #   #         # 
+ #####     #         #      #    #   #   #  
+ #         #         #      #     # # # #   
+ #         #######    ######       #   #    
+
+Flow is a simulator for fully implicit three-phase black-oil flow, and is part of OPM.
+For more information visit: https://opm-project.org 
+
+Flow Version     =  2020.10-pre (1a7b617)
+Machine name     =  P2722 (Number of logical cores: 8, Memory size: 15961.05 MB) 
+Operating system =  Linux x86_64 (Kernel: 4.15.0-115-generic, #116~16.04.1-Ubuntu SMP Wed Aug 26 17:36:48 UTC 2020 )
+Build time       =  2020-09-14 at 14:44:22 hrs
+User             =  thsa
+Simulation started on 14-09-2020 at 15:00:47 hrs
+Parameters used by Flow:
+# [known parameters which were specified at run-time]
+EclDeckFileName="1_MSW_MODEL.DATA" # default: ""
+OutputDir="opm-simulation-reference" # default: ""
+# [parameters which were specified at compile-time]
+BdaDeviceId="0"
+ContinueOnConvergenceError="0"
+CprEllSolvetype="0"
+CprMaxEllIter="20"
+CprReuseSetup="3"
+CprSolverVerbose="0"
+CprUseDrs="0"
+DbhpMaxRel="1"
+DpMaxRel="0.3"
+DsMax="0.2"
+DwellFractionMax="0.2"
+EclEnableDriftCompensation="0"
+EclEnableTuning="0"
+EclMaxTimeStepSizeAfterWellEvent="3.15576e+07"
+EclNewtonRelaxedTolerance="1e+09"
+EclNewtonRelaxedVolumeFraction="0.03"
+EclNewtonStrictIterations="8"
+EclNewtonSumTolerance="0.0001"
+EclNewtonSumToleranceExponent="0.333333"
+EclOutputDoublePrecision="0"
+EclOutputInterval="-1"
+EclRestartShrinkFactor="3"
+EclStrictParsing="0"
+EdgeWeightsMethod="1"
+EnableAdaptiveTimeStepping="1"
+EnableAsyncEclOutput="1"
+EnableAsyncVtkOutput="1"
+EnableDryRun="auto"
+EnableEclOutput="1"
+EnableGravity="1"
+EnableGridAdaptation="0"
+EnableIntensiveQuantityCache="1"
+EnableLoggingFalloutWarning="0"
+EnableOpmRstFile="0"
+EnableStorageCache="1"
+EnableTerminalOutput="1"
+EnableThermodynamicHints="0"
+EnableTracerModel="0"
+EnableTuning="0"
+EnableVtkOutput="0"
+EnableWellOperabilityCheck="1"
+EnableWriteAllSolutions="0"
+EndTime="1e+100"
+FlowLinearSolverVerbosity="0"
+FlowNewtonMaxIterations="20"
+FlowNewtonMinIterations="1"
+ForceDisableFluidInPlaceOutput="0"
+FullTimeStepInitially="0"
+GpuMode="none"
+IgnoreKeywords=""
+IluFillinLevel="0"
+IluRedblack="0"
+IluRelaxation="0.9"
+IluReorderSpheres="0"
+InitialTimeStepInDays="1"
+InitialTimeStepSize="86400"
+LinearSolverConfiguration="ilu0"
+LinearSolverConfigurationJsonFile="none"
+LinearSolverIgnoreConvergenceFailure="0"
+LinearSolverMaxIter="200"
+LinearSolverReduction="0.01"
+LinearSolverRequireFullSparsityPattern="0"
+LinearSolverRestart="40"
+MatrixAddWellContributions="0"
+MaxInnerIterMsWells="100"
+MaxInnerIterWells="50"
+MaxPressureChangeMsWells="1e+06"
+MaxResidualAllowed="1e+07"
+MaxSinglePrecisionDays="20"
+MaxStrictIter="8"
+MaxTimeStepDivisions="10"
+MaxTimeStepSize="inf"
+MaxWelleqIter="30"
+MiluVariant="ILU"
+MinTimeStepBeforeShuttingProblematicWellsInDays="0.001"
+MinTimeStepSize="0"
+NewtonMaxError="1e+10"
+NewtonMaxIterations="14"
+NewtonMaxRelax="0.5"
+NewtonRelaxationType="dampen"
+NewtonTargetIterations="6"
+NewtonTolerance="0.01"
+NewtonVerbose="1"
+NewtonWriteConvergence="0"
+OpenclPlatformId="0"
+OutputInterval="1"
+OutputMode="all"
+OwnerCellsFirst="1"
+ParameterFile=""
+PredeterminedTimeStepsFile=""
+PriVarOscilationThreshold="1e-05"
+PrintParameters="2"
+PrintProperties="2"
+ProjectSaturations="0"
+RegularizationFactorMsw="1"
+RelaxedFlowTolInnerIterMsw="1"
+RelaxedMaxPvFraction="1"
+RelaxedPressureTolInnerIterMsw="50000"
+RestartTime="-1e+35"
+RestartWritingInterval="16777215"
+ScaleLinearSystem="0"
+SchedRestart="0"
+SolveWelleqInitially="1"
+SolverGrowthFactor="2"
+SolverMaxGrowth="3"
+SolverMaxRestarts="10"
+SolverMaxTimeStepInDays="365"
+SolverMinTimeStep="0"
+SolverRestartFactor="0.33"
+SolverVerbosity="1"
+StrictInnerIterMsWells="40"
+SystemStrategy="none"
+ThreadsPerProcess="-1"
+TimeStepAfterEventInDays="-1"
+TimeStepControl="pid"
+TimeStepControlDecayRate="0.75"
+TimeStepControlFileName="timesteps"
+TimeStepControlGrowthRate="1.25"
+TimeStepControlTargetIterations="30"
+TimeStepControlTargetNewtonIterations="8"
+TimeStepControlTolerance="0.1"
+TimeStepVerbosity="1"
+ToleranceCnv="0.01"
+ToleranceCnvRelaxed="1e+09"
+ToleranceMb="1e-06"
+TolerancePressureMsWells="1000"
+ToleranceWellControl="1e-07"
+ToleranceWells="0.0001"
+UpdateEquationsScaling="0"
+UseAmg="0"
+UseCpr="0"
+UseGmres="0"
+UseInnerIterationsMsWells="1"
+UseInnerIterationsWells="0"
+UseMultisegmentWell="1"
+UseUpdateStabilization="1"
+VtkWriteAverageMolarMasses="0"
+VtkWriteDensities="1"
+VtkWriteDofIndex="0"
+VtkWriteEclTracerConcentration="0"
+VtkWriteExtrusionFactor="0"
+VtkWriteFilterVelocities="0"
+VtkWriteFugacities="0"
+VtkWriteFugacityCoeffs="0"
+VtkWriteGasDissolutionFactor="0"
+VtkWriteGasFormationVolumeFactor="0"
+VtkWriteGasSaturationPressure="0"
+VtkWriteIntrinsicPermeabilities="0"
+VtkWriteMassFractions="0"
+VtkWriteMobilities="0"
+VtkWriteMolarities="0"
+VtkWriteMoleFractions="1"
+VtkWriteOilFormationVolumeFactor="0"
+VtkWriteOilSaturationPressure="0"
+VtkWriteOilVaporizationFactor="0"
+VtkWritePorosity="1"
+VtkWritePotentialGradients="0"
+VtkWritePressures="1"
+VtkWritePrimaryVars="0"
+VtkWritePrimaryVarsMeaning="0"
+VtkWriteProcessRank="0"
+VtkWriteRelativePermeabilities="1"
+VtkWriteSaturatedGasOilVaporizationFactor="0"
+VtkWriteSaturatedOilGasDissolutionFactor="0"
+VtkWriteSaturationRatios="0"
+VtkWriteSaturations="1"
+VtkWriteTemperature="1"
+VtkWriteTotalMassFractions="0"
+VtkWriteTotalMoleFractions="0"
+VtkWriteViscosities="0"
+VtkWriteWaterFormationVolumeFactor="0"
+
+Reading deck file '1_MSW_MODEL.DATA'
+    0 Reading RUNSPEC  in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 11
+    1 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 13
+    2 Reading TITLE    in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 17
+    3 Reading START    in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 20
+    4 Reading METRIC   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 24
+    5 Reading OIL      in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 27
+    6 Reading WATER    in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 28
+    7 Reading ENDSCALE in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 30
+    8 Reading DIMENS   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 40
+    9 Reading EQLDIMS  in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 45
+   10 Reading REGDIMS  in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 56
+   11 Reading TABDIMS  in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 69
+   12 Reading WELLDIMS in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 82
+   13 Reading WSEGDIMS in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 91
+   14 Reading UNIFIN   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 104
+   15 Reading UNIFOUT  in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 105
+   16 Reading EXTRAPMS in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 109
+   17 Reading GRID     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 116
+   18 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 118
+   19 Reading INIT     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 121
+   20 Reading GRIDFILE in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 124
+   21 Reading MINPV    in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 129
+   22 Reading NOECHO   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 132
+   23 Reading PINCH    in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 137
+   24 Reading SPECGRID in file /home/thsa/workspace/opm/opm-tests/model6/include/test1.grdecl, line 9
+   25 Reading COORD    in file /home/thsa/workspace/opm/opm-tests/model6/include/test1.grdecl, line 12
+   26 Reading ZCORN    in file /home/thsa/workspace/opm/opm-tests/model6/include/test1.grdecl, line 210
+   27 Reading ACTNUM   in file /home/thsa/workspace/opm/opm-tests/model6/include/test1.grdecl, line 3573
+   28 Reading PERMX    in file /home/thsa/workspace/opm/opm-tests/model6/include/base0_permx.inc, line 9
+   29 Reading PERMZ    in file /home/thsa/workspace/opm/opm-tests/model6/include/base0_permz.inc, line 9
+   30 Reading PORO     in file /home/thsa/workspace/opm/opm-tests/model6/include/base0_poro.inc, line 9
+   31 Reading OPERNUM  in file /home/thsa/workspace/opm/opm-tests/model6/include/base0_opernum.inc, line 9
+   32 Reading COPY     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 160
+   33 Reading PROPS    in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 171
+   34 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 173
+   35 Reading DENSITY  in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 176
+   36 Reading PVTW     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 180
+   37 Reading PVDO     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 184
+   38 Reading ROCK     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 204
+   39 Reading SWATINIT in file /home/thsa/workspace/opm/opm-tests/model6/include/base0_swatinit.inc, line 9
+   40 Reading SWL      in file /home/thsa/workspace/opm/opm-tests/model6/include/base0_swl.inc, line 9
+   41 Reading OPERATER in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 218
+   42 Reading COPY     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 228
+   43 Reading SWOF     in file /home/thsa/workspace/opm/opm-tests/model6/include/base0_swof.inc, line 8
+   44 Reading EQUALS   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 235
+   45 Reading OPERATER in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 240
+   46 Reading SCALECRS in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 255
+   47 Reading REGIONS  in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 263
+   48 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 265
+   49 Reading SATNUM   in file /home/thsa/workspace/opm/opm-tests/model6/include/base0_satnum.inc, line 8
+   50 Reading EQUALS   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 272
+   51 Reading SOLUTION in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 282
+   52 Reading EQUIL    in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 285
+   53 Reading RPTSOL   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 292
+   54 Reading RPTRST   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 296
+   55 Reading SUMMARY  in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 304
+   56 Reading ECHO     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 306
+   57 Reading FOPT     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 309
+   58 Reading FWCT     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 311
+   59 Reading WOPR     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 314
+   60 Reading WOPT     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 317
+   61 Reading WBHP     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 320
+   62 Reading WWCT     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 323
+   63 Reading FOPR     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 326
+   64 Reading FWPR     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 328
+   65 Reading FOPT     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 330
+   66 Reading FWPT     in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 332
+   67 Reading NOECHO   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 335
+   68 Reading SCHEDULE in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 340
+   69 Reading TUNING   in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 342
+   70 Reading WELSPECS in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_prod_msw.inc, line 9
+   71 Reading COMPDAT  in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_prod_msw.inc, line 16
+   72 Reading WELSEGS  in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_prod_msw.inc, line 68
+   73 Reading COMPSEGS in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_prod_msw.inc, line 90
+   74 Reading WELSEGS  in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_prod_msw.inc, line 111
+   75 Reading COMPSEGS in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_prod_msw.inc, line 138
+   76 Reading WELSEGS  in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_prod_msw.inc, line 160
+   77 Reading COMPSEGS in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_prod_msw.inc, line 182
+   78 Reading WELSPECS in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_inj_msw.inc, line 8
+   79 Reading COMPDAT  in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_inj_msw.inc, line 14
+   80 Reading WELSEGS  in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_inj_msw.inc, line 39
+   81 Reading COMPSEGS in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_inj_msw.inc, line 54
+   82 Reading WELSEGS  in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_inj_msw.inc, line 68
+   83 Reading COMPSEGS in file /home/thsa/workspace/opm/opm-tests/model6/include/welldef_inj_msw.inc, line 87
+   84 Reading WCONPROD in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 354
+   85 Reading WCONINJE in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 360
+   86 Reading WCONINJE in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 364
+   87 Reading TSTEP    in file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 368
+
+Warning: Keyword 'ECHO' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 13
+
+
+Warning: For keyword 'ENDSCALE' only value REVER in item IRREVERS is supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 30
+
+
+Warning: Keyword 'EXTRAPMS' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 109
+
+
+Warning: Keyword 'ECHO' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 118
+
+
+Warning: Keyword 'NOECHO' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 132
+
+
+Warning: For keyword 'PINCH' only value TOPBOT in item PINCHOUT_OPTION is supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 137
+
+
+Warning: Keyword 'ECHO' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 173
+
+
+Warning: Keyword 'ECHO' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 265
+
+
+Warning: Keyword 'RPTSOL' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 292
+
+
+Warning: Keyword 'ECHO' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 306
+
+
+Warning: Keyword 'NOECHO' is not supported by flow.
+In file /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 335
+
+Only 2 fluid phases are enabled
+Done reading deck file.
+
+Warning: Unhandled summary keyword 'ECHO' at /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 306
+
+Warning: Unhandled summary keyword 'NOECHO' at /home/thsa/workspace/opm/opm-tests/model6/1_MSW_MODEL.DATA, line 335
+
+===============Saturation Functions Diagnostics===============
+
+System:  Oil-Water system.
+Relative permeability input format: Saturation Family I.
+Number of saturation regions: 3
+
+
+
+================ Starting main simulation loop ===============
+
+
+Report step  0/12 at day 0/300, date = 01-Sep-2020
+
+Time step 0, stepsize 1 days, at day 0/10, date = 01-Sep-2020
+Restart file written for report step:  0/12.  Date: 2020/09/01
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+Time step summary: newton its = 10, linearizations = 11 ( 0.041 sec), linear its =  57 ( 0.022 sec)
+
+Time step 1, stepsize 3 days, at day 1/10, date = 02-Sep-2020
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+Time step summary: newton its =  8, linearizations =  9 ( 0.026 sec), linear its =  60 ( 0.018 sec)
+
+Time step 2, stepsize 6 days, at day 4/10, date = 05-Sep-2020
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       260.591 BARSA                 :
+                                                  :      PORV =      14615304   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       260.591 BARSA                 :
+                                                  :      PORV =      14615304   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     3000.0:        0.2:       -0.0:     3164.2:      0.000:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:     1000.0:        0.1:       -0.0:     1054.7:      0.000:     -0.00:        -inf:   215.1:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:     1000.0:        0.1:       -0.0:     1054.7:      0.000:     -0.00:        -inf:   237.4:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:     1000.0:        0.1:       -0.0:     1054.7:      0.000:     -0.00:        -inf:   213.8:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   256.1:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   255.4:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :       12.0:        0.0:        0.0:       12.7:        0.0:       28.0:        0.0:       28.5: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:        4.0:        0.0:        0.0:        4.2:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:        4.0:        0.0:        0.0:        4.2:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:        4.0:        0.0:        0.0:        4.2:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:       14.0:        0.0:       14.3: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:       14.0:        0.0:       14.3: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  7, linearizations =  8 ( 0.024 sec), linear its = 104 ( 0.028 sec)
+
+                              **************************************************************************
+  Balance  at        10  Days *             TESTCASE - MODEL6                                          *
+  Report    1    11 Sep 2020  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step  1/12 at day 10/300, date = 11-Sep-2020
+
+Time step 0, stepsize 10 days, at day 10/20, date = 11-Sep-2020
+Restart file written for report step:  1/12.  Date: 2020/09/11
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       282.486 BARSA                 :
+                                                  :      PORV =      14634922   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9291547             0       9291547:      4772433   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       282.486 BARSA                 :
+                                                  :      PORV =      14634922   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9291547             0       9291547:      4772433   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     3000.0:      165.5:       -0.0:     3331.5:      0.052:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:     1000.0:        0.0:       -0.0:     1054.4:      0.000:     -0.00:        -inf:   223.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:     1000.0:      165.5:       -0.0:     1222.8:      0.142:     -0.00:        -inf:   252.9:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:     1000.0:        0.0:       -0.0:     1054.3:      0.000:     -0.00:        -inf:   225.6:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   273.9:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   273.2:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :       30.0:        1.0:        0.0:       32.6:        0.0:       70.0:        0.0:       71.3: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:       10.0:        0.0:        0.0:       10.5:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:       10.0:        1.0:        0.0:       11.6:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:       10.0:        0.0:        0.0:       10.5:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:       35.0:        0.0:       35.6: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:       35.0:        0.0:       35.6: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  7, linearizations =  8 ( 0.024 sec), linear its = 101 ( 0.027 sec)
+
+                              **************************************************************************
+  Balance  at        20  Days *             TESTCASE - MODEL6                                          *
+  Report    2    21 Sep 2020  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step  2/12 at day 20/300, date = 21-Sep-2020
+
+Time step 0, stepsize 10 days, at day 20/30, date = 21-Sep-2020
+Restart file written for report step:  2/12.  Date: 2020/09/21
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       299.753 BARSA                 :
+                                                  :      PORV =      14650326   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9261559             0       9261559:      4827315   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       299.753 BARSA                 :
+                                                  :      PORV =      14650326   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9261559             0       9261559:      4827315   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     3000.0:      823.7:       -0.0:     3999.4:      0.215:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:     1000.0:        0.0:       -0.0:     1053.7:      0.000:     -0.00:        -inf:   242.8:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:     1000.0:      821.6:       -0.0:     1889.8:      0.451:     -0.00:        -inf:   272.8:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:     1000.0:        2.1:       -0.0:     1055.8:      0.002:     -0.00:        -inf:   246.2:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   296.1:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   295.3:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :       60.0:        9.2:        0.0:       72.6:        0.0:      140.0:        0.0:      142.5: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:       20.0:        0.0:        0.0:       21.1:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:       20.0:        9.2:        0.0:       30.5:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:       20.0:        0.0:        0.0:       21.1:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:       70.0:        0.0:       71.3: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:       70.0:        0.0:       71.3: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  6, linearizations =  7 ( 0.021 sec), linear its =  89 ( 0.024 sec)
+
+                              **************************************************************************
+  Balance  at        30  Days *             TESTCASE - MODEL6                                          *
+  Report    3    01 Oct 2020  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step  3/12 at day 30/300, date = 01-Oct-2020
+
+Time step 0, stepsize 18.991 days, at day 30/60, date = 01-Oct-2020
+Restart file written for report step:  3/12.  Date: 2020/10/01
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+    Oscillating behavior detected: Relaxation set to 0.900000
+    Oscillating behavior detected: Relaxation set to 0.800000
+    Oscillating behavior detected: Relaxation set to 0.700000
+Time step summary: newton its = 18, linearizations = 19 ( 0.056 sec), linear its = 151 ( 0.044 sec)
+
+Time step 1, stepsize 11.009 days, at day 48.991/60, date = 19-Oct-2020
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+    Oscillating behavior detected: Relaxation set to 0.900000
+    Oscillating behavior detected: Relaxation set to 0.800000
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       318.017 BARSA                 :
+                                                  :      PORV =      14666513   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9171582             0       9171582:      4945255   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       318.017 BARSA                 :
+                                                  :      PORV =      14666513   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9171582             0       9171582:      4945255   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     3000.0:     2763.8:       -0.0:     5965.5:      0.480:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:     1000.0:       35.1:       -0.0:     1087.9:      0.034:     -0.00:        -inf:   280.1:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:     1000.0:     2405.0:       -0.0:     3496.4:      0.706:     -0.00:        -inf:   300.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:     1000.0:      323.7:       -0.0:     1381.2:      0.245:     -0.00:        -inf:   275.8:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   328.0:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   326.9:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :      147.0:       76.8:        0.0:      232.9:        0.0:      342.9:        0.0:      348.8: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:       49.0:        0.7:        0.0:       52.3:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:       49.0:       69.2:        0.0:      122.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:       49.0:        6.9:        0.0:       58.6:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      171.5:        0.0:      174.4: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      171.5:        0.0:      174.4: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its = 10, linearizations = 11 ( 0.034 sec), linear its =  87 ( 0.026 sec)
+
+                              **************************************************************************
+  Balance  at        60  Days *             TESTCASE - MODEL6                                          *
+  Report    4    31 Oct 2020  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step  4/12 at day 60/300, date = 31-Oct-2020
+
+Time step 0, stepsize 30 days, at day 60/90, date = 31-Oct-2020
+Restart file written for report step:  4/12.  Date: 2020/10/31
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+    Oscillating behavior detected: Relaxation set to 0.900000
+    Oscillating behavior detected: Relaxation set to 0.800000
+    Oscillating behavior detected: Relaxation set to 0.700000
+    Oscillating behavior detected: Relaxation set to 0.600000
+
+Problem: Solver convergence failure - Iteration limit reached
+Timestep chopped to 9.900000 days
+
+
+Time step 0, stepsize 9.9 days, at day 60/90, date = 31-Oct-2020
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+Time step summary: newton its =  4, linearizations =  5 ( 0.015 sec), linear its =  78 ( 0.020 sec)
+
+Time step 1, stepsize 20.1 days, at day 69.9/90, date = 09-Nov-2020
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+    Oscillating behavior detected: Relaxation set to 0.900000
+    Oscillating behavior detected: Relaxation set to 0.800000
+    Oscillating behavior detected: Relaxation set to 0.700000
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       297.716 BARSA                 :
+                                                  :      PORV =      14648188   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9081596             0       9081596:      5010388   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       297.716 BARSA                 :
+                                                  :      PORV =      14648188   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       9081596             0       9081596:      5010388   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     3000.0:     4254.9:       -0.0:     7476.2:      0.586:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:     1000.0:      125.8:       -0.0:     1179.4:      0.112:     -0.00:        -inf:   283.9:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:     1000.0:     3344.3:       -0.0:     4448.2:      0.770:     -0.00:        -inf:   296.7:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:     1000.0:      784.8:       -0.0:     1848.7:      0.440:     -0.00:        -inf:   272.4:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   327.3:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   326.0:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :      209.7:      158.5:        0.0:      381.8:        0.0:      489.3:        0.0:      497.5: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:       69.9:        2.8:        0.0:       76.5:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:       69.9:      134.8:        0.0:      210.6:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:       69.9:       20.9:        0.0:       94.8:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      244.7:        0.0:      248.7: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      244.7:        0.0:      248.7: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its = 16, linearizations = 17 ( 0.050 sec), linear its =  97 ( 0.032 sec)
+
+                              **************************************************************************
+  Balance  at        90  Days *             TESTCASE - MODEL6                                          *
+  Report    5    30 Nov 2020  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step  5/12 at day 90/300, date = 30-Nov-2020
+
+Time step 0, stepsize 15 days, at day 90/120, date = 30-Nov-2020
+Restart file written for report step:  5/12.  Date: 2020/11/30
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+Time step summary: newton its =  5, linearizations =  6 ( 0.019 sec), linear its =  85 ( 0.022 sec)
+
+Time step 1, stepsize 15 days, at day 105/120, date = 15-Dec-2020
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =        256.26 BARSA                 :
+                                                  :      PORV =      14611006   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8991599             0       8991599:      5045621   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =        256.26 BARSA                 :
+                                                  :      PORV =      14611006   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8991599             0       8991599:      5045621   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     3000.0:     5622.6:       -0.0:     8871.6:      0.652:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:     1000.0:      366.7:       -0.0:     1425.0:      0.268:     -0.00:        -inf:   251.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:     1000.0:     3949.2:       -0.0:     5066.1:      0.798:     -0.00:        -inf:   259.1:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:     1000.0:     1306.8:       -0.0:     2380.5:      0.566:     -0.00:        -inf:   236.4:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   290.3:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   288.9:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :      315.0:      345.6:        0.0:      682.7:        0.0:      735.0:        0.0:      747.1: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:      105.0:       13.0:        0.0:      123.7:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:      105.0:      269.6:        0.0:      384.4:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:      105.0:       63.0:        0.0:      174.5:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      367.5:        0.0:      373.6: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      367.5:        0.0:      373.6: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  5, linearizations =  6 ( 0.019 sec), linear its =  62 ( 0.017 sec)
+
+                              **************************************************************************
+  Balance  at       120  Days *             TESTCASE - MODEL6                                          *
+  Report    6    30 Dec 2020  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step  6/12 at day 120/300, date = 30-Dec-2020
+
+Time step 0, stepsize 15 days, at day 120/150, date = 30-Dec-2020
+Restart file written for report step:  6/12.  Date: 2020/12/30
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+Time step summary: newton its =  4, linearizations =  5 ( 0.016 sec), linear its =  72 ( 0.018 sec)
+
+Time step 1, stepsize 15 days, at day 135/150, date = 14-Jan-2021
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       202.976 BARSA                 :
+                                                  :      PORV =      14563390   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8901600             0       8901600:      5063124   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       202.976 BARSA                 :
+                                                  :      PORV =      14563390   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8901600             0       8901600:      5063124   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     3000.0:     6311.2:       -0.0:     9585.6:      0.678:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:     1000.0:      610.0:       -0.0:     1674.8:      0.379:     -0.00:        -inf:   204.7:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:     1000.0:     4112.2:       -0.0:     5239.5:      0.804:     -0.00:        -inf:   211.4:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:     1000.0:     1589.0:       -0.0:     2671.3:      0.614:     -0.00:        -inf:   190.8:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   241.4:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   240.0:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :      405.0:      530.7:        0.0:      965.8:        0.0:      945.0:        0.0:      960.8: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:      135.0:       29.5:        0.0:      172.1:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:      135.0:      392.6:        0.0:      541.2:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:      135.0:      108.6:        0.0:      252.5:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      472.5:        0.0:      480.4: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      472.5:        0.0:      480.4: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  4, linearizations =  5 ( 0.017 sec), linear its =  82 ( 0.022 sec)
+
+                              **************************************************************************
+  Balance  at       150  Days *             TESTCASE - MODEL6                                          *
+  Report    7    29 Jan 2021  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step  7/12 at day 150/300, date = 29-Jan-2021
+
+Time step 0, stepsize 19.2745 days, at day 150/180, date = 29-Jan-2021
+Restart file written for report step:  7/12.  Date: 2021/01/29
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+Time step summary: newton its =  5, linearizations =  6 ( 0.020 sec), linear its =  86 ( 0.023 sec)
+
+Time step 1, stepsize 10.7255 days, at day 169.274/180, date = 17-Feb-2021
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       144.947 BARSA                 :
+                                                  :      PORV =      14511703   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8811600             0       8811600:      5073079   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       144.947 BARSA                 :
+                                                  :      PORV =      14511703   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8811600             0       8811600:      5073079   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     3000.0:     6654.9:       -0.0:     9954.7:      0.689:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:     1000.0:      875.7:       -0.0:     1949.0:      0.467:     -0.00:        -inf:   141.7:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:     1000.0:     3963.9:       -0.0:     5098.3:      0.799:     -0.00:        -inf:   148.2:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:     1000.0:     1815.4:       -0.0:     2907.3:      0.645:     -0.00:        -inf:   130.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   175.9:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   174.6:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :      507.8:      756.8:        0.0:     1304.8:        0.0:     1184.9:        0.0:     1205.3: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:      169.3:       57.4:        0.0:      236.7:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:      169.3:      530.2:        0.0:      717.6:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:      169.3:      169.2:        0.0:      350.4:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      592.5:        0.0:      602.7: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      592.5:        0.0:      602.7: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  4, linearizations =  5 ( 0.016 sec), linear its =  78 ( 0.020 sec)
+
+                              **************************************************************************
+  Balance  at       180  Days *             TESTCASE - MODEL6                                          *
+  Report    8    28 Feb 2021  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step  8/12 at day 180/300, date = 28-Feb-2021
+
+Time step 0, stepsize 14.9881 days, at day 180/210, date = 28-Feb-2021
+Restart file written for report step:  8/12.  Date: 2021/02/28
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+    Switching control mode for well PROD3 from ORAT to BHP
+Time step summary: newton its =  6, linearizations =  7 ( 0.023 sec), linear its = 147 ( 0.037 sec)
+
+Time step 1, stepsize 15.0119 days, at day 194.988/210, date = 14-Mar-2021
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+    Switching control mode for well PROD1 from ORAT to BHP
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       107.767 BARSA                 :
+                                                  :      PORV =      14478552   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8735842             0       8735842:      5096518   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       107.767 BARSA                 :
+                                                  :      PORV =      14478552   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8735842             0       8735842:      5096518   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     2865.3:     6539.8:       -0.0:     9716.0:      0.695:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:     1000.0:     1022.0:       -0.0:     2103.0:      0.505:     -0.00:        -inf:    97.1:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:     1000.0:     3889.6:       -0.0:     5033.2:      0.795:     -0.00:        -inf:   103.4:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:      865.3:     1628.3:       -0.0:     2579.9:      0.653:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   128.8:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   127.6:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :      582.9:      926.6:        0.0:     1557.7:        0.0:     1364.9:        0.0:     1389.2: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:      195.0:       82.9:        0.0:      289.9:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:      195.0:      630.2:        0.0:      847.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:      193.0:      213.5:        0.0:      420.8:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      682.5:        0.0:      694.6: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      682.5:        0.0:      694.6: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  7, linearizations =  8 ( 0.026 sec), linear its =  98 ( 0.026 sec)
+
+                              **************************************************************************
+  Balance  at       210  Days *             TESTCASE - MODEL6                                          *
+  Report    9    30 Mar 2021  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step  9/12 at day 210/300, date = 30-Mar-2021
+
+Time step 0, stepsize 15 days, at day 210/240, date = 30-Mar-2021
+Restart file written for report step:  9/12.  Date: 2021/03/30
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+    Switching control mode for well PROD2 from ORAT to BHP
+Time step summary: newton its =  6, linearizations =  7 ( 0.021 sec), linear its =  88 ( 0.024 sec)
+
+Time step 1, stepsize 15 days, at day 225/240, date = 14-Apr-2021
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       103.713 BARSA                 :
+                                                  :      PORV =      14474851   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8684295             0       8684295:      5143741   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       103.713 BARSA                 :
+                                                  :      PORV =      14474851   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8684295             0       8684295:      5143741   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     1792.2:     5470.9:       -0.0:     7498.4:      0.753:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:      615.6:      778.1:       -0.0:     1449.0:      0.558:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:      892.0:     4265.0:       -0.0:     5309.9:      0.827:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:      284.6:      427.7:       -0.0:      739.5:      0.600:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   112.3:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   111.1:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :      642.6:     1097.2:        0.0:     1795.6:        0.0:     1575.0:        0.0:     1604.1: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:      216.1:      107.9:        0.0:      337.9:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:      223.4:      759.4:        0.0:     1009.3:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:      203.2:      229.9:        0.0:      448.4:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      787.5:        0.0:      802.1: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      787.5:        0.0:      802.1: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  8, linearizations =  9 ( 0.026 sec), linear its =  55 ( 0.018 sec)
+
+                              **************************************************************************
+  Balance  at       240  Days *             TESTCASE - MODEL6                                          *
+  Report   10    29 Apr 2021  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step 10/12 at day 240/300, date = 29-Apr-2021
+
+Time step 0, stepsize 30 days, at day 240/270, date = 29-Apr-2021
+Restart file written for report step: 10/12.  Date: 2021/04/29
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =        102.93 BARSA                 :
+                                                  :      PORV =      14474122   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8639671             0       8639671:      5188773   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =        102.93 BARSA                 :
+                                                  :      PORV =      14474122   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8639671             0       8639671:      5188773   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     1644.4:     5380.2:       -0.0:     7249.7:      0.766:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:      566.3:      810.0:       -0.0:     1429.5:      0.589:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:      807.2:     4184.2:       -0.0:     5137.9:      0.838:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:      271.0:      386.0:       -0.0:      682.3:      0.588:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   111.2:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   110.1:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :      667.3:     1177.9:        0.0:     1904.3:        0.0:     1680.0:        0.0:     1711.6: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:      224.6:      120.0:        0.0:      359.3:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:      235.5:      822.1:        0.0:     1086.3:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:      207.2:      235.7:        0.0:      458.7:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      840.0:        0.0:      855.8: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      840.0:        0.0:      855.8: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  6, linearizations =  7 ( 0.021 sec), linear its =  62 ( 0.018 sec)
+
+                              **************************************************************************
+  Balance  at       270  Days *             TESTCASE - MODEL6                                          *
+  Report   11    29 May 2021  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+
+Report step 11/12 at day 270/300, date = 29-May-2021
+
+Time step 0, stepsize 30 days, at day 270/300, date = 29-May-2021
+Restart file written for report step: 11/12.  Date: 2021/05/29
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD1 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD2 will do nothing
+
+Warning: Support of well operability checking for multisegment wells is not implemented yet, checkWellOperability() for PROD3 will do nothing
+                                                  ===================================================
+                                                  :                   Field Totals                  :
+                                                  :      PAV  =       102.327 BARSA                 :
+                                                  :      PORV =      14473561   RM3                 :
+                                                  : Pressure is weighted by hydrocarbon pore volume :
+                                                  : Porv volumes are taken at reference conditions  :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8598627             0       8598627:      5230379   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :       9321545             0       9321545:      4710671   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+                                                  ===================================================
+                                                  :        FIPNUM report region   1                 :
+                                                  :      PAV  =       102.327 BARSA                 :
+                                                  :      PORV =      14473561   RM3                 :
+                         :--------------- Oil    SM3 ---------------:-- Wat    SM3 --:--------------- Gas    SM3 ---------------:
+                         :      Liquid        Vapour        Total   :      Total     :      Free        Dissolved       Total   :
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Currently   in place    :       8598627             0       8598627:      5230379   :             0             0             0:
+:------------------------:------------------------------------------:----------------:------------------------------------------:
+:Originally  in place    :             0             0             0:            0   :             0             0             0:
+:========================:==========================================:================:==========================================:
+
+======================================================= PRODUCTION REPORT =======================================================
+:  WELL  :  LOCATION :CTRL:    OIL    :   WATER   :    GAS    :   FLUID   :   WATER   : GAS/OIL  :  WAT/GAS   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  :MODE:    RATE   :   RATE    :    RATE   :  RES.VOL. :    CUT    :  RATIO   :   RATIO    : CON.PR.: BLK.PR.:
+:        :           :    :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  SCM/SCM  :  SCM/SCM :  SCM/SCM   :  BARSA :  BARSA :
+=================================================================================================================================
+
+:   FIELD:           :    :        0.0:        0.0:        0.0:        0.0:      0.000:      0.00:        -nan:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:    TEST:           :    :     1487.5:     5498.9:       -0.0:     7205.0:      0.787:     -0.00:        -inf:        :        : 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD1:    1,    2:ORAT:      510.4:      914.4:       -0.0:     1477.1:      0.642:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD2:    1,   11:ORAT:      720.1:     4219.1:       -0.0:     5081.5:      0.854:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+:   PROD3:    1,    8:ORAT:      257.0:      365.3:       -0.0:      646.4:      0.587:     -0.00:        -inf:    90.0:     0.0: 
+:--------:-----------:----:-----------:-----------:-----------:-----------:-----------:----------:------------:--------:--------:
+
+=================================================== INJECTION REPORT ========================================
+:  WELL  :  LOCATION : CTRL : CTRL : CTRL :    OIL    :   WATER   :    GAS    :   FLUID   : BHP OR : THP OR :
+:  NAME  :  (I,J,K)  : MODE : MODE : MODE :    RATE   :   RATE    :    RATE   :  RES.VOL. : CON.PR.: BLK.PR.:
+:        :           : OIL  : WAT  : GAS  :  SCM/DAY  :  SCM/DAY  :  SCM/DAY  :  RCM/DAY  :  BARSA :  BARSA :
+==============================================================================================================
+
+:   FIELD:           :      :      :      :        0.0:        0.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    TEST:           :      :      :      :        0.0:     7000.0:        0.0:        0.0:        :        : 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ1:   12,    4:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   110.2:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+:    INJ2:   12,   11:      :      :  WRAT:        0.0:     3500.0:        0.0:        0.0:   109.1:     0.0: 
+:--------:-----------:------:------:------:------------:----------:-----------:-----------:--------:--------: 
+
+=================================================== CUMULATIVE PRODUCTION/INJECTION REPORT =========================================
+:  WELL  :  LOCATION :  WELL  :CTRL:    OIL    :   WATER   :    GAS    :   Prod    :    OIL    :   WATER   :    GAS    :   INJ     :
+:  NAME  :  (I,J,K)  :  TYPE  :MODE:    PROD   :   PROD    :    PROD   :  RES.VOL. :    INJ    :   INJ     :    INJ    :  RES.VOL. :
+:        :           :        :    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :    MSCM   :   MSCM    :    MMSCM  :   MRCM    :
+====================================================================================================================================
+
+:   FIELD:           :        :    :        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    TEST:           :        :    :      711.9:     1342.9:        0.0:     2120.5:        0.0:     1890.0:        0.0:     1926.5: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD1:    1,    2:    PROD:ORAT:      239.9:      147.4:        0.0:      403.6:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD2:    1,   11:    PROD:ORAT:      257.1:      948.7:        0.0:     1238.8:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:   PROD3:    1,    8:    PROD:ORAT:      215.0:      246.7:        0.0:      478.1:        0.0:        0.0:        0.0:        0.0: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ1:   12,    4:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      945.0:        0.0:      963.2: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+:    INJ2:   12,   11:     INJ:WRAT:        0.0:        0.0:        0.0:        0.0:        0.0:      945.0:        0.0:      963.2: 
+:--------:-----------:--------:----:------------:----------:-----------:-----------:------------:----------:-----------:-----------: 
+
+Time step summary: newton its =  4, linearizations =  5 ( 0.015 sec), linear its =  45 ( 0.013 sec)
+
+                              **************************************************************************
+  Balance  at       300  Days *             TESTCASE - MODEL6                                          *
+  Report   12    28 Jun 2021  *                                             Flow  version 2020.10-pre  *
+                              **************************************************************************
+
+Restart file written for report step: 12/12.  Date: 2021/06/28
+
+
+================    End of simulation     ===============
+
+Number of MPI processes:      1
+Threads per MPI process:      2
+Total time (seconds):         1.58105
+Solver time (seconds):        1.5756
+ Assembly time (seconds):     0.593785 (Failed: 0.0638549; 10.7539%)
+   Well assembly time (seconds): 0.341108 (Failed: 0.0369575; 10.8346%)
+ Linear solve time (seconds): 0.549391 (Failed: 0.0498023; 9.06499%)
+   Linear solve setup time (seconds): 3.0666e-05 (Failed: 3.469e-06; 11.3122%)
+ Update time (seconds):       0.0543406 (Failed: 0.00608943; 11.206%)
+ Output write time (seconds): 0.0136993
+Overall Well Iterations:      0 (Failed: 0; -nan%)
+Overall Linearizations:       192 (Failed: 21; 10.9375%)
+Overall Newton Iterations:    171 (Failed: 21; 12.2807%)
+Overall Linear Iterations:    1945 (Failed: 161; 8.27763%)
+
+
+
+Error summary:
+Warnings          82
+Info              180
+Errors            0
+Bugs              0
+Debug             0
+Problems          1
+
