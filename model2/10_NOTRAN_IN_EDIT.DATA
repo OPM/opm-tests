@@ -6,7 +6,7 @@
 -- Copyright (C) 2018 Equinor
 
 -- This is the base case for model2. This case has standard wells, 3 producers and 2 injectors
-
+-- This case can be used to produce the transmissibililties used in case 10_TRAN_IN_EDIT.DATA
 
 -- ------------------------------------------------------------------------
 -- ----------------------- BASE MODEL 1 -----------------------------------

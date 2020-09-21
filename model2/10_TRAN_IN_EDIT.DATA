@@ -6,6 +6,8 @@
 -- Copyright (C) 2018 Equinor
 
 -- This is the base case for model2. This case has standard wells, 3 producers and 2 injectors
+-- It is the same as 10_NOTRAN_IN_EDIT.DATA and should yield the same results.
+-- Should be used for testing of setting TRAN in EDIT section.
 
 
 -- ------------------------------------------------------------------------

@@ -6,8 +6,8 @@
 -- Copyright (C) 2020 Equinor
 
 -- This is the base case for model5.
--- It should be used for the the TRAN modifiers in the EDIT section
--- Here MAXVALUE is used.
+-- It should be used for testing the TRAN modifiers in the EDIT section
+-- Here only MAXVALUE is used to modidify TRAN.
 
 
 ------------------------------------------------------------------------------------------------

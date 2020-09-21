@@ -1,3 +1,9 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2020 Equinor
 PERMX
    59756.39    2577.29   21635.86   19927.40   29633.90    6526.50
    48729.87   56729.29   38563.06   36932.32    4213.25    3971.30
