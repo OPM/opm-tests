@@ -5,7 +5,20 @@
 
 -- Copyright (C) 2018 Equinor
 
--- This is the base case for model2. This case has standard wells, 3 producers and 2 injectors
+-- This model is built from the base case for model2. This case has standard wells, 3 producers and 2 injectors
+-- Well PROD3 has modified completions compared to the base case model
+
+--  The model contains data that use of WELPI keyword and data to adjust wells PI and hence 
+-- connection factors during the simulation period
+--  i. Production wells with preferred phase (OIL, GAS)
+--    PROD1 - OIL
+--    PROD2 - OIL
+--    PROD3 - GAS
+--  ii. Injection wells with preferred phase (GAS, WATER)
+--    INJ1 - WATER
+--    INJ2 - GAS
+--  All wells get their PI values adjusted once-
+--  The wells PROD2, PROD3 and INJ2 get the PI adjusted an extra time.
 
 
 -- ------------------------------------------------------------------------
