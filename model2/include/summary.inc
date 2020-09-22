@@ -168,6 +168,9 @@ WGIGR
 /
 
 
+CTFAC 
+ '*' /
+/
 
 -- Group data
 
