@@ -6,6 +6,8 @@
 -- Copyright (C) 2015 Statoil
 -- Copyright (C) 2015 SINTEF ICT, Applied Mathematics
 
+-- Test case is testing analytical aquifer - Fetkovich
+
 RUNSPEC
 
 DIMENS
@@ -40,7 +42,7 @@ TABDIMS
 
 AQUDIMS
 -- MXNAQN   MXNAQC   NIFTBL  NRIFTB   NANAQU    NNCAMAX
-    1*       1*        5       100      1         1000 /
+    1*       1*        5       100      2         1000 /
 
 REGDIMS
 1   1   1   0 /
@@ -610,6 +612,16 @@ SUMMARY
 
 ALL
 EXCEL
+
+AAQR
+ 1 2 /
+
+AAQT
+ 1 2 /
+
+AAQP
+ 1 2 /
+
 SCHEDULE
 
 OPTIONS

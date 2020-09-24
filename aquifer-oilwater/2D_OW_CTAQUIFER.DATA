@@ -6,6 +6,8 @@
 -- Copyright (C) 2015 Statoil
 -- Copyright (C) 2015 SINTEF ICT, Applied Mathematics
 
+-- Test case is testing analytical aquifer - Carter-Tracy
+
 RUNSPEC
 
 DIMENS
@@ -814,6 +816,16 @@ SUMMARY
 
 ALL
 EXCEL
+
+AAQR
+ 1 /
+
+AAQT
+ 1 /
+
+AAQP
+ 1 /
+
 SCHEDULE
 
 OPTIONS
