@@ -167,13 +167,7 @@ WWIGR
 WGIGR
 /
 
-
-CTFAC 
- '*' /
-/
-
 -- Group data
-
 
 GOPR
 /

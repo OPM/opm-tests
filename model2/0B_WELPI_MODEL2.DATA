@@ -211,17 +211,8 @@ SUMMARY
 INCLUDE
  'include/summary.inc' /
 
-WPIO
-/
-WPIG
-/
-WPIW
-/
-WPIL
-/
-WPI
-/
-
+INCLUDE
+ 'include/well_conn_compl.inc' /
 
 ------------------------------------------------------------------------------------------------
 SCHEDULE
@@ -238,7 +229,7 @@ INCLUDE
 
 
 INCLUDE
- 'include/hist_schedule_welpi_def-ro.sch' /
+ 'include/hist_schedule_welpi_def-ro_compdat.sch' /
 
  
 END
