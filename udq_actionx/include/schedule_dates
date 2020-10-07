@@ -1,0 +1,70 @@
+DATES       --- 0001
+ 1 'SEP' 2018 / 
+/
+
+
+WELOPEN
+ 'OPL01' 'OPEN' 5* / 
+/
+
+DATES        --- 0002
+ 1 'OCT' 2018 / 
+/
+
+
+WELOPEN
+ 'WIL01' 'OPEN' 5* / 
+/
+
+DATES        --- 0003
+ 1 'NOV' 2018 / 
+/
+
+WELOPEN
+ 'OPL02' 'OPEN' 5* / 
+/
+
+
+
+DATES        --- 0004
+ 1 'DEC' 2018 / 
+/
+
+
+WELOPEN
+ 'OPU01' 'OPEN' 5* / 
+/
+
+DATES        ---- 0005
+ 1 'MAY' 2019 / 
+/
+
+
+WELOPEN
+ 'OPU02' 'OPEN' 5* / 
+/
+
+DATES        ---- 0006
+ 1 'JUN' 2019 / 
+/
+
+
+WELOPEN
+ 'WIU01' 'OPEN' 5* / 
+/
+
+DATES        ---- 0007
+ 1 'JAN' 2021 / 
+/
+
+DATES        ---- 0008 
+ 1 'MAR' 2021 / 
+/
+
+DATES        ---- 0009  
+ 1 'MAY' 2021 / 
+/
+
+DATES     ----  0010
+ 1 'JUL' 2021 / 
+/
