@@ -1,0 +1,88 @@
+-- ============================================================================ 
+--                           Field data 
+-- ============================================================================ 
+--                                                                        Rates 
+FWPR 
+FWPRH
+FOPR
+FOPRH 
+FGPR
+FGPRH
+FGOR
+FGORH
+FGPP
+FOPP
+-- 
+FWPT 
+FOPT 
+FGPT
+
+FWPTH
+FOPTH
+FGPTH
+--                                                                     Pressure 
+FPR 
+--
+-- ============================================================================ 
+--                           Well data 
+-- ============================================================================ 
+--                                                                        Rates 
+WWPR  
+/ 
+WWPRH  
+/ 
+WOPR  
+/ 
+WOPRH  
+/ 
+WGPR  
+/ 
+WGPRH  
+/
+WGPP
+/
+WOPP
+/
+WWPT  
+/ 
+WOPT  
+/ 
+WGPT  
+/ 
+WWPTH
+/ 
+WOPTH 
+/ 
+WGPTH
+/
+WOGR  
+/ 
+WGOR  
+/ 
+WGORH  
+/ 
+WGLR  
+/ 
+WWCT  
+/ 
+WWGR  
+/ 
+--                                                                    Pressures 
+WBP
+/
+WBHP 
+/ 
+WTHP 
+/ 
+WTHPH
+/
+WMCTL
+/
+WEFF
+/
+WEFFG
+/
+WOPGR
+/
+WSTAT
+/

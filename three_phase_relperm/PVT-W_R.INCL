@@ -1,0 +1,11 @@
+--
+-- Reference densities
+DENSITY
+--   oil   water   gas     
+   800.      1020.      0.980 /
+
+-- Water properties
+PVTW
+-- ref P   FVFW          Cw         ViscW       VoscobW
+   397.  1.05 0.5E-04  0.20        0.1E-03 /
+
