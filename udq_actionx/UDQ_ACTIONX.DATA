@@ -331,62 +331,7 @@ WELOPEN
 
 ENDACTIO
 
+INCLUDE
+   'include/schedule_dates' /
 
-DATES
- 1 'SEP' 2018 / 
-/
-
-
-WELOPEN
- 'OPL01' 'OPEN' 5* / 
-/
-
-DATES
- 1 'OCT' 2018 / 
-/
-
-
-WELOPEN
- 'WIL01' 'OPEN' 5* / 
-/
-
-DATES
- 1 'NOV' 2018 / 
-/
-
-WELOPEN
- 'OPL02' 'OPEN' 5* / 
-/
-
-
-
-DATES
- 1 'DEC' 2018 / 
-/
-
-
-WELOPEN
- 'OPU01' 'OPEN' 5* / 
-/
-
-DATES
- 1 'MAY' 2019 / 
-/
-
-
-WELOPEN
- 'OPU02' 'OPEN' 5* / 
-/
-
-DATES
- 1 'JUN' 2019 / 
-/
-
-
-WELOPEN
- 'WIU01' 'OPEN' 5* / 
-/
-
-DATES
- 1 'JAN' 2021 / 
-/
+END
