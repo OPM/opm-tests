@@ -1,0 +1,29 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2020 Equinor
+
+WELSPECS
+-- Well   Grp   I   J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD1  TEST  14  8  1*        OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+  /
+    
+COMPDAT
+-- Well    I    J   K1   K2   Status   SAT   TR            DIAM      KH   S         Df   DIR
+   PROD1   14   8   1    1    OPEN     1*    1.972960E+2   0.21600   1*   0.00000   1*   'Z' /
+   PROD1   14   7   1    1    OPEN     1*    1.619450E+2   0.21600   1*   0.00000   1*   'Z' /
+   PROD1   14   7   2    2    OPEN     1*    4.126449E+2   0.21600   1*   0.00000   1*   'Z' /
+   PROD1   14   7   3    3    OPEN     1*    2.033290E+1   0.21600   1*   0.00000   1*   'Z' /
+   PROD1   15   7   3    3    OPEN     1*    9.095613E+1   0.21600   1*   0.00000   1*   'Z' /
+   PROD1   15   6   3    3    OPEN     1*    2.090607E+2   0.21600   1*   0.00000   1*   'Y' /
+   PROD1   15   6   4    4    OPEN     1*    3.010669E+1   0.21600   1*   0.00000   1*   'Y' /
+   PROD1   16   6   4    4    OPEN     1*    7.123814E+1   0.21600   1*   0.00000   1*   'Y' /
+   PROD1   16   5   4    4    OPEN     1*    4.414386E+2   0.21600   1*   0.00000   1*   'Y' /
+   PROD1   16   4   4    4    OPEN     1*    4.345126E+2   0.21600   1*   0.00000   1*   'Y' /
+   PROD1   16   3   4    4    OPEN     1*    2.894573E+2   0.21600   1*   0.00000   1*   'Y' /
+   PROD1   17   3   4    4    OPEN     1*    1.329523E+2   0.21600   1*   0.00000   1*   'Y' /
+   PROD1   17   2   4    4    OPEN     1*    6.981252E+1   0.21600   1*   0.00000   1*   'Y' /
+   PROD1   17   2   5    5    OPEN     1*    1.392382E+2   0.21600   1*   0.00000   1*   'Y' /
+ /

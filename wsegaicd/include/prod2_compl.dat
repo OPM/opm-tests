@@ -1,0 +1,30 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2020 Equinor
+
+WELSPECS
+-- Well   Grp   I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD2  TEST  5  1  1*        OIL   0.0       STD      STOP      YES    0         SEG       0            /
+  /
+    
+COMPDAT
+-- Well    I    J   K1   K2   Status   SAT   TR            DIAM      KH   S         Df   DIR
+   PROD2   5    1   7    7    OPEN     1*    8.562868E+0   0.21600   1*   0.00000   1*   'Z' /
+   PROD2   5    2   7    7    OPEN     1*    3.339580E+1   0.21600   1*   0.00000   1*   'Z' /
+   PROD2   5    2   8    8    OPEN     1*    7.025258E+1   0.21600   1*   0.00000   1*   'Z' /
+   PROD2   6    2   8    8    OPEN     1*    7.860588E+1   0.21600   1*   0.00000   1*   'Z' /
+   PROD2   6    2   9    9    OPEN     1*    7.559754E+1   0.21600   1*   0.00000   1*   'X' /
+   PROD2   7    2   9    9    OPEN     1*    5.525105E+1   0.21600   1*   0.00000   1*   'X' /
+   PROD2   7    3   9    9    OPEN     1*    7.844934E+1   0.21600   1*   0.00000   1*   'Y' /
+   PROD2   8    3   9    9    OPEN     1*    5.895856E+1   0.21600   1*   0.00000   1*   'Y' /
+   PROD2   8    4   9    9    OPEN     1*    1.217377E+2   0.21600   1*   0.00000   1*   'Y' /
+   PROD2   9    4   9    9    OPEN     1*    4.433615E-1   0.21600   1*   0.00000   1*   'Y' /
+   PROD2   9    5   9    9    OPEN     1*    1.157617E+2   0.21600   1*   0.00000   1*   'Y' /
+   PROD2   9    6   9    9    OPEN     1*    8.955619E+1   0.21600   1*   0.00000   1*   'Y' /
+   PROD2   10   6   9    9    OPEN     1*    3.271518E+1   0.21600   1*   0.00000   1*   'Y' /
+   PROD2   10   7   9    9    OPEN     1*    1.246895E+2   0.21600   1*   0.00000   1*   'Y' /
+   PROD2   10   8   9    9    OPEN     1*    3.287055E+0   0.21600   1*   0.00000   1*   'Y' /
+ /
