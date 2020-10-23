@@ -1,0 +1,323 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2020 Equinor
+
+-- Purpose: test implementation of autonomous inflow control device (AICD)
+-- keyword: WSEGAICD
+
+-- Model contains two reservoirs (Upper and Lower). 
+
+-- Upper: Gas cap and saturated gas-oil contact. Downflank oil producer (PROD1) with 
+--        aicd to reduce gas inflow and to maximaze oil production
+
+-- Lower: Under saturated oil and water-oil contact. Analytical aquifer (fetkovich)
+--        for pressure support. Upflank oil producer (PROD2) with aicd to reduce water 
+--        inflow and increase oil production. 
+
+-- PROD1 constrained by maximum gas production rate (WCONPROD item 6).
+-- PROD2 constrained by maximum liquid production rate (WCONPROD item 7). 
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 20 8 11 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+--
+GRIDOPTS
+ 'YES'	      0 / 
+
+EQLDIMS
+ 2  100  25 /
+
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          1       1*            2    /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  2	    15 	          3	     10   /
+
+WSEGDIMS
+-- nswlmx  nsegmx  nlbrmx
+   2       40     20 /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+   1          1      50          60         2         60 /
+
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg	max.ALQ    max.tabs
+  40	    20        20       20	0	   60	    /
+
+
+AQUDIMS
+-- mxnaqn  mxnaqc  niftbl  nriftb  nanaqu  ncamax  mxnali  mxaaql
+    1*      1*      1*       1*     1       50  /
+
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/test1.grdecl' /
+
+ACTNUM
+ 800*1 160*0 800*1 /
+ 
+PORO
+ 1760*0.20 /
+
+PERMX
+ 160*2500 
+ 160*1500 
+ 160*500 
+ 160*1000 
+ 160*800 
+ 160*0.0 
+ 160*500 
+ 160*500 
+ 160*250 
+ 160*800 
+ 160*500 /
+ 
+COPY
+ PERMX PERMY /
+ PERMX PERMZ /
+/
+
+MULTIPLY
+ PERMZ 0.10 /
+/
+ 
+ 
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/norne_pvt.inc' /
+
+--   REF.PRES.   COMPR.
+ROCK
+      277.0      6.11423e-05 /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+  960*1 800*2 /
+  
+SATNUM
+  1760*1 /
+
+PVTNUM
+  1760*1 /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc    Pc   goc    Pc  Rsvd  Rvvd   N
+ 2030.0  251.1  2100.0   0.0 2030.0  0.0   1   1      0 /  
+ 2030.0  270.0  2070.0   0.0 1900.0  0.0   2   2      0 /  
+
+PBVD
+   2030.0 251.1 
+   2100.0 245.1  /
+   
+   2000.0 230.0 
+   2100.0 225.0  /
+
+PDVD
+   2000.0  248.0
+   2030.0  251.1 /
+
+   1900.0  200.0
+   2100.0  200.1 /
+
+AQUFETP
+---- Aqu        depth    Pr       vol       Comp         PI     PVTW
+   1           2030.0   270.0   5.0E+10      1.5312E-4    995      1*    /
+/
+
+AQUANCON
+--Aqu  I1   I2   J1   J2   K1   K2   face   influx coef.   influx coef. multiplier
+    1  20   20    1    8    7   11    'I+'        1*               1*  /
+/
+ 
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+WBHP
+ PROD1 PROD2 /
+ 
+WOPR
+ PROD1 PROD2 /
+
+WGPR
+ PROD1 PROD2 /
+
+WWPR
+ PROD1 PROD2 /
+
+WLPR
+ PROD1 PROD2 /
+
+WGOR
+ PROD1 PROD2 /
+
+WWCT
+ PROD1 PROD2 /
+
+
+SOFR
+ PROD1 /
+ PROD2 /
+/
+ 
+SWFR
+ PROD1 /
+ PROD2 /
+/
+
+SGFR
+ PROD1 /
+ PROD2 /
+/
+
+SPR
+ PROD1 /
+ PROD2 /
+/
+
+SPRD
+ PROD1 /
+ PROD2 /
+/
+
+SPRDH
+ PROD1 /
+ PROD2 /
+/
+
+SPRDF
+ PROD1 /
+ PROD2 /
+/
+
+SPRDA
+ PROD1 /
+ PROD2 /
+/
+
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+TUNING
+ 0.5 2.0 /
+ /
+ /
+ 
+WSEGITER
+ 150  50  0.3  2.0 /
+
+RPTRST
+ 'BASIC=2' /
+
+-- COMPDAT and WELSPECS
+INCLUDE
+ 'include/prod1_compl.dat' /
+
+-- COMPDAT and WELSPECS
+INCLUDE
+ 'include/prod2_compl.dat' /
+
+-- WELSEGS, COMPSEGS and WSEGAICD
+INCLUDE
+ 'include/prod1_msw_aicd.dat' /
+
+-- WELSEGS, COMPSEGS and WSEGAICD
+INCLUDE
+ 'include/prod2_msw_aicd.dat' /
+
+ 
+WCONPROD
+-- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv    bhp   thp  VfpTab 
+ 'PROD1'  'OPEN'  'GRUP'  4000.0    1*  1.5E6    8000.0    1*    60.0  1*   1*   / 
+ 'PROD2'  'OPEN'  'GRUP'  4000.0    1*   1*     4200.0    1*    60.0  1*   1*   / 
+/
+
+TSTEP
+ 1.0 5.0 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 /
+
+
+ 
+END
