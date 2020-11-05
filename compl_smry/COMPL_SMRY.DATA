@@ -5,8 +5,9 @@
 
 -- Copyright (C) 2020 Equinor
 
--- Test case to be used for regression testing of completion summary results
--- 
+-- Test case for regression testing of completion summary vectors
+-- WGIRL, WGITL, WWIRL, WWITL, WOPRL, WOPTL, WGPRL, WGPTL,
+-- WWPRL, WWPTL, WLPTL, WWCTL and WGORL
 
 -- *****************************************************
 RUNSPEC
