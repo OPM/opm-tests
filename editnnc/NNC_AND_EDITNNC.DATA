@@ -5,6 +5,11 @@
 
 -- Copyright (C) 2018 Equinor
 
+-- This deck tests usage of EDITNNC and NNC keywords
+-- Both naturally occuring NNCs from faults and
+-- NNCs introduced by NNC keyword are edited
+
+
 ------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------
