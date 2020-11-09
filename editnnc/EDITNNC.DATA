@@ -5,6 +5,9 @@
 
 -- Copyright (C) 2018 Equinor
 
+-- This deck tests usage of EDITNNC, keyword is applied
+-- to both existing and non-existing connections
+
 ------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------
