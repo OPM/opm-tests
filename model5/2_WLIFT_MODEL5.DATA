@@ -5,8 +5,9 @@
 
 -- Copyright (C) 2020 Equinor
 
--- This model is based on the base case for model5.
--- Added extended network option and gas lift optimization
+-- This model is based on TRAN-modified Base case model 5
+-- This model tests well gas lift optimization with keywords
+-- GCONINJE, LIFOPT and WLIFTOPT
 
 
 ------------------------------------------------------------------------------------------------
@@ -82,21 +83,20 @@ INIT
 INCLUDE
  'include/test1_20x30x10.grdecl' /
 
+INCLUDE
+ 'include/permx.inc' /
 
 PORO
  6000*0.28 /
 
-PERMX
- 6000*10000.0 /
-
-PERMZ
- 6000*1000.0 /
-
-
 COPY
   PERMX PERMY /
+  PERMX PERMZ /
 /
 
+MULTIPLY
+ 'PERMZ' 0.8 /
+/
 
 RPTGRID
  'ALLNNC' /
@@ -109,6 +109,19 @@ EQUALS
 ------------------------------------------------------------------------------------------------
 EDIT
 ------------------------------------------------------------------------------------------------
+
+
+-- actual maximum value is 816436 in this case
+-- a max max value of 750000 should affect 76 cells
+-- there are in other words 76 cells  
+
+-- mean value without maxvalue tranz: 305174
+-- mean value with maxvalue tranz: 304883
+
+
+MAXVALUE
+  TRANZ 750000 /
+/
 
 
 ------------------------------------------------------------------------------------------------
