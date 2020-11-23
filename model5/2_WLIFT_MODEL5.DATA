@@ -5,8 +5,9 @@
 
 -- Copyright (C) 2020 Equinor
 
--- This is the base case for model5.
---
+-- This model is based on TRAN-modified Base case model 5
+-- This model tests well gas lift optimization with keywords
+-- GCONINJE, LIFOPT and WLIFTOPT
 
 
 ------------------------------------------------------------------------------------------------
@@ -82,21 +83,20 @@ INIT
 INCLUDE
  'include/test1_20x30x10.grdecl' /
 
+INCLUDE
+ 'include/permx.inc' /
 
 PORO
  6000*0.28 /
 
-PERMX
- 6000*10000.0 /
-
-PERMZ
- 6000*1000.0 /
-
-
 COPY
   PERMX PERMY /
+  PERMX PERMZ /
 /
 
+MULTIPLY
+ 'PERMZ' 0.8 /
+/
 
 RPTGRID
  'ALLNNC' /
@@ -109,6 +109,19 @@ EQUALS
 ------------------------------------------------------------------------------------------------
 EDIT
 ------------------------------------------------------------------------------------------------
+
+
+-- actual maximum value is 816436 in this case
+-- a max max value of 750000 should affect 76 cells
+-- there are in other words 76 cells  
+
+-- mean value without maxvalue tranz: 305174
+-- mean value with maxvalue tranz: 304883
+
+
+MAXVALUE
+  TRANZ 750000 /
+/
 
 
 ------------------------------------------------------------------------------------------------
@@ -193,7 +206,7 @@ SCHEDULE
 --
 
 TUNING
- 0.5 1 /
+ 0.5 1.0 /
  /
  /
 
@@ -265,11 +278,6 @@ WCONPROD
    'C-2H'      SHUT    ORAT  1500.0  1*     1*    3000.0  1*   100.0  30   1   1*  /
 /
 
-GCONINJE
- 'FIELD'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
-/
-
-
 WCONINJE
 -- Well_name    Type    Status  Ctrl    SRate1  Rrate   BHP     THP     VFP
   'F-1H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
@@ -279,6 +287,24 @@ WCONINJE
 /
 
 
+
+-- Turns on gas lift optimization
+LIFTOPT
+ 12500 5E-3 0.0 YES /
+
+-- wells available for gas lift
+-- minimum gas lift rate, enough to keep well flowing
+WLIFTOPT
+ 'B-1H'   YES   150000   1.01   -1.0  /
+ 'B-2H'   YES   150000   1.01   -1.0  /
+ 'B-3H'   YES   150000   1.01   -1.0  /
+ 'C-1H'   YES   150000   1.01   -1.0  /
+ 'C-2H'   YES   150000   1.01   -1.0  /
+/
+
+TSTEP
+ 0.5 /
+ 
 DATES
  1 FEB 2020 /
 /
@@ -308,6 +334,12 @@ DATES
  1 MAY 2020 /
  1 JUN 2020 /
  1 JUL 2020 /
+ 1 AUG 2020 /
+ 1 SEP 2020 /
+ 1 OCT 2020 /
+ 1 NOV 2020 /
+ 1 DEC 2020 /
 /
+
 
 END
