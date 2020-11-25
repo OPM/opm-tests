@@ -69,7 +69,7 @@ NEWTRAN
 
 --
 GRIDFILE
- 0  1/
+ 0  1 /
 
 --
 GRIDUNIT
@@ -82,21 +82,21 @@ INIT
 INCLUDE
  'include/test1_20x30x10.grdecl' /
 
+INCLUDE
+ 'include/permx_model5.grdecl' /
+ 
 
 PORO
- 6000*0.28 /
-
-PERMX
- 6000*10000.0 /
-
-PERMZ
- 6000*1000.0 /
-
+ 6000*0.28 / 
 
 COPY
   PERMX PERMY /
+  PERMX PERMZ /
 /
 
+MULTIPLY
+  PERMZ 0.1 /
+/ 
 
 RPTGRID
  'ALLNNC' /
@@ -135,8 +135,10 @@ REGIONS
 EQLNUM
  6000*1 /
 
-FIPNUM
- 6000*1 /
+EQUALS
+  FIPNUM  1  1 20   1 14  1 10 /
+  FIPNUM  2  1 20  15 30  1 10 /
+/ 
 
 SATNUM
  6000*1 /
@@ -169,7 +171,14 @@ INCLUDE
  'include/summary.inc' /
 
 
+ROEW
+ 1 2 / 
 
+RHPV
+ 1 2 / 
+
+RRPV
+ 1 2 / 
 
 
 
@@ -193,9 +202,12 @@ SCHEDULE
 --
 
 TUNING
- 0.5 1 /
+ 0.5 1  /
  /
- /
+ 2* 50 1*  20 /
+
+NUPCOL
+ 4 /
 
 
 GRUPTREE
@@ -298,16 +310,8 @@ WELOPEN
 
 DATES
  1 APR 2020 /
-/
-
-WELOPEN
- 'B-3H' OPEN /
-/
-
-DATES
  1 MAY 2020 /
- 1 JUN 2020 /
- 1 JUL 2020 /
 /
 
 END
+

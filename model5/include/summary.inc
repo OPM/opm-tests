@@ -257,9 +257,6 @@ GWPI
 GGPI
  'B1' 'C1' 'M5N'  'M5S'  'PLAT-A' /
 
-GPR
- 'B1' 'C1'  'PLAT-A' /
- 
 GGLIR
  'B1' 'C1' 'M5N'  'M5S'  'PLAT-A' /
  
