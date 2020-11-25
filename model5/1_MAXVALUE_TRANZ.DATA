@@ -6,8 +6,7 @@
 -- Copyright (C) 2020 Equinor
 
 -- This is the base case for model5.
--- It should be used for testing the TRAN modifiers in the EDIT section
--- Here only MAXVALUE is used to modidify TRAN.
+--
 
 
 ------------------------------------------------------------------------------------------------
@@ -70,7 +69,7 @@ NEWTRAN
 
 --
 GRIDFILE
- 0  1/
+ 0  1 /
 
 --
 GRIDUNIT
@@ -84,18 +83,11 @@ INCLUDE
  'include/test1_20x30x10.grdecl' /
 
 INCLUDE
- 'include/permx.inc' /
+ 'include/permx_model5.grdecl' /
  
 
 PORO
- 6000*0.28 /
-
---PERMX
--- 6000*25000.0 /
-
---PERMZ
--- 6000*25000.0 /
-
+ 6000*0.28 / 
 
 COPY
   PERMX PERMY /
@@ -103,9 +95,9 @@ COPY
 /
 
 MULTIPLY
- 'PERMZ' 0.8 /
-/
- 
+  PERMZ 0.1 /
+/ 
+
 RPTGRID
  'ALLNNC' /
 
@@ -118,16 +110,16 @@ EQUALS
 EDIT
 ------------------------------------------------------------------------------------------------
 
--- actual maximum value is 816436 in this case
--- a max max value of 750000 should affect 76 cells
--- there are in other words 76 cells  
+-- actual maximum value is 35719 in this case
+-- a max max value of 32000 should affect 76 cells
+-- there are in other words 108 cells  
 
--- mean value without maxvalue tranz: 305174
--- mean value with maxvalue tranz: 304883
+-- mean value without maxvalue tranz: 13351
+-- mean value with maxvalue tranz: 13326
 
 
 MAXVALUE
-  TRANZ 750000 /
+  TRANZ 32000 /
 /
 
 
@@ -155,8 +147,10 @@ REGIONS
 EQLNUM
  6000*1 /
 
-FIPNUM
- 6000*1 /
+EQUALS
+  FIPNUM  1  1 20   1 14  1 10 /
+  FIPNUM  2  1 20  15 30  1 10 /
+/ 
 
 SATNUM
  6000*1 /
@@ -189,7 +183,14 @@ INCLUDE
  'include/summary.inc' /
 
 
+ROEW
+ 1 2 / 
 
+RHPV
+ 1 2 / 
+
+RRPV
+ 1 2 / 
 
 
 
@@ -213,9 +214,12 @@ SCHEDULE
 --
 
 TUNING
- 0.5 1 /
+ 0.5 1  /
  /
- /
+ 2* 50 1*  20 /
+
+NUPCOL
+ 4 /
 
 
 GRUPTREE
@@ -318,16 +322,8 @@ WELOPEN
 
 DATES
  1 APR 2020 /
-/
-
-WELOPEN
- 'B-3H' OPEN /
-/
-
-DATES
  1 MAY 2020 /
- 1 JUN 2020 /
- 1 JUL 2020 /
 /
 
 END
+
