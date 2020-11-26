@@ -33,8 +33,11 @@ COMPDAT
 /
 
 WCONHIST
-  'PROD1'  'OPEN'      'RESV'      0.000      0.000      0.000  5* /
-  'INJ1'   'OPEN'      'RESV'      0.000      0.000      0.000  5* /
+  PROD1 OPEN  RESV   2818.4    0.3   304523	5	1*	1*	1* /
+/
+
+WCONINJH
+   INJ1   GAS   OPEN   116286	1*	0	/
 /
 
 
@@ -43,6 +46,10 @@ WRFTPLT
    'INJ1'        'YES'        'NO'        'NO' /
 /
 
+WELPI 
+ 'PROD1' 150. /
+ 'INJ1' 1.1E5 /
+/
 
 DATES   -- 1
  2 'NOV' 2018 /
