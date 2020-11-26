@@ -41,12 +41,12 @@ EQLDIMS
 
 REGDIMS
 -- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
-   2          1       1*            2    /
+   3          2       1*            2    /
 
 --
 TABDIMS
 --ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
-  1          1      150          60         2         60 /
+  1          1      150          60         3         60 /
 
 --
 WELLDIMS
@@ -157,6 +157,9 @@ EQUALS
 SATNUM
  6000*1 /
 
+-- custom region
+FIPABC
+  2000*1 2000*2 2000*3 /
 
 ------------------------------------------------------------------------------------------------
 SOLUTION
@@ -183,17 +186,6 @@ SUMMARY
 
 INCLUDE
  'include/summary.inc' /
-
-
-ROEW
- 1 2 / 
-
-RHPV
- 1 2 / 
-
-RRPV
- 1 2 / 
-
 
 
 ------------------------------------------------------------------------------------------------
@@ -303,6 +295,9 @@ WCONINJE
   'G-3H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
   'G-4H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
 /
+
+TSTEP
+ 0.5 /
 
 
 DATES
