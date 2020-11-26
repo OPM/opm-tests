@@ -167,10 +167,7 @@ WWIGR
 WGIGR
 /
 
-
-
 -- Group data
-
 
 GOPR
 /
