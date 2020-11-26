@@ -5,8 +5,10 @@
 
 -- Copyright (C) 2020 Equinor
 
--- This is the base case for model5.
---
+
+-- This model is based on TRAN-modified Base case model 5
+-- This model tests well gas lift optimization with keywords
+-- GCONINJE, LIFOPT and WLIFTOPT
 
 
 ------------------------------------------------------------------------------------------------
