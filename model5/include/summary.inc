@@ -51,14 +51,68 @@ FGLIR
 -----------------
 --  Region data
 -----------------
+
 RPR
-/
+ 1 2 / 
 
 ROIP
-/
+ 1 2 / 
 
-RGIP
-/
+RRPV
+ 1 2 / 
+
+RHPV
+ 1 2 / 
+
+RWIP
+ 1 2 / 
+
+ROE
+ 1 2 / 
+
+ROEW
+ 1 2 / 
+
+ROPT
+ 1 2 / 
+
+RWPT
+ 1 2 / 
+
+RWIT
+ 1 2 / 
+
+-- custom region ABC 
+
+RPR__ABC
+ 1 2 3 / 
+
+ROIP_ABC
+ 1 2 3 / 
+
+RRPV_ABC
+ 1 2 3 / 
+
+RHPV_ABC
+ 1 2 3 / 
+
+RWIP_ABC
+ 1 2 3 / 
+
+ROE__ABC
+ 1 2 3 / 
+
+ROEW_ABC
+ 1 2 3 / 
+
+ROPT_ABC
+ 1 2 3 / 
+
+RWPT_ABC
+ 1 2 3 / 
+
+RWIT_ABC
+ 1 2 3 / 
 
 -----------------
 -- Well Data
@@ -214,8 +268,6 @@ GWPGR
 
 GVPGR
  'B1' 'C1' 'M5N'  'M5S'  'PLAT-A' /
-
-
 
 GOPT
  'B1' 'C1' 'M5N'  'M5S'  'PLAT-A' /
