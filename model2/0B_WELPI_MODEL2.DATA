@@ -17,8 +17,9 @@
 --  ii. Injection wells with preferred phase (GAS, WATER)
 --    INJ1 - WATER
 --    INJ2 - GAS
---  All wells get their PI values adjusted once-
+--  All wells get their PI values adjusted at least once-
 --  The wells PROD2, PROD3 and INJ2 get the PI adjusted an extra time.
+--  The wells PROD1 and INJ1 get the PI adjusted at the same time as the well is opened
 
 
 -- ------------------------------------------------------------------------
