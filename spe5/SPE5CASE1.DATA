@@ -42,7 +42,7 @@ WELOPEN
  'INJG' 'SHUT' /
 /
 -- Start production for two years
-TSTEP
+TSTEP    -- Report step: 1-24
 --Advance the simulater once a month for TWO years:
 31 28 31 30 31 30 31 31 30 31 30 31
 31 28 31 30 31 30 31 31 30 31 30 31  
@@ -52,7 +52,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 25-36
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -60,7 +60,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 37-48
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -68,7 +68,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 49-60
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -76,7 +76,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 61-72
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -84,7 +84,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 73-84
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -92,7 +92,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 85-96
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -100,7 +100,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 97-108
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -108,7 +108,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 109-120
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -116,7 +116,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 121-132
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -124,7 +124,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 133-144
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -132,7 +132,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 145-156
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -140,7 +140,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 157-168
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -148,7 +148,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 169-180
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -156,7 +156,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 181-192
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -164,7 +164,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 193-204
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -172,7 +172,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 205-216
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -180,7 +180,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 217-228
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -188,7 +188,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 229-240
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -196,7 +196,7 @@ WELOPEN
  'INJW' 'OPEN' /
  'INJG' 'SHUT' /
 /
-TSTEP
+TSTEP    -- Report step: 241-252
 --Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31
 /
@@ -204,7 +204,7 @@ WELOPEN
  'INJW' 'SHUT' /
  'INJG' 'OPEN' /
 /
-TSTEP
+TSTEP    -- Report step: 253-264
 --Advance the simulater once a month for ONE years + 4 leap days:
 31 28 31 30 31 30 31 31 30 31 30 35
 /
