@@ -1,0 +1,36 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+--  Copyright (C) 2020 NORCE 
+
+--  This is a test case for the extended blackoil model with dynamic blackoil properties
+--  For details see:
+--  T.H. Sandve, O. Sævareid and I. Aavatsmark: “Improved Extended Blackoil Formulation
+--  for CO2 EOR Simulations.” in ECMOR XVII – The 17th European Conference on the
+--  Mathematics of Oil Recovery,  September 2020.
+
+
+---------------------------------------------------------------------------
+------------------------ SPE5 - CASE 1 ------------------------------------
+---------------------------------------------------------------------------
+
+RUNSPEC
+-- -------------------------------------------------------------------------
+
+TITLE
+   SPE5 - CASE 1
+
+INCLUDE
+  'SPE5_DYN.BASE' /
+
+INCLUDE
+ 'SPE5CASE1_WELL.BASE' /
+
+WSOLVENT
+'INJG'  1.0/
+/
+
+INCLUDE
+ 'SPE5CASE1.SCH'/

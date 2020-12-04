@@ -1,0 +1,57 @@
+TOLCRIT
+ 1.0E-10  /
+-- From Table 3 in Killough et al. 
+
+SWFN
+-- Column 1: water saturation
+-- Column 2: water relative permeability
+-- Column 3: water-oil capillary pressure (psi) 
+0.2000	0   	45.00
+0.2899  0.0022 	19.03
+0.3778	0.0180	10.07
+0.4667	0.0607	 4.90
+0.5556	0.1438	 1.8
+0.6444	0.2809	 0.50
+0.7000	0.4089	 0.05
+0.7333	0.4855	 0.01		
+0.8222	0.7709	 0.0
+0.9111	1.00	 0.0
+1.0000	1.00	 0.0 /
+
+-- From Table 3 in Killough et al. 
+SGFN
+-- Column 1: gas saturation
+-- Column 2: gas relative permeability
+-- Column 3: oil-gas capillary pressure (psi)
+0	0.0	0
+0.05	0.0 	0
+0.0889	0.001	0
+0.1778	0.010	0
+0.2667	0.030	0.001
+0.3556	0.050	0.001
+0.4443	0.100	0.030
+0.5333	0.200	0.80
+0.6222	0.350	3.0
+0.650	0.390	4.0
+0.7111	0.560	8.0
+0.80	1.0	    30.0/
+
+--From Table 3 in Killough et al. 
+SOF3
+-- Column 1: oil saturation
+-- Column 2: oil relative permeability when oil, gas and connate water are present
+-- Column 3: oil relative permeability when only oil and water are present
+--  SOIL     KROW     KROG
+0	    0.0	    0.0
+0.0889	0.0	    0.0
+0.150  	1*	    0.0
+0.1778 	0.0     0.011	 
+0.2667 	0.0	    0.037
+0.30	0.0	    1*
+0.3556	0.0123	0.0878
+0.4444	0.0835	0.1715
+0.5333	0.2178	0.2963
+0.6222	0.4153	0.4705
+0.7111	0.6769	0.7023
+0.75	1*	    0.88
+0.80	1.0	    1.0 /

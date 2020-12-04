@@ -1,0 +1,57 @@
+SUMMARY
+---------------------------------------------------------------------------	 
+
+-- This are not the output compared in Killough et al.
+WBHP
+  'INJW'
+  'INJG'
+  'PROD'/
+WGIR
+  'INJW'
+  'INJG'
+  'PROD'/
+WGIT
+  'INJW'
+  'INJG'
+  'PROD'/
+WGPR
+  'INJW'
+  'INJG'
+  'PROD'/
+WGPT
+  'INJW'
+  'INJG'
+  'PROD'/
+WOIR
+  'INJW'
+  'INJG'
+  'PROD'/
+WOIT
+  'INJW'
+  'INJG'
+  'PROD'/
+WOPR
+  'INJW'
+  'INJG'
+  'PROD'/
+WOPT
+  'INJW'
+  'INJG'
+  'PROD'/
+WWIR
+  'INJW'
+  'INJG'
+  'PROD'/
+WWIT
+  'INJW'
+  'INJG'
+  'PROD'/
+WWPR
+  'INJW'
+  'INJG'
+  'PROD'/
+WWPT
+  'INJW'
+  'INJG'
+  'PROD'/
+
