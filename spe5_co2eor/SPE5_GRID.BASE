@@ -1,0 +1,44 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+--  Copyright (C) 2020 NORCE 
+
+GRID
+-- -------------------------------------------------------------------------
+-- Grid is specified in Table 1, 2 and 3 in Killough et al.:
+NOECHO
+
+INIT
+
+DX 
+-- There are in total 147 cells with length 1000ft in x-direction	
+   	147*500 /
+DY
+-- There are in total 147 cells with length 1000ft in y-direction	
+	147*500 /
+DZ
+-- The layers are 20, 30 and 50 ft thick, in each layer there are 49 cells
+	49*20 49*30 49*50 /
+
+TOPS
+-- The depth of the top of each grid block
+	49*8325 /
+
+PORO
+-- Constant porosity of 0.3 throughout all 147 grid cells
+   	147*0.3 /
+
+PERMX
+-- The layers have perm. 500mD, 50mD and 200mD, respectively.
+	49*500 49*50 49*200 /
+
+PERMY
+	49*500 49*50 49*200 /
+
+PERMZ
+	49*50 49*50 49*25 /
+ECHO
+
+
