@@ -1,6 +1,13 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2020 Equinor
+
 -- ===================================================================
 -- 
--- Corner Point "Radial" L1 model
+-- Corner Point "Radial" L1 model - test of STONE2 three phase relative permeability model
 --
 -- This model is a corner point grid approximating a radial sector model
 -- The fluid is a gas-condensate system and there is one well in the innermost cell in the model
