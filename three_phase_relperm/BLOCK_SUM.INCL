@@ -1,0 +1,57 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2021 Equinor
+
+-- ============================================================================ 
+--                           Block data 
+-- ============================================================================ 
+BKRO
+ 1  1  1  /
+ 2  1  1  /
+ 4  1  1  /
+/
+
+BKRG
+ 1  1  1  /
+ 2  1  1  /
+ 4  1  1  /
+/
+
+BKRW
+ 1  1  1  /
+ 2  1  1  /
+ 4  1  1  /
+/
+
+BWPC
+ 1  1  1  /
+ 2  1  1  /
+ 4  1  1  /
+/
+
+BGPC
+ 1  1  1  /
+ 2  1  1  /
+ 4  1  1  /
+/
+
+BSOIL
+ 1  1  1  /
+ 2  1  1  /
+ 4  1  1  /
+/
+
+BSGAS
+ 1  1  1  /
+ 2  1  1  /
+ 4  1  1  /
+/
+
+BSWAT
+ 1  1  1  /
+ 2  1  1  /
+ 4  1  1  /
+/

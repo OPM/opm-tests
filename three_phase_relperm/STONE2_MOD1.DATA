@@ -1,0 +1,271 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2020 Equinor
+
+-- ===================================================================
+-- 
+-- Corner Point "Radial" L1 model - test of STONE2 three phase relative permeability model
+--
+-- This model is a corner point grid approximating a radial sector model
+-- The fluid is a gas-condensate system and there is one well in the innermost cell in the model
+-- The reservoir is produced by the single well using pressure depletion
+--
+-- The model is a test case for  the STONE2 three phase relative permeability model
+-- The model develops a three phase system in the near-well region in the model that influences 
+-- the pressure loss and production rate for the well
+-- 
+-- ===================================================================
+RUNSPEC
+--
+TITLE
+L1 Corner Point "radial" Model
+
+--NOSIM
+
+-- 
+START
+  1  'MAR'  2020  /
+
+DIMENS
+--Nx   Ny   Nz
+  43    1   1 /
+
+METRIC
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+-- Memory requirements
+--MEMORY
+-- 1000  /
+                                                           
+-- -------------------------------------------------------------------
+--         sat    PVT    SATtab  PREStab FIP-E300 Rs or Rv      ENPTVD
+--         ntab   ntab   mx rows mx rows  mx reg  mx node  out  mx tab 
+TABDIMS
+            2      1       60     130      1*      100      1*    1* /     
+                                                                        
+--       FIP-E100  FIP 
+--        mx reg  mxsets
+REGDIMS
+           1     1 /   
+
+--         equil  internal pdvd 
+--         n reg  n node   mx node
+EQLDIMS
+             1      150     50 /
+
+--         well  compl/w   group  well/grp 
+--         mx no  mx no    mx no  mx no 
+WELLDIMS
+             1     20        1      1 /
+
+SMRYDIMS
+   1000 /
+
+UNIFOUT
+UNIFIN
+
+NSTACK
+ 40 /
+
+MESSAGES
+ 2* 2000 3*
+ 2* 2000 3* / message comment warning problem error bug 6*stop-limit
+
+-- ===================================================================
+--                    Grid section
+-- ===================================================================
+GRID
+
+WARN
+
+NEWTRAN 
+
+INIT
+
+NOECHO
+
+INCLUDE
+ 'ECL_CPG_GRID_DR02_1LAY.INCL'  /
+
+NTG
+  43*1
+/
+
+PERMX
+  43*50.
+/
+
+COPY
+'PERMX' 'PERMY' /  -- Setting PERMX=PERMY
+'PERMX' 'PERMZ' /  -- Setting PERMX=PERMZ
+/
+
+PORO
+  43*0.14
+/
+
+RPTGRID
+ PORV  TRANX  TRANZ  /
+
+-- ===================================================================
+--                    Edit geometry and petrophysics
+-- ===================================================================
+EDIT
+
+-- ===================================================================
+--                    Property section
+-- ===================================================================
+PROPS
+
+NOECHO
+
+STONE2
+
+INCLUDE
+ 'SWOF_R.INCL' /
+
+INCLUDE
+ 'SGOF_R.INCL' /
+
+INCLUDE
+ 'PVT-O_G_R.INCL'  /
+
+INCLUDE
+ 'PVT-W_R.INCL'  /
+
+-- ROCK COMPRESSIBILITY
+--
+--   REF.PRES.   COMPR.
+ROCK
+      300.      1.8E-5 /
+
+-- ===================================================================
+--                    Region section
+-- ===================================================================
+REGIONS
+
+FIPNUM
+  43*1
+/
+
+EQLNUM
+  43*1
+/
+
+SATNUM
+  2 42*1
+/
+
+-- ===================================================================
+--                    Model initialisation
+-- ===================================================================
+SOLUTION
+ 
+PRESSURE
+  43*420.
+/
+
+RS
+ 43*369.5948
+/
+
+RV
+43*0.000920	
+/
+
+SWAT
+  43*0.4
+/
+
+SGAS
+  43*0.6
+/
+
+-- Output to print file at start date only
+RPTSOL
+'FIP=3'  / 
+
+-- Output to restart file at start date only
+RPTRST
+'FIP'  'BASIC=5' 'FREQ=3' PRES VISC BO BG  ALLPROPS  GASKR OILKR WATKR / 
+
+-- ===================================================================
+--                    Summary and print-out section
+-- ===================================================================
+SUMMARY
+
+WARN
+
+INCLUDE
+ 'FIELD_WELL.INCL'  /
+
+INCLUDE
+ 'BLOCK_SUM.INCL'  /
+
+INCLUDE
+ 'INPLACE.INCL'  /
+
+INCLUDE
+ 'CPU.INCL'  /
+
+CTFAC
+ '*'  /
+/
+
+DATE
+SEPARATE
+RUNSUM
+--RPTONLY
+
+-- ===================================================================
+--                    Well and schedule section
+-- ===================================================================
+SCHEDULE
+-- Message print and stop limits
+MESSAGES
+3* 2000 2000 2000 2* 20000 2000 2* /
+
+WARN
+
+-- Output to print file at all report dates (FIPRESV taken out - anom)
+RPTSCHED
+'WELLS=2' 'FIP=1'  / 
+
+-- Output to restart file every 3 months
+RPTRST
+'BASIC=5' 'FREQ=3' 'FLORES' ALLPROPS  GASKR OILKR WATKR / 
+
+ECHO
+
+WELSPECS 
+  'PROD'  'GROUP'  1  1  1*  'GAS'  7* /
+/
+
+COMPDAT 
+-- WELL   I  J  K1 K2         Sat.  CF  DIAM  KH SKIN  ND  DIR  Ro 
+  'PROD'  1  1  1  1  'OPEN'  1*   1*  0.04  1*  0.0  1*  'Z'  0.25 /
+/
+
+WCONPROD
+-- Wname Flag   CTRL  ORATE WRATE GRATE LRATE RFVR  BHP THP
+  'PROD'  OPEN  GRAT    50.    1*  60000.  1*   1*   90.  1*  /
+/
+
+TUNING 
+  0.000001  1.  0.0000001  0.000001  6* /
+  1*  0.0001  1*  0.00001  1* 0.001  1*  0.0001  0.0001  /
+  25  1*  100  1*  20  /
+
+TSTEP
+365.
+19*365. /
+
+END

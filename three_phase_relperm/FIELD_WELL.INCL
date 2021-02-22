@@ -1,0 +1,95 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2021 Equinor
+
+-- ============================================================================ 
+--                           Field data 
+-- ============================================================================ 
+--                                                                        Rates 
+FWPR 
+FWPRH
+FOPR
+FOPRH 
+FGPR
+FGPRH
+FGOR
+FGORH
+FGPP
+FOPP
+-- 
+FWPT 
+FOPT 
+FGPT
+
+FWPTH
+FOPTH
+FGPTH
+--                                                                     Pressure 
+FPR 
+--
+-- ============================================================================ 
+--                           Well data 
+-- ============================================================================ 
+--                                                                        Rates 
+WWPR  
+/ 
+WWPRH  
+/ 
+WOPR  
+/ 
+WOPRH  
+/ 
+WGPR  
+/ 
+WGPRH  
+/
+WGPP
+/
+WOPP
+/
+WWPT  
+/ 
+WOPT  
+/ 
+WGPT  
+/ 
+WWPTH
+/ 
+WOPTH 
+/ 
+WGPTH
+/
+WOGR  
+/ 
+WGOR  
+/ 
+WGORH  
+/ 
+WGLR  
+/ 
+WWCT  
+/ 
+WWGR  
+/ 
+--                                                                    Pressures 
+WBP
+/
+WBHP 
+/ 
+WTHP 
+/ 
+WTHPH
+/
+WMCTL
+/
+WEFF
+/
+WEFFG
+/
+WOPGR
+/
+WSTAT
+/
