@@ -5,7 +5,8 @@
 
 -- Copyright (C) 2018 Equinor
 
--- This model is built from the base case for model2. This case has standard wells, 3 producers and 2 injectors
+-- This model is built from the base case for model2. This case has multisegment wells, 
+-- 3 producers and 2 injectors
 -- Well PROD3 has modified completions compared to the base case model
 -- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
 
@@ -67,6 +68,12 @@ REGDIMS
 WELLDIMS
 --max.well  max.con/well  max.grup  max.w/grup
  10	    15 	          3	     10   /
+
+
+WSEGDIMS
+-- nswlmx  nsegmx  nlbrmx
+  5      20     1 /
+
 
 --
 TABDIMS
@@ -228,6 +235,9 @@ TUNING
 /
 /
 
+WSEGITER
+ 40 20  0.3  2.0  /
+
 RPTRST
  'BASIC=2' /
   
@@ -237,7 +247,7 @@ INCLUDE
 
 
 INCLUDE
- 'include/hist_schedule_welpi_def-ro_compdat.sch' /
+ 'include/hist_schedule_welpi_msw_def-ro_compdat.sch' /
 
  
 END
