@@ -7,7 +7,7 @@
 
 -- This model is based on the base case for model5.
 -- Added extended network option and gas lift optimization
-
+-- In addition custom FIP region ABC is added
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
