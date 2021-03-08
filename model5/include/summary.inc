@@ -311,4 +311,10 @@ GGPI
 
 GGLIR
  'B1' 'C1' 'M5N'  'M5S'  'PLAT-A' /
+
+GVIR
+ 'M5N'  'M5S'  'PLAT-A' /
+
+GVPR
+ 'M5N'  'M5S'  'PLAT-A' /
  
