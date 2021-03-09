@@ -7,7 +7,7 @@
 
 -- This model is based on the base case for model5.
 -- Added extended network option and gas lift optimization
-
+-- In addition custom FIP region ABC is added
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
@@ -43,7 +43,7 @@ NETWORK
 
 REGDIMS
 -- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
-   2          1       1*            2    /
+   3          2       1*            2    /
 
 --
 TABDIMS
@@ -63,6 +63,16 @@ VFPPDIMS
 
 UNIFIN
 UNIFOUT
+
+---------------------------------------------------------------------------
+MESSAGES
+-- --------print limits----------
+-- mess comm  warn    prob  err  bug
+  80000 10000 5000000 5000  300   1
+----------stop limits------------
+-- mess comm  warn    prob  err bug
+  80000 10000 5000000 80000 10   1 /
+
 
 ------------------------------------------------------------------------------------------------
 GRID
@@ -144,6 +154,9 @@ FIPNUM
 
 SATNUM
  6000*1 /
+
+FIPABC
+2000*1 2000*2 2000*3 /
 
 
 ------------------------------------------------------------------------------------------------
