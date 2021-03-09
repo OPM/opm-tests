@@ -66,11 +66,11 @@ UNIFOUT
 
 ---------------------------------------------------------------------------
 MESSAGES
--- --------print limits----------  
--- mess comm  warn    prob  err  bug 
-  80000 10000 5000000 5000  300   1 
+-- --------print limits----------
+-- mess comm  warn    prob  err  bug
+  80000 10000 5000000 5000  300   1
 ----------stop limits------------
--- mess comm  warn    prob  err bug 
+-- mess comm  warn    prob  err bug
   80000 10000 5000000 80000 10   1 /
 
 
