@@ -35,8 +35,10 @@ PLYADS
 
 PLMIXPAR
  0.3  /
+ 0.3  /
 
 PLYMAX
+ 3.00  0  /
  3.00  0  /
 
 
