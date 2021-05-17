@@ -114,7 +114,7 @@ GRIDFILE
 INIT
 
 INCLUDE
- '../include/boxmodel.grid' / --boxgrid (local coord) + actnum, without specgrid
+ 'include/boxmodel.grid' / --boxgrid (local coord) + actnum, without specgrid
 
 -----------------------------------------------------------------------
 
@@ -159,14 +159,14 @@ PROPS
 --=====================================================================
 
 INCLUDE                                                    
- '../include/test.pvt'       /
+ 'include/test.pvt'       /
 
 -----------------------------------------------------------------------
 
 INCLUDE                                                    
- '../include/test.relperm1'       /
+ 'include/test.relperm1'       /
 INCLUDE                                                    
- '../include/test.relperm2'       /
+ 'include/test.relperm2'       /
 
 ------------------------------------------------------------------------
 
@@ -227,13 +227,13 @@ ANQP
 /
  
 --INCLUDE                                                    
--- '../include/test.summary1'     /
+-- 'include/test.summary1'     /
 --
 INCLUDE                                                    
- '../include/test.summary2'     /
+ 'include/test.summary2'     /
 --
 --INCLUDE                                                    
--- '../include/test.summary3'     /
+-- 'include/test.summary3'     /
 
 --=====================================================================
 SCHEDULE                                                              
@@ -242,7 +242,7 @@ SCHEDULE
 -----------------------------------------------------------------------
 
 INCLUDE
-   '../include/op1.vfp'   / -- table 1
+   'include/op1.vfp'   / -- table 1
 
 -----------------------------------------------------------------------
 
@@ -272,7 +272,7 @@ DATES
 
 
 INCLUDE
-   '../include/wells.sch3'   / 
+   'include/wells.sch3'   / 
 
 
 WPIMULT
