@@ -6,11 +6,11 @@
 -- Copyright (C) 2020 Equinor
 
 
-DATES
+DATES   -- 1
  1 AUG 2019 /
 /
 
-DATES
+DATES   -- 2
  2 AUG 2019 /
 /
 
@@ -30,7 +30,7 @@ WELTARG
  'OPL1'  LRAT 150.00 /
 /
 
-DATES
+DATES   -- 3
  3 AUG 2019 /
 /
 
@@ -38,7 +38,7 @@ WELTARG
  'OPL1'  LRAT 400.00 /
 /
 
-DATES
+DATES   -- 4
  4 AUG 2019 /
 /
 
@@ -46,7 +46,7 @@ WELTARG
  'OPL1'  LRAT 750.00 /
 /
 
-DATES
+DATES    -- 5
  12 AUG 2019 /
 /
 
@@ -58,7 +58,7 @@ WELTARG
  'OPL2'  LRAT 150.00 /
 /
 
-DATES
+DATES    -- 6
  13 AUG 2019 /
 /
 
@@ -66,7 +66,7 @@ WELTARG
  'OPL2'  LRAT 400.00 /
 /
 
-DATES
+DATES    -- 7
  14 AUG 2019 /
 /
 
@@ -74,7 +74,7 @@ WELTARG
  'OPL2'  LRAT 750.00 /
 /
 
-DATES
+DATES    -- 8
  22 AUG 2019 /
 /
 
@@ -86,7 +86,7 @@ WELTARG
  'OPL3'  LRAT 150.00 /
 /
 
-DATES
+DATES    -- 9
  23 AUG 2019 /
 /
 
@@ -94,7 +94,7 @@ WELTARG
  'OPL3'  LRAT 400.00 /
 /
 
-DATES
+DATES    -- 10
  24 AUG 2019 /
 /
 
@@ -102,7 +102,7 @@ WELTARG
  'OPL3'  LRAT 750.00 /
 /
 
-DATES
+DATES   -- 11
  1 SEP 2019 /
 /
 
@@ -110,7 +110,7 @@ WELOPEN
  'WIL1' 'OPEN' /
 /
 
-DATES
+DATES    -- 12
  11 SEP 2019 /
 /
 
@@ -118,7 +118,7 @@ WELOPEN
  'WIL2' 'OPEN' /
 /
 
-DATES
+DATES    -- 13
  21 SEP 2019 /
 /
 
@@ -130,7 +130,7 @@ WELTARG
  'OPL4'  LRAT 150.00 /
 /
 
-DATES
+DATES    -- 14
  22 SEP 2019 /
 /
 
@@ -138,7 +138,7 @@ WELTARG
  'OPL4'  LRAT 400.00 /
 /
 
-DATES
+DATES    -- 15
  23 SEP 2019 /
 /
 
@@ -146,7 +146,7 @@ WELTARG
  'OPL4'  LRAT 750.00 /
 /
 
-DATES
+DATES    -- 16
  1 OCT 2019 /
 /
 
@@ -158,7 +158,7 @@ WELTARG
  'OPU1'  LRAT 150.00 /
 /
 
-DATES
+DATES    -- 17
  2 OCT 2019 /
 /
 
@@ -166,7 +166,7 @@ WELTARG
  'OPU1'  LRAT 400.00 /
 /
 
-DATES
+DATES  -- 18
  3 OCT 2019 /
 /
 
@@ -174,7 +174,7 @@ WELTARG
  'OPU1'  LRAT 750.00 /
 /
 
-DATES
+DATES   -- 19
  11 OCT 2019 /
 /
 
@@ -186,7 +186,7 @@ WELTARG
  'OPU2'  LRAT 150.00 /
 /
 
-DATES
+DATES    -- 20
  12 OCT 2019 /
 /
 
@@ -194,7 +194,7 @@ WELTARG
  'OPU2'  LRAT 400.00 /
 /
 
-DATES
+DATES    -- 21
  13 OCT 2019 /
 /
 
@@ -202,7 +202,7 @@ WELTARG
  'OPU2'  LRAT 750.00 /
 /
 
-DATES
+DATES    -- 22
  21 OCT 2019 /
 /
 
@@ -210,7 +210,7 @@ WELOPEN
  'WIU1' 'OPEN' /
 /
 
-DATES
+DATES    -- 23
  31 OCT 2019 /
 /
 
@@ -222,7 +222,7 @@ WELTARG
  'OPU4'  LRAT 150.00 /
 /
 
-DATES
+DATES   -- 24
  1 NOV 2019 /
 /
 
@@ -230,7 +230,7 @@ WELTARG
  'OPU4'  LRAT 400.00 /
 /
 
-DATES
+DATES   -- 25
  2 NOV 2019 /
 /
 
@@ -238,7 +238,7 @@ WELTARG
  'OPU4'  LRAT 750.00 /
 /
 
-DATES
+DATES   -- 26
  10 NOV 2019 /
 /
 
@@ -246,7 +246,7 @@ WELOPEN
  'WIU3' 'OPEN' /
 /
 
-DATES
+DATES   -- 27
  20 NOV 2019 /
 /
 
@@ -258,7 +258,7 @@ WELTARG
  'OPU6'  LRAT 150.00 /
 /
 
-DATES
+DATES   -- 28
  21 NOV 2019 /
 /
 
@@ -266,7 +266,7 @@ WELTARG
  'OPU6'  LRAT 400.00 /
 /
 
-DATES
+DATES    -- 29
  22 NOV 2019 /
 /
 
@@ -274,7 +274,7 @@ WELTARG
  'OPU6'  LRAT 750.00 /
 /
 
-DATES
+DATES   -- 30
  30 NOV 2019 /
 /
 
@@ -282,12 +282,12 @@ WELOPEN
  'WIU4' 'OPEN' /
 /
 
-DATES
+DATES    -- 31
  1 DEC 2019 /
 /
 
 
-DATES
+DATES    -- 32
  11 DEC 2019 /
 /
 
@@ -299,7 +299,7 @@ WELTARG
  'OPL5'  LRAT 150.00 /
 /
 
-DATES
+DATES   -- 33
  12 DEC 2019 /
 /
 
@@ -308,7 +308,7 @@ WELTARG
  'OPL5'  LRAT 400.00 /
 /
 
-DATES
+DATES   -- 34
  13 DEC 2019 /
 /
 
@@ -316,7 +316,7 @@ WELTARG
  'OPL5'  LRAT 750.00 /
 /
 
-DATES
+DATES   -- 35
  22 DEC 2019 /
 /
 
@@ -328,7 +328,7 @@ WELTARG
  'OPU3'  LRAT 150.00 /
 /
 
-DATES
+DATES    -- 36
  23 DEC 2019 /
 /
 
@@ -337,7 +337,7 @@ WELTARG
  'OPU3'  LRAT 400.00 /
 /
 
-DATES
+DATES    -- 37
  24 DEC 2019 /
 /
 
@@ -345,7 +345,7 @@ WELTARG
  'OPU3'  LRAT 750.00 /
 /
 
-DATES
+DATES   -- 38
  1 JAN 2020 /
 /
 
@@ -353,7 +353,7 @@ WEFAC
   'OP*' 0.90 /
 /
 
-DATES
+DATES   -- 39
  2 JAN 2020 /
 /
 
@@ -361,7 +361,7 @@ WELOPEN
  'WIU2' 'OPEN' /
 /
 
-DATES
+DATES    -- 40
  12 JAN 2020 /
 /
 
@@ -373,7 +373,7 @@ WELTARG
  'OPU5'  LRAT 150.00 /
 /
 
-DATES
+DATES    -- 41
  13 JAN 2020 /
 /
 
@@ -382,7 +382,7 @@ WELTARG
  'OPU5'  LRAT 400.00 /
 /
 
-DATES
+DATES    -- 42
  14 JAN 2020 /
 /
 
@@ -390,7 +390,7 @@ WELTARG
  'OPU5'  LRAT 750.00 /
 /
 
-DATES
+DATES    -- 43
  23 JAN 2020 /
 /
 
@@ -402,7 +402,7 @@ WELTARG
  'OPU7'  LRAT 150.00 /
 /
 
-DATES
+DATES    -- 44
  24 JAN 2020 /
 /
 
@@ -411,7 +411,7 @@ WELTARG
  'OPU7'  LRAT 400.00 /
 /
 
-DATES
+DATES    -- 45
  25 JAN 2020 /
 /
 
@@ -419,19 +419,19 @@ WELTARG
  'OPU7'  LRAT 750.00 /
 /
 
-DATES
+DATES    -- 46
  1 FEB 2020 /
 /
 
-DATES
+DATES    -- 47
  1 MAR 2020 /
 /
 
-DATES
+DATES    -- 48
  1 APR 2020 /
 /
 
-DATES
+DATES   -- 49
  1 MAY 2020 /
 /
 
@@ -439,27 +439,27 @@ WEFAC
   'OP*' 0.95 /
 /
 
-DATES
+DATES    -- 50
  1 JUN 2020 /
 /
 
-DATES
+DATES    -- 51
  1 JUL 2020 /
 /
 
-DATES
+DATES    -- 52
  1 AUG 2020 /
 /
 
-DATES
+DATES    -- 53
  1 SEP 2020 /
 /
 
-DATES
+DATES    -- 54
  1 OCT 2020 /
 /
 
-DATES
+DATES    -- 55
  1 NOV 2020 /
 /
 
