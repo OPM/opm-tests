@@ -244,6 +244,59 @@ WUOPRU
 WULPRU
  'OPL01' 'OPL02' 'OPU01' 'OPU02' /
 
+-- well guide rates
+WOPGR
+/
+WGPGR
+/
+WWPGR
+/
+WVPGR
+/
+
+WOIGR
+/
+WWIGR
+/
+WGIGR
+/
+
+-- Group data
+
+GOPR
+/
+GWPR
+/
+GGPR
+/
+GGSR
+/
+GLPR
+/
+
+GMCTP
+/
+GMCTW
+/
+GMCTG
+/
+GOPGR
+/
+GGPGR
+/
+GWPGR
+/
+GVPGR
+/
+
+GOIGR
+/
+GWIGR
+/
+GGIGR
+/
+
+
 SCHEDULE
 
 GRUPTREE
