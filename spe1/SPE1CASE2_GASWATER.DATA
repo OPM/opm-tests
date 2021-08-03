@@ -3,13 +3,8 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2015 Statoil
-
--- This simulation is based on the data given in 
--- 'Comparison of Solutions to a Three-Dimensional
--- Black-Oil Reservoir Simulation Problem' by Aziz S. Odeh,
--- Journal of Petroleum Technology, January 1981
-
+-- Copyright (C) 2021 Equinor
+---
 ---------------------------------------------------------------------------
 ------------------------ SPE1 - CASE 2 ------------------------------------
 ---------------------------------------------------------------------------
@@ -18,7 +13,7 @@ RUNSPEC
 -- -------------------------------------------------------------------------
 
 TITLE
-   SPE1 - CASE 2 - Gas-Water case 
+   SPE1 - CASE 2 - 2Phase GAS-WATER case 
 
 DIMENS
    10 10 3 /
@@ -32,7 +27,6 @@ EQLDIMS
 -- when no data is included in the keyword the default values are used.
 TABDIMS
 /
-
 
 -- oil is removed to facilitate a gas water test case 
 WATER
@@ -168,10 +162,6 @@ SWAT
 SUMMARY
 -- -------------------------------------------------------------------------	 
 
-
--- Using FGOR instead of WGOR:PROD results in the same graph
-FGOR
-
 -- 2b) Gas saturation at grid points given in Odeh's paper
 BGSAT
 1  1  1 /
@@ -207,7 +197,6 @@ RPTRST
 
 WELSPECS
 -- Item #: 1	 2	3	4	5	 6
----	'PROD'	'G1'	10	10	8400	'GAS' /
 	'PROD'	'G1'	10	10	8400	'WATER' /
 	'INJ'	'G1'	1	1	8335	'GAS' /
 /
@@ -217,10 +206,6 @@ COMPDAT
 	'PROD'	10	10	3	3	'OPEN'	1*	1*	0.5 /
 	'INJ'	1	1	1	1	'OPEN'	1*	1*	0.5 /
 /
--- Coordinates in item 2-5 are retreived from Odeh's figure 1 and 2 
--- Item 9 is the well bore internal diameter, 
--- the radius is given to be 0.25ft in Odeh's paper
-
 
 WCONPROD
 -- Item #:1	2      3     4	   5     9
