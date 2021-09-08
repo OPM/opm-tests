@@ -293,13 +293,18 @@ WCONINJE
 /
 
 
--- We define the UDQ keywords with the 'UNITS' statement here,
--- but actually giving the values is done in the Python code.
+-- We define the UDQ keywords with 'UNITS' and empty ASSIGN here, but actually
+-- giving the values is done in the Python code.
 UDQ
-UNITS  WUOPRL SM3/DAY /
-UNITS  WULPRL SM3/DAY /
-UNITS  WUOPRU SM3/DAY /
-UNITS  WULPRU SM3/DAY /
+ASSIGN  WUOPRL 0 /
+ASSIGN  WULPRL 0 /
+ASSIGN  WUOPRU 0 /
+ASSIGN  WULPRU 0 /
+--
+UNITS   WUOPRL SM3/DAY /
+UNITS   WULPRL SM3/DAY /
+UNITS   WUOPRU SM3/DAY /
+UNITS   WULPRU SM3/DAY /
 /
 
 
