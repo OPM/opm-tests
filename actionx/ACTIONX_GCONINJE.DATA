@@ -1,21 +1,9 @@
---                                                                              
--- COPYRIGHT NOTICE
--- ----------------
--- This file is part of the Open Porous Media project (OPM).
---
--- OPM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
--- the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
---
--- This file is made available under the Open Database License: 
---                                    http://opendatacommons.org/licenses/odbl/1.0/.
---
--- Any rights in individual contents of the database are licensed under the Database Contents License:
---                                    http://opendatacommons.org/licenses/dbcl/1.0/
---
--- OPM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the aforementioned GNU General Public Licenses for more details.
---
--- Copyright (C) 2021 Equinor ASA
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2021 Equinor
 --                                                                         
 -- This model is built from the base case for model2. This case has standard wells, 3 producers and 2 injectors
 -- Well OP03  has modified completions compared to the base case model
