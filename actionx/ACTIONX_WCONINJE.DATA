@@ -32,7 +32,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-ACTIONX_WCONINJE
+OPM_TESTS: ACTIONX_WCONINJE
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -436,7 +436,7 @@ OP01     OPEN                                                                  /
 OP01     OPEN     0   0    0                                                   /
 /                                                             
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WCONINJE - INJECT 100E3 M3/DAY OF GAS
+-- ACTIONX WCONINJE - INJECT 100E3 M3/DAY OF GAS AND NO WATER
 -- ---------------------------------------------------------------------------------------------------------------------------------
 ACTIONX
         ACT-01                                             /
