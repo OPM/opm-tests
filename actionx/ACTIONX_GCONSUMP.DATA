@@ -9,9 +9,9 @@
 -- Well OP03  has modified completions compared to the base case model
 -- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
 --
--- The model tests the use of the ACTIONX and GCONPROD keywords to control gas production, in addition, the GCONSUMP keyword is used
--- to consume fuel at various stages. This run is a depletion case, with no pressure support from the producers or injectors and
--- with the field converted to a gas field operation with the ACTIONX ACT-02 block.
+-- The model tests the use of the ACTIONX and the GCONSUMP keyword to consume fuel at various stages. In addition, the GCONPROD 
+-- keyword is employed to control gas production. This run is a prediction depletion case, with no pressure support from the 
+-- producers or injectors, and with the field converted to a gas field operation with the ACTIONX ACT-02 block.
 -- ( 1) Production wells with preferred phases.
 --      OP01  - OIL
 --      OP02  - OIL
@@ -19,8 +19,8 @@
 -- ( 2) Injection wells with preferred phases.
 --      GI01 - GAS (not active)
 --      WI01 - WAT (not active)
--- ( 3) ACTIONX GCONPROD - Set max gas rate for when GOR >= 150 m3/m3 and increase gas consumption.
--- ( 4) ACTIONX GCONPROD - Once GOR >= 200 m3/m3 and OPR <=1500 m3/d then convert to gas field with increased gas consumption.
+-- ( 3) ACTIONX GCONSUMP - Set max gas rate for when GOR >= 150 m3/m3 and increase gas consumption.
+-- ( 4) ACTIONX GCONSUMP - Once GOR >= 200 m3/m3 and OPR <=1500 m3/d then convert to gas field with increased gas consumption.
 --
 -- Although the case runs, we are unable to check the gas sales and fuel gas consumption volumes as the required summary vectors
 -- are currently not written out.
@@ -467,7 +467,7 @@ OP01     OPEN                                                                  /
 OP01     OPEN     0   0    0                                                   /
 /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX GCONPROD - SET MAX GAS RATE FOR WHEN GOR >= 150 M3/M3 AND INCREASE GAS CONSUMPTION
+-- ACTIONX GCONSUMP - SET MAX GAS RATE FOR WHEN GOR >= 150 M3/M3 AND INCREASE GAS CONSUMPTION
 -- ---------------------------------------------------------------------------------------------------------------------------------
 ACTIONX
         ACT-01                                             /
@@ -495,7 +495,7 @@ PROD     25E3                                                                  /
 
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX GCONPROD - CONVERT TO GAS FIELD WITH INCREASED GAS CONSUMPTION
+-- ACTIONX GCONSUMP - CONVERT TO GAS FIELD WITH INCREASED GAS CONSUMPTION
 -- ---------------------------------------------------------------------------------------------------------------------------------
 ACTIONX
         ACT-02                                             /
