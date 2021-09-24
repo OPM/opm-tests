@@ -49,6 +49,7 @@ WELLDIMS
 --         - there must be two wells in a group as there are two wells in total
  2 / 
 
+UNIFIN
 UNIFOUT
 
 GRID
