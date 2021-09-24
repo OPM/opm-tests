@@ -61,6 +61,7 @@ WELLDIMS
 -- 	   - there must be one well in a group as there are one well in total
    1 1 1 1 /
 
+UNIFIN
 UNIFOUT
 
 GRID
