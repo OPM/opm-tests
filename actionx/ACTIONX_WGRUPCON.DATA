@@ -1,0 +1,714 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+  
+-- Copyright (C) 2021 Equinor
+                                                                           
+-- This model is built from the base case for model2. This case has standard wells, 3 producers and 2 injectors
+-- Well OP03  has modified completions compared to the base case model
+-- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
+--
+-- The model tests the use of the ACTIONX and WGRUPCON keywords to switch wells to/from group control, as well as controlling gas 
+-- and water injection rates.
+-- ( 1) Production wells with preferred phase (OIL, GAS)
+--      OP01  - OIL
+--      OP02  - OIL
+--      OP03  - OIL (Completion 2)
+-- ( 2) Injection wells with preferred phase (GAS, WATER)
+--      GI01 - GAS
+--      WI01 - WAT
+-- ( 3) ACTIONX WGRUPCON - GI01 and all oil wells on group control with guide rates.
+-- ( 4) ACTIONX WGRUPCON - All injectors on group control and voidage replace with makeup water with maximum of 4.0E3 m3/day.
+-- ( 5) ACTIONX WGRUPCON - Place all injectors on rate control and increase rates.
+--
+-- =================================================================================================================================
+--
+-- RUNSPEC SECTION
+--
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE TITLE FOR THE RUN
+--
+TITLE
+OPM_TESTS: ACTIONX_WGRUPCON
+--
+--       DEFINE THE START DATE FOR THE RUN
+--
+START
+         31 'DEC' 2017                                                         /
+--
+--       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
+--
+-- NOSIM
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- FLUID TYPES AND TRACER OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       OIL PHASE IS PRESENT IN THE RUN
+--
+OIL
+--
+--       WATER PHASE IS PRESENT IN THE RUN
+--
+WATER
+--
+--       GAS PHASE IS PRESENT IN THE RUN
+--
+GAS
+--
+--       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN
+--
+DISGAS
+--
+--       VAPORIZED OIL IN WET GAS IS PRESENT IN THE RUN
+--
+VAPOIL
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX
+--       NDIVIX  NDIVIY  NDIVIZ
+DIMENS
+         13      22      11                                                    /
+--
+--       FAULT
+--       SEGMS
+FAULTDIM
+         120                                                                   /
+--
+--       MAX     MAX     RSVD    TVDP    TVDP
+--       EQLNUM  DEPTH   NODES   TABLE   NODES
+EQLDIMS
+         2       100     25      1*      1*                                    /
+--
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS
+REGDIMS
+         2       1       1*      2       1*     1*     1*     1*    1*    1*   /
+--
+--       NEG      MAX     MAX
+--       MULTS    MULTNUM PINCHNUM
+GRIDOPTS
+         YES      0       1*                                                   /
+--
+--       ACTIVATE EQUILIBRATION OPTIONS
+--       MOBILE ENDPOINT(MOBILE) STEADY STATE(QUIESC) THRESHOLD(THPRES)
+--       IRREVERSIBLE THRESHOLD(IRREVERS)
+EQLOPTS
+         'THPRES'                                                              /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND
+TABDIMS
+         10      1       50      60      2       60     1*     1*              /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       WELL    WELL    GRUPS   GRUPS
+--       MXWELS  MXCONS  MXGRPS  MXGRPW
+WELLDIMS
+         10      15      3       10                                            /
+--
+--       PRODUCING VFP TABLES
+--       VFP     VFP     VFP     VFP     VFP     VFP
+--       MXMFLO  MXMTHP  MXMWFR  MXMGFR  MXMALQ  MXVFPTAB
+VFPPDIMS
+         40      20      20      20      0       60                            /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- MISCELLEOUS OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       ACTION    ACTION   ACTION   ACTION                                              
+--       MXACTNS   MXLINES  MXCHARS  MXSTATMS                                               
+ACTDIMS                                                                         
+         4         50       80       3                                         /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- INPUT AND OUTPUT OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT
+--
+METRIC
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT
+
+--
+--       PATH       PATH
+--       ALIAS      DIRECTORY FILENAME
+PATHS
+        'MODEL2'    '../model2'                                                /
+/
+
+-- =================================================================================================================================
+--
+-- GRID SECTION
+--
+-- =================================================================================================================================
+GRID
+
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1                                                             /
+--
+--       SET THE GRID UNITS FOR THE GRID
+--
+GRIDUNIT
+         METRES                                                                /
+--
+--       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
+--
+NEWTRAN
+--
+--       LOAD GRID SECTION INCLUDE FILES
+--
+INCLUDE
+         '$MODEL2/include/mod2a_13x22x11.grdecl'           /
+INCLUDE
+         '$MODEL2/include/fluxmun.grdecl'                  /
+INCLUDE
+         '$MODEL2/include/poro.grdecl'                     /
+INCLUDE
+         '$MODEL2/include/permx.grdecl'                    /
+INCLUDE
+         '$MODEL2/include/ntg.grdecl'                      /
+INCLUDE
+         '$MODEL2/include/permz.grdecl'                    /
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+COPY
+         PERMX       PERMY        1*  1*   1*  1*   1*  1* / CREATE PERMY
+/
+--
+--       DEFINE GRID SECTION REPORT OPTIONS
+--
+RPTGRID
+         'ALLNNC'                                          /
+
+-- =================================================================================================================================
+--
+-- EDIT SECTION
+--
+-- =================================================================================================================================
+EDIT
+
+-- =================================================================================================================================
+--
+-- PROPS SECTION
+--
+-- =================================================================================================================================
+PROPS
+--
+--       SWITCH OFF ECHOING OF INPUT FILES
+--
+NOECHO                                                                         
+--
+--       LOAD PROPS SECTION INCLUDE FILES
+--
+INCLUDE
+         '$MODEL2/include/norne_pvt.inc'                   /
+INCLUDE
+         '$MODEL2/include/rock.inc'                        /
+INCLUDE
+         '$MODEL2/include/relperm_ow.inc'                  /
+INCLUDE
+         '$MODEL2/include/relperm_go.inc'                  /
+
+-- =================================================================================================================================
+--
+-- REGIONS SECTION
+--
+-- =================================================================================================================================
+REGIONS
+--
+--       LOAD REGION SECTION INCLUDE FILES
+--
+INCLUDE
+         '$MODEL2/include/eqlnum.grdecl'                   /
+INCLUDE                                                    
+         '$MODEL2/include/fipnum.grdecl'                   /
+INCLUDE                                                    
+         '$MODEL2/include/satnum.grdecl'                   /
+
+-- =================================================================================================================================
+--
+-- SOLUTION SECTION
+--
+-- =================================================================================================================================
+SOLUTION
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N           
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT         
+EQUIL                                                                        
+         2561.59 268.55  2645.21 0.00  2561.59 0.00   1    0    0              /
+         2584.20 268.71  2645.21 0.00  2584.20 0.00   5    0    0              /
+--
+--       DEPTH    RS                                                 
+--                MSCF/STB                                                  
+--       ------   --------                                                               
+RSVD            
+         2561.59   122.30
+         2597.00   110.00
+         2660.70   106.77
+         2697.00   106.77                                  / RS VS DEPTH EQUIL REGN 01
+--       ------   --------        
+         2584.20   122.41
+         2599.90   110.00
+         2663.60   106.77
+         2699.90   106.77                                  / RS VS DEPTH EQUIL REGN 02
+
+--
+--       EQLNUM  EQLNUM  THPRES                                             
+--       FROM    TO      VALUE                                              
+THPRES                                                                        
+         1       2                                         / REGN 1 TO REGN 2
+/         
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+         'BASIC=2'   'PBPD'                                /
+
+-- =================================================================================================================================
+--
+-- SUMMARY SECTION
+--
+-- =================================================================================================================================
+SUMMARY
+--
+--       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION     
+--
+RUNSUM                                               
+--
+--       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION     
+--
+SEPARATE       
+--
+--       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
+--
+ALL
+
+-- =================================================================================================================================
+--
+-- SCHEDULE SECTION
+--
+-- =================================================================================================================================
+SCHEDULE
+--
+--       DEFINE SCHEDULE SECTION REPORT OPTION
+--
+RPTSCHED                                                                                                                             
+         'WELLS=5'                                                             /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+         BASIC=5                                                               /
+--
+--       LOAD VFPPROD INCLUDE FILES
+--
+INCLUDE
+         '$MODEL2/include/D-1.Ecl'                                             /
+--
+--       DEFINE GROUP TREE HIERARCHY                              
+--                                                                              
+--       LOWER     HIGHER                                        
+--       GROUP     GROUP 
+GRUPTREE
+         INJE      FIELD                                  /
+         PROD      FIELD                                  /
+/
+--
+--       GROUP PRODUCTION CONTROLS                                                    
+--                                                                              
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
+GCONPROD                                                                        
+FIELD    NONE  1*     1*     1*     1*     1*    1*    1*     1*     1*       /
+INJE     FLD                                                                  /
+PROD     FLD                                                                  /
+/                                                                               
+--
+--       WELL SPECIFICATION DATA                                                      
+--                                                                              
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
+WELSPECS
+OP01     PROD       6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
+OP02     PROD      10    4	  1*	   OIL    0.00	  STD    SHUT   YES 	0     SEG     /
+OP03     PROD       6   19   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
+GI01     INJE       2   13   1*     GAS    0.00   STD    SHUT   YES  0     SEG     /
+WI01     INJE      12   20   1*     WAT    0.00   STD    SHUT   YES  0     SEG     /
+/
+--
+--       WELL CONNECTION DATA                           
+--                                                                              
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN   
+COMPDAT                                                                        
+OP01      6    3   7   7   SHUT    0    6.145  0.216  1*   0.00	 1*    'Z'   /
+OP01      6    3   8   8   SHUT    0    9.703  0.216  1*   0.00	 1*    'Z'   /
+OP01      6    3   9   9   SHUT    0  184.170  0.216  1*   0.00	 1*    'Z'   /
+OP01      6    3  10  10   SHUT    0   24.709  0.216  1*   0.00	 1*    'Z'   /
+                                                                   
+OP02     10    4   3   3   SHUT	  0   18.     0.216  1*   0.00	 1*    'Z'   /
+OP02     10    4   4   4   SHUT	  0   19.     0.216  1*   0.00	 1*    'Z'   /
+OP02     10    4   7   7   SHUT	  0   20.473  0.216  1*   0.00	 1*    'Z'   /
+OP02     10    4   8   8   SHUT	  0   17.619  0.216  1*   0.00	 1*    'Z'   /
+OP02     10    4   9   9   SHUT	  0   80.721  0.216  1*   0.00	 1*    'Z'   /
+OP02     10    4  10  10   SHUT	  0   11.755  0.216  1*   0.00	 1*    'Z'   /    
+                                                                    
+OP03      6   19   1   1   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
+OP03      6   19   2   2   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
+OP03      6   19   7   7   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
+OP03      6   19   8   8   SHUT    0   12.441  0.216  1*	  0.00	 1*    'Z'   /
+OP03      6   19   9   9   SHUT    0  178.588  0.216  1*	  0.00	 1*    'Z'   /
+OP03      6   19  10  10   SHUT    0   11.149  0.216  1*	  0.00	 1*    'Z'   / 
+                                                                       
+GI01      2   13   1   1   SHUT    0  138.457  0.216  1*   0.00	 1*    'Z'   /
+GI01      2   13   2   2   SHUT    0    0.760  0.216  1*   0.00	 1*    'Z'   /
+GI01      2   13   3   3   SHUT    0   53.129  0.216  1*   0.00	 1*    'Z'   /
+GI01      2   13   8   8   SHUT    0   20.547  0.216  1*	  0.00	 1*    'Z'   /
+GI01      2   13   9   9   SHUT    0   45.709  0.216  1*	  0.00	 1*    'Z'   /
+GI01      2   13  10  10   SHUT    0   25.267  0.216  1*	  0.00	 1*    'Z'   /
+GI01      2   13  11  11   SHUT    0   33.982  0.216  1*	  0.00	 1*    'Z'   /
+                                                                   
+WI01     12   20   9   9   SHUT    0  139.042  0.216  1*   0.00    1*    'Z'   /
+WI01     12   20  10  10   SHUT    0   18.620  0.216  1*   0.00    1*    'Z'   /
+WI01     12   20  11  11   SHUT    0   77.048  0.216  1*   0.00    1*    'Z'   /
+/
+--
+--       ASSIGN WELL CONNECTIONS TO COMPLETIONS
+--                                                                                                                                                                       
+-- WELL  --- LOCATION ---  COMPL                                                                                                                                                                   
+-- NAME   II  JJ  K1  K2   NO.                                                                                                                                                                                                                                                                              
+COMPLUMP                                                                                                                                                                                  
+OP02      1*  1*   3   4    1                              / COMPLETION NO. 01
+OP02      1*  1*   7  10    2                              / COMPLETION NO. 02
+
+OP03      1*  1*   1   2    1                              / COMPLETION NO. 01
+OP03      1*  1*   7  10    2                              / COMPLETION NO. 02
+/
+--
+--       WELL PRODUCTION WELL CONTROLS                                                     
+--                                                                              
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+OP01     SHUT   ORAT  1500.0  1*     1*    1*     1*     200.0  12   5         /
+OP02     SHUT   ORAT   500.0  1*     1*    1*     1*     200.0  12   5         /
+OP03     SHUT   ORAT  1250.0  1*     1*    1*     1*     200.0  12   5         /
+/                                                                               
+--
+--       WELL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
+WCONINJE
+GI01     GAS    SHUT   BHP   150E3  1*     275    1*    1*                     /
+WI01     WAT    SHUT   RATE 1.0E3   1*     1*     1*    1*                     /
+/
+--
+--       WELL RFT, PLT AND SEGMENT DATA                                                                                                                                                                                                                               
+--                                                                                                                                                                                                                                                              
+-- WELL  RFT   PLT   SEGMENT                                                                                                                                                                                                                                   
+-- NAME  DATA  DATA  DATA                                                                                                                                                                                                                                      
+WRFTPLT                                                                                                                                                                                                                                                         
+OP01     YES   NO    NO                /
+/
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+OP01     OPEN                                                                  /
+OP01     OPEN     0   0    0                                                   /
+/                                                             
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX WGRUPCON - GI01 AND OIL WELLS ON GROUP CONTROL WITH GUIDE RATES
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-01                                             /
+        GGOR 'PROD' >= 150.0   AND                         /
+        MNTH >= 'JUN'          AND                         /
+        YEAR >= 2018                                       /
+/
+--
+--       GROUP PRODUCTION CONTROLS                                                    
+--                                                                              
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
+GCONPROD                                                                        
+FIELD    GRAT  1*     1*    400E3   1*     1*    1*    1*     1*     1*       /
+INJE     FLD                                                                  /
+PROD     FLD                                                                  /
+/
+--
+--       GROUP INJECTION TARGETS AND CONSTRAINTS                                                     
+--                                                                              
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE                                                                       
+FIELD    GAS   REIN  400E3   1*     0.95   1*    1*    1*     1*    1*    1*   /
+/                                                                               
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+GI01     OPEN                                                                  /
+GI01     OPEN     0   0    0                                                   /
+/                                                             
+--
+--       DEFINE WELL GUIDES FOR GROUP CONTROL                     
+--                                                                              
+-- WELL  GRUP  GUIDE  GUIDE  SCALE                                              
+-- NAME  CNTL  RATE   PHASE  FACT                                               
+WGRUPCON                                                                   
+'GI*'    YES   0.5    RAT    1.0                           /
+OP01     YES   0.5    OIL    1.0                           /
+OP02     YES   0      OIL    1.0                           /
+OP03     YES   0      OIL    1.0                           /
+/                                                                               
+
+ENDACTIO
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX WGRUPCON - ALL INJECTORS ON GROUP CONTROL AND VOIDAGE REPLACE WITH MAKEUP WATER WITH MAXIMUM 4.0E3 M3/DAY
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-02                                             /
+        FPR   <= 220.0      AND                            /
+        YEAR  >= 2018                                      /
+/
+--
+--       GROUP INJECTION TARGETS AND CONSTRAINTS                                                     
+--                                                                              
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE                                                                       
+FIELD    WAT   VREP  4.0E3   1*     1*     1.0   1*    1*     1*    1*    1*   /
+/                                                                               
+--
+--       DEFINE WELL GUIDES FOR GROUP CONTROL                     
+--                                                                                
+-- WELL  GRUP  GUIDE  GUIDE  SCALE                                              
+-- NAME  CNTL  RATE   PHASE  FACT                                               
+WGRUPCON                                                                   
+'GI*'    YES   0      RAT    1.0                           /
+'WI*'    YES   0      RAT    1.0                           /
+/                                                                               
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+WI01     OPEN                                                                  /
+WI01     OPEN     0   0    0                                                   /
+/                                                             
+--
+--       WELL INJECTION CONTROLS
+--                                                                              
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
+WCONINJE
+WI01     WAT    OPEN   RATE 5.0E3   1*     1*     1*    1*                     /
+/                                                                               
+
+ENDACTIO
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX WGRUPCON - PLACE ALL INJECTORS ON RATE CONTROL AND INCREASE RATES
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-03                                             /
+        WWIR WI01 = 4E3       AND                          /
+        WGIR GI01 <= 150E3                                 /
+/
+--
+--       DEFINE WELL GUIDES FOR GROUP CONTROL                     
+--                                                                              
+-- WELL  GRUP  GUIDE  GUIDE  SCALE                                              
+-- NAME  CNTL  RATE   PHASE  FACT                                               
+WGRUPCON                                                                   
+'GI*'    NO                                                /
+'WI*'    NO                                                /
+/                                                                               
+--
+--       WELL INJECTION CONTROLS
+--                                                                      
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
+WCONINJE
+GI01     GAS    OPEN   BHP   200E3  1*     275    1*    1*                     /
+WI01     WAT    OPEN   BHP   4.5E3  1*     275    1*    1*                     /
+/
+
+ENDACTIO
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2018-01-01                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+         
+DATES                                                                           
+         1  JAN   2018  /                                                                
+/                                                                               
+                                                                                
+RPTSCHED                                                                                                                             
+         'NOTHING'                                                             /                                                    
+                                           
+DATES                                                                                                                                                                                                                          
+         1  FEB   2018  /
+/
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST
+WELOPEN                                                     
+OP02     OPEN                                                                  /
+OP02     OPEN     0   0    0    2    2                                         /
+/ 
+
+DATES                                                                                                                                                                                                                          
+         1  MAR   2018  / 
+/ 
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+OP03     OPEN                                                                  /
+OP03     OPEN     0   0    0    2    2                                         /
+/ 
+
+DATES    
+         1  APR   2018  /                  
+         1  MAY   2018  /                  
+         1  JUN   2018  /                  
+         1  JLY   2018  /                  
+         1  AUG   2018  /                  
+         1  SEP   2018  /                  
+         1  OCT   2018  /                  
+         1  NOV   2018  /                  
+         1  DEC   2018  /                  
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2019-01-01                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES                                                                           
+         1  JAN   2019  /                                                                
+/                                                                               
+                                                                                
+RPTSCHED                                                                                                                             
+         'NOTHING'                                                             /                                                    
+                                           
+DATES                                                                                                                                                                                                                          
+         1  FEB   2019  /                  
+         1  MAR   2019  /                  
+         1  APR   2019  /                  
+         1  MAY   2019  /                  
+         1  JUN   2019  /                  
+         1  JLY   2019  /                  
+         1  AUG   2019  /                  
+         1  SEP   2019  /                  
+         1  OCT   2019  /                  
+         1  NOV   2019  /                  
+         1  DEC   2019  /                  
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2020-01-01                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES                                                                           
+         1  JAN   2020  /                                                                
+/                                                                               
+                                                                                
+RPTSCHED                                                                                                                             
+         'NOTHING'                                                             /                                                    
+                                           
+DATES                                                                                                                                                                                                                          
+         1  FEB   2020  /                  
+         1  MAR   2020  /                  
+         1  APR   2020  /                  
+         1  MAY   2020  /                  
+         1  JUN   2020  /                  
+         1  JLY   2020  /                  
+         1  AUG   2020  /                  
+         1  SEP   2020  /                  
+         1  OCT   2020  /                  
+         1  NOV   2020  /                  
+         1  DEC   2020  /                  
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2021-01-01                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES                                                                           
+         1  JAN   2021  /                                                                
+/                                                                               
+                                                                                
+RPTSCHED                                                                                                                             
+         'NOTHING'                                                             /                                                    
+                                           
+DATES                                                                                                                                                                                                                          
+         1  FEB   2021  /                  
+         1  MAR   2021  /                  
+         1  APR   2021  /                  
+         1  MAY   2021  /                  
+         1  JUN   2021  /                  
+         1  JLY   2021  /                  
+         1  AUG   2021  /                  
+         1  SEP   2021  /                  
+         1  OCT   2021  /                  
+         1  NOV   2021  /                  
+         1  DEC   2021  /                  
+/
+--
+--       FINAL REPORT AND RESTART AT YEAR END
+--
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+RPTRST                                                                           
+         'BASIC=2'                                                             /
+
+DATES                                                                           
+         31 DEC   2021  /                                                                
+/                                                                                      
+END      
+--                                                                              
+-- *********************************************************************************************************************************
+-- END OF FILE                                                                  
+-- *********************************************************************************************************************************
