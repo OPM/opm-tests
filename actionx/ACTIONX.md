@@ -24,7 +24,7 @@ NOECHO       | -                                                         | ACTIO
 UDQ          | -                                                         | ACTIONX_         | -          | -          | -
 WCONINJE     | WELOPEN                                                   | ACTIONX_WCONINJE | Prediction | MODEL02    | Complete. 
 WCONPROD     | UDQ, WCONINJE, WCONPROD                                   | ACTIONX_WCONPROD | Prediction | MODEL02    | WIP: Fails due to field shut-in, need to compare to commercial simulator.
-WEFAC        | -                                                         | ACTIONX_WEFAC    | Prediction | MODEL02    | WIP: Segmentation fault, even when ACTIONX commented out.
+WEFAC        | -                                                         | ACTIONX_WEFAC    | Prediction | MODEL02    | Complete.
 WELOPEN      | -                                                         | ACTIONX_         | -          | -          | Phase 2, will fail due to COMPDAT issue.
 WELPI        | -                                                         | ACTIONX_WELPI    | History    | MODEL02    | WIP: Fails due COMPDAT issue.
 WELSPECS     | -                                                         | ACTIONX_         | -          | -          | -
