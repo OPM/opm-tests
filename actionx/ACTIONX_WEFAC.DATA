@@ -17,8 +17,9 @@
 -- ( 2) Injection wells with preferred phase (GAS, WATER)
 --      GI01 - GAS
 --      WI01 - WAT
--- ( 3) ACTIONX  WEFAC - Increase all oil wells uptime to 0.90.
--- ( 4) ACTIONX  WEFAC - Increase all oil wells uptime to 0.95.
+-- ( 3) ACTIONX  WEFAC - Increase all oil wells uptime from 0.80 to 0.90.
+-- ( 4) ACTIONX  WEFAC - Increase all oil wells uptime from 0.95 to 0.95.
+-- ( 5) ACTIONX  WEFAC - Increase all injection wells uptime from 0.80 to 1.00 
 --
 -- =================================================================================================================================
 --
@@ -403,9 +404,9 @@ OP03      1*  1*   7  10    2                              / COMPLETION NO. 02
 -- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
 -- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
 WCONPROD                                                                    
-OP01     SHUT   ORAT   750.0  1*     1*    1*     1*     200.0  12   5         /
-OP02     SHUT   ORAT   500.0  1*     1*    1*     1*     200.0  12   5         /
-OP03     SHUT   ORAT   750.0  1*     1*    1*     1*     200.0  12   5         /
+OP01     SHUT   ORAT  1400.0  1*     1*    1*     1*     200.0  12   5         /
+OP02     SHUT   ORAT   200.0  1*     1*    1*     1*     200.0  12   5         /
+OP03     SHUT   ORAT  1400.0  1*     1*    1*     1*     200.0  12   5         /
 /                                                                               
 --
 --       WELL INJECTION CONTROLS
@@ -413,8 +414,8 @@ OP03     SHUT   ORAT   750.0  1*     1*    1*     1*     200.0  12   5         /
 -- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
 -- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
 WCONINJE
-GI01     GAS    SHUT   GRUP 200E3   1*     1*     1*    1*                     /
-WI01     WAT    SHUT   GRUP 4.0E3   1*     1*     1*    1*                     /
+GI01     GAS    SHUT   GRUP 200E3   1*     300    1*    1*                     /
+WI01     WAT    SHUT   GRUP 4.0E3   1*     300    1*    1*                     /
 /
 --
 --       WELL RFT, PLT AND SEGMENT DATA                                                                                                                                                                                                                               
@@ -422,7 +423,7 @@ WI01     WAT    SHUT   GRUP 4.0E3   1*     1*     1*    1*                     /
 -- WELL  RFT   PLT   SEGMENT                                                                                                                                                                                                                                   
 -- NAME  DATA  DATA  DATA                                                                                                                                                                                                                                      
 WRFTPLT                                                                                                                                                                                                                                                         
-OP01     YES   NO    NO                /
+OP01     NO    NO    NO                /
 /
 --
 --       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
@@ -443,46 +444,66 @@ WEFAC
 'OP*  '  0.800                                                                 /
 'WI*  '  0.800                                                                 /
 /                                                                              
--- -- ---------------------------------------------------------------------------------------------------------------------------------
--- -- ACTIONX  WEFAC - INCREASE ALL OIL WELLS UPTIME TO 0.90
--- -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX
---         ACT-01                                             /
---         DAY  >= 1             AND                          /
---         MNTH  = APR           AND                          /
---         YEAR  = 2019                                       /
--- /
--- -- 
--- --       WELL EFFICIENCY FACTORS                                                      
--- --                                                                              
--- -- WELL  EFF    NETWK                                                           
--- -- NAME  FACT   OPTN                                                            
--- WEFAC                                                                           
--- 'OP*  '  0.900                                                                 /
--- /                                                                              
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX  WEFAC - INCREASE ALL OIL WELLS UPTIME FROM 0.80 TO 0.90
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-01                                             /
+        DAY  >= 1             AND                          /
+        MNTH  = JLY           AND                          /
+        YEAR  = 2018                                       /
+/
 -- 
--- ENDACTIO
--- -- ---------------------------------------------------------------------------------------------------------------------------------
--- -- ACTIONX  WEFAC - INCREASE ALL OIL WELLS UPTIME TO 0.95                      
--- -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX
---         ACT-02                                             /
+--       WELL EFFICIENCY FACTORS                                                      
+--                                                                              
+-- WELL  EFF    NETWK                                                           
+-- NAME  FACT   OPTN                                                            
+WEFAC                                                                           
+'OP*  '  0.900                                                                 /
+/                                                                              
+                  
+ENDACTIO
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX  WEFAC - INCREASE ALL OIL WELLS UPTIME FROM 0.90 TO 0.95                      
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-02                                             /
+        DAY  >= 1             AND                          /
+        MNTH  = JAN           AND                          /
+        YEAR  = 2019                                       /
+/
 -- 
---         DAY  >= 1             AND                          /
---         MNTH  = AUG           AND                          /
---         YEAR  = 2019                                       /
--- /
--- -- 
--- --       WELL EFFICIENCY FACTORS                                                      
--- --                                                                              
--- -- WELL  EFF    NETWK                                                           
--- -- NAME  FACT   OPTN                                                            
--- WEFAC                                                                           
--- 'OP*  '  0.950                                                                 /
--- /
--- 
--- ENDACTIO
--- 
+--       WELL EFFICIENCY FACTORS                                                      
+--                                                                              
+-- WELL  EFF    NETWK                                                           
+-- NAME  FACT   OPTN                                                            
+WEFAC                                                                           
+'OP*  '  0.950                                                                 /
+/
+
+ENDACTIO
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX  WEFAC - INCREASE ALL INJECTION WELLS UPTIME FROM 0.80 TO 1.00                      
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-03                                             /
+        DAY  >= 1             AND                          /
+        MNTH  = JAN           AND                          /
+        YEAR  = 2020                                       /
+/
+--
+--       WELL EFFICIENCY FACTORS                                                      
+--
+-- WELL  EFF    NETWK                                                           
+-- NAME  FACT   OPTN                                                            
+WEFAC                                                                           
+'GI*  '  1.000                                                                 /
+'WI*  '  1.000                                                                 /
+/
+
+ENDACTIO
+
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- SCHEDULE SECTION - 2018-01-01                                   
 -- ---------------------------------------------------------------------------------------------------------------------------------
