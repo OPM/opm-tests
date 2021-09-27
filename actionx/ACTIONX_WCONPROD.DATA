@@ -9,21 +9,21 @@
 -- Well OP03  has modified completions compared to the base case model
 -- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
 --
--- The model tests the use of the ACTIONX and the GCONSUMP keyword to consume fuel at various stages. In addition, the GCONPROD 
--- keyword is employed to control gas production. This run is a prediction depletion case, with no pressure support from the 
--- producers or injectors, and with the field converted to a gas field operation with the ACTIONX ACT-02 block.
+-- The model tests the use of the ACTIONX and WCONPROD keywords to control gas production. This run is a depletion case, with no
+-- pressure support from the producers or injectors.
 -- ( 1) Production wells with preferred phases.
 --      OP01  - OIL
 --      OP02  - OIL
 --      OP03  - OIL (Completion 2)
--- ( 2) Injection wells with preferred phases.
+-- ( 2) Injection wells with preferred phases.                      
 --      GI01 - GAS (not active)
---      WI01 - WAT (not active)
--- ( 3) ACTIONX GCONSUMP - Set max gas rate for when GOR >= 150 m3/m3 and increase gas consumption.
--- ( 4) ACTIONX GCONSUMP - Once GOR >= 200 m3/m3 and OPR <=1500 m3/d then convert to gas field with increased gas consumption.
---
--- Although the case runs, we are unable to check the gas sales and fuel gas consumption volumes as the required summary vectors
--- are currently not written out.
+--      WI01 - WAT (not active)           
+-- ( 3) UDQ              - Variables and calculations to calculate cut back rates 
+-- ( 4) ACTIONX_WCONPROD - OP01 GOR >= 150 m3/m3 cut back gas rate by UDA variable
+-- ( 5) ACTIONX_WCONPROD - OP02 GOR >= 150 m3/m3 cut back gas rate by UDA variable.
+-- ( 6) ACTIONX_WCONPROD - OP03 GOR >= 150 m3/m3 cut back gas rate by UDA variable.
+-- ( 7) ACTIONX_WCONPROD - Once FOPR <= 500 then convert to gas field.
+-- ( 8) ACTIONX_WCONPROD - Gas field minimum gas rate of 50E3 m3/day then shut-in all wells and exit.
 --
 -- =================================================================================================================================
 --
@@ -35,7 +35,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-OPM_TESTS: ACTIONX_GCONSUMP
+OPM_TESTS: ACTIONX_WCONPROD
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -131,7 +131,7 @@ VFPPDIMS
 --       ACTION    ACTION   ACTION   ACTION
 --       MXACTNS   MXLINES  MXCHARS  MXSTATMS
 ACTDIMS
-         4         50       80       3                                         /
+         4         50       80       4                                         /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- INPUT AND OUTPUT OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -286,11 +286,11 @@ RSVD
 THPRES
          1       2                                         / REGN 1 TO REGN 2
 /
---
---       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
---
-RPTRST
-         'BASIC=2'   'PBPD'                                /
+-- --
+-- --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+-- --
+-- RPTRST
+--          'BASIC=5'   'PBPD'                                /
 
 -- =================================================================================================================================
 --
@@ -311,22 +311,14 @@ SEPARATE
 --
 ALL
 --
---       SALES GAS SUMMARY VARIABLE VECTORS TO FILE
+--       USER CREATED EXPORT SUMMARY VARIABLE VECTORS TO FILE
 --
-FGSR
-FGST
-GGSR
-/
-GGST
-/
---
---       FUEL GAS SUMMARY VARIABLE VECTORS TO FILE
---
-FGCR
-FGCT
-GGCR
-/
-GGCT
+FU_CUTBK
+FU_EPSL
+FU_GOR
+FU_GASFL
+
+WU_WOPR
 /
 
 -- =================================================================================================================================
@@ -336,6 +328,14 @@ GGCT
 -- =================================================================================================================================
 SCHEDULE
 --
+--       DEFAULT TUNING PARAMETERS  
+--
+--         1       2      3        4    5      6       7       8       9   10                          
+TUNING         
+         1.0     1.0                                                           /
+                                                                               /
+                                                                               /
+--
 --       DEFINE SCHEDULE SECTION REPORT OPTION
 --
 RPTSCHED
@@ -344,7 +344,7 @@ RPTSCHED
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
 RPTRST
-         BASIC=5                                                               /
+         'BASIC=5'                                                             /
 --
 --       LOAD VFPPROD INCLUDE FILES
 --
@@ -356,18 +356,16 @@ INCLUDE
 --       LOWER     HIGHER
 --       GROUP     GROUP
 GRUPTREE
-         GASNET    FIELD                                  /
-         INJE      GASNET                                 /
-         PROD      GASNET                                 /
+         INJE      FIELD                                  /
+         PROD      FIELD                                  /
 /
 --
---       GROUP GAS CONSUMPTION (FUEL) AND IMPORT
+--       GROUP PRODUCTION CONTROLS
 --
--- GRUP   GAS      GAS
--- NAME   FUEL    IMPORT
---       ------   -------
-GCONSUMP
-PROD     12.5E3                                                                /
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
+GCONPROD
+FIELD    GRAT  1*     1*    275E3   1*     1*     1*    1*     1*     1*      /
 /
 --
 --       WELL SPECIFICATION DATA
@@ -437,8 +435,8 @@ OP03      1*  1*   7  10    2                              / COMPLETION NO. 02
 -- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
 WCONPROD
 OP01     SHUT   ORAT  1000.0  1*     1*    1*     1*     50.0   12   5         /
-OP02     SHUT   ORAT   750.0  1*     1*    1*     1*     50.0   12   5         /
-OP03     SHUT   ORAT  1000.0  1*     1*    1*     1*     50.0   12   5         /
+OP02     SHUT   ORAT   500.0  1*     1*    1*     1*     50.0   12   5         /
+OP03     SHUT   ORAT   750.0  1*     1*    1*     1*     50.0   12   5         /
 /
 --
 --       WELL INJECTION CONTROLS
@@ -467,57 +465,115 @@ OP01     OPEN                                                                  /
 OP01     OPEN     0   0    0                                                   /
 /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX GCONSUMP - SET MAX GAS RATE FOR WHEN GOR >= 150 M3/M3 AND INCREASE GAS CONSUMPTION
+-- DEFINE START OF USER DEFINED QUANTITY SECTION
+-- ---------------------------------------------------------------------------------------------------------------------------------
+UDQ
+--
+-- OPERATOR VARIABLE  EXPRESSION
+--
+ASSIGN      FU_CUTBK  0.900                                 / Cut Back Ratio
+UNITS       FU_CUTBK  Constant                              /
+ASSIGN      FU_EPSL   1E-10                                 / Value to avoid diving by zero errors
+UNITS       FU_EPSL   Constant                              /    
+ASSIGN      FU_GOR    150.0                                 / GOR limit applied to all wells              
+UNITS       FU_GOR    SM3/SM3                               /   
+--
+-- OPERATOR VARIABLE  EXPRESSION
+--
+DEFINE      WU_WOPR   WOPR * FU_CUTBK                       / Calculate New Gas Rate for the Field
+UPDATE      WU_WOPR   ON                                    /
+UNITS       WU_WOPR   SM3/DAY                               /
+
+DEFINE      FU_GASFL  0                                     / Gas Field Flag Set to Off                    
+UNITS       FU_GASFL  Constant                              /
+
+/  DEFINE END OF USER DEFINED QUANTITY SECTION
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX WCONPROD - BEAM BACK OIL RATE IF GOR >= 150 M3/M3 FOR WELL OP01
 -- ---------------------------------------------------------------------------------------------------------------------------------
 ACTIONX
-        ACT-01                                             /
-        GGOR 'PROD' >= 150    AND                          /
+        ACT-01    500  10                                  /
+        WGOR OP01  >= FU_GOR  AND                          /
+        FU_GASFL    = 0       AND                          /
         MNTH >= JAN           AND                          /
         YEAR >= 2019                                       /
 /
 --
---       GROUP PRODUCTION CONTROLS
---
--- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
--- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
-GCONPROD
-FIELD    GRAT  1*     1*    300E3   1*     1*     1*    1*     1*     1*       /
+--       WELL PRODUCTION WELL CONTROLS                                                     
+--                                                                              
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+OP01     OPEN   ORAT   WU_WOPR                                                 /
+/                                                                               
+
+ENDACTIO
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX WCONPROD - BEAM BACK OIL RATE IF GOR >= 150 M3/M3 FOR WELL OP02
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-02    500  10                                  /
+        WGOR OP02  >= 150     AND                          /
+        FU_GASFL    = 0       AND                          /
+        MNTH >= JAN           AND                          /
+        YEAR >= 2019                                       /
 /
 --
---       GROUP GAS CONSUMPTION (FUEL) AND IMPORT
+--       WELL PRODUCTION WELL CONTROLS                                                     
 --
--- GRUP   GAS      GAS
--- NAME   FUEL    IMPORT
---       ------   -------
-GCONSUMP
-PROD     25E3                                                                  /
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+OP02     OPEN   ORAT   WU_WOPR                                                 /
+/                                                                               
+
+ENDACTIO
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX WCONPROD - BEAM BACK OIL RATE IF GOR >= 150 M3/M3 FOR WELL OP03
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-03    500  10                                  /
+        WGOR OP03  >= 150     AND                          /
+        FU_GASFL    = 0       AND                          /
+        MNTH >= JAN           AND                          /
+        YEAR >= 2019                                       /
+/
+--
+--       WELL PRODUCTION WELL CONTROLS                                                     
+--                                                                              
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+OP03     OPEN   ORAT   WU_WOPR                                                 /
 /
 
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX GCONSUMP - CONVERT TO GAS FIELD WITH INCREASED GAS CONSUMPTION
+-- ACTIONX GCONPROD - ONCE FOPR <= 500 THEN CONVERT TO GAS FIELD
 -- ---------------------------------------------------------------------------------------------------------------------------------
 ACTIONX
-        ACT-02                                             /
-        GGOR 'FIELD' >= 200   AND                          /
-        GOPR 'PROD'  <= 1500                               /
+        ACT-04                                             /
+        FU_GASFL      = 0     AND                          /
+        GOPR 'FIELD' <= 500                                /
 /
+--
+-- DEFINE START OF USER DEFINED QUANTITY SECTION
+--     
+UDQ
+--
+-- OPERATOR VARIABLE  EXPRESSION
+--        
+DEFINE      FU_GASFL  1                                    / Gas Field Flag Set to On   
+
+/  DEFINE END OF USER DEFINED QUANTITY SECTION
 --
 --       GROUP PRODUCTION CONTROLS
 --
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
 GCONPROD
-FIELD    GRAT  1*     1*     400E3  1*     1*     1*    1*     1*     1*       /
-/
---
---       GROUP GAS CONSUMPTION (FUEL) AND IMPORT
---
--- GRUP   GAS      GAS
--- NAME   FUEL    IMPORT
---       ------   -------
-GCONSUMP
-PROD     50E3                                                                  /
+FIELD    GRAT  1*     1*     275E3  1*     1*     1*    1*     1*     1*       /
 /
 --
 --       WELL PRODUCTION WELL CONTROLS
@@ -529,7 +585,39 @@ OP01     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   12   5         /
 OP02     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   12   5         /
 OP03     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   12   5         /
 /
-
+                                 
+ENDACTIO
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX GCONPROD - GAS FIELD MINIMUM GAS RATE OF 50E3 M3/DAY THEN SHUT-IN ALL WELLS AND EXIT
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-05                                             /
+        FGPR    <= 50E3       AND                          /
+        FU_GASFL = 1                                       /
+/
+--
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP*      SHUT   1*     1*     1*     1*    1*     1*     1*                    /
+/
+--
+--       WELL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
+WCONINJE              
+GI*      GAS    SHUT   GRUP  1*     1*     1*     1*    1*                     /
+WI*      WAT    SHUT   GRUP  1*     1*     1*     1*    1*                     /
+/
+-- --
+-- --       TERMINATE AND EXIT SIMULATION (WORKS BUT NO RSM FILE, SO COMMENT OUT FOR NOW)
+-- --
+-- EXIT
+--          0                              /
+--
 ENDACTIO
 
 -- ---------------------------------------------------------------------------------------------------------------------------------

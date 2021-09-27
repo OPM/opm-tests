@@ -9,7 +9,8 @@
 -- Well OP03  has modified completions compared to the base case model
 -- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
 --
--- The model tests the use of the ACTIONX and WCONINJE keywords to control gas and water injection rates.
+-- The model tests the use of the ACTIONX and GRUPTREE keywords to switch wells to different groups, together with group controls
+-- and controlling gas and water injection rates.
 -- ( 1) Production wells with preferred phase (OIL, GAS)
 --      OP01  - OIL
 --      OP02  - OIL
@@ -17,10 +18,10 @@
 -- ( 2) Injection wells with preferred phase (GAS, WATER)
 --      GI01 - GAS
 --      WI01 - WAT
--- ( 3) ACTIONX WCONINJE - Inject 100E3 m3/day of gas and no water.
--- ( 4) ACTIONX WCONINJE - Inject 150E3 m3/day of gas and 3.0E3 m3/d of water.
--- ( 5) ACTIONX WCONINJE - Inject 200E3 m3/day of gas and 3.5E3 m3/d of water.
--- ( 6) ACTIONX WCONINJE - Inject 200E3 m3/day of gas and 4.0E3 m3/d of water when FGOR >= 200 m3/m3.
+-- ( 3) ACTIONX WGRUPCON - GI01 and all oil wells on group control with guide rates under the MAIN group.
+-- ( 4) ACTIONX GRUPTREE - All producers on group control and each producer is assigned to a different group.
+-- ( 5) ACTIONX GRUPTREE - All injectors on group control under separate groups and voidage replacement with water, set to a 
+--      maximum of 4.0E3 m3/day.
 --
 -- =================================================================================================================================
 --
@@ -32,7 +33,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-OPM_TESTS: ACTIONX_WCONINJE
+OPM_TESTS: ACTIONX_WGRUPCON
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -114,7 +115,7 @@ TABDIMS
 --       WELL    WELL    GRUPS   GRUPS
 --       MXWELS  MXCONS  MXGRPS  MXGRPW
 WELLDIMS
-         10      15      3       10                                            /
+         10      15      8       10                                            /
 --
 --       PRODUCING VFP TABLES
 --       VFP     VFP     VFP     VFP     VFP     VFP
@@ -128,7 +129,7 @@ VFPPDIMS
 --       ACTION    ACTION   ACTION   ACTION                                              
 --       MXACTNS   MXLINES  MXCHARS  MXSTATMS                                               
 ACTDIMS                                                                         
-         4         50       80       4                                         /
+         4         100      120      4                                         /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- INPUT AND OUTPUT OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -335,20 +336,28 @@ INCLUDE
 --       LOWER     HIGHER                                        
 --       GROUP     GROUP 
 GRUPTREE
-         INJE      FIELD                                  /
-         PROD      FIELD                                  /
+         MAIN      FIELD                                  /
 /
+--
+--       GROUP PRODUCTION CONTROLS                                                    
+--                                                                              
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
+GCONPROD                                                                        
+FIELD    NONE  1*     1*     1*     1*     1*    1*    1*     1*     1*       /
+MAIN     FLD                                                                  /
+/                                                                               
 --
 --       WELL SPECIFICATION DATA                                                      
 --                                                                              
 -- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
 -- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
 WELSPECS
-OP01     PROD       6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
-OP02     PROD      10    4	  1*	   OIL    0.00	  STD    SHUT   YES 	0     SEG     /
-OP03     PROD       6   19   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
-GI01     INJE       2   13   1*     GAS    0.00   STD    SHUT   YES  0     SEG     /
-WI01     INJE      12   20   1*     WAT    0.00   STD    SHUT   YES  0     SEG     /
+OP01     MAIN       6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
+OP02     MAIN      10    4	  1*	   OIL    0.00	  STD    SHUT   YES 	0     SEG     /
+OP03     MAIN       6   19   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
+GI01     MAIN       2   13   1*     GAS    0.00   STD    SHUT   YES  0     SEG     /
+WI01     MAIN      12   20   1*     WAT    0.00   STD    SHUT   YES  0     SEG     /
 /
 --
 --       WELL CONNECTION DATA                           
@@ -405,9 +414,9 @@ OP03      1*  1*   7  10    2                              / COMPLETION NO. 02
 -- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
 -- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
 WCONPROD                                                                    
-OP01     SHUT   ORAT   750.0  1*     1*    1*     1*     200.0  12   5         /
+OP01     SHUT   ORAT  1500.0  1*     1*    1*     1*     200.0  12   5         /
 OP02     SHUT   ORAT   500.0  1*     1*    1*     1*     200.0  12   5         /
-OP03     SHUT   ORAT   750.0  1*     1*    1*     1*     200.0  12   5         /
+OP03     SHUT   ORAT  1250.0  1*     1*    1*     1*     200.0  12   5         /
 /                                                                               
 --
 --       WELL INJECTION CONTROLS
@@ -415,8 +424,8 @@ OP03     SHUT   ORAT   750.0  1*     1*    1*     1*     200.0  12   5         /
 -- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
 -- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
 WCONINJE
-GI01     GAS    SHUT   GRUP 200E3   1*     1*     1*    1*                     /
-WI01     WAT    SHUT   GRUP 4.0E3   1*     1*     1*    1*                     /
+GI01     GAS    SHUT   BHP   150E3  1*     275    1*    1*                     /
+WI01     WAT    SHUT   RATE 1.0E3   1*     275    1*    1*                     /
 /
 --
 --       WELL RFT, PLT AND SEGMENT DATA                                                                                                                                                                                                                               
@@ -436,23 +445,31 @@ OP01     OPEN                                                                  /
 OP01     OPEN     0   0    0                                                   /
 /                                                             
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WCONINJE - INJECT 100E3 M3/DAY OF GAS AND NO WATER
+-- ACTIONX WGRUPCON - GI01 AND OIL WELLS ON GROUP CONTROL WITH GUIDE RATES UNDER THE MAIN GROUP
 -- ---------------------------------------------------------------------------------------------------------------------------------
 ACTIONX
         ACT-01                                             /
-        FGPR >= 166500        AND                          /
-        MNTH >= APR           AND                          /
-        YEAR >= 2019                                       /
+        GGOR 'FIELD' >= 150.0  AND                         /
+        MNTH >= 'FEB'          AND                         /
+        YEAR >= 2018                                       /
 /
 --
---       WELL INJECTION CONTROLS
---
--- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
--- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
-WCONINJE
-GI01     GAS    OPEN   RATE 100E3   1*     275    1*    1*                     /
-WI01     WAT    SHUT   GRUP 4.0E3   1*     1*     1*    1*                     /
+--       GROUP PRODUCTION CONTROLS                                                    
+--                                                                              
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
+GCONPROD                                                                        
+FIELD    GRAT  1*     1*    400E3   1*     1*    1*    1*     1*     1*       /
+MAIN     FLD                                                                  /
 /
+--
+--       GROUP INJECTION TARGETS AND CONSTRAINTS                                                     
+--                                                                              
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE                                                                       
+FIELD    GAS   REIN  400E3   1*     0.95   1*    1*    1*     1*    1*    1*   /
+/                                                                               
 --
 --       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
 --                                                                              
@@ -462,25 +479,106 @@ WELOPEN
 GI01     OPEN                                                                  /
 GI01     OPEN     0   0    0                                                   /
 /                                                             
+--
+--       DEFINE WELL GUIDES FOR GROUP CONTROL                     
+--                                                                              
+-- WELL  GRUP  GUIDE  GUIDE  SCALE                                              
+-- NAME  CNTL  RATE   PHASE  FACT                                               
+WGRUPCON                                                                   
+'GI*'    YES   0.5    RAT    1.0                           /
+OP01     YES   0.5    OIL    1.0                           /
+OP02     YES   0      OIL    1.0                           /
+OP03     YES   0      OIL    1.0                           /
+/                                                                               
 
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WCONINJE - INJECT 150E3 M3/DAY OF GAS AND 3.0E3 M3/DAY OF WATER
+-- ACTIONX GRUPTREE - ALL PRODUCERS ON GROUP CONTROL AND EACH PRODUCER IS ASSIGNED TO A DIFFERENT GROUP            
 -- ---------------------------------------------------------------------------------------------------------------------------------
 ACTIONX
         ACT-02                                             /
-        FPR <= 230.0          AND                          /
-        YEAR >= 2018                                       /
+        WGIR  GI01 > 0.0    AND                            /
+        WWIR  WI01 = 0.0    AND                            /
+        MNTH      >= 1.9    AND                            /
+        YEAR      >= 2018.9                                /
 /
 --
---       WELL INJECTION CONTROLS
---
--- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
--- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
-WCONINJE
-GI01     GAS    OPEN   RATE 150E3   1*     275    1*    1*                     /
-WI01     WAT    OPEN   RATE 3.0E3   1*     1*     1*    1*                     /
+--       DEFINE GROUP TREE HIERARCHY                              
+--                                                                              
+--       LOWER     HIGHER                                        
+--       GROUP     GROUP 
+GRUPTREE
+         PROD      FIELD                                  /
+         PROD01    PROD                                   /
+         PROD02    PROD                                   /
+         PROD03    PROD                                   /
 /
+--
+--       WELL SPECIFICATION DATA                                                      
+--                                                                              
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
+WELSPECS
+OP01     PROD01     6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
+OP02     PROD02    10    4	  1*	   OIL    0.00	  STD    SHUT   YES 	0     SEG     /
+OP03     PROD03     6   19   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
+/
+--
+--       DEFINE WELL GUIDES FOR GROUP CONTROL                     
+--                                                                              
+-- WELL  GRUP  GUIDE  GUIDE  SCALE                                              
+-- NAME  CNTL  RATE   PHASE  FACT                                               
+WGRUPCON                                                                   
+OP01     YES   1*     OIL    1.0                           /
+OP02     YES   1*     OIL    1.0                           /
+OP03     YES   1*     OIL    1.0                           /
+/                                                                               
+
+ENDACTIO
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ACTIONX GRUPTREE - ALL INJECTORS ON GROUP CONTROL UNDER SEPARATE GROUPS AND VOIDAGE REPLACEMENT WITH WATER (MAX 4.0E3 M3/DAY)
+-- ---------------------------------------------------------------------------------------------------------------------------------
+ACTIONX
+        ACT-03                                             /
+        FPR   <= 220.0      AND                            /
+        YEAR  >= 2018                                      /
+/
+--
+--       GROUP INJECTION TARGETS AND CONSTRAINTS                                                     
+--                                                                              
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE                                                                       
+FIELD    WAT   VREP  4.0E3   1*     1*     1.0   1*    1*     1*    1*    1*   /
+/                                                                               
+--
+--       DEFINE GROUP TREE HIERARCHY                              
+--                                                                              
+--       LOWER     HIGHER                                        
+--       GROUP     GROUP 
+GRUPTREE
+         INJE      FIELD                                  /
+         GASINJ    INJE                                   /
+         WATINJ    INJE                                   /
+/
+--
+--       WELL SPECIFICATION DATA                                                      
+--                                                                              
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
+WELSPECS
+GI01     GASINJ     2   13   1*     GAS    0.00   STD    SHUT   YES  0     SEG     /
+WI01     WATINJ    12   20   1*     WAT    0.00   STD    SHUT   YES  0     SEG     /
+/
+--
+--       DEFINE WELL GUIDES FOR GROUP CONTROL                     
+--                                                                                
+-- WELL  GRUP  GUIDE  GUIDE  SCALE                                              
+-- NAME  CNTL  RATE   PHASE  FACT                                               
+WGRUPCON                                                                   
+'GI*'    YES   0      RAT    1.0                           /
+'WI*'    YES   0      RAT    1.0                           /
+/                                                                               
 --
 --       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
 --                                                                              
@@ -490,48 +588,14 @@ WELOPEN
 WI01     OPEN                                                                  /
 WI01     OPEN     0   0    0                                                   /
 /                                                             
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WCONINJE - INJECT 200E3 M3/DAY OF GAS AND 3.5E3 M3/DAY OF WATER
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-03                                             /
-        FPR  <= 230.0         AND                          /
-        DAY  >= 1             AND                          /
-        MNTH  = JUN           AND                          /
-        YEAR  = 2020                                       /
-/
 --
 --       WELL INJECTION CONTROLS
---
+--                                                                              
 -- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
 -- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
 WCONINJE
-GI01     GAS    OPEN   RATE 200E3   1*     275    1*    1*                     /
-WI01     WAT    OPEN   RATE 3.5E3   1*     1*     1*    1*                     /
-/
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WCONINJE - INJECT 200E3 M3/DAY OF GAS AND 4.0E3 M3/DAY OF WATER
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-04                                             /
-        FGOR >= 200.0         AND                          /
-        DAY  >= 1             AND                          /
-        MNTH >= JLY           AND                          /
-        YEAR >= 2020                                       /
-/
---
---       WELL INJECTION CONTROLS
---
--- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
--- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
-WCONINJE
-GI01     GAS    OPEN   RATE 200E3   1*     275    1*    1*                     /
-WI01     WAT    OPEN   RATE 4.0E3   1*     1*     1*    1*                     /
-/
+WI01     WAT    OPEN   RATE 5.0E3   1*     1*     1*    1*                     /
+/                                                                               
 
 ENDACTIO
 
