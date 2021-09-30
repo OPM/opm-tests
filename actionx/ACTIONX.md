@@ -33,7 +33,7 @@ WGRUPCON     | GCONPROD, GCONINJE, WCONINJE, WELOPEN                     | ACTIO
 WINJMULT     | -                                                         | ACTIONX_         | -          | -          | Phase 2: Not supported in deck.
 WPIMULT      | -                                                         | ACTIONX_WPIMULT  | History    | MODEL02    | WIP: Fails due COMPDAT issue.
 WSEGVALV     | -                                                         | ACTIONX_         | -          | -          | -
-WTEST        | -                                                         | ACTIONX_         | -          | -          | -
+WTEST        | WECON                                                     | ACTIONX_WTEST    | Prediction | SPE09      | WIP: Fails due to all wells are shut-in due to WECON at the start of the run, which is incorrect (not an ACTIONX issue).
 WTMULT       | -                                                         | ACTIONX_         | -          | -          | Phase 2: Not supported in deck.
 
 The COMPDAT issue is a known limitation of the current ACTIONX implementation and is planned to be refactored in the coming month.
