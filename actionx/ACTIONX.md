@@ -12,7 +12,7 @@ GCONPROD     | -                                                         | ACTIO
 GCONSUMP     | GCONPROD, WCONPROD                                        | ACTIONX_GCONSUMP | Prediction | MODEL02    | WIP: Results different to commercial simulator.
 GRUPNET      | -                                                         | ACTIONX_         | -          | -          | Phase 2: Not supported in deck.
 GRUPTARG     | -                                                         | ACTIONX_         | -          | -          | Phase 2: Not supported in deck.
-GRUPTREE     | GCONPROD, GCONINJE, WCONINJE, WELOPEN, WELOPEN, WELSSPECS | ACTIONX_GRUPTREE | Prediction | MODEL02    | WIP: Runs with inconsistent results & tasklet error.
+GRUPTREE     | GCONPROD, GCONINJE, WCONINJE, WELOPEN, WELOPEN, WELSSPECS | ACTIONX_GRUPTREE | Prediction | MODEL02    | WIP: Runs with inconsistent results
 GSATINJE     | -                                                         | ACTIONX_         | -          | -          | Phase 2: Not supported in deck.
 GSATPROD     | -                                                         | ACTIONX_         | -          | -          | Phase 2: Not supported in deck.
 MULTX        | -                                                         | ACTIONX_         | -          | -          | Phase 2: Not supported by ACTIONX.
