@@ -1,0 +1,131 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2021 NORCE
+
+----------------------------------------------------------------------------
+RUNSPEC
+----------------------------------------------------------------------------
+TITLE
+   MICP
+
+DIMENS
+  100 1 1 /
+
+EQLDIMS
+  /
+
+TABDIMS
+  /
+
+WATER
+
+MICP
+
+METRIC
+
+START
+  18 'Jan' 1991 /
+
+WELLDIMS
+  10 60 10 20 /
+
+UNIFIN
+UNIFOUT
+
+----------------------------------------------------------------------------
+GRID
+----------------------------------------------------------------------------
+INIT
+
+DX
+  100*1 /
+
+DY
+  100*1 /
+
+DZ
+  100*1 /
+
+TOPS
+  100*1 /
+
+PORO
+  100*0.15 /
+
+PERMX
+  100*10.13 /
+
+PERMY
+  100*10.13 /
+
+PERMZ
+  100*10.13 /
+
+----------------------------------------------------------------------------
+PROPS
+----------------------------------------------------------------------------
+ROCK
+  1.0 1e-6 /
+
+DENSITY
+  1045 /
+
+PVTW
+  1.0 1 0.0 0.254 0.0 /
+
+MICPPARA
+  35. 2710. 2.6e-13 0.1 3.0 2e-05 21.3 3.6 0.04 300. 1391. 0.0735 0.0275
+  1.0133e-05 0.5 1e-04 0.5 /
+
+----------------------------------------------------------------------------
+SOLUTION
+---------------------------------------------------------------------------
+PRESSURE
+  100*4800 /
+
+SMICR
+  100*0 /
+
+SOXYG
+  100*0 /
+
+SUREA
+  100*0 /
+
+SBIOF
+  100*1e-4 /
+
+SCALC
+  100*0 /
+
+----------------------------------------------------------------------------
+SCHEDULE
+----------------------------------------------------------------------------
+RPTRST
+ 'BASIC=2'/
+
+WELSPECS
+  'INJE01' 'INJE' 1 1 1* 'WATER' 0.15 /
+  'PROD01' 'PROD' 100 1 1* 'WATER' 0.15 /
+  /
+
+COMPDAT
+  'INJE01' 1 1 1 1 'OPEN' 1* 1* /
+  'PROD01' 100 1 1 1 'OPEN' 1* 1* /
+  /
+
+WCONINJE
+  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
+  /
+WCONPROD
+  'PROD01' 'OPEN'  'BHP' 1* /
+  /
+WMICP
+  'INJE01' 0.01 0.04 60./
+  /
+TSTEP
+  2*0.0417
+  /
