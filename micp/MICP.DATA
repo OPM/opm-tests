@@ -123,6 +123,16 @@ WCONINJE
 WCONPROD
   'PROD01' 'OPEN'  'BHP' 1* /
   /
+TSTEP
+  1*0.0001
+  /
+
+WCONINJE
+  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
+  /
+WCONPROD
+  'PROD01' 'OPEN'  'BHP' 1* /
+  /
 WMICP
   'INJE01' 0.01 0.04 60./
   /
