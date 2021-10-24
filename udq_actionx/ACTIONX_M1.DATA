@@ -336,7 +336,7 @@ WCONINJE    --written by schedule script
     'WI1' 	WATER	STOP	GRUP	0.0	 1*	325.0	1*	1*	/
 /
 
-DATES
+DATES   -- 1
   2 'JUL' 2020 /
 /
 
@@ -345,7 +345,7 @@ DEFINE FUBHPP1 WBHP 'P1' /
 DEFINE WUBHPINI WBHP '*' /
 /
 
-DATES
+DATES   -- 2
   3 'JUL' 2020 /
 /
 
@@ -357,7 +357,7 @@ DEFINE WU_TEST  WUBHPINI '*' - (WGPR '*')/2000.0 /
 /
 
 
-DATES
+DATES   -- 3
   5 'JUL' 2020 /
 /
   
@@ -434,9 +434,9 @@ ENDACTIO
 -- start: 1 'JUL' 2020 
  
 DATES
-  1 AUG 2020 /
- 10 AUG 2020 /
- 20 AUG 2020 /
+  1 AUG 2020 /   -- 4
+ 10 AUG 2020 /   -- 5
+ 20 AUG 2020 /   -- 6
 /
 
 WCONPROD
@@ -444,15 +444,15 @@ WCONPROD
 /  
 
 DATES
-  1 SEP 2020 /
- 10 SEP 2020 /
- 20 SEP 2020 /
-  1 OCT 2020 /
- 10 OCT 2020 /
- 20 OCT 2020 /
-  1 NOV 2020 /
-  1 DEC 2020 /
-  1 JAN 2021 /
+  1 SEP 2020 /   --  7
+ 10 SEP 2020 /   --  8
+ 20 SEP 2020 /   --  9 
+  1 OCT 2020 /   -- 10
+ 10 OCT 2020 /   -- 11
+ 20 OCT 2020 /   -- 12
+  1 NOV 2020 /   -- 13
+  1 DEC 2020 /   -- 14
+  1 JAN 2021 /   -- 15 
 /
    
 -- 1.5 2 2 5 10 10 30 30 30 30 30 30 30  /
