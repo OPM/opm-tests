@@ -129,7 +129,19 @@ VFPPDIMS
 --       ACTION    ACTION   ACTION   ACTION
 --       MXACTNS   MXLINES  MXCHARS  MXSTATMS
 ACTDIMS
-         4         50       80       3                                         /
+         4         50       100      3                                         /
+--
+--       USER DEFINED ARGUMENT DIMENSIONS
+--       NO.     NOT     TOTAL                         
+--       ARGS    USED    UDQ                     
+UDADIMS                                             
+         2       1*      1*                                                    /
+--
+--       USER DEFINED ARGUMENT DIMENSIONS FACILITY
+--       MAX     MAX     MAX    MAX    MAX    MAX   MAX   MAX   MAX  MAX    RAND
+--       FUNCS   ITEMS   CONNS  FIELD  GROUP  REGS  SEGTM WELL  AQUF BLCKS  OPT
+UDQDIMS                                             
+         16      16      0      3      0      0     0     0     0    0      N  /         
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- INPUT AND OUTPUT OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -546,7 +558,7 @@ ACTIONX
 -- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
 -- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
 WCONPROD
-OP*      SHUT   1*     1*     1*     1*    1*     1*     1*                    /
+'OP*'    SHUT   1*     1*     1*     1*    1*     1*     1*                    /
 /
 --
 --       WELL INJECTION CONTROLS
@@ -554,8 +566,8 @@ OP*      SHUT   1*     1*     1*     1*    1*     1*     1*                    /
 -- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
 -- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
 WCONINJE
-GI*      GAS    SHUT   GRUP  1*     1*     1*     1*    1*                     /
-WI*      WAT    SHUT   GRUP  1*     1*     1*     1*    1*                     /
+'GI*'    GAS    SHUT   GRUP  1*     1*     1*     1*    1*                     /
+'WI*'    WAT    SHUT   GRUP  1*     1*     1*     1*    1*                     /
 /
 -- --
 -- --       TERMINATE AND EXIT SIMULATION (WORKS BUT NO RSM FILE, SO COMMENT OUT FOR NOW)
@@ -693,6 +705,32 @@ DATES
          1  NOV   2021  /
          1  DEC   2021  /
 /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2022-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         1  JAN   2022  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2022  /
+         1  MAR   2022  /
+         1  APR   2022  /
+         1  MAY   2022  /
+         1  JUN   2022  /
+         1  JLY   2022  /
+         1  AUG   2022  /
+         1  SEP   2022  /
+         1  OCT   2022  /
+         1  NOV   2022  /
+         1  DEC   2022  /
+/
 --
 --       FINAL REPORT AND RESTART AT YEAR END
 --
@@ -703,7 +741,7 @@ RPTRST
          'BASIC=2'                                                             /
 
 DATES
-         31 DEC   2021  /
+         31 DEC   2022  /
 /
 END
 --
