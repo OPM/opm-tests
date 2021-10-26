@@ -2,11 +2,11 @@
 -- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
-  
+
 -- Copyright (C) 2021 Equinor
-                                                                              
--- This model is built from the base case for model2 to create ../model2/0B_WELPI_MODEL2.DATA used to test the WELPI keyword. The 
--- model uses the WELPI keyword to adjust well productivity indices and hence connection factors during the simulation period. It 
+
+-- This model is built from the base case for model2 to create ../model2/0B_WELPI_MODEL2.DATA used to test the WELPI keyword. The
+-- model uses the WELPI keyword to adjust well productivity indices and hence connection factors during the simulation period. It
 -- has five standard wells, 3 producers and 2 injectors, as described below:
 -- ( 1) Production wells with preferred phase (OIL, GAS)
 --      PROD1 - OIL
@@ -16,16 +16,16 @@
 --      INJ1 - WATER
 --      INJ2 - GAS
 --      Note that both injection wells inject both gas and water at various times.
--- ( 3) All wells get their PI values adjusted at least once, with wells PROD2, PROD3 and INJ2 getting their PI adjusted an extra 
+-- ( 3) All wells get their PI values adjusted at least once, with wells PROD2, PROD3 and INJ2 getting their PI adjusted an extra
 --      time and wells PROD1 and INJ1 having their PI adjusted at the same time as the well is opened.
 -- ( 4) Well PROD3 has modified completions compared to the base case model.
 -- ( 5) The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development.
 --
 -- The model has been modified to test the WELPI keyword with the ACTIONX keyword, as follows:
 -- ( 6) The input deck has been re-factored to match the manual style, and with the  well declarations declared at the beginning of
---      the run. 
--- ( 7) For this case, instead of the well productivity indices being modified in the deck, they are implemented via the ACTIONX 
---      keyword (ACT-01 to ACT04), using the WPIMULT keyword. The multipliers are derived from the WELPI none productivity case 
+--      the run.
+-- ( 7) For this case, instead of the well productivity indices being modified in the deck, they are implemented via the ACTIONX
+--      keyword (ACT-01 to ACT04), using the WPIMULT keyword. The multipliers are derived from the WELPI none productivity case
 --      divided by the WELPI base case run. Thus, results should therefore be close/identical to the original WELPI case.
 --
 -- =================================================================================================================================
@@ -131,9 +131,9 @@ VFPPDIMS
 -- MISCELLEOUS OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
---       ACTION    ACTION   ACTION   ACTION                                              
---       MXACTNS   MXLINES  MXCHARS  MXSTATMS                                               
-ACTDIMS                                                                         
+--       ACTION    ACTION   ACTION   ACTION
+--       MXACTNS   MXLINES  MXCHARS  MXSTATMS
+ACTDIMS
          4         50       80       3                                         /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- INPUT AND OUTPUT OPTIONS
@@ -227,7 +227,7 @@ PROPS
 --
 --       SWITCH OFF ECHOING OF INPUT FILES
 --
-NOECHO                                                                         
+NOECHO
 --
 --       LOAD PROPS SECTION INCLUDE FILES
 --
@@ -251,9 +251,9 @@ REGIONS
 --
 INCLUDE
          '$MODEL2/include/eqlnum.grdecl'                   /
-INCLUDE                                                    
+INCLUDE
          '$MODEL2/include/fipnum.grdecl'                   /
-INCLUDE                                                    
+INCLUDE
          '$MODEL2/include/satnum.grdecl'                   /
 
 -- =================================================================================================================================
@@ -263,36 +263,36 @@ INCLUDE
 -- =================================================================================================================================
 SOLUTION
 --
---       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N           
---       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT         
-EQUIL                                                                        
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT
+EQUIL
          2561.59 268.55  2645.21 0.00  2561.59 0.00   1    0    0              /
          2584.20 268.71  2645.21 0.00  2584.20 0.00   5    0    0              /
 --
---       DEPTH    RS                                                 
---                MSCF/STB                                                  
---       ------   --------                                                               
-RSVD            
+--       DEPTH    RS
+--                MSCF/STB
+--       ------   --------
+RSVD
          2561.59   122.30
          2597.00   110.00
          2660.70   106.77
          2697.00   106.77                                  / RS VS DEPTH EQUIL REGN 01
---       ------   --------        
+--       ------   --------
          2584.20   122.41
          2599.90   110.00
          2663.60   106.77
          2699.90   106.77                                  / RS VS DEPTH EQUIL REGN 02
 
 --
---       EQLNUM  EQLNUM  THPRES                                             
---       FROM    TO      VALUE                                              
-THPRES                                                                        
+--       EQLNUM  EQLNUM  THPRES
+--       FROM    TO      VALUE
+THPRES
          1       2                                         / REGN 1 TO REGN 2
-/         
+/
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
-RPTRST                                                                           
+RPTRST
          'BASIC = 2'   'PBPD'                              /
 
 -- =================================================================================================================================
@@ -302,13 +302,13 @@ RPTRST
 -- =================================================================================================================================
 SUMMARY
 --
---       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION     
+--       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION
 --
-RUNSUM                                               
+RUNSUM
 --
---       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION     
+--       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION
 --
-SEPARATE       
+SEPARATE
 --
 --       LOAD SUMMARY SECTION INCLUDE FILES
 --
@@ -326,18 +326,18 @@ SCHEDULE
 --
 --       DEFINE SCHEDULE SECTION REPORT OPTION
 --
-RPTSCHED                                                                                                                             
+RPTSCHED
          'WELLS=5'                                                             /
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
-RPTRST                                                                           
+RPTRST
          BASIC=2                                                               /
 --
---       DEFAULT TUNING PARAMETERS  
+--       DEFAULT TUNING PARAMETERS
 --
---         1       2      3        4    5      6       7       8       9   10                          
-TUNING         
+--         1       2      3        4    5      6       7       8       9   10
+TUNING
          1.0     1.0                                                           /
 /
 /
@@ -357,14 +357,14 @@ ACTIONX
         YEAR = 2018                                        /
 /
 --
---       DEFINE WELL CONNECTION MULTIPLIERS                                                  
---                                                                              
--- WELL  PI     --LOCATION--  COMPLETION                                     
--- NAME  MULT     I   J    K  FIRST LAST                                     
-WPIMULT                                                                         
+--       DEFINE WELL CONNECTION MULTIPLIERS
+--
+-- WELL  PI     --LOCATION--  COMPLETION
+-- NAME  MULT     I   J    K  FIRST LAST
+WPIMULT
 PROD1    1.391975 1*  1*   1*    1*    1*                  /
 INJ1    15.671506 1*  1*   1*    1*    10                  /
-/                                                                               
+/
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ACTIONX WPIMULT CHANGES BASED ON DATE
@@ -376,14 +376,14 @@ ACTIONX
         YEAR = 2018                                        /
 /
 --
---       DEFINE WELL CONNECTION MULTIPLIERS                                                  
---                                                                              
--- WELL  PI     --LOCATION--  COMPLETION                                     
--- NAME  MULT     I   J    K  FIRST LAST                                     
-WPIMULT                                                                         
+--       DEFINE WELL CONNECTION MULTIPLIERS
+--
+-- WELL  PI     --LOCATION--  COMPLETION
+-- NAME  MULT     I   J    K  FIRST LAST
+WPIMULT
 PROD1    0.510821 1*  1*   1*    1*    1*                  /
 INJ1    21.746769 1*  1*   1*    1*    10                  /
-/                                                                               
+/
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ACTIONX WPIMULT CHANGES BASED ON DATE
@@ -395,15 +395,15 @@ ACTIONX
         YEAR = 2019                                        /
 /
 --
---       DEFINE WELL CONNECTION MULTIPLIERS                                                  
---                                                                              
--- WELL  PI     --LOCATION--  COMPLETION                                     
--- NAME  MULT     I   J    K  FIRST LAST                                     
-WPIMULT                                                                         
+--       DEFINE WELL CONNECTION MULTIPLIERS
+--
+-- WELL  PI     --LOCATION--  COMPLETION
+-- NAME  MULT     I   J    K  FIRST LAST
+WPIMULT
 PROD2    0.391200 1*  1*   1*    1*    1*                  /
 PROD3   23.014778 1*  1*   1*    1*    1*                  /
 INJ2     0.001777 1*  1*   1*    1*    10                  /
-/                                                                               
+/
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ACTIONX WPIMULT CHANGES BASED ON DATE
@@ -415,15 +415,15 @@ ACTIONX
         YEAR = 2020                                        /
 /
 --
---       DEFINE WELL CONNECTION MULTIPLIERS                                                  
---                                                                              
--- WELL  PI     --LOCATION--  COMPLETION                                     
--- NAME  MULT     I   J    K  FIRST LAST                                     
-WPIMULT                                                                         
+--       DEFINE WELL CONNECTION MULTIPLIERS
+--
+-- WELL  PI     --LOCATION--  COMPLETION
+-- NAME  MULT     I   J    K  FIRST LAST
+WPIMULT
 PROD2    2.274251 1*  1*   1*    1*    1*                  /
 PROD3   43.401524 1*  1*   1*    1*    1*                  /
 INJ2    15.783807 1*  1*   1*    1*    10                  /
-/                                                                               
+/
 ENDACTIO
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -431,18 +431,18 @@ ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       DEFINE GROUP TREE HIERARCHY
---                                                                              
+--
 --       LOWER     HIGHER
---       GROUP     GROUP 
+--       GROUP     GROUP
 GRUPTREE
          INJE      FIELD                                  /
          PROD      FIELD                                  /
 /
 --
---       WELL SPECIFICATION DATA                                                      
---                                                                              
--- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
--- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
+--       WELL SPECIFICATION DATA
+--
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM
 WELSPECS
 PROD1    PROD       6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
 PROD2    PROD      10    4	  1*	   OIL    0.00	  STD    SHUT   YES 	0     SEG     /
@@ -451,30 +451,30 @@ INJ1     INJE       2   13   1*     WAT    0.00   STD    SHUT   YES  0     SEG  
 INJ2     INJE      12   20   1*     GAS    0.00   STD    SHUT   YES  0     SEG     /
 /
 --
---       WELL CONNECTION DATA                           
---                                                                              
--- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
--- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN   
-COMPDAT                                                                        
+--       WELL CONNECTION DATA
+--
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
+COMPDAT
 PROD1     6    3   7   7   OPEN    0    6.145  0.216  1*   0.00	 1*    'Z'   /
 PROD1     6    3   8   8   OPEN    0    9.703  0.216  1*   0.00	 1*    'Z'   /
 PROD1     6    3   9   9   OPEN    0  184.170  0.216  1*   0.00	 1*    'Z'   /
 PROD1     6    3  10  10   OPEN    0   24.709  0.216  1*   0.00	 1*    'Z'   /
-                                                                      
+
 PROD2    10    4   3   3   SHUT	  0   18.     0.216  1*   0.00	 1*    'Z'   /
 PROD2    10    4   4   4   SHUT	  0   19.     0.216  1*   0.00	 1*    'Z'   /
 PROD2    10    4   7   7   SHUT	  0   20.473  0.216  1*   0.00	 1*    'Z'   /
 PROD2    10    4   8   8   SHUT	  0   17.619  0.216  1*   0.00	 1*    'Z'   /
 PROD2    10    4   9   9   SHUT	  0   80.721  0.216  1*   0.00	 1*    'Z'   /
-PROD2    10    4  10  10   SHUT	  0   11.755  0.216  1*   0.00	 1*    'Z'   /    
-                                                                      
+PROD2    10    4  10  10   SHUT	  0   11.755  0.216  1*   0.00	 1*    'Z'   /
+
 PROD3     6   19   1   1   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
 PROD3     6   19   2   2   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
 PROD3     6   19   7   7   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
 PROD3     6   19   8   8   SHUT    0   12.441  0.216  1*	  0.00	 1*    'Z'   /
 PROD3     6   19   9   9   SHUT    0  178.588  0.216  1*	  0.00	 1*    'Z'   /
-PROD3     6   19  10  10   SHUT    0   11.149  0.216  1*	  0.00	 1*    'Z'   / 
-                                                                          
+PROD3     6   19  10  10   SHUT    0   11.149  0.216  1*	  0.00	 1*    'Z'   /
+
 INJ1      2   13   1   1   OPEN    0  138.457  0.216  1*   0.00	 1*    'Z'   /
 INJ1      2   13   2   2   OPEN    0    0.760  0.216  1*   0.00	 1*    'Z'   /
 INJ1      2   13   3   3   OPEN    0   53.129  0.216  1*   0.00	 1*    'Z'   /
@@ -482,45 +482,45 @@ INJ1      2   13   8   8   SHUT    0   20.547  0.216  1*	  0.00	 0.0   'Z'   /
 INJ1      2   13   9   9   SHUT    0   45.709  0.216  1*	  0.00	 0.0   'Z'   /
 INJ1      2   13  10  10   SHUT    0   25.267  0.216  1*	  0.00	 0.0   'Z'   /
 INJ1      2   13  11  11   SHUT    0   33.982  0.216  1*	  0.00	 0.0   'Z'   /
-                                                                      
+
 INJ2     12   20   9   9   SHUT    0  139.042  0.216  1*   0.00    1*    'Z'   /
 INJ2     12   20  10  10   SHUT    0   18.620  0.216  1*   0.00    1*    'Z'   /
 INJ2     12   20  11  11   SHUT    0   77.048  0.216  1*   0.00    1*    'Z'   /
 /
 --
 --       ASSIGN WELL CONNECTIONS TO COMPLETIONS
---                                                                                                                                                                       
--- WELL  --- LOCATION ---  COMPL                                                                                                                                                                   
--- NAME   II  JJ  K1  K2   NO.                                                                                                                                                                                                                                                                              
-COMPLUMP                                                                                                                                                                                  
+--
+-- WELL  --- LOCATION ---  COMPL
+-- NAME   II  JJ  K1  K2   NO.
+COMPLUMP
 PROD2     1*  1*   3   4    1                              / COMPLETION NO. 01
 PROD2     1*  1*   7  10    2                              / COMPLETION NO. 02
 /
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2818.4  0.3   304523	5	    1*	 1*	 1*             /
 PROD2    SHUT   RESV      0.0  0.0      0.0	5	    1*	 1*	 1*             /
 PROD3    SHUT   RESV      0.0  0.0      0.0	5	    1*	 1*	 1*             /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   116286	1*	    0	                                        /
 INJ2     WATER  SHUT      0.0	1*	    0	                                        /
 /
 --
---       WELL RFT, PLT AND SEGMENT DATA                                                                                                                                                                                                                               
---                                                                                                                                                                                                                                                              
--- WELL  RFT   PLT   SEGMENT                                                                                                                                                                                                                                   
--- NAME  DATA  DATA  DATA                                                                                                                                                                                                                                      
-WRFTPLT                                                                                                                                                                                                                                                         
+--       WELL RFT, PLT AND SEGMENT DATA
+--
+-- WELL  RFT   PLT   SEGMENT
+-- NAME  DATA  DATA  DATA
+WRFTPLT
 PROD1    YES   NO    NO                /
 INJ1     YES   NO    NO                /
 /
@@ -530,19 +530,19 @@ DATES   -- 1
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2920.9 0.3   316286	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                  
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   116286	1*	    0	                                        /
 /
 
@@ -551,41 +551,41 @@ DATES   -- 2
 /
 
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
---  NAME STAT     I   J    K  FIRST LAST                    
-WELOPEN                                                     
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
+--  NAME STAT     I   J    K  FIRST LAST
+WELOPEN
 PROD2    OPEN                                                                  /
 PROD2    OPEN     0   0    0      2    2                                       /
-/                                                             
+/
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
 WCONHIST
 PROD2    OPEN   RESV   0.000  0.000  0.000  5*                                 /
 /
 --
---       WELL RFT, PLT AND SEGMENT DATA                                                                                                                                                                                                                               
---                                                                                                                                                                                                                                                              
--- WELL  RFT   PLT   SEGMENT                                                                                                                                                                                                                                   
--- NAME  DATA  DATA  DATA                                                                                                                                                                                                                                      
-WRFTPLT                                                                                                                                                                                                                                                         
+--       WELL RFT, PLT AND SEGMENT DATA
+--
+-- WELL  RFT   PLT   SEGMENT
+-- NAME  DATA  DATA  DATA
+WRFTPLT
 PROD2    YES   NO    NO                /
 /
 
 DATES   -- 3
  2 'DEC' 2018 /
-/    
+/
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD2    SHUT   RESV   0.000  0.000  0.000  5*                                 /
 /
 
@@ -594,20 +594,20 @@ DATES   -- 4
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2818.4 0.3   304523	5	   1*	   1*	    1*             /
 PROD2    OPEN   RESV   2141.6 1.1   230232	5	   1*	   1*	    1*             /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   334756	1*	    0	                                        /
 /
 
@@ -615,20 +615,20 @@ DATES   -- 5
  1 'JAN' 2019 /
 /
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2592.2 0.3   281458	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2456.6 1.4   268627	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   350085	1*	    0	                                        /
 /
 
@@ -637,28 +637,28 @@ DATES   -- 6
 /
 
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
---  NAME STAT     I   J    K  FIRST LAST                    
-WELOPEN                                                     
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
+--  NAME STAT     I   J    K  FIRST LAST
+WELOPEN
 PROD3    OPEN                                                                  /
 PROD3    OPEN     0   0    0                                                   /
-/                                                             
+/
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD3    OPEN   RESV   0.000  0.000  0.000  5*                                 /
 /
 --
---       WELL RFT, PLT AND SEGMENT DATA                                                                                                                                                                                                                               
---                                                                                                                                                                                                                                                              
--- WELL  RFT   PLT   SEGMENT                                                                                                                                                                                                                                   
--- NAME  DATA  DATA  DATA                                                                                                                                                                                                                                      
-WRFTPLT                                                                                                                                                                                                                                                         
+--       WELL RFT, PLT AND SEGMENT DATA
+--
+-- WELL  RFT   PLT   SEGMENT
+-- NAME  DATA  DATA  DATA
+WRFTPLT
 PROD3    YES   NO    NO                /
 /
 
@@ -667,11 +667,11 @@ DATES   -- 7
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD3    SHUT   RESV   0.000  0.000  0.000  5*                                 /
 /
 
@@ -680,21 +680,21 @@ DATES   -- 8
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2954.7 0.4   324214	5     1*	    1*	1*              /
 PROD2    OPEN   RESV   2154.5 1.3   241065	5     1*	    1*	1*              /
 PROD3    OPEN   RESV   1648.9 0.1   183164	5     1*	    1*	1*              /
-/   
+/
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
    INJ1   GAS   OPEN   548443	1*	    0	                                        /
 /
 
@@ -703,21 +703,21 @@ DATES   -- 9
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2726.6 0.4   303588	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2383.2 1.4   266661	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1544.7 0.1   171587	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   541836	1*	    0	                                        /
 /
 
@@ -726,25 +726,25 @@ DATES   -- 10
 /
 
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
---  NAME STAT     I   J    K  FIRST LAST                    
-WELOPEN                                                     
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
+--  NAME STAT     I   J    K  FIRST LAST
+WELOPEN
 INJ2     OPEN                                                                  /
 INJ2     OPEN     0   0    0                                                   /
-/  
+/
 -- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 WCONHIST
   'INJ2'  'OPEN'      'RESV'      0.000      0.000      0.000  5* /
 /
 -- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --
---       WELL RFT, PLT AND SEGMENT DATA                                                                                                                                                                                                                               
---                                                                                                                                                                                                                                                              
--- WELL  RFT   PLT   SEGMENT                                                                                                                                                                                                                                   
--- NAME  DATA  DATA  DATA                                                                                                                                                                                                                                      
-WRFTPLT                                                                                                                                                                                                                                                         
+--       WELL RFT, PLT AND SEGMENT DATA
+--
+-- WELL  RFT   PLT   SEGMENT
+-- NAME  DATA  DATA  DATA
+WRFTPLT
 INJ2     YES   NO    NO                /
 /
 
@@ -763,21 +763,21 @@ DATES   -- 12
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2934.7 0.4   335327	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2368.1 1.5   275255	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1885.1 0.1   219169	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1      GAS   OPEN   629751	1*	     0	                                     /
 INJ2      WATER OPEN     5500	1*	     0	                                     /
 /
@@ -787,21 +787,21 @@ DATES   -- 13
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2890.5 0.4   326099	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2412.4 1.5   286896	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1837.0 0.1   219586	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   632581	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -811,22 +811,22 @@ DATES   -- 14
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2716.3  0.4   311588	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2278.3  1.5   274808	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1891.9  0.1   228761	5	   1*	   1*	   1*              /
 /
 
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   615157	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -836,21 +836,21 @@ DATES   -- 15
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2611.6    0.4   304379	5	   1*	   1*	   1*           /
 PROD2    OPEN   RESV   2005.5    1.3   241897	5	   1*	   1*	   1*           /
 PROD3    OPEN   RESV   1852.5    0.1   231799	5	   1*	   1*	   1*           /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   578075	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -860,21 +860,21 @@ DATES   -- 16
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2627.6  0.4   317393	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2190.1  1.4   270902	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1805.6  0.1   228744	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   617039	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -883,11 +883,11 @@ DATES   -- 17
  1 'SEP' 2019 /
 /
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
---  NAME STAT     I   J    K  FIRST LAST                    
-WELOPEN                                                     
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
+--  NAME STAT     I   J    K  FIRST LAST
+WELOPEN
 INJ1     SHUT     0   0    1                                                   /
 INJ1     SHUT     0   0    2                                                   /
 INJ1     SHUT     0   0    3                                                   /
@@ -898,32 +898,32 @@ INJ1     OPEN     0   0   10                                                   /
 INJ1     OPEN     0   0   11                                                   /
 /
 --
---       WELL CONNECTION DATA                           
---                                                                              
--- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
--- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN   
--- COMPDAT                                                                           
+--       WELL CONNECTION DATA
+--
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
+-- COMPDAT
 -- INJ1       2  13   8   8   OPEN   0    20.547  0.216  1*	   0.00	 0.0   'Z'   /
 -- INJ1       2  13   9   9   OPEN   0    45.709  0.216  1*	   0.00	 0.0   'Z'   /
 -- INJ1       2  13  10  10   OPEN   0    25.267  0.216  1*	   0.00	 0.0   'Z'   /
 -- INJ1       2  13  11  11   OPEN   0    33.982  0.216  1*	   0.00	 0.0   'Z'   /
 -- /
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2797.7  0.4   340138	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2375.3  1.5   293396	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1634.3  0.1   210611	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   644145	1*	    0	                                        /
 INJ2     WAT    OPEN     5500	1*	    0	                                        /
 /
@@ -933,29 +933,29 @@ DATES   -- 18
 /
 
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
---  NAME STAT     I   J    K  FIRST LAST                    
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
+--  NAME STAT     I   J    K  FIRST LAST
 WELOPEN
 PROD2    OPEN     0   0    0     1     1                                       /
 /
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2635.2  0.4   323187	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2107.4  1.4   265991	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1660.6  0.1   221528	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                        
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   610706	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -964,54 +964,54 @@ DATES   -- 19
  1 'NOV' 2019 /
 /
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2928.6  0.4   368314	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2091.8  1.4   260616	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1921.0  0.1   263232	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   692162	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
 
 DATES   -- 20
  1 'DEC' 2019 /
-/ 
+/
 
 --
---       WELL CONNECTION DATA (MUST USE COMPDAT AS CONNECTION DATA IS TIME DEPENDENT AND CONNECTIONS PREVIOUSLY OPEN 01-OCT-2019)                          
---                                                                              
--- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
--- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN    
+--       WELL CONNECTION DATA (MUST USE COMPDAT AS CONNECTION DATA IS TIME DEPENDENT AND CONNECTIONS PREVIOUSLY OPEN 01-OCT-2019)
+--
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
 COMPDAT
 PROD2     10   4   3   3   OPEN   0     18.    0.216  1*    0.00	 0.0   'Z'   /
 PROD2     10   4   4   4   OPEN   0     19.    0.216  1*    0.00	 0.0   'Z'   /
-/ 
+/
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2734.1  0.4   355985	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2145.2  1.4   270217	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1659.5  0.1   241454	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN   667655	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -1021,21 +1021,21 @@ DATES   -- 21
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2564.1  0.4   345857	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2238.8  1.5   290096	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1702.3  0.1   265675	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN   701627	1*	    0	                                        /
 /
@@ -1045,21 +1045,21 @@ DATES   -- 22
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2721.1  0.4   387240	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2287.4  1.5   297922	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1563.2  0.1   248259	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN   733421	1*	    0	                                        /
 /
@@ -1069,21 +1069,21 @@ DATES   -- 23
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2809.4  0.4   430794	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2371.1  1.6   320048	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1581.1  0.1   251108	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN   801950	1*	    0	                                        /
 /
@@ -1093,21 +1093,21 @@ DATES   -- 24
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2967.9  0.5   482927	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2495.7  1.7   347489	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1817.7  0.1   302369	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN   932786	1*	    0	                                        /
 /
@@ -1117,21 +1117,21 @@ DATES   -- 25
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2610.0  0.4   459698	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2165.6  1.5   314610	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1840.8  0.2   326039	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN   900347	1*	    0	                                        /
 /
@@ -1141,21 +1141,21 @@ DATES   -- 26
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2622.8  0.5   498021	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2438.3  1.7   364209	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1861.1  0.2   360941	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN  1023171	1*	    0	                                        /
 /
@@ -1164,21 +1164,21 @@ DATES   -- 27
  1 'JLY' 2020 /
 /
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2967.8  0.5   598515	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2491.3  1.7   382260	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1811.9  0.3   375071	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN  1155847	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -1186,23 +1186,23 @@ INJ2     WATER  OPEN     5500	1*	    0	                                        /
 DATES   -- 28
  1 'AUG' 2020 /
 /
- 
+
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2864.7  0.5   625656	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2274.9  1.6   351369	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1795.9  0.4   397800	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN  1174825	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -1212,21 +1212,21 @@ DATES   -- 29
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2984.5  0.6   770118	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2259.1  1.6   359512	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1745.2  0.6   409558	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN  1339188	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -1236,21 +1236,21 @@ DATES   -- 30
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2590.2  0.7   856412	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2292.8  1.6   370567	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1890.4  1.2   447869	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN  1474848	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -1260,21 +1260,21 @@ DATES   -- 31
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2874.3 19.1  1201249	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2023.8  1.4   341011	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1648.5  2.4   403792	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN  1746051	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -1284,21 +1284,21 @@ DATES   -- 32
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2901.2  84.0  1633340	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2270.9   1.6   402928	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1696.0   8.1   432013	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     GAS    OPEN  2268281	1*	    0	                                        /
 INJ2     WATER  OPEN     5500	1*	    0	                                        /
 /
@@ -1308,21 +1308,21 @@ DATES   -- 33
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2990.4   96.0  1559090	5	   1*	   1*	   1*           /
 PROD2    OPEN   RESV   2288.4    1.7   425340	5	   1*	   1*	   1*           /
 PROD3    OPEN   RESV   1973.7   26.7   498773	5	   1*	   1*	   1*           /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN  2283203	1*	    0	                                        /
 /
@@ -1332,21 +1332,21 @@ DATES   -- 34
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2992.8  100.2  1407111	5	   1*	   1*	   1*           /
 PROD2    OPEN   RESV   2392.3    1.9   496455	5	   1*	   1*	   1*           /
 PROD3    OPEN   RESV   1858.6   88.8   494370	5	   1*	   1*	   1*           /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN  2197936	1*	    0	                                        /
 /
@@ -1356,21 +1356,21 @@ DATES   -- 35
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2820.4  110.5  1256212	5	   1*	   1*	   1*           /
 PROD2    OPEN   RESV   2085.3    1.7   466288	5	   1*	   1*	   1*           /
 PROD3    OPEN   RESV   1516.1  120.8   491574	5	   1*	   1*	   1*           /
-/ 
+/
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN  2014074	1*	    0	                                        /
 /
@@ -1380,21 +1380,21 @@ DATES   -- 36
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2629.4  120.8  1181974	5	   1*	   1*	   1*           /
 PROD2    OPEN   RESV   2289.3    3.3   557153	5	   1*	   1*	   1*           /
 PROD3    OPEN   RESV   1760.0  157.1   672616	5	   1*	   1*	   1*           /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN  2211744	1*	    0	                                        /
 /
@@ -1404,21 +1404,21 @@ DATES   -- 37
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2905.9  141.0  1310786	5	   1*	   1*	   1*           /
 PROD2    OPEN   RESV   2214.9   27.6   585799	5	   1*	   1*	   1*           /
 PROD3    OPEN   RESV   1817.5  166.3   787580	5	   1*	   1*	   1*           /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	    0	                                        /
 INJ2     GAS    OPEN  2484165	1*	    0	                                        /
 /
@@ -1428,21 +1428,21 @@ DATES   -- 38
 /
 
 --
---       WELL HISTORICAL PRODUCTION CONTROLS                                                      
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP  
--- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES 
-WCONHIST                                                                                                                          
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
+WCONHIST
 PROD1    OPEN   RESV   2840.8 155.1  1291719	5	   1*	   1*	   1*              /
 PROD2    OPEN   RESV   2455.6  58.3   701612	5	   1*	   1*	   1*              /
 PROD3    OPEN   RESV   1996.3 185.2   923656	5	   1*	   1*	   1*              /
 /
 --
---       WELL HISTORICAL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL           
--- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE             
-WCONINJH                                                                     
+--       WELL HISTORICAL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
+-- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
+WCONINJH
 INJ1     WATER  OPEN     5500	1*	     0	                                      /
 INJ2     GAS    OPEN  2716987	1*	     0	                                      /
 /
@@ -1450,9 +1450,9 @@ INJ2     GAS    OPEN  2716987	1*	     0	                                      /
 DATES   -- 39
  1 'JLY' 2021 /
 /
-         
-END      
---                                                                              
+
+END
+--
 -- *********************************************************************************************************************************
--- END OF FILE                                                                  
+-- END OF FILE
 -- *********************************************************************************************************************************

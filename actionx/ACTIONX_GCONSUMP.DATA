@@ -2,15 +2,15 @@
 -- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
-  
+
 -- Copyright (C) 2021 Equinor
-                                                                           
+
 -- This model is built from the base case for model2. This case has standard wells, 3 producers and 2 injectors
 -- Well OP03  has modified completions compared to the base case model
 -- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
 --
--- The model tests the use of the ACTIONX and the GCONSUMP keyword to consume fuel at various stages. In addition, the GCONPROD 
--- keyword is employed to control gas production. This run is a prediction depletion case, with no pressure support from the 
+-- The model tests the use of the ACTIONX and the GCONSUMP keyword to consume fuel at various stages. In addition, the GCONPROD
+-- keyword is employed to control gas production. This run is a prediction depletion case, with no pressure support from the
 -- producers or injectors, and with the field converted to a gas field operation with the ACTIONX ACT-02 block.
 -- ( 1) Production wells with preferred phases.
 --      OP01  - OIL

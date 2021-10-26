@@ -2,9 +2,9 @@
 -- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
-  
+
 -- Copyright (C) 2021 Equinor
-                                                                           
+
 -- This model is built from the base case for model2. This case has standard wells, 3 producers and 2 injectors
 -- Well OP03  has modified completions compared to the base case model
 -- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
@@ -125,9 +125,9 @@ VFPPDIMS
 -- MISCELLEOUS OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
---       ACTION    ACTION   ACTION   ACTION                                              
---       MXACTNS   MXLINES  MXCHARS  MXSTATMS                                               
-ACTDIMS                                                                         
+--       ACTION    ACTION   ACTION   ACTION
+--       MXACTNS   MXLINES  MXCHARS  MXSTATMS
+ACTDIMS
          4         50       80       4                                         /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- INPUT AND OUTPUT OPTIONS
@@ -221,7 +221,7 @@ PROPS
 --
 --       SWITCH OFF ECHOING OF INPUT FILES
 --
-NOECHO                                                                         
+NOECHO
 --
 --       LOAD PROPS SECTION INCLUDE FILES
 --
@@ -245,9 +245,9 @@ REGIONS
 --
 INCLUDE
          '$MODEL2/include/eqlnum.grdecl'                   /
-INCLUDE                                                    
+INCLUDE
          '$MODEL2/include/fipnum.grdecl'                   /
-INCLUDE                                                    
+INCLUDE
          '$MODEL2/include/satnum.grdecl'                   /
 
 -- =================================================================================================================================
@@ -257,36 +257,36 @@ INCLUDE
 -- =================================================================================================================================
 SOLUTION
 --
---       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N           
---       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT         
-EQUIL                                                                        
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT
+EQUIL
          2561.59 268.55  2645.21 0.00  2561.59 0.00   1    0    0              /
          2584.20 268.71  2645.21 0.00  2584.20 0.00   5    0    0              /
 --
---       DEPTH    RS                                                 
---                MSCF/STB                                                  
---       ------   --------                                                               
-RSVD            
+--       DEPTH    RS
+--                MSCF/STB
+--       ------   --------
+RSVD
          2561.59   122.30
          2597.00   110.00
          2660.70   106.77
          2697.00   106.77                                  / RS VS DEPTH EQUIL REGN 01
---       ------   --------        
+--       ------   --------
          2584.20   122.41
          2599.90   110.00
          2663.60   106.77
          2699.90   106.77                                  / RS VS DEPTH EQUIL REGN 02
 
 --
---       EQLNUM  EQLNUM  THPRES                                             
---       FROM    TO      VALUE                                              
-THPRES                                                                        
+--       EQLNUM  EQLNUM  THPRES
+--       FROM    TO      VALUE
+THPRES
          1       2                                         / REGN 1 TO REGN 2
-/         
+/
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
-RPTRST                                                                           
+RPTRST
          'BASIC=2'   'PBPD'                                /
 
 -- =================================================================================================================================
@@ -296,13 +296,13 @@ RPTRST
 -- =================================================================================================================================
 SUMMARY
 --
---       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION     
+--       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION
 --
-RUNSUM                                               
+RUNSUM
 --
---       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION     
+--       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION
 --
-SEPARATE       
+SEPARATE
 --
 --       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
 --
@@ -317,7 +317,7 @@ SCHEDULE
 --
 --       DEFINE SCHEDULE SECTION REPORT OPTION
 --
-RPTSCHED                                                                                                                             
+RPTSCHED
          'WELLS=5'                                                             /
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
@@ -328,19 +328,19 @@ RPTSCHED
 INCLUDE
          '$MODEL2/include/D-1.Ecl'                                             /
 --
---       DEFINE GROUP TREE HIERARCHY                              
---                                                                              
---       LOWER     HIGHER                                        
---       GROUP     GROUP 
+--       DEFINE GROUP TREE HIERARCHY
+--
+--       LOWER     HIGHER
+--       GROUP     GROUP
 GRUPTREE
          INJE      FIELD                                  /
          PROD      FIELD                                  /
 /
 --
---       WELL SPECIFICATION DATA                                                      
---                                                                              
--- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
--- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
+--       WELL SPECIFICATION DATA
+--
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM
 WELSPECS
 OP01     PROD       6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
 OP02     PROD      10    4	  1*	   OIL    0.00	  STD    SHUT   YES 	0     SEG     /
@@ -349,30 +349,30 @@ GI01     INJE       2   13   1*     GAS    0.00   STD    SHUT   YES  0     SEG  
 WI01     INJE      12   20   1*     WAT    0.00   STD    SHUT   YES  0     SEG     /
 /
 --
---       WELL CONNECTION DATA                           
---                                                                              
--- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
--- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN   
-COMPDAT                                                                        
+--       WELL CONNECTION DATA
+--
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
+COMPDAT
 OP01      6    3   7   7   SHUT    0    6.145  0.216  1*   0.00	 1*    'Z'   /
 OP01      6    3   8   8   SHUT    0    9.703  0.216  1*   0.00	 1*    'Z'   /
 OP01      6    3   9   9   SHUT    0  184.170  0.216  1*   0.00	 1*    'Z'   /
 OP01      6    3  10  10   SHUT    0   24.709  0.216  1*   0.00	 1*    'Z'   /
-                                                                   
+
 OP02     10    4   3   3   SHUT	  0   18.     0.216  1*   0.00	 1*    'Z'   /
 OP02     10    4   4   4   SHUT	  0   19.     0.216  1*   0.00	 1*    'Z'   /
 OP02     10    4   7   7   SHUT	  0   20.473  0.216  1*   0.00	 1*    'Z'   /
 OP02     10    4   8   8   SHUT	  0   17.619  0.216  1*   0.00	 1*    'Z'   /
 OP02     10    4   9   9   SHUT	  0   80.721  0.216  1*   0.00	 1*    'Z'   /
-OP02     10    4  10  10   SHUT	  0   11.755  0.216  1*   0.00	 1*    'Z'   /    
-                                                                    
+OP02     10    4  10  10   SHUT	  0   11.755  0.216  1*   0.00	 1*    'Z'   /
+
 OP03      6   19   1   1   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
 OP03      6   19   2   2   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
 OP03      6   19   7   7   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
 OP03      6   19   8   8   SHUT    0   12.441  0.216  1*	  0.00	 1*    'Z'   /
 OP03      6   19   9   9   SHUT    0  178.588  0.216  1*	  0.00	 1*    'Z'   /
-OP03      6   19  10  10   SHUT    0   11.149  0.216  1*	  0.00	 1*    'Z'   / 
-                                                                       
+OP03      6   19  10  10   SHUT    0   11.149  0.216  1*	  0.00	 1*    'Z'   /
+
 GI01      2   13   1   1   SHUT    0  138.457  0.216  1*   0.00	 1*    'Z'   /
 GI01      2   13   2   2   SHUT    0    0.760  0.216  1*   0.00	 1*    'Z'   /
 GI01      2   13   3   3   SHUT    0   53.129  0.216  1*   0.00	 1*    'Z'   /
@@ -380,17 +380,17 @@ GI01      2   13   8   8   SHUT    0   20.547  0.216  1*	  0.00	 1*    'Z'   /
 GI01      2   13   9   9   SHUT    0   45.709  0.216  1*	  0.00	 1*    'Z'   /
 GI01      2   13  10  10   SHUT    0   25.267  0.216  1*	  0.00	 1*    'Z'   /
 GI01      2   13  11  11   SHUT    0   33.982  0.216  1*	  0.00	 1*    'Z'   /
-                                                                   
+
 WI01     12   20   9   9   SHUT    0  139.042  0.216  1*   0.00    1*    'Z'   /
 WI01     12   20  10  10   SHUT    0   18.620  0.216  1*   0.00    1*    'Z'   /
 WI01     12   20  11  11   SHUT    0   77.048  0.216  1*   0.00    1*    'Z'   /
 /
 --
 --       ASSIGN WELL CONNECTIONS TO COMPLETIONS
---                                                                                                                                                                       
--- WELL  --- LOCATION ---  COMPL                                                                                                                                                                   
--- NAME   II  JJ  K1  K2   NO.                                                                                                                                                                                                                                                                              
-COMPLUMP                                                                                                                                                                                  
+--
+-- WELL  --- LOCATION ---  COMPL
+-- NAME   II  JJ  K1  K2   NO.
+COMPLUMP
 OP02      1*  1*   3   4    1                              / COMPLETION NO. 01
 OP02      1*  1*   7  10    2                              / COMPLETION NO. 02
 
@@ -398,15 +398,15 @@ OP03      1*  1*   1   2    1                              / COMPLETION NO. 01
 OP03      1*  1*   7  10    2                              / COMPLETION NO. 02
 /
 --
---       WELL PRODUCTION WELL CONTROLS                                                     
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
-WCONPROD                                                                    
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
 OP01     SHUT   ORAT   750.0  1*     1*    1*     1*     200.0  12   5         /
 OP02     SHUT   ORAT   500.0  1*     1*    1*     1*     200.0  12   5         /
 OP03     SHUT   ORAT   750.0  1*     1*    1*     1*     200.0  12   5         /
-/                                                                               
+/
 --
 --       WELL INJECTION CONTROLS
 --
@@ -417,22 +417,22 @@ GI01     GAS    SHUT   GRUP 200E3   1*     1*     1*    1*                     /
 WI01     WAT    SHUT   GRUP 4.0E3   1*     1*     1*    1*                     /
 /
 --
---       WELL RFT, PLT AND SEGMENT DATA                                                                                                                                                                                                                               
---                                                                                                                                                                                                                                                              
--- WELL  RFT   PLT   SEGMENT                                                                                                                                                                                                                                   
--- NAME  DATA  DATA  DATA                                                                                                                                                                                                                                      
-WRFTPLT                                                                                                                                                                                                                                                         
+--       WELL RFT, PLT AND SEGMENT DATA
+--
+-- WELL  RFT   PLT   SEGMENT
+-- NAME  DATA  DATA  DATA
+WRFTPLT
 OP01     YES   NO    NO                /
 /
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
---  NAME STAT     I   J    K  FIRST LAST                    
-WELOPEN                                                     
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
+--  NAME STAT     I   J    K  FIRST LAST
+WELOPEN
 OP01     OPEN                                                                  /
 OP01     OPEN     0   0    0                                                   /
-/                                                             
+/
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ACTIONX WCONINJE - INJECT 100E3 M3/DAY OF GAS AND NO WATER
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -452,14 +452,14 @@ GI01     GAS    OPEN   RATE 100E3   1*     275    1*    1*                     /
 WI01     WAT    SHUT   GRUP 4.0E3   1*     1*     1*    1*                     /
 /
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
---  NAME STAT     I   J    K  FIRST LAST                    
-WELOPEN                                                     
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
+--  NAME STAT     I   J    K  FIRST LAST
+WELOPEN
 GI01     OPEN                                                                  /
 GI01     OPEN     0   0    0                                                   /
-/                                                             
+/
 
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -480,14 +480,14 @@ GI01     GAS    OPEN   RATE 150E3   1*     275    1*    1*                     /
 WI01     WAT    OPEN   RATE 3.0E3   1*     1*     1*    1*                     /
 /
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
---  NAME STAT     I   J    K  FIRST LAST                    
-WELOPEN                                                     
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
+--  NAME STAT     I   J    K  FIRST LAST
+WELOPEN
 WI01     OPEN                                                                  /
 WI01     OPEN     0   0    0                                                   /
-/                                                             
+/
 
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -534,147 +534,147 @@ WI01     WAT    OPEN   RATE 4.0E3   1*     1*     1*    1*                     /
 ENDACTIO
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- SCHEDULE SECTION - 2018-01-01                                   
+-- SCHEDULE SECTION - 2018-01-01
 -- ---------------------------------------------------------------------------------------------------------------------------------
-RPTSCHED                                                                                                                             
+RPTSCHED
          'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
-         
-DATES                                                                           
-         1  JAN   2018  /                                                                
-/                                                                               
-                                                                                
-RPTSCHED                                                                                                                             
-         'NOTHING'                                                             /                                                    
-                                           
-DATES                                                                                                                                                                                                                          
+
+DATES
+         1  JAN   2018  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
          1  FEB   2018  /
 /
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
 --  NAME STAT     I   J    K  FIRST LAST
-WELOPEN                                                     
+WELOPEN
 OP02     OPEN                                                                  /
 OP02     OPEN     0   0    0    2    2                                         /
-/ 
+/
 
-DATES                                                                                                                                                                                                                          
-         1  MAR   2018  / 
-/ 
+DATES
+         1  MAR   2018  /
+/
 --
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
---                                                                              
---  WELL WELL   --LOCATION--  COMPLETION                                     
---  NAME STAT     I   J    K  FIRST LAST                    
-WELOPEN                                                     
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--  COMPLETION
+--  NAME STAT     I   J    K  FIRST LAST
+WELOPEN
 OP03     OPEN                                                                  /
 OP03     OPEN     0   0    0    2    2                                         /
-/ 
+/
 
-DATES    
-         1  APR   2018  /                  
-         1  MAY   2018  /                  
-         1  JUN   2018  /                  
-         1  JLY   2018  /                  
-         1  AUG   2018  /                  
-         1  SEP   2018  /                  
-         1  OCT   2018  /                  
-         1  NOV   2018  /                  
-         1  DEC   2018  /                  
+DATES
+         1  APR   2018  /
+         1  MAY   2018  /
+         1  JUN   2018  /
+         1  JLY   2018  /
+         1  AUG   2018  /
+         1  SEP   2018  /
+         1  OCT   2018  /
+         1  NOV   2018  /
+         1  DEC   2018  /
 /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- SCHEDULE SECTION - 2019-01-01                                   
+-- SCHEDULE SECTION - 2019-01-01
 -- ---------------------------------------------------------------------------------------------------------------------------------
-RPTSCHED                                                                                                                             
+RPTSCHED
          'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
 
-DATES                                                                           
-         1  JAN   2019  /                                                                
-/                                                                               
-                                                                                
-RPTSCHED                                                                                                                             
-         'NOTHING'                                                             /                                                    
-                                           
-DATES                                                                                                                                                                                                                          
-         1  FEB   2019  /                  
-         1  MAR   2019  /                  
-         1  APR   2019  /                  
-         1  MAY   2019  /                  
-         1  JUN   2019  /                  
-         1  JLY   2019  /                  
-         1  AUG   2019  /                  
-         1  SEP   2019  /                  
-         1  OCT   2019  /                  
-         1  NOV   2019  /                  
-         1  DEC   2019  /                  
+DATES
+         1  JAN   2019  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2019  /
+         1  MAR   2019  /
+         1  APR   2019  /
+         1  MAY   2019  /
+         1  JUN   2019  /
+         1  JLY   2019  /
+         1  AUG   2019  /
+         1  SEP   2019  /
+         1  OCT   2019  /
+         1  NOV   2019  /
+         1  DEC   2019  /
 /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- SCHEDULE SECTION - 2020-01-01                                   
+-- SCHEDULE SECTION - 2020-01-01
 -- ---------------------------------------------------------------------------------------------------------------------------------
-RPTSCHED                                                                                                                             
+RPTSCHED
          'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
 
-DATES                                                                           
-         1  JAN   2020  /                                                                
-/                                                                               
-                                                                                
-RPTSCHED                                                                                                                             
-         'NOTHING'                                                             /                                                    
-                                           
-DATES                                                                                                                                                                                                                          
-         1  FEB   2020  /                  
-         1  MAR   2020  /                  
-         1  APR   2020  /                  
-         1  MAY   2020  /                  
-         1  JUN   2020  /                  
-         1  JLY   2020  /                  
-         1  AUG   2020  /                  
-         1  SEP   2020  /                  
-         1  OCT   2020  /                  
-         1  NOV   2020  /                  
-         1  DEC   2020  /                  
+DATES
+         1  JAN   2020  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2020  /
+         1  MAR   2020  /
+         1  APR   2020  /
+         1  MAY   2020  /
+         1  JUN   2020  /
+         1  JLY   2020  /
+         1  AUG   2020  /
+         1  SEP   2020  /
+         1  OCT   2020  /
+         1  NOV   2020  /
+         1  DEC   2020  /
 /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- SCHEDULE SECTION - 2021-01-01                                   
+-- SCHEDULE SECTION - 2021-01-01
 -- ---------------------------------------------------------------------------------------------------------------------------------
-RPTSCHED                                                                                                                             
+RPTSCHED
          'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
 
-DATES                                                                           
-         1  JAN   2021  /                                                                
-/                                                                               
-                                                                                
-RPTSCHED                                                                                                                             
-         'NOTHING'                                                             /                                                    
-                                           
-DATES                                                                                                                                                                                                                          
-         1  FEB   2021  /                  
-         1  MAR   2021  /                  
-         1  APR   2021  /                  
-         1  MAY   2021  /                  
-         1  JUN   2021  /                  
-         1  JLY   2021  /                  
-         1  AUG   2021  /                  
-         1  SEP   2021  /                  
-         1  OCT   2021  /                  
-         1  NOV   2021  /                  
-         1  DEC   2021  /                  
+DATES
+         1  JAN   2021  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2021  /
+         1  MAR   2021  /
+         1  APR   2021  /
+         1  MAY   2021  /
+         1  JUN   2021  /
+         1  JLY   2021  /
+         1  AUG   2021  /
+         1  SEP   2021  /
+         1  OCT   2021  /
+         1  NOV   2021  /
+         1  DEC   2021  /
 /
 --
 --       FINAL REPORT AND RESTART AT YEAR END
 --
-RPTSCHED                                                                                                                             
+RPTSCHED
          'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
 
-RPTRST                                                                           
+RPTRST
          'BASIC=2'                                                             /
 
-DATES                                                                           
-         31 DEC   2021  /                                                                
-/                                                                                      
-END      
---                                                                              
+DATES
+         31 DEC   2021  /
+/
+END
+--
 -- *********************************************************************************************************************************
--- END OF FILE                                                                  
+-- END OF FILE
 -- *********************************************************************************************************************************
