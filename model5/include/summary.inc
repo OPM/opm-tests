@@ -142,6 +142,9 @@ WWPRH
 WGLIR
  'B-*' 'C-*' /
 
+WALQ
+ 'B-*' 'C-*' /
+
 -- Production cumulatives
 WOPT
  'B-*' 'C-*' /
