@@ -2,9 +2,9 @@
 -- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
-  
+
 -- Copyright (C) 2021 Equinor
-                                                                           
+
 -- This model is built from the base case for model2. This case has standard wells, 3 producers and 2 injectors
 -- Well OP03  has modified completions compared to the base case model
 -- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
@@ -15,10 +15,10 @@
 --      OP01  - OIL
 --      OP02  - OIL
 --      OP03  - OIL (Completion 2)
--- ( 2) Injection wells with preferred phases.                      
+-- ( 2) Injection wells with preferred phases.
 --      GI01 - GAS (not active)
---      WI01 - WAT (not active)           
--- ( 3) UDQ              - Variables and calculations to calculate cut back rates 
+--      WI01 - WAT (not active)
+-- ( 3) UDQ              - Variables and calculations to calculate cut back rates
 -- ( 4) ACTIONX_WCONPROD - OP01 GOR >= 150 m3/m3 cut back gas rate by UDA variable
 -- ( 5) ACTIONX_WCONPROD - OP02 GOR >= 150 m3/m3 cut back gas rate by UDA variable.
 -- ( 6) ACTIONX_WCONPROD - OP03 GOR >= 150 m3/m3 cut back gas rate by UDA variable.
@@ -134,16 +134,16 @@ ACTDIMS
          5         50       100      4                                         /
 --
 --       USER DEFINED ARGUMENT DIMENSIONS
---       NO.     NOT     TOTAL                         
---       ARGS    USED    UDQ                     
-UDADIMS                                             
+--       NO.     NOT     TOTAL
+--       ARGS    USED    UDQ
+UDADIMS
          3       1*      1*                                                    /
 --
 --       USER DEFINED ARGUMENT DIMENSIONS FACILITY
 --       MAX     MAX     MAX    MAX    MAX    MAX   MAX   MAX   MAX  MAX    RAND
 --       FUNCS   ITEMS   CONNS  FIELD  GROUP  REGS  SEGTM WELL  AQUF BLCKS  OPT
-UDQDIMS                                             
-         16      16      0      4      0      0     0     1     0    0      N  /         
+UDQDIMS
+         16      16      0      4      0      0     0     1     0    0      N  /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- INPUT AND OUTPUT OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -478,9 +478,9 @@ UDQ
 ASSIGN      FU_CUTBK  0.900                                 / Cut Back Ratio
 UNITS       FU_CUTBK  Constant                              /
 ASSIGN      FU_EPSL   1E-10                                 / Value to avoid diving by zero errors
-UNITS       FU_EPSL   Constant                              /    
-ASSIGN      FU_GOR    150.0                                 / GOR limit applied to all wells              
-UNITS       FU_GOR    SM3/SM3                               /   
+UNITS       FU_EPSL   Constant                              /
+ASSIGN      FU_GOR    150.0                                 / GOR limit applied to all wells
+UNITS       FU_GOR    SM3/SM3                               /
 --
 -- OPERATOR VARIABLE  EXPRESSION
 --
@@ -488,7 +488,7 @@ DEFINE      WU_WOPR   WOPR * FU_CUTBK                       / Calculate New Gas 
 UPDATE      WU_WOPR   ON                                    /
 UNITS       WU_WOPR   SM3/DAY                               /
 
-DEFINE      FU_GASFL  0                                     / Gas Field Flag Set to Off                    
+DEFINE      FU_GASFL  0                                     / Gas Field Flag Set to Off
 UNITS       FU_GASFL  Constant                              /
 
 /  DEFINE END OF USER DEFINED QUANTITY SECTION
@@ -504,13 +504,13 @@ ACTIONX
         YEAR >= 2019                                       /
 /
 --
---       WELL PRODUCTION WELL CONTROLS                                                     
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
-WCONPROD                                                                    
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
 OP01     OPEN   ORAT WU_WOPR  1*     1*    1*    1*      150   1*    5      1* /
-/                                                                               
+/
 
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -524,13 +524,13 @@ ACTIONX
         YEAR >= 2019                                       /
 /
 --
---       WELL PRODUCTION WELL CONTROLS                                                     
+--       WELL PRODUCTION WELL CONTROLS
 --
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
-WCONPROD                                                                    
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
 OP02     OPEN   ORAT WU_WOPR  1*     1*    1*    1*      150   1*    5      1* /
-/                                                                               
+/
 
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -544,11 +544,11 @@ ACTIONX
         YEAR >= 2019                                       /
 /
 --
---       WELL PRODUCTION WELL CONTROLS                                                     
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
-WCONPROD                                                                    
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
 OP03     OPEN   ORAT WU_WOPR  1*     1*    1*    1*      150   1*    5      1* /
 /
 
@@ -563,12 +563,12 @@ ACTIONX
 /
 --
 -- DEFINE START OF USER DEFINED QUANTITY SECTION
---     
+--
 UDQ
 --
 -- OPERATOR VARIABLE  EXPRESSION
---        
-DEFINE      FU_GASFL  1                                    / Gas Field Flag Set to On   
+--
+DEFINE      FU_GASFL  1                                    / Gas Field Flag Set to On
 
 /  DEFINE END OF USER DEFINED QUANTITY SECTION
 --
@@ -589,7 +589,7 @@ OP01     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   20   5         /
 OP02     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   20   5         /
 OP03     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   20   5         /
 /
-                                 
+
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ACTIONX GCONPROD - GAS FIELD MINIMUM GAS RATE OF 2.0E6 M3/DAY THEN SHUT-IN ALL WELLS AND EXIT
@@ -612,7 +612,7 @@ WCONPROD
 --
 -- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
 -- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
-WCONINJE              
+WCONINJE
 'GI*'    GAS    SHUT   GRUP  1*     1*     1*     1*    1*                     /
 'WI*'    WAT    SHUT   GRUP  1*     1*     1*     1*    1*                     /
 /

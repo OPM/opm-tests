@@ -2,24 +2,24 @@
 -- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
-  
+
 -- Copyright (C) 2021 Equinor
-                                                                           
+
 -- This simulation is based on the data given in Ninth SPE Comparative Solution Project:
 --
 --    "A Reexamination of Black-Oil Simulation", by J.E. Killough, Journal of Petroleum Technology, 1995
 --
 -- A data set from one of the participants was supplied to the participants of SPE 9. Some of the information in this
--- data set has been used here as well. The origin of information or data used in this simulation is specified in comments. 
+-- data set has been used here as well. The origin of information or data used in this simulation is specified in comments.
 -- This does not include data whose origin - should be obvious to the reader.
 --
--- Note: (1) This version users a Cartesian Regular Grid; however, OPM Flow does not have an OLDTRAN option that is normally used 
---           with this type of grid. This means that OPM Flow users the NEWTRAN transmissibility calculation instead, that is 
---           normally used to calculate the transmissibilities Corner Point Geometry grids. Thus, to compare with the commercial 
+-- Note: (1) This version users a Cartesian Regular Grid; however, OPM Flow does not have an OLDTRAN option that is normally used
+--           with this type of grid. This means that OPM Flow users the NEWTRAN transmissibility calculation instead, that is
+--           normally used to calculate the transmissibilities Corner Point Geometry grids. Thus, to compare with the commercial
 --           simulator the NEWTRAN keyword should be added in the GRID section to ensure that the transmissibilities are comparable.
 --       (2) NEWTRAN has been added to this input deck but is not required as OPM Flow only has this option.
 --       (3) This is the corner-point geometry version of SPE09.
---                                                                             
+--
 -- The model has been modified to test both the WECON and WTEST keywords as follows:
 -- ( 1) All wells have there initial rates set at the begining of the run with no additional changes and their BHP datum depth
 --      defaulted instead of set to 9110 ft.
@@ -36,91 +36,91 @@
 --      /
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
---       1         2         3         4         5         6         7         8         9         0         1         2         3  
---       0         0         0         0         0         0         0         0         0         1         1         1         1  
+--       1         2         3         4         5         6         7         8         9         0         1         2         3
+--       0         0         0         0         0         0         0         0         0         1         1         1         1
 -- *********************************************************************************************************************************
 --
 -- =================================================================================================================================
--- 
--- RUNSPEC SECTION 
--- 
+--
+-- RUNSPEC SECTION
+--
 -- =================================================================================================================================
 RUNSPEC
 --
---       DEFINE THE TITLE FOR THE RUN  
+--       DEFINE THE TITLE FOR THE RUN
 --
-TITLE                                                                           
-OPM_TESTS: ACTIONX_WTEST                                                                                
+TITLE
+OPM_TESTS: ACTIONX_WTEST
 --
---       DEFINE THE START DATE FOR THE RUN 
+--       DEFINE THE START DATE FOR THE RUN
 --
-START                                                                                                                                                                                                     
-  01 'JAN' 2021                                                                /                                                                               
---                                                                              
+START
+  01 'JAN' 2021                                                                /
+--
 --       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
 --
---NOSIM                                                                          
+--NOSIM
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- FLUID TYPES AND TRACER OPTIONS                         
+-- FLUID TYPES AND TRACER OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       OIL PHASE IS PRESENT IN THE RUN
 --
-OIL                                                                            
+OIL
 --
 --       WATER PHASE IS PRESENT IN THE RUN
 --
-WATER                                                                            
+WATER
 --
 --       GAS PHASE IS PRESENT IN THE RUN
 --
-GAS                                                                                                                                                           
+GAS
 --
---       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN - FROM FIGURE 7 IN KILLOUGH'S PAPER IT IS EVIDENT THAT GOR IS INCREASING 
+--       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN - FROM FIGURE 7 IN KILLOUGH'S PAPER IT IS EVIDENT THAT GOR IS INCREASING
 --       WITH TIME, MEANING THAT THERE MUST BE DISSOLVED GAS PRESENT
 --
-DISGAS                                                                            
+DISGAS
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS                                             
--- ---------------------------------------------------------------------------------------------------------------------------------
---                                                                              
---       MAX     MAX     MAX                                                    
---       NDIVIX  NDIVIY  NDIVIZ                                                 
-DIMENS                                                                          
-         24       25     15                                                    / 
---                                                                              
---       MAX     MAX     RSVD    TVDP    TVDP                                   
---       EQLNUM  DEPTH   NODES   TABLE   NODES                                  
-EQLDIMS                                                                         
-         1*      1*      1*      1       1                                     /                                                                          
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS                                                
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
---       MAX     MAX     MAX     MAX     MAX     MAX    E300                    
---       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND            
-TABDIMS                                                                         
+--       MAX     MAX     MAX
+--       NDIVIX  NDIVIY  NDIVIZ
+DIMENS
+         24       25     15                                                    /
+--
+--       MAX     MAX     RSVD    TVDP    TVDP
+--       EQLNUM  DEPTH   NODES   TABLE   NODES
+EQLDIMS
+         1*      1*      1*      1       1                                     /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND
+TABDIMS
          1*      1*      40                                                    /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- GROUP, WELL AND VFP TABLE DIMENSIONS                                                
+-- GROUP, WELL AND VFP TABLE DIMENSIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
---                                                                                
---       WELL    WELL    GRUPS   GRUPS                                          
---       MXWELS  MXCONS  MXGRPS  MXGRPW                                         
-WELLDIMS                                                                        
-         26      5       1       26                                            /                                                                                
+--
+--       WELL    WELL    GRUPS   GRUPS
+--       MXWELS  MXCONS  MXGRPS  MXGRPW
+WELLDIMS
+         26      5       1       26                                            /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- NUMERICAL AND RUN CONTROL OPTIONS                                                    
+-- NUMERICAL AND RUN CONTROL OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       SET STACK SIZE FOR LINEAR SOLVER
 --
-NSTACK                                                                          
+NSTACK
          30                                                                    /
 --
 --       DEFINE THE NUMBER OF ITERATIONS TO UPDATE WELL FLOW TARGETS
 --
-NUPCOL                                                                          
+NUPCOL
          3                                                                     /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- MISCELLEOUS OPTIONS
@@ -131,41 +131,41 @@ NUPCOL
 ACTDIMS
          4         50       80       4                                         /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- INPUT AND OUTPUT OPTIONS                                                   
+-- INPUT AND OUTPUT OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
---       FIELD SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT 
+--       FIELD SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT
 --
 FIELD
 --
 --       SWITCH ON THE UNIFIED INPUT FILES OPTION
 --
-UNIFIN                                                                          
+UNIFIN
 --
 --       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
 --
-UNIFOUT                                                                          
+UNIFOUT
 --
 --       PATH       PATH
 --       ALIAS      DIRECTORY FILENAME
 PATHS
         'SPE09'     '../spe9'                                                  /
 /
---                                                                                
---       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG      
---       LIMIT LIMIT LIMIT LIMIT LIMIT LIMIT STOP STOP  STOP  STOP  STOP  STOP     
-MESSAGES                                                                        
-         3000  1*    1000  1000  1*    1*    1*   1*    9000  1*    9000  1*   /        
+--
+--       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG
+--       LIMIT LIMIT LIMIT LIMIT LIMIT LIMIT STOP STOP  STOP  STOP  STOP  STOP
+MESSAGES
+         3000  1*    1000  1000  1*    1*    1*   1*    9000  1*    9000  1*   /
 --
 --       DEBUG PRINTING OPTIONS
 --
-DEBUG                                                                           
-         8*0   1     11*0  1     30*0                                          /  
-         
+DEBUG
+         8*0   1     11*0  1     30*0                                          /
+
 -- =================================================================================================================================
--- 
--- GRID SECTION 
--- 
+--
+-- GRID SECTION
+--
 -- =================================================================================================================================
 GRID
 --
@@ -181,64 +181,64 @@ GRIDFILE
 --
 --       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
 --
-NEWTRAN  
+NEWTRAN
 --
 --       LOAD INCLUDE FILE
 --
-INCLUDE 
+INCLUDE
          '$SPE09/SPE9.GRDECL'          /
---                                                                              
---       DEFINE GRID BLOCK POROSITY DATA FOR ALL CELLS - CONSTANT FOR EACH LAYER AS SPECIFIED IN TABLE 1 IN KILLOUGH'S PAPER                            
--- 
+--
+--       DEFINE GRID BLOCK POROSITY DATA FOR ALL CELLS - CONSTANT FOR EACH LAYER AS SPECIFIED IN TABLE 1 IN KILLOUGH'S PAPER
+--
 PORO
-         600*0.087  600*0.097  600*0.111  600*0.160  600*0.130  
-         600*0.170  600*0.170  600*0.080  600*0.140  600*0.130  
+         600*0.087  600*0.097  600*0.111  600*0.160  600*0.130
+         600*0.170  600*0.170  600*0.080  600*0.140  600*0.130
          600*0.120  600*0.105  600*0.120  600*0.116  600*0.157                 /
 
 --
 --       LOAD INCLUDE FILE
 --
-INCLUDE 
+INCLUDE
          '$SPE09/PERMVALUES.DATA'      /
 --
---       SOURCE      DESTIN.      ---------- BOX ---------            
---                                I1  I2   J1  J2   K1  K2            
-COPY                                                                
-         PERMX       PERMY        1*  1*   1*  1*   1*  1* / CREATE PERMY 
-         PERMX       PERMZ        1*  1*   1*  1*   1*  1* / CREATE PERMZ 
-/                                                                   
+--       SOURCE      DESTIN.      ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+COPY
+         PERMX       PERMY        1*  1*   1*  1*   1*  1* / CREATE PERMY
+         PERMX       PERMZ        1*  1*   1*  1*   1*  1* / CREATE PERMZ
+/
 --
---       ARRAY       CONSTANT     ---------- BOX ---------             
---                                I1  I2   J1  J2   K1  K2             
-MULTIPLY                                                             
-         PERMZ       0.01000      1*  1*   1*  1*   1*  1* / PERMZ * 0.01  
+--       ARRAY       CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+MULTIPLY
+         PERMZ       0.01000      1*  1*   1*  1*   1*  1* / PERMZ * 0.01
 /
 
 -- =================================================================================================================================
--- 
--- EDIT SECTION 
--- 
+--
+-- EDIT SECTION
+--
 -- =================================================================================================================================
 EDIT
 
 
 -- =================================================================================================================================
--- 
--- PROPS SECTION 
--- 
+--
+-- PROPS SECTION
+--
 -- =================================================================================================================================
 PROPS
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- FLUID PROPERTIES
 -- ---------------------------------------------------------------------------------------------------------------------------------
---                                                                                      
---       GAS PVT TABLE FOR DRY GAS                                                                        
---                                                                                      
+--
+--       GAS PVT TABLE FOR DRY GAS
+--
 PVDG
---       PRES     BG          VISC                                                         
---       PSIA     RB/MSCF     CPOISE                                                        
---       ------   --------    ------                                                
+--       PRES     BG          VISC
+--       PSIA     RB/MSCF     CPOISE
+--       ------   --------    ------
            14.7   191.7443    0.0125
           400.0     5.8979    0.0130
           800.0     2.9493    0.0135
@@ -250,13 +250,13 @@ PVDG
          3200.0     0.7398    0.0165
          3600.0     0.6498    0.0170
          4000.0     0.5849    0.0175                       / TABLE NO. 01
---                                                                                      
---       OIL PVT TABLE FOR LIVE OIL                                                                 
---                                                                                      
-PVTO                                                                                    
---       RS        PSAT       BO        VISC                                                  
---       MSCF/STB  PSIA       RB/STB    CPOISE                                                
---       --------  --------   -------   ------                                                
+--
+--       OIL PVT TABLE FOR LIVE OIL
+--
+PVTO
+--       RS        PSAT       BO        VISC
+--       MSCF/STB  PSIA       RB/STB    CPOISE
+--       --------  --------   -------   ------
           0.000       14.7    1.00000   1.2000             /
           0.165      400.0    1.01200   1.1700             /
           0.335      800.0    1.02550   1.1400             /
@@ -267,45 +267,45 @@ PVTO
           1.130     2800.0    1.08700   1.0000             /
           1.270     3200.0    1.09850   0.9800             /
           1.390     3600.0    1.11000   0.9500             /
-          1.500     4000.0    1.12000   0.9400             
+          1.500     4000.0    1.12000   0.9400
                     4600.0    1.10890   0.9400             /
                                                            / TABLE NO. 01
---                                                                                      
---       WATER PVT TABLE                                                                   
---                                                                                      
-PVTW                                                                                    
---       REF PRES  BW         CW        VISC     VISC                                         
---       PSIA      RB/STB     1/PSIA    CPOISE   GRAD                                         
---       --------  --------   -------   ------   ------                                       
+--
+--       WATER PVT TABLE
+--
+PVTW
+--       REF PRES  BW         CW        VISC     VISC
+--       PSIA      RB/STB     1/PSIA    CPOISE   GRAD
+--       --------  --------   -------   ------   ------
          3600.0    1.0034     3.0E-6    0.960    1*        / TABLE NO. 01
 --
---       OIL      WAT        GAS                                                             
---       DENSITY  DENSITY    DENSITY                                                       
---       -------  -------    -------                                                         
-DENSITY                                                                                  
-         44.9856  63.0210    0.07039                       / DENSITY PVT DATA REGION 1 
-         
+--       OIL      WAT        GAS
+--       DENSITY  DENSITY    DENSITY
+--       -------  -------    -------
+DENSITY
+         44.9856  63.0210    0.07039                       / DENSITY PVT DATA REGION 1
+
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ROCK PROPERTIES
 -- ---------------------------------------------------------------------------------------------------------------------------------
---                                                                                      
---       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE      
---       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (ECLIPSE USES THE REFERENCE       
---       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA       
---       ON THE ROCK KEYWORD)                                                             
---                                                                                      
---       REF PRES  CF                                                                         
---       PSIA      1/PSIA                                                                     
---       --------  --------                                                                   
-ROCK                                                                                    
-         3600      4.0E-06                                 / ROCK COMPRSSIBILITY                       
---                                                                                     
---       GAS-OIL RELATIVE PERMEABILITY TABLES (SGOF)      
+--
+--       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE
+--       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (ECLIPSE USES THE REFERENCE
+--       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA
+--       ON THE ROCK KEYWORD)
+--
+--       REF PRES  CF
+--       PSIA      1/PSIA
+--       --------  --------
+ROCK
+         3600      4.0E-06                                 / ROCK COMPRSSIBILITY
+--
+--       GAS-OIL RELATIVE PERMEABILITY TABLES (SGOF)
 --
 SGOF
---       SG         KRG       KROG      PCOG                                                     
---       FRAC                           PSIA                                                  
---       -------   --------  -------   -------                                                
+--       SG         KRG       KROG      PCOG
+--       FRAC                           PSIA
+--       -------   --------  -------   -------
          0.00000   0.000000  1.00000    0.0000
          0.04000   0.000000  0.60000    0.2000
          0.10000   0.022000  0.33000    0.5000
@@ -315,20 +315,20 @@ SGOF
          0.50000   0.420000  0.00000    2.5000
          0.60000   0.500000  0.00000    3.0000
          0.70000   0.812500  0.00000    3.5000
-         0.84891   0.963500  0.00000    3.8200             / TABLE No. 01  
---                                                                                     
---       WATER-OIL RELATIVE PERMEABILITY TABLES (SWOF)                                                                  
--- 
+         0.84891   0.963500  0.00000    3.8200             / TABLE No. 01
+--
+--       WATER-OIL RELATIVE PERMEABILITY TABLES (SWOF)
+--
 SWOF
---       SWAT       KRW       KROW      PCOW                                                     
---       FRAC                           PSIA                                                  
---       --------   --------  -------   -------                                                
+--       SWAT       KRW       KROW      PCOW
+--       FRAC                           PSIA
+--       --------   --------  -------   -------
          0.151090   0.000000  1.000000  400.000
          0.151230   0.000000  0.999970  359.190
          0.151740   0.000000  0.999930  257.920
          0.152460   0.000000  0.999910  186.310
          0.156470   0.000000  0.999510   79.060
-         0.165850   0.000000  0.996290   40.010          
+         0.165850   0.000000  0.996290   40.010
          0.178350   0.000000  0.991590   27.930
          0.203350   0.000010  0.978830   20.400
          0.253350   0.000030  0.943730   15.550
@@ -353,48 +353,48 @@ SWOF
          0.712800   0.318650  0.001590   -2.380
          0.811110   0.430920  0.000020   -2.600
          0.881490   0.490000  0.000000   -2.750            / TABLE NO. 01
-         
+
 -- =================================================================================================================================
--- 
--- REGIONS SECTION 
--- 
+--
+-- REGIONS SECTION
+--
 -- =================================================================================================================================
 REGIONS
 
 -- =================================================================================================================================
--- 
--- SOLUTION SECTION 
--- 
+--
+-- SOLUTION SECTION
+--
 -- =================================================================================================================================
 SOLUTION
 
 --
---       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N           
---       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT         
-EQUIL                                                                        
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT
+EQUIL
          9035.0  3600.0  9950.0  0.00  8800.0  0.00   1    0     0             /
 --
---       DEPTH    RS                                                 
---                MSCF/STB                                                  
---       ------   --------                                                               
-RSVD            
+--       DEPTH    RS
+--                MSCF/STB
+--       ------   --------
+RSVD
          8800.0    1.390
-         9950.0    1.390                                   / RS VS DEPTH EQUIL REGN 01 
+         9950.0    1.390                                   / RS VS DEPTH EQUIL REGN 01
 
 -- =================================================================================================================================
--- 
--- SUMMARY SECTION 
--- 
+--
+-- SUMMARY SECTION
+--
 -- =================================================================================================================================
 SUMMARY
 --
---       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION     
+--       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION
 --
-RUNSUM                                               
+RUNSUM
 --
---       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION     
+--       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION
 --
-SEPARATE   
+SEPARATE
 --
 --       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
 --
@@ -406,43 +406,43 @@ FMWSET
 --
 --       PRESSURES OF THE CELL WHERE THE INJECTOR AND PRODUCER ARE LOCATED
 --
---       --- GRID ---                
---       I1   J1   K1                 
+--       --- GRID ---
+--       I1   J1   K1
 BPR
           1    1    1   /
 /
 --
 --       GAS SATURATION AT GRID POINTS GIVEN IN THE PAPER BY ODEH
 --
---       --- GRID ---                
---       I1   J1   K1                 
+--       --- GRID ---
+--       I1   J1   K1
 BGSAT
          1   13    1    /
 /
 --
 --       GAS SATURATION AT GRID POINTS GIVEN IN THE PAPER BY ODEH
 --
---       --- GRID ---                
---       I1   J1   K1                 
+--       --- GRID ---
+--       I1   J1   K1
 BWSAT
          10   25   15   /
 /
 
 -- =================================================================================================================================
--- 
--- SCHEDULE SECTION 
--- 
+--
+-- SCHEDULE SECTION
+--
 -- =================================================================================================================================
 SCHEDULE
 --
 --       DEFINE SCHEDULE SECTION REPORT OPTION
 --
-RPTSCHED                                                                                                                             
+RPTSCHED
          'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
-RPTRST                                                                           
+RPTRST
          BASIC=5                                                               /
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -454,14 +454,14 @@ ACTIONX
         MNTH  = JUN           AND                          /
         YEAR  = 2021                                       /
 /
---      
+--
 --       WELL ECONOMIC CRITERIA FOR PRODUCTION WELLS
--- WELL  MIN    MIN    MAX    MAX    MAX    CNTL    END   WELL                    
--- NAME  ORAT   GRAT   WCUT   GOR    WGR    MODE    RUN   NAME                    
-WECON                                                                           
+-- WELL  MIN    MIN    MAX    MAX    MAX    CNTL    END   WELL
+-- NAME  ORAT   GRAT   WCUT   GOR    WGR    MODE    RUN   NAME
+WECON
 'OP*'    100    1*     0.95   3.0    1*     CON    'NO'                        /
-/                                                                               
-ENDACTIO                                                      
+/
+ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ACTIONX WECON - DEFINE WELL ECONOMIC LIMITS ORAT=100 STB/D, WCUT=0.95 AND GOR=4.0 MSFD/STB AND WTEST
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -481,7 +481,7 @@ WECON
 /
 --
 --       WELL TESTING CRITERIA FOR RE-OPENING CLOSED WELLS
--- 
+--
 -- WELL  TST    TST    NO.    STRT
 -- NAME  INTV   TYPE   TSTS   TIME
 -- ----  ----   ----   ----   ----
@@ -493,14 +493,14 @@ WTEST
 ENDACTIO
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- SCHEDULE SECTION - 2021-01-01                                   
+-- SCHEDULE SECTION - 2021-01-01
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
---       WELL SPECIFICATION DATA                                                      
---                                                                              
--- WELL  GROUP     LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS  PVT         
--- NAME  NAME        I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW   TABLE       
-WELSPECS                                                                                                                                                           
+--       WELL SPECIFICATION DATA
+--
+-- WELL  GROUP     LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS  PVT
+-- NAME  NAME        I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW   TABLE
+WELSPECS
 OP01     MAIN        5    1  1*     OIL     60     1*     1*    1*     1*      /
 OP02     MAIN        8    2  1*     OIL     60     1*     1*    1*     1*      /
 OP03     MAIN       11    3  1*     OIL     60     1*     1*    1*     1*      /
@@ -529,11 +529,11 @@ OP25     MAIN       17   25  1*     OIL     60     1*     1*    1*     1*      /
 WI01     MAIN       24   25  1*     WAT     60     1*     1*    1*     1*      /
 /
 --
---       WELL CONNECTION DATA                           
---                                                                              
--- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
--- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN   
-COMPDAT                                                                        
+--       WELL CONNECTION DATA
+--
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
+COMPDAT
 OP01      1*  1*   2   4   OPEN   1*    1*     1      1*    1*     1*    1*    /
 OP02      1*  1*   2   4   OPEN   1*    1*     1      1*    1*     1*    1*    /
 OP03      1*  1*   2   4   OPEN   1*    1*     1      1*    1*     1*    1*    /
@@ -561,40 +561,40 @@ OP24      1*  1*   2   4   OPEN   1*    1*     1      1*    1*     1*    1*    /
 OP25      1*  1*   2   4   OPEN   1*    1*     1      1*    1*     1*    1*    /
 WI01      1*  1*  11  15   OPEN   1*    1*     1      1*    1*     1*    1*    /
 /
---      
+--
 --       WELL ECONOMIC CRITERIA FOR PRODUCTION WELLS
--- WELL  MIN    MIN    MAX    MAX    MAX    CNTL    END   WELL                    
--- NAME  ORAT   GRAT   WCUT   GOR    WGR    MODE    RUN   NAME                    
-WECON                                                                           
+-- WELL  MIN    MIN    MAX    MAX    MAX    CNTL    END   WELL
+-- NAME  ORAT   GRAT   WCUT   GOR    WGR    MODE    RUN   NAME
+WECON
 'OP*'    1*     1*     0.95   2.0    1*     CON    'NO'                        /
-/                                                                               
+/
 --
---       WELL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP               
--- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE             
-WCONINJE                                                                        
+--       WELL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
+WCONINJE
 WI01     WAT    OPEN   RATE  5E3    1*     4000   1*    1*                     /
-/                                                                               
+/
 --
---       WELL PRODUCTION WELL CONTROLS                                                     
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
-WCONPROD                                                                    
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
 'OP*'    OPEN   ORAT   1500   1*     1*    1*     1*     1000.                 /
 /
 --
 --       ADVANCE SIMULATION BY REPORTING TIME
 --
 --       DAILY
-TSTEP                                                                           
+TSTEP
          30*10.0
          6*10.0
          54*10
 /
-ECHO        
---                                                                              
+ECHO
+--
 -- *********************************************************************************************************************************
--- END OF FILE                                                                  
+-- END OF FILE
 -- *********************************************************************************************************************************
