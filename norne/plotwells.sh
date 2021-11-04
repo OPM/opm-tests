@@ -120,7 +120,8 @@ TEXFILE="
 echo $TEXFILE | latex --interaction=nonstopmode
 echo $TEXFILE | latex --interaction=nonstopmode
 
-dvipdf article $OUTPUT.pdf
+test -f article.dvi && dvipdf article $OUTPUT.pdf
+test -f texput.dvi && dvipdf texput $OUTPUT.pdf
 
 # remove temporary files
 rm -f $WELLLISTEX
