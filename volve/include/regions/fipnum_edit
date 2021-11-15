@@ -1,0 +1,48 @@
+--
+-- Temporary file to remove the scattered cells containing REGION 13
+--
+EQUALS
+--------
+ EQLNUM     9	   35     35     25    25    1      1	   /
+ EQLNUM     6	   54     54     53    53    2      2	   /
+ EQLNUM     2	   60     60     47    47    2      2	   /
+ EQLNUM     9	   39     39     34    34    2      2	   /
+ EQLNUM     6	   65     65     61    61    3      3	   /
+ EQLNUM     6	   64     64     53    53    3      3	   /
+ EQLNUM     9	   35     35     25    25    4      4	   /
+ EQLNUM     9	   41     41     41    41    4      4	   /
+ EQLNUM     2	   62     62     48    48    4      4	   /
+ EQLNUM     1	   57     57     36    36    4      4	   /
+ EQLNUM     9	   42     42     38    38    5      5	   /
+ EQLNUM     9	   49     49     45    45    56     56     /
+ EQLNUM     9	   49     49     45    45    57     57     /
+--------  	    	    	    	   	    	
+ FIPNUM     9	   35     35     25    25    1      1	   /
+ FIPNUM     6	   54     54     53    53    2      2	   /
+ FIPNUM     2	   60     60     47    47    2      2	   /
+ FIPNUM     9	   39     39     34    34    2      2	   /
+ FIPNUM     6	   65     65     61    61    3      3	   /
+ FIPNUM     6	   64     64     53    53    3      3	   /
+ FIPNUM     9	   35     35     25    25    4      4	   /
+ FIPNUM     9	   41     41     41    41    4      4	   /
+ FIPNUM     2	   62     62     48    48    4      4	   /
+ FIPNUM     1	   57     57     36    36    4      4	   /
+ FIPNUM     9	   42     42     38    38    5      5	   /
+ FIPNUM     9	   49     49     45    45    56     56     /
+ FIPNUM     9	   49     49     45    45    57     57     /
+--------  	    	    	    	   	
+ PVTNUM     9	   35     35     25    25    1      1	   /
+ PVTNUM     6	   54     54     53    53    2      2	   /
+ PVTNUM     2	   60     60     47    47    2      2	   /
+ PVTNUM     9	   39     39     34    34    2      2	   /
+ PVTNUM     6	   65     65     61    61    3      3	   /
+ PVTNUM     6	   64     64     53    53    3      3	   /
+ PVTNUM     9	   35     35     25    25    4      4	   /
+ PVTNUM     9	   41     41     41    41    4      4	   /
+ PVTNUM     2	   62     62     48    48    4      4	   /
+ PVTNUM     1	   57     57     36    36    4      4	   /
+ PVTNUM     9	   42     42     38    38    5      5	   /
+ PVTNUM     9	   49     49     45    45    56     56     /
+ PVTNUM     9	   49     49     45    45    57     57     /
+/
+

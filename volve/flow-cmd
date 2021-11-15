@@ -1,0 +1,4 @@
+This is the way to invoke flow on the VOLVE dataset as documented on the
+https://discovervolve.com website.
+
+flow --enable-tuning=true --linsolver=quasimpes_verbose.json --matrix-add-well-contributions=true --max-residual-allowed=1e3 VOLVE.DATA

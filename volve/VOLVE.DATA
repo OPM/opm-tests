@@ -1,0 +1,985 @@
+--****************************************************************************************************
+-- The data is published under Creative Commons Attribution 4.0 International
+-- license and the terms quoted by Equior.
+--
+-- Data owners: Equinor (operator), ExxonMobil (partner), Bayerngas (partner)
+-- and Norwegian Petroleum Directorate (NPD) Published via:
+-- https://www.equinor.com/
+
+-- The VOLVE dataset has been downloaded from https://discovervolve.com/ and
+-- then slightly reorganized in order to fit as git repository on GitHub. The
+-- changes made in the process of including it in opm/opm-tests repository
+-- include:
+--
+--  1. All output files have been removed.
+--
+--  2. An include/ directory has been added and files have been moved from the
+--     root directory to the appropriate include/$SECTION/ directory. Many of
+--     the files have been renamed to simpler names.
+--
+--  3. The grid file has been compressed with zip - i.e. before you can simulate
+--     you must manually unzip the file include/grid/grid.grdecl.zip
+--
+--  4. Some stale comments have been removed from the .DATA file
+--
+-- November 2021
+--****************************************************************************************************
+
+--****************************************************************************************************
+-- Date: 07.09.16
+--
+-- File name:  Based on HIS-MAY.DATA 
+-- Based on:   
+--          and  History data updated may 2016
+--
+-- Description: (a) Runing model 2013N, new seg in North, 
+--
+--  based on Modell 13N  corrected perm, PORO and geology in North zone 5
+--
+--
+--
+--****************************************************************************************************
+--  MINPV = 50  + New SCH-hist to 15. Dec-15  merged
+-- Tetter lag 16
+-- barriere mellom F-5 og F-4  fra 0.1 til 0.01
+-- close off aquifer in west
+-- 
+--   
+-- used PINCH 30 Cm noGap
+-- Corrected FIPNUM
+-- EXP drilling time
+------------------------------------------------------------------------ 
+-------- HM --------------------
+-- removed F2_N1 in north, but not in Main(manually)
+-- Fault bet. Main and NW barr
+-- 
+-- Define pilot in North, open from beginning
+-- Define pilot in North West, open from beginning
+-- 
+-- --------------------------------------------------------------------
+-- new BC with water-filled North 
+-------------------------------------------
+-- New Grid, Fip and properties for NW (Downflank2 )(main 6m down)
+-- Oil inplace in NW corrected to 1.43 
+-- perm in NW mult. by 4      Based on MOD13NW2-BASE-HM-4
+-- 
+-- GRIDOPTS enabled
+-- faults with face - NW
+-- Increasing porevolume by factor 1.3 along north side of main structure, 2 cells, around 30 meters
+-- updated F-11B with toe perforations. Max liquid rate 2000 Sm3/d
+-- 
+-- -----------------------------
+-- Modelling Faults manually in NW with new grid 15.Nov-13 from G&G
+-- 
+------------------------------------------
+-- Riktig perf F-15D
+-- barr. rundt F-15D 
+-- Original perm in the F-15D box
+-- PV in F-15D box mult by 0.5
+------------------------------------------
+-- new fault near F-14, same deirection as NW-fault
+-- new fault between F-14 and F-12
+-- 
+-- Increased perm in UH upflanks NW
+-- F10_E closed
+-- 
+-- inc perm in lay 9-10 in upflank to inc wct in F-1C
+-------------
+-- Økt PV in UH for F-11B
+-- Legt ekstra barriære for F-15D
+------------------------------------
+-- 
+--
+
+RUNSPEC
+NOECHO
+--NOSIM
+
+--PARALLEL
+ --4
+--/
+
+TITLE
+2010a Volve simulation model
+ 
+DIMENS
+   108   100   63  /
+ 
+OIL
+WATER
+GAS
+DISGAS
+--VAPOIL
+
+
+METRIC
+
+WSEGDIMS
+ 2 100 4 /
+ 
+ 
+EQLDIMS
+--ntequl ndprvd  ndrxvd  nttrvd nstrvd
+  12       100     21      1      20 /
+
+EQLOPTS
+'THPRES' 'QUIESC'    'MOBILE'   /
+ 
+			-- Changed by DiscoverVolve
+ENDSCALE
+--                     ntendp   nsendp
+NODIR     REVERS     1     20  /
+				-- Changed by DiscoverVolve
+
+FAULTDIM
+ 48096 /
+ 
+TABDIMS
+--ntsfun ntpvt nssfun   nppvt  ntfip nrpvt  notused  ntendp
+   2      12     100    100      30   40 /
+ 
+REGDIMS
+--ntfip nmfip nrfreg  ntfreg mhisim  nmhstr ERROR
+  26     2      1*      26 /
+
+--TRACERS		--Changed by DiscoverVolve
+ --0  2 / 
+ 
+WELLDIMS
+--nwmaxz  ncwmax ngmaxz  nwgmax
+   28       220     7       20 /
+
+   
+--ACTDIMS
+--8 20 / For the Action keyword 
+ 
+NUPCOL
+    5 /
+ 
+VFPPDIMS
+--mxflo  mxmthp mxmwfr mxmgfr  mxmalq nmmvft
+   20      20     20      20       20      5 /
+   
+VFPIDIMS
+--mxsflo mxsthp nmsvft
+   18      15     5 /   
+ 
+START
+   31 'DEC' 2007  /   
+ 
+
+SMRYDIMS
+ 5000 /  
+   
+    
+UNIFOUT
+UNIFIN
+ 
+GRIDOPTS
+YES/
+
+
+----------------------------------------------------
+--
+--      Input of grid geometry
+--
+---------------------------------------------------
+GRID
+ 
+NEWTRAN
+
+
+GRIDFILE 
+  0 1 /		-- Changed by DiscoverVolve
+
+MESSAGES
+ 8*  600000 140000 2* /
+
+NOECHO
+
+-- Observe that in the github repository at https://github.com/opm/opm-tests the file
+-- with grid input has been ziped to save space, i.e. before you can actually simulate
+-- from a clean checkout you must manually unzip the file include/grid/grid.grdecl.zip
+INCLUDE
+  'include/grid/grid.grdecl' /
+
+
+----------------------------------------------
+INCLUDE
+  'include/grid/poro.grdecl' /
+
+INCLUDE 
+  'include/grid/permx.grdecl' /
+
+COPY
+ 'PERMX' 'PERMY' /
+/  
+
+INCLUDE
+  'include/grid/permz.grdecl' /
+
+MULTFLT
+'F10_E'    0.0000 /
+'F2_S'      1.0 /
+'F3_S'     1.0000 /
+'F8_E'     1.0000 / --x
+'F_11_E'   0.0000 /
+'F9_E'     1.0000 /
+'F1_Em_N'  0.0000 / -- x Close off water in east
+'F5_W'     0.0000 / --x Close off water in west
+'F1_N'     0.0600 / --partially closed to N prospect
+'F2_W'     1.0000 /
+'F4_W'     0.0000 / --x Close off water in west
+'F6_W'     0.0000 / --x Close off water in west
+'F7_W'     0.0000 / --x Close off water in west
+'F1_Sal_N' 0.0000 / --x Close off water in west
+'F1_Sal_S' 1.0000 /
+'F1_Em_S'  1.0000 /
+'F2_Em_C'  1.0000 /
+'F2_N1'    1.0000 /   -- Open
+'F2_N2'    0.0000 / --x Close off water in west
+'F1_W_P2N' 1.0000 /
+'F1_W_P2S' 0.0000 / --x Close off water in west
+'F3_W_S'   0.0000 / --x Close off water in west
+'F3_W_N'   0.0000 / --x Close off water in west
+'F8_W'     0.0000 / --x Close off water in west.
+/
+
+INIT
+
+MINPV
+ 50 /
+
+PINCH
+  0.3  GAP  /   -- Changed by DiscoverVolve
+
+
+
+-- Barr vedsiden F-5 ( F2_N1 open)
+EQUALS
+  'MULTX' 0.001 83 83  40 46  1 16 /  
+  'MULTX' 0.001 83 87  40 40  1 16 /
+  'MULTY' 0.001 83 83  40 46  1 16 /  
+  'MULTY' 0.001 83 87  40 40  1 16 /     
+/
+
+-- tatter lag 16
+EQUALS
+  'PERMX' 0.01  1  108   1 100  16  16 /
+  'PERMY' 0.01  1  108   1 100  16  16 /
+  'PERMZ' 0.001 1  108   1 100  16  16 /
+/  
+
+
+ 
+--
+--  Reduced NW_SE restriction between F-12 & F-14
+--
+EQUALS
+  'MULTY' 0.01 73 74 41 42 1  63 /
+  'MULTY' 0.01 75 76 40 41 1  63 /
+  'MULTY' 0.01 77 78 39 40 1  63 /
+  'MULTY' 0.01 79 80 38 39 1  63 /
+  'MULTY' 0.01 81 82 37 38 1  63 /
+  'MULTY' 0.01 83 84 36 37 1  63 /
+ 
+  'MULTX' 0.01 72 73 42 42 1  63 /
+  'MULTX' 0.01 74 75 41 41 1  63 /
+  'MULTX' 0.01 76 77 40 40 1  63 /
+  'MULTX' 0.01 78 79 39 39 1  63 /
+  'MULTX' 0.01 80 81 38 38 1  63 /
+  'MULTX' 0.01 82 83 37 37 1  63 /
+  'MULTX' 0.01 84 85 36 36 1  63 /
+/ 
+ 
+-- Close F8_E fault manually in north towards F-12, but let it be open closer to F-15C
+--
+EQUALS
+  'MULTX' 0.1 60 61 32 33 1 63 / F8_E
+  'MULTX' 0.1 61 62 34 43 1 63 / F8_E (stop at 43 instead of 45)
+  'MULTY' 0.1 61 61 33 34 1 63 / F8_E
+/    
+ 
+ 
+MULTIPLY
+ PERMX 0.0   56 56 66 71 1 63  / Closes off aquifer in west
+ PERMY 0.0   56 56 66 71 1 63  / Closes off aquifer in west
+ PERMZ 0.0   56 56 66 71 1 63  / Closes off aquifer in west
+/ 
+ 
+-- Remove some of the aquifer east of F-5
+--
+EQUALS
+  'PORO' 0.0 89 100 1 48 1 63 / 
+  'PORO' 0.0 88 100 1 42 1 63 / 
+  'PORO' 0.0 87 100 1 38 1 63 /   
+  'PORO' 0.0 86 100 1 36 1 63 /   
+  'PORO' 0.0 85 100 1 35 1 63 /   
+  'PORO' 0.0 82 100 1 33 1 63 /   
+  'PORO' 0.0 79 100 1 32 1 63 /   
+  'PORO' 0.0 77 100 1 31 1 63 / 
+/  
+  
+-- high perm. UH around F-14 
+EQUALS
+-- F-14 landing
+  'PERMX' 4000.0 65 65  48 48  1 15 /  
+  'PERMY' 4000.0 65 65  48 48  1 15 /  
+  'PERMZ' 2000.0 65 65  48 48  1 15 / 
+
+  'PERMX' 1800.0 64 69  47 48  7 8 /  
+  'PERMY' 1800.0 64 69  47 48  7 8 /  
+  'PERMZ' 1000.0 64 69  47 48  7 8 /  
+/   
+ 
+ 
+-- Perf in F-11B 
+EQUALS
+  'PERMX'  10.0  77  77   37 37  10  10 /
+  'PERMY'  10.0  77  77   37 37  10  10 /
+  'PERMZ'   3.5  77  77   37 37  10  10 /
+
+  'PERMX'  25.0  79  79   36 36  15  15 /
+  'PERMY'  25.0  79  79   36 36  15  15 /  
+  'PERMZ'  4.50  79  79   36 36  15  15 /
+--
+  'PERMX'   2.0  84  84   38 38  16  16 /
+  'PERMY'   2.0  84  84   38 38  16  16 /  
+  'PERMZ'  10.5  84  84   38 38  16  16 /  
+  
+  'PERMX'  50.0  86  86   38 38  7  7 /
+  'PERMY'  50.0  86  86   38 38  7  7 /  
+  'PERMZ'  15.0  86  86   38 38  7  7 /  
+  
+  'PERMX'  20.0  86  86   38 38  11  14 /
+  'PERMY'  20.0  86  86   38 38  11  14 /  
+  'PERMZ'   7.0  86  86   38 38  11  14 / 
+------------  Communication with North  
+  'PERMX'  1.0  86  88   48 48  1  15 /
+  'PERMY'  1.0  86  88   48 48  1  15 /  
+  'PERMZ'  0.2  86  88   48 48  1  15 /       
+/     
+ 
+  
+-- Coorected perm in UH ( mult by 4)
+INCLUDE
+ 'include/grid/perm-UH-corrections' /
+ 
+ 
+-- Perm in NW for earlier WCT in F-1C 
+MULTIPLY
+ PERMX 10.0   56 64  49 56  9 10  / 
+ PERMY 10.0   56 64  49 56  9 10  / 
+ PERMZ 10.0   56 64  49 56  9 10  /
+ 
+ PERMX 6.0   58 60  53 55  9 10  /  
+ PERMX 6.0   61 65  50 55  9 10  /  
+ PERMX 6.0   61 61  49 49  9 10  / 
+ PERMX 6.0   61 62  54 55  9 10  /  
+ PERMX 6.0   65 66  49 49  9 10  / 
+ PERMX 6.0   60 60  52 52  9 10  /  
+ 
+ PERMY 6.0   58 60  53 55  9 10  /  
+ PERMY 6.0   61 65  50 55  9 10  /  
+ PERMY 6.0   61 61  49 49  9 10  / 
+ PERMY 6.0   61 62  54 55  9 10  /  
+ PERMY 6.0   65 66  49 49  9 10  / 
+ PERMY 6.0   60 60  52 52  9 10  /
+ 
+-- wct in F-1C 
+ PERMX 6.0   58 60  53 55  44 45  /  
+ PERMX 6.0   61 65  50 55  44 45  /  
+ PERMX 6.0   61 61  49 49  44 45  /  
+ PERMX 6.0   65 66  49 49  44 45  / 
+ PERMX 6.0   60 60  52 52  44 45  / 
+ 
+ PERMY 6.0   58 60  53 55  44 45  /  
+ PERMY 6.0   61 65  50 55  44 45  /  
+ PERMY 6.0   61 61  49 49  44 45  /  
+ PERMY 6.0   65 66  49 49  44 45  / 
+ PERMY 6.0   60 60  52 52  44 45  /       
+/ 
+ 
+ 
+
+INCLUDE
+  'include/regions/fluxnum.grdecl' / Same FLUX regions as FIPNUM
+
+
+ 
+
+-- Making barr around F-1B
+EQUALS
+  'MULTX' 0.01 65 65  57 61  1 63 /
+  'MULTX' 0.01 66 66  57 60  1 63 /
+  'MULTX' 0.01 67 67  56 56  1 63 /
+  'MULTX' 0.01 68 68  55 55  1 63 / 
+  
+  'MULTY' 0.01 66 66  57 57  1 63 /
+  'MULTY' 0.01 67 67  56 56  1 63 /
+  'MULTY' 0.01 68 68  55 55  1 63 /        
+/
+ 
+--  redusert roundt F-12
+MULTIPLY
+  'PERMX' 0.3  53 61  25 42  1 15 /
+  'PERMY' 0.3  53 61  25 42  1 15 /
+  'PERMZ' 0.3  53 61  25 42  1 15 /  
+/  
+
+
+
+-- Making barr around F-15D in toe
+EQUALS
+  'MULTX' 0.001 74 74  49 61  1 16 / 
+  'MULTY' 0.001 74 74  49 61  1 16 /
+  
+  'MULTX' 0.001 82 84  46 46  1 16 / 
+  'MULTX' 0.001 80 82  47 47  1 16 /  
+  'MULTX' 0.001 78 80  48 48  1 16 /    
+  'MULTX' 0.001 74 78  49 49  1 16 /     
+   
+  'MULTY' 0.001 82 84  46 46  1 16 / 
+  'MULTY' 0.001 80 82  47 47  1 16 /  
+  'MULTY' 0.001 78 80  48 48  1 16 /    
+  'MULTY' 0.001 74 78  49 49  1 16 /               
+/   
+
+-- Making barr around F-15D after intervention in 2015
+EQUALS
+  'MULTX' 0.01 68 68  52 54  1 16 / 
+  'MULTX' 0.01 69 71  52 52  1 16 /
+  'MULTX' 0.01 71 73  51 51  1 16 /
+
+  'MULTY' 0.01 68 68  52 54  1 16 / 
+  'MULTY' 0.01 69 71  52 52  1 16 /
+  'MULTY' 0.01 71 73  51 51  1 16 /
+/
+
+-- Making barr in big falut in NW (BHP HM inF-1C)
+EQUALS
+  'MULTX' 0.1  57 57  54 56  1 63 / 
+  'MULTX' 0.1  58 60  54 54  1 63 /      
+  'MULTX' 0.1  60 61  53 53  1 63 /   
+  'MULTX' 0.1  61 63  52 52  1 63 /   
+  'MULTX' 0.1  63 64  51 51  1 63 /  
+   
+  'MULTY' 0.1  57 57  54 56  1 63 / 
+  'MULTY' 0.1  58 60  54 54  1 63 /      
+  'MULTY' 0.1  60 61  53 53  1 63 /   
+  'MULTY' 0.1  61 63  52 52  1 63 /   
+  'MULTY' 0.1  63 64  51 51  1 63 / 
+/         
+   
+            
+            
+--*******************************************************************************
+EDIT
+--*******************************************************************************
+
+EQUALS
+-- Tetter lag 23 
+ 'MULTZ'  0.1  60 90  38 57  20 20  /
+ 'MULTZ'  0.1  60 90  38 57  22 22  /
+ 'MULTZ'  0.1  60 90  38 57  23 23  /
+/
+
+
+
+MULTIREG
+--      mul  Reg  Flux
+ PORV    0.91   6    F   /
+ PORV    0.91   10   F   /    
+/
+
+MAXVALUE			--Changed by DiscoverVolve
+ TRANZ   2000.0  1 108  1 100  1 63 /  
+ /
+
+-- Increasing porevolume along west side of main structure, 2 cells
+MULTIPLY                                                                
+ PORV   4.0     84  86   37  45    1  15   /
+/
+
+-- inc pv for F-11 wct HM
+MULTIPLY                                                                
+ PORV   1.2     70  80   37  45    1  15   /
+/
+
+-- inc pv for F-11 i tå
+MULTIPLY                                                                
+ PORV   30.0    86  87   39  40    1  6   /
+/
+
+-- inc pv for F-11 i midt
+MULTIPLY								
+ PORV	4.5	80  86   35  40    4  8   /
+/
+
+-- inc pv for F-12 wct HM
+MULTIPLY								
+ PORV	20.0	60  60   37  41    6  9   /
+/
+
+-- inc pv for F-12 wct HM
+MULTIPLY                                                                
+ PORV   2.0     55  60   39  41    6  15   /
+/
+
+-- Increasing porevolume by factor 1.3 along north side of main structure, 2 cells
+MULTIPLY                                                                
+ PORV   1.3     86      88      47      48      1       63      /
+ PORV   1.3     83      85      48      49      1       63      /
+ PORV   1.3     80      82      49      50      1       63      /
+ PORV   1.3     78      79      50      51      1       63      /
+ PORV   1.3     76      77      51      52      1       63      /
+ PORV   1.3     72      72      52      53      1       63      /
+ PORV   1.3     73      74      53      54      1       63      /
+ PORV   1.3     71      72      54      55      1       63      /
+/                                                                        
+
+-- Increasing porevolume along F-1C in NW structure, 2 cells
+MULTIPLY                                                                
+ PORV   4.0     65  66   59  59    1  63   /
+ PORV   4.0     66  67   58  58    1  63   / 
+/
+
+ 
+--*******************************************************************************
+PROPS
+--*******************************************************************************
+--
+--      Input of TRACER data
+--
+-- TRACER		Changed by DiscoverVolve
+ --  IW1  WAT  /
+--   IW2  WAT  /
+--/
+--
+--      Input of fluid properties and relative permeability
+--
+-----------------------------NEW PVT DATA----------------------------------------
+--
+-- Keywords: DENSITY, PVTW, PVTO, PVDG
+--
+INCLUDE
+ 'include/pvt/pvt_input' /    New PVT area definition
+
+
+-- Bergartskompressibilitet
+--
+--  Ref.pres   Compressibility (: note, included in an other way in old model)
+ROCK
+    329        2.0E-5    /
+    329        2.0E-5    / 
+    329        2.0E-5    /
+    329        2.0E-5    /     
+    329        2.0E-5    /     
+    329        2.0E-5    /
+    329        2.0E-5    /
+    329        2.0E-5    /
+    329        2.0E-5    /
+    329        2.0E-5    /
+    329        2.0E-5    /
+    329        2.0E-5    /
+    329        2.0E-5    / #13
+
+
+-------------------------New rel perm -----------------------
+--
+INCLUDE
+ 'include/satfunc/sof3' / PESSIMISTIC oil rel perm - 2 SATNUM but identical curves
+
+--
+INCLUDE
+ 'include/satfunc/sgfn' / 2 SATNUM, but identical curves
+
+--
+INCLUDE
+ 'include/satfunc/swfn' / krw PESS + Corey = 1.5 in table 2
+
+--
+-------------Initial Sw & other saturations ------------------
+--
+INCLUDE
+ 'include/satfunc/swirr' /   pp04b
+   
+   
+--
+--critical water saturation
+--
+COPY
+    SWL SWCR  /
+/   
+--
+-- Set SGU = 1 - SWCR
+--
+COPY
+    SWCR  SGU / 
+/   
+MULTIPLY
+    SGU   -1 / 
+/   
+ADD
+    SGU    1 / 
+/   
+--************************************************
+--
+-- Scaling of rel perm each grid cell
+-- 
+INCLUDE
+ 'include/satfunc/sorw'/ 
+--
+-- Remove the high SOWCR in 4 grid cells; 3 in layers 16 & one in layer 17
+-- 
+EQUALS
+      'SOWCR'    0.8   68  68  51  51  16  16  / 
+      'SOWCR'    0.8   69  69  52  52  16  16  / 
+      'SOWCR'    0.8   68  68  53  53  16  16  / 
+      'SOWCR'    0.8   55  55  34  34  17  17  / 
+/
+--
+-- Scaling of rel perm each grid cell
+-- 
+INCLUDE
+ 'include/satfunc/krw' /
+
+EQUALS
+      'KRWR'      0.6   1  108  1  100  1  63  /   kom ut
+      'KRGR'      0.7   1  108  1  100  1  63  /
+      'SWU'      1.00   1  108  1  100  1  63  /
+      'SGL'      0.00   1  108  1  100  1  63  /      
+      'SGCR'     0.07   1  108  1  100  1  63  /
+--      'SOWCR'    0.13   1  108  1  100  1  63  / 
+      'SOGCR'    0.10   1  108  1  100  1  63  /
+/  
+--
+-- Controls the End point scaling method
+--
+SCALECRS
+ 'YES'  /
+
+--*******************************************************************************
+REGIONS
+--*******************************************************************************
+--       Input of PVT areas
+INCLUDE
+  'include/regions/pvtnum' / PVTNUM defined as FIPNUM for convenience
+
+ 
+
+
+--      Input of Fluid in Place regions
+INCLUDE
+  'include/regions/fipnum' /
+
+
+
+---     Equilibrium regions (EQLNUM)
+INCLUDE
+  'include/regions/eqlnum' / Same equil regions as PVTNUM & FIPNUM
+
+--
+-- 2 SATNUM regions, in order to include second rel perm curve in thief zone
+--
+EQUALS
+      'SATNUM'     1   1  108  1  100  1  35  /
+      'SATNUM'     1   1  108  1  100  46 63  /
+      'SATNUM'     2   1  108  1  100  36 45  /
+/
+--
+-- Temporary file to remove REGION 13 (scattered cells)
+--
+INCLUDE
+ 'include/regions/fipnum_edit'/
+
+--*******************************************************************************
+SOLUTION
+--*******************************************************************************
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc   Rsvd  Rvvd
+ 3060.0  337    3200.0   0.0  500    0.0   1    1     0 / #1 main structure - north west
+ 3060.0  337    3200.0   0.0  500    0.0   1    1     0 / #2 main structure - north
+ 3060.0  337    3025.0   0.0  500    0.0   1    1     0 / #3 main structure, purged water
+ 3060.0  337    3200.0   0.0  500    0.0   1    1     0 / #4 main structure - east
+ 3060.0  337    3000.0   0.0  500    0.0   1    1     0 / #5 Prospect N (-eastern part)
+ 3060.0  337    3200.0   0.0  500    0.0   1    1     0 / #6 Prospect North West (below +/-2900 mTVD)
+ 3060.0  337    2700.0   0.0  500    0.0   1    1     0 / #7 Prospect N upside - assume water in base case
+ 3060.0  337    3200.0   0.0  500    0.0   1    1     0 / #8 main structure - southwest
+ 3060.0  337    2700.0   0.0  500    0.0   1    1     0 / #9 Aquifer west
+ 3060.0  337    3200.0   0.0  500    0.0   1    1     0 / #10 Prospect North West (above +/-2900 mTVD)
+ 3060.0  337    2910.0   0.0  500    0.0   1    1     0 / #11 Purged water F15C
+ 3060.0  337    2700.0   0.0  500    0.0   1    1     0 / #12  OUTSIDE 
+ /
+--
+--
+
+--
+-- THPRES array in the new model 
+-- Assumes a threshold pressure for flow between all EQULIBRIUM regions defined by 
+-- (a) separate PVT regions (b) different OWC
+--
+THPRES
+-- separate PVT
+  1  9  /
+  2  9  /
+  2  4  /
+  2  5  /
+  4  2  /
+  4  5  /
+  5  2  /
+  5  6  /
+  5  4  /
+  6  5  /
+  6  9  /
+  6  7  /
+  7  6  /
+  8  9  /
+  9  8  /
+  9  6  /
+  9  2  /
+  9  1  /
+-- separate OWC in EQUIL 3
+  3  1  /
+  3  2  /
+  1  3  /
+  2  3  /
+-- define new EQLNUM in NW prospect (EQLNUM 10 in 6)
+  6  10  /
+  10  6  /
+  2  10  /
+  10  2  / 
+/
+--
+--
+-----------------------------NEW PVT DATA----------------------------------------
+--
+-- Keywords: PBVD
+--
+INCLUDE
+   'include/pvt/rsvd' / New PVT data - combined 
+
+
+-- RPTSOL
+-- FIP=3 RESTART=4 FIPRESV / 		--Changed by DiscoverVolve
+ 
+-- Initial tracer concentrations
+
+TBLKFIW1
+ 680400*0.0 / 
+ 
+TBLKFIW2
+ 680400*0.0 / 
+ 
+
+--*******************************************************************************
+SUMMARY
+--*******************************************************************************
+--
+INCLUDE
+  'include/summary/tracer_wells' / must be included later 
+
+WWIR
+/
+WWIT
+/
+WWIRH
+/
+WWITH
+/
+WLPR
+/
+WLPRH
+/
+WLPT
+/
+WLPTH
+/
+
+CWFR 
+  P-F-14 /
+  P-F-12 /
+  P-F-15C / 
+/
+CWPR 
+  P-F-14 /
+  P-F-12 /
+  P-F-15C / 
+/
+CWIR 
+  I-F-5 /
+  I-F-4 /     
+/
+COPR 
+  P-F-14 /
+  P-F-12 /
+  P-F-15C / 
+/
+CWPT 
+  P-F-14 /
+  P-F-12 /
+  P-F-15C / 
+/
+COPT 
+  P-F-14 /
+  P-F-12 /
+  P-F-15C / 
+/
+
+--Tracer prod. data  
+WTPR2FB
+/
+WTPT2FB
+/
+WTPR4FB
+/
+WTPT4FB
+/
+
+--*******************************************************************************
+SCHEDULE
+--*******************************************************************************
+
+INCLUDE
+ 'include/schedule/wells1' / stengt hele UH F-12
+
+
+-- 2nd IOR
+INCLUDE
+'include/schedule/wells2' / F-15D   
+
+-- NW prod/inj Options
+INCLUDE
+'include/schedule/wells3' / F-1C Option 3 18.Nov inj, 
+
+WELSPECS 
+ 'PIL-N'      'P_NORTH'   80   54  1*       'LIQ'  7* /		--Changed by DiscoverVolve
+ 'PIL-NW'     'P_NW'      64   59  1*       'LIQ' 7* / 
+/
+
+
+COMPDAT
+---
+    'PIL-N'   80   54    1    1      'OPEN'  2*         0.216    3*         'X'      7.813 /
+    'PIL-N'   80   54    2    2      'OPEN'  2*         0.216    3*         'X'      7.957 /
+/
+
+WCONHIST 
+    'PIL-N'      'OPEN'      'ORAT'      0.000      0.000      0.000  5* /
+/
+
+
+COMPDAT
+---
+    'PIL-NW'   64   59    6    6      'SHUT'  2*         0.216    3*        'X'      7.813 /
+/
+
+--WCONHIST 
+--    'PIL-NW'      'OPEN'      'ORAT'      0.000      0.000      0.000  5* /
+--/
+
+
+
+COMPORD
+'P-F-*' INPUT /
+'I-F-*' INPUT /
+/
+
+-- PRIORITY
+-- 7  0.0    1.0    1.0    0.0  0.0  0.0  1.0  0.0 /
+
+
+RPTRST
+ 'BASIC=5' 'FIP=3' / Each 4th month in history match period
+
+
+--
+TUNING
+/
+/
+/
+--
+------------------------------------------
+--
+-- Løftekurver
+--1
+INCLUDE
+ 'include/schedule/vfp_i_f5_7_ju'   / 
+
+--5
+INCLUDE
+ 'include/schedule/vfp_F12' / 
+
+WPIMULT
+'P-F-12'  0.5 /
+'P-F-14'  3.0 /
+/
+--**********************************************
+----------------HISTORY-------------------------
+--**********************************************
+
+WHISTCTL 
+ RESV /
+-- ORAT /
+  
+
+INCLUDE
+-- wpi i F1C 
+ 'include/schedule/history' /  10 days hist 
+
+
+-----------------------------------------------
+
+--**********************************************
+-------------PREDICTION-------------------------
+--**********************************************
+
+
+RPTRST
+ 'BASIC=5'   / Each 3 month		--Chnaged by DiscoverVolve
+
+-- LIFTOPT
+-- 25000.  0.001   0.000   1* /
+
+-- GLIFTOPT
+-- 'SRAR'  275000.  /
+-- 'AAR'   175000.  /
+--/ 
+
+TUNING
+0.1 5.0 /
+/
+/
+-------------------------------------------------------------------------------------
+GCONINJE
+-- GR     PH    MODE   S.RATE  R.RATE  REINJ.FRAC.  VOID.REPL  HIGH
+--                                                              LEV  
+--    1      2      3       4       5       6            7
+ 'FIELD' 'WAT' 'RATE'    17000    1*      1*           1.0          /
+/
+--------------------------------------------------------------------------------------
+  
+ 
+DATES
+ 1 'OCT' 2016 /
+/
+
+END
+
+DATES
+ 1 'NOV' 2016 /
+/
+
+
+DATES
+ 1 'DEC' 2016 /
+/
+
+END
+---------------------------------------------------------
+
+
+
+
+

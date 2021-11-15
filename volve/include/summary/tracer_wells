@@ -1,0 +1,316 @@
+--
+-- Filename: ../../include/summary/WELL_WSEG_TRACER_HK3_MA.SUMMARY
+-- Just commented out some keywords and P-F-15A, which has become P-F-15C
+--
+-- CPU performance
+TCPU
+MSUMLINS
+-- Group parameters ---------------------------
+GOPR
+/
+GOPT
+/
+GWPR
+/
+GGPR
+/
+GGPT
+/
+GWIR
+/
+GWCT
+/
+GGOR
+/
+GVIR
+/
+GVPR
+/
+GVIT
+/
+GVPT
+/
+-- Region parameters ---------------------------
+RRPV
+/
+ROPV
+/
+RHPV
+/
+RWPV
+/
+RGPV
+/
+--------ROSAT........avaerage oil saturation
+ROSAT
+/
+RPR
+/
+--------ROE.........E100; (OIPin-OIPnow)/OIPin
+ROE
+/
+--------ROEW........E100; Oil from wells/OIPin
+ROEW
+/
+-- Field parameters ---------------------------
+FOPRH
+FOPTH
+FWCTH
+FGORH
+FGLIR
+FGPR
+FGOR
+FGIR
+FGIT
+FGPT
+FOPR
+FOPRF
+FOPRS
+FODEN
+FOPT
+FWPR
+FWPT
+FOE
+FWCT
+FLPR
+FVPR
+FVIR
+FVPT
+FVIT
+FLPT
+FWIR
+FWIT
+FPR
+FOIP
+FWIP
+FMCTP
+-- Number of workover events this timestep and cummulative
+FMWWO
+FMWWT
+-- Number of production wells currently flowing
+--FMWPR
+-- Number of injection wells currently flowing
+--FMWIN
+--
+-- Well parameters ----------------------------
+-- Well parameters ----------------------------
+WOPRH
+/
+WOPTH
+/
+--WWRTH unrecognised keyword
+--/
+WWPTH
+/
+--WGRH unrecognised keyword
+--/
+WGPTH
+/
+WWCTH
+/
+WGORH
+/
+WBHPH
+/
+WWPRH
+/
+WGPRH
+/
+WWIRH
+/
+WOPR
+/
+WGLIR
+/
+WWPR
+/
+WLPR
+/
+WGIR
+/
+WGIT
+/
+WWCT
+/
+WOPT
+/
+WWPT
+/
+WLPT
+/
+WGOR
+/
+WGPR
+/
+WBHP
+/
+--WBP		--DiscoverVolve
+--/
+--WBP4
+--/
+--WBP9
+--/
+WTHP
+/
+WWIR
+/
+WWIT
+/
+WPI
+/
+-- 0.0 = SHUT/STOP
+-- 1.0 = ORAT
+-- 2.0 = WRAT
+-- 3.0 = GRAT
+-- 4.0 = LRAT
+-- 5.0 = RESV
+-- 6.0 = THP
+-- 7.0 = BHP
+-- 11.0 = GOR Penalty
+-- 12.0 = Drawdown
+WMCTL
+/
+-- Number of connections available
+WMCON
+/
+--
+--Simulator performance keyword
+-- Outputs the elapsed time in seconds
+--
+--ELAPSED
+--/
+--
+-- Outputs the CPU per timestep
+--
+--TCPUTS
+--/
+--
+-- Outputs the timestep length
+--
+--TIMESTEP
+--/
+--
+-- Outputs the maximum change in watersaturation for each timestep
+--
+--MAXDSW
+--/
+--
+-- Outputs the current CPU usage in seconds
+--
+--TCPU
+--/
+
+--BPR (MA)
+-- 25 40 2 / ------SR-området
+-- 31 48 2 / ----- A-området 
+-- 14 35 2 / ----- west 
+-- 40 30 2 /
+--/ 
+--BGSAT
+-- 25 40 2 /  ----SR
+-- 31 48 2 /  ----A-området
+-- 14 35 2 / ----- west
+-- 40 30 2 /
+--/ 
+--BVOIL
+-- 25 40 2 /  ----SR
+-- 31 48 2 /  ----A-området
+-- 14 35 2 / ----- west 
+-- 40 30 2 /
+--/ 
+--BDENO
+-- 25 40 2 /  ----SR
+-- 31 48 2 /  ----A-området
+-- 14 35 2 / ----- west
+-- 40 30 2 /
+--/ 
+--SOFR
+-- 'P-F-15A'   2   /
+-- 'P-F-15A'   3   /
+-- 'P-F-15A'   16   / 
+--/
+
+
+-- Tracer vectors:
+ 
+WTPRIW2
+/ 
+WTPRIW1 
+/
+WTPCIW2 
+/
+WTPCIW1
+/  
+WTIRIW1
+/
+WTIRIW2
+/
+WTICIW1
+/
+WTICIW2
+/
+--------------------------
+
+--STFRIW4
+-- 'P-F-15A'   2   /
+-- 'P-F-15A'   3   /
+-- 'P-F-15A'   4   / 
+-- 'P-F-15A'   5   /
+-- 'P-F-15A'   6   /
+-- 'P-F-15A'   7   / 
+-- 'P-F-15A'   8   /
+-- 'P-F-15A'   9   /
+-- 'P-F-15A'   10   / 
+-- 'P-F-15A'   11   /
+-- 'P-F-15A'   12   /
+-- 'P-F-15A'   13   / 
+-- 'P-F-15A'   14   /
+-- 'P-F-15A'   15   /
+-- 'P-F-15A'   16   / 
+-- 'P-F-15A'   17   /
+-- 'P-F-15A'   18   /
+-- 'P-F-15A'   19   / 
+-- 'P-F-15A'   20   /
+-- 'P-F-15A'   21   /
+-- 'P-F-15A'   22   / 
+-- 'P-F-15A'   23   /
+-- 'P-F-15A'   24   /
+-- 'P-F-15A'   25   / 
+-- 'P-F-15A'   26   /
+-- 'P-F-15A'   27   / 
+--/
+
+--STFRIW1
+-- 'P-F-15A'   2   /
+-- 'P-F-15A'   3   /
+-- 'P-F-15A'   4   / 
+-- 'P-F-15A'   5   /
+--'P-F-15A'   6   /
+-- 'P-F-15A'   7   / 
+-- 'P-F-15A'   8   /
+-- 'P-F-15A'   9   /
+-- 'P-F-15A'   10   / 
+-- 'P-F-15A'   11   /
+-- 'P-F-15A'   12   /
+-- 'P-F-15A'   13   / 
+-- 'P-F-15A'   14   /
+-- 'P-F-15A'   15   /
+-- 'P-F-15A'   16   / 
+-- 'P-F-15A'   17   /
+-- 'P-F-15A'   18   /
+-- 'P-F-15A'   19   / 
+-- 'P-F-15A'   20   /
+-- 'P-F-15A'   21   /
+-- 'P-F-15A'   22   / 
+-- 'P-F-15A'   23   /
+-- 'P-F-15A'   24   /
+-- 'P-F-15A'   25   / 
+--'P-F-15A'   26   /
+-- 'P-F-15A'   27   / 
+--/
+
+
+
+
+
+
