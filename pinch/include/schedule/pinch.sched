@@ -1,0 +1,23 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+-- Copyright (C) 2021 Equinor
+
+WELSPECS
+'OP1' RFT 7 1 1648.8 OIL /
+/
+COMPDAT
+ OP1 7 1 1 12 OPEN 3 0.0 0.333 /
+/
+
+WCONPROD
+ OP1 OPEN ORAT 500 /
+/ 
+
+GRUPTREE
+ RFT FIELD /
+/
+DATES
+ 1 JAN 2021 /
+/

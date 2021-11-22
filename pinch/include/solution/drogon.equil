@@ -1,0 +1,16 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+-- Copyright (C) 2021 Equinor
+
+EQUIL
+--    Datum    PDatum       OWC     PCOWC       GOC     PCGOC     TRSVD     TRVVD    NEQUIL
+    1000.00    257.41   1660.00      0.00   1000.00      0.00         1         1         0 / --WestLowland
+    1000.00    257.80   1673.67      0.00   1000.00      0.00         2         2         0 / --CentralSouth
+    1000.00    257.80   1673.67      0.00   1000.00      0.00         3         3         0 / --CentralNorth
+    1644.21    300.48   1663.43      0.00   1644.21      0.00         4         4         0 / --NorthHorst
+    1000.00    257.80   1673.67      0.00   1000.00      0.00         5         5         0 / --CentralRamp
+    1000.00    257.80   1673.67      0.00   1000.00      0.00         6         6         0 / --CentralHorst
+    1000.00    257.41   1660.00      0.00   1000.00      0.00         7         7         0 / --EastLowland
+
