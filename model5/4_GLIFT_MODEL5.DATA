@@ -286,6 +286,9 @@ GCONINJE
  'FIELD'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
 /
 
+GCONPROD
+ 'PLAT-A' ORAT 10000 /
+/ 
 
 WCONINJE
 -- Well_name    Type    Status  Ctrl    SRate1  Rrate   BHP     THP     VFP
