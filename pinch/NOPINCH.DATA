@@ -4,6 +4,8 @@
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 -- Copyright (C) 2021 Equinor
 
+-- Case that fails in earlier versions of flow. A large unpinched layer was among the errors.
+
 --==============================================================================
 --		Synthetic reservoir simulation model Drogon (2020)
 --==============================================================================
