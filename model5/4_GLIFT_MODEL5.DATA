@@ -323,6 +323,10 @@ GLIFTOPT
  'PLAT-A'  200000 /  --
 /
 
+GCONPROD
+ 'PLAT-A' ORAT 10000 /
+/
+
 -- wells available for gas lift
 -- minimum gas lift rate, enough to keep well flowing
 WLIFTOPT
