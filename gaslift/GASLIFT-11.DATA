@@ -7,7 +7,7 @@
 
 -- The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 -- NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
--- differs from the base case run (GASLIFT-05) by increasing the group PLAT-A oil rate target from 4,000 to 6,000 m3/d. 
+-- differs from the case GASLIFT-08 by setting the maximum group gas lift to 50E4 m3/d, via GLIFTLIM(MXLIFT).
 --
 -- This model is based on MODEL05 (20, 30, 10) with a total of five oil producers and four water injectors, as well as various 
 -- groups as shown below:
@@ -15,7 +15,7 @@
 --                                         |
 --                                       PLAT-A
 --                          ---------------+---------------------
---                         |                                    |
+--                         |                                    |                                                              
 --                        M5S                                  M5N
 --                ---------+----------                     -----+-------
 --               |                   |                    |            |
@@ -46,7 +46,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN  
 --
 TITLE                                                                           
-GASLIFT-06: GAS LIFT OPTIMISATION RUN
+GASLIFT-11: GAS LIFT OPTIMISATION RUN
 --
 --       DEFINE THE START DATE FOR THE RUN 
 --
@@ -486,6 +486,14 @@ WCONPROD
 'C-2H'   OPEN   ORAT  1500.0  1*     1*    3000.0  1*   100.0  30    1      1*     /
 /
 --
+--       GROUP ARTIFICIAL LIFT CONSTRAINTS                                                    
+--                                                                              
+-- GRUP  MAX   MAX                                                                             
+-- NAME  ALQ   WELLS                                                                           
+GLIFTLIM                                                                        
+FIELD    50E4  1*                                                             /
+/                                                                               
+--
 --       ACTIVATE GAS LIFT OPTIMIZATION AND PARAMETERS                                                    
 --       INCR   INCR   TSTEP    NEWTON                                                                         
 --       GAS    OIL    INTVAL   OPTN                                                                          
@@ -493,16 +501,16 @@ LIFTOPT
          12500  5E-3   0.0      YES     /
 --
 --       WELL GAS LIFT OPTIMIZATION PARAMETERS
---       MINIMUM GAS LIFT RATE, ENOUGH TO KEEP WELL FLOWING
+--       MINIMUM GAS LIFT RATE, ENOUGH TO KEEP WELL FLOWING  
 --
 -- WELL  OPTN   MAX    WEIGHT  MIN    GAS      OPTN 
 -- NAME  LIFT   LIFT   FACTOR  LIFT   FACTOR   LIMIT
 WLIFTOPT                       
- 'B-1H'   YES   150000   1.01  -1.0                        /
- 'B-2H'   YES   150000   1.01  -1.0                        /
- 'B-3H'   YES   150000   1.01  -1.0                        /
- 'C-1H'   YES   150000   1.01  -1.0                        /
- 'C-2H'   YES   150000   1.01  -1.0                        /
+'B-1H'   YES    1*     1.01    -1.0                        /
+'B-2H'   YES    1*     1.01    -1.0                        /
+'B-3H'   YES    1*     1.01    -1.0                        /
+'C-1H'   YES    1*     1.01    -1.0                        /
+'C-2H'   YES    1*     1.01    -1.0                        /
 /
 --
 --       WELL INJECTION CONTROLS                                                      

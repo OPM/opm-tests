@@ -5,10 +5,12 @@
 
 -- Copyright (C) 2021 Equinor
 
--- This modelis based on MODEL05 (20, 30, 10) with a total of five oil producers and four water injectors, as well as various 
+-- The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
+-- NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This is
+-- the base run for this series of cases. 
+--
+-- This model is based on MODEL05 (20, 30, 10) with a total of five oil producers and four water injectors, as well as various 
 -- groups as shown below:
---
---
 --                                       FIELD
 --                                         |
 --                                       PLAT-A
@@ -23,11 +25,12 @@
 --        B-1H  B-2H  B-3H     G-3H    G-4H         C-1H   C-2H    F-1H   F-2H
 --
 --
--- The model tests the use Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
--- NETV defines that guide rates for thegroups injection should be set according to the groups net reservoir voidate rate.
---
--- ( 1) Injector F-1H and F-2H is opened while oil target rate group M5N is zero.  
--- ( 2) Injectors should be opened and wbhp should be calculated, but injection rate should be 0.0 for both injectors F-1H and F-2.
+-- ( 1) Group PLAT-A has an oil rate target of 4,000 m3/d with maximum water injection rate of 5,000 m3/d with voidage replacement.
+-- ( 2) Groups M5S and M5N have no oil targets but water injection is via NETV guide rated.
+-- ( 3) All oil producers have an oil target of 1,500 m3/d and a 3,000 m3/d liquid handling constraint. The wells are not under
+--      direct group control.
+-- ( 4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
+-- ( 5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
 --       1         2         3         4         5         6         7         8         9         0         1         2         3  
@@ -380,7 +383,7 @@ NUPCOL
 --       LOWER     HIGHER
 --       GROUP     GROUP 
 GRUPTREE
-         'PROD'    'FIELD'   /
+         'PLAT-A'  'FIELD'   /
         
          'M5S'     'PLAT-A'  /
          'M5N'     'PLAT-A'  /

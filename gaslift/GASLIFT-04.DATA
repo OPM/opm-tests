@@ -5,6 +5,9 @@
   
 -- Copyright (C) 2021 Equinor
                                                                            
+-- The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords and is based on GASLIFT-03.DATA, it 
+-- differs by introducing ALQ lift curves in the VFP tables.
+--
 -- This model is is a simple (9, 9, 2) model with with six oil producers and four water injectors using a Irregular Corner-Point 
 -- grid. This a three phase model using MODEL05 PVT and well VFP data. The model has several groups as shown below:
 --                    FIELD                                                                     
@@ -16,7 +19,6 @@
 --                    |                                                                         
 --                    |---PLAT-2                                                                
 -- 
--- The model tests the use Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords.
 -- ( 1) The field has an oil rate target of 10,000 m3/d and group PLAT-2 has a liquid rate limit of 3,000 m3/d and all oil wells
 --      are on gas lift optimization. Water injection via PLAT-1 and PLAT-2 is set VREP 0.90.
 -- ( 2) Well testing is on for physically shut wells.
