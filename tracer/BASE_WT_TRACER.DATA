@@ -1,0 +1,252 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2021 Equinor
+
+-- This is set up for testing Passive Water Tracer
+-- Model includes 1  producer and 1 water injector. 
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 20 30 10 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+
+METRIC
+
+START
+ 01 'JAN' 2020 /
+
+--
+GRIDOPTS
+ 'YES'        0 /
+
+EQLDIMS
+ 1  100  25 /
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   3          1*       1*            2    /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      150          60         3         60 /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10         15            9          10   /
+
+--FLOW   THP  WCT  GCT  ALQ  VFP
+VFPPDIMS
+  22     13   10   13    13   50  /
+
+
+TRACERS
+  1*  2 /
+
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/test1_20x30x10.grdecl' /
+
+INCLUDE
+ 'include/permx_model5.grdecl' /
+ 
+
+PORO
+ 6000*0.28 / 
+
+COPY
+  PERMX PERMY /
+  PERMX PERMZ /
+/
+
+MULTIPLY
+  PERMZ 0.1 /
+/ 
+
+EQUALS
+  'MULTY'  0.01 1 20  14 14  1 10 /
+/
+
+
+------------------------------------------------------------------------------------------------
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/pvt_live_oil_dgas.ecl' /
+
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm.inc' /
+
+-- Set up tracers
+TRACER
+ WT1  WAT 'g' /
+/
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 6000*1 /
+
+EQUALS
+  FIPNUM  1  1 20   1 14  1 10 /
+  FIPNUM  2  1 20  15 30  1 10 /
+/ 
+
+SATNUM
+ 6000*1 /
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2000.00  195.0  2070     0.0  500.00  0.0   1   0   0 /
+
+PBVD
+  2000.00    75.00
+  2150.00    75.00  /
+
+
+-- Initial tracer concentration vs depth for tracer WT1
+TVDPFWT1
+ 1000  0.0
+ 2500  0.0 /
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+
+TUNING
+ 0.5 1.0  /
+ /
+ /
+
+GRUPTREE
+ 'F1'     'FIELD'  /
+ 'B1'     'FIELD'  /
+ /
+
+RPTRST
+ 'BASIC=2' /
+
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'B-1H'  'B1'   11   20      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+/
+
+WELSPECS
+ 'F-1H'  'F1'   18    20      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+/
+
+COMPDAT
+--WELL      I   J    K1   K2 OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+ 'B-1H'     11   20    1    5   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+/
+
+COMPDAT
+ 'F-1H'    18  20    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+/
+
+WCONPROD
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate   RFV  FBHP   WHP  VFP Glift
+   'B-1H'      OPEN    ORAT  1500.0  1*     1*    3000.0  1*   100.0  1*   1*  1*  /
+/
+
+WCONINJE
+-- Well_name    Type    Status  Ctrl    SRate1  Rrate   BHP     THP     VFP
+  'F-1H'        WATER   OPEN    RATE    1500    1*      235.0    1*      1*     /
+/
+
+
+WTRACER
+ 'F-1H'  WT1  34567.125 /
+/
+
+TSTEP
+ 1 9 /
+ 
+ 
+WTRACER
+ 'F-1H'  WT1  0.0 /
+/
+
+TSTEP
+ 1 /
+ 
+
+DATES
+ 01 'FEB' 2020 /
+ 01 'MAR' 2020 /
+ 01 'APR' 2020 /
+ 01 'MAY' 2020 /
+ 01 'JUN' 2020 /
+/
