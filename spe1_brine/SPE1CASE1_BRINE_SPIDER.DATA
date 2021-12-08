@@ -1,0 +1,506 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2021 Equinor 
+
+-- NOTE: This is a modified version of SPE1CASE1 to test BRINE with SPIDER grid
+-- Keywords SALTVD, PVTWSALT, WSALT are added
+-- SALTSOL, PERMFACT, SALTPVD are added and currently do nothing (need to add PRECSALT)
+
+
+---------------------------------------------------------------------------
+------------------------ SPE1 - CASE 2 ------------------------------------
+---------------------------------------------------------------------------
+
+RUNSPEC
+-- -------------------------------------------------------------------------
+
+TITLE
+   SPE1 - CASE 2
+   
+DIMENS
+   100 1 1 /  
+
+SPIDER 
+
+EQLDIMS
+/
+
+
+TABDIMS
+/
+
+
+OIL
+GAS
+WATER
+BRINE
+--PRECSALT
+
+
+METRIC
+
+START
+   16 'JUN' 1988 /
+
+WELLDIMS
+-- Item 1: maximum number of wells in the model
+-- Item 2: maximum number of grid blocks connected to any one well
+-- Item 3: maximum number of groups in the model
+-- Item 4: maximum number of wells in any one group
+   2 1 1 2 /
+
+UNIFOUT
+
+GRID
+
+NOECHO
+
+INIT
+
+INRAD
+0.057/
+
+DRV 
+0.5
+0.525
+0.55125
+0.5788125000000001
+0.6077531250000001
+0.6381407812500002
+0.6700478203125002
+0.7035502113281252
+0.7387277218945315
+0.7756641079892581
+0.814447313388721
+0.8551696790581571
+0.897928163011065
+0.9428245711616183
+0.9899657997196993
+1.0394640897056844
+1.0914372941909685
+1.146009158900517
+1.2033096168455428
+1.2634750976878202
+1.326648852572211
+1.3929812952008218
+1.462630359960863
+1.5357618779589062
+1.6125499718568514
+1.6931774704496942
+1.777836343972179
+1.866728161170788
+1.9600645692293275
+2.058067797690794
+2.160971187575334
+2.2690197469541005
+2.3824707343018057
+2.501594271016896
+2.626673984567741
+2.7580076837961283
+2.8959080679859346
+3.0407034713852314
+3.192738644954493
+3.352375577202218
+3.519994356062329
+3.6959940738654455
+3.880793777558718
+4.074833466436655
+4.2785751397584875
+4.4925038967464115
+4.7171290915837325
+4.952985546162919
+5.2006348234710655
+5.460666564644619
+5.73369989287685
+6.020384887520693
+6.321404131896728
+6.637474338491565
+6.969348055416143
+7.31781545818695
+7.6837062310962985
+8.067891542651113
+8.47128611978367
+8.894850425772853
+9.339592947061497
+9.806572594414572
+10.2969012241353
+10.811746285342066
+11.35233359960917
+11.91995027958963
+12.515947793569111
+13.141745183247567
+13.798832442409946
+14.488774064530444
+15.213212767756968
+15.973873406144817
+16.772567076452056
+17.611195430274662
+18.491755201788393
+19.416342961877817
+20.387160109971706
+21.406518115470295
+22.47684402124381
+23.600686222306
+24.780720533421302
+26.019756560092368
+27.320744388096987
+28.68678160750184
+30.12112068787693
+31.62717672227078
+33.20853555838432
+34.86896233630354
+36.61241045311871
+38.443030975774654
+40.36518252456339
+42.38344165079156
+44.50261373333114
+46.7277444199977
+49.06413164099758
+51.51733822304747
+54.09320513419984
+56.797865390909834
+59.637758660455326
+62.619646593478095 /
+
+
+DTHETAV
+	1*36 /
+    
+DZ
+	100*30 /
+
+TOPS
+-- The depth of the top of each grid block
+	100*2545  /
+
+PORO
+-- Porosity in each level is contant
+    100*0.3 /
+    
+PERMR
+    100*100 /
+
+COPY
+	PERMR PERMTHT  /
+	PERMR PERMZ  /
+/
+
+    
+ECHO
+
+PROPS
+-- -------------------------------------------------------------------------
+PVTWSALT
+    277.0      0.0                                  /
+      1.0      1.038     4.67E-5    0.318       0.0
+     50.0      1.038     4.67E-5    0.318       0.0 /
+    
+ROCK
+---- Item 1: reference pressure 
+---- Item 2: rock compressibility 
+    277.0     4.84E-5 /
+
+SWOF
+-- Column 1: water saturation
+-- Column 2: water relative permeability
+-- Column 3: oil relative permeability when only oil and water are present
+-- Column 4: corresponding water-oil capillary pressure 
+
+0.12	0    		 	1	0
+0.18	4.64876033057851E-008	1	0
+0.24	0.000000186		0.997	0
+0.3	4.18388429752066E-007	0.98	0
+0.36	7.43801652892562E-007	0.7	0
+0.42	1.16219008264463E-006	0.35	0
+0.48	1.67355371900826E-006	0.2	0
+0.54	2.27789256198347E-006	0.09	0
+0.6	2.97520661157025E-006	0.021	0
+0.66	3.7654958677686E-006	0.01	0
+0.72	4.64876033057851E-006	0.001	0
+0.78	0.000005625		0.0001	0
+0.84	6.69421487603306E-006	0	0
+0.91	8.05914256198347E-006	0	0
+1	0.00001			0	0 /
+
+
+SGOF
+-- Column 1: gas saturation
+-- Column 2: gas relative permeability
+-- Column 3: oil relative permeability when oil, gas and connate water are present
+-- Column 4: oil-gas capillary pressure 
+0	0	1	0
+0.001	0	1	0
+0.02	0	0.997	0
+0.05	0.005	0.980	0
+0.12	0.025	0.700	0
+0.2	0.075	0.350	0
+0.25	0.125	0.200	0
+0.3	0.190	0.090	0
+0.4	0.410	0.021	0
+0.45	0.60	0.010	0
+0.5	0.72	0.001	0
+0.6	0.87	0.0001	0
+0.7	0.94	0.000	0
+0.85	0.98	0.000	0 
+0.88	0.984	0.000	0 /
+
+DENSITY
+-- Density at surface cond. of 
+-- oil, water and gas, respectively (in that order)
+     859.5 1033.0 0.854 /
+
+
+PVDG
+-- Column 1: gas phase pressure 
+-- Column 2: gas formation volume factor 
+-- Column 3: gas viscosity 
+50.00     0.024958     0.01440
+70.00     0.017643     0.01490
+90.00     0.013615     0.01544
+110.00    0.011081     0.01605
+130.00    0.009352     0.01671
+150.00    0.008106     0.01743
+170.00    0.007172     0.01819
+190.00    0.006451     0.01900
+210.00    0.005881     0.01984
+230.00    0.005422     0.02071
+250.80    0.005032     0.02162
+268.42    0.004754     0.02240
+285.33    0.004525     0.02315
+301.59    0.004332     0.02387
+317.23    0.004169     0.02456
+332.29    0.004028     0.02522
+346.80    0.003906     0.02585
+360.80    0.003799     0.02645
+374.31    0.003705     0.02703
+387.36    0.003621     0.02758
+399.99    0.003545     0.02810
+412.21    0.003477     0.02861
+424.05    0.003416     0.02909
+435.53    0.003360     0.02956
+446.68    0.003309     0.03000
+457.510   0.003262     0.03043
+468.04    0.003218     0.03085
+478.30    0.003178     0.03125
+488.30    0.003140     0.03164
+498.06    0.003105     0.03202
+507.59    0.003073     0.03238
+516.920   0.003042     0.03273
+526.06    0.003013     0.03308
+535.02    0.002986     0.03342
+543.83    0.002960     0.03374
+552.490   0.002935     0.03407
+561.04    0.002912     0.03438
+569.48    0.002890     0.03469
+577.82    0.002868     0.03500
+586.09    0.002847     0.03530
+594.29    0.002828     0.03560
+/
+
+PVDO
+-- Column 1: oil phase pressure 
+-- Column 3: oil FVF for saturated oil 
+-- Column 4: oil viscosity for saturated oil
+1.013529	1.012	1.16
+18.250423	1.011	1.16
+35.487316	1.010	1.16
+69.9611023	1.008	1.16
+173.382462	1.007	1.16
+207.856248	1.006	1.16
+276.803821	1.005	1.16
+345.751394	1.004	1.16
+621.541686	1.003	1.16 /	
+/
+
+-- PERMEABILITY FACTOR REDUCTION DUE TO SALT PRECIPITATION
+-- (OPM FLOW KEYWORD)
+PERMFACT
+-- PORO PERM
+-- FACTOR FACTOR
+-- ------- --------
+-- ------- --------
+0.00 1.0
+0.25 1.0
+0.50 1.0
+0.9 1.0
+0.95 1.0
+1.00 1.0/
+/
+
+SALTSOL
+	9 /
+/
+
+SOLUTION
+-- -------------------------------------------------------------------------
+
+EQUIL
+-- Item 1: datum depth 
+-- Item 2: pressure at datum depth 
+-- Item 3: depth of water-oil contact 
+-- Item 4: oil-water capillary pressure at the water oil contact 
+-- Item 5: depth of gas-oil contact 
+-- Item 6: gas-oil capillary pressure at gas-oil contact 
+-- Item #: 1 2    3    4 5    6 7 8 9
+     2560.32 331 2575.56 0 2560.32 0 /
+     
+SALTVD
+ 2529.84  8
+ 2575.56  8 /
+ 
+SALTPVD
+ 2529.84  0.0
+ 2575.56  0.0/
+ 
+
+SUMMARY
+-- -------------------------------------------------------------------------	 
+FGPT
+FWPT
+FOPT
+FGPR
+FWPR
+FOPR
+WGOR
+
+-- Well Gas-Oil Ratio
+   'PROD'
+/
+-- Using FGOR instead of WGOR:PROD results in the same graph
+FGOR
+
+-- In order to compare Eclipse with Flow:
+WBHP
+  'INJ'
+  'PROD'
+/
+WGIR
+  'INJ'
+  'PROD'
+/
+WGIT
+  'INJ'
+  'PROD'
+/
+WGPR
+  'INJ'
+  'PROD'
+/
+WGPT
+  'INJ'
+  'PROD'
+/
+WOIR
+  'INJ'
+  'PROD'
+/
+WOIT
+  'INJ'
+  'PROD'
+/
+WOPR
+  'INJ'
+  'PROD'
+/
+WOPT
+  'INJ'
+  'PROD'
+/
+WWIR
+  'INJ'
+  'PROD'
+/
+WWIT
+  'INJ'
+  'PROD'
+/
+WWPR
+  'INJ'
+  'PROD'
+/
+WWPT
+  'INJ'
+  'PROD'
+/
+
+-- Salt rates
+WSPR
+/
+WSIR
+/
+-- Salt cumulatives
+WSPT
+/
+WSIT
+/
+--Field rates and totals
+FSPT
+FSIT
+FSPR
+FSIR
+FSIP
+
+SCHEDULE
+-- -------------------------------------------------------------------------
+RPTSCHED
+	'PRES' 'SOIL' /
+
+RPTRST
+	'BASIC=1' /
+
+WELSPECS
+-- Item #: 1	 2	3	4	5	 6
+	'PROD'	'G1'	1	1	1*	'OIL' /
+   	'INJ'	'G1'	1	1	1*	'WATER' /
+/
+
+COMPDAT
+-- Item #: 1	2	3	4	5	6	7	8	9
+	'PROD'	1	1	1	1	'OPEN'	1*	1*	0.114 /
+ 	'INJ'	1	1	1	1	'SHUT'	1*	1*	0.114 /
+/
+
+WCONPROD
+-- Item #:1	2      3     4	   5  9
+'PROD' 'OPEN' 'ORAT' 3179.75 4* 68.9/
+/
+
+WCONINJE
+-- Item #:1	 2	 3	 4	5      6  7
+'INJ'	'WATER'	'SHUT'	'RATE'	15898.7 1* 621.5 /
+/
+
+WSALT
+ 'INJ'  0.0 /
+/
+
+TSTEP
+--Advance the simulater once a month for ONE year:
+31 28 31 30 31 30 31 31 30 31 30 31 
+ /
+ 
+COMPDAT
+-- Item #: 1	2	3	4	5	6	7	8	9
+	'PROD'	1	1	1	1	'SHUT'	1*	1*	0.114 /
+ 	'INJ'	1	1	1	1	'OPEN'	1*	1*	0.114 /
+/
+ 
+WCONPROD
+-- Item #:1	2      3     4	   5  9
+'PROD' 'SHUT' 'ORAT' 3179.75 4* 68.9/
+/
+ 
+WCONINJE
+-- Item #:1	 2	 3	 4	5      6  7
+'INJ'	'WATER'	'OPEN'	'RATE'	1 1* 10000 /
+/
+
+TSTEP
+--Advance the simulater once a month for ONE year:
+31 28 31 30 31 
+ /
+
+END
