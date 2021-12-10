@@ -5,9 +5,11 @@
 
 -- Copyright (C) 2021 Equinor
 
--- This model is built from the base case for model2 (../model2/0B_WELPI_MODEL2.DATA). This case has standard wells, 3 producers
--- and 2 injectors. Well OP03  has modified completions compared to the base case model and the water oil contact of equilibrium
--- region 2 has been moved to get a stronger well water cut development
+-- This model is built from the base case for model2 (../model2/0B_WELPI_MODEL2.DATA), and has been modified to test the COMPLUMP
+-- keyword with the ACTIONX keyword.
+--
+-- This case has standard wells, 3 producers and 2 injectors. Well OP03 has modified completions compared to the base case model
+-- and the water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development.
 -- ( 1) Production wells with preferred phase (OIL, GAS)
 --      PROD1 - OIL
 --      PROD2 - OIL
@@ -25,11 +27,11 @@
 --
 -- ( 6) The case is based on  with the input deck re-factored to match the manual style, and with the well declarations declared at
 --      the beginning of the run.
--- ( 7) ACTIONX COMPLUMP - PROD2 completions are defined in ACT-01, instead of the deck and ACT02 opens completion 2
---                        (well is opened in the  deck).
+-- ( 7) ACTIONX COMPLUMP - PROD2 completions are defined in ACT-01, instead of the deck and ACT02 opens completion 2, well is opened
+--                         in the deck.
 -- ( 8) ACTIONX COMPLUMP - INJ1 completions are defined in ACT-01 and ACT-03 shuts completion 1 and opens completion 2.
 --
--- The results should therefore be identical to the original case.
+-- The results should therefore be identical to the original case, ../model2/0B_WELPI_MODEL2.DATA.
 --
 -- =================================================================================================================================
 --
@@ -313,12 +315,70 @@ RUNSUM
 --
 SEPARATE
 --
---       LOAD SUMMARY SECTION INCLUDE FILES
+--       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
 --
-INCLUDE
-         '$MODEL2/include/summary.inc'                     /
-INCLUDE
-         '$MODEL2/include/well_conn_compl.inc'             /
+ALL
+--
+--       FIELD PRODUCTION DATA - HISTORICAL DATA
+--
+FOPRH
+FOPTH
+
+FGPRH
+FGPTH
+FGORH
+
+FWPRH
+FWPTH
+FWCTH
+
+FLPRH
+FLPTH
+--
+--       FIELD INJECTION DATA - HISTORICAL DATA
+--
+FGIRH
+FGITH
+FWIRH
+FWITH
+--
+--       WELL PRODUCTION DATA - HISTORICAL DATA
+--
+WOPRH
+/
+WLPRH
+/
+WWPRH
+/
+WGPRH
+/
+WWCTH
+/
+WGORH
+/
+WOPTH
+/
+WLPTH
+/
+WWPTH
+/
+WGPTH
+/
+WTHPH
+/
+WBHPH
+/
+--
+--       WELL INJECTION DATA - HISTORICAL DATA
+--
+WGIRH
+/
+WWIRH
+/
+WGITH
+/
+WWPTH
+/
 
 -- =================================================================================================================================
 --
@@ -347,7 +407,7 @@ INCLUDE
 -- ---------------------------------------------------------------------------------------------------------------------------------
 ACTIONX
         ACT-01                                             /
-        DAY  = 1              AND                          /
+        DAY  >= 1             AND                          /
         MNTH = NOV            AND                          /
         YEAR = 2018                                        /
 /
@@ -728,11 +788,14 @@ WELOPEN
 INJ2     OPEN                                                                  /
 INJ2     OPEN     0   0    0                                                   /
 /
--- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
 WCONHIST
-  'INJ2'  'OPEN'      'RESV'      0.000      0.000      0.000  5* /
+INJ2     OPEN   RESV  0.000  0.000  0.000   5*                                 / SAME AS ../model2/0B_WELPI_MODEL2.DATA
 /
--- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --
 --       WELL RFT, PLT AND SEGMENT DATA
 --
@@ -746,11 +809,14 @@ DATES   -- 11
  2 'APR' 2019 /
 /
 
--- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
 WCONHIST
-  'INJ2'  'SHUT'      'RESV'      0.000      0.000      0.000  5* /
+INJ2     SHUT  RESV   0.000  0.000  0.000   5*                                 / SAME AS ../model2/0B_WELPI_MODEL2.DATA
 /
--- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 DATES   -- 12
  12 'APR' 2019 /
@@ -890,32 +956,6 @@ DATES   -- 17
 --       ACT-01 INJ1 COMPLUMP ASSIGNMENT IN ACTIONX BLOCK
 --       ACT-03 INJ1 SHUT COMPLETION 1 AND OPEN COMPLETION 2
 --       ---------------------------------------------------
--- --
--- --       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
--- --
--- --  WELL WELL   --LOCATION--  COMPLETION
--- --  NAME STAT     I   J    K  FIRST LAST
--- WELOPEN
--- INJ1     SHUT     0   0    1                                                   /
--- INJ1     SHUT     0   0    2                                                   /
--- INJ1     SHUT     0   0    3                                                   /
---
--- INJ1     OPEN     0   0    8                                                   /
--- INJ1     OPEN     0   0    9                                                   /
--- INJ1     OPEN     0   0   10                                                   /
--- INJ1     OPEN     0   0   11                                                   /
--- /
---
---       WELL CONNECTION DATA
---
--- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
--- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
--- COMPDAT
--- INJ1       2  13   8   8   OPEN   0    20.547  0.216  1*	   0.00	 0.0   'Z'   /
--- INJ1       2  13   9   9   OPEN   0    45.709  0.216  1*	   0.00	 0.0   'Z'   /
--- INJ1       2  13  10  10   OPEN   0    25.267  0.216  1*	   0.00	 0.0   'Z'   /
--- INJ1       2  13  11  11   OPEN   0    33.982  0.216  1*	   0.00	 0.0   'Z'   /
--- /
 --
 --       WELL HISTORICAL PRODUCTION CONTROLS
 --
