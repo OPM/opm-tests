@@ -25,7 +25,8 @@ MULTY        | BOX, ENDBOX                                                      
 MULTY-       | BOX, ENDBOX                                                         | ACTIONX_MULTY-     | Prediction | MULT       | Close | Reference case not for regression testing. Field matches but well results are variable, some identical some much less so.
 MULTZ        | BOX, ENDBOX                                                         | ACTIONX_MULTZ      | Prediction | MULT       | Close | Reference case not for regression testing. Field matches but well results are variable, some identical some much less so.
 MULTZ-       | BOX, ENDBOX                                                         | ACTIONX_MULTZ-     | Prediction | MULT       | Close | Reference case not for regression testing. Field matches but well results are variable, some identical some much less so.
-NEXTSTEP     | -                                                                   | ACTIONX_NEXTSTEP   | -          | -          | -     | Waiting on E100 results.
+NEXT         | WELTARG                                                             | ACTIONX_NEXT       | Prediction | MODEL02    | No    | NEXT is an alias for NEXSTEP – see NEXTSTEP for documentation.
+NEXTSTEP     | WELTARG                                                             | ACTIONX_NEXTSTEP   | Prediction | MODEL02    | No    | Numerically the fluid rates and the pressures match the commercial simulator, but the time steps defined by NEXTSTEP are not honored.
 NOECHO       | -                                                                   | -                  | -          | -          | -     | Not supported in deck.
 UDQ          | WCONPROD                                                            | ACTIONX_UDQ        | Prediction | SPE09      | Yes   | Complete and run matches commercial simulator.    
 WCONINJE     | WELOPEN                                                             | ACTIONX_WCONINJE   | Prediction | MODEL02    | Yes   | Complete and run matches commercial simulator. 
@@ -33,8 +34,8 @@ WCONPROD     | GCONPROD, UDQ, WCONINJE                                          
 WEFAC        | -                                                                   | ACTIONX_WEFAC      | Prediction | MODEL02    | Yes   | Complete and run matches commercial simulator.
 WELOPEN      | COMPDAT, COMPLUMP                                                   | See ACTIONX_COMPDAT| History    | MODEL02    | Yes   | Same as ACTIONX_COMPDAT.                     
 WELPI        | -                                                                   | ACTIONX_WELPI      | History    | MODEL02    | Yes   | Complete and run matches commercial simulator.
-WELSPECS     | COMPDAT, WCONPROD                                                   | ACTIONX_WELSPECS   | Fails      | WSEGVALV   | Fails | Fails, but fix currently in progress.
-WELTARG      | -                                                                   | ACTIONX_WELTARG    | Prediction | WSEGVALV   | -     | Waiting on E100 results.
+WELSPECS     | COMPDAT, WCONPROD                                                   | ACTIONX_WELSPECS   | Fails      | WSEGVALV   | Fails | Fails but fix currently in progress. Note for the commercial simulator, one has to move ACT-04 after the well has been defined, in order for it run.
+WELTARG      | -                                                                   | ACTIONX_WELTARG    | Prediction | WSEGVALV   | Yes   | Complete and run matches commercial simulator.
 WGRUPCON     | GCONPROD, GCONINJE, WCONINJE, WELOPEN                               | ACTIONX_WGRUPCON   | Prediction | MODEL02    | Close | Complete, matches except WI01 for ACT-03 near the end of the run that results in a discrepancy.
 WINJMULT     | -                                                                   | ACTIONX_           | -          | -          | -     | Not supported in deck.
 WPIMULT      | -                                                                   | ACTIONX_WPIMULT    | History    | MODEL02    | Yes   | Complete and run matches commercial simulator.
@@ -48,4 +49,4 @@ WTMULT       | -                                                                
 2.   Under comments, _Complete_ means that the test case is completed, it does not mean that the runs are necessarily comparable to the commercial simulator.
 3.   Under comments _Not supported in deck_ means the keyword functionality is currently not supported by OPM Flow.
 
-**Version: 10 December 2021**
+**Version: 15 December 2021**
