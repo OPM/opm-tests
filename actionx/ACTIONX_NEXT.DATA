@@ -552,7 +552,7 @@ WCONPROD
 --       WELL INJECTION CONTROLS                                                      
 --                                                                              
 -- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP               
--- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE             
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRES  PRES  TABLE             
 WCONINJE                                                             
 'F-1H'   WATER  OPEN   GRUP  4000   1*     225.0  1*   1*  /
 'F-2H'   WATER  OPEN   GRUP  4000   1*     225.0  1*   1*  /
@@ -560,7 +560,7 @@ WCONINJE
 'G-4H'   WATER  OPEN   GRUP  4000   1*     225.0  1*   1*  /
 /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- SCHEDULE SECTION - 2020-01-01                                   
+-- SCHEDULE SECTION - 2021-01-01                                   
 -- ---------------------------------------------------------------------------------------------------------------------------------
 RPTSCHED                                                                                                                             
          'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
