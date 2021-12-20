@@ -41,7 +41,7 @@ WINJMULT     | -                                                                
 WPIMULT      | -                                                                   | ACTIONX_WPIMULT    | History    | MODEL02    | Yes   | Complete and run matches commercial simulator.
 WSEGVALV     | COMPSEGS, WELSEGS                                                   | ACTIONX_WSEGVALV   | Prediction | WSEGVALV   | Yes   | Complete and run matches commercial simulator.
 WTEST        | WECON                                                               | ACTIONX_WTEST      | Prediction | SPE09      | No    | Completed: Fixed the WECON issue all the wells now flow, some are perfect matches but there are some that are way off, don’t know why at this stage – may not be an ACTIONX issue.
-WTMULT       | -                                                                   | ACTIONX_WTMULT     | Prediction | MODEL05    |  -    | Wating on E100 results.
+WTMULT       | -                                                                   | ACTIONX_WTMULT     | Prediction | MODEL05    | Yes   | Complete and run matches commercial simulator.
            
 **Notes:** 
 
@@ -49,4 +49,4 @@ WTMULT       | -                                                                
 2.   Under comments, _Complete_ means that the test case is completed, it does not mean that the runs are necessarily comparable to the commercial simulator.
 3.   Under comments _Not supported in deck_ means the keyword functionality is currently not supported by OPM Flow.
 
-**Version: 16 December 2021**
+**Version: 20 December 2021**
