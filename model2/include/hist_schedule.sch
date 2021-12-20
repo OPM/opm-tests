@@ -17,11 +17,14 @@ GRUPTREE
 
 
 WELSPECS
+ 'EXP'    'PROD'  10    3   1*      'OIL'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
  'PROD1'  'PROD'   6    3   1*      'OIL'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
  'INJ1'   'INJE'   2    13   1*    'WATER'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
 /
 
 COMPDAT
+ 'EXP'    10   3   2   2      'OPEN'   0      6.145  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'EXP'    10   3   5   5      'OPEN'   0      6.145  0.216  1*   0.00	 0.0 'Z' 1* /
  'PROD1'   6   3   7   7      'OPEN'   0      6.145  0.216  1*   0.00	 0.0 'Z' 1* /
  'PROD1'   6   3   8   8      'OPEN'   0      9.703  0.216  1*   0.00	 0.0 'Z' 1* /
  'PROD1'   6   3   9   9      'OPEN'   0    184.170  0.216  1*   0.00	 0.0 'Z' 1* /
@@ -33,12 +36,14 @@ COMPDAT
 /
 
 WCONHIST
+  'EXP'    'SHUT'      'RESV'      0.000      0.000      0.000  5* /
   'PROD1'  'OPEN'      'RESV'      0.000      0.000      0.000  5* /
   'INJ1'   'OPEN'      'RESV'      0.000      0.000      0.000  5* /
 /
 
 
 WRFTPLT
+   'EXP'         'YES'        'NO'        'NO' /
    'PROD1'       'YES'        'NO'        'NO' /
    'INJ1'        'YES'        'NO'        'NO' /
 /
