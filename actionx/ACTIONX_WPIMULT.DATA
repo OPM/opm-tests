@@ -5,9 +5,11 @@
 
 -- Copyright (C) 2021 Equinor
 
--- This model is built from the base case for model2 to create ../model2/0B_WELPI_MODEL2.DATA used to test the WELPI keyword. The
--- model uses the WELPI keyword to adjust well productivity indices and hence connection factors during the simulation period. It
--- has five standard wells, 3 producers and 2 injectors, as described below:
+-- This model is built from the base case for model2 to create ../model2/0B_WELPI_MODEL2.DATA and has been modified to test the
+-- WPIMULT keyword with the ACTIONX keyword.
+--
+-- The model uses the WELPI keyword to adjust well productivity indices and hence connection factors during the simulation period.
+-- It has five standard wells, 3 producers and 2 injectors, as described below:
 -- ( 1) Production wells with preferred phase (OIL, GAS)
 --      PROD1 - OIL
 --      PROD2 - OIL
@@ -21,8 +23,8 @@
 -- ( 4) Well PROD3 has modified completions compared to the base case model.
 -- ( 5) The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development.
 --
--- The model has been modified to test the WELPI keyword with the ACTIONX keyword, as follows:
--- ( 6) The input deck has been re-factored to match the manual style, and with the  well declarations declared at the beginning of
+-- The model has been modified to test the WPIMULT keyword with the ACTIONX keyword, as follows:
+-- ( 6) The input deck has been re-factored to match the manual style, and with the well declarations declared at the beginning of
 --      the run.
 -- ( 7) For this case, instead of the well productivity indices being modified in the deck, they are implemented via the ACTIONX
 --      keyword (ACT-01 to ACT04), using the WPIMULT keyword. The multipliers are derived from the WELPI none productivity case
@@ -310,12 +312,70 @@ RUNSUM
 --
 SEPARATE
 --
---       LOAD SUMMARY SECTION INCLUDE FILES
+--       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
 --
-INCLUDE
-         '$MODEL2/include/summary.inc'                     /
-INCLUDE
-         '$MODEL2/include/well_conn_compl.inc'             /
+ALL
+--
+--       FIELD PRODUCTION DATA - HISTORICAL DATA
+--
+FOPRH
+FOPTH
+
+FGPRH
+FGPTH
+FGORH
+
+FWPRH
+FWPTH
+FWCTH
+
+FLPRH
+FLPTH
+--
+--       FIELD INJECTION DATA - HISTORICAL DATA
+--
+FGIRH
+FGITH
+FWIRH
+FWITH
+--
+--       WELL PRODUCTION DATA - HISTORICAL DATA
+--
+WOPRH
+/
+WLPRH
+/
+WWPRH
+/
+WGPRH
+/
+WWCTH
+/
+WGORH
+/
+WOPTH
+/
+WLPTH
+/
+WWPTH
+/
+WGPTH
+/
+WTHPH
+/
+WBHPH
+/
+--
+--       WELL INJECTION DATA - HISTORICAL DATA
+--
+WGIRH
+/
+WWIRH
+/
+WGITH
+/
+WWPTH
+/
 
 -- =================================================================================================================================
 --
@@ -362,8 +422,8 @@ ACTIONX
 -- WELL  PI     --LOCATION--  COMPLETION
 -- NAME  MULT     I   J    K  FIRST LAST
 WPIMULT
-PROD1    1.391975 1*  1*   1*    1*    1*                  /
-INJ1    15.671506 1*  1*   1*    1*    10                  /
+PROD1    0.773847 1*  1*   1*    1*    1*                  /
+INJ1     0.063754 1*  1*   1*    1*    10                  /
 /
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -381,8 +441,8 @@ ACTIONX
 -- WELL  PI     --LOCATION--  COMPLETION
 -- NAME  MULT     I   J    K  FIRST LAST
 WPIMULT
-PROD1    0.510821 1*  1*   1*    1*    1*                  /
-INJ1    21.746769 1*  1*   1*    1*    10                  /
+PROD1    1.900943 1*  1*   1*    1*    1*                  /
+INJ1     0.045908 1*  1*   1*    1*    10                  /
 /
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -400,9 +460,9 @@ ACTIONX
 -- WELL  PI     --LOCATION--  COMPLETION
 -- NAME  MULT     I   J    K  FIRST LAST
 WPIMULT
-PROD2    0.391200 1*  1*   1*    1*    1*                  /
-PROD3   23.014778 1*  1*   1*    1*    1*                  /
-INJ2     0.001777 1*  1*   1*    1*    10                  /
+PROD2    2.517075 1*  1*   1*    1*    1*                  /
+PROD3    0.043847 1*  1*   1*    1*    1*                  /
+INJ2     562.7596 1*  1*   1*    1*    10                  /
 /
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -420,9 +480,9 @@ ACTIONX
 -- WELL  PI     --LOCATION--  COMPLETION
 -- NAME  MULT     I   J    K  FIRST LAST
 WPIMULT
-PROD2    2.274251 1*  1*   1*    1*    1*                  /
-PROD3   43.401524 1*  1*   1*    1*    1*                  /
-INJ2    15.783807 1*  1*   1*    1*    10                  /
+PROD2    0.438742 1*  1*   1*    1*    1*                  /
+PROD3    0.023196 1*  1*   1*    1*    1*                  /
+INJ2     14.49076 1*  1*   1*    1*    10                  /
 /
 ENDACTIO
 
@@ -734,11 +794,14 @@ WELOPEN
 INJ2     OPEN                                                                  /
 INJ2     OPEN     0   0    0                                                   /
 /
--- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
 WCONHIST
-  'INJ2'  'OPEN'      'RESV'      0.000      0.000      0.000  5* /
+INJ2     OPEN   RESV  0.000  0.000  0.000   5*                                 / SAME AS ../model2/0B_WELPI_MODEL2.DATA
 /
--- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --
 --       WELL RFT, PLT AND SEGMENT DATA
 --
@@ -752,11 +815,14 @@ DATES   -- 11
  2 'APR' 2019 /
 /
 
--- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--
+--       WELL HISTORICAL PRODUCTION CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS    VFP    VFP   THP   BHP
+-- NAME  SHUT   MODE   RATE   RATE   RATE   TABLE  ALFQ  PRES  PRES
 WCONHIST
-  'INJ2'  'SHUT'      'RESV'      0.000      0.000      0.000  5* /
+INJ2     SHUT  RESV   0.000  0.000  0.000   5*                                 / SAME AS ../model2/0B_WELPI_MODEL2.DATA
 /
--- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 DATES   -- 12
  12 'APR' 2019 /

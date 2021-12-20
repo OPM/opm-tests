@@ -322,6 +322,8 @@ RPTSCHED
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
+-- RPTRST
+--       BASIC=5                                                               / COMMENTED OUT AS NOT WORKING
 --
 --       LOAD VFPPROD INCLUDE FILES
 --
