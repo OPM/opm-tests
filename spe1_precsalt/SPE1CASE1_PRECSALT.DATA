@@ -3,7 +3,7 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2015 Statoil 
+-- Copyright (C) 2022 Equinor 
 -- Copyright (C) 2019 Norce 
 
 -- This simulation is based on the data given in 
@@ -11,11 +11,8 @@
 -- Black-Oil Reservoir Simulation Problem' by Aziz S. Odeh,
 -- Journal of Petroleum Technology, January 1981
 
--- NOTE: THIS IS A MODIFIED VERSION OF SPE1CASE1, TO TEST SIMPLE SALTWATER IMPLEMENTATION
--- KEYWORDS BRINE SALTVD PVTWSALT WSALT IS ADDED
--- SALTVD HAS THE RIGHT COLUMN 0 BECAUSE THE KEYWORD IS NOT USED CORRECTLY IN THE SIMULATOR
--- GAS-INJECTORS ARE CONVERTED TO WATER INJECTORS
--- RELPERMS ARE CHANGED TO MAKE THINGS MOVE FASTER
+-- NOTE: THIS IS A MODIFIED VERSION OF SPE1CASE1, TO TEST SIMPLE SALT PRECIPITATION IMPLEMENTATION
+-- KEYWORDS BRINE, PRECSALT, SALTVD, SALTPVD, SALTSOL, PVTWSALT AND WSALT ARE ADDED
 
 ---------------------------------------------------------------------------
 ------------------------ SPE1 - CASE 1 ------------------------------------
