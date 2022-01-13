@@ -1,0 +1,304 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2022 Equinor
+
+-- This test case is used for testing inter-region flow parameters
+--   ROFT, RWFT and RGFT
+
+-- This model runs both for Eclipse 100, Eclipse 300 Black oil and Opm-Flow
+
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 10 12 8 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+BLACKOIL
+
+GRIDOPTS
+ 'YES'	      0 / 
+
+
+EQLDIMS
+ 2  100  25 /
+
+
+EQLOPTS
+ 'THPRES' /
+ 
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10	    15 	          3	     10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  10          1      50          60         4         60 /
+
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+
+GRIDFILE
+0  1  /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+INCLUDE
+ 'include/irf_test_10_12_8.grdecl' /
+
+
+EQUALS
+ 'PERMX' 1000 /
+ 'PERMY' 1000 /
+ 'PERMZ' 100 /
+ 'PORO'  0.25 /
+/ 
+
+EQUALS
+ 'PORO'  0.0  1 10 1 12 4 4 /
+/
+ 
+ 
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/norne_pvt.inc' /
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+
+EQUALS
+ 'EQLNUM' 1  1 10   1 12 1  4 /
+ 'EQLNUM' 2  1 10   1 12 5  8 /
+/    
+
+EQUALS
+ 'FIPNUM' 1  1 10  1  6   1  4 /
+ 'FIPNUM' 2  1 10  7 12   1  4 /
+ 'FIPNUM' 3  1 10  1  6   5  8 /
+ 'FIPNUM' 4  1 10  7 12   5  8 /
+/
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2'  /
+
+EQUIL
+-- Datum    P     woc      Pc   goc    Pc  Rsvd  Rvvd  N
+ 2013     275.0   2025    0.0   1900  0.0   1      1   0 /  
+ 2030     285.0   2030    0.0   1900  0.0   2      2   0 /  
+
+RSVD
+ 2000  110.0
+ 2045  110.0 /
+
+ 2000  120.0 
+ 2030  120.0 /
+
+RVVD
+ 2000  0.000057191  
+ 2030  0.000077191  /
+
+ 2000  0.000057191  
+ 2030  0.000077191  /
+
+
+RPTRST
+ 'BASIC=2'  /
+
+
+THPRES
+ 1 2   /
+/ 
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+ 
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+ 
+TUNING
+ 1.0 1.0 7* 1.0 /
+ /
+ /
+
+RPTRST
+ 'BASIC=5'  /
+ 
+ 
+WELSPECS
+ 'EXP1'    'PROD'  6    10   1*      'OIL'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'EXP1'    6   10   1   3      'OPEN'   0      6.145  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'EXP1'    6   10   5   8      'OPEN'   0      6.145  0.216  1*   0.00	 0.0 'Z' 1* /
+/
+
+COMPLUMP
+ 'EXP1' 2*  1  3  1 /
+ 'EXP1' 2*  5  8  2 /
+/ 
+  
+-- well EXP1 is open for X-flow during first 15 days
+-- causing flow between between region fipnum 2 and 4
+-- this X-flow volumes should not be included in summary vector
+-- ROFT, RGFT and RWFT
+
+WCONPROD
+ 'EXP1' STOP   ORAT  0.0  0.0  0.0  0.0  0.0   90.0 /
+/
+
+TSTEP
+ 5*2 5  /
+
+-- well EXP1 closed causing X flow to stop  
+WELOPEN
+ 'EXP1' SHUT /
+/
+
+WELSPECS
+ 'OP_1'    'PROD'  4    2   1*      'OIL'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'OP_1'    4   2   1   1      'OPEN'   0      1*  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'OP_1'    3   2   2   2      'OPEN'   0      1*  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'OP_1'    2   2   5   5      'OPEN'   0      1*  0.216  1*   0.00	 0.0 'Z' 1* /
+/
+
+
+WCONPROD
+ 'OP_1' OPEN   ORAT  1000.0  4*   90.0 /
+/
+
+DATES
+ 1 DEC 2018 /
+ 1 JAN 2019 /
+/
+
+-- well EXP1 closed causing X flow to stop  
+WELOPEN
+ 'OP_1' SHUT /
+/
+ 
+
+WELSPECS
+ 'OP_2'    'PROD'  2   10   1*      'OIL'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'OP_2'    2   10   1   3      'OPEN'   0      1*  0.216  1*   0.00	 0.0 'Z' 1* /
+/
+
+WCONPROD
+ 'OP_2' OPEN   ORAT  1000.0  4*   90.0 /
+/
+
+
+DATES
+ 1 FEB 2019 /
+/
+
+WELSPECS
+ 'GI_1'    'PROD'  4    2   1*      'GAS'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'GI_1'    4   2   1   1      'OPEN'   0      1*  0.216  1*   0.00	 0.0 'Z' 1* /
+/
+
+
+WCONINJE
+ 'GI_1'  'GAS' 'OPEN'  RATE  4.0E6  1*  350.0 /
+/ 
+
+DATES 
+ 1 MAR 2019 /
+/
+
+
+WELSPECS
+ 'WI_1'    'PROD'  8    2   1*      'WATER'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'WI_1'    8   2   1   3      'OPEN'   0      1*  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'WI_1'    8   2   5   8      'OPEN'   0      1*  0.216  1*   0.00	 0.0 'Z' 1* /
+/
+
+WCONINJE
+ 'WI_1'  'WATER' 'OPEN'  RATE  2000.0  1*  350.0 /
+/ 
+
+DATES 
+ 1 APR 2019 /
+ 1 MAY 2019 /
+/
+
+ 
+END
