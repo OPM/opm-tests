@@ -12,7 +12,7 @@
 -- Journal of Petroleum Technology, January 1981
 
 -- NOTE: THIS IS A MODIFIED VERSION OF SPE1CASE1, TO TEST SIMPLE SALT PRECIPITATION IMPLEMENTATION
--- KEYWORDS BRINE, PRECSALT, SALTVD, SALTPVD, SALTSOL, PVTWSALT AND WSALT ARE ADDED
+-- KEYWORDS BRINE, PRECSALT, PERMFACT, SALTVD, SALTPVD, SALTSOL, PVTWSALT AND WSALT ARE ADDED
 
 ---------------------------------------------------------------------------
 ------------------------ SPE1 - CASE 1 ------------------------------------
