@@ -203,7 +203,7 @@ EQUALS
 
 -- SGU = 1-SWL
 INCLUDE
- 'include/sgu.grdecl' /
+ 'include/sgu_vscale.grdecl' /
 
 
 ------------------------------------------------------------------------------------------------
