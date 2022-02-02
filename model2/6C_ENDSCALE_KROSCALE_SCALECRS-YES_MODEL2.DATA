@@ -165,7 +165,7 @@ PROPS
 ------------------------------------------------------------------------------------------------
 
 SCALECRS
-NO /
+YES /
 
 NOECHO
 
@@ -184,29 +184,42 @@ INCLUDE
 INCLUDE
  'include/swatinit.grdecl' /
 
- 
 INCLUDE
- 'include/swl.grdecl' /
+ 'include/swl_2.grdecl' /
+
+-- SGU = 1-SWL
+INCLUDE
+ 'include/sgu_vscale.grdecl' /
+
+INCLUDE
+ 'include/sgl.grdecl' /
+
+INCLUDE
+ 'include/sgcr.grdecl' /
+
+INCLUDE
+ 'include/sowcr.grdecl' /
+
+INCLUDE
+ 'include/sogcr.grdecl' /
 
 -- SWCR = SWL
 COPY
   SWL  SWCR /
 /
 
-EQUALS
- 'SGL' 0.0 /
+ADD
+   SWCR 0.05  1  13   1   22  1  11 /
 /
 
--- SGU = 1-SWL
 INCLUDE
- 'include/sgu.grdecl' /
-
- 
-INCLUDE
- 'include/krwr.grdecl' /
+ 'include/krorw.grdecl' /
 
 INCLUDE
- 'include/krw.grdecl' /
+ 'include/krorg.grdecl' /
+
+INCLUDE
+ 'include/kro.grdecl' /
 
 ------------------------------------------------------------------------------------------------
 REGIONS
@@ -273,7 +286,7 @@ INCLUDE
 
 
 INCLUDE
- 'include/hist_schedule.sch' /
+ 'include/hist_schedule_eps.sch' /
 
  
 END
