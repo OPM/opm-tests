@@ -5,7 +5,10 @@
 
 -- Copyright (C) 2018 Equinor
 
--- Testing endpoint scaling, keywords SWL, SWCR SGL and SGU.
+-- Testing three-point horizontal and vertical endpoint scaling
+-- (SCALECRS='YES').
+-- Endpoint scaling keywords: SWL, SWCR, SGL, SGCR, SGU, SOWCR, SOGCR,
+-- KRWR, and KRW.
 
 -- ------------------------------------------------------------------------
 -- ----------------------- BASE MODEL 1 -----------------------------------
