@@ -343,6 +343,12 @@ BPR
 10 10 3 /
 /
 
+--Temperatures of the cells where the injector and producer are located
+BTCNFHEA
+1  1  1 /
+10 10 3 /
+/
+
 -- 2b) Gas saturation at grid points given in Odeh's paper
 BGSAT
 1  1  1 /
