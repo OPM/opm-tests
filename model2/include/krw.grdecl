@@ -1,0 +1,23 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018 Equinor
+
+-- This file is one of the include files for model2
+
+
+KRW
+286*0.9801
+286*0.9802
+286*0.9803
+286*0.9804
+286*0.9805
+286*0.9806
+286*0.9807
+286*0.9808
+286*0.9809
+286*0.9810
+286*0.9811
+/

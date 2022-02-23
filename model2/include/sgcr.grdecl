@@ -1,0 +1,23 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018 Equinor
+
+-- This file is one of the include files for model2
+
+
+SGCR
+286*0.050
+286*0.051
+286*0.052
+286*0.053
+286*0.054
+286*0.055
+286*0.056
+286*0.057
+286*0.058
+286*0.059
+286*0.060
+/
