@@ -113,9 +113,9 @@ ECHO
 PROPS
 -- -------------------------------------------------------------------------
 
---Solubility limit lb/stb
+--Solubility limit lb/stb and solid salt density  lb/ft3
 SALTSOL
-	0.5 2170 /
+	0.5 135.5 /
 /
 
 -- PERMEABILITY FACTOR REDUCTION DUE TO SALT PRECIPITATION
