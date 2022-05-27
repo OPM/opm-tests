@@ -279,7 +279,7 @@ PBVD
 --       DEFINE SOLUTION SECTION REPORT OPTIONS
 --
 RPTSOL                                                                           
-         FIP=2    FIPRESV  RESTART=3                                           /
+         FIP=2    FIPRESV  RESTART=1                                           /
          
 -- =================================================================================================================================
 -- 
@@ -332,7 +332,7 @@ RPTSCHED
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
 RPTRST                                                                           
-         BASIC=2                                                               /
+         BASIC=5                                                               /
 --
 --       DEFAULT TUNING PARAMETERS  
 --
