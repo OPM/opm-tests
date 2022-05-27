@@ -3,7 +3,7 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 --  
--- Copyright (C) 2021 Equinor
+-- Copyright (C) 2022 Equinor
 --                                                                           
 -- This model is based on a tartan anticline grid in order to induce instabilities for testing the various WVFPEXP keyword options 
 -- in the SCHEDULE section. This model is a sensitivity run with:
