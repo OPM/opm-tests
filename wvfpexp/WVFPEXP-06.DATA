@@ -1,0 +1,670 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+--  
+-- Copyright (C) 2022 Equinor
+--                                                                           
+-- This model is based on a tartan anticline grid in order to induce instabilities for testing the various WVFPEXP keyword options 
+-- in the SCHEDULE section.  The model has variable PORO and PERM with a high permeability streak in layer #3, variable group and 
+-- well controls, and the wells are re-opened at a later date. This model is a sensitivity run with:
+-- ( 1) WVFPEXP(IMPEXP) set to the value of EXP.
+-- ( 2) WVFPEXP(CONTROL) set to the default value of NO.
+-- Note that the WVFPEXP-05 (BASE) and WVFPEXP-06 (SENSITIVITY) cases will give identical results. The difference between the two 
+-- runs is the number of HUNTING PROBLEMS that occur, with WVFPEXP-05 (BASE) having 15 and WVFPEXP-06 (SENSITIVITY) having none in 
+-- the commercial simulator. 
+--
+-- This model is a simple (13, 13, 5) model with with three oil producers at the crest of the anticline, and four water injectors 
+-- on the flanks, based an Irregular Corner-Point grid. This a three phase model using MODEL05 PVT and well VFP data. The model has 
+-- only one group as shown below:
+--                    FIELD                                                                     
+--                    |                                                                         
+--                    |---PLAT-1                                                                
+-- 
+-- ( 1) The field has an oil rate target of 3,000 m3/d, with no gas, water, or liquid handling constraints.
+-- ( 2) Water injection is via the FIELD group with VREP set to 0.5 to partially maintain reservoir pressure.
+-- ( 3) Oil producers are place in the center of the grid so as to cause inter-well interactions, with variable oil rate targets, 
+--      a BHP constraint of 50.0 barsa and a THP constraint of 10 barsa. 
+--
+-- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
+--       1         2         3         4         5         6         7         8         9         0         1         2         3  
+--       0         0         0         0         0         0         0         0         0         1         1         1         1  
+-- *********************************************************************************************************************************
+-- =================================================================================================================================
+-- 
+-- RUNSPEC SECTION 
+-- 
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE TITLE FOR THE RUN  
+--
+TITLE                                                                           
+OPM_TESTS: WVFPEXP-06 (SENSITIVITY)
+--
+--       DEFINE THE START DATE FOR THE RUN 
+--
+START                                                                                                                                                                                                     
+         1 'JAN' 2022                                                         /                                                                               
+--                                                                              
+--       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
+--
+-- NOSIM                                                                          
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- FLUID TYPES AND TRACER OPTIONS                         
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       OIL PHASE IS PRESENT IN THE RUN
+--
+OIL                                                                            
+--
+--       GAS PHASE IS PRESENT IN THE RUN
+--
+GAS                                                                                                                                                           
+--
+--       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN
+--
+DISGAS                                                                            
+--
+--       WATER PHASE IS PRESENT IN THE RUN
+--
+WATER                                                                            
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS                                             
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--                                                                              
+--       MAX     MAX     MAX                                                    
+--       NDIVIX  NDIVIY  NDIVIZ                                                 
+DIMENS                                                                          
+         13      13      5                                                     / 
+--
+--       DEFINE THE NUMBER OF RESERVOIR GRIDS (COORD DATA SETS)
+--
+NUMRES                                                                          
+         1                                                                     /
+--                                                                              
+--       MAX     MAX     RSVD    TVDP    TVDP                                   
+--       EQLNUM  DEPTH   NODES   TABLE   NODES                                  
+EQLDIMS                                                                         
+         1       1*      20      1       1*                                    /                                                                          
+--                                                                              
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS 
+REGDIMS                                                                         
+         1*      1*      1*      1*      1*     1*     1*     1*    1*    1*   /                
+--
+--       NEG      MAX     MAX                                                    
+--       MULTS    MULTNUM PINCHNUM                                               
+GRIDOPTS                                                                        
+         NO       1*      1*                                                   /   
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300                    
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND            
+TABDIMS                                                                         
+         1       1       150     60      1       60     1*     1               /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--                                                                                
+--       WELL    WELL    GRUPS   GRUPS                                          
+--       MXWELS  MXCONS  MXGRPS  MXGRPW                                         
+WELLDIMS                                                                        
+         12      5       1       12                                            /                                                                                
+--
+--       PRODUCING VFP TABLES
+--       VFP     VFP     VFP     VFP     VFP     VFP
+--       MXMFLO  MXMTHP  MXMWFR  MXMGFR  MXMALQ  MXVFPTAB
+VFPPDIMS
+         21      5       10      9       8       1                             /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- NUMERICAL AND RUN CONTROL OPTIONS                                                    
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       SET STACK SIZE FOR LINEAR SOLVER
+--
+NSTACK                                                                          
+         25                                                                    /
+--
+--       DEFINE THE NUMBER OF ITERATIONS TO UPDATE WELL FLOW TARGETS
+--
+NUPCOL                                                                          
+         6                                                                     /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- INPUT AND OUTPUT OPTIONS                                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT 
+--
+METRIC
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN                                                                          
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT                                                                          
+--
+--       PATH       PATH
+--       ALIAS      DIRECTORY FILENAME
+PATHS
+        'MODEL05'   '../model5/include'                                        /
+        'WVFPEXP'   '../WVFPEXP/include'                                       /
+/
+--                                                                                
+--       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG      
+--       LIMIT LIMIT LIMIT LIMIT LIMIT LIMIT STOP STOP  STOP  STOP  STOP  STOP     
+MESSAGES                                                                        
+         3000  1*    1000  1000  1*    1*    1*   1*    1*    1*    1*    1*   /    
+         
+-- =================================================================================================================================
+-- 
+-- GRID SECTION 
+-- 
+-- =================================================================================================================================
+GRID
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1                                                             /                                                                              
+--
+--       MAX     MAX     MAX     MAX     GRID                                  
+--       NDIVIX  NDIVIY  NDIVIZ  NUMRES  TYPE                                   
+SPECGRID
+         13      13       5      1        F                /
+--
+--       DEFINE COORDINATE GRID OPTIONS 
+-- 
+--       K1     K2     COMP    CONNECT  LOWER  UPPER
+--       Layer  Layer  CIRCLE  RES      RES    RES
+COORDSYS 
+         1      5                                          /
+--
+--       SWITCH OFF ECHOING OF INPUT FILES
+--
+NOECHO                                                                         
+--
+--       LOAD INCLUDE FILE - GRID DATA
+--
+INCLUDE 
+         '$WVFPEXP/WVFPEXP-GRID01.INC'  /
+--
+--       SWITCH ON ECHOING OF INPUT FILES     
+--
+ECHO                                                                          
+--
+--       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
+--
+NEWTRAN
+--
+--       ARRAY       CONSTANT     ---------- BOX ---------                 
+--                                I1  I2   J1  J2   K1  K2                
+EQUALS                                                  
+         PORO        0.15         1*  1*   1*  1*    1   1 / SET PORO
+         PORO        0.20         1*  1*   1*  1*    2   2 / SET PORO
+         PORO        0.30         1*  1*   1*  1*    3   3 / SET PORO
+         PORO        0.20         1*  1*   1*  1*    4   4 / SET PORO
+         PORO        0.15         1*  1*   1*  1*    5   5 / SET PORO
+         
+         PERMX         10         1*  1*   1*  1*    1   1 / SET PERMX 
+         PERMX        100         1*  1*   1*  1*    2   2 / SET PERMX 
+         PERMX       1000         1*  1*   1*  1*    3   3 / SET PERMX 
+         PERMX        100         1*  1*   1*  1*    4   4 / SET PERMX 
+         PERMX         10         1*  1*   1*  1*    5   5 / SET PERMX 
+/                                                                                   
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------            
+--                                I1  I2   J1  J2   K1  K2            
+COPY                                                            
+         PERMX       PERMY        1*  1*   1*  1*   1*  1* / CREATE PERMY 
+         PERMX       PERMZ        1*  1*   1*  1*   1*  1* / CREATE PERMZ        
+/                                                               
+--
+--       ARRAY       CONSTANT     ---------- BOX ---------             
+--                                I1  I2   J1  J2   K1  K2             
+EQUALS                                                           
+         PERMZ       10E-10        1*  1*   1*  1*   1*  1* / PERMZ = 0.0        
+/                                                                    
+ 
+-- =================================================================================================================================
+-- 
+-- EDIT SECTION 
+-- 
+-- =================================================================================================================================
+EDIT
+
+-- =================================================================================================================================
+-- 
+-- PROPS SECTION 
+-- 
+-- =================================================================================================================================
+PROPS
+--
+--       SWITCH OFF ECHOING OF INPUT FILES
+--
+NOECHO                                                                         
+--
+--       LOAD INCLUDE FILE
+--
+INCLUDE 
+         '$MODEL05/pvt_live_oil_dgas.ecl'        /
+--
+--       LOAD INCLUDE FILE
+--
+INCLUDE 
+         '$MODEL05/rock.inc'                     /
+--
+--       LOAD INCLUDE FILE
+--
+INCLUDE 
+         '$MODEL05/relperm.inc'                  /
+--
+--       SWITCH ON ECHOING OF INPUT FILES     
+--
+ECHO                                                                          
+            
+-- =================================================================================================================================
+-- 
+-- REGIONS SECTION 
+-- 
+-- =================================================================================================================================
+REGIONS
+
+-- =================================================================================================================================
+-- 
+-- SOLUTION SECTION 
+-- 
+-- =================================================================================================================================
+SOLUTION  
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N           
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT         
+EQUIL                                                                        
+         2015.0  265.0   2075.0  0.00  2015.0  0.00   1    0    1*             / 
+--
+--       DEPTH    PSAT                                                 
+--                PRESS                                                  
+--       ------   ------                                                               
+PBVD            
+         1000.0   265.0 
+         3000.0   265.0                                      / PSAT VS DEPTH EQUIL REGN 01 
+--
+--       DEFINE SOLUTION SECTION REPORT OPTIONS
+--
+RPTSOL                                                                           
+         FIP=2    FIPRESV  RESTART=1                                           /
+         
+-- =================================================================================================================================
+--                              
+-- SUMMARY SECTION 
+-- 
+-- =================================================================================================================================
+SUMMARY
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SUMMARY RSM FILE OPTIONS                                                        
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RUNSUM                                                                          
+                                                                                
+SEPARATE      
+--
+--       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
+--
+ALL
+--
+--       EXPORT LIQUID RATES AND TOTALS
+-- 
+FLPR
+FLPT
+GLPR
+/
+GLPT
+/
+WLPR
+/
+WLPT
+/
+--
+--       EXPORT GAS LIFT SUMMARY VARIABLE VECTORS TO FILE
+--
+FGLIR
+GGLIR
+/
+WGLIR     
+OP-01  OP-02  OP-03
+/
+--
+--       WELL CONTROL MODE 
+WMCTL
+OP-01  OP-02  OP-03
+/
+
+-- =================================================================================================================================
+-- 
+-- SCHEDULE SECTION 
+-- 
+-- =================================================================================================================================
+SCHEDULE
+--
+--       DEFINE SCHEDULE SECTION REPORT OPTION
+--
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+         BASIC=5                                                               /
+--
+--       DEFAULT TUNING PARAMETERS  
+--
+--         1       2      3        4    5      6       7       8       9   10                          
+TUNING         
+         1.0     5.0                                                           /
+                                                                               /
+                                                                               /
+--                                                                                     
+--       SOLUTION GAS (RS) MAXIMUM RATE OF INCREASE FOR MODEL                                            
+--    
+DRSDT
+--       MAX RS    ALL/FREE                                                  
+--       DRSDT1    DRSDT2                             
+--       -------   --------                                          
+         0.000     ALL                                     /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- WELL VFP TABLES                         
+-- ---------------------------------------------------------------------------------------------------------------------------------      
+--
+--       SWITCH OFF ECHOING OF INPUT FILES
+--
+NOECHO                                                                         
+--
+--       LOAD INCLUDE FILE - WELL VFP TABLES
+--
+INCLUDE 
+         '$MODEL05/well_vfp.ecl'       /
+--
+--       SWITCH ON ECHOING OF INPUT FILES     
+--
+ECHO  
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP PRODUCTION AND INJECTION CONTROLS                                      
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       DEFINE GROUP TREE HIERARCHY
+--                                                                              
+--       LOWER     HIGHER
+--       GROUP     GROUP 
+GRUPTREE
+         PLAT-1    FIELD                                                       /
+/
+--
+--       GROUP PRODUCTION CONTROLS                                                    
+--                                                                              
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
+GCONPROD                                                                        
+FIELD    ORAT  3E3    1*     1*     1*     NONE  1*    1*     1*     1*        /
+/                                                                               
+--
+--       GROUP INJECTION TARGETS AND CONSTRAINTS                                                     
+--                                                                              
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE                                                                       
+FIELD    WAT   VREP   1*     1*     1*     0.50  1*    1*     1*    1*    1*   /
+/ 
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- WELL SPECIFICATIONS AND COMPLETIONS                                          
+-- ---------------------------------------------------------------------------------------------------------------------------------      
+--
+--       WELL SPECIFICATION DATA                                                      
+--                                                                              
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
+WELSPECS                                                                                                                                                         
+OP-01    PLAT-1     7    7   1*     OIL    1*     1*     STOP  NO    1*    1*   1* /
+OP-02    PLAT-1     7    3   1*     OIL    1*     1*     STOP  NO    1*    1*   1* /
+OP-03    PLAT-1     7   11   1*     OIL    1*     1*     STOP  NO    1*    1*   1* /
+WI-01    PLAT-1     1    1   1*     WAT    1*     1*     STOP  NO    1*    1*   1* /
+WI-02    PLAT-1     1   13   1*     WAT    1*     1*     STOP  NO    1*    1*   1* /
+WI-03    PLAT-1    13    1   1*     WAT    1*     1*     STOP  NO    1*    1*   1* /
+WI-04    PLAT-1    13   13   1*     WAT    1*     1*     STOP  NO    1*    1*   1* /
+/   
+--
+--       WELL CONNECTION DATA                           
+--                                                                              
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN   
+COMPDAT                                                                                   
+'OP-01'   1*  1*   1   5   1*     1*    1*    0.216   1*    0.0    1*    'Z'   /
+
+'OP-02'   1*  1*   1   3   1*     1*    1*    0.216   1*   -2.0    1*    'Z'   /            
+'OP-02'   1*  1*   4   5   SHUT   1*    1*    0.216   1*   -2.0    1*    'Z'   / 
+
+'OP-03'   1*  1*   1   3   1*     1*    1*    0.216   1*    2.0    1*    'Z'   /            
+'OP-03'   1*  1*   4   5   SHUT   1*    1*    0.216   1*    2.0    1*    'Z'   / 
+
+'WI*'     1*  1*   1   1   SHUT   1*    1*    0.216   1*    0.0    1*    'Z'   /
+'WI*'     1*  1*   2   2   SHUT   1*    1*    0.216   1*    0.0    1*    'Z'   /
+'WI*'     1*  1*   3   3   SHUT   1*    1*    0.216   1*    0.0    1*    'Z'   /
+'WI*'     1*  1*   4   4   SHUT   1*    1*    0.216   1*    0.0    1*    'Z'   /
+'WI*'     1*  1*   5   5   1*     1*    1*    0.216   1*    0.0    1*    'Z'   /
+/                                                                              
+--
+--       WELL PRODUCTION WELL CONTROLS                                                     
+--                                                                              
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+'OP-01'  OPEN   GRUP  1.0E3   1*     1*    1*     1*     50.0  10.0  1     31E3 /
+'OP-02'  OPEN   GRUP  5.0E2   1*     1*    1*     1*     50.0  10.0  1     31E3 /
+'OP-03'  OPEN   GRUP  2.5E2   1*     1*    1*     1*     50.0  10.0  1     31E3 /
+/                                                                               
+--
+--       WELL INJECTION CONTROLS                                                      
+--                                                                              
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP               
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE             
+WCONINJE                                                                        
+'WI*'    WAT    OPEN   GRUP  1*     1*     300.   1*    1*                     /
+/  
+--      
+--       WELL ECONOMIC CRITERIA FOR PRODUCTION WELLS
+-- WELL  MIN    MIN    MAX    MAX    MAX    CNTL    END   WELL                    
+-- NAME  ORAT   GRAT   WCUT   GOR    WGR    MODE    RUN   NAME                    
+WECON                                                                           
+'OP*'    15.0   1*     1*     1*     1*    'WELL'  'NO'                        /
+/                                                                               
+--
+-- WELL OPTIONS FOR PROBLEMATIC THP CONTROLLED WELLS                         
+--                                                                              
+-- WELL   IMP   CLSE   RATE   VFP                    
+-- NAME   EXP   WELL   CNTL   EXT                     
+WVFPEXP                                                                           
+'OP*'     EXP   1*     NO     1*                                               /
+/  
+
+DATES
+         2  JAN   2022  /  
+/
+
+RPTSCHED                                                                                                                             
+         'NOTHING'                                                             /                                                    
+
+DATES                                               
+         1  FEB   2022  /                  
+         1  MAR   2022  /                  
+         1  APR   2022  /                  
+         1  MAY   2022  /                  
+         1  JUN   2022  /                  
+         1  JLY   2022  /  
+         1  AUG   2022  /                  
+         1  SEP   2022  / 
+         1  OCT   2022  /                  
+         1  NOV   2022  /     
+         1  DEC   2022  /                  
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2023-01-01                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES                                                                           
+         1  JAN   2023  /  
+/
+
+RPTSCHED                                                                                                                             
+         'NOTHING'                                                             /                                                    
+                                           
+DATES                                                                                                                               
+         1  FEB   2023  /                  
+         1  MAR   2023  /                  
+         1  APR   2023  /                  
+         1  MAY   2023  /                  
+         1  JUN   2023  /                  
+         1  JLY   2023  /                  
+         1  AUG   2023  /                  
+         1  SEP   2023  /                  
+         1  OCT   2023  /                  
+         1  NOV   2023  /                  
+         1  DEC   2023  /                  
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2024-01-01                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+         
+DATES                                                                           
+         1  JAN   2024  /  
+/
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN 
+'OP-01'  OPEN                                                                  /
+'OP-01'  OPEN     0   0    0                                                   /
+'OP-02'  OPEN                                                                  /
+'OP-02'  OPEN     0   0    0                                                   /
+'OP-03'  OPEN                                                                  /
+'OP-03'  OPEN     0   0    0                                                   /
+/                                                             
+--
+--       WELL PRODUCTION AND INJECTION TARGETS                                                      
+--                                                                              
+--  WELL WELL   TARGET                                                       
+--  NAME TARG   VALUE                                                        
+WELTARG 
+OP-01    LIFT   63E3                                       /
+OP-02    LIFT   63E3                                       /
+OP-03    LIFT   43E3                                       /
+/                                                                               
+--
+--       DEFINE WELL CONNECTION MULTIPLIERS                                                  
+--                                                                              
+-- WELL  PI     --LOCATION--  COMPLETION                                     
+-- NAME  MULT     I   J    K  FIRST LAST                                     
+WPIMULT                                                                         
+OP-02    5.0      1*  1*   1*    1*    1*                  /
+/                                                                               
+
+RPTSCHED                                                                                                                             
+         'NOTHING'                                                             /                                                    
+                                           
+DATES                                                                           
+         1  FEB   2024  /                  
+         1  MAR   2024  /                  
+         1  APR   2024  /                  
+         1  MAY   2024  /                  
+         1  JUN   2024  /                  
+         1  JLY   2024  /                  
+         1  AUG   2024  /                  
+         1  SEP   2024  /                  
+         1  OCT   2024  /                  
+         1  NOV   2024  /                  
+         1  DEC   2024  /                  
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2025-01-01                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES                                                                           
+         1  JAN   2025  /                                                                
+/ 
+
+RPTSCHED                                                                                                                             
+         'NOTHING'                                                             /                                                    
+                                           
+DATES                                                                                                                                                                                                                          
+         1  FEB   2025  /                  
+         1  MAR   2025  /                  
+         1  APR   2025  /  
+         1  MAY   2025  /                  
+         1  JUN   2025  /                  
+         1  JLY   2025  /                  
+         1  AUG   2025  /   
+         1  SEP   2025  /                  
+         1  OCT   2025  /                  
+         1  NOV   2025  /                  
+         1  DEC   2025  /                  
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2026-01-01                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES                                                                           
+         1  JAN   2026 /                                                                
+/ 
+
+RPTSCHED                                                                                                                             
+         'NOTHING'                                                             /                                                    
+                                           
+DATES                                                                           
+         1  FEB   2026  /                  
+         1  MAR   2026  /                  
+         1  APR   2026  /                  
+         1  MAY   2026  /                  
+         1  JUN   2026  /                  
+         1  JLY   2026  /                  
+         1  AUG   2026  /                  
+         1  SEP   2026  /                  
+         1  OCT   2026  /                  
+         1  NOV   2026  /                  
+         1  DEC   2026  /                  
+/
+--
+--       FINAL REPORT AND RESTART AT YEAR END
+--
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+RPTRST                                                                           
+         'BASIC=2'                                                             /
+
+DATES                                                                           
+         31 DEC   2026  /                                                                
+/                                                                                                        
+        
+ECHO        
+--                                                                              
+-- *********************************************************************************************************************************
+-- END OF FILE                                                                  
+-- *********************************************************************************************************************************
