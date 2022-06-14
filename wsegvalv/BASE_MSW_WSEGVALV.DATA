@@ -251,6 +251,17 @@ DATES
   1 'JUL' 2018 / 
   1 'AUG' 2018 / 
   1 'SEP' 2018 / 
+/
+
+WSEGVALV
+-- Well Name     Seg No     Cv          Ac
+-- Shut valve connected to segment #2
+   PROD1         14         0.70000     5.589e-5 4* SHUT/
+-- Shut Valve connected to segment #3
+   PROD1         15         0.70000     1.881e-5 4* SHUT/
+/
+
+DATES
   1 'OCT' 2018 / 
   1 'NOV' 2018 / 
   1 'DEC' 2018 / 
