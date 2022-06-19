@@ -150,7 +150,7 @@ UNIFOUT
 --       ALIAS      DIRECTORY FILENAME
 PATHS
         'MODEL05'   '../model5/include'                                        /
-        'WVFPEXP'   '../WVFPEXP/include'                                       /
+        'WVFPEXP'   '../wvfpexp/include'                                       /
 /
 --                                                                                
 --       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG      
@@ -194,7 +194,7 @@ NOECHO
 --       LOAD INCLUDE FILE - GRID DATA
 --
 INCLUDE 
-         '$WVFPEXP/WVFPEXP-GRID01.INC'  /
+         '$WVFPEXP/WVFPEXP-GRID01.inc'  /
 --
 --       SWITCH ON ECHOING OF INPUT FILES     
 --
