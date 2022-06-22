@@ -1,0 +1,227 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2022 CAU (Geohydromodelling at Kiel University)
+
+-- 1D H2 diffusion test problem
+
+-- ===============================
+RUNSPEC
+-- ===============================
+
+TITLE
+  BO DIFFUSION TEST
+
+START
+  1 'JAN' 2022  /
+
+DIMENS
+  1 1 200  /
+
+TABDIMS
+  /
+
+OIL
+GAS
+VAPOIL
+DIFFUSE
+
+METRIC
+
+
+UNIFIN
+UNIFOUT
+
+-- ===============================
+GRID
+-- ===============================
+
+INIT
+
+TOPS
+  1*400  /
+
+DX
+  200*10  /
+
+DY
+  200*10  /
+
+DZ
+  200*0.5  /
+
+PORO
+  200*0.1  /
+
+PERMX
+  200*101.3  /
+
+COPY
+  PERMX PERMY  /
+  PERMX PERMZ  /
+/
+
+-- ===============================
+PROPS
+-- ===============================
+
+-- Diffusion coefficients for H2 and CH4 are 7.25995e-5 m2/s = 6.2726 m2/d
+-- 1. The oil molecular weight
+-- 2. The gas molecular weight
+-- 3. The gas-in-gas diffusion coefficient
+-- 4. The oil-in-gas diffusion coefficient
+
+-- 1.     2.    3.   4.
+DIFFC
+  16.043 2.016 6.2726 6.2726  /
+
+-- Standard temperature: 288.71 K, 15.56 °C
+-- Standard pressure: 1.013250 bar
+
+-- Fluid properties from CoolProp, doi/abs/10.1021/ie4033999
+-- CH4 WATER H2
+DENSITY
+  0.6785064 999.70 0.0850397  /
+
+ROCK
+  40 4.3e-5  /
+
+-- Methane as dead oil fluid type
+-- Pressure[bar] FVF[-] Viscosity[cP]
+PVDO
+  39.95  0.0270783155  0.0126098701
+  40.00  0.0270428829  0.01261087
+  40.05  0.0270075391  0.0126118705
+  40.10  0.0269722838  0.0126128714
+/ 
+--  Hydrogen as a wet gas fluid type
+--  Pressure[bar] RV[-] FVF[-]  Viscosity[cP] 
+PVTG
+  39.95    1.0  0.029007223  0.0094358857
+           0.5  0.029007223  0.0094358857
+           0.0  0.029007223  0.0094358857
+ / 
+  40.0     1.010  0.0289717643  0.0094359307
+           0.501  0.0289717643  0.0094359307
+           0.000  0.0289717643  0.0094359307
+ / 
+  40.05    1.0  0.0289363942  0.0094359758
+           0.5  0.0289363942  0.0094359758
+           0.0  0.0289363942  0.0094359758
+ / 
+  40.1     1.0  0.0289011123  0.0094360209
+           0.5  0.0289011123  0.0094360209
+           0.0  0.0289011123  0.0094360209
+ /
+ /
+
+--								RELA
+SGOF
+  0 0 1 0
+  1 1 0 0 /
+
+-- ===============================
+SOLUTION
+-- ===============================
+
+-- 1. 2. 3. 4. 5. 6. 7. 8.
+EQUIL
+  400 40 500 0 500 0 1 1  /
+/
+
+-- H2 at the top
+RVVD
+  400.00 0
+  449.90 0
+  450.00 1
+/
+
+RTEMPVD
+  400 50
+  500 50
+/
+
+-- ===============================
+SUMMARY
+-- ===============================
+
+RUNSUM
+
+BPR
+  1 1 1  /
+  1 1 200  /
+/
+
+BGVIS
+  1 1 1  /
+/
+BOVIS
+  1 1 200  /
+/
+
+-- ===============================
+SCHEDULE
+-- ===============================
+
+RPTRST
+  BASIC=2 RV  /
+
+-- initial-time-step-in-days=1e-4
+TSTEP
+  1*1e-4  /
+
+DATES
+  3 'JAN' 2022  /
+/
+DATES
+  30 'JAN' 2022  /
+/
+
+RPTRST
+  BASIC=0  /
+
+DATES
+  1 'MAR' 2022  /
+/
+DATES
+  1 'APR' 2022  /
+/
+DATES
+  1 'MAY' 2022  /
+/
+DATES
+  1 'JUN' 2022  /
+/
+DATES
+  1 'JUL' 2022  /
+/
+DATES
+  1 'AUG' 2022  /
+/
+DATES
+  1 'SEP' 2022  /
+/
+DATES
+  1 'OCT' 2022  /
+/
+DATES
+  1 'NOV' 2022  /
+/
+DATES
+  1 'DEC' 2022  /
+/
+RPTRST
+  BASIC=2 RV  /
+--								in 1 year
+DATES
+  1 'JAN' 2023  /
+/
+
+--								in 5 years
+DATES
+  1 'JAN' 2027  /
+/
+END
+-- ===============================
