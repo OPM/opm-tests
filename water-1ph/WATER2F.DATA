@@ -1,0 +1,395 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2022 Edmund Stephens
+
+-- This simulation model exercises single-phase water capabilities
+-- with high rock compressibility
+
+--------------------------------------------------------------------------------
+-- Water test
+--------------------------------------------------------------------------------
+RUNSPEC
+--NOSIM
+--NOECHO
+--------------------------------------------------------------------------------
+
+-- Project header
+METRIC
+TITLE
+        Water test model
+DIMENS
+        1	1	1 /
+NUMRES
+        1	/
+WATER
+START
+        1 JAN 2020 /
+NSTACK
+        50 /
+--|CPR
+--|	/
+
+-- Input/output
+MONITOR
+UNIFOUT
+UNIFIN
+--NOINSPEC
+--NORSSPEC
+
+-- Dimensions
+EQLDIMS
+--      NTEQUL	NSPRVD	NSRXVD	NTTRVD  NSTRVD
+        1		1*		1*              1*		1*	/
+REGDIMS
+--	NTFIP		NMFIPR	NRFREG	NTFREG ..	NOPERNUM	NPLMIX
+        1               1*              1*              1*	2*	1*		1*	/
+SMRYDIMS
+--      NSUMMX
+        1000	/
+TABDIMS
+--	NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT
+        1		1		50		50		1*		1* /
+WELLDIMS
+--	NWMAXZ	NCWMAX	NGMAXZ  NWGMAX
+        10		10		10		10 /
+
+-- Additional
+EQLOPTS
+--	Modes (MOBILE, QUIESC, THPRES, IRREVERS)
+        /
+GRIDOPTS
+--	QGMLTL  NRMULT  NRPINC
+        NO		1*		0	/
+SATOPTS
+--	Modes (DIRECT, IRREVERS, HYSTER, SURFTENS)
+        /
+MESSAGES
+--	Inf	Comm	Warn	Prob	Err	Bug	^Inf	^Comm	^Warn	^Prob	^Err	^Bug
+        2*		50000	5000	10	1	2*		50000	5000	10	1 /
+
+--------------------------------------------------------------------------------
+GRID
+--------------------------------------------------------------------------------
+
+-- Grid definition
+MAPAXES
+--	Y(E)    Y(N)    O(E)    O(N)    X(E)    X(N)
+        0	1000	0	0	1000	0	/
+SPECGRID
+--	NX	NY	NZ	Nres	Cyl?
+        1	1	1	1	F	/
+COORDSYS
+--	K1	K2	Compl		Conn		R1	R2
+        1	1	INCOMP	SEPARATE	1*	1*	/
+
+-- Coordinates
+RESVNUM
+        1	/
+COORD
+        0		0		3000		0		0		3100
+        1000		0		3000		1000		0		3100
+        0		1000		3000		0		1000		3100
+        1000		1000		3000		1000		1000		3100
+/
+
+-- Corner points
+ZCORN
+        4*3000	4*3010
+/
+
+-- Active cells
+ACTNUM
+        1
+/
+
+-- Pinchout controls
+PINCH
+--	Pinch		GAP/		Max		Pinch		MulTZ
+--	thk		NOGAP		gap		trans		mode
+        0.1		GAP		1*		TOPBOT	TOP	/
+
+-- Properties
+EQUALS
+        MULTPV	1.0		/
+        NTG		1.0		/
+        PORO		0.1		/
+        PERMX		1000		/
+        PERMZ		100		/
+/
+
+-- Volumetrics
+--      Area		1 km x 1 km
+--	Thick		10 m
+--	NTG		1.0
+--	Poro		0.1
+--	Swi		1.0
+--	PV		-->	1.0 mln rm3
+--	1/Bw		1.0
+--	WIIP		-->	1.0 mln sm3
+
+-- Anisotropy
+COPY
+        PERMX		PERMY		/
+/
+MULTIPLY
+        PERMX		1.0		/ (a)
+        PERMY		1.0		/ (1/a)
+/
+
+-- Min PV
+MINPV
+--	rm3
+        0.0	/
+
+-- Grid file output
+GRIDFILE
+        0	1 /
+INIT
+NEWTRAN
+
+--------------------------------------------------------------------------------
+EDIT
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+PROPS
+--------------------------------------------------------------------------------
+
+-- Rock compressibility
+ROCK
+--	Pref		cf
+--	bara		1/bar
+        300		4930E-6	/ special high value, ct = 5000E-6/bar
+
+-- Surface density
+GRAVITY
+--	oil		water		gas
+--	API		g/cc		1/air
+        30		1.025		0.7	/
+
+-- Water properties
+PVTW
+--	Pref		Bw		cw		Uw		dUw
+--	bara		rm3/m3	1/bar		cp		1/bar
+        300		1.00		70E-06	0.25		85E-06	/ (Bw was 1.05)
+
+--------------------------------------------------------------------------------
+REGIONS
+--------------------------------------------------------------------------------
+
+EQUALS
+        PVTNUM	1 /
+        EQLNUM	1 /
+        FIPNUM	1 /
+        SATNUM	1 /
+/
+
+--------------------------------------------------------------------------------
+SOLUTION
+--------------------------------------------------------------------------------
+
+-- Reservoir datum
+DATUM
+--	Depth
+--	mSS
+        3000	/
+
+-- Equilibration data
+EQUIL
+--	Datum	Pres	OWC	Pcw	GOC	Pcg	RSvD	RVvD	FIP
+--	mSS	bara	mSS	bara	mSS	bara			calc
+        3000	300	1*	1*	1*	1*	1*	1*	1*	/
+
+-- Reporting
+RPTSOL
+  RESTART=2 FIP=1 /
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+
+-- Summary data
+MSUMLINS
+MSUMNEWT
+
+FWIP
+FWPR
+FWPT
+FWIR
+FWIT
+FWPV
+FRPV
+FPR
+FPPW
+FVPR
+FVPT
+FVIR
+FVIT
+
+RWIP
+/
+RWPV
+/
+RPR
+/
+RPPW
+/
+
+FAQR
+FAQT
+AAQR
+/
+AAQT
+/
+AAQP
+/
+
+WWPR
+/
+WWPT
+/
+WWIR
+/
+WWIT
+/
+WTHP
+/
+WBHP
+/
+--#WBP
+--#/
+WVPR
+/
+WVPT
+/
+WVIR
+/
+WVIT
+/
+WPI
+/
+WMCTL
+/
+WSTAT
+/
+WMCTL
+/
+WMCON
+/
+
+-- Reporting
+RPTSMRY
+        1 /
+
+--------------------------------------------------------------------------------
+SCHEDULE
+--------------------------------------------------------------------------------
+
+-- Schedule reporting
+RPTSCHED
+        FIP=2 WELLS=2 SUMMARY=1 WELSPECS
+        RESTART=2 / NEWTON=2 CPU=2
+
+-- Restarts 1/2=rep, 3=freq, 4=year, 5=month, 6=ts
+RPTRST
+        BASIC=2 FREQ=1 KRW KRG KRO SFIP RFIP DEN VISC ALLPROPS / FLOWS ROCKC
+
+-- Lift data
+NOECHO
+ECHO
+
+-- Well declarations
+WELSPECS
+--	Well		Group	Block   Datum	Ref	Re	Back	Shut/	Cross	Wfl	Dens	FIP
+--	name		name	I	J       mSS	ph	m	pres	Stop	flow	tab	calc	reg
+        I1		DEV	1	1	3000	WATER	1*	STD	SHUT	YES	1*	SEG     -1 /
+/
+
+-- Connections
+COMPDAT
+--	Well		Block		Open/	Sat	Tran	Diam	KH	Skin	Dfac	Compl
+--	name            I  J	K1 K2	shut	tab	fact	m	md.m		/Sm3	type
+        I1		2*      1  1	OPEN	2*		0.1	1*	0	1*	Z /
+/
+
+-- PI mult
+WPIMULT
+        'I*'		1.0	/
+/
+
+--|-- Well bore volume 6" x 4000 m (460 bbl) + 9 5/8" x 100 m (30 bbl)
+--|WBOREVOL
+--|--	Well		V_eff
+--|--	name		m3
+--|	'P*'		78	/
+--|	'I*'		78	/
+--|/
+
+-- Network
+GRUPTREE
+--	Child		Parent
+        FACS		FIELD	/ processing
+        NP		FACS	/ non-producers
+        DEV		FACS	/ dev wells
+/
+
+-- Well limits
+--|WCONPROD
+--|--	Well		Open/	Cntl	^Oil	^Wat	^Gas	^Liq	^Res	vBHP	vTHP	Well	Alq
+--|--	name		shut	mode	m3/d	m3/d	m3/d	m3/d	rm3/d	bara	bara	vfp	val
+--|	'P*'		SHUT	BHP	5*					100	3*			/
+--|/
+WCONINJE
+--	Well		Inj	Open/	Cntl	^Surf	^Res	^BHP	^THP	Well	Rv/Rs
+--	name		type	shut	mode	m3/d	m3/d	bara	bara	vfp	inj
+        'I*'		WATER	OPEN	RATE	1000	1*	500	3*			/
+/
+
+
+--------------------------------------------------------------------------------
+-- Solver (~set, *=targ, ^=max, v=min)
+MESSAGES
+--	Inf	Comm	Warn	Prob	Err	Bug	^Inf	^Comm	^Warn	^Prob	^Err	^Bug
+        2*		50000	5000	10	1	2*		50000	5000	10	1	/
+TUNING
+--	~TSi	^TSZ	vTSZ	vCHP	^TSF	vTSF	~TSF	^TFD	^THR	^TSW
+--	*TTE	*CNV	*MBE	*LCV	^TTE	^CNV	^MBE	^LCV	^WFL	*FIP
+--	^NWT	vNWT	^LIT	vLIT	^WSI	^WPI	^DPL	^DSL	*DPR	^DPR
+        1*	31	/
+        /
+        20	1	100	1	50	50 /
+TUNINGDP
+--	*LCV	^LCV	^DDP	^DDS
+        1E-9	1E-8	0.01	0.01 /
+GCONTOL
+--	FLOTOL	NUPCOL
+        0.01		20 /
+--------------------------------------------------------------------------------
+
+-- Injection x 1 days
+RPTRST
+        BASIC=3 FREQ=10 /
+TSTEP
+        10*0.0001 / T0+0.001 days
+TSTEP
+        0.00010 0.00012 0.00014 0.00016 0.00019 0.00022 0.00026 0.00029 0.00033 0.00038
+        0.00043 0.00048 0.00053 0.00059 0.00065 0.00071 0.00077 0.00083 0.00089 0.00093 / T0+0.01 days
+TSTEP
+        0.0010 0.0012 0.0014 0.0016 0.0019 0.0022 0.0026 0.0029 0.0033 0.0038
+        0.0043 0.0048 0.0053 0.0059 0.0065 0.0071 0.0077 0.0083 0.0089 0.0093 / T0+0.1 days
+TSTEP
+        0.010 0.012 0.014 0.016 0.019 0.022 0.026 0.029 0.033 0.038
+        0.043 0.048 0.053 0.059 0.065 0.071 0.077 0.083 0.089 0.093 / T0+1 days
+TSTEP
+        0.10 0.12 0.14 0.16 0.19 0.22 0.26 0.29 0.33 0.38
+        0.43 0.48 0.53 0.59 0.65 0.71 0.77 0.83 0.89 0.93 / T0+10 days
+TSTEP
+        1.0 1.2 1.4 1.6 1.9 2.2 2.6 2.9 3.3 3.8
+        4.3 4.8 5.3 5.9 6.5 7.1 7.7 8.3 8.9 9.3 / T0+100 days
+
+--------------------------------------------------------------------------------
+END
+--------------------------------------------------------------------------------
