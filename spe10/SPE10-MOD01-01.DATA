@@ -209,7 +209,7 @@ PROPS
 --                                                                                     
 --       GAS-OIL RELATIVE PERMEABILITY TABLES (SGOF)                                                                 
 SGOF
---       SLIQ       KRG       KROG      PCOG                                                     
+--       SGAS       KRG       KROG      PCOG                                                     
 --       FRAC                           PSIA                                                  
 --       -------   --------  -------   -------                                                
          0.000000  0.000000  1.000000  0.000000
