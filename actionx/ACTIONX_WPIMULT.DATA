@@ -376,6 +376,13 @@ WGITH
 /
 WWPTH
 /
+--
+--      CONNECTION TRANSMISSIBILITY FACTORS FOR SELECTED CONNECTIONS
+--
+CTFAC
+PROD1 6  3 7 /
+INJ1  2 13 1 /
+/
 
 -- =================================================================================================================================
 --
@@ -505,7 +512,7 @@ GRUPTREE
 -- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM
 WELSPECS
 PROD1    PROD       6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
-PROD2    PROD      10    4	  1*	   OIL    0.00	  STD    SHUT   YES 	0     SEG     /
+PROD2    PROD      10    4	  1*	   OIL    0.00	  STD    SHUT   YES     0     SEG     /
 PROD3    PROD       6   19   1*     GAS    0.00   STD    SHUT   YES  0     SEG     /
 INJ1     INJE       2   13   1*     WAT    0.00   STD    SHUT   YES  0     SEG     /
 INJ2     INJE      12   20   1*     GAS    0.00   STD    SHUT   YES  0     SEG     /
@@ -572,8 +579,8 @@ PROD3    SHUT   RESV      0.0  0.0      0.0	5	    1*	 1*	 1*             /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   116286	1*	    0	                                        /
-INJ2     WATER  SHUT      0.0	1*	    0	                                        /
+INJ1     GAS    OPEN   116286	1*	    0                                           /
+INJ2     WATER  SHUT      0.0	1*	    0                                           /
 /
 --
 --       WELL RFT, PLT AND SEGMENT DATA
@@ -603,7 +610,7 @@ PROD1    OPEN   RESV   2920.9 0.3   316286	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   116286	1*	    0	                                        /
+INJ1     GAS    OPEN   116286	1*	    0                                           /
 /
 
 DATES   -- 2
@@ -668,7 +675,7 @@ PROD2    OPEN   RESV   2141.6 1.1   230232	5	   1*	   1*	    1*             /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   334756	1*	    0	                                        /
+INJ1     GAS    OPEN   334756	1*	    0                                           /
 /
 
 DATES   -- 5
@@ -689,7 +696,7 @@ PROD2    OPEN   RESV   2456.6 1.4   268627	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   350085	1*	    0	                                        /
+INJ1     GAS    OPEN   350085	1*	    0                                           /
 /
 
 DATES   -- 6
@@ -755,7 +762,7 @@ PROD3    OPEN   RESV   1648.9 0.1   183164	5     1*	    1*	1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-   INJ1   GAS   OPEN   548443	1*	    0	                                        /
+   INJ1   GAS   OPEN   548443	1*	    0                                           /
 /
 
 DATES   -- 9
@@ -778,7 +785,7 @@ PROD3    OPEN   RESV   1544.7 0.1   171587	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   541836	1*	    0	                                        /
+INJ1     GAS    OPEN   541836	1*	    0                                           /
 /
 
 DATES   -- 10
@@ -844,8 +851,8 @@ PROD3    OPEN   RESV   1885.1 0.1   219169	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1      GAS   OPEN   629751	1*	     0	                                     /
-INJ2      WATER OPEN     5500	1*	     0	                                     /
+INJ1      GAS   OPEN   629751	1*	     0                                       /
+INJ2      WATER OPEN     5500	1*	     0                                       /
 /
 
 DATES   -- 13
@@ -868,8 +875,8 @@ PROD3    OPEN   RESV   1837.0 0.1   219586	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   632581	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN   632581	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 14
@@ -893,8 +900,8 @@ PROD3    OPEN   RESV   1891.9  0.1   228761	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   615157	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN   615157	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 15
@@ -917,8 +924,8 @@ PROD3    OPEN   RESV   1852.5    0.1   231799	5	   1*	   1*	   1*           /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   578075	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN   578075	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 16
@@ -941,8 +948,8 @@ PROD3    OPEN   RESV   1805.6  0.1   228744	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   617039	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN   617039	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 17
@@ -990,8 +997,8 @@ PROD3    OPEN   RESV   1634.3  0.1   210611	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   644145	1*	    0	                                        /
-INJ2     WAT    OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN   644145	1*	    0                                           /
+INJ2     WAT    OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 18
@@ -1022,8 +1029,8 @@ PROD3    OPEN   RESV   1660.6  0.1   221528	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   610706	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN   610706	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 19
@@ -1045,8 +1052,8 @@ PROD3    OPEN   RESV   1921.0  0.1   263232	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   692162	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN   692162	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 20
@@ -1078,8 +1085,8 @@ PROD3    OPEN   RESV   1659.5  0.1   241454	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN   667655	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN   667655	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 21
@@ -1102,8 +1109,8 @@ PROD3    OPEN   RESV   1702.3  0.1   265675	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN   701627	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN   701627	1*	    0                                           /
 /
 
 DATES   -- 22
@@ -1126,8 +1133,8 @@ PROD3    OPEN   RESV   1563.2  0.1   248259	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN   733421	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN   733421	1*	    0                                           /
 /
 
 DATES   -- 23
@@ -1150,8 +1157,8 @@ PROD3    OPEN   RESV   1581.1  0.1   251108	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN   801950	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN   801950	1*	    0                                           /
 /
 
 DATES   -- 24
@@ -1174,8 +1181,8 @@ PROD3    OPEN   RESV   1817.7  0.1   302369	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN   932786	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN   932786	1*	    0                                           /
 /
 
 DATES   -- 25
@@ -1198,8 +1205,8 @@ PROD3    OPEN   RESV   1840.8  0.2   326039	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN   900347	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN   900347	1*	    0                                           /
 /
 
 DATES   -- 26
@@ -1222,8 +1229,8 @@ PROD3    OPEN   RESV   1861.1  0.2   360941	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN  1023171	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN  1023171	1*	    0                                           /
 /
 
 DATES   -- 27
@@ -1245,8 +1252,8 @@ PROD3    OPEN   RESV   1811.9  0.3   375071	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN  1155847	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN  1155847	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 28
@@ -1269,8 +1276,8 @@ PROD3    OPEN   RESV   1795.9  0.4   397800	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN  1174825	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN  1174825	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 29
@@ -1293,8 +1300,8 @@ PROD3    OPEN   RESV   1745.2  0.6   409558	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN  1339188	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN  1339188	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 30
@@ -1317,8 +1324,8 @@ PROD3    OPEN   RESV   1890.4  1.2   447869	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN  1474848	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN  1474848	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 31
@@ -1341,8 +1348,8 @@ PROD3    OPEN   RESV   1648.5  2.4   403792	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN  1746051	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN  1746051	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 32
@@ -1365,8 +1372,8 @@ PROD3    OPEN   RESV   1696.0   8.1   432013	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     GAS    OPEN  2268281	1*	    0	                                        /
-INJ2     WATER  OPEN     5500	1*	    0	                                        /
+INJ1     GAS    OPEN  2268281	1*	    0                                           /
+INJ2     WATER  OPEN     5500	1*	    0                                           /
 /
 
 DATES   -- 33
@@ -1389,8 +1396,8 @@ PROD3    OPEN   RESV   1973.7   26.7   498773	5	   1*	   1*	   1*           /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN  2283203	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN  2283203	1*	    0                                           /
 /
 
 DATES   -- 34
@@ -1413,8 +1420,8 @@ PROD3    OPEN   RESV   1858.6   88.8   494370	5	   1*	   1*	   1*           /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN  2197936	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN  2197936	1*	    0                                           /
 /
 
 DATES   -- 35
@@ -1437,8 +1444,8 @@ PROD3    OPEN   RESV   1516.1  120.8   491574	5	   1*	   1*	   1*           /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN  2014074	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN  2014074	1*	    0                                           /
 /
 
 DATES   -- 36
@@ -1461,8 +1468,8 @@ PROD3    OPEN   RESV   1760.0  157.1   672616	5	   1*	   1*	   1*           /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN  2211744	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN  2211744	1*	    0                                           /
 /
 
 DATES   -- 37
@@ -1485,8 +1492,8 @@ PROD3    OPEN   RESV   1817.5  166.3   787580	5	   1*	   1*	   1*           /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	    0	                                        /
-INJ2     GAS    OPEN  2484165	1*	    0	                                        /
+INJ1     WATER  OPEN     5500	1*	    0                                           /
+INJ2     GAS    OPEN  2484165	1*	    0                                           /
 /
 
 DATES   -- 38
@@ -1509,8 +1516,8 @@ PROD3    OPEN   RESV   1996.3 185.2   923656	5	   1*	   1*	   1*              /
 -- WELL  FLUID  OPEN/  SURF   BHP    THP    VFP     NOT    CNTL
 -- NAME  TYPE   SHUT   RATE   PRES   PRES   TABLE   USED   MODE
 WCONINJH
-INJ1     WATER  OPEN     5500	1*	     0	                                      /
-INJ2     GAS    OPEN  2716987	1*	     0	                                      /
+INJ1     WATER  OPEN     5500	1*	     0                                        /
+INJ2     GAS    OPEN  2716987	1*	     0                                        /
 /
 
 DATES   -- 39
