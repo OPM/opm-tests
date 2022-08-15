@@ -1,0 +1,339 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2022 Equinor 
+-- Copyright (C) 2022 TNO 
+
+-- NOTE: This is a two-phase model to test BRINE+PRECSALT+VAPWAT 
+-- This model uses SPIDER grid and GAS-WATER module
+-- Keywords SALTVD, SALTPVD, RVW, PVTWSALT,PVTGW, 
+-- SALTSOL, PERMFACT, SALT, SALTP are added 
+-- This model only runs in OPM-FLOW
+
+
+---------------------------------------------------------------------------
+------------------------ Gas field case------------------------------------
+
+RUNSPEC
+-- ------------------------------------------------------------------------
+
+TITLE
+   GAS_PRECSALT 
+   
+DIMENS
+   60 1 1 /  
+
+-- (OPM-FLOW keyword)
+SPIDER 
+
+
+EQLDIMS
+/
+
+
+TABDIMS
+/
+
+
+GAS
+WATER
+BRINE
+
+-- (OPM-FLOW keyword)
+PRECSALT
+-- (OPM-FLOW keyword)
+VAPWAT
+
+METRIC
+
+START
+   16 'JUN' 1988 /
+
+WELLDIMS
+-- Item 1: maximum number of wells in the model
+-- Item 2: maximum number of grid blocks connected to any one well
+-- Item 3: maximum number of groups in the model
+-- Item 4: maximum number of wells in any one group
+   1 1 1 1 /
+
+UNIFOUT
+
+GRID
+
+INIT
+
+INRAD
+0.057/
+
+DRV 
+0.05
+0.06
+0.07
+0.08
+0.09
+0.10
+0.11
+0.12
+0.13
+0.15
+0.17
+0.19
+0.21
+0.23
+0.26
+0.28
+0.31
+0.35
+0.38
+0.42
+0.47
+0.52
+0.57
+0.63
+0.69
+0.77
+0.84
+0.93
+1.03
+1.13
+1.25
+1.37
+1.51
+1.66
+1.83
+2.02
+2.22
+2.45
+2.69
+2.96
+3.26
+3.59
+3.95
+4.35
+4.79
+5.27
+5.80
+6.38
+7.02
+7.72
+8.50
+9.35
+10.2
+11.3
+12.4
+13.7
+15.0
+16.5
+18.2
+20.0/
+
+DTHETAV
+	1*36 /
+    
+DZ
+	60*30 /
+
+TOPS
+-- The depth of the top of each grid block
+	60*2545  /
+
+PORO
+-- Porosity is constant
+    60*0.3 /
+    
+-- To mimic infinite volume boundary
+-- ---------- BOX 1---------
+-- I1 I2 J1 J2 K1 K2
+BOX
+60 60 1 1 1 1 / 
+MULTPV
+1*100000000 /
+ENDBOX
+
+BOX
+1 1 1 1 1 1 / 
+MULTPV
+1*1E16/
+ENDBOX
+    
+PERMR
+    60*200 /
+
+COPY
+	PERMR PERMTHT  /
+	PERMR PERMZ  /
+/
+
+PROPS
+-- -------------------------------------------------------------------------
+PVTWSALT
+    100.0      0.0                                  /
+      1.0      1.038     4.67E-5    0.318       0.0
+     50.0      1.038     4.67E-5    0.318       0.0 /
+
+--Solubility limit kg/sm3
+-- (OPM FLOW keyword)
+--
+SALTSOL
+	45.0/
+/
+
+-- Permeability factor reduction due to salt precipitation
+-- (OPM FLOW keyword)
+--
+PERMFACT
+-- PORO PERM
+-- FACTOR FACTOR
+0.0 0.005
+0.4 0.005
+0.6 0.01
+0.9 0.1
+1.0 1.0/
+/
+
+ 
+ROCK
+---- Item 1: reference pressure 
+---- Item 2: rock compressibility 
+    100.0     4.84E-5 /
+	
+-- Define here the capillairy pressures
+SWFN
+    0.2   0.0    0.0
+	0.3   0.02   0.0
+    0.4   0.1    0.0
+	0.6   0.4    0.0
+    0.7   1.0    0.0
+/
+
+SGFN
+    0.3     0.0   0.0
+    0.8     1.0   0.0
+/
+
+
+DENSITY
+-- Density at surface cond. of 
+-- oil, water and gas, respectively (in that order)
+     859.5 1033.0 0.854 /
+	 
+--
+-- GAS PVT TABLE FOR DRY GAS WITH VAPORIZED WATER
+-- (OPM-FLOW keyword)
+------------------------------------------------------------
+--   PRESSURE         Rwv              Bg          VISC
+--     bara         Sm3/Sm3         rm3/Sm3         cP
+------------------------------------------------------------
+PVTGW
+      50.0        0.117547E-03   0.344155E-01   0.149248E-01
+                  0.783649E-04   0.342866E-01   0.149853E-01
+                  0.391824E-04   0.341494E-01   0.150530E-01
+                  0.000000E+00   0.340037E-01   0.151282E-01  /
+      90.0        0.617925E-04   0.174842E-01   0.161903E-01
+                  0.411950E-04   0.174782E-01   0.161571E-01
+                  0.205975E-04   0.174664E-01   0.161339E-01
+                  0.000000E+00   0.174488E-01   0.161208E-01  /
+     130.0        0.424822E-04   0.116992E-01   0.179451E-01
+                  0.283214E-04   0.117199E-01   0.177480E-01
+                  0.141607E-04   0.117353E-01   0.175741E-01
+                  0.000000E+00   0.117452E-01   0.174226E-01  /
+     170.0        0.328080E-04   0.885155E-02   0.204185E-01
+                  0.218720E-04   0.887816E-02   0.199101E-01
+                  0.109360E-04   0.890021E-02   0.194546E-01
+                  0.000000E+00   0.891722E-02   0.190503E-01  /
+     210.0        0.270704E-04   0.720894E-02   0.237804E-01
+                  0.180469E-04   0.722893E-02   0.227383E-01
+                  0.902346E-05   0.724639E-02   0.217998E-01
+                  0.000000E+00   0.726019E-02   0.209657E-01  /
+     250.0        0.233241E-04   0.618390E-02   0.281900E-01
+                  0.155494E-04   0.618463E-02   0.263215E-01
+                  0.777468E-05   0.618699E-02   0.246185E-01
+                  0.000000E+00   0.618883E-02   0.231001E-01  /
+     290.0        0.207344E-04   0.552955E-02   0.338935E-01
+                  0.138229E-04   0.549471E-02   0.308257E-01
+                  0.691147E-05   0.546871E-02   0.279637E-01
+                  0.000000E+00   0.544828E-02   0.253852E-01  /
+     330.0        0.188829E-04   0.513662E-02   0.412606E-01
+                  0.125886E-04   0.504262E-02   0.365224E-01
+                  0.629431E-05   0.496847E-02   0.319605E-01
+                  0.000000E+00   0.491094E-02   0.277668E-01  /
+     370.0        0.174633E-04   0.493306E-02   0.498211E-01
+                  0.116422E-04   0.475990E-02   0.430564E-01
+                  0.582110E-05   0.461804E-02   0.364118E-01
+                  0.000000E+00   0.450757E-02   0.301475E-01  /
+     393.3        0.167277E-04   0.485708E-02   0.545705E-01
+                  0.111518E-04   0.464095E-02   0.466488E-01
+                  0.557591E-05   0.445994E-02   0.388770E-01
+                  0.000000E+00   0.431714E-02   0.314718E-01  /
+     410.0        0.161563E-04   0.477040E-02   0.559651E-01
+                  0.107708E-04   0.454472E-02   0.478741E-01
+                  0.538542E-05   0.435206E-02   0.399478E-01
+                  0.000000E+00   0.419637E-02   0.323461E-01  /
+     450.0        0.149327E-04   0.459006E-02   0.592189E-01
+                  0.995512E-05   0.434582E-02   0.506906E-01
+                  0.497756E-05   0.413012E-02   0.423931E-01
+                  0.000000E+00   0.394820E-02   0.343647E-01  /
+/
+	
+SOLUTION
+-- -------------------------------------------------------------------------
+PRESSURE
+	90 59*100.0 /
+SWAT
+	0.1 59*0.19 /
+
+SALT
+	0.0 59*40.0/
+
+
+-- (OPM-FLOW keyword)    
+SALTP
+	60*0.0/
+
+-- (OPM-FLOW keyword)
+RVW 
+	60*0.001/
+
+SUMMARY
+-- -------------------------------------------------------------------------	 
+
+
+WBHP
+/
+WGPR
+/
+WGPT
+ /
+WWPR
+/
+WWPT
+/
+
+
+-- Salt rates
+WSIR
+/
+-- Salt cumulatives
+WSIT
+/
+--Field rates and totals
+FSIT
+FSIR
+FSIP
+
+SCHEDULE
+-- -------------------------------------------------------------------------
+RPTSCHED
+	'PRES' 'SGAS' /
+
+RPTRST
+	'BASIC=1' /
+
+TSTEP
+--Advance the simulater once a month for ONE year:
+0.0001 31 28 31 30 31 30 31 31 30 31 30 31 
+ /
+
+END
