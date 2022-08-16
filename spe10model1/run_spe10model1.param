@@ -1,8 +1,0 @@
-deck_filename=SPE10_MODEL1.DATA
-output_dir=OPM1
-solver.growthfactor=5.
-solver.restartfactor=0.5
-timestep.control.maxgrowth=10
-timestep.control.targetiteration=150
-timestep.control.tol=1e-2
-timestep.max_timestep_in_days=15

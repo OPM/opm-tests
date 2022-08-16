@@ -1,0 +1,466 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+--  
+-- Copyright (C) 2022 Equinor
+--                                                                           
+-- This model is the SPE 10 - MODEL 1 based on the following SPE paper:
+--    "Tenth SPE comparative solution project: a comparison of upscaling techniques"
+--    By Mike Christie (Heriot-Wat University) and Martin Blunt (Imperial College)
+--    SPE, August 2001
+--
+-- This version of the model is based on:
+-- ( 1) Field units.
+-- ( 2) Corner-point regular grid.
+-- ( 3) Three phases present, oil, gas and water. The original paper only has oil and gas.
+--
+-- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
+--       1         2         3         4         5         6         7         8         9         0         1         2         3  
+--       0         0         0         0         0         0         0         0         0         1         1         1         1  
+-- *********************************************************************************************************************************
+-- =================================================================================================================================
+-- 
+-- RUNSPEC SECTION 
+-- 
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE TITLE FOR THE RUN  
+--
+TITLE                                                                           
+SPE10-MOD01-03: SPE10 TENTH SPE COMPARATIVE SOLUTION (MODEL 1)
+--
+--       DEFINE THE START DATE FOR THE RUN 
+--
+START                                                                                                                                                                                                     
+         1 'JAN' 1967 /
+--                                                                              
+--       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
+--
+-- NOSIM                                                                          
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- FLUID TYPES AND TRACER OPTIONS                         
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       OIL PHASE IS PRESENT IN THE RUN
+--
+OIL                                                                            
+--
+--       GAS PHASE IS PRESENT IN THE RUN
+--
+GAS                                                                                                                                                           
+--
+--       WATER PHASE IS PRESENT IN THE RUN
+--
+WATER                                                                            
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS                                             
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--                                                                              
+--       MAX     MAX     MAX                                                    
+--       NDIVIX  NDIVIY  NDIVIZ                                                 
+DIMENS                                                                          
+         100     1       20                                                    / 
+--
+--       DEFINE THE NUMBER OF RESERVOIR GRIDS (COORD DATA SETS)
+--
+NUMRES                                                                          
+         1                                                                     /
+--                                                                              
+--       MAX     MAX     RSVD    TVDP    TVDP                                   
+--       EQLNUM  DEPTH   NODES   TABLE   NODES                                  
+EQLDIMS                                                                         
+         1*      1*      1*      1*      1*                                    /                                                                          
+--                                                                              
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS 
+REGDIMS                                                                         
+         1*      1*      1*      1*      1*     1*     1*     1*    1*    1*   /                
+--
+--       NEG      MAX     MAX                                                    
+--       MULTS    MULTNUM PINCHNUM                                               
+GRIDOPTS                                                                        
+         NO       1*      1*                                                   / 
+--
+--       DEACTIVATES NON-NEIGHBOR CONNECTIONS 
+--
+NONNC         
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300                    
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND            
+TABDIMS                                                                         
+         1*      1*      50      1*      1*      1*     1*     1               /         
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--                                                                                
+--       WELL    WELL    GRUPS   GRUPS                                          
+--       MXWELS  MXCONS  MXGRPS  MXGRPW                                         
+WELLDIMS                                                                        
+         2       20      1       2                                             /                                                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- NUMERICAL AND RUN CONTROL OPTIONS                                                    
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       ACTIVATE CONSTRAINED PRESSURE RESIDUAL LINEAR SOLVER FOR THE RUN
+--
+-- CPR 
+                                                                               /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- INPUT AND OUTPUT OPTIONS                                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       FIELD SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT 
+--
+FIELD
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN                                                                          
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT                                                                          
+--
+--       PATH       PATH
+--       ALIAS      DIRECTORY FILENAME
+PATHS
+        'SPE10'     'include'                                                  /
+/
+--                                                                                
+--       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG      
+--       LIMIT LIMIT LIMIT LIMIT LIMIT LIMIT STOP STOP  STOP  STOP  STOP  STOP     
+MESSAGES                                                                        
+         5000  1*    1000  1000  1*    1*    1*   1*    1*    1*    1*    1*   /    
+         
+-- =================================================================================================================================
+-- 
+-- GRID SECTION 
+-- 
+-- =================================================================================================================================
+GRID
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1                                                             /                                                                              
+--                                                                              
+--       LOAD INCLUDE FILE - GRID
+--                                                                              
+INCLUDE 
+         '$SPE10/SPE10-MOD01-GRID.inc'  /
+--                                                                              
+--       DEFINE GRID BLOCK POROSITY DATA FOR ALL CELLS                            
+-- 
+PORO
+         2000*0.2                                                              /                                                                                 
+--
+--       SWITCH OFF ECHOING OF INPUT FILES
+--
+NOECHO                                                                         
+--
+--       LOAD INCLUDE FILE - PERM
+--
+INCLUDE 
+         '$SPE10/SPE10-MOD01-PERM.inc'  /
+--
+--       SWITCH ON ECHOING OF INPUT FILES     
+--
+ECHO                                                                          
+
+-- =================================================================================================================================
+-- 
+-- EDIT SECTION 
+-- 
+-- =================================================================================================================================
+EDIT
+
+-- =================================================================================================================================
+-- 
+-- PROPS SECTION 
+-- 
+-- =================================================================================================================================
+PROPS
+--                                                                                     
+--       GAS-OIL RELATIVE PERMEABILITY TABLES (SGOF)                                                                 
+SGOF
+--       SLIQ       KRG       KROG      PCOG                                                     
+--       FRAC                           PSIA                                                  
+--       -------   --------  -------   -------                                                
+         0.000000  0.000000  1.000000  0.000000
+         0.025000  0.000000  0.912530  0.000000
+         0.050000  0.000000  0.830041  0.000000
+         0.075000  0.000000  0.752410  0.000000
+         0.100000  0.000001  0.679518  0.000000 
+         0.125000  0.000007  0.611238  0.000000
+         0.150000  0.000031  0.547448  0.000000
+         0.175000  0.000093  0.488020  0.000000
+         0.200000  0.000232  0.432827  0.000000
+         0.225000  0.000501  0.381737  0.000000
+         0.250000  0.000977  0.334621  0.000000
+         0.275000  0.001760  0.291345  0.000000
+         0.300000  0.002980  0.251773  0.000000
+         0.325000  0.004800  0.215767  0.000000
+         0.350000  0.007416  0.183188  0.000000
+         0.375000  0.011065  0.153893  0.000000
+         0.400000  0.016028  0.127737  0.000000
+         0.425000  0.022631  0.104573  0.000000
+         0.450000  0.031250  0.084248  0.000000
+         0.475000  0.042315  0.066609  0.000000
+         0.500000  0.056314  0.051496  0.000000
+         0.525000  0.073794  0.038746  0.000000
+         0.550000  0.095367  0.028191  0.000000
+         0.575000  0.121716  0.019658  0.000000
+         0.600000  0.153590  0.012965  0.000000
+         0.625000  0.191818  0.007925  0.000000
+         0.650000  0.237305  0.004338  0.000000 
+         0.675000  0.291038  0.001995  0.000000
+         0.700000  0.354093  0.000668  0.000000
+         0.725000  0.427631  0.000103  0.000000
+         0.750000  0.512909  0.000000  0.000000
+         0.775000  0.611280  0.000000  0.000000
+         0.800000  0.724196  0.000000  0.000000
+         0.825000  0.853215  0.000000  0.000000
+         0.850000  1.000000  0.000000  0.000000  
+         1.000000  1.000000  0.000000  0.000000            / TABLE No. 01 
+--                                                                                     
+--       WATER-OIL RELATIVE PERMEABILITY TABLES (SWOF)                                                                  
+--
+--       NO WATER IN THE RESERVOIR BUT ORIGINALLY FLOW WAS A 3-PHASE SIMULATOR
+--       SO WATER IS PLACED BELOW THE RESERVOIR AND HAS NO IMPACT ON SIMULATION
+-- 
+SWOF
+--       SWAT       KRW       KROW      PCOW                                                     
+--       FRAC                           PSIA                                                  
+--       --------   --------  -------   -------                                                
+         00000      0.0000    1.0000    0
+         0.200      0.0001    0.9999    0
+         0.250      0.0069    0.8403    0
+         0.300      0.0278    0.6944    0
+         0.350      0.0625    0.5625    0
+         0.400      0.1111    0.4444    0
+         0.450      0.1736    0.3403    0
+         0.500      0.2500    0.2500    0
+         0.550      0.3403    0.1736    0
+         0.600      0.4444    0.1111    0
+         0.650      0.5625    0.0625    0
+         0.700      0.6944    0.0278    0
+         0.750      0.8403    0.0069    0
+         0.800      1.0000    0.0000    0                  / TABLE NO. 01
+--
+--       OIL      WAT        GAS                                                             
+--       DENSITY  DENSITY    DENSITY                                                       
+--       -------  -------    -------                                                         
+DENSITY                                                                                  
+         43.68    62.430     0.0624                        / DENSITY PVT DATA REGION 1           
+--                                                                                      
+--       WATER PVT TABLE                                                                    
+--
+--       NO WATER IN THE RESERVOIR BUT ORIGINALLY FLOW WAS A 3-PHASE SIMULATOR
+--       SO WATER IS PLACED BELOW THE RESERVOIR AND HAS NO IMPACT ON SIMULATION
+--                                                                                      
+PVTW                                                                                    
+--       REF PRES  BW         CW        VISC     VISC                                         
+--       PSIA      RB/STB     1/PSIA    CPOISE   GRAD                                         
+--       --------  --------   -------   ------   ------                                       
+         6000.0    1.000      3.1E-6    0.300    1*        / TABLE NO. 01 - DATA TAKEN FROM MODEL2              
+--                                                                                      
+--       OIL PVT TABLE FOR DEAD OIL 
+--
+--       BO EQUALS TO ONE, AND THE OIL IS UNCOMPRESSIBLE; HOWEVER, 
+--       ECLIPSE DOES NOT ACCEPT TWO IDENTICAL BO VALUES AT DIFFERENT PRESSURES
+--                                                                                      
+PVDO                                                                                    
+--       PSAT      BO        VISC                                                  
+--       PSIA      RB/STB    CPOISE                                                
+--       --------  -------   ------                                                
+         14        1.000001  0.999999
+         100       1.000000  1.000000
+         1000      0.999999  1.000001
+         2000      0.999998  1.000002
+         3000      0.999997  1.000003
+         4000      0.999996  1.000004
+         5000      0.999995  1.000005
+         6000      0.999994  1.000006
+         7000      0.999993  1.000007
+         8000      0.999992  1.000008
+         9000      0.999991  1.000009
+         10000     0.999990  1.000010                      / TABLE NO. 01  
+--                                                                                      
+--       GAS PVT TABLE FOR DRY GAS                                                                        
+--
+--       BG EQUALS 178.1076 AND THE GAS IS UNCOMPRESSIBLE; HOWEVER, 
+--       ECLIPSE DOES NOT ACCEPT TWO IDENTICAL BG VALUES AT DIFFERENT PRESSURES
+--                                                                                      
+PVDG
+--       PRES     BG             VISC                                                         
+--       PSIA     RB/MSCF        CPOISE                                                        
+--       ------   --------       ------                                                
+         14       178.107600997  0.009999
+         100      178.107600996  0.010000   
+         1000     178.107600995  0.010001
+         2000     178.107600994  0.010002
+         3000     178.107600993  0.010003
+         4000     178.107600992  0.010004
+         5000     178.107600991  0.010005
+         6000     178.107600990  0.010006
+         7000     178.107600989  0.010007
+         8000     178.107600988  0.010008
+         9000     178.107600987  0.010009
+         10000    178.107600986  0.010010                  / TABLE NO. 01    
+--
+--       ROCK COMPRESSIBILITY                                                                 
+--                                                                                      
+--       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE      
+--       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (ECLIPSE USES THE REFERENCE       
+--       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA       
+--       ON THE ROCK KEYWORD)                                                             
+--                                                                                      
+--       REF PRES  CF                                                                         
+--       PSIA      1/PSIA                                                                     
+--       --------  --------                                                                   
+ROCK                                                                                    
+         6000      1.0E-06                                 / TAKEN FROM MODEL 2
+
+-- =================================================================================================================================
+-- 
+-- SOLUTION SECTION 
+-- 
+-- =================================================================================================================================
+SOLUTION  
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N           
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT         
+EQUIL                                                                        
+         0.0     100.0   50.0    0.00   0.00   0.00   1*   1*   0              /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+         BASIC=5                                                               /
+
+-- =================================================================================================================================
+-- 
+-- SUMMARY SECTION 
+-- 
+-- =================================================================================================================================
+SUMMARY
+--
+--       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION     
+--
+RUNSUM                                               
+--
+--       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION     
+--
+SEPARATE       
+--
+--       SUMMARY VECTORS
+--
+FOPR
+FOPT
+FGIR
+FGIT
+FGPR
+FGPT
+FPR
+WBHP
+/
+WPI
+/
+WOPR
+OP01
+/
+WOPT
+OP01
+/
+WGIR
+GI01
+/
+WGIT
+GI01
+/
+WGPR
+OP01
+/
+WGPT
+OP01
+/
+
+-- =================================================================================================================================
+-- 
+-- SCHEDULE SECTION 
+-- 
+-- =================================================================================================================================
+SCHEDULE
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+         BASIC=5                                                               /
+--
+--       WELL SPECIFICATION DATA                                                      
+--                                                                              
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
+WELSPECS                                                                                                                                                         
+GI01     MAIN       1    1  1.25    GAS                                            /    
+OP01     MAIN     100    1  1.25    OIL                                            /
+/
+--
+--       WELL CONNECTION DATA                           
+--                                                                              
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN   
+COMPDAT                                                                        
+GI01       1   1   1  20   OPEN   1*    1*     1.0                             /  
+OP01     100   1   1  20   OPEN   1*    1*     1.0                             /
+/
+--
+--       WELL PRODUCTION WELL CONTROLS                                                     
+--                                                                              
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+OP01     OPEN   BHP    1*     1*     1*    1*     1*     95.0                  /
+/
+--
+--       WELL INJECTION CONTROLS                                                      
+--                                                                              
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP               
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRES  PRES  TABLE             
+WCONINJE                                                                        
+GI01     GAS    OPEN   RATE 246.1E-3 1*    10E3                                /
+/
+--
+--       ADVANCE SIMULATION BY REPORTING TIME
+--
+--       TEN DAY TSTEPS
+TSTEP                                                                           
+         799*10
+/                    
+--
+--       DEFINE SCHEDULE SECTION REPORT OPTION
+--
+RPTSCHED                                                                                                                             
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+--
+--       ADVANCE SIMULATION BY REPORTING TIME
+--
+--       TEN DAY TSTEPS
+TSTEP                                                                           
+         10
+/                    
+END        
+--                                                                              
+-- *********************************************************************************************************************************
+-- END OF FILE                                                                  
+-- *********************************************************************************************************************************
