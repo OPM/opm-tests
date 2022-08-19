@@ -14,8 +14,14 @@
 --                    |---PLAT-1                                                                
 -- 
 -- ( 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 is set VREP 1.00.
--- ( 2) Base case run with producers OP01 to OP04 having ACTIONW blocks that applies a PI multiplier of 1.00 when the water cut  
---      exceeds, 0.20, 0.40 and 0.60. Used for testing the timing of the ACTIONW events, as the run should not change anything.
+-- ( 2) Producer OP01 has a nested ACTIONW block that first tests if the well's water cut exceeds 0.20 (ACTW-01A), if it does then
+--      ACTW-01B checks if the well PI is greater than 40.0 and if it is then reduce the PI by 0.900. ACTW-01A is set to execute
+--      three times and ACTW-01B only once, so the action should only be executed once.
+-- ( 3) For OP02 the ACTW-02A and ACTW-02B are the same as for OP01, except ACTW-02B is allowed to execute twice.
+-- ( 4) OP03 is the same as OP01, except this should not execute as the ACTW-03A and ACTW-03B should be overwritten by OP04 action
+--      blocks.
+-- ( 5) OP04 is the same as OP01, except this should execute as the ACTW-03A and ACTW-03B overwrite the previous versions, and
+--      thus OP04 is choked back but not OP03. This is a deliberate typo test to check if we issue a warning if this occurs.
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
 --       1         2         3         4         5         6         7         8         9         0         1         2         3  
@@ -31,7 +37,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN  
 --
 TITLE                                                                           
-OPM_TESTS: ACTIONW_WPIMULT
+OPM_TESTS: ACTIONW_WPIMULT-02
 --
 --       DEFINE THE START DATE FOR THE RUN 
 --
@@ -112,7 +118,7 @@ VFPPDIMS
 --       ACTION    ACTION   ACTION   ACTION
 --       MXACTNS   MXLINES  MXCHARS  MXSTATMS
 ACTDIMS
-         4         20       80       1                                         /
+         8         20       80       1                                         /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- NUMERICAL AND RUN CONTROL OPTIONS                                                    
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -780,15 +786,24 @@ WTEST
 ACTIONW
 --       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
 --       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS     
-         ACT-01     OP01     WWCT      >      0.2     3        0.20             /
+         ACTW-01A   OP01     WWCT       >     0.20    3        0.20            /
+--
+--       ACTIONW WELL COMMANDS
+--
+ACTIONW
+--       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
+--       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS     
+         ACTW-01B   OP01     WPI        >     40.0    1        0.0             /
 --
 --       DEFINE WELL CONNECTION MULTIPLIERS                                                  
 --                                                                              
 -- WELL  PI     --LOCATION--  COMPLETION                                     
 -- NAME  MULT     I   J    K  FIRST LAST                                     
 WPIMULT                                                                         
-OP01     1.000   1*  1*   1*   1*    1*                    /
-/
+'?'      0.900   1*  1*  1*    1*    1*                    /
+/  
+
+ENDACTIO
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ACTIONW WPIMULT CHANGES BASED ON WATER CUT
@@ -799,15 +814,24 @@ ENDACTIO
 ACTIONW
 --       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
 --       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS     
-         ACT-02     OP02     WWCT      >      0.2     3        0.20             /
+         ACTW-02A   OP02     WWCT       >     0.20    3        0.20            /
+--
+--       ACTIONW WELL COMMANDS
+--
+ACTIONW
+--       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
+--       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS     
+         ACTW-02B   OP02     WPI        >     40.0    2        0.0             /
 --
 --       DEFINE WELL CONNECTION MULTIPLIERS                                                  
 --                                                                              
 -- WELL  PI     --LOCATION--  COMPLETION                                     
 -- NAME  MULT     I   J    K  FIRST LAST                                     
 WPIMULT                                                                         
-OP02     1.000   1*  1*   1*   1*    1*                    /
-/
+'?'      0.900   1*  1*  1*    1*    1*                    /
+/  
+
+ENDACTIO
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ACTIONW WPIMULT CHANGES BASED ON WATER CUT
@@ -818,18 +842,27 @@ ENDACTIO
 ACTIONW
 --       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
 --       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS     
-         ACT-03     OP03     WWCT      >      0.2     3        0.20             /
+         ACTW-03A   OP03     WWCT       >     0.20    3        0.20            /
+--
+--       ACTIONW WELL COMMANDS
+--
+ACTIONW
+--       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
+--       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS     
+         ACTW-03B   OP03     WPI        >     40.0    1        0.0             /
 --
 --       DEFINE WELL CONNECTION MULTIPLIERS                                                  
 --                                                                              
 -- WELL  PI     --LOCATION--  COMPLETION                                     
 -- NAME  MULT     I   J    K  FIRST LAST                                     
 WPIMULT                                                                         
-OP03     1.000   1*  1*   1*   1*    1*                    /
-/
+'?'      0.900   1*  1*  1*    1*    1*                    /
+/  
+
+ENDACTIO
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONW WPIMULT CHANGES BASED ON WATER CUT
+-- ACTIONW WPIMULT CHANGES BASED ON WATER CUT (DELIBERATE TYPO)
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       ACTIONW WELL COMMANDS
@@ -837,15 +870,24 @@ ENDACTIO
 ACTIONW
 --       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
 --       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS     
-         ACT-04     OP04     WWCT      >      0.2     3        0.20             /
+         ACTW-03A   OP04     WWCT       >     0.20    3        0.20            /
+--
+--       ACTIONW WELL COMMANDS
+--
+ACTIONW
+--       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
+--       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS     
+         ACTW-03B   OP04     WPI        >     40.0    1        0.0             /
 --
 --       DEFINE WELL CONNECTION MULTIPLIERS                                                  
 --                                                                              
 -- WELL  PI     --LOCATION--  COMPLETION                                     
 -- NAME  MULT     I   J    K  FIRST LAST                                     
 WPIMULT                                                                         
-OP04     1.000   1*  1*   1*   1*    1*                    /
-/
+'?'      0.900   1*  1*  1*    1*    1*                    /
+/  
+
+ENDACTIO
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- SCHEDULE SECTION - 2022-01-01                                   
@@ -861,16 +903,16 @@ RPTSCHED
          'NOTHING'                                                             /                                                    
                                            
 DATES                                                                           
-         1  FEB   2022  /                  
-         1  MAR   2022  /                  
-         1  APR   2022  /  
+         1  FEB   2022  /       
+         1  MAR   2022  /    
+         1  APR   2022  /                  
          1  MAY   2022  /                  
          1  JUN   2022  /                  
-         1  JLY   2022  /                  
-         1  AUG   2022  /   
-         1  SEP   2022  /                  
+         1  JLY   2022  /  
+         1  AUG   2022  /                  
+         1  SEP   2022  / 
          1  OCT   2022  /                  
-         1  NOV   2022  /                  
+         1  NOV   2022  /     
          1  DEC   2022  /                  
 /
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -880,7 +922,7 @@ RPTSCHED
          'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
 
 DATES                                                                           
-         1  JAN   2023  /                                                                                                                                                                                                      
+         1  JAN   2023  /                                                                
 /                                                                               
 
 RPTSCHED                                                                                                                             
@@ -889,11 +931,11 @@ RPTSCHED
 DATES                                                                           
          1  FEB   2023  /                  
          1  MAR   2023  /                  
-         1  APR   2023  /                  
+         1  APR   2023  /  
          1  MAY   2023  /                  
          1  JUN   2023  /                  
          1  JLY   2023  /                  
-         1  AUG   2023  /                  
+         1  AUG   2023  /   
          1  SEP   2023  /                  
          1  OCT   2023  /                  
          1  NOV   2023  /                  
