@@ -299,30 +299,6 @@ RVW
 SUMMARY
 -- -------------------------------------------------------------------------	 
 
-
-WBHP
-/
-WGPR
-/
-WGPT
- /
-WWPR
-/
-WWPT
-/
-
-
--- Salt rates
-WSIR
-/
--- Salt cumulatives
-WSIT
-/
---Field rates and totals
-FSIT
-FSIR
-FSIP
-
 SCHEDULE
 -- -------------------------------------------------------------------------
 RPTSCHED
