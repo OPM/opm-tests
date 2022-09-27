@@ -5,14 +5,13 @@
 
 -- Copyright (C) 2015 Statoil
 
--- This simulation is based on the data given in 
+-- This simulation is based on the data given in
 -- 'Comparison of Solutions to a Three-Dimensional
 -- Black-Oil Reservoir Simulation Problem' by Aziz S. Odeh,
 -- Journal of Petroleum Technology, January 1981
 
----------------------------------------------------------------------------
------------------------- SPE1 - CASE 2 ------------------------------------
----------------------------------------------------------------------------
+-- This test case is based on the SPE1 benchmark, Case 2, and tests reversible directional relative
+-- permeabilites using the keywords KRNUMX, KRNUMY, and KRNUMZ
 
 RUNSPEC
 -- -------------------------------------------------------------------------
@@ -31,7 +30,7 @@ EQLDIMS
 -- The number of PVTW tables is inferred from the TABDIMS keyword;
 -- when no data is included in the keyword the default values are used.
 TABDIMS
- 2/
+ 3/
 
 SATOPTS
  'DIRECT'
@@ -147,6 +146,8 @@ SWOF
 1	    1.0			  0	   0 /
 0.12	0    		 	0.5	 0
 1	    1.0	      0	   0 /
+0.12	0    		 	0.75	 0
+1	    1.0	      0	   0 /
 
 SGOF
 -- Column 1: gas saturation
@@ -234,7 +235,7 @@ KRNUMY
  300*1 /
 
 KRNUMZ
- 300*1 /
+ 300*3 /
 
 SOLUTION
 -- -------------------------------------------------------------------------
