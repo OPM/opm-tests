@@ -161,6 +161,8 @@ SGOF
 0.88	1.0	0.000	0 /
 0	    0	  0.5	  0
 0.88	1.0	0.000	0 /
+0	    0	  0.75	  0
+0.88	1.0	0.000	0 /
 
 DENSITY
 -- Density (lb per ft³) at surface cond. of 
