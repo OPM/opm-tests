@@ -149,7 +149,7 @@ UNIFOUT
 --       PATH       PATH
 --       ALIAS      DIRECTORY FILENAME
 PATHS
-        'MODEL05'   '..\model5\include'                                        /
+        'MODEL05'   '../model5/include'                                        /
 /
 --                                                                                
 --       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG      
@@ -560,17 +560,17 @@ PROPS
 --       LOAD INCLUDE FILE
 --
 INCLUDE 
-         '$MODEL05\pvt_live_oil_dgas.ecl'        /
+         '$MODEL05/pvt_live_oil_dgas.ecl'        /
 --
 --       LOAD INCLUDE FILE
 --
 INCLUDE 
-         '$MODEL05\rock.inc'                     /
+         '$MODEL05/rock.inc'                     /
 --
 --       LOAD INCLUDE FILE
 --
 INCLUDE 
-         '$MODEL05\relperm.inc'                  /
+         '$MODEL05/relperm.inc'                  /
             
 -- =================================================================================================================================
 -- 
