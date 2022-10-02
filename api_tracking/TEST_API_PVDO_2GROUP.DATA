@@ -1,0 +1,340 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2022 Equinor
+
+-- This is a model for testing API tracking.
+-- The reservoir contains a southern part with light oil (high API and low viscosity) 
+-- and a northern part with heavy oil (low API and high viscosity). There are 4 producers
+-- located in the northern part and 4 injectors located in the southern part and injection
+-- is controlled by voidage replacement. A total of 3 M Sm3 of light oil is flowing from 
+-- south to north causing API to raise over time in the producers.
+
+-- Model set up with PVDO (dead oil), PVDG (dead gas) and water. API tracking with 2 APIGROUPs.
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 20 30 10 /
+
+
+OIL
+WATER
+GAS
+
+
+API         -- Enables api tracking
+
+METRIC
+
+START
+ 01 'JAN' 2020 /
+
+--
+GRIDOPTS
+ 'YES'        0 /
+
+EQLOPTS
+ THPRES /
+
+EQLDIMS
+ 2  100  25 /
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          2       1*            0    /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          9      150          60         2         60 /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 8           5            2          4   /
+
+ 
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+ METRES  /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/test1_20x30x10.grdecl' /
+
+PERMX
+ 600*2000 
+ 600*1000 
+ 600*750 
+ 600*600 
+ 600*400 
+ 600*50 
+ 600*4000 
+ 600*800 
+ 600*500 
+ 600*100 
+/
+
+PORO
+ 600*0.28 
+ 600*0.25 
+ 600*0.22 
+ 600*0.20 
+ 600*0.21 
+ 600*0.14 
+ 600*0.32 
+ 600*0.19 
+ 600*0.18 
+ 600*0.16 
+/
+
+COPY
+  PERMX PERMY /
+  PERMX PERMZ /
+/
+
+MULTIPLY
+  PERMZ 0.1 /
+/ 
+
+RPTGRID
+ 'ALLNNC' /
+
+EQUALS
+  'MULTY'  0.1 1 20  14 14  1 10 /
+/
+
+
+------------------------------------------------------------------------------------------------
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+APIGROUP
+ 2 /
+
+NOECHO
+
+
+INCLUDE
+ 'include/norne_9pvtnum_pvdo.inc' /
+
+INCLUDE
+ 'include/norne_9pvtnum_pvdg.inc' /
+
+
+PVTW
+--     RefPres        Bw          Cw           Vw         dVw
+--       bara       rm3/m3       1/bara        cP        1/bara
+        277.0      1.038    4.67E-05   0.318    0.00 /
+/
+/
+/
+/
+/
+/
+/
+/
+
+--  Kg/m3          Kg/m3          Kg/m3
+--  oil            wat            gas
+DENSITY
+   750.00000    1033.0      0.85204 /    -- API  = 57.17
+   800.00000    1033.0      0.85204 /    -- API  = 45.38
+   850.00000    1033.0      0.85204 /    -- API  = 34.97
+   900.00000    1033.0      0.85204 /    -- API  = 25.72
+
+   775.00000    1033.0      0.85204 /    -- API  = 51.08
+   825.00000    1033.0      0.85204 /    -- API  = 40.02
+   875.00000    1033.0      0.85204 /    -- API  = 30.21
+   925.00000    1033.0      0.85204 /    -- API  = 21.47
+   975.00000    1033.0      0.85204 /    -- API  = 13.63
+
+
+ROCK
+      277.0      4.22425e-05 /
+/
+/
+/
+/
+/
+/
+/
+/
+
+INCLUDE
+ 'include/relperm.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQUALS
+  EQLNUM  1  1 20   1 14  1 10 /
+  EQLNUM  2  1 20  15 30  1 10 /
+/ 
+
+COPY
+ EQLNUM PVTNUM /
+ EQLNUM FIPNUM /
+/ 
+
+SATNUM
+ 6000*1 /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTSOL
+ 'THPRES' /
+ 
+RPTRST
+  'BASIC = 2' 'PBPD' 'DEN' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc    Rsvd  Rvvd
+ 2000.00  235.0  2050     0.0  500.00  0.0   1   0   0 /
+ 2000.00  235.0  2050     0.0  500.00  0.0   2   0   0 /
+
+--RSVD
+--  2000.00    84.00000 
+--  2150.00    84.00000   /
+
+--  2000.00    60.60 
+--  2150.00    60.60   /
+
+APIVD
+  2000.00    55.0
+  2120.00    55.0  /
+
+  2000.00    14.0
+  2120.00    14.0  /
+
+
+THPRES
+ 1 2  /
+/
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+RPTRST
+  'BASIC=5' 'FREQ=3' 'PBPD' 'DEN' /
+
+
+GRUPTREE
+  'B1' 'FIELD' /
+  'F1' 'FIELD' /
+/
+
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'B-1H'  'B1'   6   18      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-2H'  'B1'   4   22      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-3H'  'B1'   7   21      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-4H'  'B1'   4   28      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+/
+
+COMPDAT
+--WELL      I   J    K1   K2 OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+ 'B-1H'     6	18    1    5   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+ 'B-2H'     4	22    1    5   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+ 'B-3H'     7	21    1    5   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+ 'B-4H'     4	28    1    5   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+/
+
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'F-1H'  'F1'   6   18      1*   WAT     1*   1*   SHUT 1* 1* 1* /
+ 'F-2H'  'F1'   4   22      1*   WAT     1*   1*   SHUT 1* 1* 1* /
+ 'F-3H'  'F1'   7   21      1*   WAT     1*   1*   SHUT 1* 1* 1* /
+ 'F-4H'  'F1'   4   28      1*   WAT     1*   1*   SHUT 1* 1* 1* /
+/
+
+COMPDAT
+--WELL      I   J    K1   K2 OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+ 'F-1H'    14	 2    6    10   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+ 'F-2H'    17	 3    6    10   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+ 'F-3H'    18	 6    6    10   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+ 'F-4H'    15	 9    6    10   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+/
+
+
+
+WCONPROD
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate   RFV  FBHP   WHP  VFP Glift
+   'B-1H'      OPEN    ORAT  5000.0  1*     1*    3000.0  1*   100.0  1*   1*   1*  /
+   'B-2H'      OPEN    ORAT  5000.0  1*     1*    3000.0  1*   100.0  1*   1*   1*  /
+   'B-3H'      OPEN    ORAT  5000.0  1*     1*    3000.0  1*   100.0  1*   1*   1*  /
+   'B-4H'      OPEN    ORAT  5000.0  1*     1*    3000.0  1*   100.0  1*   1*   1*  /
+/
+
+
+WCONINJE
+-- Well_name    Type    Status  Ctrl    SRate1  Rrate   BHP     THP     VFP
+  'F-1H'        WATER   OPEN    GRUP    8000    1*      1225.0    1*      1*     /
+  'F-2H'        WATER   OPEN    GRUP    8000    1*      1225.0    1*      1*     /
+  'F-3H'        WATER   OPEN    GRUP    8000    1*      1225.0    1*      1*     /
+  'F-4H'        WATER   OPEN    GRUP    8000    1*      1225.0    1*      1*     /
+/
+
+GCONINJE
+ 'FIELD'   'WATER'    'VREP'  3*      1.000    'NO'  5* /
+/
+ 
+TSTEP
+ 25*30  /
+ 
+WELOPEN
+ 'B-1H' 'SHUT' /
+ 'B-3H' 'SHUT' /
+/
+ 
+TSTEP
+ 25*30  /
+  
+END
+
