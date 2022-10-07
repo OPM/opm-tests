@@ -18,9 +18,10 @@
 --                                                               |        |
 --                                                               WGRP1    WGRP2                                                   
 -- ( 1) The case has three producers (no VFP) and one water injector.
--- ( 2) Producers are multi-segment wells.
--- ( 3) Group PROD is under LRAT control, and is limited by ORAT.
--- ( 4) GUIDERAT data set at the well level.
+-- ( 2) Producers and injectors are multi-segment wells.
+-- ( 3) Group PROD: GCONPROD(TARGET) set to LRAT control and GCONPROD(OIL) limit set to 2,500 stb/d.   
+-- ( 4) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
+-- ( 5) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
 --
 -- =================================================================================================================================
 -- 
@@ -394,7 +395,7 @@ GRUPTREE
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
 GCONPROD                                                                        
-PROD     LRAT  1000.  1*     1.E6   2500.  RATE  YES   1*     1*  7*           /
+PROD     LRAT  1000.  1*     1.E6   2500.  RATE  YES   1*     1*     7*        /
 WGRP1    FLD    900.  1*     1.E6   2400.  RATE  YES   1*                      / 
 WGRP2    FLD    900.  1*     1.E6   2400.  RATE  YES   1*                      / 
 /
