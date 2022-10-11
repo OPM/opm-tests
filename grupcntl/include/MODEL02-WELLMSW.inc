@@ -11,7 +11,7 @@
 --
 NOECHO
 -- ---------------------------------------------------------------------------------------------------------------------------------
---       OP01 - WELL SEGMENT ANDCOMPLETION SEGMENT SPECIFICATION DATA                                                     
+--       OP01 - WELL SEGMENT AND COMPLETION SEGMENT SPECIFICATION DATA                                                     
 -- ---------------------------------------------------------------------------------------------------------------------------------
 WELSEGS                                              
 -- Name      Dep 1          Tlen 1      Vol 1     Len&Dep     PresDrop
@@ -40,7 +40,7 @@ COMPSEGS
    6     3     10     1             84.46999         94.00000        /
     /
 -- ---------------------------------------------------------------------------------------------------------------------------------
---       OP02 - WELL SEGMENT ANDCOMPLETION SEGMENT SPECIFICATION DATA                                                     
+--       OP02 - WELL SEGMENT AND COMPLETION SEGMENT SPECIFICATION DATA                                                     
 -- ---------------------------------------------------------------------------------------------------------------------------------
 WELSEGS
 -- Name      Dep 1          Tlen 1      Vol 1     Len&Dep     PresDrop
@@ -69,7 +69,7 @@ COMPSEGS
    10     4     10     1             78.52605         86.86453        /
     /
 -- ---------------------------------------------------------------------------------------------------------------------------------
---       OP03 - WELL SEGMENT ANDCOMPLETION SEGMENT SPECIFICATION DATA                                                     
+--       OP03 - WELL SEGMENT AND COMPLETION SEGMENT SPECIFICATION DATA                                                     
 -- ---------------------------------------------------------------------------------------------------------------------------------
 WELSEGS
 -- Name      Dep 1          Tlen 1      Vol 1     Len&Dep     PresDrop
@@ -96,7 +96,7 @@ COMPSEGS
    11     19     9     1             67.06696         69.50000        /
     /
 -- ---------------------------------------------------------------------------------------------------------------------------------
---       INJ1 - WELL SEGMENT ANDCOMPLETION SEGMENT SPECIFICATION DATA                                                     
+--       INJ1 - WELL SEGMENT AND COMPLETION SEGMENT SPECIFICATION DATA                                                     
 -- ---------------------------------------------------------------------------------------------------------------------------------
 WELSEGS
 -- Name     Dep 1          Tlen 1      Vol 1     Len&Dep     PresDrop

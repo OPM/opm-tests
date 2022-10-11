@@ -7,7 +7,6 @@
 --
 -- This file is a GRID property file containing the PERMZ array data for MODEL02.
 --
---
 --       SWITCH OFF ECHOING OF INPUT FILES
 --
 NOECHO

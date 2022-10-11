@@ -5,8 +5,7 @@
 --
 -- Copyright (C) 2018-2022 Equinor
 --
--- This file is a REGION property file containing the EQLNUM array data for MODEL02.
---
+-- This file is a REGION property file containing the SATNUM array data for MODEL02.
 --
 --       SWITCH OFF ECHOING OF INPUT FILES
 --

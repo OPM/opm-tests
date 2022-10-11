@@ -7,7 +7,6 @@
 --
 -- This file is the GRID include file for MODEL02.
 --
---
 --       SWITCH OFF ECHOING OF INPUT FILES
 --
 NOECHO                                                                         

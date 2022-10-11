@@ -7,7 +7,6 @@
 --
 -- This file is a PROPS file containing the Norne PVT data for MODEL02.
 --
---
 --       SWITCH OFF ECHOING OF INPUT FILES
 --
 NOECHO

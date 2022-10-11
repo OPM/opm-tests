@@ -1,0 +1,44 @@
+-- WELL          GROUP           BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS  PVT    HYDS  FIP 
+-- NAME          NAME   I   J    DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW   TABLE  DENS  REGN
+WELSPECS
+--
+   PROD1  WGRP1   6  3  1*        OIL   0.0       STD      STOP      YES    0         SEG       0      /
+   PROD2  WGRP2  10  4  1*        OIL   0.0       STD      STOP      YES    0         SEG       0      /
+   PROD3  WGRP1  11 19  1*        OIL   0.0       STD      STOP      YES    0         SEG       0      /
+   INJ1   INJE    2 13  1*      WATER   0.0       STD      STOP      YES    0         SEG       0      /
+    /
+-- WELL                                OPEN   SAT   CONN           WELL      KH             SKIN       D      DIR
+-- NAME           I    J     K1   K2   SHUT   TAB   FACT           DIA       FACT           FACT       FACT   PEN
+COMPDAT
+-- ---- Completions for completion type Perforation ----
+-- Perforation Completion : MD In: 54.1443 - MD Out: 63.9786 Transmissibility: 5.97415
+   PROD1   6   3   7    7    OPEN     1*    5.974150E+0   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 63.9786 - MD Out: 74.2244 Transmissibility: 9.83149
+   PROD1   6   3   8    8    OPEN     1*    9.831486E+0   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 74.2244 - MD Out: 84.47 Transmissibility: 188.574
+   PROD1   6   3   9    9    OPEN     1*    1.885740E+2   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 84.47 - MD Out: 94 Transmissibility: 46.8491
+   PROD1   6   3   10   10   OPEN     1*    4.684912E+1   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 50.5 - MD Out: 58.5359 Transmissibility: 16.4566
+   PROD2   10   4   7    7    OPEN     1*    1.645656E+1   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 58.5359 - MD Out: 68.531 Transmissibility: 17.6162
+   PROD2   10   4   8    8    OPEN     1*    1.761616E+1   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 68.531 - MD Out: 78.5261 Transmissibility: 80.7301
+   PROD2   10   4   9    9    OPEN     1*    8.073011E+1   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 78.5261 - MD Out: 86.8645 Transmissibility: 10.1955
+   PROD2   10   4   10   10   OPEN     1*    1.019552E+1   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 38.8799 - MD Out: 47.0872 Transmissibility: 22.9401
+   PROD3   11   19   6    6    OPEN     1*    2.294014E+1   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 47.0872 - MD Out: 57.0771 Transmissibility: 13.089
+   PROD3   11   19   7    7    OPEN     1*    1.308895E+1   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 57.0771 - MD Out: 67.067 Transmissibility: 27.8022
+   PROD3   11   19   8    8    OPEN     1*    2.780218E+1   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 67.067 - MD Out: 69.5 Transmissibility: 37.0367
+   PROD3   11   19   9    9    OPEN     1*    3.703671E+1   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 0 - MD Out: 8.46488 Transmissibility: 117.266
+   INJ1   2   13   1    1    OPEN     1*    1.172656E+2   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 8.46488 - MD Out: 18.4542 Transmissibility: 1.33077
+   INJ1   2   13   2    2    OPEN     1*    1.330772E+0   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 18.4542 - MD Out: 24.7358 Transmissibility: 33.3908
+   INJ1   2   13   3    3    OPEN     1*    3.339084E+1   0.21600   1*   0.00000   1*   'Z' /
+/
