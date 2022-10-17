@@ -17,7 +17,7 @@
 --                                                           PROD
 --                                                +-------+-------+-------+   
 --                                                |       |       |       |    
---                                              OP01    OP02    OP03    OP04  
+--                                              PROD1   PROD2   PROD3   PROD4 
 --
 -- ( 1) The case has four producers with VFP tables, and no water injectors (depletion case).
 -- ( 2) Producers are standard wells.
@@ -427,42 +427,10 @@ RPTRST
 -- =================================================================================================================================
 SUMMARY
 --
---       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
+--       LOAD INCLUDE FILE - SUMMARY EXPORT FILE
 --
-ALL
---
---       EXPORT LIQUID SUMMARY VARIABLE VECTORS TO FILE
---
-FLPR
-FLPT
-GLPR
-/
-GLPT
-/
-WLPR
-/
-WLPT
-/
---
---       EXPORT FIELD, GROUP AND WELL CONTROL MODES 
---
-FMCTP
-FMCTW
-GMCTP
-/
-GMCTW
-/
-WMCTL
-/
---
---       EXPORT REGION DATA
---
-RPR
-/
-ROIP
-/
-RGIP
-/
+INCLUDE 
+         '$MODEL02/MODEL02-SUMMARY.inc'                    /
 
 -- =================================================================================================================================
 -- 
@@ -510,26 +478,32 @@ INCLUDE
 -- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
 -- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
 WELSPECS                                                                                                                                                         
-OP01     PROD       6    3   1*     OIL   0.0     STD    SHUT  YES   0     SEG  0  /
-OP02     PROD      10    4   1*     OIL   0.0     STD    SHUT  YES   0     SEG  0  /
-OP03     PROD      11   19   1*     OIL   0.0     STD    SHUT  YES   0     SEG  0  /
-OP04     PROD      11    6   1*     OIL   0.0     STD    SHUT  YES   0     SEG  0  /
+PROD1    PROD       6    3   1*     OIL   0.0     STD    SHUT  YES   0     SEG  0  /
+PROD2    PROD      10    4   1*     OIL   0.0     STD    SHUT  YES   0     SEG  0  /
+PROD3    PROD      11   19   1*     OIL   0.0     STD    SHUT  YES   0     SEG  0  /
+PROD4    PROD      11    6   1*     OIL   0.0     STD    SHUT  YES   0     SEG  0  /
 /
 --
 --       LOAD INCLUDE FILE - STANDARD WELL COMPLETIONS
 --
 INCLUDE 
-         '$MODEL02/MODEL02A-WELLSTD.inc'                   /
+         '$MODEL02/MODEL02-WELL-PROD1-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD2-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD3-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD4-STD.inc'             /
 --
 --       WELL PRODUCTION WELL CONTROLS                                                     
 --                                                                              
 -- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
 -- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
 WCONPROD                                                                    
-OP01     SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
-OP02     SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
-OP03     SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
-OP04     SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
+PROD1    SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
+PROD2    SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
+PROD3    SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
+PROD4    SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
 /
 --
 --       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
@@ -537,8 +511,8 @@ OP04     SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       /
 --  WELL WELL   --LOCATION--  COMPLETION                                     
 --  NAME STAT     I   J    K  FIRST LAST                    
 WELOPEN                                                     
-OP03     OPEN                                              /
-OP03     OPEN     0   0    0  1*    1*                     /
+PROD3    OPEN                                              /
+PROD3    OPEN     0   0    0  1*    1*                     /
 /                                                             
 --
 --       ADVANCE SIMULATION BY REPORTING DATE
@@ -552,8 +526,8 @@ DATES
 --  WELL WELL   --LOCATION--  COMPLETION                                     
 --  NAME STAT     I   J    K  FIRST LAST                    
 WELOPEN                                                     
-OP02     OPEN                                              /
-OP02     OPEN     0   0    0  1*    1*                     /
+PROD2    OPEN                                              /
+PROD2    OPEN     0   0    0  1*    1*                     /
 /                                                             
 --
 --       ADVANCE SIMULATION BY REPORTING DATE
@@ -568,8 +542,8 @@ DATES
 --  WELL WELL   --LOCATION--  COMPLETION                                     
 --  NAME STAT     I   J    K  FIRST LAST                    
 WELOPEN                                                     
-OP01     OPEN                                              /
-OP01     OPEN     0   0    0  1*    1*                     /
+PROD1    OPEN                                              /
+PROD1    OPEN     0   0    0  1*    1*                     /
 /
 --
 --       ADVANCE SIMULATION BY REPORTING DATE
@@ -583,8 +557,8 @@ DATES
 --  WELL WELL   --LOCATION--  COMPLETION                                     
 --  NAME STAT     I   J    K  FIRST LAST                    
 WELOPEN                                                     
-OP04     OPEN                                              /
-OP04     OPEN     0   0    0  1*    1*                     /
+PROD4    OPEN                                              /
+PROD4    OPEN     0   0    0  1*    1*                     /
 /
 --
 --       ADVANCE SIMULATION BY REPORTING DATE

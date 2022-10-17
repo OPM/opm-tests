@@ -16,10 +16,15 @@
 --                                                                   |
 --                                                                -------- 
 --                                                               |        |
---                                                               WGRP1    WGRP2                                                   
+--                                                               WGRP1   WGRP2
+--                                                                 |       |
+--                                                             --------  PROD2 
+--                                                             |      | 
+--                                                           PROD1  PROD3       
+--
 -- ( 1) The case has three producers (no VFP) and one water injector.
 -- ( 2) Producers and injectors are standard wells.
--- ( 3) Group PROD: GCONPROD(TARGET) set to LRAT control and GCONPROD(OIL) limit set to 900 stb/d.   
+-- ( 3) Group PROD: GCONPROD(TARGET) set to LRAT control and GCONPROD(OIL) limit set to 900.   
 -- ( 4) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
 -- ( 5) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
 --
@@ -315,42 +320,10 @@ RPTRST
 -- =================================================================================================================================
 SUMMARY
 --
---       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
+--       LOAD INCLUDE FILE - SUMMARY EXPORT FILE
 --
-ALL
---
---       EXPORT LIQUID SUMMARY VARIABLE VECTORS TO FILE
---
-FLPR
-FLPT
-GLPR
-/
-GLPT
-/
-WLPR
-/
-WLPT
-/
---
---       EXPORT FIELD, GROUP AND WELL CONTROL MODES 
---
-FMCTP
-FMCTW
-GMCTP
-/
-GMCTW
-/
-WMCTL
-/
---
---       EXPORT REGION DATA
---
-RPR
-/
-ROIP
-/
-RGIP
-/
+INCLUDE 
+         '$MODEL02/MODEL02-SUMMARY.inc'                    /
 
 -- =================================================================================================================================
 -- 
@@ -363,7 +336,7 @@ SCHEDULE
 --
 --         1       2      3        4    5      6       7       8       9   10                          
 TUNING         
-          1*       1.0                                                         /
+          1*       1*                                                          /
 /
 /
 --
@@ -407,19 +380,36 @@ WGRP2    FLD    900.  1*     1.E6   2400.  RATE  YES   1*                      /
 GUIDERAT          
          0     'OIL'  1.0    0.5    1    1     0    0     'YES'  0.5    1*     / Guide Rate = 1/(0.5+WWCT)
 --
---       LOAD INCLUDE FILE - STAND WELL COMPLETIONS
+--       WELL SPECIFICATION DATA
+--
+-- WELL   GROUP  LOC.  LOC.  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS  PVT    HYDS  FIP
+-- NAME    NAME   I    J     DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW   TABLE  DENS  REGN
+WELSPECS
+   PROD1   WGRP1     6     3     1*    OIL    0.0     STD  STOP    YES      0   SEG     0  /
+   PROD2   WGRP2    10     4     1*    OIL    0.0     STD  STOP    YES      0   SEG     0  /
+   PROD3   WGRP1    11    19     1*    OIL    0.0     STD  STOP    YES      0   SEG     0  /
+   INJ1     INJE     2    13     1*  WATER    0.0     STD  STOP    YES      0   SEG     0  /
+/
+--
+--       LOAD INCLUDE FILE - STANDARD WELL COMPLETIONS
 --
 INCLUDE 
-         '$MODEL02/MODEL02-WELLSTD.inc'                    /
+         '$MODEL02/MODEL02-WELL-PROD1-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD2-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD3-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-INJ1-STD.inc'              /
 --
 --       WELL PRODUCTION WELL CONTROLS                                                     
 --                                                                              
 -- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
 -- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
 WCONPROD                                                                    
-OP01     OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
-OP02     OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
-OP03     OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
+PROD1    OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
+PROD2    OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
+PROD3    OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
 /
 -- 
 --       WELL EFFICIENCY FACTORS                                                      
@@ -427,7 +417,7 @@ OP03     OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
 -- WELL  EFF    NETWK                                                           
 -- NAME  FACT   OPTN                                                            
 WEFAC                                                                           
-'OP*'    1.0000                                                                /
+'PROD*'  1.0000                                                                /
 /                                                                              
 --
 --       WELL INJECTION CONTROLS                                                      
@@ -435,7 +425,7 @@ WEFAC
 -- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP               
 -- NAME  TYPE   SHUT   MODE  RATE   RATE   PRES  PRES  TABLE             
 WCONINJE                                                                        
-WI01     WATER  OPEN   GRUP  6000.  1*    400.                                 /
+INJ1     WATER  OPEN   GRUP  6000.  1*    400.                                 /
 /
 --
 --       ADVANCE SIMULATION BY REPORTING DATE
