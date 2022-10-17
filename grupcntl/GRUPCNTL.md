@@ -18,14 +18,14 @@ GRUPCNTL-13 | 9_2A_DEPL_GCONPROD_1L_MSW                  | MODEL02A |  Yes    | 
 GRUPCNTL-14 | 9_2A_DEPL_GCONPROD_1l_STW                  | MODEL02A |  Yes    | Perfect match with commercial simulator, except for well control mode
 GRUPCNTL-15 | 9_2B_DEPL_GCONPROD_2L_MSW                  | MODEL02A |  Yes    | Perfect match with commercial simulator, except for well control mode
 GRUPCNTL-16 | 9_2B_DEPL_GCONPROD_2L_MSW                  | MODEL02A |  Yes    | Perfect match with commercial simulator, except for well control mode
-GRUPCNTL-17 | 9_3B_GINJ_GAS_EXPORT_MSW                   | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                    
-GRUPCNTL-18 | 9_3B_GINJ_GAS_EXPORT_STW                   | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                     
-GRUPCNTL-19 | 9_3C_GINJ_GAS_GCONSUMP_MSW                 | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                   
-GRUPCNTL-20 | 9_3C_GINJ_GAS_GCONSUMP_STW                 | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes
-GRUPCNTL-21 | 9_3D_GINJ_GAS_MAX_EXPORT_MSW               | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                   
-GRUPCNTL-22 | 9_3D_GINJ_GAS_MAX_EXPORT_STW               | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                     
-GRUPCNTL-23 | 9_3E_GAS_MIN_EXPORT_MSW                    | MODEL02A |  Yes    | Very good match, except for gas volumes after 2019-06-01. Reference case matches commercial simulator.                                
-GRUPCNTL-24 | 9_3E_GAS_MIN_EXPORT_STW                    | MODEL02A |  Yes    | Very good match, except for gas volumes after 2019-06-01. Reference case matches commercial simulator                                    
+GRUPCNTL-17 | 9_3A_GINJ_REIN-G_MSW                       | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                    
+GRUPCNTL-18 | 9_3A_GINJ_REIN-G_STW                       | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                     
+GRUPCNTL-19 | 9_3B_GINJ_GAS_EXPORT_MSW                   | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                   
+GRUPCNTL-20 | 9_3B_GINJ_GAS_EXPORT_STW                   | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes
+GRUPCNTL-21 | 9_3C_GINJ_GAS_GCONSUMP_MSW                 | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                   
+GRUPCNTL-22 | 9_3C_GINJ_GAS_GCONSUMP_STW                 | MODEL02A |  Yes    | Perfect match with commercial simulator, but no Sales Gas or Gas Consumption volumes                                     
+GRUPCNTL-23 | 9_3D_GINJ_GAS_MAX_EXPORT_MSW               | MODEL02A |  Yes    | Very good match, except for gas volumes after 2019-06-01. Reference case matches commercial simulator.                                
+GRUPCNTL-24 | 9_3D_GINJ_GAS_MAX_EXPORT_STW               | MODEL02A |  Yes    | Very good match, except for gas volumes after 2019-06-01. Reference case matches commercial simulator                                    
 GRUPCNTL-25X | 9_4A_WINJ_MAXWRATES_MAXBHP_GCONPROD_1L_MSW | MODEL02A |         |                                       
 GRUPCNTL-26X | 9_4A_WINJ_MAXWRATES_MAXBHP_GCONPROD_1L_STW | MODEL02A |         |                                       
 GRUPCNTL-27X | 9_4B_WINJ_VREP-W_MSW                       | MODEL02A |         |                                       
