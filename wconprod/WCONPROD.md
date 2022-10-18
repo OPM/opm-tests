@@ -2,7 +2,7 @@
 
 Case Name  | Case Desciption                                          | Base Model | Results<br />Match | Comments |
 ---------  | -----------------------------                            | ---------- | ------- | ------------------------------------- |
-WCONPROD   | Base case model base on SPE01 Case 2                     | WCONPROD   | Complete| Runs as expected, but results are different.
+WCONPROD-00| Base case model base on SPE01 Case 2                     | WCONPROD   | Complete| Runs as expected, but results are different.
 WCONPROD-01| STATUS=1*, ORAT=20E3, BHP=1000.0 only                    | WCONPROD   | Fails   | Issues error message and continues, but then fails.
 WCONPROD-02| STATUS=1*, LRAT=20E3, BHP=1000.0 only                    | WCONPROD   | Fails   | Issues error message and continues, but then fails.
 WCONPROD-03| STATUS=1*, LRAT=20E3, BHP=1000.0 GRAT=5E3 only           | WCONPROD   | Fails   | Issues error message and continues, but then fails.
@@ -35,7 +35,7 @@ except for WAT control mode. If all parameters are defaulted, then the default B
 2.   Under comments, _Complete_ means that the test case is completed, it does not mean that the runs are necessarily comparable to the commercial simulator.
 
 
-**Version: 05 October, 2022**
+**Version: 18 October, 2022**
 
 ** WCONPROD Model (Cartesian Regular Grid)
 This simulation is based on the SPE Comparison Case Number 01 based on the data given in:
@@ -54,57 +54,233 @@ This run is for SPE01 Case 2
 
 ## Results
 
-** WCONPROD Results
-![](plots/WCONPROD-Field_Production_Comparison_Plot.png)
-![](plots/WCONPROD-Field_Gas_Injection_Comparison_Plot.png)
-![](plots/WCONPROD-Well_OP01_Production_Performance.png)
-![](plots/WCONPROD-Well_GI01_Gas_Injection_Comparison_Plot.png)
+### WCONPROD-00 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS                                           
+--                                                                              
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+OP01     OPEN   ORAT   20E3   1*     1*    1*     1*    1000.0                 /
+/                                                                               
+``` 
 
-** WCONPROD-01 Results
+![](plots/WCONPROD-00-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-00-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-00-Well_OP01_Production_Performance.png)
+![](plots/WCONPROD-00-Well_GI01_Gas_Injection_Comparison_Plot.png)
 
-Fails
+---
 
-** WCONPROD-02 Results
+### WCONPROD-01 Description and Results
+```    
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   1*     20E3   1*     1*    1*     1*    1000.0                 /
+/
+```    
+![](plots/WCONPROD-01-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-01-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-01-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-01-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-03 Results
+### WCONPROD-02 Description and Results
+```
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   1*     1*     1*     1*    20E3   1*    1000.0                 /
+/    
+```    
+![](plots/WCONPROD-02-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-02-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-02-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-02-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-04 Results
+### WCONPROD-03 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   1*     1*     1*     5E3   20E3   1*     1000.0                /
+/
+``` 
+![](plots/WCONPROD-03-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-03-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-03-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-03-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-05 Results
+### WCONPROD-04 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   1*     1*     5E3    5E3   20E3   1*     1000.0                /
+/
+```
+![](plots/WCONPROD-04-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-04-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-04-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-04-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-06 Results
+### WCONPROD-05 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   1*     20E3   1*     1*    1*     1*    1000.0                 /
+/
+```
+![](plots/WCONPROD-05-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-05-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-05-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-05-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-07 Results
+### WCONPROD-06 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   ''     20E3   1*     1*    1*     1*    1000.0                 /
+/
+```
+![](plots/WCONPROD-06-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-06-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-06-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-06-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-08 Results
+### WCONPROD-07 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   ''     1*     1*     1*    20E3   1*    1000.0                 /
+/
+```
+![](plots/WCONPROD-07-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-07-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-07-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-07-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-09 Results
+### WCONPROD-08 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   ''     1*     1*     5E3   20E3   1*     1000.0                /
+/
+```
+![](plots/WCONPROD-08-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-08-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-08-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-08-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-10 Results
+### WCONPROD-09 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   ''     1*     5E3    5E3   20E3   1*     1000.0                /
+/
+```
+![](plots/WCONPROD-09-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-09-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-09-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-09-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-11 Results
+### WCONPROD-10 Description and Results
+``` 
+--
+--       GROUP PRODUCTION CONTROLS                                               
+--                                                                              
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL        
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT         
+GCONPROD                                                                        
+FIELD    LRAT  10E3   1*     1*     20E3   1*     1*    1*     1*     1*       /
+/                                                                               
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   ''     20E3   1*     1*    1*     1*    1000.0                 /
+/
+```
+![](plots/WCONPROD-10-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-10-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-10-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-10-Well_OP01_Production_Performance.png)
 
-Fails
+---
 
-** WCONPROD-12 Results
+### WCONPROD-11 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   1*     1*     1*     1*    1*     1*     1*                    /
+/
+```
+![](plots/WCONPROD-11-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-11-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-11-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-11-Well_OP01_Production_Performance.png)
 
-Fails
+---
+
+### WCONPROD-12 Description and Results
+``` 
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+OP01     OPEN   ''     1*     1*     1*    1*     1*     1*                    /
+/
+```
+![](plots/WCONPROD-12-Field_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-12-Field_Production_Comparison_Plot.png)
+![](plots/WCONPROD-12-Well_GI01_Gas_Injection_Comparison_Plot.png)
+![](plots/WCONPROD-12-Well_OP01_Production_Performance.png)
+
+---
 
