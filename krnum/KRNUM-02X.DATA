@@ -1,0 +1,269 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2022 Equinor
+
+-- This model is testing directional relperm with focuse on oil water (SWOF).
+-- The dominating flow direction (by far) in this model, is in X-direction. 
+-- The model is divided into 4 segments which are identical in size, properties,
+-- well lauout, etc. Only difference for these segments are KRNUMX, KRNUMY and KRNUMZ 
+-- definitions.  A total of 16 relative permeability curves are provided but only 3
+-- of thse are being used. Table-1 for COMPDAT connections and Table-5 and Table-9 
+-- sat with KRNUM keywords. The table below shows table number used in X-,Y- and Z-
+-- direction for the different segments.
+
+------------+------+------+------+------+
+--          | S1   | S2   | S3   | S4	|
+------------+------+------+------+------+
+--          | B-1H | B-2H | B-3H | B-4H |
+------------+------+------+------+------+
+-- KRNUMX   |   5  |   5  |   5  |   9  |
+-- KRNUMY   |   5  |   9  |   9  |   9  |
+-- KRNUMZ   |   5  |   5  |   9  |   9  |
+------------+------+------+------+------+
+
+-- table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
+-- table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 20 20 10 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+--VAPOIL
+
+METRIC
+
+START
+ 01 'JAN' 2020 /
+
+
+--
+GRIDOPTS
+ 'YES'        0 /
+
+SATOPTS
+ 'DIRECT'
+/
+
+
+EQLDIMS
+ 1  100  25 /
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   3          2       1*            2    /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  16          1      150          60         3         60 /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10         15            9          10   /
+
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/test_20x20x10_x.grdecl' /
+
+PERMX
+ 4000*500 /
+ 
+PORO
+ 4000*0.28 / 
+
+COPY
+  PERMX PERMY /
+  PERMX PERMZ /
+/
+
+-- no flow in z-direction
+MULTIPLY
+  PERMZ 0.0 /
+/ 
+
+RPTGRID
+ 'ALLNNC' /
+
+-- setting up 4 identical compartments
+EQUALS
+  'MULTY'  0.0 1 20   5  5  1 10 /
+  'MULTY'  0.0 1 20  10 10  1 10 /
+  'MULTY'  0.0 1 20  15 15  1 10 /
+/
+
+
+------------------------------------------------------------------------------------------------
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/pvt_live_oil_dgas.ecl' /
+
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relative_perm.inc' /  
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 4000*1 /
+
+INCLUDE
+ 'include/krnum_test_x.inc' /
+ 
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2000.00  195.0  2060     0.0  500.00  0.0   1   0   0 /
+
+PBVD
+  2000.00    75.00
+  2150.00    75.00  /
+
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+TUNING
+ 1 1 /
+ /
+ /
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'B-1H'  'S1'   3    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-2H'  'S2'   3    8      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-3H'  'S3'   3   13      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-4H'  'S4'   3   18      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+/
+
+WELSPECS
+ 'F-1H'  'S1'	18    3      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-2H'  'S2'	18    8      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-3H'  'S3'	18   13      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-4H'  'S4'	18   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+/
+
+COMPDAT
+--WELL      I   J    K1   K2  OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+ 'B-1H'    3	3    1    10   OPEN    1     1*    0.216    1* 0    1*    Z	  1* /
+ 'B-2H'    3	8    1    10   OPEN    1     1*    0.216    1* 0    1*    Z	  1* /
+ 'B-3H'    3   13    1    10   OPEN    1     1*    0.216    1* 0    1*    Z	  1* /
+ 'B-4H'    3   18    1    10   OPEN    1     1*    0.216    1* 0    1*    Z	  1* /
+/
+
+COMPDAT
+ 'F-1H'    18	 3    1   10   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
+ 'F-2H'    18	 8    1   10   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
+ 'F-3H'    18	13    1   10   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
+ 'F-4H'    18	18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
+/
+
+
+WCONPROD
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate   RFV  FBHP   WHP  VFP Glift
+   'B-1H'      OPEN    ORAT  5000.0  1*     1*    8000.0  1*   100.0  1*   1*	1*  /
+   'B-2H'      OPEN    ORAT  5000.0  1*     1*    8000.0  1*   100.0  1*   1*	1*  /
+   'B-3H'      OPEN    ORAT  5000.0  1*     1*    8000.0  1*   100.0  1*   1*	1*  /
+   'B-4H'      OPEN    ORAT  5000.0  1*     1*    8000.0  1*   100.0  1*   1*	1*  /
+/
+
+
+GCONINJE
+ 'S1'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+ 'S2'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+ 'S3'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+ 'S4'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+/
+
+
+WCONINJE
+-- Well_name    Type    Status  Ctrl    SRate1  Rrate   BHP     THP     VFP
+  'F-1H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
+  'F-2H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
+  'F-3H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
+  'F-4H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
+/
+
+DATES
+ 01 'FEB' 2020 / 
+ 01 'MAR' 2020 / 
+ 01 'APR' 2020 / 
+ 01 'MAY' 2020 / 
+ 01 'JUN' 2020 / 
+ 01 'JUL' 2020 / 
+ 01 'AUG' 2020 / 
+/ 
+ 
+
+
+END
+
