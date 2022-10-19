@@ -913,6 +913,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-27 ECL Results](plots/GRUPCNTL-27-ECL.md) 
 
+[GRUPCNTL-27 REF Results](plots/GRUPCNTL-27-REF.md) 
+
 ---
 
 ### GRUPCNTL-28 Description and Results
@@ -926,6 +928,8 @@ The supplied guide rate will be ignored
 8) WCONJINJE(RATE)=8E3, same for both injectors.
 
 [GRUPCNTL-28 ECL Results](plots/GRUPCNTL-28-ECL.md)
+
+[GRUPCNTL-28 REF Results](plots/GRUPCNTL-28-REF.md) 
 
 ---
 
@@ -942,6 +946,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-29 ECL Results](plots/GRUPCNTL-29-ECL.md) 
 
+[GRUPCNTL-29 REF Results](plots/GRUPCNTL-29-REF.md)
+
 ---
 
 ### GRUPCNTL-30 Description and Results
@@ -956,6 +962,8 @@ The supplied guide rate will be ignored
 9) Group RES: GCONINJE(TYPE)=WAT, GCONINJE(TARGET)=VREP, and GCONINJE(VREP)=1.0   
 
 [GRUPCNTL-30 ECL Results](plots/GRUPCNTL-30-ECL.md)
+
+[GRUPCNTL-30 REF Results](plots/GRUPCNTL-30-REF.md)
 
 ---
 
@@ -973,6 +981,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-31 ECL Results](plots/GRUPCNTL-31-ECL.md) 
 
+[GRUPCNTL-31 REF Results](plots/GRUPCNTL-31-REF.md) 
+
 ---
 
 ### GRUPCNTL-32 Description and Results
@@ -988,6 +998,8 @@ The supplied guide rate will be ignored
  10) Group RES: GCONINJE(TYPE)=GAS, GCONINJE(TARGET)=REIN, and GCONINJE(VREP)=1.00   
 
 [GRUPCNTL-32 ECL Results](plots/GRUPCNTL-32-ECL.md)   
+
+[GRUPCNTL-32 REF Results](plots/GRUPCNTL-32-REF.md) 
 
 ---
 
@@ -1007,6 +1019,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-33 ECL Results](plots/GRUPCNTL-33-ECL.md)
 
+[GRUPCNTL-33 REF Results](plots/GRUPCNTL-33-REF.md)  
+
 ---
 
 ### GRUPCNTL-34 Description and Results
@@ -1025,9 +1039,11 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-34 ECL Results](plots/GRUPCNTL-34-ECL.md) 
 
+[GRUPCNTL-34 REF Results](plots/GRUPCNTL-34-REF.md)  
+
 ---
 
-### GRUPCNTL-35 Description and Results (No results on GitHub)
+### GRUPCNTL-35 Description and Results (No OPM Flow Reference Results on GitHub)
  1) The case has four producers with VFP tables, and one gas injector (INJ1) and one water injector (INJ2).
  2) Producers and injectors are multi-segment wells.
  3) Group control.
@@ -1046,7 +1062,7 @@ The supplied guide rate will be ignored
 
 ---
 
-### GRUPCNTL-36 Description and Results (No results on GitHub)
+### GRUPCNTL-36 Description and Results (No OPM Flow Reference Results on GitHub)
  1) The case has four producers with VFP tables, and one gas injector (INJ1) and one water injector (INJ2).
  2) Producers and injectors are **standard wells**.
  3) Group control.
