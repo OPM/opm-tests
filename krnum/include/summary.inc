@@ -46,11 +46,12 @@ WWCT
  'B-1' 'B-2H' 'B-3H' 'B-4H'  /
 
 WGPR
+ 'B-1H' 'B-2H' 'B-3H' 'B-4H'  /
 
 -- Production ratios
 
 WGOR
- 'B-1' 'B-2H' 'B-3H' 'B-4H'  /
+ 'B-1H' 'B-2H' 'B-3H' 'B-4H'  /
 
 -- Injection Rates
 

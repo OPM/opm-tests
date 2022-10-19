@@ -5,12 +5,12 @@
 
 -- Copyright (C) 2022 Equinor
 
--- This model is testing directional relperm with focuse on oil water (SWOF).
+-- This model is testing directional relperm with focuse on gas oil (SGOF).
 -- The dominating flow direction (by far) in this model, is in Y-direction. 
 -- The model is divided into 4 segments which are identical in size, properties,
 -- well lauout, etc. Only difference for these segments are KRNUMX, KRNUMY and KRNUMZ 
 -- definitions.  A total of 16 relative permeability curves are provided but only 3
--- of thse are being used. Table-1 for COMPDAT connections and Table-5 and Table-9 
+-- of thse are being used. Table-1 for COMPDAT connections and Table-6 and Table-3 
 -- sat with KRNUM keywords. The table below shows table number used in X-,Y- and Z-
 -- direction for the different segments.
 
@@ -19,13 +19,13 @@
 ------------+------+------+------+------+
 --          | B-1H | B-2H | B-3H | B-4H |
 ------------+------+------+------+------+
--- KRNUMX   |   5  |   9  |   9  |   9  |
--- KRNUMY   |   5  |   5  |   5  |   9  |
--- KRNUMZ   |   5  |   5  |   9  |   9  |
+-- KRNUMX   |   6  |   6  |   6  |   3  |
+-- KRNUMY   |   6  |   3  |   3  |   3  |
+-- KRNUMZ   |   6  |   6  |   3  |   3  |
 ------------+------+------+------+------+
 
--- table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
--- table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- table  6 optimistic with respect to gor  : SGOF  krg = curved , krog = linear 
+-- table  3 persimistic with respect to gor : SGOF  krg = linear , krog = curved 
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
@@ -158,7 +158,7 @@ EQLNUM
  4000*1 /
 
 INCLUDE
- 'include/krnum_test2_y.inc' /
+ 'include/krnum_test3_y.inc' /
  
 
 ------------------------------------------------------------------------------------------------
@@ -171,7 +171,7 @@ RPTRST
 
 EQUIL
 -- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
- 2000.00  195.0  2060     0.0  500.00  0.0   1   0   0 /
+ 2040.00  195.0  2150     0.0  2045  0.0   1   0   0 /
 
 PBVD
   2000.00    75.00
@@ -199,32 +199,32 @@ TUNING
 
 WELSPECS
 --WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
- 'B-1H'  'S1'   3    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
- 'B-2H'  'S2'   8    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
- 'B-3H'  'S3'  13    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
- 'B-4H'  'S4'  18    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-1H'  'S1'   3   18      1*   OIL	 1*   1*   SHUT 1* 1* 1* /
+ 'B-2H'  'S2'   8   18      1*   OIL	 1*   1*   SHUT 1* 1* 1* /
+ 'B-3H'  'S3'  13   18      1*   OIL	 1*   1*   SHUT 1* 1* 1* /
+ 'B-4H'  'S4'  18   18      1*   OIL	 1*   1*   SHUT 1* 1* 1* /
 /
 
 WELSPECS
- 'F-1H'  'S1'   3   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
- 'F-2H'  'S2'   8   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
- 'F-3H'  'S3'  13   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
- 'F-4H'  'S4'  18   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-1H'  'S1'   3    3      1*   GAS     1*   1*   SHUT 1* 1* 1* /
+ 'F-2H'  'S2'   8    3      1*   GAS     1*   1*   SHUT 1* 1* 1* /
+ 'F-3H'  'S3'  13    3      1*   GAS     1*   1*   SHUT 1* 1* 1* /
+ 'F-4H'  'S4'  18    3      1*   GAS     1*   1*   SHUT 1* 1* 1* /
 /
 
 COMPDAT
 --WELL      I   J    K1   K2  OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
- 'B-1H'     3	 3    1    10	OPEN	1     1*    0.216    1* 0    1*    Z	   1* /
- 'B-2H'     8	 3    1    10	OPEN	1     1*    0.216    1* 0    1*    Z	   1* /
- 'B-3H'    13	 3    1    10	OPEN	1     1*    0.216    1* 0    1*    Z	   1* /
- 'B-4H'    18	 3    1    10	OPEN	1     1*    0.216    1* 0    1*    Z	   1* /
+ 'B-1H'     3	18    1    10	OPEN	1     1*    0.216    1* 0    1*    Z	   1* /
+ 'B-2H'     8	18    1    10	OPEN	1     1*    0.216    1* 0    1*    Z	   1* /
+ 'B-3H'    13	18    1    10	OPEN	1     1*    0.216    1* 0    1*    Z	   1* /
+ 'B-4H'    18	18    1    10	OPEN	1     1*    0.216    1* 0    1*    Z	   1* /
 /
 
 COMPDAT
- 'F-1H'     3	18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
- 'F-2H'     8	18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
- 'F-3H'    13	18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
- 'F-4H'    18	18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
+ 'F-1H'     3	 3    1   8   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
+ 'F-2H'     8	 3    1   8   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
+ 'F-3H'    13	 3    1   8   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
+ 'F-4H'    18	 3    1   8   OPEN    1      1*    0.216    1*        0    1*    Z	  1* /
 /
 
 
@@ -238,19 +238,19 @@ WCONPROD
 
 
 GCONINJE
- 'S1'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
- 'S2'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
- 'S3'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
- 'S4'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+ 'S1'   'GAS'	 'VREP'  3*	 1.020    'NO'  5* /
+ 'S2'   'GAS'	 'VREP'  3*	 1.020    'NO'  5* /
+ 'S3'   'GAS'	 'VREP'  3*	 1.020    'NO'  5* /
+ 'S4'   'GAS'	 'VREP'  3*	 1.020    'NO'  5* /
 /
 
 
 WCONINJE
 -- Well_name    Type    Status  Ctrl    SRate1  Rrate   BHP     THP     VFP
-  'F-1H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
-  'F-2H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
-  'F-3H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
-  'F-4H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
+  'F-1H'        GAS   OPEN    GRUP    8.0E6    1*      300.0	1*	1*     /
+  'F-2H'        GAS   OPEN    GRUP    8.0E6    1*      300.0	1*	1*     /
+  'F-3H'        GAS   OPEN    GRUP    8.0E6    1*      300.0	1*	1*     /
+  'F-4H'        GAS   OPEN    GRUP    8.0E6    1*      300.0	1*	1*     /
 /
 
 DATES
