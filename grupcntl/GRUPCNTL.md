@@ -152,7 +152,7 @@ Warning: Problem with GCONPROD
 In GRUPCNTL-03.DATA line 397
 The supplied guide rate will be ignored
 ```
-[GRUPCNTL-04 Results](plots/GRUPCNTL-04.md)  
+[GRUPCNTL-04 ECL Results](plots/GRUPCNTL-04-ECL.md)
 
 ---
 
