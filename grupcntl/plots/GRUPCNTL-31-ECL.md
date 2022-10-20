@@ -1,15 +1,11 @@
 #### GRUPCNTL-31 ECL Results
 
-![](ECL/GRUPCNTL-31-Bottom_Hole_Pressure.png)
 ![](ECL/GRUPCNTL-31-Field_Production_Comparison_Plot.png)
 ![](ECL/GRUPCNTL-31-Field_Sales_Gas_Production_Comparison_Plot.png)
 ![](ECL/GRUPCNTL-31-Field_Water_Injection_Comparison_Plot.png)
-![](ECL/GRUPCNTL-31-Gas_Injection_Volumes.png)
-![](ECL/GRUPCNTL-31-Group_Gas_Injection.png)
 ![](ECL/GRUPCNTL-31-Group_INJE_Gas_Injection_Comparison_Plot.png)
 ![](ECL/GRUPCNTL-31-Group_INJE_Water_Injection_Comparison_Plot.png)
 ![](ECL/GRUPCNTL-31-Group_PROD_Production_Comparison_Plot.png)
-![](ECL/GRUPCNTL-31-Group_Water_Injection.png)
 ![](ECL/GRUPCNTL-31-Well_INJ1_Gas_Injection_Comparison_Plot.png)
 ![](ECL/GRUPCNTL-31-Well_INJ1_Water_Injection_Performance.png)
 ![](ECL/GRUPCNTL-31-Well_INJ2_Water_Injection_Performance.png)
