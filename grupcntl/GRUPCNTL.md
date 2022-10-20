@@ -189,6 +189,7 @@ Note multi-well segment case has maximum time step size of 3.0 days.
 [GRUPCNTL-06 ECL Results](plots/GRUPCNTL-06-ECL.md) 
 
 [GRUPCNTL-06 REF Results](plots/GRUPCNTL-06-REF.md)
+
 ---
 
 ### GRUPCNTL-07 Description and Results
