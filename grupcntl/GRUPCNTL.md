@@ -102,6 +102,8 @@ Note multi-well segment case has maximum time step size of 3.0 days.
 
 [GRUPCNTL-01 ECL Results](plots/GRUPCNTL-01-ECL.md) 
 
+[GRUPCNTL-01 REF Results](plots/GRUPCNTL-01-REF.md) 
+
 ---
 
 ### GRUPCNTL-02 Description and Results
@@ -112,6 +114,8 @@ Note multi-well segment case has maximum time step size of 3.0 days.
 5) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
 
 [GRUPCNTL-02 ECL Results](plots/GRUPCNTL-02-ECL.md) 
+
+[GRUPCNTL-02 REF Results](plots/GRUPCNTL-02-REF.md)    
 
 ---
 
@@ -135,6 +139,8 @@ The supplied guide rate will be ignored
 ```
 [GRUPCNTL-03 ECL Results](plots/GRUPCNTL-03-ECL.md) 
 
+[GRUPCNTL-03 REF Results](plots/GRUPCNTL-03-REF.md) 
+
 ---
 
 ### GRUPCNTL-04 Description and Results
@@ -154,6 +160,8 @@ The supplied guide rate will be ignored
 ```
 [GRUPCNTL-04 ECL Results](plots/GRUPCNTL-04-ECL.md)
 
+[GRUPCNTL-04 REF Results](plots/GRUPCNTL-04-REF.md) 
+
 ---
 
 ### GRUPCNTL-05 Description and Results
@@ -167,6 +175,8 @@ Note multi-well segment case has maximum time step size of 3.0 days.
 
 [GRUPCNTL-05 ECL Results](plots/GRUPCNTL-05-ECL.md) 
 
+[GRUPCNTL-05 REF Results](plots/GRUPCNTL-05-REF.md) 
+
 ---
 
 ### GRUPCNTL-06 Description and Results
@@ -178,6 +188,7 @@ Note multi-well segment case has maximum time step size of 3.0 days.
 
 [GRUPCNTL-06 ECL Results](plots/GRUPCNTL-06-ECL.md) 
 
+[GRUPCNTL-06 REF Results](plots/GRUPCNTL-06-REF.md)
 ---
 
 ### GRUPCNTL-07 Description and Results
@@ -199,6 +210,8 @@ In GRUPCNTL-07.DATA line 397
 ```
 [GRUPCNTL-07 ECL Results](plots/GRUPCNTL-07-ECL.md) 
 
+[GRUPCNTL-07 REF Results](plots/GRUPCNTL-07-REF.md)   
+
 ---
 
 ### GRUPCNTL-08 Description and Results
@@ -218,6 +231,8 @@ The supplied guide rate will be ignored
 ```
 [GRUPCNTL-08 ECL Results](plots/GRUPCNTL-08-ECL.md) 
 
+[GRUPCNTL-08 REF Results](plots/GRUPCNTL-08-REF.md) 
+
 ---
 
 ### GRUPCNTL-09 Description and Results (MODEL02A)
@@ -229,6 +244,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-09 ECL Results](plots/GRUPCNTL-09-ECL.md) 
 
+[GRUPCNTL-09 REF Results](plots/GRUPCNTL-09-REF.md) 
+
 ---
 
 ### GRUPCNTL-10 Description and Results (MODEL02A)
@@ -239,6 +256,8 @@ The supplied guide rate will be ignored
 4) WCONPROD(OIL) = 4E3, WCONPROD(GAS) = 4E6, WCONPROD(LIQ) = 8E3, and WCONPROD(BHP) = 60.0, same for all wells. 
 
 [GRUPCNTL-10 ECL Results](plots/GRUPCNTL-10-ECL.md)
+
+[GRUPCNTL-10 REF Results](plots/GRUPCNTL-10-REF.md) 
 
 ---
 
@@ -252,6 +271,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-11 ECL Results](plots/GRUPCNTL-11-ECL.md)
 
+[GRUPCNTL-11 REF Results](plots/GRUPCNTL-11-REF.md)
+
 ---
 
 ### GRUPCNTL-12 Description and Results
@@ -263,6 +284,8 @@ The supplied guide rate will be ignored
 5) **WCONPROD(THP) = 30.0 and VFP tables**.
 
 [GRUPCNTL-12 ECL Results](plots/GRUPCNTL-12-ECL.md)
+
+[GRUPCNTL-12 REF Results](plots/GRUPCNTL-12-REF.md) 
 
 ---
 
@@ -278,6 +301,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-13 ECL Results](plots/GRUPCNTL-13-ECL.md) 
 
+[GRUPCNTL-13 REF Results](plots/GRUPCNTL-13-REF.md)  
+
 ---
 
 ### GRUPCNTL-14 Description and Results
@@ -291,6 +316,8 @@ The supplied guide rate will be ignored
 7) **Group PROD: GCONPROD(GRPCNTL)=NO**
 
 [GRUPCNTL-14 ECL Results](plots/GRUPCNTL-14-ECL.md)
+
+[GRUPCNTL-14 REF Results](plots/GRUPCNTL-14-REF.md)
 
 ---
 
@@ -320,6 +347,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-15 ECL Results](plots/GRUPCNTL-15-ECL.md)
 
+[GRUPCNTL-15 REF Results](plots/GRUPCNTL-15-REF.md)
+
 ---
 
 ### GRUPCNTL-16 Description and Results
@@ -335,6 +364,8 @@ The supplied guide rate will be ignored
  10) **Group MANI-B: Same as MANI-A**
 
 [GRUPCNTL-16 ECL Results](plots/GRUPCNTL-16-ECL.md) 
+
+[GRUPCNTL-16 REF Results](plots/GRUPCNTL-16-REF.md)
 
 ---
 
@@ -364,6 +395,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-17 ECL Results](plots/GRUPCNTL-17-ECL.md)
 
+[GRUPCNTL-17 REF Results](plots/GRUPCNTL-17-REF.md)  
+
 ---
 
 ### GRUPCNTL-18 Description and Results
@@ -379,6 +412,8 @@ The supplied guide rate will be ignored
  10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
 
 [GRUPCNTL-18 ECL Results](plots/GRUPCNTL-18-ECL.md)
+
+[GRUPCNTL-18 REF Results](plots/GRUPCNTL-18-REF.md)
 
 ---
 
@@ -397,6 +432,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-19 ECL Results](plots/GRUPCNTL-19-ECL.md) 
 
+[GRUPCNTL-19 REF Results](plots/GRUPCNTL-19-REF.md)
+
 ---
 
 ### GRUPCNTL-20 Description and Results
@@ -413,6 +450,8 @@ The supplied guide rate will be ignored
  11) Group RES: GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE
 
 [GRUPCNTL-20 ECL Results](plots/GRUPCNTL-20-ECL.md)
+
+[GRUPCNTL-20 REF Results](plots/GRUPCNTL-20-REF.md) 
 
 ---
 
@@ -432,6 +471,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-21 ECL Results](plots/GRUPCNTL-21-ECL.md)
 
+[GRUPCNTL-21 REF Results](plots/GRUPCNTL-21-REF.md)
+
 ---
 
 ### GRUPCNTL-22 Description and Results
@@ -449,6 +490,8 @@ The supplied guide rate will be ignored
  12) Group RES: GCONSUMP(GASFUEL)=0.25E6
 
 [GRUPCNTL-22 ECL Results](plots/GRUPCNTL-22-ECL.md) 
+
+[GRUPCNTL-22 REF Results](plots/GRUPCNTL-22-REF.md)
 
 ---
 
@@ -469,6 +512,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-23 ECL Results](plots/GRUPCNTL-23-ECL.md) 
 
+[GRUPCNTL-23 REF Results](plots/GRUPCNTL-23-REF.md) 
+
 ---
 
 ### GRUPCNTL-24 Description and Results
@@ -487,6 +532,8 @@ The supplied guide rate will be ignored
 13) Well INJE2: WCONINJE(BHP)=235.0 
 
 [GRUPCNTL-24 ECL Results](plots/GRUPCNTL-24-ECL.md) 
+
+[GRUPCNTL-24 REF Results](plots/GRUPCNTL-24-REF.md)
 
 ---
 
@@ -521,6 +568,8 @@ The supplied guide rate will be ignored
 
 [GRUPCNTL-25 ECL Results](plots/GRUPCNTL-25-ECL.md)
 
+[GRUPCNTL-25 REF Results](plots/GRUPCNTL-25-REF.md)
+
 ---
 
 ### GRUPCNTL-26 Description and Results
@@ -541,6 +590,8 @@ The supplied guide rate will be ignored
  15) Well PROD4: Not active.
 
 [GRUPCNTL-26 ECL Results](plots/GRUPCNTL-26-ECL.md)
+
+[GRUPCNTL-26 REF Results](plots/GRUPCNTL-26-REF.md)
 
 ---
 
