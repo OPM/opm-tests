@@ -100,16 +100,7 @@ The model has several groups as shown below:
 
 Note multi-well segment case has maximum time step size of 3.0 days.
 
-![](plots/GRUPCNTL-01-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-01-Field_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-01-Group_INJE_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-01-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-01-Group_WGRP1_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-01-Group_WGRP2_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-01-Well_INJ1_Water_Injection_Performance.png)
-![](plots/GRUPCNTL-01-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-01-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-01-Well_PROD3_Production_Performance.png)
+[GRUPCNTL-01 ECL Results](plots/GRUPCNTL-01-ECL.md) 
 
 ---
 
@@ -120,16 +111,7 @@ Note multi-well segment case has maximum time step size of 3.0 days.
 4) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
 5) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
 
-![](plots/GRUPCNTL-02-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-02-Field_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-02-Group_INJE_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-02-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-02-Group_WGRP1_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-02-Group_WGRP2_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-02-Well_INJ1_Water_Injection_Performance.png)
-![](plots/GRUPCNTL-02-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-02-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-02-Well_PROD3_Production_Performance.png)
+[GRUPCNTL-02 ECL Results](plots/GRUPCNTL-02-ECL.md) 
 
 ---
 
@@ -151,18 +133,7 @@ Warning: Problem with GCONPROD
 In GRUPCNTL-03.DATA line 397
 The supplied guide rate will be ignored
 ```
-[GRUPCNTL-03 Results](plots/GRUPCNTL-03.md) 
-
-![](plots/GRUPCNTL-03-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-03-Field_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-03-Group_INJE_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-03-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-03-Group_WGRP1_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-03-Group_WGRP2_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-03-Well_INJ1_Water_Injection_Performance.png)
-![](plots/GRUPCNTL-03-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-03-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-03-Well_PROD3_Production_Performance.png)
+[GRUPCNTL-03 ECL Results](plots/GRUPCNTL-03-ECL.md) 
 
 ---
 
@@ -183,17 +154,6 @@ The supplied guide rate will be ignored
 ```
 [GRUPCNTL-04 Results](plots/GRUPCNTL-04.md)  
 
-![](plots/GRUPCNTL-04-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-04-Field_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-04-Group_INJE_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-04-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-04-Group_WGRP1_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-04-Group_WGRP2_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-04-Well_INJ1_Water_Injection_Performance.png)
-![](plots/GRUPCNTL-04-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-04-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-04-Well_PROD3_Production_Performance.png)
-
 ---
 
 ### GRUPCNTL-05 Description and Results
@@ -205,16 +165,7 @@ The supplied guide rate will be ignored
 
 Note multi-well segment case has maximum time step size of 3.0 days.
 
-![](plots/GRUPCNTL-05-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-05-Field_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-05-Group_INJE_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-05-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-05-Group_WGRP1_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-05-Group_WGRP2_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-05-Well_INJ1_Water_Injection_Performance.png)
-![](plots/GRUPCNTL-05-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-05-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-05-Well_PROD3_Production_Performance.png)
+[GRUPCNTL-05 ECL Results](plots/GRUPCNTL-05-ECL.md) 
 
 ---
 
@@ -225,16 +176,7 @@ Note multi-well segment case has maximum time step size of 3.0 days.
 4) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
 5) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
 
-![](plots/GRUPCNTL-06-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-06-Field_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-06-Group_INJE_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-06-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-06-Group_WGRP1_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-06-Group_WGRP2_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-06-Well_INJ1_Water_Injection_Performance.png)
-![](plots/GRUPCNTL-06-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-06-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-06-Well_PROD3_Production_Performance.png)
+[GRUPCNTL-06 ECL Results](plots/GRUPCNTL-06-ECL.md) 
 
 ---
 
@@ -255,17 +197,7 @@ The supplied guide rate will be ignored
 Warning: Problem with GCONPROD
 In GRUPCNTL-07.DATA line 397
 ```
-
-![](plots/GRUPCNTL-07-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-07-Field_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-07-Group_INJE_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-07-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-07-Group_WGRP1_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-07-Group_WGRP2_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-07-Well_INJ1_Water_Injection_Performance.png)
-![](plots/GRUPCNTL-07-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-07-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-07-Well_PROD3_Production_Performance.png)
+[GRUPCNTL-07 ECL Results](plots/GRUPCNTL-07-ECL.md) 
 
 ---
 
@@ -284,17 +216,7 @@ Warning: Problem with GCONPROD
 In GRUPCNTL-08.DATA line 397
 The supplied guide rate will be ignored
 ```
-
-![](plots/GRUPCNTL-08-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-08-Field_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-08-Group_INJE_Water_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-08-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-08-Group_WGRP1_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-08-Group_WGRP2_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-08-Well_INJ1_Water_Injection_Performance.png)
-![](plots/GRUPCNTL-08-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-08-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-08-Well_PROD3_Production_Performance.png)
+[GRUPCNTL-08 ECL Results](plots/GRUPCNTL-08-ECL.md) 
 
 ---
 
@@ -305,20 +227,7 @@ The supplied guide rate will be ignored
 3) No Group control.
 4) WCONPROD(OIL) = 4E3, WCONPROD(GAS) = 4E6, WCONPROD(LIQ) = 8E3, and WCONPROD(BHP) = 60.0, same for all wells. 
 
-![](plots/GRUPCNTL-09-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-09-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-09-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-09-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-09-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-09-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-09-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-09-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-09-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-09-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-09-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-09-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-09-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-09-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-09 ECL Results](plots/GRUPCNTL-09-ECL.md) 
 
 ---
 
@@ -329,20 +238,7 @@ The supplied guide rate will be ignored
 3) No Group control.
 4) WCONPROD(OIL) = 4E3, WCONPROD(GAS) = 4E6, WCONPROD(LIQ) = 8E3, and WCONPROD(BHP) = 60.0, same for all wells. 
 
-![](plots/GRUPCNTL-10-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-10-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-10-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-10-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-10-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-10-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-10-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-10-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-10-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-10-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-10-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-10-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-10-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-10-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-10 ECL Results](plots/GRUPCNTL-10-ECL.md)
 
 ---
 
@@ -354,20 +250,7 @@ The supplied guide rate will be ignored
 4) WCONPROD(OIL) = 4E3, WCONPROD(GAS) = 4E6, WCONPROD(LIQ) = 8E3, and WCONPROD(BHP) = 60.0, same for all wells.
 5) **WCONPROD(THP) = 30.0 and VFP tables.**
 
-![](plots/GRUPCNTL-11-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-11-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-11-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-11-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-11-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-11-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-11-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-11-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-11-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-11-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-11-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-11-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-11-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-11-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-11 ECL Results](plots/GRUPCNTL-11-ECL.md)
 
 ---
 
@@ -379,20 +262,7 @@ The supplied guide rate will be ignored
 4) WCONPROD(OIL) = 4E3, WCONPROD(GAS) = 4E6, WCONPROD(LIQ) = 8E3, and WCONPROD(BHP) = 60.0, same for all wells.
 5) **WCONPROD(THP) = 30.0 and VFP tables**.
 
-![](plots/GRUPCNTL-12-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-12-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-12-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-12-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-12-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-12-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-12-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-12-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-12-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-12-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-12-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-12-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-12-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-12-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-12 ECL Results](plots/GRUPCNTL-12-ECL.md)
 
 ---
 
@@ -406,20 +276,7 @@ The supplied guide rate will be ignored
 6) **Group PROD: GCONPROD(TARGET)=ORAT, GCONPROD(OIL)=10E3, GCONPROD(WAT)=12E3, GCONPROD(GAS)=1.6E6, GCONPROD(LIQ)=15E3.**
 7) **Group PROD: GCONPROD(GRPCNTL)=NO**
 
-![](plots/GRUPCNTL-13-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-13-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-13-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-13-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-13-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-13-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-13-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-13-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-13-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-13-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-13-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-13-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-13-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-13-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-13 ECL Results](plots/GRUPCNTL-13-ECL.md) 
 
 ---
 
@@ -433,20 +290,7 @@ The supplied guide rate will be ignored
 6) **Group PROD: GCONPROD(TARGET)=ORAT, GCONPROD(OIL)=10E3, GCONPROD(WAT)=12E3, GCONPROD(GAS)=1.6E6, GCONPROD(LIQ)=15E3.**
 7) **Group PROD: GCONPROD(GRPCNTL)=NO**
 
-![](plots/GRUPCNTL-14-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-14-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-14-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-14-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-14-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-14-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-14-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-14-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-14-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-14-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-14-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-14-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-14-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-14-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-14 ECL Results](plots/GRUPCNTL-14-ECL.md)
 
 ---
 
@@ -472,24 +316,9 @@ The supplied guide rate will be ignored
  7) Group PROD: GCONPROD(GRPCNTL)=NO
  8) **Group MANI-A: GCONPROD(TARGET)=FLD, GCONPROD(OIL)=6E3, GCONPROD(WAT)=12E3, GCONPROD(GAS)=1.6E6, GCONPROD(LIQ)=15E3.** 
  9) **Group MANI-A: GCONPROD(GRPCNTL)=YES**
-10) **Group MANi-B: Same as MANI-A**
+ 10) **Group MANi-B: Same as MANI-A**
 
-![](plots/GRUPCNTL-15-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-15-Group_MANI_A_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-15-Group_MANI_B_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-15-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-15-Well_PRO3D_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-15-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-15-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-15-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-15-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-15-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-15-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-15-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-15-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-15-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-15-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-15-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-15 ECL Results](plots/GRUPCNTL-15-ECL.md)
 
 ---
 
@@ -505,22 +334,7 @@ The supplied guide rate will be ignored
  9) **Group MANI-A: GCONPROD(GRPCNTL)=YES**
  10) **Group MANI-B: Same as MANI-A**
 
-![](plots/GRUPCNTL-16-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-16-Group_MANI_A_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-16-Group_MANI_B_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-16-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-16-Well_PRO3D_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-16-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-16-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-16-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-16-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-16-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-16-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-16-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-16-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-16-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-16-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-16-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-16 ECL Results](plots/GRUPCNTL-16-ECL.md) 
 
 ---
 
@@ -548,24 +362,7 @@ The supplied guide rate will be ignored
  9) Well INJ1 re-completed 2019-03-01.
  10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
 
-![](plots/GRUPCNTL-17-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-17-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-17-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-17-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-17-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-17-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-17-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-17-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-17-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-17 ECL Results](plots/GRUPCNTL-17-ECL.md)
 
 ---
 
@@ -579,26 +376,9 @@ The supplied guide rate will be ignored
  7) Group RES: GCONPROD(GRPCNTL)=NO
  8) Group INJE: GCONINJE(TYPE)=GAS, GCONINJE(TARGET)=REIN, GCONPROD(REIN)=1.0    
  9) Well INJ1 re-completed 2019-03-01.
-10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
+ 10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
 
-![](plots/GRUPCNTL-18-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-18-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-18-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-18-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-18-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-18-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-18-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-18-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-18-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-18 ECL Results](plots/GRUPCNTL-18-ECL.md)
 
 ---
 
@@ -615,24 +395,7 @@ The supplied guide rate will be ignored
 10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
 11) Group RES: GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE
 
-![](plots/GRUPCNTL-19-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-19-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-19-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-19-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-19-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-19-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-19-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-19-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-19-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-19 ECL Results](plots/GRUPCNTL-19-ECL.md) 
 
 ---
 
@@ -649,24 +412,7 @@ The supplied guide rate will be ignored
  10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
  11) Group RES: GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE
 
-![](plots/GRUPCNTL-20-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-20-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-20-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-20-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-20-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-20-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-20-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-20-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-20-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-20 ECL Results](plots/GRUPCNTL-20-ECL.md)
 
 ---
 
@@ -680,28 +426,11 @@ The supplied guide rate will be ignored
  7) Group RES: GCONPROD(GRPCNTL)=NO
  8) Group INJE: GCONINJE(TYPE)=GAS, GCONINJE(TARGET)=REIN, GCONPROD(REIN)=1.0    
  9) Well INJ1 re-completed 2019-03-01.
-10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
-11) Group RES: GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE
-12) Group RES: GCONSUMP(GASFUEL)=0.25E6
+ 10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
+ 11) Group RES: GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE
+ 12) Group RES: GCONSUMP(GASFUEL)=0.25E6
 
-![](plots/GRUPCNTL-21-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-21-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-21-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-21-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-21-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-21-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-21-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-21-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-21-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-21 ECL Results](plots/GRUPCNTL-21-ECL.md)
 
 ---
 
@@ -715,28 +444,11 @@ The supplied guide rate will be ignored
  7) Group RES: GCONPROD(GRPCNTL)=NO
  8) Group INJE: GCONINJE(TYPE)=GAS, GCONINJE(TARGET)=REIN, GCONPROD(REIN)=1.0    
  9) Well INJ1 re-completed 2019-03-01.
-10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
-11) Group RES: GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE
-12) Group RES: GCONSUMP(GASFUEL)=0.25E6
+ 10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
+ 11) Group RES: GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE
+ 12) Group RES: GCONSUMP(GASFUEL)=0.25E6
 
-![](plots/GRUPCNTL-22-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-22-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-22-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-22-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-22-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-22-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-22-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-22-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-22-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-22 ECL Results](plots/GRUPCNTL-22-ECL.md) 
 
 ---
 
@@ -750,29 +462,12 @@ The supplied guide rate will be ignored
  7) Group RES: GCONPROD(GRPCNTL)=NO
  8) Group INJE: GCONINJE(TYPE)=GAS, GCONINJE(TARGET)=REIN, GCONPROD(REIN)=1.0    
  9) Well INJ1 re-completed 2019-03-01, shut-in 2019-05-20.
-10) Group RES: GCONPROD(GAS)=2.3E6 at 2019-06-01.
-11) Group RES: GCONSALE(GSALE)=0.30E6, GCONSALE(GSALEMAX=0.40E6), GCONSALE(GSALEMIN)=0.05E6, and  GCONSALE(ACTION)=RATE
-12) Group RES: GCONSUMP(GASFUEL)=0.25E6
-13) Well INJE2: WCONINJE(BHP)=235.0 
+ 10) Group RES: GCONPROD(GAS)=2.3E6 at 2019-06-01.
+ 11) Group RES: GCONSALE(GSALE)=0.30E6, GCONSALE(GSALEMAX=0.40E6), GCONSALE(GSALEMIN)=0.05E6, and  GCONSALE(ACTION)=RATE
+ 12) Group RES: GCONSUMP(GASFUEL)=0.25E6
+ 13) Well INJE2: WCONINJE(BHP)=235.0 
 
-![](plots/GRUPCNTL-23-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-23-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-23-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-23-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-23-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-23-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-23-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-23-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-23-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-23 ECL Results](plots/GRUPCNTL-23-ECL.md) 
 
 ---
 
@@ -791,25 +486,7 @@ The supplied guide rate will be ignored
 12) Group RES: GCONSUMP(GASFUEL)=0.25E6
 13) Well INJE2: WCONINJE(BHP)=235.0 
 
-
-![](plots/GRUPCNTL-24-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-24-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-24-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-24-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-24-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-24-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-24-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-24-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-24-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-24 ECL Results](plots/GRUPCNTL-24-ECL.md) 
 
 ---
 
@@ -842,24 +519,7 @@ The supplied guide rate will be ignored
  14) **Well PROD3: WELTARG(BHP)= 160.0 from 2019-03-01**.
  15) **Well PROD4: Not active**.
 
-![](plots/GRUPCNTL-25-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-25-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-25-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-25-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-25-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-25-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-25-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-25-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-25-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-25 ECL Results](plots/GRUPCNTL-25-ECL.md)
 
 ---
 
@@ -880,24 +540,7 @@ The supplied guide rate will be ignored
  14) Well PROD3: WELTARG(BHP)= 160.0 from 2019-03-01.
  15) Well PROD4: Not active.
 
-![](plots/GRUPCNTL-26-Field_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Field_Sales_Gas_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Group_INJE_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Group_PROD_Production_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Well_INJ1_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Well_INJ2_Gas_Injection_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Well_PROD1_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Well_PROD1_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-26-Well_PROD1_Production_Performance.png)
-![](plots/GRUPCNTL-26-Well_PROD2_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Well_PROD2_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-26-Well_PROD2_Production_Performance.png)
-![](plots/GRUPCNTL-26-Well_PROD3_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Well_PROD3_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-26-Well_PROD3_Production_Performance.png)
-![](plots/GRUPCNTL-26-Well_PROD4_Pressure_Comparison_Plot.png)
-![](plots/GRUPCNTL-26-Well_PROD4_Production_and_Mode_of_Control_Plot.png)
-![](plots/GRUPCNTL-26-Well_PROD4_Production_Performance.png)
+[GRUPCNTL-26 ECL Results](plots/GRUPCNTL-26-ECL.md)
 
 ---
 
