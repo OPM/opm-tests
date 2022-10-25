@@ -26,14 +26,14 @@
 --          -- DRSDT
 --          -- 0 /
 --
--- This run is for SPE01 Case 2 used to test the following, with WELSPEC(TYPE) equal to OIL:
+-- This run is for SPE01 Case 2
 --
 -- --       WELL PRODUCTION WELL CONTROLS
 -- --
 -- -- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
 -- -- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
 -- WCONPROD
--- OP01     OPEN   1*     20E3   1*     1*    1*     1*    1000.0                 /
+-- OP01     OPEN   ORAT   20E3   1*     1*    1*     1*    1000.0                 /
 -- /
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
@@ -51,7 +51,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-WCONPROD-01: SPE01-TEST01
+WCONPROD-00: SPE01-CASE02-OPM2010-R01.DATA - FULL GAS RESOLUTION SCENARIO
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -441,7 +441,7 @@ GI01       1   1   1   1   OPEN   1*    1*    0.500   1*    1*     1*    'Z'   /
 -- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
 -- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
 WCONPROD
-OP01     OPEN   1*     20E3   1*     1*    1*     1*    1000.0                 /
+OP01     OPEN   ORAT   20E3   1*     1*    1*     1*    1000.0                 /
 /
 --
 --       WELL INJECTION CONTROLS
