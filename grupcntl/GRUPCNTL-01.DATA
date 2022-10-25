@@ -1,0 +1,455 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+--
+-- Copyright (C) 2018-2022 Equinor
+--
+-- This case is based on MODEL02 and is intended to verify various aspects of group and well control inter-actions. The  model is 
+-- is a (13, 22, 11) model with Regular Corner-Point grid. This is a three-phase model using MODEL02 PVT based on the Norne model.
+-- The model has several groups as shown below:
+--                                                         FIELD                                                                     
+--                                                           |                                                                         
+--                                                      --------------
+--                                                       |           |
+--                                                     INJE        PROD  
+--                                                                   |
+--                                                                -------- 
+--                                                               |        |
+--                                                               WGRP1   WGRP2
+--                                                                 |       |
+--                                                             --------  PROD2 
+--                                                             |      | 
+--                                                           PROD1  PROD3       
+--
+-- ( 1) The case has three producers (no VFP) and one water injector.
+-- ( 2) Producers and injectors are multi-segment wells.
+-- ( 3) Group PROD: GCONPROD(TARGET) set to LRAT control and GCONPROD(OIL) limit set to 2,500.   
+-- ( 4) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
+-- ( 5) Group WGRP1: GCONPROD(GUIPHASE) set to 1* (well level).
+--
+-- Note multi-well segment case has maximum time step size of 3.0 days.
+--
+-- =================================================================================================================================
+-- 
+-- RUNSPEC SECTION 
+-- 
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE TITLE FOR THE RUN  
+--
+TITLE                                                                           
+GRUPCNTL-01: 0A1_GRCTRL_LRAT_ORAT_BASE_MODEL2_MSW                                                                                    
+--
+--       DEFINE THE START DATE FOR THE RUN 
+--
+START                                                                                                                                                                                                     
+         01 'NOV' 2018                                                         /                                                                               
+--                                                                              
+--       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
+--
+-- NOSIM                                                                          
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- FLUID TYPES AND TRACER OPTIONS                         
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       OIL PHASE IS PRESENT IN THE RUN
+--
+OIL                                                                            
+--
+--       WATER PHASE IS PRESENT IN THE RUN
+--
+WATER                                                                            
+--
+--       GAS PHASE IS PRESENT IN THE RUN
+--
+GAS                                                                                                                                                           
+--
+--       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN
+--
+DISGAS                                                                            
+--
+--       VAPORIZED OIL IN WET GAS IS PRESENT IN THE RUN
+--
+VAPOIL                                                                                                       
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS                                             
+-- -----------------------------------------------------------------------------------------------------------------------------------                                                                              
+--       MAX     MAX     MAX                                                    
+--       NDIVIX  NDIVIY  NDIVIZ                                                 
+DIMENS                                                                          
+         13      22      11                                                    / 
+--
+--       FAULT                                                                  
+--       SEGMS                                                                  
+FAULTDIM                                                                        
+         120                                                                   /                                                                                
+--                                                                              
+--       MAX     MAX     RSVD    TVDP    TVDP                                   
+--       EQLNUM  DEPTH   NODES   TABLE   NODES                                  
+EQLDIMS                                                                         
+         2       100     25      1*      1*                                    /                                                                          
+--                                                                              
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS 
+REGDIMS                                                                         
+         2       1       1*      2       1*     1*     1*     1*    1*    1*   /                
+--
+--       NEG      MAX     MAX                                                    
+--       MULTS    MULTNUM PINCHNUM                                               
+GRIDOPTS                                                                        
+         YES      0       1*                                                   /
+--
+--       ACTIVATE EQUILIBRATION OPTIONS                                           
+--       MOBILE ENDPOINT(MOBILE) STEADY STATE(QUIESC) THRESHOLD(THPRES) 
+--       IRREVERSIBLE THRESHOLD(IRREVERS)                                   
+EQLOPTS                                                                        
+         'THPRES'                                                              /      
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300                    
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND            
+TABDIMS                                                                         
+         10      1       50      60      2       60                            /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--                                                                                
+--       WELL    WELL    GRUPS   GRUPS                                          
+--       MXWELS  MXCONS  MXGRPS  MXGRPW                                         
+WELLDIMS                                                                                                                                                        
+         10	     15 	    4	      10                                            /
+---                                                                                
+--       WELL    WELL    BRANCH  SEGMENT                                        
+--       MXWELS  MXSEGS  MXBRAN  MXLINKS                                        
+WSEGDIMS
+         10      20      1       1*                                            /
+--
+--       PRODUCING VFP TABLES
+--       VFP     VFP     VFP     VFP     VFP     VFP
+--       MXMFLO  MXMTHP  MXMWFR  MXMGFR  MXMALQ  MXVFPTAB
+VFPPDIMS
+         40	     20      20      20	     0	   60	                            /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- INPUT AND OUTPUT OPTIONS                                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT 
+--
+METRIC
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN                                                                          
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT 
+-- 
+--       PATH       PATH                                                                     
+--       ALIAS      DIRECTORY FILENAME
+PATHS
+        'MODEL02'   'include'                                                  /                                                                               
+/       
+
+-- =================================================================================================================================
+-- 
+-- GRID SECTION 
+-- 
+-- =================================================================================================================================
+GRID
+
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1                                                             /                                                                              
+--
+--       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
+--
+NEWTRAN
+--
+--       SET THE GRID UNITS FOR THE GRID  
+--
+GRIDUNIT
+         METRES                                                                /                                                                              
+--
+--       LOAD INCLUDE FILES
+--
+INCLUDE 
+         '$MODEL02/MODEL02-GRID.inc'                        /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-FLUXNUM.inc'                     /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-PORO.inc'                        /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-PERMX.inc'                       /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-PERMZ.inc'                       /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-NTG.inc'                         /
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------            
+--                                I1  I2   J1  J2   K1  K2            
+COPY                                                            
+         PERMX       PERMY        1*  1*   1*  1*   1*  1* / CREATE PERMY 
+/ 
+--
+--       DEFINE GRID SECTION REPORT OPTIONS
+--
+RPTGRID
+         'ALLNNC'                      /
+
+-- =================================================================================================================================
+-- 
+-- EDIT SECTION 
+-- 
+-- =================================================================================================================================
+EDIT
+
+-- =================================================================================================================================
+-- 
+-- PROPS SECTION 
+-- 
+-- =================================================================================================================================
+PROPS
+--
+--       LOAD INCLUDE FILE - PVT DATA
+--
+INCLUDE 
+         '$MODEL02/MODEL02-PVT.inc'                        /
+--
+--       LOAD INCLUDE FILE - GAS-OIL RELATIVE PERMEABILITY DATA
+--
+INCLUDE 
+         '$MODEL02/MODEL02-SGOF.inc'                       /
+--
+--       LOAD INCLUDE FILE - OIL-WATER RELATIVE PERMEABILITY DATA
+--
+INCLUDE 
+         '$MODEL02/MODEL02-SWOF.inc'                       /
+--
+--       ROCK COMPRESSIBILITY                                                                 
+--                                                                                      
+--       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE      
+--       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (ECLIPSE USES THE REFERENCE       
+--       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA       
+--       ON THE ROCK KEYWORD)                                                             
+--                                                                                      
+--       REF PRES  CF                                                                         
+--       BARSA     1/BARSA                                                                     
+--       --------  --------                                                                   
+ROCK                                                                                    
+         277.0     6.11423e-05                             / ROCK COMPRESSIBILITY
+ 
+-- =================================================================================================================================
+-- 
+-- REGIONS SECTION 
+-- 
+-- =================================================================================================================================
+REGIONS
+--
+--       LOAD INCLUDE FILE - EQLNUM ARRAY
+--
+INCLUDE 
+         '$MODEL02/MODEL02-EQLNUM.inc'                     /
+--
+--       LOAD INCLUDE FILE - FIPNUM ARRAY
+--
+INCLUDE 
+         '$MODEL02/MODEL02-FIPNUM.inc'                     /
+--
+--       LOAD INCLUDE FILE - SATNUM ARRAY
+--
+INCLUDE 
+         '$MODEL02/MODEL02-SATNUM.inc'                     /
+
+-- =================================================================================================================================
+-- 
+-- SOLUTION SECTION 
+-- 
+-- =================================================================================================================================
+SOLUTION
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N    E300  RVW 
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT  OPT   OPT   
+EQUIL                                                                        
+         2561.59 268.55  2645.21 0.0   2561.59 0.0    1    0    0    2*        /  
+         2584.20 268.71  2655.21 0.0   2584.20 0.0    5    0    0    2*        /   
+--
+--       DEPTH    RS                                                 
+--                m3/m3                                                  
+--       ------   --------                                                               
+RSVD            
+         2561.59  122.30
+         2597.00  110.00
+         2660.70  106.77
+         2697.00  106.77                                    / RV VS DEPTH EQUIL REGN 01
+--       ------   --------        
+         2584.20  122.41
+         2599.90  110.00
+         2663.60  106.77
+         2699.90  106.77                                   / RV VS DEPTH EQUIL REGN 02
+--
+--       EQLNUM  EQLNUM  THPRES                                             
+--       FROM    TO      VALUE                                              
+THPRES                                                                        
+         1       2       1*                                / REGN 1 TO REGN 2
+/ 
+--
+--       DEFINE SOLUTION SECTION REPORT OPTIONS
+--
+RPTSOL                                                                           
+         FIP=2    FIPRESV                                  /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+        'BASIC = 2'  'PBPD'                                /
+
+-- =================================================================================================================================
+-- 
+-- SUMMARY SECTION 
+-- 
+-- =================================================================================================================================
+SUMMARY
+--
+--       LOAD INCLUDE FILE - SUMMARY EXPORT FILE
+--
+INCLUDE 
+         '$MODEL02/MODEL02-SUMMARY.inc'                    /
+
+-- =================================================================================================================================
+-- 
+-- SCHEDULE SECTION 
+-- 
+-- =================================================================================================================================
+SCHEDULE
+--
+--       DEFAULT TUNING PARAMETERS  
+--
+--         1       2      3        4    5      6       7       8       9   10                          
+TUNING         
+          1*       3.0                                                         /
+/
+/
+--
+--       MULTI-SEGMENT WELLS ITERATION PARAMETERS
+--
+--       MXSIT   MAX   REDUCTION   INCREASE
+--               NR    FACTOR      FACTOR 
+WSEGITER
+         150     50    0.3         2.0                     /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+        'BASIC = 2'                                        /
+--      
+--       DEFINE GROUP TREE HIERARCHY
+--                                                                              
+--       LOWER     HIGHER
+--       GROUP     GROUP 
+GRUPTREE
+         'INJE'    'FIELD'             /
+         'WGRP1'   'PROD'              /
+         'WGRP2'   'PROD'              /
+         'PROD'    'FIELD'             /
+/
+--
+--       GROUP PRODUCTION CONTROLS                                                    
+--                                                                              
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
+GCONPROD                                                                        
+PROD     LRAT  1000.  1*     1.E6   2500.  RATE  YES   1*     1*     7*        /
+WGRP1    FLD    900.  1*     1.E6   2400.  RATE  YES   1*                      / 
+WGRP2    FLD    900.  1*     1.E6   2400.  RATE  YES   1*                      / 
+/
+--
+--       SETS GUIDE RATES FOR GROUPS AND WELLS UNDER GUIDE RATE CONTROL
+--
+--       TIME  GUIDE  A      B     C     D     E    F     INCR   DAMP   FREE        
+--       STEP  PHASE  POW    CON   CON   POW   CON  POW   OPTN   OPTN   GAS        
+GUIDERAT          
+         0     'OIL'  1.0    0.5    1    1     0    0     'YES'  0.5    1*     / Guide Rate = 1/(0.5+WWCT)
+--
+--       WELL SPECIFICATION DATA
+--
+-- WELL   GROUP  LOC.  LOC.  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS  PVT    HYDS  FIP
+-- NAME    NAME   I    J     DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW   TABLE  DENS  REGN
+WELSPECS
+   PROD1   WGRP1     6     3     1*    OIL    0.0     STD  STOP    YES      0   SEG     0  /
+   PROD2   WGRP2    10     4     1*    OIL    0.0     STD  STOP    YES      0   SEG     0  /
+   PROD3   WGRP1    11    19     1*    OIL    0.0     STD  STOP    YES      0   SEG     0  /
+   INJ1     INJE     2    13     1*  WATER    0.0     STD  STOP    YES      0   SEG     0  /
+/
+--
+--       LOAD INCLUDE FILE - STANDARD WELL COMPLETIONS
+--
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD1-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD2-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD3-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-INJ1-STD.inc'              /
+--
+--       LOAD INCLUDE FILE - MULT-SEGMENT WELL COMPLETIONS
+--
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD1-MSW.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD2-MSW.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD3-MSW.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-INJ1-MSW.inc'              /
+--
+--       WELL PRODUCTION WELL CONTROLS                                                     
+--                                                                              
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+PROD1    OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
+PROD2    OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
+PROD3    OPEN   GRUP   350E3  1*     1*    1*     1*     190.0                 /
+/
+-- 
+--       WELL EFFICIENCY FACTORS                                                      
+--                                                                              
+-- WELL  EFF    NETWK                                                           
+-- NAME  FACT   OPTN                                                            
+WEFAC                                                                           
+'PROD*'  1.0000                                                                /
+/                                                                              
+--
+--       WELL INJECTION CONTROLS                                                      
+--                                                                              
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP               
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRES  PRES  TABLE             
+WCONINJE                                                                        
+INJ1     WATER  OPEN   GRUP  6000.  1*    400.                                 /
+/
+--
+--       ADVANCE SIMULATION BY REPORTING DATE
+--
+DATES                                                                           
+         2  DEC   2018 /
+        15  DEC   2018 /
+         1  JAN   2019 /
+/
+END
+--                                                                              
+-- *********************************************************************************************************************************
+-- END OF FILE                                                                  
+-- *********************************************************************************************************************************
