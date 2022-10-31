@@ -41,7 +41,7 @@ and final ternary saturation plot.
 
 OPM Flow results compared with published results.
 
-![](plots/spe10-model01-comparison03.jpg)
+![](plots/spe10-model01-comparison-03.jpg)
 
 OPM Flow results are comparable to the results of other vendors presented in the paper.
 All four OPM Flow cases give exactly the same results.
