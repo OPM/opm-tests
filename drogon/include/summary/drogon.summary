@@ -1,0 +1,322 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2022 Equinor
+
+--
+-- Field Data
+-----------------------------
+-- Production Rates
+-----------------------------
+
+FOPR
+FOPRH
+FGPR
+FGPRH
+FWPR
+FWPRH
+FLPR
+FLPRH
+FVPR
+FOPRF
+FOPRS
+FGSR
+FGPRF
+FGPRS
+-----------------------------
+-- Production Rate Potential
+-----------------------------
+FOPP
+FWPP
+FGPP
+-----------------------------
+-- Production and Injection wells         
+-----------------------------
+FMWPR
+FMWIN
+-- Injection Rates
+FVIR
+FWIR
+FWIRH
+FGIR
+FGIRH
+--  gas lift injection rate
+FGLIR
+-----------------------------
+--  Control Mode           --
+-----------------------------
+FMCTP
+-----------------------------
+--     Cummulatives        --
+-----------------------------
+--  Production
+FVPT
+FOPT 
+FOPTH
+FWPT
+FWPTH
+FGPT
+FGPTH
+FWIT
+FWITH
+FGIT
+FGITH
+FOPTF
+FOPTS
+-----------------------------
+-- In place
+-----------------------------
+FWIP
+FOIP
+FGIP
+-- Ratios
+FWCT
+FWCTH
+FGOR
+FGORH
+FGLR 
+FWGR
+-- Pressures
+FPR
+--  Region data
+RPR
+/
+ROIP
+/
+ROE
+/
+ROIPL
+/
+ROIPG
+/
+RGIP
+/
+RGIPL
+/
+RGIPG
+/
+RGPR
+/
+RGPT
+/
+-----------------
+--  Group data --
+-----------------
+-----------------------------
+-- Production and Injection wells         
+-----------------------------
+GMWPR
+GMWIN
+/
+GGLIR
+/
+GOPR
+/
+GOPRH
+/
+GGPR
+/
+GGPRH
+/
+GWPR
+/
+GWPRH
+/
+GVPR
+/
+GLPR
+/
+GOPRF
+/
+GOPRS
+/
+GGPRF
+/
+GGPRS
+/
+GWCT 
+/
+GWCTH 
+/
+GGOR
+/
+GGORH 
+/
+GWGR
+/
+GGLR
+/
+GOPT
+/
+GOPTH
+/
+GGPT
+/
+GGPTH
+/
+GWPT
+/
+GWPTH
+/
+GVPT
+/
+GLPT
+/
+GOPTF
+/
+GOPTS
+/
+GGPTF
+/
+GGPTS
+/
+GWIR
+/
+GVIR
+/
+GWIRH
+/
+GGIR
+/
+GGIRH
+/
+--  Potentials
+GOPP
+/
+GGPP
+/
+GWPP
+/
+-----------------------------
+--  Control Mode           --
+-----------------------------
+GMCTP
+/
+-- Well Data
+-- Production Rates
+WOPR
+/
+WOPRH
+/
+WGPR
+/
+WGPRH
+/
+WWPR
+/
+WWPRH
+/
+WLPR
+/
+WLPRH
+/
+-- Production Cummulatives
+WOPT
+/
+WWPT
+/
+WGPT
+/
+WOPTH
+/
+WWPTH
+/
+WGPTH
+/
+-- Ratios
+WWCT
+/
+WWCTH
+/
+WGOR
+/
+WGORH
+/
+WWIR
+/
+WWIRH
+/
+WGIR
+/
+WGIRH
+/
+WWIT
+/
+WWITH
+/
+WGIT
+/
+WGITH
+/
+-- Performance
+WBHP
+/
+WTHP
+/
+WPI
+/
+WVPR
+/
+WBP
+/
+WBP4
+/
+WBP9
+/
+WMCTL
+/
+-- Well Gas Lift Injection Rate
+WGLIR
+/
+-- Well Oil Gas Lift Ratio (i.e. incremental gradiend                                
+-- of the field's production rate with respect to the 
+-- addition of another gas lift increment  to that well)
+WOGLR
+/
+--
+--
+-- Tracer quantities
+-- Tracer production rate 
+WTPRWT1
+/
+WTPRWT2
+/
+-- Tracer production total
+WTPTWT1
+/
+WTPTWT2
+/
+-- Tracer production concentration
+WTPCWT1
+/
+WTPCWT2
+/
+-- Tracer injection rate
+WTIRWT1
+/
+WTIRWT2
+/
+-- Tracer injection total
+WTITWT1
+/
+WTITWT2
+/
+-- Tracer injection concentration
+WTICWT1
+/
+WTICWT2
+/
+--
+--
+--BPR
+-- 15  28   1 /
+-- 15  28  10 /
+-- 15  28  13 /
+--/ 
+--
+--
+-- Simulatior performance
+TCPU
+TCPUDAY
