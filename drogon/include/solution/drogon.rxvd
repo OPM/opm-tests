@@ -1,0 +1,38 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2022 Equinor
+
+RSVD
+  1000 140.82
+ 10000 140.82 / --WestLowland 
+  1000 140.82
+ 10000 140.82 / --CentralSouth 
+  1000 140.82
+ 10000 140.82 / --CentralNorth
+  1000 195.93
+ 10000 195.93 / --NorthHorst || gas cap
+  1000 140.82
+ 10000 140.82 / --CentralRamp 
+  1000 140.82
+ 10000 140.82 / --CentralHorst 
+  1000 140.82
+ 10000 140.82 / --EastLowland 
+
+RVVD
+  1000 0.00024
+ 10000 0.00024 /
+  1000 0.00024
+ 10000 0.00024 /
+  1000 0.00024
+ 10000 0.00024 /
+  1450 0.000145
+  1640 0.0001549 / --NorthHorst || gas cap
+  1000 0.00024
+ 10000 0.00024 /
+  1000 0.00024
+ 10000 0.00024 /
+  1000 0.00024
+ 10000 0.00024 /
