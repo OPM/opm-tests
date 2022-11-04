@@ -88,7 +88,7 @@ INIT
 
 
 INCLUDE
- 'include/grid1.grdecl' /
+ 'include/AQUNUM-GRID-02.inc' /
 
 EQUALS
  'PORO'  0.25 /
@@ -131,7 +131,7 @@ PROPS
 NOECHO
 
 INCLUDE
- './include/norne_pvt.inc' /
+ './include/AQUNUM-PVT.inc' /
 
 
 
@@ -142,10 +142,10 @@ ROCK
       277.0      6.11423e-05 /
 
 INCLUDE
- 'include/relperm_ow.inc' /
+ 'include/AQUNUM-SGOF.inc' /
 
 INCLUDE
- 'include/relperm_go.inc' /
+ 'include/AQUNUM-SWOF.inc' /
 
 
 ------------------------------------------------------------------------------------------------

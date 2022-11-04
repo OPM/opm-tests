@@ -56,9 +56,6 @@ NSTACK
 UNIFIN
 --UNIFOUT
 
-OPTIONS
-77* 1 /
-
 ---------------------------------------------------------
 --
 --	Input of grid geometry
