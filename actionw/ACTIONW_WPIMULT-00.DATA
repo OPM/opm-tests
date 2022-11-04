@@ -5,9 +5,8 @@
 
 -- Copyright (C) 2022 Equinor
 
--- The model is a sensitivity to the base model for testing the WPIMULT keyword in an ACTIONW block, and differs by applying various
--- ACTIONW blocks multiple times to OP01 and OP02 based on total liquid production, as well as increasing or reducing the PI of the
--- water injectors multiple times.
+-- The model is the base model for testing the WPIMULT keyword in an ACTIONW block and applies a PI multiplier of 1.00 when the
+-- water cut exceeds certain values.
 --
 -- This model is is a simple (9, 9, 2) model with with five oil producers and four water injectors using an Irregular Corner-Point
 -- grid. This a three phase model using MODEL05 PVT and well VFP data. The model has only one group as shown below:
@@ -16,13 +15,8 @@
 --                    |---PLAT-1
 --
 -- ( 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 is set VREP 1.00.
--- ( 2) Producer OP01 has an ACTIONW block that tests if the well's total liquid production is greater than 2.10E6 (ACTW-01), if it
---      is then the well PI is increased by 1.100. ACTW-01 is set to execute three times.
--- ( 3) OP02 has a ACTIONXW block with ACTW-02 checking if the well's total liquid production is greater than 1.56E6, and if
---      is then the PI is reduced by 0.900, three times.
--- ( 4) ACTI-03 checks if the water injection total for WI03 is greater than 3.0E6 four times, and if it is, then the PI is reduced.
--- ( 5) Finally, ACTI-04 checks if the water injection total for WI04 is greater than 3.2E6 four times, and if it is then the PI is
---      increased four times.
+-- ( 2) Base case run with producers OP01 to OP04 having ACTIONW blocks that applies a PI multiplier of 1.00 when the water cut
+--      exceeds, 0.20, 0.40 and 0.60. Used for testing the timing of the ACTIONW events, as the run should not change anything.
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
 --       1         2         3         4         5         6         7         8         9         0         1         2         3
@@ -38,7 +32,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-OPM_TESTS: ACTIONW_WPIMULT-03
+OPM_TESTS: ACTIONW_WPIMULT-00
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -119,7 +113,7 @@ VFPPDIMS
 --       ACTION    ACTION   ACTION   ACTION
 --       MXACTNS   MXLINES  MXCHARS  MXSTATMS
 ACTDIMS
-         8         20       80       1                                         /
+         4         20       80       1                                         /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- NUMERICAL AND RUN CONTROL OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -779,7 +773,7 @@ WTEST
 'OP*'    60.0   P      3      1*                                               /
 /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONW WPIMULT CHANGES BASED ON TOTAL LIQUID PRODUCTION
+-- ACTIONW WPIMULT CHANGES BASED ON WATER CUT
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       ACTIONW WELL COMMANDS
@@ -787,19 +781,18 @@ WTEST
 ACTIONW
 --       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
 --       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS
-         ACTW-01    OP01     WLPT       >     2.10E6  3        200.0           /
+         ACT-01     OP01     WWCT      >      0.2     3        0.20             /
 --
 --       DEFINE WELL CONNECTION MULTIPLIERS
 --
 -- WELL  PI     --LOCATION--  COMPLETION
 -- NAME  MULT     I   J    K  FIRST LAST
 WPIMULT
-OP01     1.100                                             /
+OP01     1.000   1*  1*   1*   1*    1*                    /
 /
-
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONW WPIMULT CHANGES BASED ON TOTAL LIQUID PRODUCTION
+-- ACTIONW WPIMULT CHANGES BASED ON WATER CUT
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       ACTIONW WELL COMMANDS
@@ -807,19 +800,18 @@ ENDACTIO
 ACTIONW
 --       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
 --       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS
-         ACTW-02    OP02     WLPT       >     1.5E6   3        200E3           /
+         ACT-02     OP02     WWCT      >      0.2     3        0.20             /
 --
 --       DEFINE WELL CONNECTION MULTIPLIERS
 --
 -- WELL  PI     --LOCATION--  COMPLETION
 -- NAME  MULT     I   J    K  FIRST LAST
 WPIMULT
-'?'      0.900   1*  1*    2                               /
+OP02     1.000   1*  1*   1*   1*    1*                    /
 /
-
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONW WPIMULT REDUCTION BASED ON WATER INJECTION TOTAL
+-- ACTIONW WPIMULT CHANGES BASED ON WATER CUT
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       ACTIONW WELL COMMANDS
@@ -827,19 +819,18 @@ ENDACTIO
 ACTIONW
 --       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
 --       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS
-         ACTI-03    WI03     WWIT       >     3.0E6   4        1*              /
+         ACT-03     OP03     WWCT      >      0.2     3        0.20             /
 --
 --       DEFINE WELL CONNECTION MULTIPLIERS
 --
 -- WELL  PI     --LOCATION--  COMPLETION
 -- NAME  MULT     I   J    K  FIRST LAST
 WPIMULT
-'?'      0.500    0   0    2   0     0                     /
+OP03     1.000   1*  1*   1*   1*    1*                    /
 /
-
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONW WPIMULT INCREASES BASED ON WATER INJECTION TOTAL
+-- ACTIONW WPIMULT CHANGES BASED ON WATER CUT
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       ACTIONW WELL COMMANDS
@@ -847,17 +838,15 @@ ENDACTIO
 ACTIONW
 --       ACTION     WELL     ACTION   ACTION  ACTION  MAX      ICREMENT
 --       NAME       NAME     LHS      TEST    RHS     ACTIONS  RHS
-         ACTI-04    WI04     WWIT       >     3.2E6   4        0.5E6           /
+         ACT-04     OP04     WWCT      >      0.2     3        0.20             /
 --
 --       DEFINE WELL CONNECTION MULTIPLIERS
 --
 -- WELL  PI     --LOCATION--  COMPLETION
 -- NAME  MULT     I   J    K  FIRST LAST
 WPIMULT
-'?'      1.100   1*  1*    1   1*    1*                    /
-'?'      1.100   1*  1*    2   1*    1*                    /
+OP04     1.000   1*  1*   1*   1*    1*                    /
 /
-
 ENDACTIO
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- SCHEDULE SECTION - 2022-01-01
