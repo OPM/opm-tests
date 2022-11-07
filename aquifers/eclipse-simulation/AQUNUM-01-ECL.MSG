@@ -1,0 +1,71 @@
+<eclipse>
+<message date="1/11/2018" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="1/11/2018" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="1/11/2018" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+     324180 BYTES                                                        
+</message>
+<message date="1/11/2018" time="0.00000000000000">
+ 32 NON-NEIGHBOUR CONNECTIONS PRESENT                                    
+</message>
+<message date="1/11/2018" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 315                                           
+</message>
+<message date="1/11/2018" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
+       1285 KBYTES                                                       
+</message>
+<message date="1/11/2018" time="0.00000000000000">
+    62195 CHARACTER VARIABLES USED                                       
+</message>
+<message date="1/11/2018" time="0.00000000000000">
+ OPENING WELL PROD1    AT TIME      0.00   DAYS                          
+ CONTROLLED BY OIL RATE                                                  
+</message>
+<message date="1/11/2018" time="0.00000000000000">
+ RESTART FILE WRITTEN   REPORT     0                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+                  BUBBLE AND DEW POINT PRESSURES                         
+</message>
+<message date="1/12/2018" time="30.00000000000000">
+ RESTART FILE WRITTEN   REPORT     1                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+                  BUBBLE AND DEW POINT PRESSURES                         
+</message>
+<message date="1/1/2019" time="61.00000000000000">
+ RESTART FILE WRITTEN   REPORT     2                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+                  BUBBLE AND DEW POINT PRESSURES                         
+</message>
+<message date="1/3/2019" time="120.00000000000000">
+ RESTART FILE WRITTEN   REPORT     3                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+                  BUBBLE AND DEW POINT PRESSURES                         
+</message>
+<message date="1/4/2019" time="151.00000000000000">
+ RESTART FILE WRITTEN   REPORT     4                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+                  BUBBLE AND DEW POINT PRESSURES                         
+</message>
+<message date="13/5/2019" time="193.00000000000000">
+ ******************************************                              
+ * WELL PROD1    HAS CHANGED TO           *                              
+ * CONTROL BY BOTTOM HOLE PRESSURE        *                              
+ * FROM TIME    193.00   DAYS  .          *                              
+ ******************************************                              
+</message>
+<message date="1/7/2019" time="242.00000000000000">
+ RESTART FILE WRITTEN   REPORT     5                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+                  BUBBLE AND DEW POINT PRESSURES                         
+</message>
+<message date="1/9/2019" time="304.00000000000000">
+ RESTART FILE WRITTEN   REPORT     6                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+                  BUBBLE AND DEW POINT PRESSURES                         
+</message>
+</eclipse>

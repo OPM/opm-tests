@@ -1,0 +1,1182 @@
+    45 READING RPTRST  
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 6-NOV-2011):
+ @           UNRECOGNISED MNEMONIC SWAT             IN DATA                  
+ @           FOR KEYWORD RPTRST   IS IGNORED                                 
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 6-NOV-2011):
+ @           UNRECOGNISED MNEMONIC SGAS             IN DATA                  
+ @           FOR KEYWORD RPTRST   IS IGNORED                                 
+
+ @--WARNING  AT TIME        0.0   DAYS    ( 6-NOV-2011):
+ @           UNRECOGNISED MNEMONIC SOIL             IN DATA                  
+ @           FOR KEYWORD RPTRST   IS IGNORED                                 
+    46 READING RPTSOL  
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 6-NOV-2011):
+ @           AQUIFER      1 HAS      1 CONNECTIONS IN THE                    
+ @           GLOBAL GRID                                                     
+
+ @--COMMENT  AT TIME        0.0   DAYS    ( 6-NOV-2011):
+ @           THE MINIMUM VALUE FOR NCAMAX IN THE AQUDIMS KEYWORD             
+ @           IN RUNSPEC IS         1                                         
+    47 READING SUMMARY 
+    48 READING ALL     
+    49 READING EXCEL   
+    50 READING AAQR    
+    51 READING AAQT    
+    52 READING AAQP    
+    53 READING SCHEDULE
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 99 99
+                RR      1  1  1
+ SR      1  1  1
+ +-------+-----------+-----------+----------------------------
+    54 READING OPTIONS 
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 6-NOV-2011):
+ @           OPTIONS(137) HAS BEEN SET TO RESTORE PRE-2009.1                 
+ @           BEHAVIOR FOR VELOCITY CALCULATION                               
+    55 READING RPTSCHED
+    56 READING RPTRST  
+    57 READING WELSPECS
+    58 READING COMPDAT 
+    59 READING WCONINJE
+    60 READING WCONPROD
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 6-NOV-2011):
+ @           OPENING WELL PROD01   AT TIME      0.00   DAYS                  
+ @           CONTROLLED BY BOTTOM HOLE PRESSURE                              
+    61 READING TSTEP   
+
+ @--MESSAGE  AT TIME        0.0   DAYS    ( 6-NOV-2011):
+ @           RESTART FILE WRITTEN   REPORT     0                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00002 (      20,       1,       1)  3.3D-07     0.00  0.00000                          
+ WAT -0.08403 (       1,       1,       1) -4.4D-04     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00000 (       1,       1,       1) -1.8D-08    45.54  0.00215                          
+ WAT -0.00244 (       1,       1,       1)  9.0D-08    45.54  0.00215                          
+
+ NON-CONVERGENCE BECAUSE TOLERANCE FOR MAXIMUM NORM EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 2    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00000 (      18,       1,       5) -4.3D-10    -0.36  0.00000                          
+ WAT  0.00013 (      18,       1,       5)  3.2D-09    -0.36  0.00000                          
+
+ STEP    1 TIME=      1.00  DAYS (    +1.0  DAYS INIT  2 ITS) (7-NOV-2011)       
+  PAV=   272.3  BARSA  WCT=0.980 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       2.         2.       0.         0. -0.002(       1,       1,       1) -0.002(       1,       1,       1)
+ WAT      85.        85.       0.         0.  0.002(       1,       1,       1)  0.002(       1,       1,       1)
+
+      MAX DP =   46.75(       1,       1,       1) 
+
+      MAX DP =   46.75(       1,       1,       1) 
+
+      MAX DP =   46.75(       1,       1,       1) 
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00064 (       1,       1,       1)  5.8D-07     0.00  0.00000                          
+ WAT  0.00760 (       1,       1,       1)  2.5D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -8.2D-10    -0.89  0.00001                          
+ WAT  0.00077 (      19,       1,       4)  1.4D-08    -1.02 -0.00001                          
+
+ STEP    2 TIME=      4.00  DAYS (    +3.0  DAYS MAXF  1 ITS) (10-NOV-2011)      
+  PAV=   272.6  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.         5.       0.         0. -0.000(       1,       1,       1)  0.006(       1,       1,       1)
+ WAT      56.       254.       0.         0.  0.000(       1,       1,       1) -0.006(       1,       1,       1)
+
+      MAX DP =    7.87(       1,       1,       2) 
+
+      MAX DP =    7.87(       1,       1,       2) 
+
+      MAX DP =    7.87(       1,       1,       2) 
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00085 (       1,       1,       1)  6.4D-07     0.00  0.00000                          
+ WAT  0.01097 (       1,       1,       1)  3.4D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5)  4.5D-10    -0.83  0.00002                          
+ WAT  0.00017 (       3,       1,       4)  2.5D-09     1.37  0.00002                          
+
+ STEP    3 TIME=      9.50  DAYS (    +5.5  DAYS HALF  1 ITS) (15-NOV-2011)      
+  PAV=   273.0  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.         9.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       2)
+ WAT      46.       505.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       2)
+
+      MAX DP =   -4.56(       1,       1,       1) 
+
+      MAX DP =   -4.56(       1,       1,       1) 
+
+      MAX DP =   -4.56(       1,       1,       1) 
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00064 (       1,       1,       1)  5.2D-07     0.00  0.00000                          
+ WAT  0.00838 (       1,       1,       1)  2.8D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5)  3.1D-10    -0.36  0.00001                          
+ WAT  0.00059 (      18,       1,       4)  2.7D-10    -0.36 -0.00000                          
+
+ STEP    4 TIME=     15.00  DAYS (    +5.5  DAYS REPT  1 ITS) (21-NOV-2011)      
+  PAV=   273.1  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.        14.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       2)
+ WAT      42.       735.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       2)
+
+      MAX DP =   -3.85(       1,       1,       1) 
+
+      MAX DP =   -3.85(       1,       1,       1) 
+
+      MAX DP =   -3.85(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME       15.0   DAYS    (21-NOV-2011):
+ @           RESTART FILE WRITTEN   REPORT     1                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 98 98
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00146 (       1,       1,       1)  1.3D-06     0.00  0.00000                          
+ WAT  0.01965 (       1,       1,       1)  7.2D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   2 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00000 (       8,       1,       5)  1.0D-09     0.49 -0.00000                          
+ WAT  0.00013 (       3,       1,       2) -1.1D-09     0.61  0.00002                          
+
+ STEP    5 TIME=     30.00  DAYS (   +15.0  DAYS REPT  1 ITS) (6-DEC-2011)       
+  PAV=   273.2  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.        25.       0.         0. -0.001(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      40.      1341.       0.         0.  0.001(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -7.71(       1,       1,       1) 
+
+      MAX DP =   -7.71(       1,       1,       1) 
+
+      MAX DP =   -7.71(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME       30.0   DAYS    ( 6-DEC-2011):
+ @           RESTART FILE WRITTEN   REPORT     2                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 98 98
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00105 (       1,       1,       1)  1.3D-06     0.00  0.00000                          
+ WAT  0.01438 (       1,       1,       1)  6.9D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00000 (       5,       1,       2)  4.4D-10    -0.03 -0.00000                          
+ WAT  0.00029 (       7,       1,       5)  9.6D-11     0.00 -0.00000                          
+
+ STEP    6 TIME=     45.00  DAYS (   +15.0  DAYS REPT  1 ITS) (21-DEC-2011)      
+  PAV=   273.0  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.        36.       0.         0. -0.001(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      40.      1944.       0.         0.  0.001(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -5.86(       1,       1,       1) 
+
+      MAX DP =   -5.86(       1,       1,       1) 
+
+      MAX DP =   -5.86(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME       45.0   DAYS    (21-DEC-2011):
+ @           RESTART FILE WRITTEN   REPORT     3                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 97 97
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00079 (       1,       1,       1)  1.2D-06     0.00  0.00000                          
+ WAT  0.01094 (       1,       1,       1)  6.9D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5)  1.5D-10    -0.07  0.00001                          
+ WAT -0.00008 (       7,       1,       5)  4.3D-10    -0.28  0.00000                          
+
+ STEP    7 TIME=     60.00  DAYS (   +15.0  DAYS REPT  1 ITS) (5-JAN-2012)       
+  PAV=   272.6  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.        47.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      40.      2540.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -4.55(       1,       1,       1) 
+
+      MAX DP =   -4.55(       1,       1,       1) 
+
+      MAX DP =   -4.55(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME       60.0   DAYS    ( 5-JAN-2012):
+ @           RESTART FILE WRITTEN   REPORT     4                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 97 97
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00061 (       1,       1,       1)  1.2D-06     0.00  0.00000                          
+ WAT  0.00850 (       1,       1,       1)  6.9D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -8.7D-12    -0.16  0.00002                          
+ WAT -0.00005 (       8,       1,       5)  4.8D-10    -0.42  0.00001                          
+
+ STEP    8 TIME=     75.00  DAYS (   +15.0  DAYS REPT  1 ITS) (20-JAN-2012)      
+  PAV=   272.2  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.        58.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      39.      3120.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -3.59(       1,       1,       1) 
+
+      MAX DP =   -3.59(       1,       1,       1) 
+
+      MAX DP =   -3.59(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME       75.0   DAYS    (20-JAN-2012):
+ @           RESTART FILE WRITTEN   REPORT     5                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 97 97
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00048 (       1,       1,       1)  1.2D-06     0.00  0.00000                          
+ WAT  0.00672 (       1,       1,       1)  6.7D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -9.3D-11    -0.24  0.00002                          
+ WAT -0.00003 (       8,       1,       5)  4.9D-10    -0.51  0.00001                          
+
+ STEP    9 TIME=     90.00  DAYS (   +15.0  DAYS REPT  1 ITS) (4-FEB-2012)       
+  PAV=   271.6  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.        68.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      37.      3677.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -2.89(       1,       1,       1) 
+
+      MAX DP =   -2.89(       1,       1,       1) 
+
+      MAX DP =   -2.89(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME       90.0   DAYS    ( 4-FEB-2012):
+ @           RESTART FILE WRITTEN   REPORT     6                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 97 97
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00038 (       1,       1,       1)  1.2D-06     0.00  0.00000                          
+ WAT  0.00541 (       1,       1,       1)  6.4D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00003 (      18,       1,       5) -1.4D-10    -0.28  0.00003                          
+ WAT -0.00002 (      10,       1,       5)  4.9D-10    -0.50  0.00000                          
+
+ STEP   10 TIME=    105.00  DAYS (   +15.0  DAYS REPT  1 ITS) (19-FEB-2012)      
+  PAV=   271.1  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.        78.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      35.      4205.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -2.36(       1,       1,       1) 
+
+      MAX DP =   -2.36(       1,       1,       1) 
+
+      MAX DP =   -2.36(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      105.0   DAYS    (19-FEB-2012):
+ @           RESTART FILE WRITTEN   REPORT     7                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 96 96
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00031 (       1,       1,       1)  1.1D-06     0.00  0.00000                          
+ WAT  0.00442 (       1,       1,       1)  6.1D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00003 (      18,       1,       5) -1.5D-10    -0.31  0.00003                          
+ WAT  0.00002 (      20,       1,       3)  4.8D-10    -0.13  0.00004                          
+
+ STEP   11 TIME=    120.00  DAYS (   +15.0  DAYS REPT  1 ITS) (5-MAR-2012)       
+  PAV=   270.5  BARSA  WCT=0.982 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.        87.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      33.      4701.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -1.95(       1,       1,       1) 
+
+      MAX DP =   -1.95(       1,       1,       1) 
+
+      MAX DP =   -1.95(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      120.0   DAYS    ( 5-MAR-2012):
+ @           RESTART FILE WRITTEN   REPORT     8                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 96 96
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00026 (       1,       1,       1)  1.0D-06     0.00  0.00000                          
+ WAT  0.00366 (       1,       1,       1)  5.8D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00003 (      18,       1,       5) -1.5D-10    -0.32  0.00003                          
+ WAT  0.00002 (      20,       1,       3)  4.6D-10    -0.13  0.00003                          
+
+ STEP   12 TIME=    135.00  DAYS (   +15.0  DAYS REPT  1 ITS) (20-MAR-2012)      
+  PAV=   270.0  BARSA  WCT=0.981 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.        96.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      31.      5164.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -1.64(       1,       1,       1) 
+
+      MAX DP =   -1.64(       1,       1,       1) 
+
+      MAX DP =   -1.64(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      135.0   DAYS    (20-MAR-2012):
+ @           RESTART FILE WRITTEN   REPORT     9                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 96 96
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00021 (       1,       1,       1)  9.9D-07     0.00  0.00000                          
+ WAT  0.00308 (       1,       1,       1)  5.4D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00003 (      18,       1,       5) -1.5D-10    -0.32  0.00003                          
+ WAT  0.00002 (      20,       1,       3)  4.3D-10    -0.13  0.00003                          
+
+ STEP   13 TIME=    150.00  DAYS (   +15.0  DAYS REPT  1 ITS) (4-APR-2012)       
+  PAV=   269.5  BARSA  WCT=0.981 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.       104.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      29.      5594.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -1.40(       1,       1,       1) 
+
+      MAX DP =   -1.40(       1,       1,       1) 
+
+      MAX DP =   -1.40(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      150.0   DAYS    ( 4-APR-2012):
+ @           RESTART FILE WRITTEN   REPORT    10                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 96 96
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00018 (       1,       1,       1)  9.2D-07     0.00  0.00000                          
+ WAT  0.00262 (       1,       1,       1)  5.0D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -1.3D-10    -0.31  0.00002                          
+ WAT  0.00002 (      20,       1,       3)  3.8D-10    -0.13  0.00003                          
+
+ STEP   14 TIME=    165.00  DAYS (   +15.0  DAYS REPT  1 ITS) (19-APR-2012)      
+  PAV=   269.0  BARSA  WCT=0.981 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       1.       112.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      27.      5992.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -1.21(       1,       1,       1) 
+
+      MAX DP =   -1.21(       1,       1,       1) 
+
+      MAX DP =   -1.21(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      165.0   DAYS    (19-APR-2012):
+ @           RESTART FILE WRITTEN   REPORT    11                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 96 96
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00016 (       1,       1,       1)  8.6D-07     0.00  0.00000                          
+ WAT  0.00226 (       1,       1,       1)  4.6D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -1.2D-10    -0.30  0.00002                          
+ WAT  0.00002 (      20,       1,       3)  3.4D-10    -0.13  0.00003                          
+
+ STEP   15 TIME=    180.00  DAYS (   +15.0  DAYS REPT  1 ITS) (4-MAY-2012)       
+  PAV=   268.5  BARSA  WCT=0.981 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       119.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      24.      6360.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -1.05(       1,       1,       1) 
+
+      MAX DP =   -1.05(       1,       1,       1) 
+
+      MAX DP =   -1.05(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      180.0   DAYS    ( 4-MAY-2012):
+ @           RESTART FILE WRITTEN   REPORT    12                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 95 95
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00013 (       1,       1,       1)  8.1D-07     0.00  0.00000                          
+ WAT  0.00197 (       1,       1,       1)  4.3D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -1.1D-10    -0.28  0.00002                          
+ WAT  0.00002 (      20,       1,       3)  2.9D-10    -0.12  0.00002                          
+
+ STEP   16 TIME=    195.00  DAYS (   +15.0  DAYS REPT  1 ITS) (19-MAY-2012)      
+  PAV=   268.1  BARSA  WCT=0.981 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       126.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      23.      6698.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.92(       1,       1,       1) 
+
+      MAX DP =   -0.92(       1,       1,       1) 
+
+      MAX DP =   -0.92(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      195.0   DAYS    (19-MAY-2012):
+ @           RESTART FILE WRITTEN   REPORT    13                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 95 95
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00012 (       1,       1,       1)  7.5D-07     0.00  0.00000                          
+ WAT  0.00173 (       1,       1,       1)  3.9D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -9.2D-11    -0.26  0.00002                          
+ WAT  0.00002 (      20,       1,       3)  2.5D-10    -0.11  0.00002                          
+
+ STEP   17 TIME=    210.00  DAYS (   +15.0  DAYS REPT  1 ITS) (3-JUN-2012)       
+  PAV=   267.7  BARSA  WCT=0.980 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       132.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      21.      7008.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.82(       1,       1,       1) 
+
+      MAX DP =   -0.82(       1,       1,       1) 
+
+      MAX DP =   -0.82(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      210.0   DAYS    ( 3-JUN-2012):
+ @           RESTART FILE WRITTEN   REPORT    14                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 95 95
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00010 (       1,       1,       1)  7.0D-07     0.00  0.00000                          
+ WAT  0.00153 (       1,       1,       1)  3.6D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -7.9D-11    -0.25  0.00002                          
+ WAT  0.00002 (      20,       1,       3)  2.1D-10    -0.10  0.00002                          
+
+ STEP   18 TIME=    225.00  DAYS (   +15.0  DAYS REPT  1 ITS) (18-JUN-2012)      
+  PAV=   267.3  BARSA  WCT=0.980 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       138.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      19.      7293.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.73(       1,       1,       1) 
+
+      MAX DP =   -0.73(       1,       1,       1) 
+
+      MAX DP =   -0.73(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      225.0   DAYS    (18-JUN-2012):
+ @           RESTART FILE WRITTEN   REPORT    15                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 95 95
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00009 (       1,       1,       1)  6.5D-07     0.00  0.00000                          
+ WAT  0.00136 (       1,       1,       1)  3.3D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -6.7D-11    -0.23  0.00002                          
+ WAT  0.00002 (      20,       1,       3)  1.7D-10    -0.10  0.00002                          
+
+ STEP   19 TIME=    240.00  DAYS (   +15.0  DAYS REPT  1 ITS) (3-JLY-2012)       
+  PAV=   266.9  BARSA  WCT=0.980 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       143.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      17.      7554.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.65(       1,       1,       1) 
+
+      MAX DP =   -0.65(       1,       1,       1) 
+
+      MAX DP =   -0.65(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      240.0   DAYS    ( 3-JLY-2012):
+ @           RESTART FILE WRITTEN   REPORT    16                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 95 95
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00008 (       1,       1,       1)  6.1D-07     0.00  0.00000                          
+ WAT  0.00122 (       1,       1,       1)  3.0D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -5.7D-11    -0.21  0.00002                          
+ WAT  0.00001 (      20,       1,       3)  1.4D-10    -0.09  0.00002                          
+
+ STEP   20 TIME=    255.00  DAYS (   +15.0  DAYS REPT  1 ITS) (18-JLY-2012)      
+  PAV=   266.6  BARSA  WCT=0.979 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       148.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      16.      7793.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.58(       1,       1,       1) 
+
+      MAX DP =   -0.58(       1,       1,       1) 
+
+      MAX DP =   -0.58(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      255.0   DAYS    (18-JLY-2012):
+ @           RESTART FILE WRITTEN   REPORT    17                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 95 95
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00007 (       1,       1,       1)  5.7D-07     0.00  0.00000                          
+ WAT  0.00110 (       1,       1,       1)  2.8D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00002 (      18,       1,       5) -4.8D-11    -0.19  0.00002                          
+ WAT  0.00001 (      20,       1,       3)  1.2D-10    -0.08  0.00001                          
+
+ STEP   21 TIME=    270.00  DAYS (   +15.0  DAYS REPT  1 ITS) (2-AUG-2012)       
+  PAV=   266.3  BARSA  WCT=0.979 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       153.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      15.      8012.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.53(       1,       1,       1) 
+
+      MAX DP =   -0.53(       1,       1,       1) 
+
+      MAX DP =   -0.53(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      270.0   DAYS    ( 2-AUG-2012):
+ @           RESTART FILE WRITTEN   REPORT    18                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 95 95
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00007 (       1,       1,       1)  5.3D-07     0.00  0.00000                          
+ WAT  0.00099 (       1,       1,       1)  2.5D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -4.0D-11    -0.18  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  9.3D-11    -0.08  0.00001                          
+
+ STEP   22 TIME=    285.00  DAYS (   +15.0  DAYS REPT  1 ITS) (17-AUG-2012)      
+  PAV=   266.0  BARSA  WCT=0.979 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       157.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      13.      8212.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.48(       1,       1,       1) 
+
+      MAX DP =   -0.48(       1,       1,       1) 
+
+      MAX DP =   -0.48(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      285.0   DAYS    (17-AUG-2012):
+ @           RESTART FILE WRITTEN   REPORT    19                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 94 94
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00006 (       1,       1,       1)  4.9D-07     0.00  0.00000                          
+ WAT  0.00090 (       1,       1,       1)  2.3D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -3.4D-11    -0.16  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  7.4D-11    -0.07  0.00001                          
+
+ STEP   23 TIME=    300.00  DAYS (   +15.0  DAYS REPT  1 ITS) (1-SEP-2012)       
+  PAV=   265.8  BARSA  WCT=0.978 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       162.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      12.      8395.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.43(       1,       1,       1) 
+
+      MAX DP =   -0.43(       1,       1,       1) 
+
+      MAX DP =   -0.43(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      300.0   DAYS    ( 1-SEP-2012):
+ @           RESTART FILE WRITTEN   REPORT    20                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 94 94
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00005 (       1,       1,       1)  4.6D-07     0.00  0.00000                          
+ WAT  0.00081 (       1,       1,       1)  2.1D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -2.8D-11    -0.15  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  5.8D-11    -0.06  0.00001                          
+
+ STEP   24 TIME=    315.00  DAYS (   +15.0  DAYS REPT  1 ITS) (16-SEP-2012)      
+  PAV=   265.6  BARSA  WCT=0.978 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       165.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      11.      8562.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.39(       1,       1,       1) 
+
+      MAX DP =   -0.39(       1,       1,       1) 
+
+      MAX DP =   -0.39(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      315.0   DAYS    (16-SEP-2012):
+ @           RESTART FILE WRITTEN   REPORT    21                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 94 94
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00005 (       1,       1,       1)  4.3D-07     0.00  0.00000                          
+ WAT  0.00074 (       1,       1,       1)  1.9D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -2.4D-11    -0.14  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  4.5D-11    -0.06  0.00001                          
+
+ STEP   25 TIME=    330.00  DAYS (   +15.0  DAYS REPT  1 ITS) (1-OCT-2012)       
+  PAV=   265.4  BARSA  WCT=0.977 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       169.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT      10.      8715.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.36(       1,       1,       1) 
+
+      MAX DP =   -0.36(       1,       1,       1) 
+
+      MAX DP =   -0.36(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      330.0   DAYS    ( 1-OCT-2012):
+ @           RESTART FILE WRITTEN   REPORT    22                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 94 94
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00004 (       1,       1,       1)  4.0D-07     0.00  0.00000                          
+ WAT  0.00067 (       1,       1,       1)  1.8D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -2.0D-11    -0.13  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  3.5D-11    -0.05  0.00001                          
+
+ STEP   26 TIME=    345.00  DAYS (   +15.0  DAYS REPT  1 ITS) (16-OCT-2012)      
+  PAV=   265.2  BARSA  WCT=0.976 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       172.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT       9.      8854.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.32(       1,       1,       1) 
+
+      MAX DP =   -0.32(       1,       1,       1) 
+
+      MAX DP =   -0.32(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      345.0   DAYS    (16-OCT-2012):
+ @           RESTART FILE WRITTEN   REPORT    23                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 94 94
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00004 (       1,       1,       1)  3.8D-07     0.00  0.00000                          
+ WAT  0.00061 (       1,       1,       1)  1.6D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -1.6D-11    -0.12  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  2.6D-11    -0.05  0.00001                          
+
+ STEP   27 TIME=    360.00  DAYS (   +15.0  DAYS REPT  1 ITS) (31-OCT-2012)      
+  PAV=   265.0  BARSA  WCT=0.976 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       176.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT       8.      8981.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.30(       1,       1,       1) 
+
+      MAX DP =   -0.30(       1,       1,       1) 
+
+      MAX DP =   -0.30(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      360.0   DAYS    (31-OCT-2012):
+ @           RESTART FILE WRITTEN   REPORT    24                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 93 93
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00003 (       1,       1,       1)  3.6D-07     0.00  0.00000                          
+ WAT  0.00056 (       1,       1,       1)  1.5D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -1.4D-11    -0.11  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  1.9D-11    -0.04  0.00001                          
+
+ STEP   28 TIME=    375.00  DAYS (   +15.0  DAYS REPT  1 ITS) (15-NOV-2012)      
+  PAV=   264.8  BARSA  WCT=0.975 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       179.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT       8.      9098.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.27(       1,       1,       1) 
+
+      MAX DP =   -0.27(       1,       1,       1) 
+
+      MAX DP =   -0.27(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      375.0   DAYS    (15-NOV-2012):
+ @           RESTART FILE WRITTEN   REPORT    25                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 93 93
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00003 (       1,       1,       1)  3.4D-07     0.00  0.00000                          
+ WAT  0.00051 (       1,       1,       1)  1.4D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -1.1D-11    -0.10  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  1.3D-11    -0.04  0.00001                          
+
+ STEP   29 TIME=    390.00  DAYS (   +15.0  DAYS REPT  1 ITS) (30-NOV-2012)      
+  PAV=   264.7  BARSA  WCT=0.974 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       181.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT       7.      9204.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.25(       1,       1,       1) 
+
+      MAX DP =   -0.25(       1,       1,       1) 
+
+      MAX DP =   -0.25(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      390.0   DAYS    (30-NOV-2012):
+ @           RESTART FILE WRITTEN   REPORT    26                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 93 93
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00003 (       1,       1,       1)  3.2D-07     0.00  0.00000                          
+ WAT  0.00046 (       1,       1,       1)  1.2D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -9.5D-12    -0.09  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  8.7D-12    -0.04  0.00001                          
+
+ STEP   30 TIME=    405.00  DAYS (   +15.0  DAYS REPT  1 ITS) (15-DEC-2012)      
+  PAV=   264.6  BARSA  WCT=0.973 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       184.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT       6.      9301.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.22(       1,       1,       1) 
+
+      MAX DP =   -0.22(       1,       1,       1) 
+
+      MAX DP =   -0.22(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      405.0   DAYS    (15-DEC-2012):
+ @           RESTART FILE WRITTEN   REPORT    27                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 93 93
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00003 (       1,       1,       1)  3.0D-07     0.00  0.00000                          
+ WAT  0.00042 (       1,       1,       1)  1.1D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -7.9D-12    -0.08  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  5.1D-12    -0.03  0.00001                          
+
+ STEP   31 TIME=    420.00  DAYS (   +15.0  DAYS REPT  1 ITS) (30-DEC-2012)      
+  PAV=   264.4  BARSA  WCT=0.972 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       187.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT       6.      9389.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.20(       1,       1,       1) 
+
+      MAX DP =   -0.20(       1,       1,       1) 
+
+      MAX DP =   -0.20(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      420.0   DAYS    (30-DEC-2012):
+ @           RESTART FILE WRITTEN   REPORT    28                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 93 93
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00002 (       1,       1,       1)  2.8D-07     0.00  0.00000                          
+ WAT  0.00039 (       1,       1,       1)  1.0D-05     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -6.5D-12    -0.07  0.00001                          
+ WAT  0.00001 (      20,       1,       3)  2.3D-12    -0.03  0.00001                          
+
+ STEP   32 TIME=    435.00  DAYS (   +15.0  DAYS REPT  1 ITS) (14-JAN-2013)      
+  PAV=   264.3  BARSA  WCT=0.971 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       189.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT       5.      9470.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.19(       1,       1,       1) 
+
+      MAX DP =   -0.19(       1,       1,       1) 
+
+      MAX DP =   -0.19(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      435.0   DAYS    (14-JAN-2013):
+ @           RESTART FILE WRITTEN   REPORT    29                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 92 92
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+ IT= 0    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL  0.00002 (       1,       1,       1)  2.7D-07     0.00  0.00000                          
+ WAT  0.00035 (       1,       1,       1)  9.4D-06     0.00  0.00000                          
+
+ NON-CONVERGENCE BECAUSE MATERIAL BALANCE TOLERANCE EXCEEDED
+       LINIT=   1 NSCHP=         0 NCHOP=         0 NSTAT1,2,3=         0       100         0 NTRAN=        
+ IT= 1    CNV              CELL             MAT BAL   DPRESS    DSWAT                          
+ OIL -0.00001 (      18,       1,       5) -5.4D-12    -0.07  0.00001                          
+ WAT  0.00000 (      20,       1,       3)  8.4D-14    -0.03  0.00000                          
+
+ STEP   33 TIME=    450.00  DAYS (   +15.0  DAYS REPT  1 ITS) (29-JAN-2013)      
+  PAV=   264.2  BARSA  WCT=0.970 GOR= 0.00000   SM3/SM3 WGR= 0.00000   SM3/SM3   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL       0.       191.       0.         0. -0.000(       1,       1,       1)  0.000(       1,       1,       1)
+ WAT       5.      9544.       0.         0.  0.000(       1,       1,       1) -0.000(       1,       1,       1)
+
+      MAX DP =   -0.17(       1,       1,       1) 
+
+      MAX DP =   -0.17(       1,       1,       1) 
+
+      MAX DP =   -0.17(       1,       1,       1) 
+
+ @--MESSAGE  AT TIME      450.0   DAYS    (29-JAN-2013):
+ @           RESTART FILE WRITTEN   REPORT    30                             
+ @           RESTART INCLUDES WATER AND GAS PHASE PRESSURES                  
+ @                            VELOCITIES                                     
+ =======================================================
+ TIMING REPORTS AT CPU =     2 SECS - ELAPSED=     2 SECS
+ =======================================================
+ ZZSS    1 92 92
+                RR      1  1  1
+ SR      1  0  0
+ +-------+-----------+-----------+----------------------------
+    62 READING END     
