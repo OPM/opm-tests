@@ -2,20 +2,20 @@
 
 Case Name | Case Desciption                                               | Base Model | Results<br />Match | Comments |
 --------- | -----------------------------                                 | ---------- | ------- | ------------------------------------- |
-GASLIFT-01| Two-Phase, Cartesian regular, with variable GLIFT             | GASLIFT    | No     | Results are completely different because wells not flowing. 
+GASLIFT-01| Two-Phase, Cartesian regular, with variable GLIFT             | GASLIFT    | No     | Results are completely different because wells are not flowing. 
 GASLIFT-02| Two-Phase, Corner-Point, with variable GLIFT                  | GASLIFT    | Yes    | Field match is good,well matches are more variable from very good to poor.
 GASLIFT-03| Three-Phase, Corner-Point, variable GLIFT, MODEL05 PVT        | GASLIFT    | Yes    | Good to perfect well matches - results are reasonable. 
 GASLIFT-04| Three-Phase, Corner-Point, variable GLIFT, MODEL05 PVT/VFP    | GASLIFT    | Yes    | Good to perfect well matches - results are reasonable.
-GASLIFT-05| Base                                                          | MODEL05    | Yes    | Generally good well match except at end due to lack of gas lift.
-GASLIFT-06| Base and group ORAT=6000                                      | MODEL05    | Mixed  | Generally good well match, except C1-1H and C-2H.  
-GASLIFT-07| Base and group LIFTOPT(OPTLIFT)=NO                            | MODEL05    | No     | Different, gas lift not applied in some casesB-1H for example, Should be similar to GASLIFT-05.
+GASLIFT-05| Base                                                          | MODEL05    | No     | Previously, generally good well match except at end due to lack of gas lift, but is now a poor match.
+GASLIFT-06| Base and group ORAT=6000                                      | MODEL05    | No     | Previously, generally good well match except at end due to lack of gas lift, but is now a poor match.
+GASLIFT-07| Base and group LIFTOPT(OPTLIFT)=NO                            | MODEL05    | No     | Not matched. Should be similar to GASLIFT-05.
 GASLIFT-08| Base and group ORAT=6000, Max ALQ from VFP                    | MODEL05    | Mixed  | Field matches, but well results are variable, with some being well matched (B-1H) others not (B-2H).  
-GASLIFT-09| Base and group ORAT=6000, Max ALQ from VFP, TSTEP=15          | MODEL05    | No     | Different, no gas lift on several wells (B-1H, B-3H, C-1H).
-GASLIFT-10| Base and group ORAT=6000, Max ALQ from VFP, TSTEP=15, WTEST   | MODEL05    | Yes    | Field matches, WTEST works, well B-3H and C-2H different.
-GASLIFT-11| Base and group ORAT=6000, Max ALQ from VFP, GLIFTLIM(MXLIFT)  | MODEL05    | Yes    | Field matches, no gas lift on several wells B-2H and C-1H. 
-GASLIFT-12| MSW Base for Multi-Segment Wells                              | MODEL05    | No     | Different, either no gas lift (B-2H) or insufficent gas lift (B-1H, B-3H, and C-2H). 
-GASLIFT-13| MSW and BRANPROP and NODEPROP                                 | MODEL05    | No     | Different, either no gas lift (B-2H) or insufficent gas lift (B-1H, B-3H, and C-2H), various "switching" messages.
-GASLIFT-14| MSW and BRANPROP and NODEPROP(GASLIFT)=YES                    | MODEL05    | No     | Different, either no gas lift (B-2H and B-3H) or insufficent gas lift (B-1H,
+GASLIFT-09| Base and group ORAT=6000, Max ALQ from VFP, TSTEP=15          | MODEL05    | Yes    | Very good match.
+GASLIFT-10| Base and group ORAT=6000, Max ALQ from VFP, TSTEP=15, WTEST   | MODEL05    | Yes    | Field matches, WTEST works, well C-2H is different.
+GASLIFT-11| Base and group ORAT=6000, Max ALQ from VFP, GLIFTLIM(MXLIFT)  | MODEL05    | Yes    | Field nearly matches, no gas lift on several wells B-2H and C-1H (ase as previously). 
+GASLIFT-12| MSW Base for Multi-Segment Wells                              | MODEL05    | No     | Different, either no gas lift (B-2H and C-2H) or insufficent gas lift (B-1H, and B-3H). 
+GASLIFT-13| MSW and BRANPROP and NODEPROP                                 | MODEL05    | No     | Different, either no gas lift (B-2H) or insufficent gas lift (B-1H, and B-3H), various "switching" messages.
+GASLIFT-14| MSW and BRANPROP and NODEPROP(GASLIFT)=YES                    | MODEL05    | No     | Program threw an exception: No ALQ value registered for well: F-1H
 GASLIFT-15| MSW and BRANPROP and NODEPROP(GASLIFT)=YES, RESTART run       | MODEL05    | No     | Both simulators fail - ignore results for now,  will investigate further.
            
 **Notes:** 
@@ -282,6 +282,8 @@ run is based on GASLIFT-13, **and differs by reporting gas lift for all producin
  
 [GASLIFT-14 ECL Results](plots/GASLIFT-14-ECL.md) 
 
+**No OPM Flow Results - Note both OPM Flow and the commerical simulator fail - will investgate later.**
+
 ### GASLIFT-15 Description and Results
 The model tests the use of Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This 
@@ -294,7 +296,7 @@ run is based on GASLIFT-13, **and differs by reporting gas lift for all producin
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
  6) RESTART run.
 
-**Note both OPM Flow and the commerical simulator fail - will investgate later.**
- 
-[GASLIFT-15 ECL Results](plots/GASLIFT-15-ECL.md) 
+[GASLIFT-15 ECL Results](plots/GASLIFT-15-ECL.md)
+
+**No OPM Flow Results - Note both OPM Flow and the commerical simulator fail - will investgate later.**
 
