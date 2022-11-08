@@ -22,7 +22,7 @@ results, and the results are comparable to the published results from various ve
 
 **Notes:**
 
-1. _Test Type_ column shows if the the case is used for intergration testing (_Int_), or regression teststing (_Reg_)
+1. _Test Type_ column shows if the case is used for intergration testing (_Int_), or regression teststing (_Reg_)
 2. _Results Match_ column indicate if the OPM Flow results match the published results, see the SPE10.odp document for comparisons.
 3. Model one cases run with ten day time steps for comparison purposes.
 4. Model two used variable time steps and requires CPR to run, see the parameter files.
