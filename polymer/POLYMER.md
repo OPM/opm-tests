@@ -1,9 +1,10 @@
 # Polymer Test Documentation
 
-Case Name  | Case Desciption                                           | Base Model | Test<br />Type | Results<br />Match | Comments |
----------  | -----------------------------                             | ---------- | ---- | ------- | ------------------------------------- |
-POLYMER-01 | Advanced molecular polymer model (2D_POLYMER_INJECTIVITY).| POLYMER-01 | Reg  | Yes     | Perfect match with reference case.
-POLYMER-02 | Standard polymer model (2D_OILWATER_POLYMER).             | AQUFET-01  | Reg  | Yes     | Perfect match with reference case.
+Case Name  | Case Desciption                                               | Base Model | Test<br />Type | Results<br />Match | Comments |
+---------  | -----------------------------                                 | ---------- | ---- | ------- | ------------------------------------- |
+POLYMER-01 | Advanced molecular polymer model (2D_POLYMER_INJECTIVITY).    | POLYMER-01 | Reg  | Yes     | Perfect match with reference case.
+POLYMER-02 | Standard polymer model (2D_OILWATER_POLYMER).                 | POLYMER-02 | Reg  | Yes     | Perfect match with reference case.
+POLYMER-03 | Standard polymer model three-phase (2D_THREEPHASE_POLY_HETER).| POLYMER-03 | Reg  | Yes     | Perfect match with reference case.
 
 **Notes:** 
 
@@ -41,5 +42,17 @@ well. The case is used to test polymer injectivity using OPM Flow's polymer mode
 commercial simulator.
 
 [POLYMER-02 REF Results](plots/POLYMER-02-REF.md) 
+
+---
+
+### POLYMER-03 Description and Results
+
+![](plots/polymer-03-model.jpg)
+
+Simple two-dimension, three-phase (OIL, WATER, GAS, DISGAS, VAPOIL and POLYMER), polymer model, with one vertical 
+water/polymer injector and one vertical oil well. The case is used to test polymer injectivity using OPM Flow's 
+polymer model, and users the  same keywords as the commercial simulator.
+
+[POLYMER-03 REF Results](plots/POLYMER-03-REF.md) 
 
 ---
