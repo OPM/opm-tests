@@ -184,10 +184,6 @@ INIT
 -- Transmissibilities calculated from cell corner positions
 NEWTRAN
 
-GRIDUNIT
- METRES /
-
-
 -- Include simulation grid with sloping faults  
 INCLUDE
  'include/grid_basemod1.grdecl' /

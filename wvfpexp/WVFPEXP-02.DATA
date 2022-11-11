@@ -182,11 +182,6 @@ SPECGRID
 --
 --       DEFINE COORDINATE GRID OPTIONS 
 -- 
---       K1     K2     COMP    CONNECT  LOWER  UPPER
---       Layer  Layer  CIRCLE  RES      RES    RES
-COORDSYS 
-         1      5                                          /
---
 --       SWITCH OFF ECHOING OF INPUT FILES
 --
 NOECHO                                                                         

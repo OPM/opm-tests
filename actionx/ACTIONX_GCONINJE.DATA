@@ -170,9 +170,6 @@ GRIDFILE
 --
 --       SET THE GRID UNITS FOR THE GRID
 --
-GRIDUNIT
-         METRES                                                                /
---
 --       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
 --
 NEWTRAN

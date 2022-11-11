@@ -72,9 +72,6 @@ NSTACK
 UNIFIN
 UNIFOUT
 
-OPTIONS
-77* 1 /
-
 ---------------------------------------------------------
 --
 --	Input of grid geometry
@@ -86,9 +83,6 @@ NEWTRAN
 
 GRIDFILE
   0 1  /
-
-GRIDUNIT
-METRES  /
 
 INIT
 
