@@ -81,13 +81,13 @@ MAPAXES
 SPECGRID
 --	NX	NY	NZ	Nres	Cyl?
         1	1	1	1	F	/
-COORDSYS
---	K1	K2	Compl		Conn		R1	R2
-        1	1	INCOMP	SEPARATE	1*	1*	/
+--COORDSYS
+----	K1	K2	Compl		Conn		R1	R2
+--        1	1	INCOMP	SEPARATE	1*	1*	/
 
 -- Coordinates
-RESVNUM
-        1	/
+--RESVNUM
+--        1	/
 COORD
         0		0		3000		0		0		3100
         1000		0		3000		1000		0		3100
@@ -142,7 +142,7 @@ MULTIPLY
 -- Min PV
 MINPV
 --	rm3
-        0.0	/
+        1e-6	/
 
 -- Grid file output
 GRIDFILE
@@ -364,9 +364,9 @@ TUNING
 TUNINGDP
 --	*LCV	^LCV	^DDP	^DDS
         1E-9	1E-8	0.01	0.01 /
-GCONTOL
---	FLOTOL	NUPCOL
-        0.01		20 /
+--GCONTOL
+----	FLOTOL	NUPCOL
+--        0.01		20 /
 --------------------------------------------------------------------------------
 
 -- Injection x 1 days

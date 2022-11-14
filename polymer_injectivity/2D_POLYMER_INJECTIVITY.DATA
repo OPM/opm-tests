@@ -48,8 +48,6 @@ NSTACK
 UNIFIN
 UNIFOUT
 
-OPTIONS
-77* 1 /
 
 ---------------------------------------------------------
 --
@@ -62,9 +60,6 @@ NEWTRAN
 
 GRIDFILE
   0 1  /
-
-GRIDUNIT
-METRES  /
 
 INIT
 
@@ -181,9 +176,6 @@ ALL
 
 SCHEDULE
 
-OPTIONS
-136* 2
-/
 
 RPTRST
  BASIC=2 KRO KRW KRG SWAT PRES SOIL /
