@@ -9439,9 +9439,9 @@ WTEST
      'K-3H'     30.000       'PEG' 1000  1* /
 /
 
-WPITAB 
-     'K-3H'    1 /
-/
+--WPITAB 
+--     'K-3H'    1 /
+--/
 
 -- 3282.000000 days from start of simulation ( 6 'NOV' 1997 )
 DATES
