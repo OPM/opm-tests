@@ -1,0 +1,387 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+--  
+-- Copyright (C) 2022 Equinor
+--                                                                           
+-- This model is generated for testing the GRIDUNIT keyword. This keyword allows for using an
+-- input grid (COORD and ZCORN) with units different from the unit system used in the data deck. 
+
+-- In this data deck the METRIC units system is used and input grid is in cm. Hence input grid 
+-- needs to be converted from cm to metres. 
+
+-- =================================================================================================================================
+-- 
+-- RUNSPEC SECTION 
+-- 
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE START DATE FOR THE RUN 
+--
+START                                                                                                                                                                                                     
+         16 'NOV' 2022 /
+--                                                                              
+--       OIL PHASE IS PRESENT IN THE RUN
+--
+OIL                                                                            
+GAS                                                                                                                                                           
+WATER                                                                            
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS                                             
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--                                                                              
+--       MAX     MAX     MAX                                                    
+--       NDIVIX  NDIVIY  NDIVIZ                                                 
+DIMENS                                                                          
+         5     7       5                                                    / 
+--
+--       MAX     MAX     RSVD    TVDP    TVDP                                   
+--       EQLNUM  DEPTH   NODES   TABLE   NODES                                  
+EQLDIMS                                                                         
+         1*      1*      1*      1*      1*                                    /                                                                          
+--                                                                              
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS 
+REGDIMS                                                                         
+         1*      1*      1*      1*      1*     1*     1*     1*    1*    1*   /                
+--
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300                    
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND            
+TABDIMS                                                                         
+         1*      1*      50      1*      1*      1*     1*     1               /         
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--                                                                                
+--       WELL    WELL    GRUPS   GRUPS                                          
+--       MXWELS  MXCONS  MXGRPS  MXGRPW                                         
+WELLDIMS                                                                        
+         2       20      1       2                                             /                                                                                
+
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT 
+--
+METRIC
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN                                                                          
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT                                                                          
+         
+-- =================================================================================================================================
+-- 
+-- GRID SECTION 
+-- 
+-- =================================================================================================================================
+GRID
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1 /                                                                              
+--                                                                              
+--                                                                              
+INCLUDE 
+  'include/test1_cm.grdecl'  /
+  
+--                                                                              
+-- 
+PORO
+         175*0.2                                                              /                                                                                 
+--
+PERMX
+         175*500.0                                                              /                                                                                 
+
+COPY
+ 'PERMX' 'PERMY' /
+ 'PERMX' 'PERMZ' /
+/
+
+MULTIPLY
+ 'PERMZ' 0.1 /
+/  
+
+
+-- =================================================================================================================================
+-- 
+-- EDIT SECTION 
+-- 
+-- =================================================================================================================================
+EDIT
+
+-- =================================================================================================================================
+-- 
+-- PROPS SECTION 
+-- 
+-- =================================================================================================================================
+PROPS
+--                                                                                     
+--       GAS-OIL RELATIVE PERMEABILITY TABLES (SGOF)                                                                 
+SGOF
+--       SLIQ       KRG       KROG      PCOG                                                     
+--       FRAC                           PSIA                                                  
+--       -------   --------  -------   -------                                                
+         0.000000  0.000000  1.000000  0.000000
+         0.025000  0.000000  0.912530  0.000000
+         0.050000  0.000000  0.830041  0.000000
+         0.075000  0.000000  0.752410  0.000000
+         0.100000  0.000001  0.679518  0.000000 
+         0.125000  0.000007  0.611238  0.000000
+         0.150000  0.000031  0.547448  0.000000
+         0.175000  0.000093  0.488020  0.000000
+         0.200000  0.000232  0.432827  0.000000
+         0.225000  0.000501  0.381737  0.000000
+         0.250000  0.000977  0.334621  0.000000
+         0.275000  0.001760  0.291345  0.000000
+         0.300000  0.002980  0.251773  0.000000
+         0.325000  0.004800  0.215767  0.000000
+         0.350000  0.007416  0.183188  0.000000
+         0.375000  0.011065  0.153893  0.000000
+         0.400000  0.016028  0.127737  0.000000
+         0.425000  0.022631  0.104573  0.000000
+         0.450000  0.031250  0.084248  0.000000
+         0.475000  0.042315  0.066609  0.000000
+         0.500000  0.056314  0.051496  0.000000
+         0.525000  0.073794  0.038746  0.000000
+         0.550000  0.095367  0.028191  0.000000
+         0.575000  0.121716  0.019658  0.000000
+         0.600000  0.153590  0.012965  0.000000
+         0.625000  0.191818  0.007925  0.000000
+         0.650000  0.237305  0.004338  0.000000 
+         0.675000  0.291038  0.001995  0.000000
+         0.700000  0.354093  0.000668  0.000000
+         0.725000  0.427631  0.000103  0.000000
+         0.750000  0.512909  0.000000  0.000000
+         0.775000  0.611280  0.000000  0.000000
+         0.800000  0.724196  0.000000  0.000000
+         0.825000  0.853215  0.000000  0.000000
+         0.850000  1.000000  0.000000  0.000000  
+         1.000000  1.000000  0.000000  0.000000            
+/ 
+--                                                                                     
+--       WATER-OIL RELATIVE PERMEABILITY TABLES (SWOF)                                                                  
+--
+--       NO WATER IN THE RESERVOIR BUT ORIGINALLY FLOW WAS A 3-PHASE SIMULATOR
+--       SO WATER IS PLACED BELOW THE RESERVOIR AND HAS NO IMPACT ON SIMULATION
+-- 
+SWOF
+--       SWAT       KRW       KROW      PCOW                                                     
+--       FRAC                           PSIA                                                  
+--       --------   --------  -------   -------                                                
+         00000      0.0000    1.0000    0
+         0.200      0.0001    0.9999    0
+         0.250      0.0069    0.8403    0
+         0.300      0.0278    0.6944    0
+         0.350      0.0625    0.5625    0
+         0.400      0.1111    0.4444    0
+         0.450      0.1736    0.3403    0
+         0.500      0.2500    0.2500    0
+         0.550      0.3403    0.1736    0
+         0.600      0.4444    0.1111    0
+         0.650      0.5625    0.0625    0
+         0.700      0.6944    0.0278    0
+         0.750      0.8403    0.0069    0
+         0.800      1.0000    0.0000    0                  
+/ 
+--
+--       OIL      WAT        GAS                                                             
+--       DENSITY  DENSITY    DENSITY                                                       
+--       -------  -------    -------                                                         
+DENSITY                                                                                  
+          699.69  1000.03    0.9996  / 
+--                                                                                      
+--       WATER PVT TABLE                                                                    
+--
+--       NO WATER IN THE RESERVOIR BUT ORIGINALLY FLOW WAS A 3-PHASE SIMULATOR
+--       SO WATER IS PLACED BELOW THE RESERVOIR AND HAS NO IMPACT ON SIMULATION
+--                                                                                      
+PVTW                                                                                    
+--       REF PRES  BW         CW         VISC     VISC                                         
+--       BARSA     RM3/SM3   1/BARSA    CPOISE   GRAD                                         
+--       --------  --------   -------   ------   ------                                       
+         413.69	   1	      4.4962E-05   0.3      1*  /     / 
+--                                                                                      
+--       OIL PVT TABLE FOR DEAD OIL 
+--
+--       BO EQUALS TO ONE, AND THE OIL IS UNCOMPRESSIBLE; HOWEVER, 
+--       ECLIPSE DOES NOT ACCEPT TWO IDENTICAL BO VALUES AT DIFFERENT PRESSURES
+--                                                                                      
+PVDO                                                                                    
+--       PSAT       BO         VISC                                                  
+--       BARSA      RM3/SM3    CPOISE                                                
+--       --------  -------   ------                                                
+         6.895       1.000000  1.000000
+         68.948      0.999999  1.000001
+         137.895     0.999998  1.000002
+         206.843     0.999997  1.000003
+         275.790     0.999996  1.000004
+         344.738     0.999995  1.000005
+         413.685     0.999994  1.000006
+         482.633     0.999993  1.000007
+         551.581     0.999992  1.000008
+         620.528     0.999991  1.000009
+         689.476     0.999990  1.000010 
+/  
+
+--       GAS PVT TABLE FOR DRY GAS                                                                        
+--
+--       BG EQUALS 178.1076 AND THE GAS IS UNCOMPRESSIBLE; HOWEVER, 
+--       ECLIPSE DOES NOT ACCEPT TWO IDENTICAL BG VALUES AT DIFFERENT PRESSURES
+--                                                                                      
+PVDG
+--       PRES     BG                   VISC                                                         
+--       PSIA     RB/MSCF              CPOISE                                                        
+--       ------   --------             ------                                                
+         6.895      0.999999931664378  0.010000   
+         68.948     0.999999931658764  0.010001
+         137.895    0.999999931653149  0.010002
+         206.843    0.999999931647534  0.010003
+         275.790    0.999999931641920  0.010004
+         344.738    0.999999931636305  0.010005
+         413.685    0.999999931630691  0.010006
+         482.633    0.999999931625076  0.010007
+         551.581    0.999999931619461  0.010008
+         620.528    0.999999931613847  0.010009
+         689.476    0.999999931608232  0.010010 		
+/
+
+--
+--       ROCK COMPRESSIBILITY                                                                 
+--                                                                                      
+--       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE      
+--       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (ECLIPSE USES THE REFERENCE       
+--       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA       
+--       ON THE ROCK KEYWORD)                                                             
+--                                                                                      
+--       REF PRES   CF                                                                         
+--       BARSA      1/BARSA                                                                      
+--       --------  --------                                                                   
+ROCK                                                                                    
+         413.69	   1.4504E-05 / 
+
+-- =================================================================================================================================
+-- 
+-- SOLUTION SECTION 
+-- 
+-- =================================================================================================================================
+SOLUTION  
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N           
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT         
+EQUIL                                                                        
+         2026.92  275.8   2026.92    0.00   0.00   0.00   1*   1*   0   /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+ BASIC=2 /
+
+-- =================================================================================================================================
+-- 
+-- SUMMARY SECTION 
+-- 
+-- =================================================================================================================================
+SUMMARY
+--
+--       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION     
+--
+--       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION     
+--
+SEPARATE       
+--
+--       SUMMARY VECTORS
+--
+FOPR
+FOPT
+FGPR
+FGPT
+FPR
+
+WBHP
+ OP01
+/
+WPI
+ OP01
+/
+
+WOPR
+ OP01
+/
+WOPT
+ OP01
+/
+WGPR
+ OP01
+/
+WGPT
+ OP01
+/
+
+ROIP
+ 1 /
+ 
+ 
+-- =================================================================================================================================
+-- 
+-- SCHEDULE SECTION 
+-- 
+-- =================================================================================================================================
+SCHEDULE
+
+TUNING
+ 0.1 2.0 /
+/
+/
+
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+         BASIC=0 /
+--
+--       WELL SPECIFICATION DATA                                                      
+--                                                                              
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
+WELSPECS                                                                                                                                                         
+  OP01     MAIN     2    2   1*    OIL                                            /
+/
+--
+--       WELL CONNECTION DATA                           
+--                                                                              
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN   
+COMPDAT                                                                        
+OP01     2   2   1  4   OPEN   1*    1*     1.0                             /
+/
+--
+--       WELL PRODUCTION WELL CONTROLS                                                     
+--                                                                              
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+ OP01     OPEN   ORAT    397.468     1*     1*    1*     1*    103.42  /
+/
+--       TEN DAY TSTEPS
+
+TSTEP                                                                           
+   4*5
+/                    
+
+-- *********************************************************************************************************************************
+-- END OF FILE                                                                  
+-- *********************************************************************************************************************************
