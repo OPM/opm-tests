@@ -177,7 +177,7 @@ PVTWSALT
 -- (OPM FLOW keyword)
 --
 SALTSOL
-	45.0/
+	45.0 2170/
 /
 
 -- Permeability factor reduction due to salt precipitation
