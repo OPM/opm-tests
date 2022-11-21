@@ -115,7 +115,7 @@ PROPS
 
 --Solubility limit lb/stb and solid salt density  lb/ft3
 SALTSOL
-	0.5 135.468674 /
+	0.5 135.468675025 /
 /
 
 -- PERMEABILITY FACTOR REDUCTION DUE TO SALT PRECIPITATION
