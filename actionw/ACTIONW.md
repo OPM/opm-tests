@@ -9,21 +9,21 @@ ACTIONW-WPIMULT-03| Various ACTIONW blocks to test behaviour on both producers a
 ACTIONW-WPIMULT-04| Various ACTIONW blocks to test behaviour on both producers and injectors (see below).                 | WPIMULT |    | NA     | E100 runs as expected waiting on OPM Flow implementation.
 ACTIONW-WPIMULT-05| Various ACTIONW blocks with oil producers productivity indices modified to give more variable results (see below).| WPIMULT |    | NA     | E100 runs as expected waiting on OPM Flow implementation.
 
-**The ACTIONW keyword is currently not supported, but work is ongoing to implemented the keyword; thus, these tests are
+**The ACTIONW keyword is currently not supported, but work is ongoing to implement the keyword; thus, these tests are
 designed to test the implementation when the keyword has been implemented.**
 
 **Notes:** 
 
-1. _Test Type_ column shows if the the case is used for intergration testing (_Int_), or regression teststing (_Reg_)  
+1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).  
 2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 3. All models run on five day time steps via the TUNNING keyword.
 
-**Version: 1 November 2022**
+**Version: 25 November 2022**
 
 ### ACTIONW Model (Irregular Corner-Point)
 
-This model is is a simple (9, 9, 2) model with with five oil producers and four water injectors using an Irregular
-Corner-Point grid. This a three phase model using MODEL05 PVT and well VFP data. The model has only one group as shown 
+This model is a simple (9, 9, 2) model with five oil producers and four water injectors using an Irregular
+Corner-Point grid. This is a three-phase model using MODEL05 PVT and well VFP data. The model has only one group, as shown 
 below:
 ``` 
                    FIELD                                                                     
@@ -46,8 +46,8 @@ Base case model with:
 ### ACTIONW-01 Description and Results
 
  1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 is set VREP 1.00. 
- 2) Producers OP01 to OP04 have an ACTIONW blocks that reduces the PI of the well by 0.900 when the water cut exceeds, 
- 0.20, 0.40 and 0.60.
+ 2) Producers OP01 to OP04 have ACTIONW blocks that multiplies the PI of the well by 0.900 when the water cut exceeds, 
+0.20, 0.40 and 0.60.
 
 [ACTIONW_WPIMULT-01 ECL Results](plots/ACTIONW_WPIMULT-01-ECL.md) 
 
@@ -55,7 +55,7 @@ Base case model with:
 
  1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 is set VREP 1.00. 
  2) Producer OP01 has a nested ACTIONW block that first tests if the well's water cut exceeds 0.20 (ACTW-01A), if it 
- does then ACTW-01B checks if the well PI is greater than 40.0 and if it is then reduce the PI by 0.900. 
+ does then ACTW-01B checks if the well PI is greater than 40.0 and if it is, then multiply the PI by 0.900. 
  ACTW-01A is set to execute three times and ACTW-01B only once, so the action should only be executed once.
  3) For OP02 the ACTW-02A and ACTW-02B are the same as for OP01, except ACTW-02B is allowed to execute twice.
  4) OP03 is the same as OP01, except this should not execute as the ACTW-03A and ACTW-03B should be overwritten by 
