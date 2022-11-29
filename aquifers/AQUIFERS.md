@@ -4,8 +4,8 @@ Case Name  | Case Desciption                                  | Base Model | Tes
 ---------  | -----------------------------                    | ---------- | ---- | ------- | ------------------------------------- |
 AQUCT-01   | Carter-Tracy aquifer (2D_OW_CTAQUIFER).          | AQUCT-01   | Reg  | Yes     | Perfect match.
 AQUFET-01  | Fetkovich aquifer (2D_FETKOVICHAQUIFER).         | AQUFET-01  | Reg  | Yes     | Perfect match.
-AQUNUM-01  | Numerical aquifer (3D_1AQU_3CELLS.DATA).         | AQUNUM-01  | Reg  | Yes     | Good match, differences due to time step size.
-AQUNUM-02  | Numerical aquifer (3D_2AQU_NUM.DATA).            | AQUNUM-02  | Reg  | Yes     | Very good match, differences due to time step size.
+AQUNUM-01  | Numerical aquifer (3D_1AQU_3CELLS.DATA).         | AQUNUM-01  | Reg  | Yes     | Perfect match with the TUNING keyword active.
+AQUNUM-02  | Numerical aquifer (3D_2AQU_NUM.DATA).            | AQUNUM-02  | Reg  | Yes     | Perfect match with the TUNING keyword active.
 
 **Notes:** 
 
@@ -13,7 +13,7 @@ AQUNUM-02  | Numerical aquifer (3D_2AQU_NUM.DATA).            | AQUNUM-02  | Reg
 2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 
 
-**Version: 7 November 2022**
+**Version: 29 November 2022**
     
 ### AQUCT-01 Description and Results
 
