@@ -78,9 +78,6 @@ NEWTRAN
 GRIDFILE
   0 1  /
 
-GRIDUNIT
-METRES  /
-
 INIT
 
 MESSAGES
@@ -246,10 +243,6 @@ AAQT
 -- 
 -- =================================================================================================================================
 SCHEDULE
-
-OPTIONS
-136* 2
-/
 
 RPTSCHED
  PRES SGAS SOIL SWAT /
