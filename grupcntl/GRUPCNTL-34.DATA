@@ -1,0 +1,670 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+--
+-- Copyright (C) 2018-2022 Equinor
+--
+-- This case is based on MODEL02 and is intended to verify various aspects of group and well control inter-actions. The  model is 
+-- is a (13, 22, 11) model with Regular Corner-Point grid. This is a three-phase model using MODEL02 PVT based on the Norne model.
+-- The static data for this model is different to the standard MODEL02, due to fault and NNC modifications, as well as, activating 
+-- the hysteresis and end-point scaling option. 
+-- 
+-- The model has several groups as shown below:
+--                                       
+--                                                    FIELD
+--                                                      |
+--                                                     RES
+--                                        --------------+------------
+--                                        |                         |        
+--                                      PROD                       INJE      
+--                              +------+------+------+         +-----+-----+
+--                              |      |      |      |         |           |
+--                            PROD1  PROD2  PROD3  PROD4      INJE1      INJE2
+--
+-- ( 1) The case has four producers with VFP tables, and one gas injector (INJ1) and one water injector (INJ2).
+-- ( 2) Producers and injectors are standard wells.
+-- ( 3) Group control.
+-- ( 4) WCONPROD(OIL)=4E3, WCONPROD(GAS)=4E6,WCONPROD(LIQ)=8E3, and WCONPROD(BHP)=60.0, same for all wells. 
+-- ( 5) WCONPROD(THP)=30.0 and VFP tables.
+-- ( 6) Group RES: GCONPROD(TARGET)=ORAT, GCONPROD(OIL)=10E3, GCONPROD(WAT)=12E3, GCONPROD(GAS)=1.6E6, GCONPROD(LIQ)=15E3.   
+-- ( 7) Group RES: GCONPROD(GRPCNTL)=NO.
+-- ( 8) WCONJINJE(RATE)=8E3 for water injectors and WCONJINJE(RATE)=1.6E6 for gas injectors.
+-- ( 9) Group RES: GCONINJE(TYPE)=WAT, GCONINJE(TARGET)=VREP, and GCONINJE(VREP)=1.25   
+-- (10) Group RES: GCONINJE(TYPE)=GAS, GCONINJE(TARGET)=REIN, and GCONINJE(VREP)=1.00   
+-- (11) Group RES: GCONPROD(GAS)=2.1E6 from 2019-06-01.
+-- (12) GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE, from 2019-06-01. 
+--
+-- =================================================================================================================================
+-- 
+-- RUNSPEC SECTION 
+-- 
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE TITLE FOR THE RUN  
+--
+TITLE                                                                           
+GRUPCNTL-34: 9_4D_WINJ_GINJ_GAS_EXPORT_STW                                                                                  
+--
+--       DEFINE THE START DATE FOR THE RUN 
+--                             
+START                                                                                                                                                                                                     
+         01 'NOV' 2018                                                         /                                                                               
+--                                                                              
+--       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
+--
+-- NOSIM                                                                          
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- FLUID TYPES AND TRACER OPTIONS                         
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       OIL PHASE IS PRESENT IN THE RUN
+--
+OIL                                                                            
+--
+--       WATER PHASE IS PRESENT IN THE RUN
+--
+WATER                                                                            
+--
+--       GAS PHASE IS PRESENT IN THE RUN
+--
+GAS                                                                                                                                                           
+--
+--       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN
+--
+DISGAS                                                                            
+--
+--       VAPORIZED OIL IN WET GAS IS PRESENT IN THE RUN
+--
+VAPOIL                                                                                                       
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS                                             
+-- -----------------------------------------------------------------------------------------------------------------------------------                                                                              
+--       MAX     MAX     MAX                                                    
+--       NDIVIX  NDIVIY  NDIVIZ                                                 
+DIMENS                                                                          
+         13      22      11                                                    / 
+--
+--       FAULT                                                                  
+--       SEGMS                                                                  
+FAULTDIM                                                                        
+         120                                                                   /                                                                                
+--                                                                              
+--       MAX     MAX     RSVD    TVDP    TVDP                                   
+--       EQLNUM  DEPTH   NODES   TABLE   NODES                                  
+EQLDIMS                                                                         
+         2       100     25      1*      1*                                    /                                                                          
+--                                                                              
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS 
+REGDIMS                                                                         
+         2       1       1*      2       1*     1*     1*     1*    1*    1*   /                
+--
+--       NEG      MAX     MAX                                                    
+--       MULTS    MULTNUM PINCHNUM                                               
+GRIDOPTS                                                                        
+         YES      0       1*                                                   /
+--
+--       ACTIVATE EQUILIBRATION OPTIONS                                           
+--       MOBILE ENDPOINT(MOBILE) STEADY STATE(QUIESC) THRESHOLD(THPRES) 
+--       IRREVERSIBLE THRESHOLD(IRREVERS)                                   
+EQLOPTS                                                                        
+         'THPRES'                                                              /      
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300                    
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND            
+TABDIMS                                                                         
+         10      1       50      60      2       60                            /
+--
+--       ACTIVATE RELATIVE PERMEABILITY ASSIGNMENT HYSTERESIS OPTIONS                                           
+--       DIRECTTIONAL(DIRECT) IRREVERSIBLE(IRREVERS) HYSTERESIS(HYSTER)                                   
+SATOPTS                                                                        
+         HYSTER                                                                /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS                                                
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--                                                                                
+--       WELL    WELL    GRUPS   GRUPS                                          
+--       MXWELS  MXCONS  MXGRPS  MXGRPW                                         
+WELLDIMS                                                                                                                                                        
+         10      15      3       10                                            /
+---                                                                                
+--       WELL    WELL    BRANCH  SEGMENT                                        
+--       MXWELS  MXSEGS  MXBRAN  MXLINKS                                        
+WSEGDIMS
+         10      20      1       1*                                            /
+--
+--       PRODUCING VFP TABLES
+--       VFP     VFP     VFP     VFP     VFP     VFP
+--       MXMFLO  MXMTHP  MXMWFR  MXMGFR  MXMALQ  MXVFPTAB
+VFPPDIMS
+         40      20      20      20      0      60                             /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- INPUT AND OUTPUT OPTIONS                                                   
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT 
+--
+METRIC
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN                                                                          
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT 
+-- 
+--       PATH       PATH                                                                     
+--       ALIAS      DIRECTORY FILENAME
+PATHS
+        'MODEL02'   'include'                                                  /                                                                               
+/       
+
+-- =================================================================================================================================
+-- 
+-- GRID SECTION 
+-- 
+-- =================================================================================================================================
+GRID
+
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1                                                             /                                                                              
+--
+--       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
+--
+NEWTRAN
+--
+--       LOAD INCLUDE FILES
+--
+INCLUDE 
+         '$MODEL02/MODEL02-GRID.inc'                        /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-FLUXNUM.inc'                     /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-PORO.inc'                        /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-PERMX.inc'                       /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-PERMZ.inc'                       /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-NTG.inc'                         /         
+INCLUDE                                                     
+         '$MODEL02/MODEL02-FAULTS.inc'                      /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-MULTX.inc'                       /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-MULTY.inc'                       /
+INCLUDE                                                     
+         '$MODEL02/MODEL02-MULTZ.inc'                       /         
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------            
+--                                I1  I2   J1  J2   K1  K2            
+COPY                                                            
+         PERMX       PERMY        1*  1*   1*  1*   1*  1* / CREATE PERMY 
+/ 
+--
+--       SET PINCH-OUT CRITERA FOR THE MODEL
+--
+PINCH
+--       THRESHOLD   GAP      EMPTY   TRANS    MULTZ
+--       THICKNESS   NO GAP   GAP     CALC     CALC
+         0.001       GAP      1*      TOPBOT   ALL                             / 
+--
+--       MINIMUM PORE VOLUME FOR INDIVIDUAL CELLS TO BE ACTIVE 
+--
+MINPVV 
+         1144*100      2002*300                                                /
+--                                                                                 
+--       SET TRANSMISSIBILITES ACROSS DIFFERENT RESERVOIRS TO ZERO TO ISOLATE RESERVOIRS 
+--                                                                                 
+--       REGION   REGION   TRANS   DIREC   NNC    REGION ARRAY                                           
+--       FROM     TO       MULT    OPT     OPTS   M / F / O                             
+MULTREGT                                                                    
+         1        2        0.0     1*      1*     F          / REGIONS SEALED          
+/                                                                                           
+--
+--       DEFINE GRID SECTION REPORT OPTIONS
+--
+RPTGRID
+         'ALLNNC'                      /
+
+-- =================================================================================================================================
+-- 
+-- EDIT SECTION 
+-- 
+-- =================================================================================================================================
+EDIT
+--
+--       LOAD INCLUDE FILES - TRANX AND TRANY DATA
+--
+INCLUDE 
+         '$MODEL02/MODEL02-FAULTS-TRANXY.inc'               /
+--
+--       LOAD INCLUDE FILES - EDITNNC DATA
+--
+INCLUDE                                                     
+         '$MODEL02/MODEL02-FAULTS-EDITNNC.inc'             /
+--
+--       ARRAY       CONSTANT     ---------- BOX ---------             
+--                                I1  I2   J1  J2   K1  K2             
+MULTIPLY                                                         
+         TRANZ       0.05000      1   13   1   22   8   8  / PERMZ * 0.05   
+/                                                                    
+--                                                                                 
+--       MODIFY THE TRANSMISSIBILITES ACROSS DEFINED FAULTS 
+--                                                                                 
+--       FAULT            TRANS           DIFUSS                               
+--       NAME             MULTIPLIER      MULTIPLIER                                
+MULTFLT                                                         
+         'F1'             0.1                              / FAULT MULTIPLIERS     
+         'F2'             0.2                              / FAULT MULTIPLIERS     
+         'F3'             0.3                              / FAULT MULTIPLIERS     
+         'F4'             0.4                              / FAULT MULTIPLIERS     
+/                                                                                 
+
+-- =================================================================================================================================
+-- 
+-- PROPS SECTION 
+-- 
+-- =================================================================================================================================
+PROPS
+--
+--       LOAD INCLUDE FILE - PVT DATA
+--
+INCLUDE 
+         '$MODEL02/MODEL02-PVT.inc'                        /
+--
+--       LOAD INCLUDE FILE - GAS-OIL RELATIVE PERMEABILITY DATA
+--
+INCLUDE 
+         '$MODEL02/MODEL02-SGOF.inc'                       /
+--
+--       LOAD INCLUDE FILE - OIL-WATER RELATIVE PERMEABILITY DATA
+--
+INCLUDE 
+         '$MODEL02/MODEL02-SWOF.inc'                       /
+--
+--       ROCK COMPRESSIBILITY                                                                 
+--                                                                                      
+--       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE      
+--       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (ECLIPSE USES THE REFERENCE       
+--       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA       
+--       ON THE ROCK KEYWORD)                                                             
+--                                                                                      
+--       REF PRES  CF                                                                         
+--       BARSA     1/BARSA                                                                     
+--       --------  --------                                                                   
+ROCK                                                                                    
+         277.0     6.11423e-05                             / ROCK COMPRESSIBILITY
+--
+--       LOAD INCLUDE FILES - SWATINIT ARRAY       
+--
+INCLUDE 
+         '$MODEL02/MODEL02-SWATINIT.inc'                   /
+--
+--       LOAD INCLUDE FILES - SWL DATA
+--
+INCLUDE                                                     
+         '$MODEL02/MODEL02-SWL.inc'                        /
+--
+--       LOAD INCLUDE FILES - SGU DATA
+--
+INCLUDE                                                     
+         '$MODEL02/MODEL02-SGU.inc'                        /
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------            
+--                                I1  I2   J1  J2   K1  K2            
+COPY                                                            
+         SWL         SWCR         1*  1*   1*  1*   1*  1* / CREATE SWCR  
+/                                                               
+--
+--       ARRAY       CONSTANT     ---------- BOX ---------                 
+--                                I1  I2   J1  J2   K1  K2                
+EQUALS                                                  
+         SGL         0.0000       1*  1*   1*  1*   1*  1* / SET SGL
+/ 
+--
+--       HYSTERESIS MODEL AND PARAMETERS
+--
+--       PC-CUR  MODEL   RELPERM TRAPPED OPTION  SHAPE    MOBILIT  WET                        
+--       HYSTRCP HYSTMOD HYSTREL HYSTSGR HYSTOPT HYSTSCAN HYSTMOB  HYSTWET            
+EHYSTR                                                                         
+         0.1     1       0.1     1*      KR                                    /
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------            
+--                                I1  I2   J1  J2   K1  K2            
+COPY                                                            
+         SGL         ISGL         1*  1*   1*  1*   1*  1* / CREATE ISGL  
+         SGU         ISGU         1*  1*   1*  1*   1*  1* / CREATE ISGU         
+         SWCR        ISWCR        1*  1*   1*  1*   1*  1* / CREATE ISWCR 
+         SWL         ISWL         1*  1*   1*  1*   1*  1* / CREATE ISWL         
+/                                                               
+         
+-- =================================================================================================================================
+-- 
+-- REGIONS SECTION 
+-- 
+-- =================================================================================================================================
+REGIONS
+--
+--       LOAD INCLUDE FILE - EQLNUM ARRAY
+--
+INCLUDE 
+         '$MODEL02/MODEL02-EQLNUM.inc'                     /
+--
+--       LOAD INCLUDE FILE - FIPNUM ARRAY
+--
+INCLUDE 
+         '$MODEL02/MODEL02-FIPNUM.inc'                     /
+--
+--       LOAD INCLUDE FILE - SATNUM ARRAY
+--
+INCLUDE 
+         '$MODEL02/MODEL02-SATNUM.inc'                     /
+--
+--       LOAD INCLUDE FILE - IMBNUM ARRAY
+--
+INCLUDE 
+         '$MODEL02/MODEL02-IMBNUM.inc'                     /
+
+-- =================================================================================================================================
+-- 
+-- SOLUTION SECTION 
+-- 
+-- =================================================================================================================================
+SOLUTION
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N    E300  RVW 
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT  OPT   OPT   
+EQUIL                                                                        
+         2561.59 268.55  2645.21 0.0   2561.59 0.0    1    0    0    2*        /  
+         2584.20 268.71  2685.21 0.0   2584.20 0.0    5    0    0    2*        /   
+--
+--       DEPTH    RS                                                 
+--                m3/m3                                                  
+--       ------   --------                                                               
+RSVD            
+         2561.59  122.30
+         2597.00  110.00
+         2660.70  106.77
+         2697.00  106.77                                    / RV VS DEPTH EQUIL REGN 01
+--       ------   --------        
+         2584.20  122.41
+         2599.90  110.00
+         2663.60  106.77
+         2699.90  106.77                                   / RV VS DEPTH EQUIL REGN 02
+--
+--       EQLNUM  EQLNUM  THPRES                                             
+--       FROM    TO      VALUE                                              
+THPRES                                                                        
+         1       2       1*                                / REGN 1 TO REGN 2
+/ 
+--
+--       DEFINE SOLUTION SECTION REPORT OPTIONS
+--
+RPTSOL                                                                           
+         FIP=2    FIPRESV                                  /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+        'BASIC = 2'  'PBPD'                                /
+
+-- =================================================================================================================================
+-- 
+-- SUMMARY SECTION 
+-- 
+-- =================================================================================================================================
+SUMMARY
+--
+--       LOAD INCLUDE FILE - SUMMARY EXPORT FILE
+--
+INCLUDE 
+         '$MODEL02/MODEL02-SUMMARY.inc'                    /
+
+-- =================================================================================================================================
+-- 
+-- SCHEDULE SECTION 
+-- 
+-- =================================================================================================================================
+SCHEDULE
+--
+--       DEFAULT TUNING PARAMETERS  
+--
+--         1       2      3        4    5      6       7       8       9   10                          
+TUNING         
+          1*       1.0                                                         /
+/
+/
+--
+--       MULTI-SEGMENT WELLS ITERATION PARAMETERS
+--
+--       MXSIT   MAX   REDUCTION   INCREASE
+--               NR    FACTOR      FACTOR 
+WSEGITER
+         150     50    0.3         2.0                     /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST                                                                           
+        'BASIC = 2'                                        /
+--      
+--       DEFINE GROUP TREE HIERARCHY
+--                                                                              
+--       LOWER     HIGHER
+--       GROUP     GROUP 
+GRUPTREE
+         'PROD'    'FIELD'             /
+         'INJE'    'RES'               /
+         'PROD'    'RES'               /
+/
+--
+--       GROUP PRODUCTION CONTROLS                                                    
+--                                                                              
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
+GCONPROD                                                                        
+RES      ORAT  10E3  12000  1.6E6   15E3   RATE   NO                           /
+/
+--
+--       GROUP INJECTION TARGETS AND CONSTRAINTS                                                     
+--                                                                              
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE                                                                       
+RES      WAT   VREP   1*     1*     1*     1.25   1*   1*     1*    1*    1*   /
+RES      GAS   REIN   1*     1*     1.0    1*     1*   1*     1*    1*    1*   /
+/                                                                               
+--
+--       LOAD INCLUDE FILE - VFPPROD TABLES
+--
+INCLUDE 
+         '$MODEL02/MODEL02-VFPPROD.inc'                       /
+--
+--       WELL SPECIFICATION DATA                                                      
+--                                                                              
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP       
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
+WELSPECS  
+INJ1     INJE      2    13  1*     GAS    0.0     STD    SHUT  YES   0     SEG  0  /
+INJ2     INJE     12    20  1*     WAT    0.0     STD    SHUT  YES   0     SEG  0  /
+                                          
+PROD1    PROD      6    3   1*     OIL    0.0     STD    SHUT  YES   0     SEG  0  /
+PROD2    PROD     10    4   1*     OIL    0.0     STD    SHUT  YES   0     SEG  0  /
+PROD3    PROD     11   19   1*     OIL    0.0     STD    SHUT  YES   0     SEG  0  /
+PROD4    PROD     11    6   1*     OIL    0.0     STD    SHUT  YES   0     SEG  0  /     
+/
+--
+--       LOAD INCLUDE FILE - STANDARD WELL COMPLETIONS
+--
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD1-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD2-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD3-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD4-STD.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-INJ1-STD.inc'              /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-INJ2-STD.inc'              /
+--
+--       WELL PRODUCTION WELL CONTROLS                                                     
+--                                                                              
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
+WCONPROD                                                                    
+PROD1    SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
+PROD2    SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
+PROD3    SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
+PROD4    SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       / 
+/   
+--
+--       WELL INJECTION CONTROLS                                                      
+--                                                                              
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP               
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRES  PRES  TABLE             
+WCONINJE                                                                           
+INJ1     GAS    SHUT   RATE  1.6E6  1*     500.0  1*    1*                     / 
+INJ2     WAT    SHUT   RATE  8.0E3  1*     500.0  1*    1*                     / 
+/                                                                               
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+INJ1     OPEN                                              /
+INJ1     OPEN     0   0    0  1*    1*                     /
+
+PROD3    OPEN                                              /
+PROD3    OPEN     0   0    0  1*    1*                     /
+/                                                             
+--
+--       ADVANCE SIMULATION BY REPORTING DATE
+--
+DATES                                                                           
+         1  DEC   2018 /
+/
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+PROD2    OPEN                                              /
+PROD2    OPEN     0   0    0  1*    1*                     /
+/                                                             
+--
+--       ADVANCE SIMULATION BY REPORTING DATE
+--
+DATES
+         2  DEC   2018 /
+         1  JAN   2019 /
+/
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+PROD1    OPEN                                              /
+PROD1    OPEN     0   0    0  1*    1*                     /
+/
+--
+--       ADVANCE SIMULATION BY REPORTING DATE
+--
+DATES
+         1  FEB   2019 /
+/
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+INJ2     OPEN                                              /
+INJ2     OPEN     0   0    0  1*    1*                     /
+/
+--
+--       ADVANCE SIMULATION BY REPORTING DATE
+--
+DATES
+         1  MAR   2019 /
+/
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+INJ1     SHUT     0   0    0   1*   1*                     /
+/
+--
+--       LOAD INCLUDE FILE - RECOMPLETION OF INJ1 
+--
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-INJ1-STD-RE-COMPLETE.inc'  /
+--
+--       ADVANCE SIMULATION BY REPORTING DATE
+--
+DATES
+         1  APR   2019 /
+/
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
+--                                                                              
+--  WELL WELL   --LOCATION--  COMPLETION                                     
+--  NAME STAT     I   J    K  FIRST LAST                    
+WELOPEN                                                     
+PROD4    OPEN                                              /
+PROD4    OPEN     0   0    0  1*    1*                     /
+/
+--
+--       ADVANCE SIMULATION BY REPORTING DATE
+--
+DATES
+         1  MAY   2019 /
+         1  JUN   2019 /
+/
+--
+--       GROUP PRODUCTION CONTROLS                                                    
+--                                                                              
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
+GCONPROD                                                                        
+RES      ORAT  10E3   12E3  2.1E6   15E3   1*     1*    1*     1*     1*       /
+/                                                                               
+--
+--       GROUP GAS SALES FOR OIL FIELDS                                                    
+--                                                                              
+-- GRUP  GAS    MAX    MIN    CNTL                      
+-- NAME  SALES  RATE   RATE   ACTN                      
+GCONSALE                                 
+RES     0.75E6 0.80E6 0.5E6   RATE                         /
+/      
+--
+--       ADVANCE SIMULATION BY REPORTING DATE
+--
+DATES
+         1  OCT   2019 /
+/
+END
+--                                                                              
+-- *********************************************************************************************************************************
+-- END OF FILE                                                                  
+-- *********************************************************************************************************************************
