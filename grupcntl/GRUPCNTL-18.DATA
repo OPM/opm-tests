@@ -185,11 +185,6 @@ GRIDFILE
 --
 NEWTRAN
 --
---       SET THE GRID UNITS FOR THE GRID  
---
-GRIDUNIT
-         METRES                                                                /                                                                              
---
 --       LOAD INCLUDE FILES
 --
 INCLUDE 

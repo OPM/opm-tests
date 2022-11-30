@@ -22,18 +22,19 @@
 --                              |      |      |      |         |           |
 --                            PROD1  PROD2  PROD3  PROD4      INJE1      INJE2
 --
--- ( 1) The case has four producers with VFP tables, and two gas injectors.
--- ( 2) Producers and injectors are standard wells.
+-- ( 1) The case has four producers with VFP tables, and one gas injector (INJ1) and one water injector (INJ2).
+-- ( 2) Producers and injectors are multi-segment wells.
 -- ( 3) Group control.
 -- ( 4) WCONPROD(OIL)=4E3, WCONPROD(GAS)=4E6,WCONPROD(LIQ)=8E3, and WCONPROD(BHP)=60.0, same for all wells. 
 -- ( 5) WCONPROD(THP)=30.0 and VFP tables.
 -- ( 6) Group RES: GCONPROD(TARGET)=ORAT, GCONPROD(OIL)=10E3, GCONPROD(WAT)=12E3, GCONPROD(GAS)=1.6E6, GCONPROD(LIQ)=15E3.   
--- ( 7) Group RES: GCONPROD(GRPCNTL)=NO
--- ( 8) Group INJE: GCONINJE(TYPE)=GAS, GCONINJE(TARGET)=REIN, GCONPROD(REIN)=1.0    
--- ( 9) Well INJ1 re-completed 2019-03-01.
--- (10) Group RES: GCONPROD(GAS)=2.1E6 at 2019-06-01.
--- (11) Group RES: GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE
--- (12) Group RES: GCONSUMP(GASFUEL)=0.25E6
+-- ( 7) Group RES: GCONPROD(GRPCNTL)=NO.
+-- ( 8) WCONJINJE(RATE)=8E3 for water injectors and WCONJINJE(RATE)=1.6E6 for gas injectors.
+-- ( 9) Group RES: GCONINJE(TYPE)=WAT, GCONINJE(TARGET)=VREP, and GCONINJE(VREP)=1.25   
+-- (10) Group RES: GCONINJE(TYPE)=GAS, GCONINJE(TARGET)=REIN, and GCONINJE(VREP)=1.00   
+-- (11) Group RES: GCONPROD(GAS)=2.1E6 from 2019-06-01.
+-- (12) GCONSALE(GSALE)=0.75E6, GCONSALE(GSALEMAX=0.80E6), GCONSALE(GSALEMIN)=0.50E6, and  GCONSALE(ACTION)=RATE, from 2019-06-01.
+-- (13) GUIDRATE is used to prioritize wells with low GOR.  
 --
 -- =================================================================================================================================
 -- 
@@ -45,10 +46,10 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN  
 --
 TITLE                                                                           
-GRUPCNTL-22: 9_3C_GINJ_GAS_GCONSUMP_STW                                                                                 
+GRUPCNTL-35: 9_4E_WINJ_GINJ_GUIDERATE_MSW                                                                                 
 --
 --       DEFINE THE START DATE FOR THE RUN 
---
+--                             
 START                                                                                                                                                                                                     
          01 'NOV' 2018                                                         /                                                                               
 --                                                                              
@@ -450,6 +451,13 @@ TUNING
 /
 /
 --
+--       MULTI-SEGMENT WELLS ITERATION PARAMETERS
+--
+--       MXSIT   MAX   REDUCTION   INCREASE
+--               NR    FACTOR      FACTOR 
+WSEGITER
+         150     50    0.3         2.0                     /
+--
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
 RPTRST                                                                           
@@ -478,17 +486,16 @@ RES      ORAT  10E3  12000  1.6E6   15E3   RATE   NO                           /
 -- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
 -- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
 GCONINJE                                                                       
-RES      GAS   REIN   1*     1*     1.0                                        /
+RES      WAT   VREP   1*     1*     1*     1.25   1*   1*     1*    1*    1*   /
+RES      GAS   REIN   1*     1*     1.0    1*     1*   1*     1*    1*    1*   /
 /                                                                               
 --
---       GROUP GAS CONSUMPTION (FUEL) AND IMPORT                                                   
---                                                                              
--- GRUP   GAS      GAS                                                             
--- NAME   FUEL    IMPORT
---       ------   -------
-GCONSUMP                                                                           
-RES      0.25E6                        /
-/                                                                               
+--       SETS GUIDE RATES FOR GROUPS AND WELLS UNDER GUIDE RATE CONTROL
+--
+--       TIME  GUIDE  A      B     C     D     E    F     INCR   DAMP   FREE        
+--       STEP  PHASE  POW    CON   CON   POW   CON  POW   OPTN   OPTN   GAS        
+GUIDERAT           
+         30.0  'OIL'  1.0    1.0   0.0   0.0   1.0  1.25  1*     0.5    1*      / Guide Rate Set to Prioritize Wells with Low GOR 
 --
 --       LOAD INCLUDE FILE - VFPPROD TABLES
 --
@@ -501,7 +508,7 @@ INCLUDE
 -- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM    
 WELSPECS  
 INJ1     INJE      2    13  1*     GAS    0.0     STD    SHUT  YES   0     SEG  0  /
-INJ2     INJE     12    20  1*     GAS    0.0     STD    SHUT  YES   0     SEG  0  /
+INJ2     INJE     12    20  1*     WAT    0.0     STD    SHUT  YES   0     SEG  0  /
                                           
 PROD1    PROD      6    3   1*     OIL    0.0     STD    SHUT  YES   0     SEG  0  /
 PROD2    PROD     10    4   1*     OIL    0.0     STD    SHUT  YES   0     SEG  0  /
@@ -524,6 +531,21 @@ INCLUDE
 INCLUDE 
          '$MODEL02/MODEL02-WELL-INJ2-STD.inc'              /
 --
+--       LOAD INCLUDE FILE - MULT-SEGMENT WELL COMPLETIONS
+--
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD1-MSW.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD2-MSW.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD3-MSW.inc'             /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-PROD4-MSW.inc'             /         
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-INJ1-MSW.inc'              /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-INJ2-MSW.inc'              /
+--
 --       WELL PRODUCTION WELL CONTROLS                                                     
 --                                                                              
 -- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
@@ -540,8 +562,8 @@ PROD4    SHUT   GRUP   4.0E3  1*    4.0E6  8.0E3  1*     60.0  30.0    5       /
 -- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP               
 -- NAME  TYPE   SHUT   MODE  RATE   RATE   PRES  PRES  TABLE             
 WCONINJE                                                                           
-INJ1     GAS    SHUT   RATE  2.0E6  1*     500.0  1*    1*                     / 
-INJ2     GAS    SHUT   RATE  2.0E6  1*     500.0  1*    1*                     / 
+INJ1     GAS    SHUT   RATE  1.6E6  1*     500.0  1*    1*                     / 
+INJ2     WAT    SHUT   RATE  8.0E3  1*     500.0  1*    1*                     / 
 /                                                                               
 --
 --       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS                                                
@@ -620,6 +642,8 @@ INJ1     SHUT     0   0    0   1*   1*                     /
 --
 INCLUDE 
          '$MODEL02/MODEL02-WELL-INJ1-STD-RE-COMPLETE.inc'  /
+INCLUDE 
+         '$MODEL02/MODEL02-WELL-INJ1-MSW-RE-COMPLETE.inc'  /
 --
 --       ADVANCE SIMULATION BY REPORTING DATE
 --
@@ -648,15 +672,15 @@ DATES
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL                      
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT                       
 GCONPROD                                                                        
-RES      ORAT  10E3  12000  2.1E6   15E3   RATE   NO                           /
-/
+RES      ORAT  10E3   12E3  2.1E6   15E3   1*     1*    1*     1*     1*       /
+/                                                                               
 --
 --       GROUP GAS SALES FOR OIL FIELDS                                                    
 --                                                                              
 -- GRUP  GAS    MAX    MIN    CNTL                      
 -- NAME  SALES  RATE   RATE   ACTN                      
 GCONSALE                                 
-RES      0.75E6 0.80E6 0.5E6  RATE                         /
+RES     0.75E6 0.80E6 0.5E6   RATE                         /
 /      
 --
 --       ADVANCE SIMULATION BY REPORTING DATE
