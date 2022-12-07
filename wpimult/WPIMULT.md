@@ -1,18 +1,19 @@
 # WPIMULT Test Documentation
 
-Case Name  | Case Desciption                                               | Base Model | Results<br />Match | Comments |
----------- | -----------------------------                                 | ---------- | ------- | ------------------------------------- |
-WPIMULT    | Based on SPE01 Case 2 with the number of layers increased to nine.                | WPIMULT    | Yes     | Results are identical to E100.
-WPIMULT-01 | WPIMULT(WELPI) set to 0.5 after 30 days, then 0.5 and 2.0 in the same report step | WPIMULT    | Yes      | Results are identical to E100.
-WPIMULT-02 | OP01 layers 3, 6, and 9 are open and the well productivity is intially set to 0.3333 using 1* at the start of the run.  One report step later, layers 6 and 9 are shut, then one report time step later the well productivity is increased by 3.0.| WPIMULT    | Yes     |Results are identical to E100.
-WPIMULT-03 | Same  as WPIMULT-02 except use 0 (zero) for selection of connections               | WPIMULT    | No      | Results are identical to E100.
+Case Name  | Case Desciption                                               | Base Model | Test<br />Type | Results<br />Match | Comments |
+---------- | -----------------------------                                 | ---------- | ----- | ------- | ------------------------------------- |
+WPIMULT    | Based on SPE01 Case 2 with the number of layers increased to nine.                | WPIMULT    |   | Yes     | Results are identical to E100.
+WPIMULT-01 | WPIMULT(WELPI) set to 0.5 after 30 days, then 0.5 and 2.0 in the same report step | WPIMULT    |   | Yes      | Results are identical to E100.
+WPIMULT-02 | OP01 layers 3, 6, and 9 are open and the well productivity is intially set to 0.3333 using 1* at the start of the run.  One report step later, layers 6 and 9 are shut, then one report time step later the well productivity is increased by 3.0.| WPIMULT    |   | Yes     |Results are identical to E100.
+WPIMULT-03 | Same  as WPIMULT-02 except use 0 (zero) for selection of connections               | WPIMULT   |   | Yes      | Results are identical to E100.
 
 
 **Notes:**
 
-1.  _Results Match_ column indicate if the OPM Flow results match the commercial
+1.  _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).
+2.  _Results Match_ column indicate if the OPM Flow results match the commercial
  simulator.
-2.  All cases run using the TUNING keyword with maximum time step size set to five days.
+3.  All cases run using the TUNING keyword with maximum time step size set to five days.
 
 **Version: 6 December 2022**
 
