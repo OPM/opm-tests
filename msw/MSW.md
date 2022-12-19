@@ -11,14 +11,10 @@ MSW-3D-05         | Error checking test, missing all COMPSEGS connections.      
 MSW-3D-06         | Error checking test, missing all WELSPSEGS connections.                                             | MSW-3D  |    | NA     | 
 MSW-3D-07         | Error checking test, revert to original WELSEGS keyword to check for warnings                       | MSW-3D  |    | NA     |
 
-**The ACTIONW keyword is currently not supported, but work is ongoing to implement the keyword; thus, these tests are
-designed to test the implementation when the keyword has been implemented.**
-
 **Notes:** 
 
 1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).  
 2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
-3. All models run on five day time steps via the TUNNING keyword.
 
 **Version: 20 December 2022**
 
