@@ -2,12 +2,14 @@
 
 Case Name         | Case Desciption                                               | Base Model | Test<br />Type | Results<br />Match | Comments |
 ----------------- | ------------------------------------------------------------  | ---------- | ----- |------- | ------------------------------------- |
-ACTIONW-WPIMULT-00| Base case run, with producers OP01 to OP04 having ACTIONW blocks that applies a PI multiplier 1.00.   | WPIMULT |    | NA     | E100 runs as expected waiting on OPM Flow implementation.
-ACTIONW-WPIMULT-01| Producers OP01 to OP04 have an ACTIONW blocks that reduces the PI of the well by 0.900.               | WPIMULT |    | NA     | E100 runs as expected waiting on OPM Flow implementation.
-ACTIONW-WPIMULT-02| Various ACTIONW blocks to test behaviour, including nested ACTIONW block (see below).                 | WPIMULT |    | NA     | E100 runs as expected waiting on OPM Flow implementation.
-ACTIONW-WPIMULT-03| Various ACTIONW blocks to test behaviour on both producers and injectors (see below).                 | WPIMULT |    | NA     | E100 runs as expected waiting on OPM Flow implementation.
-ACTIONW-WPIMULT-04| Various ACTIONW blocks to test behaviour on both producers and injectors (see below).                 | WPIMULT |    | NA     | E100 runs as expected waiting on OPM Flow implementation.
-ACTIONW-WPIMULT-05| Various ACTIONW blocks with oil producers productivity indices modified to give more variable results (see below).| WPIMULT |    | NA     | E100 runs as expected waiting on OPM Flow implementation.
+MSW-3D            | Base model to test a production multi-segment well (PROD01) in a 3D grid.                           | MSW-3D  |    | YES    | Perfect match with commercial simulator.
+MSW-3D-01         | Error checking test, missing some COMPDAT connections.                                              | MSW-3D  |    | NA     | 
+MSW-3D-02         | Error checking test, missing some COMPSEGS connections.                                             | MSW-3D  |    | NA     |
+MSW-3D-03         | Error checking test, missing some WELSEGS connections.                                              | MSW-3D  |    | NA     | 
+MSW-3D-04         | Error checking test, missing all COMPDAT connections.                                               | MSW-3D  |    | NA     | 
+MSW-3D-05         | Error checking test, missing all COMPSEGS connections.                                              | MSW-3D  |    | NA     |
+MSW-3D-06         | Error checking test, missing all WELSPSEGS connections.                                             | MSW-3D  |    | NA     | 
+MSW-3D-07         | Error checking test, revert to original WELSEGS keyword to check for warnings                       | MSW-3D  |    | NA     |
 
 **The ACTIONW keyword is currently not supported, but work is ongoing to implement the keyword; thus, these tests are
 designed to test the implementation when the keyword has been implemented.**
@@ -18,7 +20,7 @@ designed to test the implementation when the keyword has been implemented.**
 2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 3. All models run on five day time steps via the TUNNING keyword.
 
-**Version: 25 November 2022**
+**Version: 20 December 2022**
 
 ### Multi-Segment Well 3D Model (Cartesian Regular Grid Model)
 
@@ -32,6 +34,7 @@ this version.
 ![](plots/msw-3d-model-plt02.jpg)
 
 ### MSW-3D Description and Results
+
 Base case model with:
 
 1) Base model to test a production multi-segment well (PROD01) in a 3D grid.                  
@@ -41,10 +44,44 @@ Base case model with:
 
 [MSW-3D ECL Results](plots/MSW-3D-ECL.md)
 
-### ACTIONW-01 Description and Results
+### MSW-3D-01 Description and Results
 
- 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 is set VREP 1.00. 
- 2) Producers OP01 to OP04 have ACTIONW blocks that multiplies the PI of the well by 0.900 when the water cut exceeds, 
-0.20, 0.40 and 0.60.
+This case is based on the Base case run, MSW, and differs by commenting out some layers in the COMPDAT keyword to check
+if errors or warning messages are issued for this type of error. The model is run in NOSIM mode for checking purposes 
+only. 
 
-[ACTIONW_WPIMULT-01 ECL Results](plots/ACTIONW_WPIMULT-01-ECL.md) 
+### MSW-3D-02 Description and Results
+
+This case is based on the Base case run, MSW, and differs by commenting out some layers in the COMPSEGS keyword to 
+check if errors or warning messages are issued for this type of error. The model is run in NOSIM mode for checking
+purposes only. 
+
+### MSW-3D-03 Description and Results
+
+This case is based on the Base case run, MSW, and differs by commenting out some layers in the WELSEGS keyword to 
+check if errors or warning messages are issued for this type of error. The model is run in NOSIM mode for checking
+purposes only. 
+
+### MSW-3D-04 Description and Results
+
+This case is based on the Base case run, MSW, and differs by commenting out all layers in the COMPDAT keyword to check
+if errors or warning messages are issued for this type of error. The model is run in NOSIM mode for checking purposes 
+only. 
+
+### MSW-3D-05 Description and Results
+
+This case is based on the Base case run, MSW, and differs by commenting out all layers in the COMPSEGS keyword to 
+check if errors or warning messages are issued for this type of error. The model is run in NOSIM mode for checking
+purposes only. 
+
+### MSW-3D-06 Description and Results
+
+This case is based on the Base case run, MSW, and differs by commenting out all layers in the WELSEGS keyword to 
+check if errors or warning messages are issued for this type of error. The model is run in NOSIM mode for checking
+purposes only. 
+
+### MSW-3D-07 Description and Results
+
+This case is based on the Base case run, MSW, and differs by using the original WELSEGS keyword to check if errors 
+or warning messages are issued for inconsistent data on this keyword. The model is run in NOSIM mode for checking 
+purposes only. 
