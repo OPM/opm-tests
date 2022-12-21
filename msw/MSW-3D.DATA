@@ -1608,7 +1608,7 @@ EQUIL
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
 RPTRST                                                                           
-         BASIC=2 KRO KRW KRG SWAT PRES SGAS SOIL /
+         BASIC=2 KRO KRW KRG PRES /
 --
 --       DEFINE SOLUTION SECTION REPORT OPTIONS
 --
