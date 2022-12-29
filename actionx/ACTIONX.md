@@ -34,7 +34,7 @@ WCONPROD     | GCONPROD, UDQ, WCONINJE                                          
 WEFAC        | -                                                                   | ACTIONX_WEFAC      | Prediction | MODEL02    | Yes   | Complete and run matches commercial simulator.
 WELOPEN      | COMPDAT, COMPLUMP                                                   | See ACTIONX_COMPDAT| History    | MODEL02    | Yes   | Same as ACTIONX_COMPDAT.                     
 WELPI        | -                                                                   | ACTIONX_WELPI      | History    | MODEL02    | Yes   | Complete and run matches commercial simulator.
-WELSPECS     | COMPDAT, WCONPROD                                                   | ACTIONX_WELSPECS   | Fails      | WSEGVALV   | Fails | Fails but fix currently in progress. Note for the commercial simulator, one has to move ACT-04 after the well has been defined, in order for it run.
+WELSPECS     | COMPDAT, WCONPROD                                                   | ACTIONX_WELSPECS   | Fails      | WSEGVALV   | Fails | Fails but fix currently in progress. Note for the commercial simulator, one has to move ACT-04 after the well has been defined, in order for it to run.
 WELTARG      | -                                                                   | ACTIONX_WELTARG    | Prediction | WSEGVALV   | Yes   | Complete and run matches commercial simulator.
 WGRUPCON     | GCONPROD, GCONINJE, WCONINJE, WELOPEN                               | ACTIONX_WGRUPCON   | Prediction | MODEL02    | Close | Complete, matches except WI01 for ACT-03 near the end of the run that results in a discrepancy.
 WINJMULT     | -                                                                   | ACTIONX_           | -          | -          | -     | Not supported in deck.
@@ -407,6 +407,29 @@ block.
 Complete and the run matches non-include version, as the commercial simulator does not support the INCLUDE keyword in an 
 ACTIONX block.
   
-[ACTIONX_INCLUDE Results](plots/ACTIONX_INCLUDE-PLT.md) 
+[ACTIONX_INCLUDE Results](plots/ACTIONX_INCLUDE-PLT.md)
+
+### ACTIONX_WELSPECS Description and Results
+This model is based on the WSEGVALV model and has been modified to test the WELSPECS, COMPDAT, WCONPROD keywords with the
+ACTIONX keyword.
+
+Run fails, but fix currently in progress. Note for the commercial simulator, one has to move ACT-04 after the well has been defined, in order for it to run.
+
+**No results**
+
+### ACTIONX_WELTARG Description and Results
+The model has been modified as follows:
+ 1) ACTIONX WELTARG - PROD1 set oil rate target.
+ 2) ACTIONX WELTARG - PROD1 set VFPPROD table and ESP speed (LIFT).
+ 3) ACTIONX WELTARG - PROD1 set THP and ESP speed (LIFT).
+ 4) ACTIONX WELTARG - PROD1 set ESP speed (LIFT).
+
+[ACTIONX_WELTARG ECL Results](plots/ACTIONX_WELTARG-ECL.md) 
+
+### ACTIONX_WSEGVALV Description and Results
+This model is based on the WSEGVALV model and has been modified to test the COMPSEGS, WELSEGS and WSEGVALV keywords with the
+ACTIONX keyword.
+
+[ACTIONX_WSEGVALV ECL Results](plots/ACTIONX_WSEGVALV-ECL.md) 
 
 ---  
