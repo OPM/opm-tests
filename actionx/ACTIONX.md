@@ -398,5 +398,15 @@ well in the model.  The grid is a simple (12, 5, 10) in the (x, y, z) dimensions
 active, but only the oil and water phases are initially present.  
 
 ![](plots/MODEL_WSEGVALV.jpg)  
+  
+### ACTIONX_INCLUDE Description and Results  
+This model is based on the WSEGVALV model and has been modified to test the INCLUDE keyword to load the COMPSEGS, WELSEGS and
+WSEGVALV keywords within an ACTIONX block. Note that the commercial simulator does not support the INCLUDE keyword in an ACTIONX 
+block.
+
+Complete and the run matches non-include version, as the commercial simulator does not support the INCLUDE keyword in an 
+ACTIONX block.
+  
+[ACTIONX_INCLUDE Results](plots/ACTIONX_INCLUDE-PLT.md) 
 
 ---  
