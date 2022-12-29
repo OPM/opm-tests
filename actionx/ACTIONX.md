@@ -338,7 +338,69 @@ The model has been modified to test the WPIMULT keyword with the ACTIONX keyword
 
 [ACTIONX_WPIMULT ECL Results](plots/ACTIONX_WPIMULT-ECL.md) 
 
----   
+---                                    
+
+## ACTIONX Tests Using the MODEL05 Model 
+The model employs Gas Lift with no optimization via the setting a constant gas lift value via the WELTARG keyword, as well
+using GCONINJE(GUIPHASE) equal to NETV. NETV defines that guide rates for the group injection and is set according to the groups
+net reservoir voidage rate. The model has a total of five oil producers and four water injectors, as well as various groups 
+as shown below:
+```  
+                                      FIELD
+                                        |
+                                      PLAT-A
+                         ---------------+---------------------
+                        |                                    |
+                       M5S                                  M5N
+               ---------+----------                     -----+-------
+              |                   |                    |            |
+             B1                  G1                   C1           F1
+          ----+------          ---+---              ---+---       ---+---
+         |    |     |         |      |             |      |      |      |
+       B-1H  B-2H  B-3H     G-3H    G-4H         C-1H   C-2H    F-1H   F-2H
+```  
+![](plots/MODEL_MODEL05.jpg) 
+
+### ACTIONX_NEXT Description and Results
+Modifications to MODEL05 include:
+ 1) No gas lift optimization.
+ 2) Group PLAT-A has an oil rate target of 5,000 m3/d, water limit of 4,000 m3/d, and a liquid limit of 7,500 m3/d. The maximum 
+    water injection rate is set to 10,000 m3/d with voidage replacement.
+ 3) Groups M5S and M5N are under group control with no oil rate targets, but water injection is via NETV guide rate.
+ 4) All oil producers have a maximum oil rate of 1,500 m3/d, a 3,000 m3/d liquid handling constraint, and a minimum THP 
+    constraint of 20 barsa. The wells are under direct group control.
+ 5) All water injectors are opened with a maximum water injection rate of 4,000 m3/d and a maximum BHP of 225 barsa and are 
+    subject to group control.  
+ 6) ACTIONX – NEXT with 0.5 single step and adds gas lift via WELTARG.
+ 7) ACTIONX – NEXT with 1.0 steps going forward, until next NEXT in main deck of 2.5 days.
+
+[ACTIONX_NEXT ECL Results](plots/ACTIONX_NEXT-ECL.md) 
+
+### ACTIONX_NEXTSTEP Description and Results
+Same as ACTIONX_NEXT, but using the NEXTSTEP keyword instead.
+
+[ACTIONX_NEXTSTEP ECL Results](plots/ACTIONX_NEXTSTEP-ECL.md) 
+
+
+### ACTIONX_WTMULT Description and Results
+Modifications to MODEL05 include:
+ 1) No gas lift optimization.
+ 2) Group PLAT-A has an oil rate target of 5,000 m3/d, water limit of 4,000 m3/d, and a liquid limit of 7,500 m3/d. The maximum 
+    water injection rate is set to 10,000 m3/d with voidage replacement.
+ 3) Groups M5S and M5N are under group control with no oil rate targets, but water injection is via NETV guide rate.
+ 4) Wells B-1H, -2H and 3H are opened with a maximum oil rate of 750 m3/d, a 3,000 m3/d liquid handling constraint, and a  
+    minimum THP constraint of 20 barsa. The wells are under direct group control.
+ 5) Wells C-1H and C-2H are opened with a maximum oil rate of 500 m3/d, a 3,000 m3/d liquid handling constraint, and a minimum  
+    THP constraint of 20 barsa. The wells are under direct group control.
+ 6) All water injectors are opened with a maximum water injection rate of 1,000 m3/d and a maximum BHP of 225 barsa and are 
+    subject to group control.  
+ 7) ACTIONX – WTMULT INCREASES THE GAS LIFT RATE FOR ALL OIL WELLS.
+ 9) ACTIONX – WTMULT INCREASES THE WATER INJECTION LIMIT FOR ALL INJECTORS.
+ 8) ACTIONX – WTMULT INCREASES THE OIL RATE FOR ALL WELLS IN TWO STEPS.
+
+[ACTIONX_WTMULT ECL Results](plots/ACTIONX_WTMULT-ECL.md) 
+
+---
 ## ACTIONX Tests Using the SPE09 Model   
 This simulation is based on the data given in Ninth SPE Comparative Solution Project:
 
