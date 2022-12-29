@@ -340,11 +340,62 @@ The model has been modified to test the WPIMULT keyword with the ACTIONX keyword
 
 ---   
 ## ACTIONX Tests Using the SPE09 Model   
+This simulation is based on the data given in Ninth SPE Comparative Solution Project:
+
+   "A Reexamination of Black-Oil Simulation", by J.E. Killough, Journal of Petroleum Technology, 1995
+
+A data set from one of the participants was supplied to the participants of SPE 9. Some of the information in this
+data set has been used here as well. The origin of information or data used in this simulation is specified in comments.
+This does not include data whose origin - should be obvious to the reader.
+
+Note:  
+ 1) This version users a Cartesian Regular Grid; however, OPM Flow does not have an OLDTRAN option that is normally used
+     with this type of grid. This means that OPM Flow users the NEWTRAN transmissibility calculation instead, that is
+     normally used to calculate the transmissibilities Corner Point Geometry grids. Thus, to compare with the commercial
+     simulator the NEWTRAN keyword should be added in the GRID section to ensure that the transmissibilities are comparable.
+ 2) NEWTRAN has been added to this input deck but is not required as OPM Flow only has this option.
+ 3) This is the corner-point geometry version of SPE09.
 
 ![](plots/MODEL_SPE09.jpg) 
 
+
+### ACTIONX_UDQ Description and Results
+The model has been modified to test both the WECON and WTEST keywords as follows:
+ 1) All wells have there initial rates set at the begining of the run with no additional changes and their BHP datum depth
+    defaulted instead of set to 9110 ft.
+ 2) UDQ              - GOR limits and oil rate cutback value defined by UDQ variables.
+ 3) ACTIONX WCONPROD - beam back oil rate if GOR >= 2.0 Mscf/stb for all oil wells.
+ 4) ACTIONX WCONPROD - beam back oil rate if GOR >= 3.0 Mscf/stb for all oil wells.
+ 5) ACTIONX WCONPROD - beam back oil rate if GOR >= 4.0 mscf/stb for all oil wells.
+ 6) Minimum economic oil rate set to 25 stb/d and shut-in well.
+
+[ACTIONX_UDQ ECL Results](plots/ACTIONX_UDQ-ECL.md) 
+
+### ACTIONX_WTEST Description and Results
+The model has been modified to test both the WECON and WTEST keywords as follows:
+ 1) All wells have there initial rates set at the begining of the run with no additional changes and their BHP datum depth
+    defaulted instead of set to 9110 ft.
+ 2) Initial WECON - defines well economic limits ORAT=NONE     , WCUT=0.95 and GOR=2.0 Mscf/stb.
+ 3) ACTIONX WECON - defines well economic limits ORAT=100 stb/d, WCUT=0.95 and GOR=3.0 Mscf/stb.
+ 4) ACTIONX WECON - defines well economic limits ORAT=100 stb/d, WCUT=0.95 and GOR=4.0 Mscf/stb.
+```   
+     WELL     TST    TST    NO.    STRT
+     NAME     INTV   TYPE   TSTS   TIME
+     ----     ----   ----   ----   ----
+     WTEST
+     'OP0*'   30.0   PE     1      0.0 /
+     'OP1*'   30.0   PE     2     15.0 /
+     'OP2*'   30.0   PE     3     30.0 /
+     /
+```   
+[ACTIONX_WTEST ECL Results](plots/ACTIONX_WTEST-ECL.md)       
+
 ---   
 ## ACTIONX Tests Using the WSEGVALV Model   
+The WSEGVALV model is a test case for modeling an Inflow Control Devise ("ICD") for multi-segment wells using the WSEGVALV
+keyword in the SCHEDULE section. In addition the COMPSEGS and WELSEGS keywords are used to define PROD1 the single multi-segment 
+well in the model.  The grid is a simple (12, 5, 10) in the (x, y, z) dimensions and has one well (PROD1). All three phases are 
+active, but only the oil and water phases are initially present.  
 
 ![](plots/MODEL_WSEGVALV.jpg)  
 
