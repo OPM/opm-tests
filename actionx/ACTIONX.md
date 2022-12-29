@@ -51,53 +51,135 @@ WTMULT       | -                                                                
 
 **Version: 20 December 2021**
 
+## ACTIONX Tests Using the MULT Model
+
+This model is is a simple (9, 9, 2) model with with six oil producers and four water injectors using a Irregular Corner-Point 
+grid. This a three phase model using MODEL05 PVT and well VFP data. The model has several groups as shown below:
+```
+                   FIELD                                                                     
+                   |                                                                         
+                   |---PLAT-1                                                                
+                   |   |                                                                     
+                   |   |---PLAT-1A                                                           
+                   |   |---PLAT-1B                                                           
+                   |                                                                         
+                   |---PLAT-2  
+```
+
+![](plots/MODEL_MULT.jpg) 
 
 ### ACTIONX_BOX Description and Results
 
-[ACTIONX_BOX ECL Results](plots/ACTIONX_BOX-ECL.md)
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
+3) MULTX, MULTY and MULTZ in the GRID section set to 0.5 for all grid blocks.
+4) MULTX, MULTY and MULTZ in ACTIONX block ACT-01 set to 2.0 for the top layer. Note that ACT-01 is activated prior to the 
+   wells being declared, so that the connection factors are the same as the base case.
+5) MULTX, MULTY and MULTZ in ACTIONX block ACT-02 set to 2.0 for the bottom layer. Note that ACT-02 is activated prior to the 
+   wells being declared, so that the connection factors are the same as the base case.
 
+[ACTIONX_BOX ECL Results](plots/ACTIONX_BOX-ECL.md)
 
 ### ACTIONX_MULT Description and Results
 
-[ACTIONX_MULT ECL Results](plots/ACTIONX_MULT-ECL.md)
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
 
+[ACTIONX_MULT ECL Results](plots/ACTIONX_MULT-ECL.md)
 
 ### ACTIONX_MULT- Description and Results
 
-[ACTIONX_MULT- ECL Results](plots/ACTIONX_MULT--ECL.md)
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
+3) MULTX-, MULTY- and MULTZ- in the GRID section set to 0.5 for all grid blocks.
+4) MULTX-, MULTY- and MULTZ- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the 
+   wells being declared, so that the connection factors are the same as the base case.
 
+[ACTIONX_MULT- ECL Results](plots/ACTIONX_MULT--ECL.md)
 
 ### ACTIONX_MULT+ Description and Results
 
-[ACTIONX_MULT+ ECL Results](plots/ACTIONX_MULT+-ECL.md)
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
+3) MULTX in the GRID section set to 0.5 for all grid blocks.
+4) MULTX in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+   declared, so that the well connection factors are the same as the base case.
 
+[ACTIONX_MULT+ ECL Results](plots/ACTIONX_MULT+-ECL.md)
 
 ### ACTIONX_MULTX- Description and Results
 
-[ACTIONX_MULTX- ECL Results](plots/ACTIONX_MULTX--ECL.md)
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
+3) MULTX- in the GRID section set to 0.5 for all grid blocks.
+4) MULTX- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+   declared, so that the well connection factors are the same as the base case.
 
+[ACTIONX_MULTX- ECL Results](plots/ACTIONX_MULTX--ECL.md)
 
 ### ACTIONX_MULTX+ Description and Results
 
-[ACTIONX_MULTX+ ECL Results](plots/ACTIONX_MULTX+-ECL.md)
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
+3) MULTX in the GRID section set to 0.5 for all grid blocks.
+4) MULTX in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+   declared, so that the well connection factors are the same as the base case.
 
+[ACTIONX_MULTX+ ECL Results](plots/ACTIONX_MULTX+-ECL.md)
 
 ### ACTIONX_MULTY- Description and Results
 
-[ACTIONX_MULTY- ECL Results](plots/ACTIONX_MULTY--ECL.md)
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
+3) MULTY- in the GRID section set to 0.5 for all grid blocks.
+4) MULTY- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+   declared, so that the well connection factors are the same as the base case.
 
+[ACTIONX_MULTY- ECL Results](plots/ACTIONX_MULTY--ECL.md)
 
 ### ACTIONX_MULTY+ Description and Results
 
-[ACTIONX_MULTY+ ECL Results](plots/ACTIONX_MULTY+-ECL.md)
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
+3) MULTY in the GRID section set to 0.5 for all grid blocks.
+4) MULTY in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+   declared, so that the well connection factors are the same as the base case.
 
+[ACTIONX_MULTY+ ECL Results](plots/ACTIONX_MULTY+-ECL.md)
 
 ### ACTIONX_MULTZ- Description and Results
 
-[ACTIONX_MULTZ- ECL Results](plots/ACTIONX_MULTZ--ECL.md)
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
+3) MULTZ- in the GRID section set to 0.5 for all grid blocks.
+4) MULTZ- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+   declared, so that the well connection factors are the same as the base case.
 
+[ACTIONX_MULTZ- ECL Results](plots/ACTIONX_MULTZ--ECL.md)
 
 ### ACTIONX_MULTZ+ Description and Results
 
+1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+2) Well testing is on for physically shut wells.
+3) MULTZ in the GRID section set to 0.5 for all grid blocks.
+4) MULTZ in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+   declared, so that the well connection factors are the same as the base case.
+
 [ACTIONX_MULTZ+ ECL Results](plots/ACTIONX_MULTZ+-ECL.md)
 
+---   
+## ACTIONX Tests Using the MODEL02 Model   
+
+![](plots/MODEL_MODEL02.jpg)  
+
+---   
+## ACTIONX Tests Using the SPE09 Model   
+
+![](plots/MODEL_SPE09.jpg) 
+
+---   
+## ACTIONX Tests Using the WSEGVALV Model   
+
+![](plots/MODEL_WSEGVALV.jpg)  
+
+---  
