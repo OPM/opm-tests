@@ -69,108 +69,274 @@ grid. This a three phase model using MODEL05 PVT and well VFP data. The model ha
 ![](plots/MODEL_MULT.jpg) 
 
 ### ACTIONX_BOX Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
-3) MULTX, MULTY and MULTZ in the GRID section set to 0.5 for all grid blocks.
-4) MULTX, MULTY and MULTZ in ACTIONX block ACT-01 set to 2.0 for the top layer. Note that ACT-01 is activated prior to the 
-   wells being declared, so that the connection factors are the same as the base case.
-5) MULTX, MULTY and MULTZ in ACTIONX block ACT-02 set to 2.0 for the bottom layer. Note that ACT-02 is activated prior to the 
-   wells being declared, so that the connection factors are the same as the base case.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
+ 3) MULTX, MULTY and MULTZ in the GRID section set to 0.5 for all grid blocks.
+ 4) MULTX, MULTY and MULTZ in ACTIONX block ACT-01 set to 2.0 for the top layer. Note that ACT-01 is activated prior to the 
+    wells being declared, so that the connection factors are the same as the base case.
+ 5) MULTX, MULTY and MULTZ in ACTIONX block ACT-02 set to 2.0 for the bottom layer. Note that ACT-02 is activated prior to the 
+    wells being declared, so that the connection factors are the same as the base case.
 
 [ACTIONX_BOX ECL Results](plots/ACTIONX_BOX-ECL.md)
 
 ### ACTIONX_MULT Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
 
 [ACTIONX_MULT ECL Results](plots/ACTIONX_MULT-ECL.md)
 
 ### ACTIONX_MULT- Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
-3) MULTX-, MULTY- and MULTZ- in the GRID section set to 0.5 for all grid blocks.
-4) MULTX-, MULTY- and MULTZ- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the 
-   wells being declared, so that the connection factors are the same as the base case.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
+ 3) MULTX-, MULTY- and MULTZ- in the GRID section set to 0.5 for all grid blocks.
+ 4) MULTX-, MULTY- and MULTZ- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the 
+    wells being declared, so that the connection factors are the same as the base case.
 
 [ACTIONX_MULT- ECL Results](plots/ACTIONX_MULT--ECL.md)
 
 ### ACTIONX_MULT+ Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
-3) MULTX in the GRID section set to 0.5 for all grid blocks.
-4) MULTX in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
-   declared, so that the well connection factors are the same as the base case.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
+ 3) MULTX in the GRID section set to 0.5 for all grid blocks.
+ 4) MULTX in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+    declared, so that the well connection factors are the same as the base case.
 
 [ACTIONX_MULT+ ECL Results](plots/ACTIONX_MULT+-ECL.md)
 
 ### ACTIONX_MULTX- Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
-3) MULTX- in the GRID section set to 0.5 for all grid blocks.
-4) MULTX- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
-   declared, so that the well connection factors are the same as the base case.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
+ 3) MULTX- in the GRID section set to 0.5 for all grid blocks.
+ 4) MULTX- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+    declared, so that the well connection factors are the same as the base case.
 
 [ACTIONX_MULTX- ECL Results](plots/ACTIONX_MULTX--ECL.md)
 
 ### ACTIONX_MULTX+ Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
-3) MULTX in the GRID section set to 0.5 for all grid blocks.
-4) MULTX in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
-   declared, so that the well connection factors are the same as the base case.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
+ 3) MULTX in the GRID section set to 0.5 for all grid blocks.
+ 4) MULTX in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+    declared, so that the well connection factors are the same as the base case.
 
 [ACTIONX_MULTX+ ECL Results](plots/ACTIONX_MULTX+-ECL.md)
 
 ### ACTIONX_MULTY- Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
-3) MULTY- in the GRID section set to 0.5 for all grid blocks.
-4) MULTY- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
-   declared, so that the well connection factors are the same as the base case.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
+ 3) MULTY- in the GRID section set to 0.5 for all grid blocks.
+ 4) MULTY- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+    declared, so that the well connection factors are the same as the base case.
 
 [ACTIONX_MULTY- ECL Results](plots/ACTIONX_MULTY--ECL.md)
 
 ### ACTIONX_MULTY+ Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
-3) MULTY in the GRID section set to 0.5 for all grid blocks.
-4) MULTY in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
-   declared, so that the well connection factors are the same as the base case.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
+ 3) MULTY in the GRID section set to 0.5 for all grid blocks.
+ 4) MULTY in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+    declared, so that the well connection factors are the same as the base case.
 
 [ACTIONX_MULTY+ ECL Results](plots/ACTIONX_MULTY+-ECL.md)
 
 ### ACTIONX_MULTZ- Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
-3) MULTZ- in the GRID section set to 0.5 for all grid blocks.
-4) MULTZ- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
-   declared, so that the well connection factors are the same as the base case.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
+ 3) MULTZ- in the GRID section set to 0.5 for all grid blocks.
+ 4) MULTZ- in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+    declared, so that the well connection factors are the same as the base case.
 
 [ACTIONX_MULTZ- ECL Results](plots/ACTIONX_MULTZ--ECL.md)
 
 ### ACTIONX_MULTZ+ Description and Results
-
-1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
-2) Well testing is on for physically shut wells.
-3) MULTZ in the GRID section set to 0.5 for all grid blocks.
-4) MULTZ in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
-   declared, so that the well connection factors are the same as the base case.
+ 1) The field has an oil rate target of 10,000 m3/d and water injection is via PLAT-1 and PLAT-2 is set VREP 0.90.
+ 2) Well testing is on for physically shut wells.
+ 3) MULTZ in the GRID section set to 0.5 for all grid blocks.
+ 4) MULTZ in ACTIONX block ACT-01 set to 2.0 for all grid blocks. Note that ACT-01 is activated prior to the wells being
+    declared, so that the well connection factors are the same as the base case.
 
 [ACTIONX_MULTZ+ ECL Results](plots/ACTIONX_MULTZ+-ECL.md)
 
 ---   
 ## ACTIONX Tests Using the MODEL02 Model   
+This case has standard wells, 3 producers and 2 injectors. Well OP03 has modified completions compared to the base case model
+and the water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development.
+ 1) Production wells with preferred phase (OIL, GAS)
+    PROD1 - OIL
+    PROD2 - OIL
+    PROD3 - GAS
+ 2) Injection wells with preferred phase (GAS, WATER)
+    INJ1 - WATER
+    INJ2 - GAS
+    Note that both injection wells inject both gas and water at various times.
+ 3) All wells get their PI values adjusted at least once, with wells PROD2, PROD3 and INJ2 getting their PI adjusted an extra
+    time and wells PROD1 and INJ1 having their PI adjusted at the same time as the well is opened.
+ 4) Well PROD3 has modified completions compared to the base case model.
+ 5) The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development.
 
 ![](plots/MODEL_MODEL02.jpg)  
+
+### ACTIONX_COMPDAT Description and Results
+The model has been modified to test the COMPDAT keyword with the ACTIONX keyword, as follows:
+ 1) The case is based on with the input deck re-factored to match the manual style, and with the well declarations declared at
+    the beginning of the run.
+ 2) ACTIONX COMPLUMP - PROD2 completions are defined in ACT-01, instead of the deck and ACT02 opens completion 2, well is opened
+                       in the deck.
+ 3) ACTIONX COMPLUMP - INJ1 completions are defined in ACT-01 and ACT-04 shuts completion 1 and opens completion 2.
+ 4) ACTIONX COMPDAT -  PROD1 connections 09-10, INJ1 connections 08-11 defined in ACT-01.
+ 5) ACTIONX COMPDAT -  PROD2 connections 10-11 defined in ACT-02.
+ 6) ACTIONX COMPDAT -  PROD3 connections 07-10 connections defined in ACT-03.
+
+[ACTIONX_COMPDAT ECL Results](plots/ACTIONX_COMPDAT-ECL.md) 
+
+### ACTIONX_COMPLUMP Description and Results
+The model has been modified to test the COMPLUMP keyword with the ACTIONX keyword, as follows:
+ 1) The case is based on  with the input deck re-factored to match the manual style, and with the well declarations declared at
+    the beginning of the run.
+ 2) ACTIONX COMPLUMP - PROD2 completions are defined in ACT-01, instead of the deck and ACT02 opens completion 2, well is opened
+                       in the deck.
+ 3) ACTIONX COMPLUMP - INJ1 completions are defined in ACT-01 and ACT-03 shuts completion 1 and opens completion 2.
+
+The results should therefore be identical to the original case, ../model2/0B_WELPI_MODEL2.DATA.
+
+[ACTIONX_COMPLUMP ECL Results](plots/ACTIONX_COMPLUMP-ECL.md) 
+
+### ACTIONX_GCONINJE Description and Results
+The model tests the use of the ACTIONX and GCONINJE keywords to control gas and water injection rates.
+ 1) Production wells with preferred phase (OIL, GAS)
+    OP01  - OIL
+    OP02  - OIL
+    OP03  - OIL (Completion 2)
+ 2) Injection wells with preferred phase (GAS, WATER)
+    GI01 - GAS
+    WI01 - WAT
+ 3) ACTIONX GCONINJE - Re-inject 0.95 of produced gas up 200e3 m3/day
+ 4) ACTIONX GCONINJE - Voidage replacement with makeup water with maximum 4000 m3/day.
+
+[ACTIONX_GCONINJE ECL Results](plots/ACTIONX_GCONINJE-ECL.md) 
+
+### ACTIONX_GCONPROD Description and Results
+The model tests the use of the ACTIONX and GCONPROD keywords to control gas production. This run is a depletion case, with no
+pressure support from the producers or injectors.
+ 1) Production wells with preferred phases.
+    OP01  - OIL
+    OP02  - OIL
+    OP03  - OIL (Completion 2)
+ 2) Injection wells with preferred phases.
+    GI01 - GAS (not active)
+    WI01 - WAT (not active)
+ 3) ACTIONX GCONPROD - Set max gas rate for when GOR >= 150 m3/m3.
+ 4) ACTIONX GCONPROD - Once GOR >= 200 m3/m3 cut back gas rate by UDA variable.
+ 5) ACTIONX GCONPROD - Once FOPR <= 500 then convert to gas field.
+ 6) ACTIONX WCONPROD - Gas field minimum gas rate of 50E3 m3/day then shut-in all wells and exit.
+
+[ACTIONX_GCONPROD ECL Results](plots/ACTIONX_GCONPROD-ECL.md) 
+
+### ACTIONX_GCONSUMP Description and Results
+The model tests the use of the ACTIONX and the GCONSUMP keyword to consume fuel at various stages. In addition, the GCONPROD
+keyword is employed to control gas production. This run is a prediction depletion case, with no pressure support from the
+producers or injectors, and with the field converted to a gas field operation with the ACTIONX ACT-02 block.
+ 1) Production wells with preferred phases.
+    OP01  - OIL
+    OP02  - OIL
+    OP03  - OIL (Completion 2)
+ 2) Injection wells with preferred phases.
+    GI01 - GAS (not active)
+    WI01 - WAT (not active)
+ 3) ACTIONX GCONSUMP - Set max gas rate for when GOR >= 150 m3/m3 and increase gas consumption.
+ 4) ACTIONX GCONSUMP - Once GOR >= 200 m3/m3 and OPR <=1500 m3/d then convert to gas field with increased gas consumption.
+
+Although the case runs, we are unable to check the gas sales and fuel gas consumption volumes as the required summary vectors
+are currently not written out.
+
+[ACTIONX_GCONSUMP ECL Results](plots/ACTIONX_GCONSUMP-ECL.md) 
+
+### ACTIONX_GRUPTREE Description and Results
+The model tests the use of the ACTIONX and GRUPTREE keywords to switch wells to different groups, together with group controls
+and controlling gas and water injection rates.
+ 1) Production wells with preferred phase (OIL, GAS)
+    OP01  - OIL
+    OP02  - OIL
+    OP03  - OIL (Completion 2)
+ 2) Injection wells with preferred phase (GAS, WATER)
+    GI01 - GAS
+    WI01 - WAT
+ 3) ACTIONX WGRUPCON - GI01 and all oil wells on group control with guide rates under the MAIN group.
+ 4) ACTIONX GRUPTREE - All producers on group control and each producer is assigned to a different group.
+ 5) ACTIONX GRUPTREE - All injectors on group control under separate groups and voidage replacement with water, set to a
+    maximum of 4.0E3 m3/day.
+
+[ACTIONX_GRUPTREE ECL Results](plots/ACTIONX_GRUPTREE-ECL.md) 
+
+
+### ACTIONX_WCONINJE Description and Results
+The model tests the use of the ACTIONX and WCONINJE keywords to control gas and water injection rates.
+ 1) Production wells with preferred phase (OIL, GAS)
+    OP01  - OIL
+    OP02  - OIL
+    OP03  - OIL (Completion 2)
+ 2) Injection wells with preferred phase (GAS, WATER)
+    GI01 - GAS
+    WI01 - WAT
+ 3) ACTIONX WCONINJE - Inject 100E3 m3/day of gas and no water.
+ 4) ACTIONX WCONINJE - Inject 150E3 m3/day of gas and 3.0E3 m3/d of water.
+ 5) ACTIONX WCONINJE - Inject 200E3 m3/day of gas and 3.5E3 m3/d of water.
+ 6) ACTIONX WCONINJE - Inject 200E3 m3/day of gas and 4.0E3 m3/d of water when FGOR >= 200 m3/m3.
+
+[ACTIONX_WCONINJE ECL Results](plots/ACTIONX_WCONINJE-ECL.md) 
+
+### ACTIONX_WCONPROD Description and Results
+The model tests the use of the ACTIONX and WCONPROD keywords to control gas production. This run is a depletion case, with no
+pressure support from the producers or injectors.
+ 1) Production wells with preferred phases.
+    OP01  - OIL
+    OP02  - OIL
+    OP03  - OIL (Completion 2)
+ 2) Injection wells with preferred phases.
+    GI01 - GAS (not active)
+    WI01 - WAT (not active)
+ 3) UDQ              - Variables and calculations to calculate cut back rates
+ 4) ACTIONX_WCONPROD - OP01 GOR >= 150 m3/m3 cut back gas rate by UDA variable
+ 5) ACTIONX_WCONPROD - OP02 GOR >= 150 m3/m3 cut back gas rate by UDA variable.
+ 6) ACTIONX_WCONPROD - OP03 GOR >= 150 m3/m3 cut back gas rate by UDA variable.
+ 7) ACTIONX_WCONPROD - Once FOPR <= 500 then convert to gas field.
+ 8) ACTIONX_WCONPROD - Gas field minimum gas rate of 2.0E6 m3/day then shut-in all wells and exit.
+
+[ACTIONX_WCONPROD ECL Results](plots/ACTIONX_WCONPROD-ECL.md) 
+
+### ACTIONX_WEFAC Description and Results
+The model tests the use of the ACTIONX and GCONINJE keywords to control gas and water injection rates.
+ 1) Production wells with preferred phase (OIL, GAS)
+    OP01  - OIL
+    OP02  - OIL
+    OP03  - OIL (Completion 2)
+ 2) Injection wells with preferred phase (GAS, WATER)
+    GI01 - GAS
+    WI01 - WAT
+ 3) ACTIONX  WEFAC - Increase all oil wells uptime from 0.80 to 0.90.
+ 4) ACTIONX  WEFAC - Increase all oil wells uptime from 0.95 to 0.95.
+ 5) ACTIONX  WEFAC - Increase all injection wells uptime from 0.80 to 1.00
+
+[ACTIONX_WEFAC ECL Results](plots/ACTIONX_WEFAC-ECL.md) 
+
+### ACTIONX_WELPI Description and Results
+The model has been modified to test the WELPI keyword with the ACTIONX keyword, as follows:
+ 1) The input deck has been re-factored to match the manual style, and with the well declarations declared at the beginning of
+    the run.
+ 2) Instead of the well productivity indices being modified in the deck, they are implemented via the ACTIONX keyword instead
+     (ACT-01 to ACT-04). The results should therefore be identical to the original case ../model2/0B_WELPI_MODEL2.DATA.
+
+[ACTIONX_WELPI ECL Results](plots/ACTIONX_WELPI-ECL.md) 
+
+### ACTIONX_WPIMULT Description and Results
+The model has been modified to test the WPIMULT keyword with the ACTIONX keyword, as follows:
+ 1) The input deck has been re-factored to match the manual style, and with the well declarations declared at the beginning of
+    the run.
+ 2) For this case, instead of the well productivity indices being modified in the deck, they are implemented via the ACTIONX
+     keyword (ACT-01 to ACT04), using the WPIMULT keyword. The multipliers are derived from the WELPI none productivity case
+     divided by the WELPI base case run. Thus, results should therefore be close/identical to the original WELPI case.
+
+[ACTIONX_WPIMULT ECL Results](plots/ACTIONX_WPIMULT-ECL.md) 
 
 ---   
 ## ACTIONX Tests Using the SPE09 Model   
