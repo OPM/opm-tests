@@ -4,7 +4,7 @@ This repository contains data sets intended for integration and regression testi
 Test Directory                   | Desciption                                                                                                         |
 -------------------------------- |--------------------------------------------------------------------------------------------------------------------|
 [ACTIONW](actionw/ACTIONW.md)    | Preliminary ACTIONW tests for when the keyword is implemeted.                                                      |
-[ACTIONWX(actionw/ACTIONX.md)    | Tests using various keywords in the ACTIONX block.                                              |
+[ACTIONX(actionx/ACTIONX.md)     | Tests using various keywords in the ACTIONX block.                                              |
 
 **Notes:** 
 
