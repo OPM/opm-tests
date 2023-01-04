@@ -27,7 +27,7 @@ results, and the results are comparable to the published results from various ve
 3. Model one cases run with ten day time steps for comparison purposes.
 4. Model two used variable time steps and requires CPR to run, see the parameter files.
 
-**Version: 31 October 2022**
+**Version: 04 January 2023**
 
 ### SPE10 Model 01 ( Cartesian regular/ Irregular Corner-Point)
 
@@ -41,7 +41,7 @@ and final ternary saturation plot.
 
 OPM Flow results compared with published results.
 
-![](plots/spe10-model01-comparison-03.jpg)
+![](plots/spe10-model01-comparison-01.jpg)
 
 OPM Flow results are comparable to the results of other vendors presented in the paper.
 All four OPM Flow cases give exactly the same results.
@@ -70,14 +70,14 @@ Two-phase and three-phase results are identical:
 
 OPM Flow results compared with published results, oil production:
 
-![](plots/spe10-model02-comparison-oil-03.jpg)
+![](plots/spe10-model02-comparison-oil-01.jpg)
 
 Good agreement with published results, although the initial rate seems  too high, this seems a common issue at the
 start of runs, with OPM Flow.
 
 And average reservoir pressure:
 
-![](plots/spe10-model02-comparison-oil-03.jpg)
+![](plots/spe10-model02-comparison-pressure-01.jpg)
 
 Good agreement with published results, although the pressure is a bit on the high side, could probably correct for this
 by checking the datum pressure etc. Resulted accepted for now.
