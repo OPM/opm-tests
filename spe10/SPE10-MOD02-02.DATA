@@ -7,16 +7,16 @@
 --
 -- This model is the SPE 10 - MODEL 1 based on the following SPE paper:
 --    "Tenth SPE comparative solution project: a comparison of upscaling techniques"
---    By Mike Christie (Heriot-Wat University) and Martin Blunt (Imperial College)
+--    By Mike Christie (Heriot-Watt University) and Martin Blunt (Imperial College)
 --    SPE, August 2001.
 --
--- At the fine geological model scale, the model is described on a regular Cartesian grid. The model dimensions 
--- are 1200 x 2200 x 170 (ft). The top 70 ft (35 layers) represents the Tarbert formation (pro-grading near shore environment), and 
+-- At the fine geological model scale, the model is described on a regular Cartesian grid. The model dimensions
+-- are 1200 x 2200 x 170 (ft). The top 70 ft (35 layers) represents the Tarbert formation (pro-grading near shore environment), and
 -- the bottom 100 ft (50 layers) represents Upper Ness (fluvial). The fine scale cell size is 20 ft x 10 ft x 2 ft., and results in
--- a  60 x 220 x 85 cells (1.122x106 cells). 
+-- a  60 x 220 x 85 cells (1.122x106 cells).
 --
--- All wells are vertical and are completed throughout the formation. There is one central water injector (WI01), injecting 
--- 50,000 rb/day (reservoir conditions) with a maximum injection BHP of 10,000 psia. A total of four oil producers are produced via 
+-- All wells are vertical and are completed throughout the formation. There is one central water injector (WI01), injecting
+-- 50,000 rb/day (reservoir conditions) with a maximum injection BHP of 10,000 psia. A total of four oil producers are produced via
 -- a 4,000 psia bottom hole pressure constraint.
 --
 --                           OP04---------------OP03
@@ -27,10 +27,10 @@
 --                               |      |      |
 --                               |      |      |
 --                               |      |      |
---                           OP01---------------OP02                     
+--                           OP01---------------OP02
 --
 -- Note we have to reduce the oil producer's productivity by 25% as they respresent a quarter of a well. Ideally the water injector
--- should be located in the center of the grid but this not possible with even grid dimensions in the x-y plane, without 
+-- should be located in the center of the grid but this not possible with even grid dimensions in the x-y plane, without
 -- re-generating the grid.
 --
 -- This version of the model is based on:
@@ -122,7 +122,7 @@ WELLDIMS
 --
 --       ACTIVATE CONSTRAINED PRESSURE RESIDUAL LINEAR SOLVER FOR THE RUN
 --
-CPR 
+CPR
                                                                                /
 --
 --       SET STACK SIZE FOR LINEAR SOLVER
@@ -257,9 +257,9 @@ PVDO
          800       1.02      2.99
          8000      1.01      3.00
          10000.    1.00722   3.00278                        / EXTRAPOLATED BO AND UO
---                                                                                      
---       WATER PVT TABLE                                                                    
---                                                                                      
+--
+--       WATER PVT TABLE
+--
 PVTW
 --       REF PRES  BW         CW        VISC     VISC
 --       PSIA      RB/STB     1/PSIA    CPOISE   GRAD
@@ -401,11 +401,11 @@ WCONPROD
 'OP*'    OPEN   BHP    1*     1*     1*    1*     1*     4000                  /
 /
 --
---       DEFINE WELL CONNECTION MULTIPLIERS FOR QUARTER WELLS                                                 
---                                                                              
--- WELL  PI     --LOCATION--  COMPLETION                                     
--- NAME  MULT     I   J    K  FIRST LAST                                     
-WPIMULT                                                                         
+--       DEFINE WELL CONNECTION MULTIPLIERS FOR QUARTER WELLS
+--
+-- WELL  PI     --LOCATION--  COMPLETION
+-- NAME  MULT     I   J    K  FIRST LAST
+WPIMULT
 'OP*'    0.250   1*  1*   1*   1*    1*                    /
 /
 --
@@ -419,9 +419,9 @@ WI01     WAT    OPEN   RESV  1*     5000   10E3            /
 --
 --       ADVANCE SIMULATION BY REPORTING TIME
 --
-TSTEP                                                                           
+TSTEP
          1 2 3 4 5 5 10 10 20 20 30 30 30 30 50 50 17*100  /
- 
+
 END
 --
 -- *********************************************************************************************************************************

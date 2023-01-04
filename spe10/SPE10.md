@@ -12,7 +12,7 @@ SPE10-MOD02-02| Two-Phase, with Cartesian regular grid.          | MODEL-02   | 
 Both models are based on the SPE 10 comparative SPE paper:
 
    "Tenth SPE comparative solution project: a comparison of upscaling techniques"
-   By Mike Christie (Heriot-Wat University) and Martin Blunt (Imperial College)
+   By Mike Christie (Heriot-Watt University) and Martin Blunt (Imperial College)
    SPE, August 2001.
 
 Originally, these tests were derived when OPM Flow was only able to run three-phase models, and thus these tests were
