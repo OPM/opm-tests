@@ -5,6 +5,13 @@
 
 -- Copyright (C) 2018,2020 Equinor
 -- Copyright (C) 2019 NORCE
+--
+-- The deck is a simple example of 5 vertically stacked cells with MINPV and
+-- PINCH directives.
+-- The combination of MINPV and PINCH with the GAP option should result in
+-- cell 1 (0-based indexing) getting pinch out and cause a connection between
+-- cells 0 and 2.
+--
 ------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------
@@ -33,14 +40,14 @@ START
 
 WELLDIMS
 -- Item 1: maximum number of wells in the model
---         - there are no wells in the problem; 
+--         - there are no wells in the problem;
 -- Item 2: maximum number of grid blocks connected to any one well
 --         - must be one as the wells are located at specific grid blocks
 -- Item 3: maximum number of groups in the model
 --         - we are dealing with only one 'group'
 -- Item 4: maximum number of wells in any one group
 --         - there must be two wells in a group as there are two wells in total
- 2 / 
+ 2 /
 
 UNIFIN
 UNIFOUT
@@ -71,7 +78,7 @@ MINPV
 /
 
 PINCH
-   0.5   NOGAP   1*   1*
+   0.5   GAP   1*   1*
 /
 
 ACTNUM
@@ -109,7 +116,7 @@ ROCK
 SWFN
 -- Column 1: water saturation
 -- Column 2: water relative permeability
--- Column 3: water-oil capillary pressure (psi) 
+-- Column 3: water-oil capillary pressure (psi)
 0.0     0       0.0
 1.0     1.00     0.0 /
 
@@ -130,9 +137,9 @@ SOF3
 
 
 DENSITY
--- Density (lb per ft³) at surface cond. of 
+-- Density (lb per ft³) at surface cond. of
 -- oil, water and gas, respectively (in that order)
--- In LAB units: 
+-- In LAB units:
       0.703 1.0 1.977e-3 /
 
 
