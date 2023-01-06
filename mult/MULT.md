@@ -175,13 +175,14 @@ dimensions, as oppose to three.  Model is 20 x 3 x 5 (x, y, z) with same propert
 
 ### MULT3D_BASE Description and Results
 
-[MULT3D_BASE ECL Results](plots/MULT3D_BASE-ECL.md)
 Base case run for comparison with other 3D cases.
  1) Base model with variable permeability values replaced by field averages for all grid blocks.
  2) OP01 producing in layers 1 to 3, and WI injecting in layers 4 to 5.
  3) GRID Section Modifications
      1) Layer 3 MULTZ x NONE
      2) Layer 3
+
+[MULT3D_BASE ECL Results](plots/MULT3D_BASE-ECL.md)
 
 ---
 
