@@ -1,19 +1,19 @@
 # PINCH Test Documentation
 
-Case Name                 | Case Desciption                                                         | Base Model | Test<br />Type | Results<br />Match | Comments |
-------------------------- |-------------------------------------------------------------------------| ---------- | ----- |------- | ------------------------------------- |
-PINCH5                    | Base case 2D five layer model with no modifications.                    | PINCH5     |       | NA     |  Results are correct.
-PINCH5_GAP1               | DZ, MINPV, and PINCH GAP modification #1, layer 2 inactive.             | PINCH5     |       | NA     |  Results are correct.
-PINCH5_GAP2               | DZ, MINPV, and PINCH GAP modification #2, layers 2 and 3 inactive.      | PINCH5     |       | NA     |  Results are correct.
-PINCH5_GAP3               | DZ, MINPV, and PINCH GAP modification #2, layers 2 to 4 inactive.       | PINCH5     |       | NA     |  Results are correct.
-PINCH5_NOGAP1             | DZ, MINPV, and PINCH NOGAP modification #1, layer 2 inactive.           | PINCH5     |       | NA     |  Option currently not supported, show commercial simulator results.        
-PINCH5_NOGAP2             | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 and 3 inactive     | PINCH5     |       | NA     |  Option currently not supported, show commercial simulator results.
-PINCH5_NOGAP3             | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 to 4 inactive.     | PINCH5     |       | NA     |  Option currently not supported, show commercial simulator results.
-PINCH_MULTZ_ALL           | PINCH(PINCHMUL) equal to ALL and MULTZ = 1.0                            | PINCH_MULTZ|       | NA     |  Results are correct, and MULTZ and MULTZ give same results.                                             
-PINCH_MULTZ-\_ALL         | Same as PINCH_MULTZ_ALL, but using MULTZ- instead.                      | PINCH_MULTZ|       | NA     |  Results are correct, and MULTZ and MULTZ give same results.                                            
-PINCH_MULTZ_ALL_BARRIER   | PINCH(PINCHMUL) equal to ALL and MULTZ = 1.0, except layer 10 equal 0.0 | PINCH_MULTZ|       | NA     |  Results are correct, and MULTZ and MULTZ give same results.                                             
-PINCH_MULTZ-\_ALL_BARRIER | Same as PINCH_MULTZ_ALL_BARRIER, but using MULTZ- instead.              | PINCH_MULTZ|       | NA     |  Results are correct, and MULTZ and MULTZ give same results.                                            
-PINCH_NONE                |                                                                         |            |       | NA     |  Documentation ongoing.                                             
+Case Name                 | Case Desciption                                                         | Base Model  | Test<br />Type | Results<br />Match | Comments |
+------------------------- |-------------------------------------------------------------------------|-------------|-----|------- | ------------------------------------- |
+PINCH5                    | Base case 2D five layer model with no modifications.                    | PINCH5      |     | NA     |  Results are correct.
+PINCH5_GAP1               | DZ, MINPV, and PINCH GAP modification #1, layer 2 inactive.             | PINCH5      |     | NA     |  Results are correct.
+PINCH5_GAP2               | DZ, MINPV, and PINCH GAP modification #2, layers 2 and 3 inactive.      | PINCH5      |     | NA     |  Results are correct.
+PINCH5_GAP3               | DZ, MINPV, and PINCH GAP modification #2, layers 2 to 4 inactive.       | PINCH5      |     | NA     |  Results are correct.
+PINCH5_NOGAP1             | DZ, MINPV, and PINCH NOGAP modification #1, layer 2 inactive.           | PINCH5      |     | NA     |  Option currently not supported, show commercial simulator results instead.        
+PINCH5_NOGAP2             | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 and 3 inactive     | PINCH5      |     | NA     |  Option currently not supported, show commercial simulator results instead.
+PINCH5_NOGAP3             | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 to 4 inactive.     | PINCH5      |     | NA     |  Option currently not supported, show commercial simulator results instead.
+PINCH_MULTZ_ALL           | PINCH(PINCHMUL) equal to ALL and MULTZ = 1.0                            | PINCH_MULTZ | Reg | NA     |  Results are correct, and MULTZ and MULTZ give same results.                                             
+PINCH_MULTZ-\_ALL         | Same as PINCH_MULTZ_ALL, but using MULTZ- instead.                      | PINCH_MULTZ |     | NA     |  Results are correct, and MULTZ and MULTZ give same results.                                            
+PINCH_MULTZ_ALL_BARRIER   | PINCH(PINCHMUL) equal to ALL and MULTZ = 1.0, except layer 10 equal 0.0 | PINCH_MULTZ | Reg | NA     |  Results are correct, and MULTZ and MULTZ give same results.                                             
+PINCH_MULTZ-\_ALL_BARRIER | Same as PINCH_MULTZ_ALL_BARRIER, but using MULTZ- instead.              | PINCH_MULTZ |     | NA     |  Results are correct, and MULTZ and MULTZ give same results.                                            
+PINCH_NONE                | Drogon synthetic reservoir model.                                       | DROGON      |     | NA     |  Fails to run due to ENDSCALE(DIRECT) set to DIRECT as only the default value of NODIR is supported, as well as PCW and PCG keywords not supported.                                           
 
 **Currently, OPM Flow does not support PINCH(PINCHOPT) equal to NOGAP; thus, these tests map used for when the option
 has been implemented.**
