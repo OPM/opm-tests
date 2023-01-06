@@ -193,5 +193,9 @@ PINCH
 ---
 
 ### PINCH_NONE Description and Results
+No results as the case fails to run due to ENDSCALE(DIRECT) set to DIRECT as only the default value of NODIR is 
+supported, as well as PCW and PCG keywords also not supported.
+
+**Not Documented and No Results**
 
 ---
