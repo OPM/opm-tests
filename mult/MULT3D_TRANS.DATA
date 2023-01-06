@@ -1,7 +1,7 @@
 -- *********************************************************************************************************************************
---                                                                              
---                                              OPM FLOW SIMULATION FILE  
---                                                                              
+--
+--                                              OPM FLOW SIMULATION FILE
+--
 -- COPYRIGHT NOTICE
 -- ----------------
 -- This file is part of the Open Porous Media project (OPM) and is made available under the Open Database License:
@@ -10,139 +10,132 @@
 -- Any rights in individual contents of the database are licensed under the Database Contents License:
 --                                    http://opendatacommons.org/licenses/dbcl/1.0/
 --
--- Copyright (C) 2020 Equinor
+-- Copyright (C) 2020-2023 Equinor
 --
--- COMMENTS                                                                    
--- --------                                                                    
+-- COMMENTS
+-- --------
 -- MULTX/Y/Z Base Case 3D and is based on the 2D model to check if inconsistencies are a result of working in two dimensions,
 -- as oppose to three.  Model is 20 x 3 x 5 (x, y, z) with same properties as 2D model.
 --
 --   1) Base model with variable permeability values replaced by field averages for all grid blocks.
---   2) OP01 producing in layers 1 to 3, and WI injecting in layers 4 to 5. 
+--   2) OP01 producing in layers 1 to 3, and WI injecting in layers 4 to 5.
 --   3) GRID Section Modifications
 --       (1) Base permeability data.
---       (2) 
+--       (2)
 --   4) EDIT Section Modifications
 --       (1) Base case TRANX, TRANY, and TRANZ
---       (2) 
---                                                                              
--- This run should give the same results as the base case, as the tranmissibility data has be incorporated from this case. Note 
--- there is an issue with 2D models with the transmissibility arrays not being written out correctly and/or not read or displayed 
--- correctly in ResInsight.
+--       (2)
+--
+-- This run should give the same results as the base case, as the tranmissibility data has been incorporated from the base case.
 --
 -- =================================================================================================================================
--- 
--- RUNSPEC SECTION 
--- 
+--
+-- RUNSPEC SECTION
+--
 -- =================================================================================================================================
 RUNSPEC
 --
---       DEFINE THE TITLE FOR THE RUN  
+--       DEFINE THE TITLE FOR THE RUN
 --
-TITLE                                                                           
-MOD01_MULT3D_TRANS - TRANSMISSIBILITY TEST WITH PERMEABILITY DATA (3D)                                                                                    
+TITLE
+MULT3D_TRANS - TRANSMISSIBILITY TEST WITH PERMEABILITY DATA (3D)
 --
---       DEFINE THE START DATE FOR THE RUN 
+--       DEFINE THE START DATE FOR THE RUN
 --
-START                                                                                                                                                                                                     
+START
   01 'JAN' 2020                                                                /
---                                                                              
+--
 --       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
 --
---NOSIM                                                                          
+--NOSIM
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- FLUID TYPES AND TRACER OPTIONS                         
+-- FLUID TYPES AND TRACER OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       OIL PHASE IS PRESENT IN THE RUN
 --
-OIL                                                                            
+OIL
 --
 --       WATER PHASE IS PRESENT IN THE RUN
 --
-WATER                                                                            
+WATER
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS                                             
--- ---------------------------------------------------------------------------------------------------------------------------------
---                                                                              
---       MAX     MAX     MAX                                                    
---       NDIVIX  NDIVIY  NDIVIZ                                                 
-DIMENS                                                                          
-         20      3       5                                                     / 
---       AQF     AQF     AQF     AQF     AQF     AQF    AQF    AQF                        
---       MXAQN   MXNAQC  NIFTBL  NRIFTB  NANAQ   NCAMAX MXNALI MXAAQL                       
-AQUDIMS                                                                         
-         1*      1*      5       100     1       1000   1*     1*              /                                                                                
---                                                                              
---       MAX     MAX     RSVD    TVDP    TVDP                                   
---       EQLNUM  DEPTH   NODES   TABLE   NODES                                  
-EQLDIMS                                                                         
-         1       1*      1*      1*      1*                                    /                                                                          
---                                                                              
---       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
---       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS 
-REGDIMS                                                                         
-         1       1       1*      1*      1*     1*     1*     1*    1*    1*   /                
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS                                                
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
---       MAX     MAX     MAX     MAX     MAX     MAX    E300                    
---       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND            
-TABDIMS                                                                         
+--       MAX     MAX     MAX
+--       NDIVIX  NDIVIY  NDIVIZ
+DIMENS
+         20      3       5                                                     /
+--       AQF     AQF     AQF     AQF     AQF     AQF    AQF    AQF
+--       MXAQN   MXNAQC  NIFTBL  NRIFTB  NANAQ   NCAMAX MXNALI MXAAQL
+AQUDIMS
+         1*      1*      5       100     1       1000   1*     1*              /
+--
+--       MAX     MAX     RSVD    TVDP    TVDP
+--       EQLNUM  DEPTH   NODES   TABLE   NODES
+EQLDIMS
+         1       1*      1*      1*      1*                                    /
+--
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS
+REGDIMS
+         1       1       1*      1*      1*     1*     1*     1*    1*    1*   /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND
+TABDIMS
          1       1       33      60      16      60     1*     1*              /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- GROUP, WELL AND VFP TABLE DIMENSIONS                                                
+-- GROUP, WELL AND VFP TABLE DIMENSIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
---                                                                                
---       WELL    WELL    GRUPS   GRUPS                                          
---       MXWELS  MXCONS  MXGRPS  MXGRPW                                         
-WELLDIMS                                                                        
-         10      3       10      20                                            /                                                                                
 --
---       DEFINE WELL PRODUCTIVITY SCALING TABLE DIMENSIONS                                                                             
---       MAX     MAX     
---       TABLES  ENTRIES  
-PIMTDIMS                                                                        
-         1       51                                                            /                
+--       WELL    WELL    GRUPS   GRUPS
+--       MXWELS  MXCONS  MXGRPS  MXGRPW
+WELLDIMS
+         10      3       10      20                                            /
+--
+--       DEFINE WELL PRODUCTIVITY SCALING TABLE DIMENSIONS
+--       MAX     MAX
+--       TABLES  ENTRIES
+PIMTDIMS
+         1       51                                                            /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- NUMERICAL AND RUN CONTROL OPTIONS                                                    
+-- NUMERICAL AND RUN CONTROL OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
 --       SET STACK SIZE FOR LINEAR SOLVER
 --
-NSTACK                                                                          
+NSTACK
          30                                                                    /
 --
 --       DEFINE THE NUMBER OF ITERATIONS TO UPDATE WELL FLOW TARGETS
 --
-NUPCOL                                                                          
+NUPCOL
          3                                                                     /
---
---       SKIP      ACTIVATE                                                              
---       OPTIONS   OPTION                                                                   
-OPTIONS                                                                         
-         77*0      1                                                           /
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- INPUT AND OUTPUT OPTIONS                                                   
+-- INPUT AND OUTPUT OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --
---       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT 
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT
 --
 METRIC
 --
 --       SWITCH ON THE UNIFIED INPUT FILES OPTION
 --
-UNIFIN                                                                          
+UNIFIN
 --
 --       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
 --
-UNIFOUT                                                                          
+UNIFOUT
 
 -- =================================================================================================================================
--- 
--- GRID SECTION 
--- 
+--
+-- GRID SECTION
+--
 -- =================================================================================================================================
 GRID
 --
@@ -154,52 +147,52 @@ INIT
 --       GRID    EGRID
 --       OPTN    OPTN
 GRIDFILE
-         0       1                                                             /                                                                              
+         0       1                                                             /
 --
---       SET THE GRID UNITS FOR THE GRID  
+--       SET THE GRID UNITS FOR THE GRID
 --
 GRIDUNIT
-         METRES                                                                /                                                                              
+         METRES                                                                /
 --
 --       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
 --
 NEWTRAN
 
---                                                                                
---       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG      
---       LIMIT LIMIT LIMIT LIMIT LIMIT LIMIT STOP STOP  STOP  STOP  STOP  STOP     
-MESSAGES                                                                        
-         8*10000                                        20000 10000 1000   1*  /      
 --
---       DEFINE GRID BLOCK X DIRECTION CELL SIZE                            
+--       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG
+--       LIMIT LIMIT LIMIT LIMIT LIMIT LIMIT STOP STOP  STOP  STOP  STOP  STOP
+MESSAGES
+         8*10000                                        20000 10000 1000   1*  /
+--
+--       DEFINE GRID BLOCK X DIRECTION CELL SIZE
 --
 DX
-         300*200.0                                                             /                                                                                 
---                                                                              
---       DEFINE GRID BLOCK Y DIRECTION CELL SIZE                            
--- 
+         300*200.0                                                             /
+--
+--       DEFINE GRID BLOCK Y DIRECTION CELL SIZE
+--
 DY
-         300*200.0                                                             /                                                                                 
---                                                                              
---       DEFINE GRID BLOCK Z DIRECTION CELL SIZE                            
--- 
+         300*200.0                                                             /
+--
+--       DEFINE GRID BLOCK Z DIRECTION CELL SIZE
+--
 DZ
-         300*25.0                                                              /                                                                                 
---                                                                              
---       DEFINE GRID BLOCK TOPS FOR THE TOP LAYER                         
--- 
+         300*25.0                                                              /
+--
+--       DEFINE GRID BLOCK TOPS FOR THE TOP LAYER
+--
 TOPS
-         60*2500  60*2525  60*2550  60*2575  60*2600                           /  
+         60*2500  60*2525  60*2550  60*2575  60*2600                           /
 --
 --       DEFINE INPUT BOX FOR EDITING INPUT ARRAYS
---       
---       ---------- BOX ---------                
---       I1  I2   J1  J2   K1  K2                
-BOX                                             
-          1  20    1   1    1   5                          / DEFINE BOX AREA  
---                                                                              
---       DEFINE GRID BLOCK POROSITY DATA FOR Y = 1                           
---                                              
+--
+--       ---------- BOX ---------
+--       I1  I2   J1  J2   K1  K2
+BOX
+          1  20    1   1    1   5                          / DEFINE BOX AREA
+--
+--       DEFINE GRID BLOCK POROSITY DATA FOR Y = 1
+--
 PORO
          0.0487  0.0805  0.1098  0.1201  0.0399  0.0550  0.0945  0.0960
          0.1155  0.1194  0.0573  0.0488  0.0203  0.1152  0.0768  0.0321
@@ -216,18 +209,18 @@ PORO
          0.0362  0.0052  0.0796  0.1406                                        /
 --
 --       DEFINE END OF INPUT BOX EDITING OF INPUT ARRAYS
---       
-ENDBOX         
+--
+ENDBOX
 --
 --       DEFINE INPUT BOX FOR EDITING INPUT ARRAYS
---       
---       ---------- BOX ---------                
---       I1  I2   J1  J2   K1  K2                
-BOX                                             
-          1  20    2   2    1   5                          / DEFINE BOX AREA  
---                                                                              
---       DEFINE GRID BLOCK POROSITY DATA FOR Y = 1                           
---                                              
+--
+--       ---------- BOX ---------
+--       I1  I2   J1  J2   K1  K2
+BOX
+          1  20    2   2    1   5                          / DEFINE BOX AREA
+--
+--       DEFINE GRID BLOCK POROSITY DATA FOR Y = 1
+--
 PORO
          0.0487  0.0805  0.1098  0.1201  0.0399  0.0550  0.0945  0.0960
          0.1155  0.1194  0.0573  0.0488  0.0203  0.1152  0.0768  0.0321
@@ -244,18 +237,18 @@ PORO
          0.0362  0.0052  0.0796  0.1406                                        /
 --
 --       DEFINE END OF INPUT BOX EDITING OF INPUT ARRAYS
---       
-ENDBOX         
+--
+ENDBOX
 --
 --       DEFINE INPUT BOX FOR EDITING INPUT ARRAYS
---       
---       ---------- BOX ---------                
---       I1  I2   J1  J2   K1  K2                
-BOX                                             
-          1  20    3   3    1   5                          / DEFINE BOX AREA  
---                                                                              
---       DEFINE GRID BLOCK POROSITY DATA FOR Y = 1                           
---                                              
+--
+--       ---------- BOX ---------
+--       I1  I2   J1  J2   K1  K2
+BOX
+          1  20    3   3    1   5                          / DEFINE BOX AREA
+--
+--       DEFINE GRID BLOCK POROSITY DATA FOR Y = 1
+--
 PORO
          0.0487  0.0805  0.1098  0.1201  0.0399  0.0550  0.0945  0.0960
          0.1155  0.1194  0.0573  0.0488  0.0203  0.1152  0.0768  0.0321
@@ -272,33 +265,33 @@ PORO
          0.0362  0.0052  0.0796  0.1406                                        /
 --
 --       DEFINE END OF INPUT BOX EDITING OF INPUT ARRAYS
---       
-ENDBOX         
---                                                                              
---       DEFINE GRID BLOCK PERMX DATA FOR ALL CELLS                          
--- 
+--
+ENDBOX
+--
+--       DEFINE GRID BLOCK PERMX DATA FOR ALL CELLS
+--
 PERMX
          300*202.832                                                           /
---                                                                              
---       DEFINE GRID BLOCK PERMY DATA FOR ALL CELLS                       
--- 
+--
+--       DEFINE GRID BLOCK PERMY DATA FOR ALL CELLS
+--
 PERMY
          300*202.832                                                           /
---                                                                              
---       DEFINE GRID BLOCK PERMZ DATA FOR ALL CELLS                
--- 
+--
+--       DEFINE GRID BLOCK PERMZ DATA FOR ALL CELLS
+--
 PERMZ
          300*17.996                                                            /
-         
+
 -- =================================================================================================================================
--- 
--- EDIT SECTION 
--- 
+--
+-- EDIT SECTION
+--
 -- =================================================================================================================================
 EDIT
---                                                                              
---       SET TRANX+ TRANSMISSIBILITY                             
--- 
+--
+--       SET TRANX+ TRANSMISSIBILITY
+--
 TRANX
    0.43238712E+02   0.43238712E+02   0.43238712E+02   0.43238712E+02
    0.43238712E+02   0.43238712E+02   0.43238712E+02   0.43238712E+02
@@ -376,9 +369,9 @@ TRANX
    0.43238712E+02   0.43238712E+02   0.43238712E+02   0.43238712E+02
    0.43238712E+02   0.43238712E+02   0.43238712E+02   0.00000000E+00
 /
---                                                                              
---       SET TRANY+ TRANSMISSIBILITY                             
--- 
+--
+--       SET TRANY+ TRANSMISSIBILITY
+--
 TRANY
    0.43238712E+02   0.43238712E+02   0.43238712E+02   0.43238712E+02
    0.43238712E+02   0.43238712E+02   0.43238712E+02   0.43238712E+02
@@ -456,9 +449,9 @@ TRANY
    0.00000000E+00   0.00000000E+00   0.00000000E+00   0.00000000E+00
    0.00000000E+00   0.00000000E+00   0.00000000E+00   0.00000000E+00
 /
---                                                                              
---       SET TRANZ+ TRANSMISSIBILITY                             
--- 
+--
+--       SET TRANZ+ TRANSMISSIBILITY
+--
 TRANZ
    0.24552304E+03   0.24552304E+03   0.24552304E+03   0.24552304E+03
    0.24552304E+03   0.24552304E+03   0.24552304E+03   0.24552304E+03
@@ -539,19 +532,19 @@ TRANZ
 
 
 -- =================================================================================================================================
--- 
--- PROPS SECTION 
--- 
+--
+-- PROPS SECTION
+--
 -- =================================================================================================================================
 PROPS
 
---                                                                                     
---       WATER-OIL RELATIVE PERMEABILITY TABLES (SWOF)                                                                  
--- 
+--
+--       WATER-OIL RELATIVE PERMEABILITY TABLES (SWOF)
+--
 SWOF
---       SWAT       KRW       KROW      PCOW                                                     
---       FRAC                           PSIA                                                  
---       --------   --------  -------   -------                                                
+--       SWAT       KRW       KROW      PCOW
+--       FRAC                           PSIA
+--       --------   --------  -------   -------
          0.000000   0.000000  1.00000   3.75633
          0.050000   0.000860  0.84782   1.86981
          0.100000   0.002630  0.69746   1.23731
@@ -574,155 +567,144 @@ SWOF
          0.950000   0.461030  0.00001   0.06161
          1.000000   0.500000  0.00000   0.04408            / TABLE NO. 01
 
---                                                                                      
---       OIL PVT TABLE FOR DEAD WITH CONSTANT COMPRESSIBILITY                                                                    
---                                                                                      
-PVCDO                                                                                   
---       REF PRES  BO         CO        VISC     VISC                                         
---       BARSA     RM3/SM3    1/BARSA   CPOISE   1/BARSA                                      
---       --------  --------   -------   ------   ------                                       
-          277.0     1.001     0.0         50.0    0.0      / TABLE NO. 01   (uO reset to 50)
---                                                                                      
---       WATER PVT TABLE                                                                    
---                                                                                      
-PVTW                                                                                   
---       REF PRES  BW         CW        VISC     VISC                                         
---       BARSA     RM3/SM3    1/BARSA   CPOISE   1/BARSA                                      
---       --------  --------   -------   ------   ------                                       
-         277.0     1.038      4.67E-5   0.318    0.0       / TABLE NO. 01              
 --
---       OIL      WAT        GAS                                                             
---       DENSITY  DENSITY    DENSITY                                                       
---       -------  -------    -------                                                         
-DENSITY                                                                                  
-         860.04   1033.0     0.853                         / DENSITY PVT DATA REGION 1: Justert 22/7                  
---                                                                                      
---       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE      
---       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (OPM FLOW USES THE REFERENCE       
---       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA       
---       ON THE ROCK KEYWORD)                                                             
---                                                                                      
---       REF PRES  CF                                                                         
---       BARSA     1/BARSA                                                                    
---       --------  --------                                                                   
-ROCK                                                                                    
-         277.0     4.84E-5                                 / ROCK COMPRSSIBILITY 
-         
+--       OIL PVT TABLE FOR DEAD WITH CONSTANT COMPRESSIBILITY
+--
+PVCDO
+--       REF PRES  BO         CO        VISC     VISC
+--       BARSA     RM3/SM3    1/BARSA   CPOISE   1/BARSA
+--       --------  --------   -------   ------   ------
+          277.0     1.001     0.0         50.0    0.0      / TABLE NO. 01   (uO reset to 50)
+--
+--       WATER PVT TABLE
+--
+PVTW
+--       REF PRES  BW         CW        VISC     VISC
+--       BARSA     RM3/SM3    1/BARSA   CPOISE   1/BARSA
+--       --------  --------   -------   ------   ------
+         277.0     1.038      4.67E-5   0.318    0.0       / TABLE NO. 01
+--
+--       OIL      WAT        GAS
+--       DENSITY  DENSITY    DENSITY
+--       -------  -------    -------
+DENSITY
+         860.04   1033.0     0.853                         / DENSITY PVT DATA REGION 1: Justert 22/7
+--
+--       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE
+--       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (OPM FLOW USES THE REFERENCE
+--       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA
+--       ON THE ROCK KEYWORD)
+--
+--       REF PRES  CF
+--       BARSA     1/BARSA
+--       --------  --------
+ROCK
+         277.0     4.84E-5                                 / ROCK COMPRSSIBILITY
+
 -- =================================================================================================================================
--- 
--- REGIONS SECTION 
--- 
+--
+-- REGIONS SECTION
+--
 -- =================================================================================================================================
 REGIONS
 
 -- =================================================================================================================================
--- 
--- SOLUTION SECTION 
--- 
+--
+-- SOLUTION SECTION
+--
 -- =================================================================================================================================
 SOLUTION
 
 --
---       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N           
---       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT         
-EQUIL                                                                        
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT
+EQUIL
          2525.0  270.0   2600.0  0.00  2200.0  0.00   1*   0     0             /   E: Garn
 --
 --       DEFINE SOLUTION SECTION REPORT OPTIONS
 --
-RPTSOL                                                                           
+RPTSOL
          FIP=3                                             /
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
-RPTRST                                                                           
+RPTRST
          'BASIC=2'                                         /
-         
---     SET DEBUG OUTPUT OPTIONS
-DEBUG                                                                           
-       12                                                                      /
-       
--- =================================================================================================================================
--- 
--- SUMMARY SECTION 
--- 
--- =================================================================================================================================
-SUMMARY 
 
+--     SET DEBUG OUTPUT OPTIONS
+DEBUG
+       12                                                                      /
+
+-- =================================================================================================================================
+--
+-- SUMMARY SECTION
+--
+-- =================================================================================================================================
+SUMMARY
+--
+--       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
+--
 ALL
 
---
---       ACTIVATE EXCEL SUMMARY OUTPUT FILE OPTION     
---
--- EXCEL 
---
---       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION     
---
-RUNSUM                                               
---
---       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION     
---
-SEPARATE       
-
 -- =================================================================================================================================
--- 
--- SCHEDULE SECTION 
--- 
+--
+-- SCHEDULE SECTION
+--
 -- =================================================================================================================================
 SCHEDULE
 --
 --       DEFINE SCHEDULE SECTION REPORT OPTION
 --
-RPTSCHED                                                                                                                             
+RPTSCHED
          PRES  SGAS  SOIL  SWAT                                                /
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
-RPTRST                                                                           
+RPTRST
          BASIC=2                                                               /
 --
---       WELL SPECIFICATION DATA                                                      
---                                                                              
--- WELL  GROUP     LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS  PVT         
--- NAME  NAME        I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW   TABLE       
-WELSPECS                                                                                                                                                           
+--       WELL SPECIFICATION DATA
+--
+-- WELL  GROUP     LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS  PVT
+-- NAME  NAME        I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW   TABLE
+WELSPECS
 'OP01'   GUP01      20    2   1*    'OIL'                                      /
 'WI01'   GRP01       1    2   1*    'WATER'                                    /
-/   
+/
 --
---       WELL CONNECTION DATA                           
---                                                                              
--- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR   
--- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN   
-COMPDAT                                                                        
+--       WELL CONNECTION DATA
+--
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
+COMPDAT
 'OP01'    20   2   1   3   'OPEN' 1*    1*     0.5                             /
 'WI01'     1   2   4   5   'OPEN' 1*    1*     0.5                             /
-/                                                                              
+/
 --
---       WELL PRODUCTION WELL CONTROLS                                                     
---                                                                              
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP  
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ 
-WCONPROD                                                                     
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
 'OP01'   OPEN   ORAT   100.0  1*     1*    1*     1*     50                    /
-/                                                                               
---              
---       WELL INJECTION CONTROLS                                                      
---                                                                              
--- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP               
--- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE             
-WCONINJE                                                                        
+/
+--
+--       WELL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
+WCONINJE
 'WI01'   WATER 'OPEN' 'RATE' 100.0  1*     370                                 /
-/                                                                               
+/
 --
 --       ADVANCE SIMULATION BY REPORTING TIME
 --
 --       JAN  FEB  MAR  APR  MAY  JUN  JLY  AUG  SEP  OCT  NOV  DEC
-TSTEP                                                                           
-         31   28   31   30   31   30   31   31   30   31   30   31                                                                                
+TSTEP
+         31   28   31   30   31   30   31   31   30   31   30   31
 /
 
---                                                                              
+--
 -- *********************************************************************************************************************************
--- END OF FILE                                                                  
+-- END OF FILE
 -- *********************************************************************************************************************************
