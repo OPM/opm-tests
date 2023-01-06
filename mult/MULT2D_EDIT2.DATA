@@ -22,7 +22,7 @@
 --       (1) Layer 3 MULTZ x 100.0
 --       (2) Layer 3 MULTZ x  0.01
 --
--- Should give different results to the base case as only the last modification should be applied. 
+-- Should give different results to the base case as only the last modification should be applied.
 --
 -- =================================================================================================================================
 --
