@@ -13,7 +13,7 @@ GPMAINT-05        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL
 1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).
 2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 
-**Version: 10 January 2023**
+**Version: 12 January 2023**
 
 ### GPMAINT Model Description  (Regular Corner-Point)
 
