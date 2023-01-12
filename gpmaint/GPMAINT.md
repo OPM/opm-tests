@@ -1,10 +1,12 @@
-# MODEL Documentation
+# GPMAINT Test Documentation
 
-Case Name         | Case Desciption                                               | Base Model | Test<br />Type | Results<br />Match | Comments |
------------------ | ------------------------------------------------------------  | ---------- | ----- |------- | ------------------------------------- |
-GPMAINT-01        | Base case GPMAINT using FIPNUM equal to 2 for LOWEAST group.                                 | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-02        | GPMAINT using FIPLAYER equal to 2 for LOWEAST group.                                         | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-03        | GPMAINT using FIPLAYER equal to 6 for LOWEAST group.                                         | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+Case Name         | Case Desciption                                                                                    | Base Model | Test<br />Type | Results<br />Match | Comments |
+----------------- |----------------------------------------------------------------------------------------------------| ---------- | ----- |------- | ------------------------------------- |
+GPMAINT-01        | Base case GPMAINT using FIPNUM equal to 2 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS    | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-02        | GPMAINT using FIPLAYER equal to 2 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS            | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-03        | GPMAINT using FIPAREAS equal to 6 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS            | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-04        | GPMAINT using FIPNUM equal to 2 for LOWEAST group, GPMAINT(GRPCNTL) equal to WINS with GCONINJE    | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-05        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to WINJ and WINS with GCONINJE | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
 
 **Notes:**
 
@@ -97,6 +99,60 @@ Base case model with:
     LOWEAST  WINS   6       AREAS    145     15.0   30.0       /
     /
 ```
+
+**No Results**
+
+---
+
+### GPMAINT-04 Description and Results
+
+ 1) Only the LOWEAST wells are active, with GPMAINT set to:
+```
+    -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
+    -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
+    GPMAINT
+    LOWEAST  WINS   2       1*       145     15.0   30.0       /
+    /
+```
+ 2) Intially restrict water injection GCONINJE via:
+```
+    -- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+    -- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+    GCONINJE
+    FIELD    WAT   NONE   800    1*     1*     1.0    NO   1*     1*    1*    1*   /
+    LOWEAST  WAT   NONE   1000   1*     1*     1.0    YES  1*     1*    1*    1*   /
+    /
+```
+ 3) And then the Field surface rate is increase to 2,000 m3/d at 2024-01-01. After which pressure maintenance is switched off at
+   2029-01-01 using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
+
+**No Results**
+
+---
+
+### GPMAINT-05 Description and Results
+
+ 1) Only the LOWEAST wells are active, with GPMAINT set to:
+```
+    -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
+    -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
+    GPMAINT
+    CENTRAL  WINJ   4       AREAS    100     15.0   30.0       /
+    LOWEAST  WINS   6       AREAS    145     15.0   30.0       /
+    /
+```
+ 2) Intially restrict water injection using GCONINJE:
+```
+    -- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+    -- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+    GCONINJE
+    FIELD    WAT   NONE   800    1*     1*     1.0    NO   1*     1*    1*    1*   /
+    LOWEAST  WAT   NONE   1000   1*     1*     1.0    YES  1*     1*    1*    1*   /
+    /
+```
+ 3) And then the Field surface rate is increase to 2,000 m3/d at 2024-01-01, after which pressure maintenance is switched off at
+   2029-01-01 for the LOWEAST group using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
+ 4) Finally, at 2030-01-01 the LOWEAST group water injection rate is set to zero.
 
 **No Results**
 
