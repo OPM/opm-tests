@@ -41,8 +41,16 @@
 --      -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
 --      -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
 --      GPMAINT
---      LOWEAST  WINS   2       LAYER    145     15.0   30.0       /
+--      LOWEAST  WINS   2       1*       145     15.0   30.0       /
 --      /
+-- ( 2) -- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+--      -- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+--      GCONINJE
+--      FIELD    WAT   NONE   800    1*     1*     1.0    NO   1*     1*    1*    1*   /
+--      LOWEAST  WAT   NONE   1000   1*     1*     1.0    YES  1*     1*    1*    1*   /
+--      /
+-- ( 3) And then the Field surface rate is increase to 2,000 m3/d at 2024-01-01. After which pressure maintenance is switched off at
+--      2029-01-01 using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
 --
 -- =================================================================================================================================
 --
@@ -54,7 +62,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-GPMAINT-02: Base Case FIPLAYER Run
+GPMAINT-04: Sensitivity FIPNUM Case
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -374,12 +382,21 @@ LOWER    FLD  2500.0  1*     1*   4000.0  RATE   YES    9*                     /
 UPPER    FLD  2500.0  1*     1*   4000.0  RATE   YES    9*                     /
 /
 --
+--       GROUP INJECTION TARGETS AND CONSTRAINTS
+--
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE
+FIELD    WAT   NONE   800    1*     1*     1*     NO   1*     1*    1*    1*   /
+LOWEAST  WAT   NONE   1000   1*     1*     1*    YES   1*     1*    1*    1*   /
+/
+--
 --       GROUP PRESSURE MAINTENANCE TARGETS AND CONTROLS
 --
 -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
 -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
 GPMAINT
-LOWEAST  WINS   2       LAYER    145     15.0   30.0       /
+LOWEAST  WINS   2       1*       145     15.0   30.0       /
 /
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -520,6 +537,14 @@ RPTSCHED
 DATES
          1  JAN   2024  /
 /
+--
+--       GROUP INJECTION TARGETS AND CONSTRAINTS
+--
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE
+FIELD    WAT   NONE   2E3    1*     1*     1*    YES   1*     1*    1*    1*   /
+/
 
 RPTSCHED
          'NOTHING'                                                             /
@@ -649,6 +674,14 @@ RPTSCHED
 
 DATES
          1  JAN   2029  /
+/
+--
+--       GROUP PRESSURE MAINTENANCE TARGETS AND CONTROLS
+--
+-- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
+-- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
+GPMAINT
+LOWEAST  NONE   2       1*       145     15.0   30.0       /
 /
 
 RPTSCHED
