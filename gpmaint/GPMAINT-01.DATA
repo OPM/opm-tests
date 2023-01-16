@@ -3,7 +3,7 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2020 Equinor
+-- Copyright (C) 2023 Equinor
 
 -- This model is based MODEL04 and consists of a (30, 15, 13) Regular Corner-Point Grid, with two separate reservoirs: an Upper
 -- Reservoir (layers 1 - 6), a Shale Inactive Layer (7), and a Lower Reservoir (layers 8 - 13). In addition, the FIPNUM array has
@@ -33,6 +33,11 @@
 --      ---+--+-----+-----+-----+
 --      |     |     |     |     |
 --     OPU1  OPU2  OPU3  WIU1  WIU2
+--
+--   WIU1 in group NW has been renamed to OPUW1, WIU2 in group NW has been renamed to OPUW2,
+--   WIU3 in group NE has been renamed to OPUW3, WIU4 in group SE has been renamed to OPUW4,
+--   OPU1 in group NW has been renamed to GIU1,  OPU5 in group NE has been renamed to GIU5, and
+--   OPU7 in group SE has been renamed to GIU7, since the Upper reservoir is now a gas-oil reservoir.
 --
 -- The model is used to test the GPMAINT keyword using different configurations of the keyword and the various FIP regions,
 -- and is based on:
@@ -257,7 +262,7 @@ REGIONS
 --                                I1  I2   J1  J2   K1  K2
 EQUALS
          EQLNUM      1            1*  1*   1*  1*    1   7 / SET EQLNUM TO 1 IN LAYERS 1 -  7
-         EQLNUM      2            1*  1*   1*  1*    8  13 / SET EQLNUM TO 2 IN LAYERS 8 - 1
+         EQLNUM      2            1*  1*   1*  1*    8  13 / SET EQLNUM TO 2 IN LAYERS 8 -  1
 
          FIPNUM      1            1*  1*   1*  1*    1   7 / SET FIPNUM TO 1 IN LAYERS 1 -  7
          FIPNUM      2            1*  1*   1*  1*    8  13 / SET FIPNUM TO 2 IN LAYERS 8 - 13
@@ -269,8 +274,8 @@ EQUALS
 --       ARRAY       CONSTANT     ---------- BOX ---------
 --                                I1  I2   J1  J2   K1  K2
 EQUALS
-         FIPLAYER   1            1*  1*   1*  1*    1   7 / SET FIP-LAYS TO 1 IN LAYERS 1 -  7
-         FIPLAYER   2            1*  1*   1*  1*    8  13 / SET FIP-LAYS TO 2 IN LAYERS 8 - 13
+         FIPLAYER    1            1*  1*   1*  1*    1   7 / SET FIP-LAYS TO 1 IN LAYERS 1 -  7
+         FIPLAYER    2            1*  1*   1*  1*    8  13 / SET FIP-LAYS TO 2 IN LAYERS 8 - 13
 --
 --       FIP-AREA BASED ON AREA AND NUMERICAL LAYERS
 --
@@ -306,7 +311,7 @@ RSVD
          2191.0    33.5                                    / RS VS DEPTH EQUIL REGN 01
 
           600.0    33.5
-         2191.0    33.5                                    /  RS VS DEPTH EQUIL REGN 02
+         2191.0    33.5                                    / RS VS DEPTH EQUIL REGN 02
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
@@ -389,7 +394,7 @@ LOWEAST  WINS   2       1*       145     15.0   30.0       /
 --       LOAD INCLUDE FILE - WELL SPECIFICATIONS
 --
 INCLUDE
-         'include/MODEL04-WELLS.inc'                       /
+         'include/GPMAINT-WELLS.inc'                       /
 --
 --       LOAD INCLUDE FILE - VFPPROD TABLES
 --
@@ -397,16 +402,6 @@ INCLUDE
          'include/MODEL04-VFPPROD-01-OPL.inc'              /
 INCLUDE
          'include/MODEL04-VFPPROD-02-OPU.inc'              /
---
---       WELL SPECIFICATION DATA - RESET MODEL04 GROUPS TO LOWEAST
---
--- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP
--- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM
-WELSPECS
-OPL1     LOWEAST   17    2   1*     OIL   0.00    STD    SHUT  YES   0     SEG     /
-WID1     LOWEAST   28    4   1*     WAT   0.00    STD    SHUT  YES   0     SEG     /
-WID2     LOWEAST   26    2   1*     WAT   0.00    STD    SHUT  YES   0     SEG     /
-/
 --
 --       WELL PRODUCTION WELL CONTROLS
 --
