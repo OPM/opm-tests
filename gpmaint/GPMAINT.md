@@ -8,7 +8,10 @@ GPMAINT-03        | GPMAINT using FIPAREAS equal to 6 for LOWEAST group, and GPM
 GPMAINT-04        | GPMAINT using FIPNUM equal to 2 for LOWEAST group, GPMAINT(GRPCNTL) equal to WINS with GCONINJE    | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
 GPMAINT-05        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to WINJ and WINS with GCONINJE | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
 GPMAINT-06        | GPMAINT using FIPAREAS equal to 1, 2 and 3, and GPMAINT(GRPCNTL) equal to GINJ                     | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-07        | GPMAINT using FIPAREAS equal to 1, 2 and 3, and GPMAINT(GRPCNTL) equal to GINS and GINJ           | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-07        | GPMAINT using FIPAREAS equal to 1, 2 and 3, and GPMAINT(GRPCNTL) equal to GINS and GINJ            | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-08        | GPMAINT using FIPLAYER equal to 1, and GPMAINT(GRPCNTL) equal to OINJ                              | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-09        | GPMAINT using FIPNUM equal to 1, and GPMAINT(GRPCNTL) equal to OINS                                | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-10        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to PROD with GCONINJE          | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
 
 **Notes:**
 
@@ -83,10 +86,10 @@ Base case model with:
     -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
     -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
     GPMAINT
-    LOWEAST  WINS   2       1*       145     15.0   30.0       /
+    LOWEAST  WINS   2       1*       145     120.0  15.0       /
     /
 ```
-**No Results**
+[GPMAINT-01 PLT Results](plots/GPMAINT-01-PLT.md)
 
 ---
 
@@ -97,11 +100,11 @@ Base case model with:
     -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
     -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
     GPMAINT
-    LOWEAST  WINS   2       LAYER    145     15.0   30.0       /
+    LOWEAST  WINS   2       LAYER    145     120.0  15.0       /
     /
 ```
 
-**No Results**
+[GPMAINT-02 PLT Results](plots/GPMAINT-02-PLT.md)
 
 ---
 
@@ -112,11 +115,11 @@ Base case model with:
     -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
     -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
     GPMAINT
-    LOWEAST  WINS   6       AREAS    145     15.0   30.0       /
+    LOWEAST  WINS   6       AREAS    145     120.0  15.0       /
     /
 ```
 
-**No Results**
+[GPMAINT-03 PLT Results](plots/GPMAINT-03-PLT.md)
 
 ---
 
@@ -127,7 +130,7 @@ Base case model with:
     -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
     -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
     GPMAINT
-    LOWEAST  WINS   2       1*       145     15.0   30.0       /
+    LOWEAST  WINS   2       1*       145     120.0  15.0       /
     /
 ```
  2) Intially restrict water injection GCONINJE via:
@@ -135,14 +138,14 @@ Base case model with:
     -- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
     -- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
     GCONINJE
-    FIELD    WAT   NONE   800    1*     1*     1.0    NO   1*     1*    1*    1*   /
+    FIELD    WAT   NONE   500    1*     1*     1.0    NO   1*     1*    1*    1*   /
     LOWEAST  WAT   NONE   1000   1*     1*     1.0    YES  1*     1*    1*    1*   /
     /
 ```
  3) And then the Field surface rate is increase to 2,000 m3/d at 2024-01-01. After which pressure maintenance is switched off at
-   2029-01-01 using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
+    2029-01-01 using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
 
-**No Results**
+[GPMAINT-04 PLT Results](plots/GPMAINT-04-PLT.md)
 
 ---
 ### GPMAINT-05 Lower Oil-Water Reservoir Description and Results
@@ -152,8 +155,8 @@ Base case model with:
     -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
     -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
     GPMAINT
-    CENTRAL  WINJ   4       AREAS    100     15.0   30.0       /
-    LOWEAST  WINS   6       AREAS    145     15.0   30.0       /
+    CENTRAL  WINJ   4       AREAS    100     120.0  15.0       /
+    LOWEAST  WINS   6       AREAS    145     120.0  15.0       /
     /
 ```
  2) Intially restrict water injection using GCONINJE:
@@ -166,22 +169,21 @@ Base case model with:
     /
 ```
  3) And then the Field surface rate is increase to 2,000 m3/d at 2024-01-01, after which pressure maintenance is switched off at
-   2029-01-01 for the LOWEAST group using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
+    2029-01-01 for the LOWEAST group using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
  4) Finally, at 2030-01-01 the LOWEAST group water injection rate is set to zero.
 
-**No Results**
+[GPMAINT-05 PLT Results](plots/GPMAINT-05-PLT.md)
 
 ---
 
 ### GPMAINT-06 Upper Gas-Oil Reservoir Description and Results
 
- 1)  Only the UPPER NW and NE wells are intially active, with GPMAINT set to:
+ 1) Only the UPPER NW and NE wells are intially active, with GPMAINT set to:
 ```
     -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
     -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
     GPMAINT
-    NW       GINJ   1       AREAS    150     80.0   5.0        /
-    NE       GINJ   2       AREAS    150     80.0   5.0        /
+    UPPER    GINJ   1       LAYER    150     350.0  2.0        /
     /
 ```
  2) Then on January 1, 2027 the UPPER SE wells come on stream, with GPMAINT set to:
@@ -189,17 +191,17 @@ Base case model with:
     -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
     -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
     GPMAINT
-    SE       GINJ   3       AREAS    155     80.0   5.0        /
+    UPPER    GINJ   1       LAYER    145     350.0  2.0        /
     /
 ```
 
-**No Results**
+[GPMAINT-06 PLT Results](plots/GPMAINT-06-PLT.md)
 
 ---
 
 ### GPMAINT-07 Upper Gas-Oil Reservoir Description and Results
-This case is similar to GPMAINT-07, but here we use a mixture of the GINJ and GINS options.
- 1)  Only the UPPER NW and NE wells are intially active, with GPMAINT set to:
+
+ 1) Only the UPPER NW and NE wells are intially active, with GPMAINT set to:
 ```
     -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
     -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
@@ -216,8 +218,72 @@ This case is similar to GPMAINT-07, but here we use a mixture of the GINJ and GI
     SE       GINS   3       AREAS    155     200.0  2.0        /
     /
 ```
-Note it was not possible to get a stable run using GINS for all three regions.
+Challenging to get a stable run using GINJS for all three regions.
 
-**No Results**
+[GPMAINT-07 PLT Results](plots/GPMAINT-07-PLT.md)
 
 ---
+
+### GPMAINT-08 Upper Gas-Oil Reservoir Description and Results
+
+ 1) Here, wells OPUW1 to OPUW4 are oil injectors, and well GIU5 is the only gas producer. All other wells are non-producing.
+ 2) Initial gas production rate set to 1E6 m3/d, and then on July 1, 2023 reset to 1E5 m3/d, in order for the oil injectors to
+    support the reservoir pressure.
+ 3) GPMAINT is set at the start of the run, but does not come into effect until the reservoir pressure falls to 110 barsa,
+    and is defined as:
+```
+    -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
+    -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
+    GPMAINT
+    UPPER    OINJ   1       LAYER    110     180.0  2.0        /
+    /
+```
+
+[GPMAINT-08 PLT Results](plots/GPMAINT-08-PLT.md)
+
+---
+
+### GPMAINT-09 Upper Gas-Oil Reservoir Description and Results
+
+ 1) Here, wells OPUW1 to OPUW4 are oil injectors, and well GIU5 is the only gas producer. All other wells are non-producing.
+ 2) Initial gas production rate set to 1E6 m3/d, and then on July 1, 2023 reset to 1E5 m3/d, in order for the oil injectors to
+    support the reservoir pressure.
+ 3) GPMAINT is set at the start of the run, but does not come into effect until the reservoir pressure falls to 110 barsa,
+    and is defined as:
+```
+    -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
+    -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
+    GPMAINT
+    UPPER    OINS   1       1*       110     180.0  2.0        /
+    /
+```
+
+[GPMAINT-09 PLT Results](plots/GPMAINT-09-PLT.md)
+
+---
+
+### GPMAINT-10 Lower Oil-Water Reservoir Description and Results
+
+ 1) Only the LOWEAST wells are active, with GPMAINT set to:
+```
+    -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
+    -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
+    GPMAINT
+    CENTRAL  PROD   4       AREAS    135     120.0  15.0       /
+    LOWEAST  PROD   6       AREAS    145     120.0  15.0       /
+    /
+```
+ 2) Intially restrict water injection using GCONINJE:
+```
+    -- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+    -- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+    GCONINJE
+    FIELD    WAT   NONE   800    1*     1*     1.0    NO   1*     1*    1*    1*   /
+    LOWEAST  WAT   NONE   1000   1*     1*     1.0    YES  1*     1*    1*    1*   /
+    /
+```
+ 3) And then the Field surface rate is increase to 1,000 m3/d at 2024-01-01, after which pressure maintenance is switched off at
+    2029-01-01 for the LOWEAST group using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
+ 4) Finally, at 2030-01-01 the LOWEAST group water injection rate is set to zero.
+
+[GPMAINT-10 PLT Results](plots/GPMAINT-10-PLT.md)
