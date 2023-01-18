@@ -216,7 +216,7 @@ This case is similar to GPMAINT-07, but here we use a mixture of the GINJ and GI
     SE       GINS   3       AREAS    155     200.0  2.0        /
     /
 ```
-Note it was not possible to get a stable run using GINJS for all three regions.
+Note it was not possible to get a stable run using GINS for all three regions.
 
 **No Results**
 
