@@ -4,21 +4,21 @@ Case Name         | Case Desciption                                             
 ----------------- |----------------------------------------------------------------------------------------------------| ---------- | ----- |------- | ------------------------------------- |
 GPMAINT-01        | Base case GPMAINT using FIPNUM equal to 2 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS    | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
 GPMAINT-02        | GPMAINT using FIPLAYER equal to 2 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS            | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-03        | GPMAINT using FIPAREAS equal to 6 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS            | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-04        | GPMAINT using FIPNUM equal to 2 for LOWEAST group, GPMAINT(GRPCNTL) equal to WINS with GCONINJE    | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-05        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to WINJ and WINS with GCONINJE | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-03        | GPMAINT using FIPAREAS equal to 6 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS            | GPMAINT |     | No         | OPM Flow throws an exception Unknown region ID.        <br /><br /> E100 runs as expected.
+GPMAINT-04        | GPMAINT using FIPNUM equal to 2 for LOWEAST group, GPMAINT(GRPCNTL) equal to WINS with GCONINJE    | GPMAINT |     | No         | **OPM Flow runs but the results are different.**       <br /><br /> E100 runs as expected.
+GPMAINT-05        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to WINJ and WINS with GCONINJE | GPMAINT |     | No         | OPM Flow throws an exception Unknown region ID.        <br /><br /> E100 runs as expected.
 GPMAINT-06        | GPMAINT using FIPAREAS equal to 1, 2 and 3, and GPMAINT(GRPCNTL) equal to GINJ                     | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
 GPMAINT-07        | GPMAINT using FIPAREAS equal to 1, 2 and 3, and GPMAINT(GRPCNTL) equal to GINS and GINJ            | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
 GPMAINT-08        | GPMAINT using FIPLAYER equal to 1, and GPMAINT(GRPCNTL) equal to OINJ                              | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
 GPMAINT-09        | GPMAINT using FIPNUM equal to 1, and GPMAINT(GRPCNTL) equal to OINS                                | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-10        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to PROD with GCONINJE          | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
+GPMAINT-10        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to PROD with GCONINJE          | GPMAINT |     | No         | OPM Flow throws an exception Unknown region ID.        <br /><br /> E100 runs as expected.
 
 **Notes:**
 
 1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).
 2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 
-**Version: 16 January 2023**
+**Version: 18 January 2023**
 
 ### GPMAINT Model Description  (Regular Corner-Point)
 Upper Reservoir
