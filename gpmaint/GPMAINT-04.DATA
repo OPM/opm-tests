@@ -1,0 +1,743 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This model is based MODEL04 and consists of a (30, 15, 13) Regular Corner-Point Grid, with two separate reservoirs: an Upper
+-- Reservoir (layers 1 - 6), a Shale Inactive Layer (7), and a Lower Reservoir (layers 8 - 13). In addition, the FIPNUM array has
+-- been introduced to identify the two reservoirs, together with two FIPxxxxx arrays, FIPLAYER and FIPAREAS. The former is
+-- identical to the FIPNUM array, whereas, the latter breaks each reservoir into three separate reporting regions, resulting in six
+-- FIP regions.
+--
+-- There are a total of 12 oil producers and eight water injection wells, and all wells using the multi segment well model. Secondly
+-- the surface network has been changed, so that wells OPL1, WID1 and WID2 now all belong to the same group, LOWEAST, and
+-- consequently, AQF group has been removed, as shown below:
+--
+--                                   FIELD
+--                                     |
+--       ------------------------------+-----------------------------------
+--                         |                        |
+--                       UPPER                    LOWER
+--                  ------+------            +------+-------------+
+--                 |            |                   |             |
+--               MAIN          SE                 CENTRAL      LOWEAST
+--          ------+-----        +-----+-----+       +      +-----+-----+
+--         |           |        |     |     |       |      |     |     |
+--        NW          NE       OPU6  OPU7  WIU4     |     OPL1  WID1  WID2
+--         |    +-----+-----+                       |
+--         |    |     |     |           +-----+-----+-----+-----+-----+
+--         |   OPU4  OPU5  WIU3         |     |     |     |     |     |
+--         |                           OPL2  OPL3  OPL4  OPL5  WIL1  WIL2
+--      ---+--+-----+-----+-----+
+--      |     |     |     |     |
+--     OPU1  OPU2  OPU3  WIU1  WIU2
+--
+--   WIU1 in group NW has been renamed to OPUW1, WIU2 in group NW has been renamed to OPUW2,
+--   WIU3 in group NE has been renamed to OPUW3, WIU4 in group SE has been renamed to OPUW4,
+--   OPU1 in group NW has been renamed to GIU1,  OPU5 in group NE has been renamed to GIU5, and
+--   OPU7 in group SE has been renamed to GIU7, since the Upper reservoir is now a gas-oil reservoir.
+--
+-- The model is used to test the GPMAINT keyword using different configurations of the keyword and the various FIP regions,
+-- and is based on:
+--
+-- ( 1) Only the LOWEAST wells are active, with GPMAINT set to:
+--      -- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
+--      -- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
+--      GPMAINT
+--      LOWEAST  WINS   2       1*       145     15.0   30.0       /
+--      /
+-- ( 2) -- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+--      -- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+--      GCONINJE
+--      FIELD    WAT   NONE   500    1*     1*     1.0    NO   1*     1*    1*    1*   /
+--      LOWEAST  WAT   NONE   1000   1*     1*     1.0    YES  1*     1*    1*    1*   /
+--      /
+-- ( 3) And then the Field surface rate is increase to 2,000 m3/d at 2024-01-01. After which pressure maintenance is switched off at
+--      2029-01-01 using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
+--
+-- =================================================================================================================================
+--
+-- RUNSPEC SECTION
+--
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE TITLE FOR THE RUN
+--
+TITLE
+GPMAINT-04: Sensitivity FIPNUM Case
+--
+--       DEFINE THE START DATE FOR THE RUN
+--
+START
+         01 'JAN' 2023                                                         /
+--
+--       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
+--
+-- NOSIM
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- FLUID TYPES AND TRACER OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       OIL PHASE IS PRESENT IN THE RUN
+--
+OIL
+--
+--       WATER PHASE IS PRESENT IN THE RUN
+--
+WATER
+--
+--       GAS PHASE IS PRESENT IN THE RUN
+--
+GAS
+--
+--       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN
+--
+DISGAS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX
+--       NDIVIX  NDIVIY  NDIVIZ
+DIMENS
+         30      15      13                                                    /
+--
+--       FAULT
+--       SEGMS
+FAULTDIM
+         10000                                                                 /
+--
+--       MAX     MAX     RSVD    TVDP    TVDP
+--       EQLNUM  DEPTH   NODES   TABLE   NODES
+EQLDIMS
+         2       1*      1*      1       1                                     /
+--
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS
+REGDIMS
+         6       8       1*      1*      1*     1*     1*     1*    1*    1*   /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND
+TABDIMS
+         1       1       50      50      1       50     1*     1*              /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       WELL    WELL    GRUPS   GRUPS
+--       MXWELS  MXCONS  MXGRPS  MXGRPW
+WELLDIMS
+         20      10      10      7                                             /
+--
+--       WELL    WELL    BRANCH  SEGMENT
+--       MXWELS  MXSEGS  MXBRAN  MXLINKS
+WSEGDIMS
+         20      10      10      1*                                            /
+--
+--       PRODUCING VFP TABLES
+--       VFP     VFP     VFP     VFP     VFP     VFP
+--       MXMFLO  MXMTHP  MXMWFR  MXMGFR  MXMALQ  MXVFPTAB
+VFPPDIMS
+         25      12      12      12      5       2                             /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- NUMERICAL AND RUN CONTROL OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       SET STACK SIZE FOR LINEAR SOLVER
+--
+NSTACK
+         25                                                                    /
+--
+--       DEFINE THE MAX NUMBER OF ITERATIONS TO UPDATE WELL FLOW TARGETS
+--
+NUPCOL
+         20                                                                    /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- INPUT AND OUTPUT OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT
+--
+METRIC
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT
+--
+--       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG
+--       LIMIT LIMIT LIMIT LIMIT LIMIT LIMIT STOP STOP  STOP  STOP  STOP  STOP
+MESSAGES
+         1*    1*    1*    1*    1*    1*    1*   1*    1*    1*    1*    1*   /
+
+-- =================================================================================================================================
+--
+-- GRID SECTION
+--
+-- =================================================================================================================================
+GRID
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1                                                             /
+--
+--       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
+--
+NEWTRAN
+--
+--       LOAD INCLUDE FILE - GRID
+--
+INCLUDE
+         'include/MODEL04-GRID.inc'    /
+--
+--       DEFINE GRID BLOCK POROSITY DATA FOR ALL CELLS
+--
+PORO
+         5850*0.27                     /
+--
+--       DEFINE GRID BLOCK PERMX DATA FOR ALL CELLS
+--
+PERMX
+         5850*1500.0                   /
+--
+--       DEFINE GRID BLOCK PERMZ DATA FOR ALL CELLS
+--
+PERMZ
+         5850*150.0                    /
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+COPY
+         PERMX       PERMY        1*  1*   1*  1*   1*  1* / CREATE PERMY
+/
+--
+--       ARRAY       CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+EQUALS
+         MULTX       0.01         10  10   8   15    1   8 / REDUCE PERMX BY 0.01
+         MULTY       0.01         11  19   7    7    1   8 / REDUCE PERMX BY 0.01
+/
+
+-- =================================================================================================================================
+--
+-- EDIT SECTION
+--
+-- =================================================================================================================================
+EDIT
+
+-- =================================================================================================================================
+--
+-- PROPS SECTION
+--
+-- =================================================================================================================================
+PROPS
+--
+--       LOAD INCLUDE FILE - PVT DATA
+--
+INCLUDE
+         'include/MODEL04-PVT.inc'     /
+--
+--       LOAD INCLUDE FILE - ROCK AND SATURATION FUNCTIONS
+--
+INCLUDE
+         'include/MODEL04-ROCK.inc'    /
+
+-- =================================================================================================================================
+--
+-- REGIONS SECTION
+--
+
+-- =================================================================================================================================
+REGIONS
+--
+--       ARRAY       CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+EQUALS
+         EQLNUM      1            1*  1*   1*  1*    1   7 / SET EQLNUM TO 1 IN LAYERS 1 -  7
+         EQLNUM      2            1*  1*   1*  1*    8  13 / SET EQLNUM TO 2 IN LAYERS 8 -  1
+
+         FIPNUM      1            1*  1*   1*  1*    1   7 / SET FIPNUM TO 1 IN LAYERS 1 -  7
+         FIPNUM      2            1*  1*   1*  1*    8  13 / SET FIPNUM TO 2 IN LAYERS 8 - 13
+/
+--
+--       DEFINE THE FLUID IN-PLACE NAMES AND REGION AND NUMBERS
+--
+--       FIP-LAYS BASED ON NUMERICAL LAYERS
+--       ARRAY       CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+EQUALS
+         FIPLAYER    1            1*  1*   1*  1*    1   7 / SET FIP-LAYS TO 1 IN LAYERS 1 -  7
+         FIPLAYER    2            1*  1*   1*  1*    8  13 / SET FIP-LAYS TO 2 IN LAYERS 8 - 13
+--
+--       FIP-AREA BASED ON AREA AND NUMERICAL LAYERS
+--
+         FIPAREAS    1            1   10   8   15    1   7 / SET FIP-AREA TO 1 IN LAYERS 1 -  7
+         FIPAREAS    2            11  19   8   15    1   7 / SET FIP-AREA TO 2 IN LAYERS 1 -  7
+         FIPAREAS    3            11  19   1    7    1   7 / SET FIP-AREA TO 3 IN LAYERS 1 -  7
+
+         FIPAREAS    4            1   10   8   15    8  13 / SET FIP-AREA TO 4 IN LAYERS 8 - 13
+         FIPAREAS    5            11  19   8   15    8  13 / SET FIP-AREA TO 5 IN LAYERS 8 - 13
+         FIPAREAS    6            11  30   1    7    8  13 / SET FIP-AREA TO 6 IN LAYERS 8 - 13
+
+         FIPAREAS    5            12  12   7    7    8  13 / SET FIP-AREA TO 5 IN LAYERS 8 - 13 FOR WELL WIL2
+/
+
+-- =================================================================================================================================
+--
+-- SOLUTION SECTION
+--
+-- =================================================================================================================================
+SOLUTION
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N    E300  RVW
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT  OPT   OPT
+EQUIL
+         1500.0  150     1513.0  0.00   610.0   1*    1    1*   1*   2*    1*  /
+         1550.0  150     1547.5  0.00   610.0   1*    1    1*   1*   2*    1*  /
+--
+--       DEPTH    RS
+--                MSCF/STB
+--       ------   --------
+RSVD
+          600.0    33.5
+         2191.0    33.5                                    / RS VS DEPTH EQUIL REGN 01
+
+          600.0    33.5
+         2191.0    33.5                                    / RS VS DEPTH EQUIL REGN 02
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST
+         BASIC=2                                                               /
+
+-- =================================================================================================================================
+--
+-- SUMMARY SECTION
+--
+-- =================================================================================================================================
+SUMMARY
+--
+--       LOAD INCLUDE FILE - SUUMARY VECTORS
+--
+INCLUDE
+         'include/GPMAINT-SUMMARY.inc'  /
+
+-- =================================================================================================================================
+--
+-- SCHEDULE SECTION
+--
+-- =================================================================================================================================
+SCHEDULE
+--
+--       DEFAULT TUNING PARAMETERS
+--
+--         1       2      3        4    5      6       7       8       9   10
+TUNING
+         1.0     1.0                    /
+                                        /
+                                        /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST
+         BASIC=4                                                               /
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP PRODUCTION AND INJECTION CONTROLS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       DEFINE GROUP TREE HIERARCHY
+--
+--       LOWER     HIGHER
+--       GROUP     GROUP
+GRUPTREE
+         UPPER     FIELD               /
+         LOWER     FIELD               /
+         LOWEAST   LOWER               /
+         MAIN      UPPER               /
+         NE        MAIN                /
+         NW        MAIN                /
+         SE        UPPER               /
+         CENTRAL   LOWER               /
+/
+--
+--       GROUP PRODUCTION CONTROLS
+--
+-- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
+-- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
+GCONPROD
+FIELD    LRAT 2500.0  1*     1*   4000.0  RATE   NO     9*                     /
+LOWER    FLD  2500.0  1*     1*   4000.0  RATE   YES    9*                     /
+UPPER    FLD  2500.0  1*     1*   4000.0  RATE   YES    9*                     /
+/
+--
+--       GROUP INJECTION TARGETS AND CONSTRAINTS
+--
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE
+FIELD    WAT   NONE   500    1*     1*     1*     NO   1*     1*    1*    1*   /
+LOWEAST  WAT   NONE   1000   1*     1*     1*    YES   1*     1*    1*    1*   /
+/
+--
+--       GROUP PRESSURE MAINTENANCE TARGETS AND CONTROLS
+--
+-- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
+-- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
+GPMAINT
+LOWEAST  WINS   2       1*       145     120.0  15.0       /
+/
+
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- WELL SPECIFICATIONS AND COMPLETIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       LOAD INCLUDE FILE - WELL SPECIFICATIONS
+--
+INCLUDE
+         'include/GPMAINT-WELLS.inc'                       /
+--
+--       LOAD INCLUDE FILE - VFPPROD TABLES
+--
+INCLUDE
+         'include/MODEL04-VFPPROD-01-OPL.inc'              /
+INCLUDE
+         'include/MODEL04-VFPPROD-02-OPU.inc'              /
+--
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+'OPL*'   SHUT   GRUP   1*     1*     1*    1*     1*     60.0  18     1     58 /
+'OPU*'   SHUT   GRUP   1*     1*     1*    1*     1*     60.0  18     2     58 /
+/
+--
+--       WELL ECONOMIC CRITERIA FOR PRODUCTION WELLS
+-- WELL  MIN    MIN    MAX    MAX    MAX    CNTL    END   WELL
+-- NAME  ORAT   GRAT   WCUT   GOR    WGR    MODE    RUN   NAME
+WECON
+'OP*'    1*     1*     0.98   1*     1*    'WELL'   1*                         /
+/
+--
+--       WELL EFFICIENCY FACTORS
+--
+-- WELL  EFF    NETWK
+-- NAME  FACT   OPTN
+WEFAC
+'OP*  '  0.870                                                                 /
+/
+--
+--       WELL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRES  PRES  TABLE
+WCONINJE
+'GI*'    GAS    SHUT   GRUP  1*     1*     210.   1*    1*                     /
+'WI*'    WATER  SHUT   GRUP  2000   1*     210.   1*    1*                     /
+'WID*'   WATER  SHUT   GRUP  2000   1*     210.   1*    1*                     /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2023-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         2  JAN   2023  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+--
+--       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
+--
+--  WELL WELL   --LOCATION--   COMPLETION
+--  NAME STAT     I   J    K   FIRST LAST
+WELOPEN
+OPL1     OPEN                                              /
+OPL1     OPEN     0   0    0    0      0                   /
+WID1     OPEN                                              /
+WID1     OPEN     0   0    0    0      0                   /
+WID2     OPEN                                              /
+WID2     OPEN     0   0    0    0      0                   /
+/
+--
+--       WELL PRODUCTION AND INJECTION TARGETS
+--
+--  WELL WELL   TARGET
+--  NAME TARG   VALUE
+WELTARG
+OPL1     LRAT    150                                       /
+/
+
+DATES
+         3  JAN   2023  /
+/
+--
+--       WELL PRODUCTION AND INJECTION TARGETS
+--
+--  WELL WELL   TARGET
+--  NAME TARG   VALUE
+WELTARG
+OPL1     LRAT    400                                       /
+/
+
+DATES
+         4  JAN   2023  /
+/
+--
+--       WELL PRODUCTION AND INJECTION TARGETS
+--
+--  WELL WELL   TARGET
+--  NAME TARG   VALUE
+WELTARG
+OPL1     LRAT    750                                       /
+/
+
+DATES
+         1  FEB   2023  /
+         1  MAR   2023  /
+         1  APR   2023  /
+         1  MAY   2023  /
+         1  JUN   2023  /
+         1  JLY   2023  /
+         1  AUG   2023  /
+         1  SEP   2023  /
+         1  OCT   2023  /
+         1  NOV   2023  /
+         1  DEC   2023  /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2024-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         1  JAN   2024  /
+/
+--
+--       GROUP INJECTION TARGETS AND CONSTRAINTS
+--
+-- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
+-- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
+GCONINJE
+FIELD    WAT   NONE   2E3    1*     1*     1*    YES   1*     1*    1*    1*   /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2024  /
+         1  MAR   2024  /
+         1  APR   2024  /
+         1  MAY   2024  /
+         1  JUN   2024  /
+         1  JLY   2024  /
+         1  AUG   2024  /
+         1  SEP   2024  /
+         1  OCT   2024  /
+         1  NOV   2024  /
+         1  DEC   2024  /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2025-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         1  JAN   2025  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2025  /
+         1  MAR   2025  /
+         1  APR   2025  /
+         1  MAY   2025  /
+         1  JUN   2025  /
+         1  JLY   2025  /
+         1  AUG   2025  /
+         1  SEP   2025  /
+         1  OCT   2025  /
+         1  NOV   2025  /
+         1  DEC   2025  /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2026-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         1  JAN   2026  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2026  /
+         1  MAR   2026  /
+         1  APR   2026  /
+         1  MAY   2026  /
+         1  JUN   2026  /
+         1  JLY   2026  /
+         1  AUG   2026  /
+         1  SEP   2026  /
+         1  OCT   2026  /
+         1  NOV   2026  /
+         1  DEC   2026  /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2027-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         1  JAN   2027  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2027  /
+         1  MAR   2027  /
+         1  APR   2027  /
+         1  MAY   2027  /
+         1  JUN   2027  /
+         1  JLY   2027  /
+         1  AUG   2027  /
+         1  SEP   2027  /
+         1  OCT   2027  /
+         1  NOV   2027  /
+         1  DEC   2027  /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2028-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         1  JAN   2028  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2028  /
+         1  MAR   2028  /
+         1  APR   2028  /
+         1  MAY   2028  /
+         1  JUN   2028  /
+         1  JLY   2028  /
+         1  AUG   2028  /
+         1  SEP   2028  /
+         1  OCT   2028  /
+         1  NOV   2028  /
+         1  DEC   2028  /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2029-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         1  JAN   2029  /
+/
+--
+--       GROUP PRESSURE MAINTENANCE TARGETS AND CONTROLS
+--
+-- GRUP  CNTL   FIPNUM  FIP      PRESS   ALPHA  BETA
+-- NAME  MODE   REGION  FIPNAME  TARGET  CONST  CONST
+GPMAINT
+LOWEAST  NONE   2       1*       145     120.0  15.0       /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2029  /
+         1  MAR   2029  /
+         1  APR   2029  /
+         1  MAY   2029  /
+         1  JUN   2029  /
+         1  JLY   2029  /
+         1  AUG   2029  /
+         1  SEP   2029  /
+         1  OCT   2029  /
+         1  NOV   2029  /
+         1  DEC   2029  /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2030-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         1  JAN   2030  /
+/
+
+RPTSCHED
+         'NOTHING'                                                             /
+
+DATES
+         1  FEB   2030  /
+         1  MAR   2030  /
+         1  APR   2030  /
+         1  MAY   2030  /
+         1  JUN   2030  /
+         1  JLY   2030  /
+         1  AUG   2030  /
+         1  SEP   2030  /
+         1  OCT   2030  /
+         1  NOV   2030  /
+         1  DEC   2030  /
+/
+--
+--       FINAL REPORT AND RESTART AT YEAR END
+--
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+RPTRST
+         'BASIC=2'                                                             /
+
+DATES
+         31 DEC   2030  /
+/
+
+
+ECHO
+--
+-- *********************************************************************************************************************************
+-- END OF FILE
+-- *********************************************************************************************************************************
