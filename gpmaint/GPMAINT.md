@@ -89,7 +89,7 @@ Base case model with:
     LOWEAST  WINS   2       1*       145     120.0  15.0       /
     /
 ```
-[GPMAINT-01 PLT Results](plots/GPMAINT-01-PLT.md)
+[GPMAINT-01 ECL Results](plots/GPMAINT-01-ECL.md)
 
 ---
 
@@ -104,7 +104,7 @@ Base case model with:
     /
 ```
 
-[GPMAINT-02 PLT Results](plots/GPMAINT-02-PLT.md)
+[GPMAINT-02 ECL Results](plots/GPMAINT-02-ECL.md)
 
 ---
 
@@ -119,7 +119,7 @@ Base case model with:
     /
 ```
 
-[GPMAINT-03 PLT Results](plots/GPMAINT-03-PLT.md)
+[GPMAINT-03 ECL Results](plots/GPMAINT-03-ECL.md)
 
 ---
 
@@ -145,7 +145,7 @@ Base case model with:
  3) And then the Field surface rate is increase to 2,000 m3/d at 2024-01-01. After which pressure maintenance is switched off at
     2029-01-01 using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
 
-[GPMAINT-04 PLT Results](plots/GPMAINT-04-PLT.md)
+[GPMAINT-04 ECL Results](plots/GPMAINT-04-ECL.md)
 
 ---
 ### GPMAINT-05 Lower Oil-Water Reservoir Description and Results
@@ -172,7 +172,7 @@ Base case model with:
     2029-01-01 for the LOWEAST group using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
  4) Finally, at 2030-01-01 the LOWEAST group water injection rate is set to zero.
 
-[GPMAINT-05 PLT Results](plots/GPMAINT-05-PLT.md)
+[GPMAINT-05 ECL Results](plots/GPMAINT-05-ECL.md)
 
 ---
 
@@ -195,7 +195,7 @@ Base case model with:
     /
 ```
 
-[GPMAINT-06 PLT Results](plots/GPMAINT-06-PLT.md)
+[GPMAINT-06 ECL Results](plots/GPMAINT-06-ECL.md)
 
 ---
 
@@ -220,7 +220,7 @@ Base case model with:
 ```
 Challenging to get a stable run using GINJS for all three regions.
 
-[GPMAINT-07 PLT Results](plots/GPMAINT-07-PLT.md)
+[GPMAINT-07 ECL Results](plots/GPMAINT-07-ECL.md)
 
 ---
 
@@ -239,7 +239,7 @@ Challenging to get a stable run using GINJS for all three regions.
     /
 ```
 
-[GPMAINT-08 PLT Results](plots/GPMAINT-08-PLT.md)
+[GPMAINT-08 ECL Results](plots/GPMAINT-08-ECL.md)
 
 ---
 
@@ -258,7 +258,7 @@ Challenging to get a stable run using GINJS for all three regions.
     /
 ```
 
-[GPMAINT-09 PLT Results](plots/GPMAINT-09-PLT.md)
+[GPMAINT-09 ECL Results](plots/GPMAINT-09-ECL.md)
 
 ---
 
@@ -286,4 +286,4 @@ Challenging to get a stable run using GINJS for all three regions.
     2029-01-01 for the LOWEAST group using GPMAINT(GRPCNTL) set to NONE, which means the last injection target rate is maintained as a limit.
  4) Finally, at 2030-01-01 the LOWEAST group water injection rate is set to zero.
 
-[GPMAINT-10 PLT Results](plots/GPMAINT-10-PLT.md)
+[GPMAINT-10 ECL Results](plots/GPMAINT-10-ECL.md)
