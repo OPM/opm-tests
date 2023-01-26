@@ -2,33 +2,39 @@
 
 Case Name         | Case Desciption                                                                                    | Base Model | Test<br />Type | Results<br />Match | Comments |
 ----------------- |----------------------------------------------------------------------------------------------------| ---------- | ----- |------- | ------------------------------------- |
-GPMAINT-01        | Base case GPMAINT using FIPNUM equal to 2 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS    | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-02        | GPMAINT using FIPLAYER equal to 2 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS            | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-03        | GPMAINT using FIPAREAS equal to 6 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS            | GPMAINT |     | No         | OPM Flow throws an exception Unknown region ID.        <br /><br /> E100 runs as expected.
-GPMAINT-04        | GPMAINT using FIPNUM equal to 2 for LOWEAST group, GPMAINT(GRPCNTL) equal to WINS with GCONINJE    | GPMAINT |     | No         | **OPM Flow runs but the results are different.**       <br /><br /> E100 runs as expected.
-GPMAINT-05        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to WINJ and WINS with GCONINJE | GPMAINT |     | No         | OPM Flow throws an exception Unknown region ID.        <br /><br /> E100 runs as expected.
-GPMAINT-06        | GPMAINT using FIPAREAS equal to 1, 2 and 3, and GPMAINT(GRPCNTL) equal to GINJ                     | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-07        | GPMAINT using FIPAREAS equal to 1, 2 and 3, and GPMAINT(GRPCNTL) equal to GINS and GINJ            | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-08        | GPMAINT using FIPLAYER equal to 1, and GPMAINT(GRPCNTL) equal to OINJ                              | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-09        | GPMAINT using FIPNUM equal to 1, and GPMAINT(GRPCNTL) equal to OINS                                | GPMAINT |     | No         | OPM Flow throws an exception assemble() failed (It=0). <br /><br /> E100 runs as expected.
-GPMAINT-10        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to PROD with GCONINJE          | GPMAINT |     | No         | OPM Flow throws an exception Unknown region ID.        <br /><br /> E100 runs as expected.
+GPMAINT-01        | Base case GPMAINT using FIPNUM equal to 2 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS    | GPMAINT |     | Yes         | Very good match on field production, injection volumes, and pressure. Missing FIPNUM 2 region data.           <br /><br /> Commercial simulator runs as expected.
+GPMAINT-02        | GPMAINT using FIPLAYER equal to 2 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS            | GPMAINT |     | Yes         | Very good match on field production, injection volumes, and pressure. Missing FIPNUM/FIPLAYER 2 region data.  <br /><br /> Commercial simulator runs as expected.
+GPMAINT-03        | GPMAINT using FIPAREAS equal to 6 for LOWEAST group, and GPMAINT(GRPCNTL) equal to WINS            | GPMAINT |     | Yes         | Very good match on field production, injection volumes, and pressure. Missing FIPAREAS 6 region data.         <br /><br /> Commercial simulator runs as expected.
+GPMAINT-04        | GPMAINT using FIPNUM equal to 2 for LOWEAST group, GPMAINT(GRPCNTL) equal to WINS with GCONINJE    | GPMAINT |     | No          | Poor match, due to more extreme oscillations, missing FIPNUM 2 region data                                    <br /><br /> Commercial simulator runs as expected.
+GPMAINT-05        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to WINJ and WINS with GCONINJE | GPMAINT |     | No          | Poor match. Missing FIPAREAS 4, 5 and 6 regions.                                                              <br /><br /> Commercial simulator runs as expected.
+GPMAINT-06        | GPMAINT using FIPLAYER  equal to 1, and GPMAINT(GRPCNTL) equal to GINJ                             | GPMAINT |     | No          | Very good match on field production, injection volumes, and pressure. Missing FIPNUM/FIPLAYER 1 region data.  <br /><br /> Commercial simulator runs as expected.
+GPMAINT-07        | GPMAINT using FIPAREAS equal to 1, 2 and 3, and GPMAINT(GRPCNTL) equal to GINS and GINJ            | GPMAINT |     | No          | Very good match on field production, injection volumes, and pressure. Missing FIPAREAS region data.           <br /><br /> Commercial simulator runs as expected.
+GPMAINT-08        | GPMAINT using FIPLAYER equal to 1, and GPMAINT(GRPCNTL) equal to OINJ                              | GPMAINT |     | No          | Timing of oil injection is off by 3 years, and then additional volume injected to catch up.                   <br /><br /> Commercial simulator runs as expected.
+GPMAINT-09        | GPMAINT using FIPNUM equal to 1, and GPMAINT(GRPCNTL) equal to OINS                                | GPMAINT |     | No          | Timing of oil injection is off by 3 years, and then additional volume injected to catch up, same as GPMAINT08.<br /><br /> Commercial simulator runs as expected.
+GPMAINT-10        | GPMAINT using FIPAREAS equal to 4 and 6, and GPMAINT(GRPCNTL) equal to PROD with GCONINJE          | GPMAINT |     | No/Yes      | Good match up to 2029, and deviates due to different gas production. Missing FIPAREAS region data.            <br /><br /> Commercial simulator runs as expected.
 
 **Notes:**
 
 1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).
 2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 
-**Version: 18 January 2023**
+**Version: 26 January 2023**
 
 ### GPMAINT Model Description  (Regular Corner-Point)
-Upper Reservoir
+#### Upper Reservoir
+
 ![](plots/gpmain-model-upper-ternary.jpg)
-Upper Reservoir FIPAREAS
+
+#### Upper Reservoir FIPAREAS
+
 ![](plots/gpmain-model-upper-fip.jpg)
 
-Lower Reservoir
+#### Lower Reservoir
+
 ![](plots/gpmain-model-lower-ternary.jpg)
-Lower Reservoir FIPAREAS
+
+#### Lower Reservoir FIPAREAS
+
 ![](plots/gpmain-model-lower-fip.jpg)
 
 This model is based MODEL04 and consists of a (30, 15, 13) Regular Corner-Point Grid, with two separate reservoirs: an Upper
