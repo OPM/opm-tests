@@ -1,0 +1,289 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This model is testing directional relperm with focuse on oil water (SWOF).
+-- The dominating flow direction (by far) in this model, is in Y-direction.
+-- The model is divided into 4 segments which are identical in size, properties,
+-- well lauout, etc. Only difference for these segments are KRNUMX, KRNUMY and KRNUMZ
+-- definitions.  A total of 16 relative permeability curves are provided but only 3
+-- of thse are being used. Table-1 for COMPDAT connections and Table-5 and Table-9
+-- sat with KRNUM keywords. The table below shows table number used in X-,Y- and Z-
+-- direction for the different segments.
+
+------------+------+------+------+------+
+--          | S1   | S2   | S3   | S4   |
+------------+------+------+------+------+
+--          | B-1H | B-2H | B-3H | B-4H |
+------------+------+------+------+------+
+-- KRNUMX   |   5  |   9  |   9  |   9  |
+-- KRNUMY   |   5  |   5  |   5  |   9  |
+-- KRNUMZ   |   5  |   5  |   9  |   9  |
+------------+------+------+------+------+
+
+-- KRNUM  table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
+-- KRNUM  table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- IMBNUM table 21 optimistic with respect to wct: SWOF krw = curved , krow = linear
+-- IMBNUM table 25 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- Carlson Hysteresis Model with hysteresis modeling applied to both relative permeability,
+-- and capillary pressure curves.
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+TITLE
+KRNUM-02Y+IMBNUM: DIRECTIONAL SATURATION FUNCTION AND HYSTERESIS TEST
+
+DIMENS
+ 20 20 10 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+--VAPOIL
+
+METRIC
+
+START
+ 01 'JAN' 2020 /
+
+
+--
+GRIDOPTS
+ 'YES'        0 /
+--
+--       ACTIVATE RELATIVE PERMEABILITY ASSIGNMENT HYSTERESIS OPTIONS
+--       DIRECTTIONAL(DIRECT) IRREVERSIBLE(IRREVERS) HYSTERESIS(HYSTER)
+SATOPTS
+         'DIRECT'   'HYSTER'                                                   /
+
+EQLDIMS
+ 1  100  25 /
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   3          2       1*             1*  /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  32          1      150          60         3         60 /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10         15            9          10   /
+
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/KRNUM-MODEL-Y.inc' /
+
+PERMX
+ 4000*500 /
+
+PORO
+ 4000*0.28 /
+
+COPY
+  PERMX PERMY /
+  PERMX PERMZ /
+/
+
+-- no flow in z-direction
+MULTIPLY
+  PERMZ 10E-10     / RESET PERMZ TO MINIMUM VALUE TO AVOID WARNING MESSAGES
+/
+
+-- setting up 4 identical compartments
+EQUALS
+  'MULTX'  0.0   5  5 1 20  1 10 /
+  'MULTX'  0.0  10 10 1 20  1 10 /
+  'MULTX'  0.0  15 15 1 20  1 10 /
+/
+
+
+------------------------------------------------------------------------------------------------
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/KRNUM-MODEL-PVT-01.inc'      / PRESSURE CLIPPED PVT
+
+INCLUDE
+ 'include/KRNUM-MODEL-ROCK.inc'        /
+
+INCLUDE
+ 'include/KRNUM-MODEL-RELPERM-01.inc'  / DRAINAGE AND IMBIBITION SATURATION FUNCTIONS
+--
+--       HYSTERESIS MODEL AND PARAMETERS
+--
+--       PC-CUR  MODEL   RELPERM TRAPPED OPTION  SHAPE    MOBILIT  WET
+--       HYSTRCP HYSTMOD HYSTREL HYSTSGR HYSTOPT HYSTSCAN HYSTMOB  HYSTWET
+EHYSTR
+         1*      1       1*      1*      BOTH    1*       1*       1*          /
+--
+--       ACTIVATE HYSTERESIS INHIBITION AND DRAINAGE END-POINT VALIDATION
+--
+-- HYSTCHCK
+-- /
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 4000*1 /
+
+INCLUDE
+ 'include/KRNUM-02Y+.inc' /
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+COPY
+         KRNUMX      IMBNUMX      1*  1*   1*  1*   1*  1* / CREATE IBMNUMX
+         KRNUMY      IMBNUMY      1*  1*   1*  1*   1*  1* / CREATE IBMNUMY
+         KRNUMZ      IMBNUMZ      1*  1*   1*  1*   1*  1* / CREATE IBMNUMZ
+/
+--
+--       ARRAY      CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+ADD
+         IMBNUMX    16            1*  1*   1*  1*   1*  1* / SET IMBNUMX
+         IMBNUMY    16            1*  1*   1*  1*   1*  1* / SET IMBNUMY
+         IMBNUMZ    16            1*  1*   1*  1*   1*  1* / SET IMBNUMZ
+/
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC=2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2000.00  195.0  2060     0.0  500.00  0.0   1   0   0 /
+
+PBVD
+  2000.00    75.00
+  2150.00    75.00  /
+
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/KRNUM-MODEL-SUMMARY-01.inc' /
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+TUNING
+ 1 1 /
+ /
+ /
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'B-1H'  'S1'   3    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-2H'  'S2'   8    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-3H'  'S3'  13    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-4H'  'S4'  18    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+/
+
+WELSPECS
+ 'F-1H'  'S1'   3   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-2H'  'S2'   8   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-3H'  'S3'  13   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-4H'  'S4'  18   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+/
+
+COMPDAT
+--WELL      I   J    K1   K2  OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+ 'B-1H'     3   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+ 'B-2H'     8   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+ 'B-3H'    13   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+ 'B-4H'    18   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+/
+
+COMPDAT
+ 'F-1H'     3  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+ 'F-2H'     8  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+ 'F-3H'    13  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+ 'F-4H'    18  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+/
+
+
+WCONPROD
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate   RFV  FBHP   WHP  VFP Glift
+   'B-1H'      OPEN    ORAT  5000.0  1*     1*    8000.0  1*   100.0  1*   1* 1*  /
+   'B-2H'      OPEN    ORAT  5000.0  1*     1*    8000.0  1*   100.0  1*   1* 1*  /
+   'B-3H'      OPEN    ORAT  5000.0  1*     1*    8000.0  1*   100.0  1*   1* 1*  /
+   'B-4H'      OPEN    ORAT  5000.0  1*     1*    8000.0  1*   100.0  1*   1* 1*  /
+/
+
+
+GCONINJE
+ 'S1'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+ 'S2'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+ 'S3'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+ 'S4'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+/
+
+
+WCONINJE
+-- Well_name    Type    Status  Ctrl    SRate1  Rrate   BHP     THP     VFP
+  'F-1H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
+  'F-2H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
+  'F-3H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
+  'F-4H'        WATER   OPEN    GRUP    12000    1*      300.0    1*      1*     /
+/
+
+DATES
+ 01 'FEB' 2020 /
+ 01 'MAR' 2020 /
+ 01 'APR' 2020 /
+ 01 'MAY' 2020 /
+ 01 'JUN' 2020 /
+ 01 'JUL' 2020 /
+ 01 'AUG' 2020 /
+/
+
+
+
+END
