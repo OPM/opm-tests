@@ -1,0 +1,431 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This model is built from the base case for model2. 
+-- There is two actionx keywords in the deck. The forst action is using WCONINJH to change the control rate for an
+-- existing injector. The second action is used to change an producer to a injector.
+--
+-- =================================================================================================================================
+--
+-- RUNSPEC SECTION
+--
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE TITLE FOR THE RUN
+--
+TITLE
+OPM_TESTS: ACTIONX_WCONINJH
+--
+--       DEFINE THE START DATE FOR THE RUN
+--
+START
+         31 'DEC' 2017                                                         /
+--
+--       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
+--
+-- NOSIM
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- FLUID TYPES AND TRACER OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       OIL PHASE IS PRESENT IN THE RUN
+--
+OIL
+--
+--       WATER PHASE IS PRESENT IN THE RUN
+--
+WATER
+--
+--       GAS PHASE IS PRESENT IN THE RUN
+--
+GAS
+--
+--       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN
+--
+DISGAS
+--
+--       VAPORIZED OIL IN WET GAS IS PRESENT IN THE RUN
+--
+VAPOIL
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX
+--       NDIVIX  NDIVIY  NDIVIZ
+DIMENS
+         13      22      11                                                    /
+--
+--       FAULT
+--       SEGMS
+FAULTDIM
+         120                                                                   /
+--
+--       MAX     MAX     RSVD    TVDP    TVDP
+--       EQLNUM  DEPTH   NODES   TABLE   NODES
+EQLDIMS
+         2       100     25      1*      1*                                    /
+--
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS
+REGDIMS
+         2       1       1*      2       1*     1*     1*     1*    1*    1*   /
+--
+--       NEG      MAX     MAX
+--       MULTS    MULTNUM PINCHNUM
+GRIDOPTS
+         YES      0       1*                                                   /
+--
+--       ACTIVATE EQUILIBRATION OPTIONS
+--       MOBILE ENDPOINT(MOBILE) STEADY STATE(QUIESC) THRESHOLD(THPRES)
+--       IRREVERSIBLE THRESHOLD(IRREVERS)
+EQLOPTS
+         'THPRES'                                                              /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND
+TABDIMS
+         10      1       50      60      2       60     1*     1*              /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       WELL    WELL    GRUPS   GRUPS
+--       MXWELS  MXCONS  MXGRPS  MXGRPW
+WELLDIMS
+         10      15      3       10                                            /
+--
+--       PRODUCING VFP TABLES
+--       VFP     VFP     VFP     VFP     VFP     VFP
+--       MXMFLO  MXMTHP  MXMWFR  MXMGFR  MXMALQ  MXVFPTAB
+VFPPDIMS
+         40      20      20      20      0       60                            /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- MISCELLEOUS OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       ACTION    ACTION   ACTION   ACTION
+--       MXACTNS   MXLINES  MXCHARS  MXSTATMS
+ACTDIMS
+         4         50       80       4                                         /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- INPUT AND OUTPUT OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT
+--
+METRIC
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT
+
+--
+--       PATH       PATH
+--       ALIAS      DIRECTORY FILENAME
+PATHS
+        'MODEL2'    '../model2'                                                /
+/
+
+-- =================================================================================================================================
+--
+-- GRID SECTION
+--
+-- =================================================================================================================================
+GRID
+
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1                                                             /
+--
+--       SET THE GRID UNITS FOR THE GRID
+--
+--       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
+--
+NEWTRAN
+--
+--       LOAD GRID SECTION INCLUDE FILES
+--
+INCLUDE
+         '$MODEL2/include/mod2a_13x22x11.grdecl'           /
+INCLUDE
+         '$MODEL2/include/fluxmun.grdecl'                  /
+INCLUDE
+         '$MODEL2/include/poro.grdecl'                     /
+INCLUDE
+         '$MODEL2/include/permx.grdecl'                    /
+INCLUDE
+         '$MODEL2/include/ntg.grdecl'                      /
+INCLUDE
+         '$MODEL2/include/permz.grdecl'                    /
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+COPY
+         PERMX       PERMY        1*  1*   1*  1*   1*  1* / CREATE PERMY
+/
+--
+--       DEFINE GRID SECTION REPORT OPTIONS
+--
+RPTGRID
+         'ALLNNC'                                          /
+
+-- =================================================================================================================================
+--
+-- EDIT SECTION
+--
+-- =================================================================================================================================
+EDIT
+
+-- =================================================================================================================================
+--
+-- PROPS SECTION
+--
+-- =================================================================================================================================
+PROPS
+--
+--       SWITCH OFF ECHOING OF INPUT FILES
+--
+NOECHO
+--
+--       LOAD PROPS SECTION INCLUDE FILES
+--
+INCLUDE
+         '$MODEL2/include/norne_pvt.inc'                   /
+INCLUDE
+         '$MODEL2/include/rock.inc'                        /
+INCLUDE
+         '$MODEL2/include/relperm_ow.inc'                  /
+INCLUDE
+         '$MODEL2/include/relperm_go.inc'                  /
+
+-- =================================================================================================================================
+--
+-- REGIONS SECTION
+--
+-- =================================================================================================================================
+REGIONS
+--
+--       LOAD REGION SECTION INCLUDE FILES
+--
+INCLUDE
+         '$MODEL2/include/eqlnum.grdecl'                   /
+INCLUDE
+         '$MODEL2/include/fipnum.grdecl'                   /
+INCLUDE
+         '$MODEL2/include/satnum.grdecl'                   /
+
+-- =================================================================================================================================
+--
+-- SOLUTION SECTION
+--
+-- =================================================================================================================================
+SOLUTION
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT
+EQUIL
+         2561.59 268.55  2645.21 0.00  2561.59 0.00   1    0    0              /
+         2584.20 268.71  2645.21 0.00  2584.20 0.00   5    0    0              /
+--
+--       DEPTH    RS
+--                MSCF/STB
+--       ------   --------
+RSVD
+         2561.59   122.30
+         2597.00   110.00
+         2660.70   106.77
+         2697.00   106.77                                  / RS VS DEPTH EQUIL REGN 01
+--       ------   --------
+         2584.20   122.41
+         2599.90   110.00
+         2663.60   106.77
+         2699.90   106.77                                  / RS VS DEPTH EQUIL REGN 02
+
+--
+--       EQLNUM  EQLNUM  THPRES
+--       FROM    TO      VALUE
+THPRES
+         1       2                                         / REGN 1 TO REGN 2
+/
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST
+         'BASIC=2'   'PBPD'                                /
+
+-- =================================================================================================================================
+--
+-- SUMMARY SECTION
+--
+-- =================================================================================================================================
+SUMMARY
+--
+--       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION
+--
+
+WOPR
+ 'OP01' 'OP02' 'WI01' /
+ 
+WGPR
+ 'OP01' 'OP02'  /
+
+WWPR
+ 'OP01' 'WI01' /
+
+WWIR
+  'WI01' 'OP02' /
+
+WBHP
+ 'OP01' 'OP02' 'WI01' /
+
+
+FPR
+
+FWCT
+
+FGOR
+
+GOPR
+ 'PROD' 'INJE' /
+
+GWIR
+ 'PROD' 'INJE' /
+
+-- =================================================================================================================================
+--
+-- SCHEDULE SECTION
+--
+-- =================================================================================================================================
+SCHEDULE
+--
+--       DEFINE SCHEDULE SECTION REPORT OPTION
+--
+TUNING
+ 1.0 1.0 /
+ /
+ /
+
+
+RPTSCHED
+         'WELLS=5'                                                             /
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+--
+--       LOWER     HIGHER
+--       GROUP     GROUP
+GRUPTREE
+         INJE      FIELD                                  /
+         PROD      FIELD                                  /
+/
+--
+--       WELL SPECIFICATION DATA
+--
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM
+WELSPECS
+ OP01     PROD       6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
+ OP02     PROD      11    2   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
+ WI01     INJE      12   20   1*     WAT    0.00   STD    SHUT   YES  0     SEG     /
+/
+--
+--       WELL CONNECTION DATA
+--
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
+COMPDAT
+OP01      6    3   7   7   OPEN    0    6.145  0.216  1*   0.00	 1*    'Z'   /
+OP01      6    3   8   8   OPEN    0    9.703  0.216  1*   0.00	 1*    'Z'   /
+OP01      6    3   9   9   OPEN    0  184.170  0.216  1*   0.00	 1*    'Z'   /
+OP01      6    3  10  10   OPEN    0   24.709  0.216  1*   0.00	 1*    'Z'   /
+
+OP02     11    2   6   7   OPEN    0      1*   0.216  1*   0.00    1*    'Z'   /
+
+WI01     12   20   1   4   OPEN    0      1*   0.216  1*   0.00    1*    'Z'   /
+/
+--
+
+WCONHIST
+--  WELL     OPEN     CTRL      OIL       WATER     GAS       
+  'OP01'    'OPEN'   'ORAT'     350.0     120.0     325000.0       /
+  'OP02'    'OPEN'   'ORAT'     150.0      50.0     122000.0       /
+/
+
+WCONINJH
+--  WELL      TYPE      CTRL     WATER    
+  'WI01'     'WATER'   'OPEN'    279.5      /
+/ 
+
+ACTIONX
+    WIWI01   1 /
+    DAY  >=   5 AND /
+    MNTH >=  JAN AND /
+    YEAR >= 2018 /
+/
+WCONINJH
+--  WELL      TYPE      CTRL     WATER    
+  'WI01'     'WATER'   'OPEN'    179.5      /
+/ 
+ENDACTIO
+
+
+ACTIONX
+    WIWI02   1 /
+    DAY  >=   10 AND /
+    MNTH >=  JAN AND /
+    YEAR >= 2018 /
+/
+
+WELSPECS
+ 'OP02'   INJE   11  2   1*    WAT   0.00   STD    SHUT   YES  0     SEG     /
+/
+
+WCONINJH
+--  WELL      TYPE      CTRL     WATER    
+  'OP02'     'WATER'   'OPEN'    229.5      /
+/ 
+ENDACTIO
+
+
+-- start:   31 'DEC' 2017       
+
+DATES
+  1 'JAN' 2018 /
+  5 'JAN' 2018 /
+/
+
+DATES
+ 10 'JAN' 2018 /
+/
+
+DATES
+ 20 'JAN' 2018 /
+/
+ 
+  
+
+END
+--
+-- *********************************************************************************************************************************
+-- END OF FILE
+-- *********************************************************************************************************************************
