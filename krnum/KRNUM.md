@@ -8,21 +8,21 @@ KRNUM-02Z         | Oil-Water, with dominating flow direction in Z-direction wit
 KRNUM-03X         | Oil-Gas, with dominating flow direction in X-direction with tables 6 and 3   | MODEL-X | Reg | No, but OK |
 KRNUM-03Y         | Oil-Gas, with dominating flow direction in Y-direction with tables 6 and 3   | MODEL-Y | Reg |            |
 KRNUM-03Z         | Oil-Gas, with dominating flow direction in Z-direction with tables 6 and 3   | MODEL-Z | Reg |            |
-                  |                                                                              |         |     |            |
+[]()              |                                                                              | []()    |     |            |
 KRNUM-02X-        | Same as KRNUM-02X, but using tables 9 and 5 for KRNUMX-                      | MODEL-X |     | NA         | No resuts, as the option is not currently supported.
 KRNUM-02Y-        | Same as KRNUM-02Y, but using tables 9 and 5 for KRNUMY-                      | MODEL-Y |     | NA         | No resuts, as the option is not currently supported.
 KRNUM-02Z-        | Same as KRNUM-02Z, but using tables 9 and 5 for KRNUMZ-                      | MODEL-Z |     | NA         | No resuts, as the option is not currently supported.
 KRNUM-03X-        | Same as KRNUM-03X, but using tables 3 and 6 for KRNUMX-                      | MODEL-X |     | NA         | No resuts, as the option is not currently supported.
 KRNUM-03Y-        | Same as KRNUM-03Y, but using tables 3 and 6 for KRNUMY-                      | MODEL-Y |     | NA         | No resuts, as the option is not currently supported.
 KRNUM-03Z-        | Same as KRNUM-03Z, but using tables 3 and 6 for KRNUMZ-                      | MODEL-Z |     | NA         | No resuts, as the option is not currently supported.
------------------ | ---------------------------------------------------------------------------- | ------  | --- | ---------  | --------------------------------------------------
+[]()              |                                                                              | []()    |     |            |
 KRNUM-02X-IMBNUM  | Same as KRNUM-02X, but with Hysteresis Model active                          | MODEL-X |     | NA         |
 KRNUM-02Y-IMBNUM  | Same as KRNUM-02Y, but with Hysteresis Model active                          | MODEL-Y |     | NA         |
 KRNUM-02Z-IMBNUM  | Same as KRNUM-02Z, but with Hysteresis Model active                          | MODEL-Z |     | NA         |
 KRNUM-03X-IMBNUM  | Same as KRNUM-03X, but with Hysteresis Model active                          | MODEL-X |     | NA         |
 KRNUM-03Y-IMBNUM  | Same as KRNUM-03Y, but with Hysteresis Model active                          | MODEL-Y |     | NA         |
 KRNUM-03Z-IMBNUM  | Same as KRNUM-03Z, but with Hysteresis Model active                          | MODEL-Z |     | NA         |
------------------ | ---------------------------------------------------------------------------- | ------  | --- | ---------  | --------------------------------------------------
+[]()              |                                                                              | []()    |     |            |
 KRNUMXY_SOLVENT   |                                                                              |         |     |            |
 
 
