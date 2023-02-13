@@ -45,11 +45,11 @@ COMPDAT connections, and Table-5 and Table-9 are applied to the grid blocks via 
 
 **Oi-Water Case**
 
-![](plots/KRNUM_model-X-plt01.jpg)
+![](plots/KRNUM_model-x-plt01.jpg)
 
 **Gas-Oil Case**
 
-![](plots/KRNUM_model-X-plt02.jpg)
+![](plots/KRNUM_model-x-plt02.jpg)
 
 ## MODEL-Z
 
@@ -61,9 +61,9 @@ KRNUMZ definitions.
 A total of 16 relative permeability curves are provided, but only three of these are being used. Table-1 is used for
 COMPDAT connections, and Table-5 and Table-9 are applied to the grid blocks via the KRNUM keywords.
 
-![](plots/KRNUM_model-Z-plt01.jpg)
+![](plots/KRNUM_model-z-plt01.jpg)
 
-![](plots/KRNUM_model-Z-plt02.jpg)
+![](plots/KRNUM_model-z-plt02.jpg)
 
 ## RESULTS
 
