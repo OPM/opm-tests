@@ -97,9 +97,9 @@ EQLDIMS
 GRIDOPTS
          NO       1*      1*                                                   /
 --
---       DEACTIVATES NON-NEIGHBOR CONNECTIONS
+--       DEACTIVATES NON-NEIGHBOR CONNECTIONS (NOT SUPPORTED)
 --
-NONNC
+--       NONNC
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
