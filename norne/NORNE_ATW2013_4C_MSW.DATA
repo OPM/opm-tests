@@ -129,8 +129,9 @@ UNIFOUT
 --FMTOUT
 --FMTIN
 
-OPTIONS
-77* 1 /
+--OPTIONS
+--77* 1 /
+--
 
 ---------------------------------------------------------
 --
@@ -676,8 +677,8 @@ ZIPPY2
 'SIM=4.2' 'MINSTEP=1E-6' /
 
 -- PI reduction in case of water cut
-INCLUDE
-'./INCLUDE/PI/pimultab_low-high_aug-2006.inc' / 
+--INCLUDE
+--'./INCLUDE/PI/pimultab_low-high_aug-2006.inc' / 
 
 
 GRUPTREE 
