@@ -641,14 +641,6 @@ RPTSOL
 -- =================================================================================================================================
 SUMMARY
 --
---       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION
---
-RUNSUM
---
---       ACTIVATE SUMMARY DATA RSM FILE OUTPUT OPTION
---
-SEPARATE
---
 --       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
 --
 ALL
