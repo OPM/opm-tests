@@ -1,0 +1,263 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 TNO
+
+-- Test case for CO2STORE in combination with THERMAL.
+----------------------------------------------------------------------------
+RUNSPEC
+---------------------------------------------------------------------------- 
+TITLE
+ 
+START
+ 1 'JAN' 2027 /
+ 
+METRIC
+
+CO2STORE
+THERMAL
+
+
+COMPS
+2
+/
+FULLIMP
+
+
+
+DIMENS
+   50 50 10 /
+
+
+UNIFOUT
+UNIFIN
+
+EQLDIMS
+ 1 100 20 1 20 /
+ 
+REGDIMS
+ 10 1 0 1 0 /   
+
+WELLDIMS
+2 20/
+
+ 
+TABDIMS
+ 1 1 50 20 /
+
+
+
+
+GRID    ================================================
+INIT
+
+TOPS
+2500*2000/
+
+DXV
+50*20 /
+DYV
+50*20 /
+DZV
+10*5 /
+
+EQUALS
+PERMX  100   /
+PERMY  100  /
+PERMZ  100 /
+PORO   0.25  /
+/
+EQUALS
+HEATCR 2125  /                  
+THCONR   300 /                  
+/
+
+PROPS    ======================================================
+
+
+ROCK
+200 5e-05 / 
+
+
+NCOMPS
+
+       2
+/
+CNAMES
+
+   'CO2'
+   'H2O'
+
+/
+
+TCRIT
+
+         304.7
+         647.3
+/
+
+PCRIT
+
+     73.865925                    
+      220.4832                    
+/
+
+PREFT
+
+     1.1651875
+    101.506625
+/
+
+SPECHA
+
+   0.834944695414749
+   4.81290845015349
+
+/
+
+SPECHB
+-- can be zero if not possible in OPM
+   0.00103117086090892
+   0.0208203197232935
+
+
+/
+
+SPECHG
+
+   0.834944695414749  -- CO2 
+   4.81290845015349   -- H2O
+
+/
+
+SPECHH
+-- can be zero if not possible in OPM
+   0.00103117086090892
+   0.0208203197232935
+
+/
+
+
+TEMPVD
+2000 80					
+2100  80 
+/
+
+RPTPROPS
+PVTG PVTW /
+
+-- relative perms
+SWFN
+0.20  0.0  0.0
+0.40  0.1  0.0
+0.80  0.5  0.0
+1.0   1.0  0.0
+/
+
+SGFN
+0.00   0.000   0.0
+0.05   0.000   0.0
+0.1   0.01   0.0
+0.26  0.030   0.00
+0.44  0.10    0.0
+0.53  0.20    0.0
+0.62  0.35    0.0
+0.65   0.39    0.0
+0.71  0.56    0.0
+0.80   1.0    0.0
+/
+
+SOF3
+0.2   0.0     0.0
+0.4   0.12    0.12
+0.6   0.35    0.35
+0.7   0.68    0.68
+0.8   1.0     1.0
+/
+
+
+
+REGIONS  ===============================================================
+
+
+SOLUTION ===============================================================
+
+EQUIL
+
+   2000     200    1800      0      1800     0      
+/
+
+--water component is only in water phase initially
+AMFVD
+2000	0	 1	    
+2100	0	 1	     / 
+
+
+RPTRST
+ RESTART PRESSURE SGAS SWAT TEMP ENERGY AMF DENG DENW DENS VGAS VWAT
+  WMF XMF YMF   /
+
+RPTSOL
+ PRESSURE SGAS SWAT DENG DENW VGAS VWAT XMF YMF TEMP XFW YFW AMF  /
+
+SUMMARY  ===========================================================
+
+ALL
+
+WXMF
+'*' 1 /
+'*' 2 /
+/
+WYMF
+'*' 1 /
+'*' 2 /
+
+/
+WZMF
+'*' 1 /
+'*' 2 /
+
+/
+
+
+FWCD
+
+FGCDI
+
+FGCDM
+
+SCHEDULE  ===============================================
+RPTSCHED
+ AMF WMF YMF DENG DENW VWAT VGAS  /
+
+
+WELLSTRE
+'C02STREAM' 1.0 0.0   /
+/
+
+WELSPECS
+INJ1  FIELD 25 25 1*  GAS /
+/
+ 
+COMPDAT 
+ INJ1  25 25   1 10 OPEN 2* 0.3 /
+/
+
+WINJGAS
+ INJ1 STREAM C02STREAM /
+/
+
+WCONINJE
+  INJ1 GAS OPEN RATE 100000 1* 300 / 
+/
+WINJTEMP
+ INJ1 1* 40.0 200.0 /
+/
+TSTEP
+1 /
+TSTEP
+36*30 /
+
+END
