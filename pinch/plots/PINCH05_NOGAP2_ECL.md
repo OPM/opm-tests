@@ -1,5 +1,5 @@
 #### PINCH5_NOGAP2 Results
-Base case model with the combination of DZ, MINPV and PINCH with the NOGAP option should result in layer 2 and 3 getting 
+Base case model with the combination of DZ, MINPV and PINCH with the NOGAP option should result in layer 2 and 3 getting
 pinched out and resulting in a connection between layers 1 and 4.
 ```
 DZ
@@ -17,8 +17,7 @@ _Base Case_
 
 _Modified_
 
-Layer 2 and 3 inactive. 
+Layer 2 and 3 inactive.
 
 ![](ECL/PINCH05_NOGAP2_ECL_INDEX.png)
 ![](ECL/PINCH05_NOGAP2-ECL_TRANZ.png)
-                                   

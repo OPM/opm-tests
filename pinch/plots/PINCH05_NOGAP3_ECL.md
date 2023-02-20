@@ -1,6 +1,6 @@
 #### PINCH5_NOGAP3 Results
-The combination of DZ, MINPV and PINCH with the GAP option should result in layers 2, 3 and 4 getting pinched out, but  
-resulting in **no** connection between layers 1 and 5.        
+The combination of DZ, MINPV and PINCH with the GAP option should result in layers 2, 3 and 4 getting pinched out, but
+resulting in **no** connection between layers 1 and 5.
 
 ```
 DZ
@@ -14,12 +14,11 @@ PINCH
 ```
 _Base Case_
 
-![](ECL/PINCH5_ECL_INDEX.png)
+![](ECL/PINCH05_ECL_INDEX.png)
 
 _Modified_
 
-Layer 2 inactive. 
+Layer 2 inactive.
 
-![](ECL/PINCH5_NOGAP3_ECL_INDEX.png)
-![](ECL/PINCH5_NOGAP3_ECL_TRANZ.png)
-                                   
+![](ECL/PINCH05_NOGAP3_ECL_INDEX.png)
+![](ECL/PINCH05_NOGAP3_ECL_TRANZ.png)
