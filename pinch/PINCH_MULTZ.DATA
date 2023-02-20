@@ -6,9 +6,7 @@
 -- Copyright (C) 2020 Equinor
 
 -- test case is testing vertical communication set up with
--- PINCH (item 5 = All) and MULTZ- = 1.0 for all layers except for layer 10.
--- which is 0.0.  This shall genereate a barrier for vertical flow 
--- (layer 9 to layer 10) when used together with PINCH item5 = All
+-- PINCH (item 5 = All) and MULTZ = 1.0
 
 -- *****************************************************
 RUNSPEC
@@ -65,11 +63,6 @@ WELLDIMS
  3  25 3 3 /
 
 
--- Allow the alternative transmissibility multipliers including  MULTZ-
-GRIDOPTS
-'YES'		0 / 
-
-
 -- ----------------------------------------------------
 -- Input and output files format
 UNIFIN
@@ -110,8 +103,9 @@ MESSAGES
 INCLUDE
   './include/test_1x1x19.grdecl' /
 
-MULTZ-
- 9*1.0 0.0 9*1.0 /
+MULTZ
+ 19*1.0 /
+
 
 
 
@@ -122,11 +116,6 @@ EQUALS
  'NTG'   1.000 /
  'PORO'  0.25  /
 /
-
-PINCH
-     1*      'GAP'     1*  'TOPBOT'  'ALL'  / --default values
-
- 
 
 -- ***************************************************
 -- In this section simulation grid parameters are edited
@@ -266,5 +255,3 @@ TSTEP
 
 
 END
-
-
