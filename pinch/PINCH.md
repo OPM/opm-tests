@@ -6,9 +6,9 @@
  PINCH05_GAP1              | DZ, MINPV, and PINCH GAP modification #1, layer 2 inactive.             | PINCH05     |     | NA     |  Results are correct.
  PINCH05_GAP2              | DZ, MINPV, and PINCH GAP modification #2, layers 2 and 3 inactive.      | PINCH05     |     | NA     |  Results are correct.
  PINCH05_GAP3              | DZ, MINPV, and PINCH GAP modification #2, layers 2 to 4 inactive.       | PINCH05     |     | NA     |  Results are correct.
- PINCH05_NOGAP1            | DZ, MINPV, and PINCH NOGAP modification #1, layer 2 inactive.           | PINCH05     |     | NA     |  Option currently not supported, show commercial simulator results instead.
- PINCH05_NOGAP2            | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 and 3 inactive     | PINCH05     |     | NA     |  Option currently not supported, show commercial simulator results instead.
- PINCH05_NOGAP3            | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 to 4 inactive.     | PINCH05     |     | NA     |  Option currently not supported, show commercial simulator results instead.
+ PINCH05_NOGAP1            | DZ, MINPV, and PINCH NOGAP modification #1, layer 2 inactive.           | PINCH05     |     | NA     |  Option currently not supported, **show commercial simulator results instead**.
+ PINCH05_NOGAP2            | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 and 3 inactive     | PINCH05     |     | NA     |  Option currently not supported, **show commercial simulator results instead**.
+ PINCH05_NOGAP3            | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 to 4 inactive.     | PINCH05     |     | NA     |  Option currently not supported, **show commercial simulator results instead**.
  PINCH10_NOPINCH           | MINPV and no PINCH keyword.                                             | PINCH10     | Reg | NA     |  Results are correct.
  PINCH_MULTZ_ALL           | PINCH(PINCHMUL) equal to ALL and MULTZ = 1.0                            | PINCH_MULTZ | Reg | NA     |  Results are correct.                                             
  PINCH_MULTZ-\_ALL         | Same as PINCH_MULTZ_ALL, but using MULTZ- instead.                      | PINCH_MULTZ |     | NA     |  Results are correct.                                            
@@ -24,7 +24,7 @@ has been implemented.**
 1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).  
 2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 
-**Version: 06 January 2023**
+**Version: 21 February 2023**
                                
 ### PINCH05 Model (Cartesian Regular Grid) Description and Results
 
