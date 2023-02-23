@@ -130,7 +130,7 @@ WBHP
  'PROD*' 'INJ*' /
 
 WTHP
- 'PROD*'  /
+ 'PROD*' 'INJ*'   /
  
 -- potentials 
 
