@@ -1,0 +1,311 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This test model is made for testing lift curves with injectors. 
+-- The model includes two injectors, one gas injector and one water injector. Both injectors
+-- are controlled with keyword WCONINJE 
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 13 22 11 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+--
+GRIDOPTS
+ 'YES'	      0 / 
+
+EQLDIMS
+ 2  100  25 /
+
+
+EQLOPTS
+ THPRES  /   
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          1       1*            2    /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10	    15 	          3	     10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  10          1      50          60         2         60 /
+
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg	max.ALQ    max.tabs
+  40	    20        20       20	0	   60	    /
+
+
+VFPIDIMS
+-- MXSFLO    MXSTHP   NMSVFT
+    15         10       3                                /
+
+--
+FAULTDIM
+120 / max. number os fault segments
+
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0 1 /
+
+--
+--
+INIT
+
+
+INCLUDE
+ 'include/mod2a_13x22x11.grdecl' /
+
+INCLUDE
+ 'include/fluxmun.grdecl' /
+
+
+INCLUDE
+ 'include/poro.grdecl' /
+
+INCLUDE
+ 'include/permx.grdecl' /
+
+INCLUDE
+ 'include/ntg.grdecl' /
+
+
+COPY
+ PERMX PERMY /
+/
+
+
+INCLUDE
+ 'include/permz.grdecl'/
+
+
+RPTGRID
+ 'ALLNNC' /
+ 
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/norne_pvt.inc' /
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/eqlnum.grdecl' /
+
+INCLUDE
+ 'include/fipnum.grdecl' /
+
+INCLUDE
+ 'include/satnum.grdecl' /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2561.59  268.55  2645.21   0.0 2561.59  0.0   1   0   0 /  
+ 2584.20  268.71 2685.21   0.0 2584.20  0.0   5   0   0 /   
+
+RSVD
+ 2561.59  122.30
+ 2597.0  110.00
+ 2660.7  106.77
+ 2697.0  106.77 /
+
+ 2584.20  122.41
+ 2599.9  110.00
+ 2663.6  106.77
+ 2699.9  106.77 /
+
+
+THPRES
+ 1  2 /
+/
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+ 
+TUNING 
+ 1.0 1.0 /
+ /
+ /
+
+RPTRST
+ 'BASIC=2' /
+  
+
+INCLUDE
+ 'include/D-1.Ecl' / 
+
+INCLUDE
+ './include/inj1_vfp_gas.inc' /
+
+INCLUDE
+ './include/inj2_vfp_wat.inc' /
+
+
+GRUPTREE
+   'INJE'     'FIELD'  /
+   'PROD'     'FIELD'  /
+/
+
+WELSPECS
+ 'PROD1'  'PROD'   6    3   1*      'OIL'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+ 'INJ1'   'INJE'   2    13   1*     'GAS'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'PROD1'   6   3   7   7      'OPEN'   0      6.145  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD1'   6   3   8   8      'OPEN'   0      9.703  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD1'   6   3   9   9      'OPEN'   0    184.170  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD1'   6   3   10  10     'OPEN'   0     24.709  0.216  1*   0.00	 0.0 'Z' 1* /
+
+ 'INJ1'    2   13   1  1      'OPEN'   0    138.457  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'INJ1'    2   13   2  2      'OPEN'   0      0.760  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'INJ1'    2   13   3  3      'OPEN'   0     53.129  0.216  1*   0.00	 0.0 'Z' 1* /
+
+ 'INJ1'   2   13    8   8     'OPEN'   0    20.547  0.216  1*	0.00	0.0 'Z' 1* /
+ 'INJ1'   2   13    9   9     'OPEN'   0    45.709  0.216  1*	0.00	0.0 'Z' 1* /
+ 'INJ1'   2   13   10  10     'OPEN'   0    25.267  0.216  1*	0.00	0.0 'Z' 1* /
+ 'INJ1'   2   13   11  11     'OPEN'   0    33.982  0.216  1*	0.00	0.0 'Z' 1* /
+
+/
+
+WCONINJE
+-- WELL    TYPE  STATUS  CONTROL  QMAX  VMAX BHPMAX THPMAX WBHT END
+  INJ1     GAS   OPEN    RATE    200000  1*   400.    235.0    1   /
+/
+
+
+WCONPROD
+  PROD1  OPEN ORAT 1000.0  4*  95.0  /
+  
+/     
+
+DATES
+ 10 'NOV' 2018 /
+/
+
+
+WELSPECS
+ 'PROD2'  'PROD'  10   4	1*	'OIL'  0.00	 'STD'     'SHUT'      'YES'	0      'SEG' /
+/
+
+COMPDAT
+ 'PROD2'   10   4   7   7      'OPEN'	0    20.473  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD2'   10   4   8   8      'OPEN'	0    17.619  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD2'   10   4   9   9      'OPEN'	0    80.721  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD2'   10   4   10  10     'OPEN'	0    11.755  0.216  1*   0.00	 0.0 'Z' 1* /
+/
+
+
+WELSPECS
+ 'INJ2'  'INJE'     12 20   2670    'WATER'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'INJ2'   12 20   9   9     'OPEN'   0     59.042  0.216  1*   0.00    0.0 'Z' 1* /
+ 'INJ2'   12 20  10  10     'OPEN'   0      8.620  0.216  1*   0.00    0.0 'Z' 1* /
+ 'INJ2'   12 20  11  11     'OPEN'   0     27.048  0.216  1*   0.00    0.0 'Z' 1* /
+/
+
+WCONPROD
+  PROD2  OPEN ORAT 1350.0  4*  85.0  /
+/     
+
+
+
+WCONINJE
+-- WELL    TYPE  STATUS  CONTROL  QMAX  VMAX BHPMAX THPMAX WBHT END
+  INJ1     GAS     OPEN    RATE  350000  1*   400.    235.0    1   /
+  INJ2     WATER   OPEN    RATE   3500  1*    400.    100.0    3   /
+/
+
+DATES
+ 20 'NOV' 2018 /
+/
+
+WCONINJE
+-- WELL    TYPE  STATUS  CONTROL  QMAX  VMAX BHPMAX THPMAX WBHT END
+  INJ2     WATER   OPEN    RATE    6000  1*   400.    100.0    3   /
+/
+
+DATES
+ 30 'NOV' 2018 /
+/
+
+ 
