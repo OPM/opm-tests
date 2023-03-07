@@ -3,22 +3,13 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2018 Equinor
+-- Copyright (C) 2023 Equinor
 
--- This is the base case for model 1. This case has standard wells. 
- 
--- 3 wells in the beginning, 3 more are turned on. 
--- 6 wells, 3 injection wells and 3 production wells, in the end. 
--- 336 cells in total. All 336 cells are active. 
+-- Test of the ROCK keyword for the case of multiple regions with different
+-- properties and default rock region definition (i.e., no alternative rock 
+-- number region defined in item 3 of the ROCKOPTS keyword).
 
--- ------------------------------------------------------------------------
--- ----------------------- BASE MODEL 1 -----------------------------------
--- -----------NO ROCKOPTS, BUT DIFFERENT 'ROCK' PARAMETERS-----------------
--- ------------------------------------------------------------------------
-
--- Modification of base model 1 to check that PVTNUM is used to look up 
--- properties from the ROCK keyword by default (i.e., when there is no rock 
--- number region defined with a ROCKOPTS keyword.
+-- Based on model1/BASE_MODEL_1.DATA
 
 -- ========================================================================
 -- Defines the key parameters for the simulator.
@@ -27,7 +18,7 @@ RUNSPEC
 
 
 TITLE
-   BASE MODEL 1
+   ROCK TEST 1
 
  
 -- Turns off echoing of all the input files to the print file.  

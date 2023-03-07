@@ -3,12 +3,10 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2018 Equinor
+-- Copyright (C) 2023 Equinor
 
--- This file is one of the include files for BASE_MODEL_1.DATA.
-
--- Modification of pvt_basemod1.pvt with different values in the second 
--- record of the ROCK keyword. 
+-- Originally, this file was an include file for model1/BASE_MODEL_1.DATA.
+-- Modified with different values in the second record of the ROCK keyword. 
 
 -- ----------------------------------------------------------------------------
 -- ----------------------------------------------------------------------------
