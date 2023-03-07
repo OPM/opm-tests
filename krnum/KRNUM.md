@@ -1,29 +1,34 @@
 # KRNUM Test Documentation
 
-Case Name         | Case Desciption                                               | Base Model | Test<br />Type | Results<br />Match | Comments |
------------------ | ------------------------------------------------------------  | ---------- | ----- |------- | ------------------------------------- |
-KRNUM-02X         | Oil-Water, with dominating flow direction in X-direction with tables 5 and 9 | MODEL-X | Reg | Yes        | Perfect match with commercial simulator.
-KRNUM-02Y         | Oil-Water, with dominating flow direction in Y-direction with tables 5 and 9 | MODEL-Y | Reg | No         | OPM Flows runs with no warnings.<br /><br /> E100 stops with errors "SEGMENT   5 IN WELL PROD01   HAS A LENGTH <OR= 0" etc.
-KRNUM-02Z         | Oil-Water, with dominating flow direction in Z-direction with tables 5 and 9 | MODEL-Z | Reg | Yes        | OPM Flow stops with "Error: Problem with keyword COMPSEG" <br /><br /> E100 will run with warning messages "CONNECTION WILL BE IGNORED".
-KRNUM-03X         | Oil-Gas, with dominating flow direction in X-direction with tables 6 and 3   | MODEL-X | Reg | No, but OK |
-KRNUM-03Y         | Oil-Gas, with dominating flow direction in Y-direction with tables 6 and 3   | MODEL-Y | Reg |            |
-KRNUM-03Z         | Oil-Gas, with dominating flow direction in Z-direction with tables 6 and 3   | MODEL-Z | Reg |            |
-[]()              |                                                                              | []()    |     |            |
-KRNUM-02X-        | Same as KRNUM-02X, but using tables 9 and 5 for KRNUMX-                      | MODEL-X |     | NA         | No resuts, as the option is not currently supported.
-KRNUM-02Y-        | Same as KRNUM-02Y, but using tables 9 and 5 for KRNUMY-                      | MODEL-Y |     | NA         | No resuts, as the option is not currently supported.
-KRNUM-02Z-        | Same as KRNUM-02Z, but using tables 9 and 5 for KRNUMZ-                      | MODEL-Z |     | NA         | No resuts, as the option is not currently supported.
-KRNUM-03X-        | Same as KRNUM-03X, but using tables 3 and 6 for KRNUMX-                      | MODEL-X |     | NA         | No resuts, as the option is not currently supported.
-KRNUM-03Y-        | Same as KRNUM-03Y, but using tables 3 and 6 for KRNUMY-                      | MODEL-Y |     | NA         | No resuts, as the option is not currently supported.
-KRNUM-03Z-        | Same as KRNUM-03Z, but using tables 3 and 6 for KRNUMZ-                      | MODEL-Z |     | NA         | No resuts, as the option is not currently supported.
-[]()              |                                                                              | []()    |     |            |
-KRNUM-02X-IMBNUM  | Same as KRNUM-02X, but with Hysteresis Model active                          | MODEL-X |     | NA         |
-KRNUM-02Y-IMBNUM  | Same as KRNUM-02Y, but with Hysteresis Model active                          | MODEL-Y |     | NA         |
-KRNUM-02Z-IMBNUM  | Same as KRNUM-02Z, but with Hysteresis Model active                          | MODEL-Z |     | NA         |
-KRNUM-03X-IMBNUM  | Same as KRNUM-03X, but with Hysteresis Model active                          | MODEL-X |     | NA         |
-KRNUM-03Y-IMBNUM  | Same as KRNUM-03Y, but with Hysteresis Model active                          | MODEL-Y |     | NA         |
-KRNUM-03Z-IMBNUM  | Same as KRNUM-03Z, but with Hysteresis Model active                          | MODEL-Z |     | NA         |
-[]()              |                                                                              | []()    |     |            |
-KRNUMXY_SOLVENT   |                                                                              |         |     |            |
+Case Name            | Case Desciption                                               | Base Model | Test<br />Type | Results<br />Match | Comments |
+-------------------- | ------------------------------------------------------------  | ---------- | ----- |------- | ------------------------------------- |
+KRNUM-02X            | Oil-Water, with dominating flow direction in X-direction with tables 5 and 9 | MODEL-X | Reg | Yes        | Perfect match with commercial simulator.
+KRNUM-02Y            | Oil-Water, with dominating flow direction in Y-direction with tables 5 and 9 | MODEL-Y | Reg | No         | OPM Flows runs with no warnings.<br /><br /> E100 stops with errors "SEGMENT   5 IN WELL PROD01   HAS A LENGTH <OR= 0" etc.
+KRNUM-02Z            | Oil-Water, with dominating flow direction in Z-direction with tables 5 and 9 | MODEL-Z | Reg | Yes        | OPM Flow stops with "Error: Problem with keyword COMPSEG" <br /><br /> E100 will run with warning messages "CONNECTION WILL BE IGNORED".
+KRNUM-03X            | Oil-Gas, with dominating flow direction in X-direction with tables 6 and 3   | MODEL-X | Reg | No, but OK |
+KRNUM-03Y            | Oil-Gas, with dominating flow direction in Y-direction with tables 6 and 3   | MODEL-Y | Reg |            |
+KRNUM-03Z            | Oil-Gas, with dominating flow direction in Z-direction with tables 6 and 3   | MODEL-Z | Reg |            |
+[]()                 |                                                                              | []()    |     |            |
+KRNUM-02X-           | Same as KRNUM-02X, but using tables 9 and 5 for KRNUMX-                      | MODEL-X |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+KRNUM-02Y-           | Same as KRNUM-02Y, but using tables 9 and 5 for KRNUMY-                      | MODEL-Y |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+KRNUM-02Z-           | Same as KRNUM-02Z, but using tables 9 and 5 for KRNUMZ-                      | MODEL-Z |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+KRNUM-03X-           | Same as KRNUM-03X, but using tables 3 and 6 for KRNUMX-                      | MODEL-X |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+KRNUM-03Y-           | Same as KRNUM-03Y, but using tables 3 and 6 for KRNUMY-                      | MODEL-Y |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+KRNUM-03Z-           | Same as KRNUM-03Z, but using tables 3 and 6 for KRNUMZ-                      | MODEL-Z |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+[]()                 |                                                                              | []()    |     |            |
+KRNUM-02X-IMBNUM     | Same as KRNUM-02X, but with Hysteresis Model active                          | MODEL-X |     | Ongoing    | Runs
+KRNUM-02Y-IMBNUM     | Same as KRNUM-02Y, but with Hysteresis Model active                          | MODEL-Y |     | Ongoing    | Runs
+KRNUM-02Z-IMBNUM     | Same as KRNUM-02Z, but with Hysteresis Model active                          | MODEL-Z |     | Ongoing    | Runs
+KRNUM-03X-IMBNUM     | Same as KRNUM-03X, but with Hysteresis Model active                          | MODEL-X |     | Ongoing    | Runs
+KRNUM-03Y-IMBNUM     | Same as KRNUM-03Y, but with Hysteresis Model active                          | MODEL-Y |     | Ongoing    | Runs
+KRNUM-03Z-IMBNUM     | Same as KRNUM-03Z, but with Hysteresis Model active                          | MODEL-Z |     | Ongoing    | Runs
+[]()                 |                                                                              | []()    |     |            |
+KRNUM-02-ENDPOINT-01 | Same as KRNUM-02X, but with End-point Scaling                                | MODEL-X |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+KRNUM-02-ENDPOINT-02 | Same as KRNUM-02X, but with End-point Scaling and Hysteresis Model active    | MODEL-X |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+KRNUM-03-ENDPOINT-01 | Same as KRNUM-03X, but with End-point Scaling                                | MODEL-X |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+KRNUM-03-ENDPOINT-02 | Same as KRNUM-03X, but with End-point Scaling and Hysteresis Model active    | MODEL-X |     | NA         | No resuts, ENDSCALE(DIRECT): only default value of NODIR supported.
+[]()                 |                                                                              | []()    |     |            |
+KRNUMXY_SOLVENT      | SPE01 Comparative Case, modified for the Solvent model                       | SPE01   | Reg | Ongoing    | Runs
 
 
 **Notes:**
@@ -31,7 +36,7 @@ KRNUMXY_SOLVENT   |                                                             
 1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).
 2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 
-**Version: 13 February 2023**
+**Version: 07 March 2023**
 
 ## MODEL-X and MODEL-Y
 
@@ -294,7 +299,6 @@ Same as KRNUM-02X, but with:
 ### KRNUM-02Y-IMBNUM (Oil-Water) Description and Results
 
 Same as KRNUM-02Y, but with:
-
 3) KRNUM  table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
 4) KRNUM  table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
 5) IMBNUM table 21 optimistic with respect to wct: SWOF krw = curved , krow = linear
@@ -307,7 +311,6 @@ Same as KRNUM-02Y, but with:
 ### KRNUM-02Z-IMBNUM (Oil-Water) Description and Results
 
 Same as KRNUM-02Z, but with:
-
 3) KRNUM  table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
 4) KRNUM  table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
 5) IMBNUM table 21 optimistic with respect to wct: SWOF krw = curved , krow = linear
@@ -318,7 +321,6 @@ Same as KRNUM-02Z, but with:
 ### KRNUM-03X-IMBNUM (Oil-Gas) Description and Results
 
 Same as KRNUM-03X, but with:
-
 3) KRNUM  table  6 optimistic with respect to gor  : SGOF  krg = curved , krog = linear
 4) KRNUM  table  3 persimistic with respect to gor : SGOF  krg = linear , krog = curved
 5) IMBNUM table 22 optimistic with respect to wct: SWOF krw = curved , krow = linear
@@ -331,7 +333,6 @@ Same as KRNUM-03X, but with:
 ### KRNUM-03Y-IMBNUM (Oil-Gas) Description and Results
 
 Same as KRNUM-03Y, but with:
-
 3) KRNUM  table  6 optimistic with respect to gor  : SGOF  krg = curved , krog = linear
 4) KRNUM  table  3 persimistic with respect to gor : SGOF  krg = linear , krog = curved
 5) IMBNUM table 25 optimistic with respect to wct: SWOF krw = curved , krow = linear
@@ -344,13 +345,108 @@ Same as KRNUM-03Y, but with:
 ### KRNUM-03Z-IMBNUM (Oil-Gas) Description and Results
 
 Same as KRNUM-03Z, but with:
-
 3) KRNUM  table  6 optimistic with respect to gor  : SGOF  krg = curved , krog = linear
 4) KRNUM  table  3 persimistic with respect to gor : SGOF  krg = linear , krog = curved
 5) IMBNUM table 25 optimistic with respect to wct: SWOF krw = curved , krow = linear
 6) IMBNUM table 19 persimistic with respect to wct: SWOF krw = linear , krow = curved
 7) Carlson Hysteresis Model with hysteresis modeling applied to both relative permeability,
    and capillary pressure curves.
+
+---
+
+### KRNUM-02-ENDPOINT-01 (Oil-Water) Description and Results
+
+Same as KRNUM-02X, but with End-point Scaling
+```
++-----------+------+------+------+------+
+|           | S1   | S2   | S3   | S4   |
+|-----------+------+------+------+------+
+|           | B-1H | B-2H | B-3H | B-4H |
++-----------+------+------+------+------+
+|  KRNUMX   |   5  |   9  |   9  |   5  |
+|  KRNUMY   |   5  |   9  |   9  |   5  |
+|  KRNUMZ   |  16  |  16  |  16  |  16  |
++-----------+------+------+------+------+
+```
+3) Table  5 optimistic with respect to wct: SWOF krw = curved, krow = linear
+4) Table  9 persimistic with respect to wct: SWOF krw = linear, krow = curved
+5) End-point directional saturation function scaling applied to KRNUM* test
+
+---
+
+### KRNUM-02-ENDPOINT-02 (Oil-Water) Description and Results
+
+Same as KRNUM-02X, but with End-point Scaling and Hysteresis Model active
+```
++-----------+------+------+------+------+
+|           | S1   | S2   | S3   | S4   |
+|-----------+------+------+------+------+
+|           | B-1H | B-2H | B-3H | B-4H |
++-----------+------+------+------+------+
+|  KRNUMX   |   5  |   9  |   9  |   5  |
+|  KRNUMY   |   5  |   9  |   9  |   5  |
+|  KRNUMZ   |  16  |  16  |  16  |  16  |
+|  IMBNUMX  |  21  |  25  |  25  |  21  |
+|  IMBNUMY  |  21  |  25  |  25  |  21  |
+|  IMBNUMZ  |  32  |  32  |  32  |  32  |
++-----------+------+------+------+------+
+```
+3) Table  5 optimistic with respect to wct: SWOF krw = curved, krow = linear
+4) Table  9 persimistic with respect to wct: SWOF krw = linear, krow = curved
+5) Table 21 optimistic with respect to wct: SWOF krw = curved, krow = linear
+6) Table 25 persimistic with respect to wct: SWOF krw = linear, krow = curved
+7) End-point directional saturation function scaling applied to KRNUM* test
+8) Carlson Hysteresis Model with hysteresis modeling applied to both relative permeability,
+and capillary pressure curves.
+
+---
+
+### KRNUM-03-ENDPOINT-01 (Oil-Gas) Description and Results
+
+Same as KRNUM-03X, but with End-point Scaling
+```
++-----------+------+------+------+------+
+|           | S1   | S2   | S3   | S4   |
+|-----------+------+------+------+------+
+|           | B-1H | B-2H | B-3H | B-4H |
++-----------+------+------+------+------+
+|  KRNUMX   |   6  |   3  |   3  |   6  |
+|  KRNUMY   |   6  |   3  |   3  |   6  |
+|  KRNUMZ   |  16  |  16  |  16  |  16  |
++-----------+------+------+------+------+
+```
+3) Table 6 is optimistic with respect to gor  : SGOF  krg = curved , krog = linear.
+4) Table 3 is persimistic with respect to gor : SGOF  krg = linear , krog = curved.
+5) Fluid contacts changed to simulate an oil-gas reservoir model.
+6) Well positions reversed such the injectors are at the crest and are converted to gas injection wells.
+7) End-point directional saturation function scaling applied to KRNUM* test.
+
+---
+
+### KRNUM-03-ENDPOINT-02 (Oil-Gas) Description and Results
+
+Same as KRNUM-03X, but with End-point Scaling and Hysteresis Model active
+```
++-----------+------+------+------+------+
+|           | S1   | S2   | S3   | S4   |
+|-----------+------+------+------+------+
+|           | B-1H | B-2H | B-3H | B-4H |
++-----------+------+------+------+------+
+|  KRNUMX   |   6  |   3  |   3  |   6  |
+|  KRNUMY   |   6  |   3  |   3  |   6  |
+|  KRNUMZ   |  16  |  16  |  16  |  16  |
+|  IMBNUMX  |  22  |  19  |  19  |  22  |
+|  IMBNUMY  |  22  |  19  |  19  |  22  |
+|  IMBNUMZ  |  32  |  32  |  32  |  32  |
++-----------+------+------+------+------+
+```
+3) Table 6 is optimistic with respect to gor  : SGOF  krg = curved , krog = linear.
+4) Table 3 is persimistic with respect to gor : SGOF  krg = linear , krog = curved.
+5) Fluid contacts changed to simulate an oil-gas reservoir model.
+6) Well positions reversed such the injectors are at the crest and are converted to gas injection wells.
+7) End-point directional saturation function scaling applied to KRNUM* test.
+8) Carlson Hysteresis Model with hysteresis modeling applied to both relative permeability,
+and capillary pressure curves.
 
 ---
 
