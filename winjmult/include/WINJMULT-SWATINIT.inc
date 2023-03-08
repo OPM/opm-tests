@@ -3,12 +3,14 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2018 Equinor
+-- Copyright (C) 2023 Equinor
 
--- This file is one of the include files for BASE_MODEL_1.DATA.
+-- This file is one of the include files for INJMULT testing cases.
 
 -- ----------------------------------------------------------------------------
 -- ----------------------------------------------------------------------------
+
+NOECHO
 
 SWATINIT
    0.11596480E+00   0.14962322E+00   0.14084139E+00   0.14851579E+00
@@ -96,3 +98,5 @@ SWATINIT
    0.10000000E+01   0.10000000E+01   0.61059403E+00   0.10000000E+01
    0.10000000E+01   0.10000000E+01   0.10000000E+01   0.10000000E+01
 /
+
+ECHO

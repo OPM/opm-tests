@@ -3,18 +3,20 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2018 Equinor
+-- Copyright (C) 2023 Equinor
 
--- This file is one of the include files for BASE_MODEL_1.DATA.
+-- This file is one of the include files for INJMULT testing cases.
 
 -- ----------------------------------------------------------------------------
 -- ----------------------------------------------------------------------------
+
+NOECHO
 
 ROCK
 -- REF. PRES   COMPRESSIBILITY
    280.000        5.6E-5 /
    280.000        5.6E-5 /
- 
+
 PVTW
 --     RefPres        Bw          Cw           Vw         dVw
 --       bara       rm3/m3       1/bara        cP        1/bara
@@ -22,8 +24,8 @@ PVTW
         247.7      1.03665    0.41726E-04   0.29120    0.99835E-04 /
 
 DENSITY
-   861.0        999.1          1.01735 /  
-   854.15369    999.04100      0.96044 /   
+   861.0        999.1          1.01735 /
+   854.15369    999.04100      0.96044 /
 
 
 ------------------------------------------------------------
@@ -457,5 +459,7 @@ PVTG
 
       500.00000    0.000488469     0.00348415     0.05269177
                    0.000           0.00348415     0.05269177  /
- 
+
 /
+
+ECHO
