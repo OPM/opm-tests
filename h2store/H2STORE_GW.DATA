@@ -3,7 +3,7 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2021 NORCE
+-- Copyright (C) 2023 NORCE
 
 -- Test case for gas + water + disgasw (dissolved gas in water phase)
 
@@ -11,7 +11,7 @@
 RUNSPEC
 ----------------------------------------------------------------------------
 TITLE
-   CO2STORE GAS-WATER DISGASW
+   H2STORE GAS-WATER DISGASW
 
 DIMENS 
 20 1 20 /
@@ -89,7 +89,7 @@ SWFN
 1	1 	0.0 /
 
 SALINITY
- 0.7/ 35-40g/l  -> 35-40g /kg -> 0.63-0.72 mol/g
+ 0.7/ -- 35-40g/l  -> 35-40g /kg -> 0.63-0.72 mol/g
 
 ----------------------------------------------------------------------------
 SOLUTION
