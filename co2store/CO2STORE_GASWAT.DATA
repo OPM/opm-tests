@@ -185,6 +185,8 @@ SCHEDULE  ===============================================
 RPTSCHED
  AMF WMF YMF DENG DENW VWAT VGAS /
 
+RPTRST
+	'BASIC=1' 'ALLPROPS'/
 
 WELLSTRE
 'C02STREAM' 1.0 0.0   /
