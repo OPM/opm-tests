@@ -1,0 +1,249 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This deck is testing usage of PPCWMAX which introduces a maximum limit for the PCW endpoint. 
+-- The PCW endpoint is scaled based on swatinit input. PPCWMAX is set up with item 2 defaulted 
+-- (no scaling of SWL when pcw limit is exceeded). 
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 5 7 2 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'		0 / 
+
+-- Enable saturation table end-point scaling
+ENDSCALE
+/
+
+
+EQLDIMS
+ 1  100  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   1          4       1*            72    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 110        100            30        30   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+--
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg   max.ALQ    max.tabs
+  25        15        15       15       0          60       /
+
+--
+VFPIDIMS
+--max.rate  max.THP  max.tab
+   30       20       60  /
+
+--
+NSTACK
+ 60 /
+
+
+--
+UNIFIN
+UNIFOUT
+
+--
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+'include/mod2_5x7x2.grdecl' /
+
+PORO
+ 70*0.25 /
+ 
+ 
+PERMX
+ 70*2100 /
+
+PERMZ
+ 70*210  /
+
+
+COPY
+ PERMX PERMY /
+/
+
+
+RPTGRID
+ 'ALLNNC' /
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+INCLUDE
+ './include/test1_endpoints.inc' /
+
+FILLEPS
+
+PPCWMAX
+ 45.0 /
+ 
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 70*1 /
+ 
+SATNUM
+ 70*1 /
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTSOL
+SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+2550     327.0 2453.0 0 2103.000 0.0  1 1 0 /
+
+
+RSVD
+ 2250	152.13	
+ 2303	152.13	
+ 2375	133.00	
+ 2453	118.00	
+ 2800	118.00	/
+
+RVVD
+ 2103   1.0E-4 
+ 2800	1.0E-4	/
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+DATE
+-- 
+WBHP
+/
+
+WOPR
+/
+
+WWCT
+/
+
+WGOR
+/
+
+FOPR
+
+FPR
+
+BOSAT
+ 4 4 1 /
+ 4 6 1 /
+/
+
+BWSAT
+ 4 4 1 /
+ 4 6 1 /
+/
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+ 
+-- start: 10  'OCT' 2018 /
+
+WELSPECS 
+   'D-1H'   'TEST'   5   3  1*       'OIL'  2*      'STOP'  4* /
+/
+
+COMPDAT 
+-- WELL     I	J   K1	K2	      Sat.	CF	  DIAM        KH SKIN ND	DIR    Ro 
+   'D-1H'   5	3   1    1      'OPEN'  1*      15.505	  0.216        510.312  2*	'Z'    15.511 /
+/
+
+
+WCONPROD
+  'D-1H'  'OPEN'  ORAT   250.0   4*   95.0 / 
+/
+
+  
+DATES
+ 1 NOV 2018 /
+/
+
+
+END
+  
