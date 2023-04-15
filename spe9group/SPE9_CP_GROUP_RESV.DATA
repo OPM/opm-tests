@@ -524,7 +524,7 @@ WCONPROD
 
 GCONPROD
 --      oil   water  gas
-   'F'    'RESV'  4* NONE NO 5* 1000 /
+   'F'    'RESV'  4* 'RATE'  NO 5* 1000 /
    'A'    'FLD'   4* 'RATE' 'YES' 1 'OIL' /
 /
 

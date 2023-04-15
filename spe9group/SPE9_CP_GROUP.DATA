@@ -528,7 +528,7 @@ WCONPROD
 -- The total rates is set to 1500 STBO 
 GCONPROD
 --      oil   water  gas
-   'F'    'LRAT'  3* 1500 /
+   'F'    'LRAT'  3* 1500  'RATE' /
    'A'    'FLD'   4* 'RATE' 'YES' 1 'OIL' /
 /
 
