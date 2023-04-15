@@ -360,7 +360,7 @@ GRUPTREE
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
 GCONPROD
-FIELD    GRAT  1*     1*    275E3   1*     1*     1*    1*     1*     1*      /
+FIELD    GRAT  1*     1*    275E3   1*     RATE   1*    1*     1*     1*      /
 /
 --
 --       WELL SPECIFICATION DATA
@@ -494,7 +494,7 @@ ACTIONX
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
 GCONPROD
-FIELD    GRAT  1*     1*    250E3   1*     1*     1*    1*     1*     1*      /
+FIELD    GRAT  1*     1*    250E3   1*     RATE   1*    1*     1*     1*      /
 /
 
 ENDACTIO
@@ -511,7 +511,7 @@ ACTIONX
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
 GCONPROD
-FIELD    GRAT  1*     1*  FU_FGPR   1*     1*     1*    1*     1*     1*      /
+FIELD    GRAT  1*     1*  FU_FGPR   1*     RATE   1*    1*     1*     1*      /
 /
 
 ENDACTIO
@@ -528,7 +528,7 @@ ACTIONX
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
 GCONPROD
-FIELD    GRAT  1*     1*     275E3  1*     1*     1*    1*     1*     1*      /
+FIELD    GRAT  1*     1*     275E3  1*     RATE   1*    1*     1*     1*      /
 /
 --
 --       WELL PRODUCTION WELL CONTROLS
