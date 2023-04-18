@@ -1,16 +1,15 @@
 # Aquifer Test Documentation
 
-Case Name  | Case Desciption                                  | Base Model | Test<br />Type | Results<br />Match | Comments |
+Case Name  | Case Desciption                                  | Base Model | Test<br />Type | Flow<br />Support | Comments |
 ---------  | -----------------------------                    | ---------- | ---- | ------- | ------------------------------------- |
-AQUCT-01   | Carter-Tracy aquifer (2D_OW_CTAQUIFER).          | AQUCT-01   | Reg  | Yes     | Perfect match.
-AQUFET-01  | Fetkovich aquifer (2D_FETKOVICHAQUIFER).         | AQUFET-01  | Reg  | Yes     | Perfect match.
-AQUNUM-01  | Numerical aquifer (3D_1AQU_3CELLS.DATA).         | AQUNUM-01  | Reg  | Yes     | Perfect match with the TUNING keyword active.
-AQUNUM-02  | Numerical aquifer (3D_2AQU_NUM.DATA).            | AQUNUM-02  | Reg  | Yes     | Perfect match with the TUNING keyword active.
+AQUCT-01   | Carter-Tracy aquifer (2D_OW_CTAQUIFER).          | AQUCT-01   | Reg  | Yes     | 
+AQUFET-01  | Fetkovich aquifer (2D_FETKOVICHAQUIFER).         | AQUFET-01  | Reg  | Yes     | 
+AQUNUM-01  | Numerical aquifer (3D_1AQU_3CELLS).              | AQUNUM-01  | Reg  | Yes     | 
+AQUNUM-02  | Numerical aquifer (3D_2AQU_NUM).                 | AQUNUM-02  | Reg  | Yes     | 
 
 **Notes:** 
 
 1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).
-2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 
 
 **Version: 29 November 2022**
@@ -39,8 +38,6 @@ AQUANCON
          1       1   1    1   1    1   1   J-       1.0    1.0     NO /
 /
 ``` 
-
-[AQUCT-01 ECL Results](plots/AQUCT-01-ECL.md)  
 
 ---
 
@@ -72,8 +69,6 @@ AQUANCON
 /
 ```
 
-[AQUFET-01 ECL Results](plots/AQUFET-01-ECL.md) 
-
 ---
 
 ### AQUNUM-01 Description and Results
@@ -101,8 +96,6 @@ AQUCON
          1      1    8    3   3   3   3   'J-'       1.00     1             /
 / 
 ```
-[AQUNUM-01 ECL Results](plots/AQUNUM-01-ECL.md) 
-
 ---
 
 ### AQUNUM-02 Description and Results
@@ -133,6 +126,4 @@ AQUCON
 
 ```
 
-[AQUNUM-02 ECL Results](plots/AQUNUM-02-ECL.md) 
-   
 ---                                              
