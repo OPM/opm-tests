@@ -293,11 +293,14 @@ ALL
 -- '*' 1 /
 -- '*' 2 /
 -- /
-
+--
+--       FIELD C02 DISOLVE IN WATER PHASE
 FWCD
-
+--
+--       FIELD C02 TRAPPED IN GAS PHASE
 FGCDI
-
+--
+--       FIELD C02 MOBILE IN GAS PHASE   
 FGCDM
 -- =================================================================================================================================
 --
