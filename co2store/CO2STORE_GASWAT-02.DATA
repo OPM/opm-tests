@@ -262,11 +262,6 @@ RVWVD
 --
 RPTRST
         'BASIC=2' 'ALLPROPS'                                                   /
---
---       DEFINE SOLUTION SECTION REPORT OPTIONS
---
-RPTSOL
-         PRESSURE SGAS SWAT DENG DENW VGAS VWAT XMF  YMF WMF                   /
 -- =================================================================================================================================
 --
 -- SUMMARY SECTION
@@ -311,15 +306,10 @@ FGCDM
 -- =================================================================================================================================
 SCHEDULE
 --
---       DEFINE SCHEDULE SECTION REPORT OPTION
---
-RPTSCHED
-         AMF WMF YMF DENG DENW VWAT VGAS                                       /
---
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
 RPTRST
-        'BASIC=1' 'ALLPROPS'                                                   /
+        'BASIC=2' 'ALLPROPS'                                                   /
 --
 --       WELL STREAM INJECTION COMPOSITION (OPM FLOW Keyword)
 --
