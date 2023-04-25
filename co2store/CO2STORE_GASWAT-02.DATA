@@ -261,7 +261,7 @@ RVWVD
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
 RPTRST
-         RESTART PRESSURE SGAS SWAT DENG DENW VGAS VWAT XMF YMF WMF            /
+        'BASIC=2' 'ALLPROPS'                                                   /
 --
 --       DEFINE SOLUTION SECTION REPORT OPTIONS
 --
