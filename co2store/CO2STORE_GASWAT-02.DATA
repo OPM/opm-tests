@@ -1,0 +1,366 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 TNO
+
+-- Test case for CO2STORE in combination with GASWAT annd VAPWAT. Must use
+-- command line option EnableOpmRstFile="true", to get mole fractions.
+-- =================================================================================================================================
+--
+-- RUNSPEC SECTION
+--
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE TITLE FOR THE RUN
+--
+TITLE
+CO2STORE_GASWAT-02: GAS-WATER CASE AND MOLAR FRACTIONS
+--
+--       DEFINE THE START DATE FOR THE RUN
+--
+START
+         01 'JAN' 2023                                                         /
+--
+--       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
+--
+-- NOSIM
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- FLUID TYPES AND TRACER OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       ACTIVATE CO2 STORAGE IN THE MODEL (OPM FLOW CO2 STORAGE KEYWORD)
+--
+CO2STORE
+--
+--       DISSOLVED GAS IN WATER IS PRESENT IN THE RUN (OPM FLOW KEYWORD)
+--
+DISGASW
+--
+--       ACTIVATE GAS-WATER THE MODEL (OPM FLOW KEYWORD)
+--
+GASWAT
+--
+--       VAPORIZED WATER IN DRY/WET GAS IS PRESENT IN THE RUN (OPM FLOW KEYWORD)
+--
+VAPWAT
+--
+--       ACTIVATE COMPOSITIONAL MODELING FORMULATION (OPM FLOW KEYWORD)
+--
+COMPS
+         2                                                                     /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX
+--       NDIVIX  NDIVIY  NDIVIZ
+DIMENS
+         50      50      10                                                    /
+--
+--       MAX     MAX     RSVD    TVDP    TVDP
+--       EQLNUM  DEPTH   NODES   TABLE   NODES
+EQLDIMS
+         1       100     20      1       20                                    /
+--
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS
+REGDIMS
+         10      1       0       1       0                                     /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND
+TABDIMS
+         1       1       40      40                                            /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       WELL    WELL    GRUPS   GRUPS
+--       MXWELS  MXCONS  MXGRPS  MXGRPW
+WELLDIMS
+         2       30      1       1                                             /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- INPUT AND OUTPUT OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT
+--
+METRIC
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT
+-- =================================================================================================================================
+--
+-- GRID SECTION
+--
+-- =================================================================================================================================
+GRID
+
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1                                                             /
+--
+--       DEFINE GRID BLOCK TOPS FOR THE TOP LAYER
+--
+TOPS
+         2500*2000                                                             /
+--
+--       DEFINE GRID BLOCK X DIRECTION CELL SIZE
+--
+DXV
+         50*20                                                                 /
+--
+--       DEFINE GRID BLOCK Y DIRECTION CELL SIZE
+--
+DYV
+         50*20                                                                 /
+--
+--       DEFINE GRID BLOCK SIZES IN THE Z DIRECTION
+--
+DZV
+         10*5                                                                  /
+--
+--       ARRAY       CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+EQUALS
+         PERMX       100.00       1*  1*   1*  1*   1*  1* / SET PERMX
+         PERMY       100.00       1*  1*   1*  1*   1*  1* / SET PERMY
+         PERMZ       100.00       1*  1*   1*  1*   1*  1* / SET PERMZ
+         PORO        0.25         1*  1*   1*  1*   1*  1* / SET PERMZ
+/
+-- =================================================================================================================================
+--
+-- EDIT SECTION
+--
+-- =================================================================================================================================
+EDIT
+
+--
+--       ARRAY       CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+MULTIPLY
+         PORV        10000000      1   1    1  50    1  10 / PORV ADJUSTMENT
+         PORV        10000000      1  50    1   1    1  10 / PORV ADJUSTMENT
+         PORV        10000000     50  50    1  50    1  10 / PORV ADJUSTMENT
+         PORV        10000000      1  50   50  50    1  10 / PORV ADJUSTMENT
+/
+-- =================================================================================================================================
+--
+-- PROPS SECTION
+--
+-- =================================================================================================================================
+PROPS
+--
+--       DEFINE COMPOSITIONAL COMPONENTS NAMES (OPM FLOW KEYWORD)
+--
+CNAMES
+         'CO2'
+         'H2O'
+/
+--
+--       CONFIRM NUMBER OF COMPOSITIONAL COMPONENTS (OPM FLOW KEYWORD)
+--
+NCOMPS
+         2
+/
+--
+--       COMPOSITIONAL COMPONENT MOLE FRACTIONS VS DEPTH (OPM FLOW KEYWORD)
+--
+--       DEPTH   CO2   H2O
+ZMFVD
+         2000    0.0   1.0
+         2100    0.0   1.0
+/
+--
+--       ROCK COMPRESSIBILITY
+--
+--       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE
+--       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (ECLIPSE USES THE REFERENCE
+--       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA
+--       ON THE ROCK KEYWORD)
+--
+--       REF PRES  CF
+--       PSIA      1/PSIA
+--       --------  --------
+ROCK
+         200.0     5.0E-05                                 / ROCK COMPRESSIBILITY
+--
+--       RESERVOIR
+--       TEMPERATURE
+--       -----------
+RTEMP
+         80.0                                              / RESERVOIR TEMPERATURE
+--
+--       GAS RELATIVE PERMEABILITY TABLES (OPM FLOW KEYWORD)
+--
+GSF
+--       SGAS       KRG        PCGW
+--       FRAC                  PSIA
+--       --------  --------   -------
+            0.000    0.000       0.0
+            0.080    0.001       0.0
+            0.170    0.010       0.0
+            0.350    0.050       0.0
+            0.530    0.200       0.0
+            0.620    0.350       0.0
+            0.650    0.390       0.0
+            0.710    0.560       0.0
+            0.800    1.000       0.0   / TABLE NO. 01
+--
+--       WATER RELATIVE PERMEABILITY TABLES (OPM FLOW KEYWORD)
+--
+WSF
+--       SWAT       KRW
+--       FRAC
+--       --------   --------
+            0.200   0.0000
+            0.400   0.1000
+            0.800   0.5000
+            1.000   1.0000             / TABLE NO. 01
+-- =================================================================================================================================
+--
+-- SOLUTION SECTION
+--
+-- =================================================================================================================================
+SOLUTION
+--
+--       SYSTEM IS SATURATED WITH WATER
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N    E300  RVW
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT  OPT   OPT
+EQUIL
+         2000.0  200.0   1800.0  0.00  1800.0  0.00   1*   1*   1*   2*    1   /
+--
+--       WATER VAPOR RATIO VS DEPTH (OPM FLOW KEYWORD)
+--
+--       DEPTH    RVW
+--                STB/MSCF
+--       ------   --------
+RVWVD
+         1000.0   0.001
+         3000.0   0.001                                      / RVW VS DEPTH EQUIL REGN 01
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST
+        'BASIC=2' 'ALLPROPS'                                                   /
+-- =================================================================================================================================
+--
+-- SUMMARY SECTION
+--
+-- =================================================================================================================================
+SUMMARY
+--
+--       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
+--
+ALL
+
+-- WXMF
+-- '*' 1 /
+-- '*' 2 /
+-- /
+-- WYMF
+-- '*' 1 /
+-- '*' 2 /
+-- /
+-- WZMF
+-- '*' 1 /
+-- '*' 2 /
+-- /
+-- WCGMR
+-- '*' 1 /
+-- '*' 2 /
+-- /
+-- WCOMR
+-- '*' 1 /
+-- '*' 2 /
+-- /
+--
+--       FIELD C02 DISOLVED IN WATER PHASE
+FWCD
+--
+--       FIELD C02 TRAPPED IN GAS PHASE
+FGCDI
+--
+--       FIELD C02 MOBILE IN GAS PHASE   
+FGCDM
+-- =================================================================================================================================
+--
+-- SCHEDULE SECTION
+--
+-- =================================================================================================================================
+SCHEDULE
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST
+        'BASIC=2' 'ALLPROPS'                                                   /
+--
+--       WELL STREAM INJECTION COMPOSITION (OPM FLOW Keyword)
+--
+-- WELL     -- WELL STREAM COMPOSITIONAL COMPONENT       --
+-- STREAM   --          MOLE FRACTIONS                   --
+WELLSTRE
+'C02STREAM'    1.000   0.000                               /
+/
+--
+--       WELL SPECIFICATION DATA
+--
+-- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP
+-- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM
+WELSPECS
+INJ1     'G1'      25   25   1*     GAS                                            /
+/
+--
+--       WELL CONNECTION DATA
+--
+-- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
+-- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
+COMPDAT
+INJ1      25  25   1  10  OPEN    1*    1*    0.3                              /
+/
+--
+--       WELL GAS INJECTION PROPERTIES
+--
+-- WELL  STREAM   SOURCE      MAKEUP   SEP
+-- NAME  OPTION   DEPTH       GAS      STAGE
+WINJGAS
+INJ1     STREAM   C02STREAM               /
+/
+--
+--       WELL INJECTION CONTROLS
+--
+-- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
+-- NAME  TYPE   SHUT   MODE  RATE   RATE   PRES  PRES  TABLE
+WCONINJE
+INJ1     GAS    OPEN   RATE 100000  1*     300                                 /
+/
+--
+--       ADVANCE SIMULATION BY REPORTING TIME
+--
+TSTEP
+         1   24*30
+/
+--
+-- *********************************************************************************************************************************
+-- END OF FILE
+-- *********************************************************************************************************************************
+END
