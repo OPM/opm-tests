@@ -215,3 +215,103 @@ supported, as well as PCW and PCG keywords also not supported.
 **Not Documented and No Results**
 
 ---
+
+### Model T1A Description and Results
+
+Grid dimension: 1 x 1 x 4 
+
+
+Model input properties
+
+ Property      | layer 1 | layer 2 | layer 3 | Layer 4 |
+---------------|---------|---------|---------|---------|
+ DX            | 100     | 100     | 100     | 100     
+ DY            | 100     | 100     | 100     | 100     
+ DZ            | 2.0     | 0.25    | 0.25    | 2.5      
+ PORO          | 0.25    | 0.05    | 0.05    | 0.25      
+ PERMZ         | 100     | 100     | 100     | 100       
+
+
+
+Layer 2 and 3 cells inactive due to MINPV. The gap from bottom layer 1 to top layer 4 is 0.5 meters 
+
+	
+![](plots/model_t1a.jpg)
+
+
+There are a total of 4 versions of this model T1A, T1B, T1C and T1D
+
+**T1B**
+same as above but PERMZ layer 2 and 3  = 0.0
+
+
+**T1C**
+same as T1A but MULTZ layer 2 and 3  = 0.0
+
+
+**T1D**
+same as T1A but MULTZ layer 1 = 0.0
+
+
+
+**Sensitivities** 
+
+
+Datafile      | Model  | Item 1 | Item 2 | Item 3 | Item 4 | Item 5 | Non-zero<br />NNC |
+--------------|--------|--------|--------|--------|--------|--------|-------------------|
+T1A_NOPINCH.DATA | T1A |  |  |  |  |  |   No
+T1B_NOPINCH.DATA | T1B |  |  |  |  |  |   No
+T1C_NOPINCH.DATA | T1C |  |  |  |  |  |   No
+T1D_NOPINCH.DATA | T1D |  |  |  |  |  |   No
+T1A_GAP.DATA | T1A | 0.001 | GAP | 1E+20 | TOPBOT | TOP |   Yes
+T1B_GAP.DATA | T1B | 0.001 | GAP | 1E+20 | TOPBOT | TOP |   Yes
+T1B1_GAP.DATA | T1B | 0.001 | GAP | 1E+20 | ALL | TOP |   No
+T1C1_GAP.DATA | T1C | 0.001 | GAP | 1E+20 | TOPBOT | TOP |   Yes
+T1C2_GAP.DATA | T1C | 0.001 | GAP | 1E+20 | TOPBOT | ALL |   No
+T1C3_GAP.DATA | T1C | 0.001 | GAP | 1E+20 | ALL | ALL |   No
+T1D1_GAP | T1D | 0.001 | GAP | 1E+20 | TOPBOT | TOP |   No
+T1A_NOGAP.DATA | T1A | 0.001 | NOGAP | 1E+20 | TOPBOT | TOP |   No
+T1A1_NOGAP.DATA | T1A | 0.3 | NOGAP | 1E+20 | TOPBOT | TOP |   No
+T1A2_NOGAP.DATA | T1A | 0.6 | NOGAP | 1E+20 | TOPBOT | TOP |   Yes
+T1B_NOGAP.DATA | T1B | 0.6 | NOGAP | 1E+20 | TOPBOT | TOP |   Yes
+T1B1_NOGAP.DATA | T1B | 0.6 | NOGAP | 1E+20 | ALL | TOP |   No
+T1C1_NOGAP.DATA | T1C | 0.6 | NOGAP | 1E+20 | TOPBOT | TOP |   Yes
+T1C2_NOGAP.DATA | T1C | 0.6 | NOGAP | 1E+20 | TOPBOT | ALL |   No
+T1C3_NOGAP.DATA | T1C | 0.6 | NOGAP | 1E+20 | ALL | ALL |   No
+T1D1_NOGAP.DATA | T1D | 0.6 | NOGAP | 1E+20 | TOPBOT | TOP |   No
+
+
+
+---
+
+### Model T2A Description and Results
+
+Grid dimension: 1 x 1 x 3 
+
+
+Model input properties
+
+
+ Property      | layer 1 | layer 2 | layer 3 |
+---------------|---------|---------|---------|
+ DX            | 100     | 100     | 100     
+ DY            | 100     | 100     | 100     
+ DZ            | 2.0     | 0.5     | 1.5     
+ PORO          | 0.25    | 0.25    | 0.25      
+ PERMZ         | 100     | 100     | 100       
+
+
+There are no inactive layers in this model. The gap from bottom layer 2 to top layer 3 is 1.0 meter 
+
+	
+![](plots/model_t2a.png)
+
+
+**Sensitivities** 
+
+
+Datafile      | Model  | Item 1 | Item 2 | Item 3 | Item 4 | Item 5 | Non-zero<br />TranZ |
+--------------|--------|--------|--------|--------|--------|--------|-------------------|
+T2A_NOPINCH.DATA | T2A |  |  |  |  |  |   Yes
+T2A_GAP.DATA | T2A | 0.001 | GAP | 1E+20 | TOPBOT | TOP |   Yes
+T2A1_GAP.DATA | T2A | 0.001 | GAP | 0.9 | TOPBOT | TOP |   No
