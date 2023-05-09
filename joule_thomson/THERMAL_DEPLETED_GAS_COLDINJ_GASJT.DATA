@@ -1,0 +1,493 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+-- Copyright (C) 2023 TNO
+
+
+-- Simulate thermal cold gas injection using RADIAL grid
+-- in a depleted gas reservoir using a METRIC system
+-- using GASDENT, GASJT, VISCREF and GASVISCT
+
+
+RUNSPEC
+-- -------------------------------------------------------------------------
+
+TITLE
+   JOULE-THOMSON 
+
+DIMENS
+   150 1 1 /
+   
+RADIAL
+
+-- The number of equilibration regions is inferred from the EQLDIMS
+-- keyword.
+EQLDIMS
+/
+
+-- The number of PVTW tables is inferred from the TABDIMS keyword;
+-- when no data is included in the keyword the default values are used.
+TABDIMS
+/
+
+TEMP
+
+GAS
+WATER
+OIL
+
+METRIC
+
+START
+   16 'JUN' 1988 / 
+
+WELLDIMS
+   1 1 1 1 /
+
+UNIFOUT
+
+
+-- -------------------------------------------------------------------------
+GRID
+
+INIT
+
+NOECHO
+
+-- INNER RADIUS OF FIRST GRID BLOCK IN THE RADIAL DIRECTION
+INRAD
+0.25/
+
+--
+-- DEFINE GRID BLOCK SIZES IN THE R DIRECTION
+-- 
+DRV
+4.0--0.1
+4.0--0.10500000000000001
+4.0--0.11025000000000001
+4.0--0.11576250000000002
+4.0--0.12155062500000002
+4.0--0.12762815625000004
+4.0--0.13400956406250006
+4.0--0.14071004226562506
+4.0--0.1477455443789063
+4.0--0.15513282159785163
+4.0--0.1628894626777442
+4.0--0.17103393581163143
+4.0--0.17958563260221302
+4.0--0.1885649142323237
+4.0--0.19799315994393987
+4.0--0.2078928179411369
+4.0--0.2182874588381937
+4.0--0.22920183178010342
+4.0--0.24066192336910858
+4.0--0.25269501953756407
+4.0--0.26532977051444223
+4.0--0.2785962590401644
+4.0--0.2925260719921726
+4.0--0.30715237559178127
+4.0--0.3225099943713703
+4.0--0.33863549408993887
+4.0--0.3555672687944358
+4.0--0.3733456322341576
+4.0--0.3920129138458655
+4.0--0.41161355953815887
+4.0--0.4321942375150668
+4.0--0.45380394939082014
+4.0--0.4764941468603612
+4.0--0.5003188542033792
+4.0--0.5253347969135482
+4.0--0.5516015367592256
+4.0--0.5791816135971869
+4.0--0.6081406942770463
+4.0--0.6385477289908987
+4.0--0.6704751154404436
+4.0--0.7039988712124658
+4.0--0.7391988147730891
+4.0--0.7761587555117436
+4.0--0.814966693287331
+4.0--0.8557150279516975
+4.0--0.8985007793492823
+4.0--0.9434258183167465
+4.0--0.9905971092325839
+4.0--1.040126964694213
+4.0--1.092133312928924
+4.0--1.14673997857537
+4.0--1.2040769775041387
+4.0--1.2642808263793457
+4.0--1.327494867698313
+4.0--1.3938696110832287
+4.0--1.46356309163739
+4.0--1.5367412462192598
+4.0--1.6135783085302227
+4.0--1.6942572239567342
+4.0--1.7789700851545707
+4.0--1.8679185894122996
+4.0--1.9613145188829144
+4.0--2.0593802448270604
+4.0--2.162349257068413
+4.0--2.270466719921834
+4.0--2.383990055917926
+4.0--2.5031895587138226
+4.0--2.6283490366495137
+4.0--2.7597664884819895
+4.0--2.897754812906089
+4.0--3.042642553551394
+4.0--3.1947746812289637
+4.0--3.3545134152904112
+4.0--3.522239086054933
+4.0--3.6983510403576787
+4.0--3.8832685923755634
+4.077432021994341
+4.281303623094059
+4.495368804248762
+4.7201372444612
+4.956144106684261
+5.203951312018474
+5.464148877619397
+5.737356321500368
+6.024224137575387
+6.3254353444541564
+6.6417071116768645
+6.973792467260708
+7.322482090623743
+7.688606195154931
+8.073036504912677
+8.476688330158312
+8.900522746666228
+9.34554888399954
+9.812826328199517
+10.303467644609494
+10.81864102683997
+11.359573078181967
+11.927551732091066
+12.52392931869562
+13.150125784630402
+13.807632073861923
+14.49801367755502
+15.222914361432771
+15.98406007950441
+16.783263083479632
+17.622426237653613
+18.503547549536293
+19.42872492701311
+20.400161173363767
+21.420169232031956
+22.491177693633556
+23.615736578315236
+24.796523407230996
+26.036349577592546
+27.338167056472173
+28.705075409295787
+30.140329179760574
+31.647345638748607
+33.22971292068603
+34.89119856672034
+36.63575849505636
+38.46754641980918
+40.39092374079964
+42.41046992783962
+44.53099342423161
+46.75754309544319
+49.09542025021535
+51.550191262726116
+54.12770082586243
+56.83408586715555
+59.67579016051333
+62.65957966853901
+65.79255865196596
+69.08218658456425
+72.53629591379247
+76.1631107094821
+79.97126624495621
+83.96982955720402
+88.16832103506422
+92.57673708681745
+97.20557394115832
+102.06585263821624
+107.16914527012705
+112.5276025336334
+118.1539826603151
+124.06168179333083
+130.26476588299738
+136.77800417714727
+129.5619122799104
+
+ /
+ 
+
+-- DEFINE GRID BLOCK SIZES IN THE THETA DIRECTION (BASED ON NY = 10)
+DTHETAV
+ 1*36 /
+
+DZ
+	150*30/
+
+TOPS
+-- The depth of the top of each grid block
+	150*2500 /
+
+PORO
+   	150*0.2 /
+    
+-- To make "infinity" volume boundary
+-- ---------- BOX 1---------
+-- I1 I2 J1 J2 K1 K2
+BOX
+150 150 1 1 1 1 / DEFINE BOX AREA
+MULTPV
+1*1E10/
+ENDBOX
+
+
+PERMR
+-- The layers have perm. 500mD, 50mD and 200mD, respectively.
+	150*100 /
+
+PERMTHT
+-- Equal to PERMR
+	150*100 /
+
+PERMZ
+-- For the time being, we will assume PERMZ equal to PERMX and PERMY:
+	150*100 /
+
+
+-- total thermal conductivty
+THCONR
+       150*11.467 / --  ([= phi*0.6 + (1-phi)*2.0 W/m] / 0.15) kJ/m/day/K
+
+
+-- -------------------------------------------------------------------------
+PROPS
+
+ROCK
+-- Item 1: reference pressure (barsa)
+-- Item 2: rock compressibility (1/barsa)
+
+-- Using some default
+	277 4.35E-8 /
+
+SPECHEAT
+-- Column 1: Temperature [deg C]
+-- Column 2: Specific heat capacity of oil [kJ/kg/K]
+-- Column 3: Specific heat capacity of water [kJ/kg/K]
+-- Column 4: Specific heat capacity of gas [kJ/kg/K]
+    0.0    4.2   4.2   4.2
+  300.0    4.2   4.2   4.2 /
+
+SPECROCK
+-- Column 1: Temperature [deg C]
+-- Column 2: SPECIFIC HEAT OF THE RESERVOIR ROCK [kJ/m3/K]
+  0.0   2104.   --2630*800 
+  300.0 2104. /
+
+DENSITY
+-- Density (metric units) at surface cond. of 
+-- oil, water and gas, respectively (in that order)
+
+-- In METRIC units:
+      859.5 1033.0 0.648 /
+
+PVTW
+-- Item 1: pressure reference (bar)
+-- Item 2: water FVF (Rm3/Sm3b)
+-- Item 3: water compressibility (bar^{-1})
+-- Item 4: water viscosity (cp)
+-- Item 5: water 'viscosibility' (bar^{-1})
+-- In METRIC units:
+	30 1.038 4.67E-5 0.318 0.0 /
+	
+SWOF
+-- Column 1: water saturation
+--   	     - this has been set to (almost) equally spaced values from 0.12 to 1
+-- Column 2: water relative permeability
+--   	     - generated from the Corey-type approx. formula
+--	       the coefficient is set to 10e-5, S_{orw}=0 and S_{wi}=0.12
+-- Column 3: oil relative permeability when only oil and water are present
+--	     - we will use the same values as in column 3 in SGOF.
+-- 	       This is not really correct, but since only the first 
+--	       two values are of importance, this does not really matter
+-- Column 4: corresponding water-oil capillary pressure (psi) 
+
+0.12	0    		 			1		0
+0.18	4.64876033057851E-008	1		0
+0.24	0.000000186				0.997	0
+0.3		4.18388429752066E-007	0.98	0
+0.36	7.43801652892562E-007	0.7		0
+0.42	1.16219008264463E-006	0.35	0
+0.48	1.67355371900826E-006	0.2		0
+0.54	2.27789256198347E-006	0.09	0
+0.6		2.97520661157025E-006	0.021	0
+0.66	3.7654958677686E-006	0.01	0
+0.72	4.64876033057851E-006	0.001	0
+0.78	0.000005625				0.0001	0
+0.84	6.69421487603306E-006	0		0
+0.91	8.05914256198347E-006	0		0
+1		0.00001					0		0 /
+
+SGOF
+-- Column 1: gas saturation
+-- Column 2: gas relative permeability
+-- Column 3: oil relative permeability when oil, gas and connate water are present
+-- Column 4: oil-gas capillary pressure (bar)
+-- 	     - stated to be zero in Odeh's paper
+-- Values in column 1-3 are taken from table 3 in Odeh's paper:
+0 		0		1		0
+0.001	0		1		0
+0.02	0		0.997	0
+0.05	0.005	0.980	0
+0.12	0.025	0.700	0
+0.2		0.075	0.350	0
+0.25	0.125	0.200	0
+0.3		0.190	0.090	0
+0.4		0.410	0.021	0
+0.45	0.60	0.010	0
+0.5		0.72	0.001	0
+0.6		0.87	0.0001	0
+0.7		0.94	0.000	0
+0.85	0.98	0.000	0 
+0.88	0.984	0.000	0 /
+
+PVDG
+-- Column 1: gas phase pressure (bar)
+-- Column 2: gas formation volume factor (rm3/sm3) 
+-- Column 3: gas viscosity (cP)
+
+-- Using values from NIST ch4
+10	0.135314619	0.014082031
+20	0.066314382	0.014206752
+30	0.043309353	0.01434138
+40	0.031803675	0.014485939
+80	0.014542755	0.015162601
+120	0.008833496	0.015989307
+160	0.006097337	0.016946927
+200	0.004631028	0.018007662
+240	0.003817003	0.019140346
+280	0.003340744	0.020315671
+320	0.003039187	0.021509485
+360	0.002832434	0.022703912
+400	0.002681209	0.023886928/
+
+PVDO
+-- Column 1: oil phase pressure (bar)
+-- Column 2: oil formation volume factor (rm3/sm3) 
+-- Column 3: oil viscosity (cP)
+30  1.0102 1.16
+150 1.0040 1.164
+200 0.9960 1.167
+300 0.9880 1.172
+400 0.9724 1.181/
+
+VISCREF
+---- reference conditions for the viscosity-temperature tables
+---- Item (1) reference pressure for the viscosity and temperature tables (barsa)
+----      (2) reference gas-oil ratio for when the model contains gas dissolved as activated by the DISGAS 
+----   REF      REF 
+---- PRESSURE   GOR 
+   30.0 0.0 / TABLE NO. 01
+-- 
+GASVISCT
+---- Item (1) A columnar vector of real monotonically increasing down the column values that defines the temperature values. (C)
+----      (2) A columnar vector of real increasing down the column values that defines the water viscosity for the corresponding temperature values (cP).
+---- TEMP   VISC
+30    0.02
+80    0.01 / TABLE NO. 01
+
+-- Gas density temperature coefficients (OPM-FLOW thermal keyword)
+-- GAS DENSITY DENSITY
+-- TEMP COEFF1 COEFF2
+GASDENT
+399.15 0.002679 6.86e-06 /
+
+--OPM-FLOW Thermal keyword
+GASJT
+----Pref Gas_JTC
+----bar  C/bar
+30.0   1* /
+
+
+-- -------------------------------------------------------------------------
+SOLUTION
+
+PRESSURE
+ 150*30/
+
+SGAS 
+	150*0.999/
+	
+SWAT
+	150*0.001/
+
+-- initial reservoir temperature (°C)
+RTEMP
+80/
+
+
+-- -------------------------------------------------------------------------	 
+SUMMARY
+
+BPR
+1  1 1 /
+/
+
+BTCNFHEA
+1  1  1 /
+/
+
+WBHP
+  'INJ'
+/
+WGIR
+  'INJ'
+/
+WGIT
+  'INJ'
+/
+WTICHEA
+  'INJ'
+/
+
+-- -------------------------------------------------------------------------
+SCHEDULE
+
+RPTRST
+	'BASIC=1' /
+
+WELSPECS
+-- Item #: 1	 2	3	4	5	 6
+	'INJ'	'G1'	1	1	1*	'GAS' /
+/
+
+COMPDAT
+-- Item #: 1	2	3	4	5	6	7	8	9
+	'INJ'	1	1	1	1	'OPEN'	1*	1*	0.5 /
+/
+
+WCONINJE
+-- Item #:1	 2	 3	 4	5      6  7
+	'INJ'	'GAS'	'OPEN'	'RATE'	2000000 1* 500 /
+/
+
+-- well injection temperature
+WTEMP
+        'INJ' 30 /
+/
+
+TSTEP
+--Advance the simulator 
+50*10 /
+
+WCONINJE
+-- Item #:1	 2	 3	 4	5      6  7
+	'INJ'	'GAS'	'OPEN'	'RATE'	3000000 1* 500 /
+/
+
+TSTEP
+--Advance the simulator 
+150*10 /
+
+END
