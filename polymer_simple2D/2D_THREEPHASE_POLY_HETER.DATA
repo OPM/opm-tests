@@ -1039,8 +1039,14 @@ SUMMARY
 
 ALL
 
---INCLUDE
--- 'SUMMARY.inc' /
+WOPP
+'PROD01' /
+
+WWIP
+'INJE01' /
+
+WPI
+/
 
 SCHEDULE
 
