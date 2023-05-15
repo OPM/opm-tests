@@ -7,7 +7,8 @@
 
 -- The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 -- NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
--- differs from the base case run (GASLIFT-05) by changing LIFTOPT(OPTLIFT) from YES to NO.
+-- differs from the case GASLIFT-06 by defaulting the maximum well gas lift to the maximum value on the VFP table (219E3 m3/d),
+-- instead of the hard coded 150E3 m3/d.
 --
 -- This model is based on MODEL05 (20, 30, 10) with a total of five oil producers and four water injectors, as well as various
 -- groups as shown below:
@@ -31,7 +32,6 @@
 --      direct group control.
 -- ( 4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
 -- ( 5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
--- ( 6) Set LIFTOPT(OPTLIFT) to NO for gas lift optimization to be performed only for the first Newtonian iteration.
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
 --       1         2         3         4         5         6         7         8         9         0         1         2         3
@@ -400,7 +400,7 @@ GRUPTREE
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
 GCONPROD
-PLAT-A   ORAT  4000  4000.0  1*     1*     RATE  YES   1*     '   '   5*       /
+PLAT-A   ORAT  6000  4000.0  1*     1*     RATE  YES   1*     '   '   5*       /
 -- M5S   ORAT  3000  3000.0  1*     5000.0 RATE  YES   1*     '   '   5*       /
 -- M5N   ORAT  3000  3000.0  1*     5000.0 RATE  YES   1*     '   '   5*       /
 /
@@ -491,7 +491,7 @@ WCONPROD
 --       INCR   INCR   TSTEP    NEWTON
 --       GAS    OIL    INTVAL   OPTN
 LIFTOPT
-         12500  5E-3   0.0      NO      /
+         12500  5E-3   0.0      YES     /
 --
 --       WELL GAS LIFT OPTIMIZATION PARAMETERS
 --       MINIMUM GAS LIFT RATE, ENOUGH TO KEEP WELL FLOWING
@@ -499,11 +499,11 @@ LIFTOPT
 -- WELL  OPTN   MAX    WEIGHT  MIN    GAS      OPTN
 -- NAME  LIFT   LIFT   FACTOR  LIFT   FACTOR   LIMIT
 WLIFTOPT
- 'B-1H'   YES   150000   1.01  -1.0                        /
- 'B-2H'   YES   150000   1.01  -1.0                        /
- 'B-3H'   YES   150000   1.01  -1.0                        /
- 'C-1H'   YES   150000   1.01  -1.0                        /
- 'C-2H'   YES   150000   1.01  -1.0                        /
+'B-1H'   YES    1*     1.01    -1.0                        /
+'B-2H'   YES    1*     1.01    -1.0                        /
+'B-3H'   YES    1*     1.01    -1.0                        /
+'C-1H'   YES    1*     1.01    -1.0                        /
+'C-2H'   YES    1*     1.01    -1.0                        /
 /
 --
 --       WELL INJECTION CONTROLS

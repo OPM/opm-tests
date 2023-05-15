@@ -7,8 +7,7 @@
 
 -- The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 -- NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
--- differs from the case GASLIFT-06 by defaulting the maximum well gas lift to the maximum value on the VFP table (219E3 m3/d),
--- instead of the hard coded 150E3 m3/d.
+-- differs from case GASLIFT-08 by setting the gas list optimization from every time step to every 15 days.
 --
 -- This model is based on MODEL05 (20, 30, 10) with a total of five oil producers and four water injectors, as well as various
 -- groups as shown below:
@@ -491,7 +490,7 @@ WCONPROD
 --       INCR   INCR   TSTEP    NEWTON
 --       GAS    OIL    INTVAL   OPTN
 LIFTOPT
-         12500  5E-3   0.0      YES     /
+         12500  5E-3   15.0     YES     /
 --
 --       WELL GAS LIFT OPTIMIZATION PARAMETERS
 --       MINIMUM GAS LIFT RATE, ENOUGH TO KEEP WELL FLOWING

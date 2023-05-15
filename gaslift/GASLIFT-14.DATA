@@ -7,7 +7,7 @@
 
 -- The model tests the use of Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 -- NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This
--- run is based on GASLIFT-13, and differs by reporting gas lift for all producing groups via NODEPROP(GASLIFT)=YES.
+-- run is based on GASLIFT-12, and differs by reporting gas lift for all producing groups via NODEPROP(GASLIFT)=YES.
 --
 -- This model is based on MODEL05 (20, 30, 10) with a total of five oil producers and four water injectors, as well as various
 -- groups as shown below:
@@ -45,7 +45,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-GASLIFT-14: GAS LIFT OPTIMISATION RUN
+GASLIFT-14: GAS LIFT OPTIMISATION RESTART RUN
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -313,17 +313,12 @@ FIPABC
 -- =================================================================================================================================
 SOLUTION
 --
---       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N
---       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT
-EQUIL
-         2000.0  195.0   2070    0.0    500.0  0.0    1    0    0    /
+--       FLEXIBLE RESTART FROM PREVIOUS SIMULATION RUN
 --
---       DEPTH    PSAT
---                PRESS
---       ------   ------
-PBVD
-         2000.0   75.0
-         2150.0   75.0                 / PSAT VS DEPTH EQUIL REGN 01
+--       FILE                   RESTART   RESTART   FILE
+--       NAME                   NUMBER    TYPE      FORMAT
+RESTART
+         'GASLIFT-14'           12        1*        1*     /
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
@@ -367,6 +362,10 @@ WGLIR
 --
 -- =================================================================================================================================
 SCHEDULE
+--
+--       ACTIVATE SKIPREST OPTION TO AVOID MODIFYING SCHEDULE SECTION BEFORE RESTART POINT
+--
+SKIPREST
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
@@ -617,6 +616,15 @@ RPTRST
 
 DATES
          31 DEC   2020  /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2021-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+DATES
+         1  JAN   2021  /
+         1  FEB   2021  /
+         1  MAR   2021  /
+         31 MAR   2021  /
 /
 
 ECHO

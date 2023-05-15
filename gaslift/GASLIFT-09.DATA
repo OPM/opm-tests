@@ -7,7 +7,7 @@
 
 -- The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 -- NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
--- differs from case GASLIFT-08 by setting the gas list optimization from every time step to every 15 days.
+-- differs from case GASLIFT-09 by testing the wells via WTEST(TIME=15).
 --
 -- This model is based on MODEL05 (20, 30, 10) with a total of five oil producers and four water injectors, as well as various
 -- groups as shown below:
@@ -515,6 +515,20 @@ WCONINJE
 'G-3H'   WATER  OPEN   GRUP  4000   1*     225.0  1*   1*  /
 'G-4H'   WATER  OPEN   GRUP  4000   1*     225.0  1*   1*  /
 /
+--
+--       WELL TESTING CRITERIA FOR RE-OPENING CLOSED WELLS
+--
+-- WELL  TST    TST    NO.    STRT
+-- NAME  INTV   TYPE   TSTS   TIME
+-- ----  ----   ----   ----   ----
+WTEST
+'B-1H'   30.0   PE     4      0.0                                              /
+'B-2H'   30.0   PE     4      0.0                                              /
+'B-3H'   30.0   PE     4      0.0                                              /
+'C-1H'   30.0   PE     4      0.0                                              /
+'C-2H'   30.0   PE     4      0.0                                              /
+/
+
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- SCHEDULE SECTION - 2020-01-01
 -- ---------------------------------------------------------------------------------------------------------------------------------

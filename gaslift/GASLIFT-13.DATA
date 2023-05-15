@@ -7,7 +7,7 @@
 
 -- The model tests the use of Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 -- NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This
--- run is based on GASLIFT-12, and differs by using an Extended Network via the BRANPROP and NODEPROP keywords.
+-- run is based on GASLIFT-12, and differs by reporting gas lift for all producing groups via NODEPROP(GASLIFT)=YES.
 --
 -- This model is based on MODEL05 (20, 30, 10) with a total of five oil producers and four water injectors, as well as various
 -- groups as shown below:
@@ -458,8 +458,8 @@ M5N      PLAT-A   4      1*            /
 -- NAME  PRESS  OPTN   LIFT  GROUP  SINK    TYPE
 NODEPROP
 PLAT-A   21.0   NO     NO                                  /
-M5S      1*     NO     NO                                  /
-M5N      1*     NO     NO                                  /
+M5S      1*     NO     YES                                 /
+M5N      1*     NO     YES                                 /
 /
 
 -- ---------------------------------------------------------------------------------------------------------------------------------

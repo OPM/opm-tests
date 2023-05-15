@@ -6,10 +6,10 @@
 -- Copyright (C) 2021 Equinor
 
 -- The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords and is based on GASLIFT-01.DATA, it
--- differs by introducing an irregular corner-point geometry.
+-- differs by introducing a three phase model with more complex PVT.
 --
--- This model is a simple Two Phase (9, 9, 2) model with six oil producers and four water injectors using a Irregular Corner-Point
--- grid. The model has several groups as shown below:
+-- This model is is a simple (9, 9, 2) model with with six oil producers and four water injectors using a Irregular Corner-Point
+-- grid. This a three phase model using MODEL05 PVT data. The model has several groups as shown below:
 --                    FIELD
 --                    |
 --                    |---PLAT-1
@@ -43,7 +43,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-GASLIFT-02: GAS LIFT OPTIMISATION TWO PHASE TEST
+GASLIFT-02: GAS LIFT OPTIMISATION THREE PHASE TEST
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -60,6 +60,14 @@ START
 --       OIL PHASE IS PRESENT IN THE RUN
 --
 OIL
+--
+--       GAS PHASE IS PRESENT IN THE RUN
+--
+GAS
+--
+--       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN
+--
+DISGAS
 --
 --       WATER PHASE IS PRESENT IN THE RUN
 --
@@ -94,7 +102,7 @@ GRIDOPTS
 --       MAX     MAX     MAX     MAX     MAX     MAX    E300
 --       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND
 TABDIMS
-         1       1       20      4       1       2      1*     1               /
+         1       1       150     60      1       60     1*     1               /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- GROUP, WELL AND VFP TABLE DIMENSIONS
 -- ---------------------------------------------------------------------------------------------------------------------------------
@@ -137,6 +145,12 @@ UNIFIN
 --       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
 --
 UNIFOUT
+--
+--       PATH       PATH
+--       ALIAS      DIRECTORY FILENAME
+PATHS
+        'MODEL05'   '../model5/include'                                        /
+/
 --
 --       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG
 --       LIMIT LIMIT LIMIT LIMIT LIMIT LIMIT STOP STOP  STOP  STOP  STOP  STOP
@@ -535,80 +549,21 @@ EDIT
 --
 -- =================================================================================================================================
 PROPS
-
--- ---------------------------------------------------------------------------------------------------------------------------------
--- FLUID PROPERTIES
--- ---------------------------------------------------------------------------------------------------------------------------------
 --
---      OIL PVT TABLE FOR DEAD OIL
+--       LOAD INCLUDE FILE
 --
-PVDO
---      PSAT      BO        VISC
---      PSIA      RB/STB    CPOISE
---      --------  -------   ------
-           100    1.050      1.00
-           530    1.01       1.00                           / TABLE NO. 01
+INCLUDE
+         '$MODEL05/pvt_live_oil_dgas.ecl'        /
 --
---       WATER PVT TABLE
+--       LOAD INCLUDE FILE
 --
-PVTW
---       REF PRES  BW         CW        VISC     VISC
---       BARA      RM3/M3     1/BARA    CPOISE   GRAD
---       --------  --------   -------   ------   ------
-         306.1     1.003     4.10E-05   0.300    0         / TABLE NO. 01
+INCLUDE
+         '$MODEL05/rock.inc'                     /
 --
---       OIL      WAT        GAS
---       DENSITY  DENSITY    DENSITY
---       -------  -------    -------
-DENSITY
-         800.0    1022.0     0.9907                        / DENSITY PVT DATA REGION 1
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ROCK PROPERTIES
--- ---------------------------------------------------------------------------------------------------------------------------------
+--       LOAD INCLUDE FILE
 --
---       ROCK COMPRESSIBILITY
---
---       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE
---       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (ECLIPSE USES THE REFERENCE
---       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA
---       ON THE ROCK KEYWORD)
---
---       REF PRES  CF
---       BARA      1/BARA
---       --------  --------
-ROCK
-         306.1     5.30E-05                                / ROCK COMPRESSIBILITY
---
---       WATER RELATIVE PERMEABILITY TABLES (SWFN)
---
-SWFN
---       SWAT       KRW        PCOW
---       FRAC       FRAC       PSIA
---       --------   --------   -------
-         0.22       0.00000    0.48
-         0.30       0.07000    0.27
-         0.40       0.15000    0.21
-         0.50       0.24000    0.17
-         0.60       0.33000    0.14
-         0.80       0.65000    0.07
-         0.90       0.83000    0.03
-         1.00       1.00000    0.00                        / TABLE NO. 1
---
---       OIL RELATIVE PERMEABILITY TABLES (SOF2)
---
-SOF2
---       SOIL         KRO
---       FRAC         FRAC
---       --------     --------
-         0.04         0.0000
-         0.10         0.0220
-         0.20         0.1000
-         0.30         0.2400
-         0.40         0.3400
-         0.50         0.4200
-         0.60         0.5000
-         0.70         0.8125
-         0.78         1.0000                               / TABLE NO. 01
+INCLUDE
+         '$MODEL05/relperm.inc'                  /
 
 -- =================================================================================================================================
 --
@@ -627,7 +582,14 @@ SOLUTION
 --       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N
 --       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT
 EQUIL
-         2070.0  200.0   2120.0  0.00  1000.0  0.00   0    0    1*             /
+         2070.0  200.0   2120.0  0.00  1000.0  0.00   1    0    1*             /
+--
+--       DEPTH    PSAT
+--                PRESS
+--       ------   ------
+PBVD
+         1000.0   75.0
+         3000.0   75.0                                       / PSAT VS DEPTH EQUIL REGN 01
 --
 --       DEFINE SOLUTION SECTION REPORT OPTIONS
 --
@@ -696,7 +658,7 @@ GRUPTREE
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
 GCONPROD
-FIELD    ORAT  10E3   1*     1*     1*     1*     1*    1*     1*     1*      /
+FIELD    ORAT  10E3   1*     1*     1*     RATE   1*    1*     1*     1*      /
 PLAT-2   NONE  1*     1*     1*     3E3    RATE   1*    1*     1*     1*      /
 /
 --
@@ -1010,15 +972,7 @@ RPTSCHED
 DATES
          1  JAN   2022  /
 /
---
---       GROUP PRODUCTION CONTROLS
---
--- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
--- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
-GCONPROD
-FIELD    NONE                                                                 /
-/
---
+
 --       ACTIVATE GAS LIFT OPTIMIZATION AND PARAMETERS - MIN ECON GRADIENT 6E-3
 --
 --       INCR   INCR   TSTEP    NEWTON
@@ -1054,7 +1008,7 @@ DATES
 -- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
 -- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
 GCONPROD
-FIELD    ORAT  10E3   1*     1*     1*     1*     1*    1*     1*     1*      /
+FIELD    ORAT  10E3   1*     1*     1*     RATE   1*    1*     1*     1*      /
 /
 --
 --       GROUP GAS LIFT OPTIMIZATION CONSTRAINTS - SET MAX GAS LIFT RATE

@@ -1,28 +1,24 @@
 # GASLIFT Test Documentation
 
-Case Name | Case Desciption                                               | Base Model | Test<br />Type | Results<br />Match | Comments |
+Case Name | Case Desciption                                               | Base Model | Test<br />Type | Flow<br />Support | Comments |
 --------- | -----------------------------                                 | ---------- | ----- |--------------------| ------------------------------------- |
-GASLIFT-01| Two-Phase, Cartesian regular, with variable GLIFT             | GASLIFT    |       | No                 | Results are completely different because wells are not flowing. 
-GASLIFT-02| Two-Phase, Corner-Point, with variable GLIFT                  | GASLIFT    |       | Yes                | Field match is good,well matches are more variable from very good to poor.
-GASLIFT-03| Three-Phase, Corner-Point, variable GLIFT, MODEL05 PVT        | GASLIFT    |       | Yes                | Good to perfect well matches - results are reasonable. 
-GASLIFT-04| Three-Phase, Corner-Point, variable GLIFT, MODEL05 PVT/VFP    | GASLIFT    |       | Yes                | Good to perfect well matches - results are reasonable.
-GASLIFT-05| Base                                                          | MODEL05    |       | No                 | Previously, generally good well match except at end due to lack of gas lift, but is now a poor match.
-GASLIFT-06| Base and group ORAT=6000                                      | MODEL05    |       | No                 | Previously, generally good well match except at end due to lack of gas lift, but is now a poor match.
-GASLIFT-07| Base and group LIFTOPT(OPTLIFT)=NO                            | MODEL05    |       | No                 | Not matched. Should be similar to GASLIFT-05.
-GASLIFT-08| Base and group ORAT=6000, Max ALQ from VFP                    | MODEL05    |       | Mixed              | Field matches, but well results are variable, with some being well matched (B-1H) others not (B-2H).  
-GASLIFT-09| Base and group ORAT=6000, Max ALQ from VFP, TSTEP=15          | MODEL05    |       | Yes                | Very good match.
-GASLIFT-10| Base and group ORAT=6000, Max ALQ from VFP, TSTEP=15, WTEST   | MODEL05    |       | Yes                | Field matches, WTEST works, well C-2H is different.
-GASLIFT-11| Base and group ORAT=6000, Max ALQ from VFP, GLIFTLIM(MXLIFT)  | MODEL05    |       | Fails              | Run now fails, as the GLIFTLIM keyword isnot supported. 
-GASLIFT-12| MSW Base for Multi-Segment Wells                              | MODEL05    |       | Mixed              | Improved match, field match is good. Now only no gas lift for well C-2H, but too much gas lift for wells B-1H and B-3H. 
-GASLIFT-13| MSW and BRANPROP and NODEPROP                                 | MODEL05    |       | Mixed              | Improved match, field match is better. No gas lift for well B-2H and slightly insufficent gas lift for wells B-1H and B-3H) various "switching" messages.
-GASLIFT-14| MSW and BRANPROP and NODEPROP(GASLIFT)=YES                    | MODEL05    |       | No                 | Program threw an exception: No ALQ value registered for well: F-1H
-GASLIFT-15| MSW and BRANPROP and NODEPROP(GASLIFT)=YES, RESTART run       | MODEL05    |       | No                 | Both simulators fail - ignore results for now,  will investigate further.
+GASLIFT-01| Two-Phase, Corner-Point, with variable GLIFT                  | GASLIFT    |       | No                 | Gaslift should extend oil platau for longer.
+GASLIFT-02| Three-Phase, Corner-Point, variable GLIFT, MODEL05 PVT        | GASLIFT    |       | Yes                | 
+GASLIFT-03| Three-Phase, Corner-Point, variable GLIFT, MODEL05 PVT/VFP    | GASLIFT    |       | Yes                | 
+GASLIFT-04| Base                                                          | MODEL05    |       | Yes                | 
+GASLIFT-05| Base and group ORAT=6000                                      | MODEL05    |       | Yes                | 
+GASLIFT-06| Base and group LIFTOPT(OPTLIFT)=NO                            | MODEL05    |       | Yes                | 
+GASLIFT-07| Base and group ORAT=6000, Max ALQ from VFP                    | MODEL05    |       | Yes                | 
+GASLIFT-08| Base and group ORAT=6000, Max ALQ from VFP, TSTEP=15          | MODEL05    |       | Yes                | 
+GASLIFT-09| Base and group ORAT=6000, Max ALQ from VFP, TSTEP=15, WTEST   | MODEL05    |       | Yes                | 
+GASLIFT-10| Base and group ORAT=6000, Max ALQ from VFP, GLIFTLIM(MXLIFT)  | MODEL05    |       | No                 | GLIFTLIM keyword not supported
+GASLIFT-11| MSW Base for Multi-Segment Wells                              | MODEL05    |       | No                 | 
+GASLIFT-12| MSW and BRANPROP and NODEPROP                                 | MODEL05    |       | No                 | 
+GASLIFT-13| MSW and BRANPROP and NODEPROP(GASLIFT)=YES                    | MODEL05    |       | No                 | 
+GASLIFT-14| MSW and BRANPROP and NODEPROP(GASLIFT)=YES, RESTART run       | MODEL05    |       | No                 | 
            
 **Notes:** 
 
-1.   _Results Match_ column indicate if the OPM Flow results match the commercial simulator, see the GASLIFT.odp document for comparisons.
-2.   Under comments, _Complete_ means that the test case is completed, it does not mean that the runs are necessarily comparable to the commercial simulator.
-3.   All cases run with one day time steps for comparison purposes.
 
 **Version: 09 December 2022**
 
@@ -45,7 +41,8 @@ The model has several groups as shown below:
 
 ### GASLIFT-01 Description and Results
 
-The model tests the use Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords.
+The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT.
+
  1) The field has an oil rate target of 10,000 m3/d and group PLAT-2 has a liquid rate limit of 3,000 m3/d and all oil wells
     are on gas lift optimization. Water injection via PLAT-1 and PLAT-2 is set VREP 0.90.
  2) Well testing is on for physically shut wells.
@@ -55,28 +52,10 @@ The model tests the use Gas Lift Optimization via the of the LIFTOPT and WLIFTOP
  6) Gas lift optimization minimum economic gradient set to 6E3 m3/m3 on 2022-02-01 and FIELD oil rate set to unlimited.
  7) Well lift optimization weighting factor set to 3.0 for wells OP-A01, OP-B01 and OP-C02 2022-04-01.
  8) Maximum group PLAT-1 available lift gas set to 9E5 m3 and FIELD ORAT set to 10E3 m3/day on 2022-08-01. 
-
-[GASLIFT-01 ECL Results](plots/GASLIFT-01-ECL.md) 
 
 ### GASLIFT-02 Description and Results
 
 The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords and is based on GASLIFT-01.DATA, it
-**differs by introducing an irregular corner-point geometry.**
- 1) The field has an oil rate target of 10,000 m3/d and group PLAT-2 has a liquid rate limit of 3,000 m3/d and all oil wells
-    are on gas lift optimization. Water injection via PLAT-1 and PLAT-2 is set VREP 0.90.
- 2) Well testing is on for physically shut wells.
- 3) Gas lift optimization with lift gas increments of 4E4 m3/day starts at the beginning of the run.
- 4) Gas lift optimization is switched off on 2021-08-01.
- 5) Gas lift optimization is switched on on 2021-10-01.
- 6) Gas lift optimization minimum economic gradient set to 6E3 m3/m3 on 2022-02-01 and FIELD oil rate set to unlimited.
- 7) Well lift optimization weighting factor set to 3.0 for wells OP-A01, OP-B01 and OP-C02 2022-04-01.
- 8) Maximum group PLAT-1 available lift gas set to 9E5 m3 and FIELD ORAT set to 10E3 m3/day on 2022-08-01. 
-
-[GASLIFT-02 ECL Results](plots/GASLIFT-02-ECL.md) 
-
-### GASLIFT-03 Description and Results
-
-The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords and is based on GASLIFT-02.DATA, it
 **differs by introducing a three phase model with more complex PVT**.
  1) The field has an oil rate target of 10,000 m3/d and group PLAT-2 has a liquid rate limit of 3,000 m3/d and all oil wells
     are on gas lift optimization. Water injection via PLAT-1 and PLAT-2 is set VREP 0.90.
@@ -88,10 +67,10 @@ The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT ke
  7) Well lift optimization weighting factor set to 3.0 for wells OP-A01, OP-B01 and OP-C02 2022-04-01.
  8) Maximum group PLAT-1 available lift gas set to 9E5 m3 and FIELD ORAT set to 10E3 m3/day on 2022-08-01. 
 
-[GASLIFT-03 ECL Results](plots/GASLIFT-03-ECL.md) 
 
-### GASLIFT-04 Description and Results
-The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords and is based on GASLIFT-03.DATA, it 
+### GASLIFT-03 Description and Results
+
+The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords and is based on GASLIFT-02.DATA, it 
 **differs by introducing ALQ lift curves in the VFP tables.**
  1) The field has an oil rate target of 10,000 m3/d and group PLAT-2 has a liquid rate limit of 3,000 m3/d and all oil wells
     are on gas lift optimization. Water injection via PLAT-1 and PLAT-2 is set VREP 0.90.
@@ -103,9 +82,7 @@ The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT ke
  7) Well lift optimization weighting factor set to 3.0 for wells OP-A01, OP-B01 and OP-C02 2022-04-01.
  8) Maximum group PLAT-1 available lift gas set to 9E5 m3 and FIELD ORAT set to 10E3 m3/day on 2022-08-01. 
 
-[GASLIFT-04 ECL Results](plots/GASLIFT-04-ECL.md) 
-
-### GASLIFT MODEL05 Model (Irregular Corner-Point)
+### GASLIFT MODEL04 Model (Irregular Corner-Point)
 
 This model is based on MODEL05 (20, 30, 10) with a total of five oil producers and four water injectors, as well as various 
 groups as shown below:
@@ -124,9 +101,9 @@ groups as shown below:
        B-1H  B-2H  B-3H     G-3H    G-4H         C-1H   C-2H    F-1H   F-2H
 ``` 
 
-![](plots/GASLIFT_MODEL05.jpg)
+![](plots/GASLIFT_MODEL04.jpg)
 
-### GASLIFT-05 Description and Results
+### GASLIFT-04 Description and Results
 
 The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This is
@@ -138,9 +115,7 @@ the base run for this series of cases.
  4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
  
-[GASLIFT-05 ECL Results](plots/GASLIFT-05-ECL.md)
-
-### GASLIFT-06 Description and Results
+### GASLIFT-05 Description and Results
 
 The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
@@ -152,9 +127,7 @@ NETV defines that guide rates for the groups injection should be set according t
  4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
 
-[GASLIFT-06 ECL Results](plots/GASLIFT-06-ECL.md) 
-
-### GASLIFT-07 Description and Results
+### GASLIFT-06 Description and Results
 
 The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
@@ -167,9 +140,7 @@ NETV defines that guide rates for the groups injection should be set according t
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
  6) **Set LIFTOPT(OPTLIFT) to NO for gas lift optimization to be performed only for the first Newtonian iteration.**
  
-[GASLIFT-07 ECL Results](plots/GASLIFT-07-ECL.md) 
-
-### GASLIFT-08 Description and Results
+### GASLIFT-07 Description and Results
 
 The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
@@ -182,9 +153,7 @@ instead of the hard coded 150E3 m3/d.**
  4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
 
-[GASLIFT-08 ECL Results](plots/GASLIFT-08-ECL.md) 
-
-### GASLIFT-09 Description and Results
+### GASLIFT-08 Description and Results
 
 The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
@@ -196,9 +165,7 @@ NETV defines that guide rates for the groups injection should be set according t
  4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
 
-[GASLIFT-09 ECL Results](plots/GASLIFT-09-ECL.md) 
-
-### GASLIFT-10 Description and Results
+### GASLIFT-09 Description and Results
 
 The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
@@ -210,9 +177,7 @@ NETV defines that guide rates for the groups injection should be set according t
  4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
  
-[GASLIFT-10 ECL Results](plots/GASLIFT-10-ECL.md) 
-
-### GASLIFT-11 Description and Results
+### GASLIFT-10 Description and Results
 
 The model tests the use of Gas Lift Optimization via the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This run
@@ -224,9 +189,7 @@ NETV defines that guide rates for the groups injection should be set according t
  4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
 
-[GASLIFT-11 ECL Results](plots/GASLIFT-11-ECL.md) 
-
-### GASLIFT-12 Description and Results
+### GASLIFT-11 Description and Results
 
 The model tests the use of Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This 
@@ -238,9 +201,7 @@ run is based on GASLIFT-05, and differs by using **Multi-Segment Wells** instead
  4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
 
-[GASLIFT-12 ECL Results](plots/GASLIFT-12-ECL.md) 
-
-### GASLIFT-13 Description and Results
+### GASLIFT-12 Description and Results
 The model tests the use of Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
 NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This 
 run is based on GASLIFT-12, **and differs by using an Extended Network via the BRANPROP and NODEPROP keywords.** 
@@ -267,7 +228,18 @@ groups as shown below:
  4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
  
-[GASLIFT-13 ECL Results](plots/GASLIFT-13-ECL.md) 
+### GASLIFT-13 Description and Results
+The model tests the use of Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
+NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This 
+run is based on GASLIFT-13, **and differs by reporting gas lift for all producing groups via NODEPROP(GASLIFT)=YES.** 
+ 1) Group PLAT-A has an oil rate target of 4,000 m3/d with maximum water injection rate of 5,000 m3/d with voidage replacement.
+ 2) Groups M5S and M5N have no oil targets but water injection is via NETV guide rated.
+ 3) All oil producers have an oil target of 1,500 m3/d and a 3,000 m3/d liquid handling constraint. The wells are not under
+    direct group control.
+ 4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
+ 5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
+ 
+**No OPM Flow Results - Note both OPM Flow and the commerical simulator fail - will investgate later.**
 
 ### GASLIFT-14 Description and Results
 The model tests the use of Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
@@ -279,24 +251,6 @@ run is based on GASLIFT-13, **and differs by reporting gas lift for all producin
     direct group control.
  4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
  5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
- 
-[GASLIFT-14 ECL Results](plots/GASLIFT-14-ECL.md) 
-
-**No OPM Flow Results - Note both OPM Flow and the commerical simulator fail - will investgate later.**
-
-### GASLIFT-15 Description and Results
-The model tests the use of Gas Lift Optimization via the of the LIFTOPT and WLIFTOPT keywords, as well as GCONINJE item10 = NETV.
-NETV defines that guide rates for the groups injection should be set according to the groups net reservoir voidage rate. This 
-run is based on GASLIFT-13, **and differs by reporting gas lift for all producing groups via NODEPROP(GASLIFT)=YES.** 
- 1) Group PLAT-A has an oil rate target of 4,000 m3/d with maximum water injection rate of 5,000 m3/d with voidage replacement.
- 2) Groups M5S and M5N have no oil targets but water injection is via NETV guide rated.
- 3) All oil producers have an oil target of 1,500 m3/d and a 3,000 m3/d liquid handling constraint. The wells are not under
-    direct group control.
- 4) Injectors F-1H and F-2H are opened with maximum water injection rate of 4,000 m3/d subject to group control.  
- 5) Injectors G-3H and G-4H are opened with maximum water injection rate of 4,000 m3/d subject to group control.
  6) RESTART run.
 
-[GASLIFT-15 ECL Results](plots/GASLIFT-15-ECL.md)
-
-**No OPM Flow Results - Note both OPM Flow and the commerical simulator fail - will investgate later.**
 
