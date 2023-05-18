@@ -1,28 +1,22 @@
 # PINCH Test Documentation
 
- Case Name                 | Case Desciption                                                         | Base Model  | Test<br />Type | Results<br />Match | Comments |
----------------------------|-------------------------------------------------------------------------|-------------|-----|------- | ------------------------------------- |
- PINCH05                   | Base case 2D five layer model with no modifications.                    | PINCH05     |     | NA     |  Results are correct.
- PINCH05_GAP1              | DZ, MINPV, and PINCH GAP modification #1, layer 2 inactive.             | PINCH05     |     | NA     |  Results are correct.
- PINCH05_GAP2              | DZ, MINPV, and PINCH GAP modification #2, layers 2 and 3 inactive.      | PINCH05     |     | NA     |  Results are correct.
- PINCH05_GAP3              | DZ, MINPV, and PINCH GAP modification #2, layers 2 to 4 inactive.       | PINCH05     |     | NA     |  Results are correct.
- PINCH05_NOGAP1            | DZ, MINPV, and PINCH NOGAP modification #1, layer 2 inactive.           | PINCH05     |     | NA     |  Option currently not supported, **show commercial simulator results instead**.
- PINCH05_NOGAP2            | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 and 3 inactive     | PINCH05     |     | NA     |  Option currently not supported, **show commercial simulator results instead**.
- PINCH05_NOGAP3            | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 to 4 inactive.     | PINCH05     |     | NA     |  Option currently not supported, **show commercial simulator results instead**.
- PINCH10_NOPINCH           | MINPV and no PINCH keyword.                                             | PINCH10     | Reg | NA     |  Results are correct.
- PINCH_MULTZ_ALL           | PINCH(PINCHMUL) equal to ALL and MULTZ = 1.0                            | PINCH_MULTZ | Reg | NA     |  Results are correct.
- PINCH_MULTZ-\_ALL         | Same as PINCH_MULTZ_ALL, but using MULTZ- instead.                      | PINCH_MULTZ |     | NA     |  Results are correct.
- PINCH_MULTZ_ALL_BARRIER   | PINCH(PINCHMUL) equal to ALL and MULTZ = 1.0, except layer 10 equal 0.0 | PINCH_MULTZ | Reg | NA     |  Results are correct.
- PINCH_MULTZ-\_ALL_BARRIER | Same as PINCH_MULTZ_ALL_BARRIER, but using MULTZ- instead.              | PINCH_MULTZ |     | NA     |  Results are correct.
- PINCH_NONE                | Drogon synthetic reservoir model.                                       | DROGON      |     | NA     |  Fails to run due to ENDSCALE(DIRECT) set to DIRECT as only the default value of NODIR is supported, as well as PCW and PCG keywords not supported.
-
-**Currently, OPM Flow does not support PINCH(PINCHOPT) equal to NOGAP; thus, these tests map used for when the option
-has been implemented.**
+ Case Name                 | Case Desciption                                                         | Base Model  | Flow<br />Support | Comments |
+---------------------------|-------------------------------------------------------------------------|-------------|------- | ------------------------------------- |
+ PINCH05                   | Base case 2D five layer model with no modifications.                    | PINCH05     | Yes    |  
+ PINCH05_GAP1              | DZ, MINPV, and PINCH GAP modification #1, layer 2 inactive.             | PINCH05     | Yes    |  
+ PINCH05_GAP2              | DZ, MINPV, and PINCH GAP modification #2, layers 2 and 3 inactive.      | PINCH05     | Yes    |  
+ PINCH05_GAP3              | DZ, MINPV, and PINCH GAP modification #2, layers 2 to 4 inactive.       | PINCH05     | Yes    |  
+ PINCH05_NOGAP1            | DZ, MINPV, and PINCH NOGAP modification #1, layer 2 inactive.           | PINCH05     | No     |  
+ PINCH05_NOGAP2            | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 and 3 inactive     | PINCH05     | No     |  
+ PINCH05_NOGAP3            | DZ, MINPV, and PINCH NOGAP modification #2, layers 2 to 4 inactive.     | PINCH05     | No     |  
+ PINCH10_NOPINCH           | MINPV and no PINCH keyword.                                             | PINCH10     | Yes    |  Used for regression testing
+ PINCH_MULTZ_ALL           | PINCH(PINCHMUL) equal to ALL and MULTZ = 1.0                            | PINCH_MULTZ | Yes    |  Used for regression testing
+ PINCH_MULTZ-\_ALL         | Same as PINCH_MULTZ_ALL, but using MULTZ- instead.                      | PINCH_MULTZ | Yes    |  
+ PINCH_MULTZ_ALL_BARRIER   | PINCH(PINCHMUL) equal to ALL and MULTZ = 1.0, except layer 10 equal 0.0 | PINCH_MULTZ | Yes    |  Used for regression testing
+ PINCH_MULTZ-\_ALL_BARRIER | Same as PINCH_MULTZ_ALL_BARRIER, but using MULTZ- instead.              | PINCH_MULTZ | Yes    |  
+ PINCH_NONE                | Drogon synthetic reservoir model.                                       | DROGON      | No     |  Case not supported due to ENDSCALE(DIRECT) set to DIRECT as only the default value of NODIR is supported, as well as PCW and PCG keywords not supported.
 
 **Notes:**
-
-1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).
-2. _Results Match_ column indicate if the OPM Flow results match the commercial simulator.
 
 **Version: 21 February 2023**
 
