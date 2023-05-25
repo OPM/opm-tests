@@ -1,0 +1,258 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This deck is testing usage of keyword VAPPAR. 
+-- The model includes one downflank oil producser and one upflank gas injektor. 
+-- The injector is injection in the gas cap and GOR is gradually increasing in 
+-- the producer with time.  
+
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+  12  12  7 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 1 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'  0 / 
+
+
+EQLDIMS
+ 1  100  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   1          4       1*            72    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  2         10            3        3   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+--
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+
+INCLUDE
+ 'include/test_12x12x7.grdecl' /
+
+PORO
+ 1008*0.25 /
+ 
+PERMX
+ 1008*2100 /
+
+PERMZ
+ 1008*210 /
+
+COPY
+ PERMX PERMY /
+/
+
+
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 1008*1 /
+ 
+SATNUM
+ 1008*1 /
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTRST
+ BASIC=2 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+2018.00  346.80  2060.0   0.0  2018.00  0.0   1   0   0 /   
+
+RSVD
+ 2018.0  169.76
+ 2060.0  130.23
+/
+
+RVVD
+ 2000.0  0.00012100
+ 2018.0  0.00012100
+/
+
+VAPPARS
+  2.5 0 /
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+FGOR
+
+FPR
+
+WOPR
+ 'P-1H' /
+
+WGOR
+ 'P-1H' /
+/
+
+WBHP
+ 'P-1H' /
+/
+
+
+WGPR
+ 'P-1H' /
+/
+
+WGPRF
+ 'P-1H' /
+/
+
+WGPRS
+ 'P-1H' /
+/
+
+WOPRF
+ 'P-1H' /
+/
+
+WOPRS
+ 'P-1H' /
+/
+
+BRV
+ 10 5 2 /
+/ 
+
+BRS
+ 10 5 2 /
+/ 
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+TUNING
+ 1.0 1.0 /
+ /
+ /
+ 
+-- start: 1  'OCT' 2018 /
+
+WELSPECS 
+ 'G-1H'   'TEST'   2   2  1*    'GAS'  /
+ 'P-1H'   'TEST'  11   5  1*    'OIL'  /
+/
+
+COMPDAT 
+-- WELL     I   J  K1   K2            Sat.      CF    DIAM        KH SKIN ND        DIR   Ro 
+ 'G-1H'   2   2   1   1      'OPEN'  1*       1*   0.216   1*  2*  'Z'  1* /
+ 'G-1H'   2   2   2   2      'OPEN'  1*       1*   0.216   1*  2*  'Z'  1* /
+ 'G-1H'   2   2   3   3      'OPEN'  1*       1*   0.216   1*  2*  'Z'  1* /
+ 'G-1H'   2   2   4   4      'OPEN'  1*       1*   0.216   1*  2*  'Z'  1* /
+/
+
+COMPDAT 
+-- WELL  I   J   K1   K2            Sat.      CF        DIAM        KH SKIN ND        DIR   Ro 
+ 'P-1H'  11   5   2   2      'OPEN'  1*     1*       0.216   1*  2*    'X'      1* /
+ 'P-1H'  11   6   2   2      'OPEN'  1*     1*       0.216   1*  2*    'X'      1* /
+ 'P-1H'  11   7   3   3      'OPEN'  1*     1*       0.216   1*  2*    'X'      1* /
+ 'P-1H'  10   8   4   4      'OPEN'  1*     1*       0.216   1*  2*    'X'      1* /
+ 'P-1H'  10   9   4   4      'OPEN'  1*     1*       0.216   1*  2*    'X'      1* /
+ 'P-1H'   9  10   4   4      'OPEN'  1*     1*       0.216   1*  2*    'X'      1* /
+/
+
+
+WCONINJE
+ 'G-1H'  GAS   OPEN   RATE  2000000  1*  500.0 /
+/
+ 
+WCONPROD
+  'P-1H'  OPEN   ORAT    3500   4*  95.0 /
+/
+
+DATES
+ 1 NOV 2018 /
+ 1 DEC 2018 /
+ 1 JAN 2019 /
+ 1 FEB 2019 /
+ 1 MAR 2019 /
+ 1 APR 2019 /
+ 1 MAY 2019 /
+/ 
+
+ 
+END
