@@ -1,0 +1,294 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This data deck is testing keyword GECON. There are 3 subgroups to PLAT-A which all have 
+-- a minimum economic limit of 200000 Sm3/d. 
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 10  11  7 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+--
+GRIDOPTS
+ 'YES'	      0 / 
+
+EQLDIMS
+ 1  100  25 /
+
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          1       1*            2    /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10	    7	          5	     10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         2         60 /
+
+--
+FAULTDIM
+ 10 / 
+
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+--
+INIT
+
+
+INCLUDE
+ 'include/test_10x11x7.grdecl' /
+
+EQUALS
+ 'PORO' 0.18 /
+ 'PERMX' 2.2 /
+/ 
+
+COPY
+ PERMX PERMY /
+ PERMX PERMZ /
+/
+
+MULTIPLY
+ 'PERMZ' 0.01 /
+/
+
+FAULTS
+  'FLT1'  1  5  6   6  1   7  'Y'  /
+  'FLT2'  5  5  7  11  1   7  'X'  /
+
+  'FLT3'  1  3  9   9  1   7  'Y'  /
+  'FLT3'  3  3  9  11  1   7  'X'  /
+/
+
+MULTFLT
+  'FLT1'  0.0  /
+  'FLT2'  0.0  /
+  'FLT3'  0.0001  /
+/
+
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/norne_pvt.inc' /
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC=2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc    goc    Pc  Rsvd  Rvvd
+ 2023.00  340.0  2100.0   0.0  2100.0  0.0   1     1   0 /  
+
+
+PDVD
+ 2000.0 125.0  
+ 2100.0 125.0  /
+
+PBVD
+ 2000.0 125.0  
+ 2100.0 125.0  /
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+WBHP
+ /
+ 
+WGPR
+ /
+ 
+FPR
+
+FGPR
+
+GGPR
+/
+
+WGPT
+/
+
+WOPT
+/
+
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+TUNING
+ 1.0 5.0 /
+ /
+ /
+ 
+RPTRST
+ 'BASIC=2' /
+  
+
+GRUPTREE
+  'PLAT-A'  'FIELD'   /
+  'M1'      'PLAT-A'  /
+  'M2'      'PLAT-A'  /
+  'NE'      'PLAT-A'  /
+/  
+  
+
+GCONPROD
+ 'PLAT-A'   'GRAT'   2*   1250000   1*   'RATE'  /  
+/
+
+GECON
+ 'M1'  1*  200000.0  /
+ 'M2'  1*  200000.0  /
+ 'NE'  1*  200000.0  /
+/ 
+ 
+WELSPECS
+ 'P1'  'NE'   2    8   1*      'GAS'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+ 'P2'  'NE'   3   10   1*      'GAS'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'P1'   2  8  1 3  'OPEN'   0    1*  0.216  3*   'Z' 1* /
+ 'P2'   3 10  1 3  'OPEN'   0    1*  0.216  3*   'Z' 1* /
+/
+
+WCONPROD
+ 'P1'  'OPEN'   'GRAT'  2*   500000.0  2*   85.0 /
+ 'P2'  'OPEN'   'GRAT'  2*   500000.0  2*   85.0 /
+/
+
+DATES
+ 1 'DEC' 2018 /
+/
+
+WELSPECS
+ 'P3'  'M1'   2    3   1*      'GAS'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'P3'   2  3 1 5    'OPEN'   0    1*  0.216  3*   'Z' 1* /
+/
+
+WCONPROD
+ 'P3'  'OPEN'   'GRAT'  2*   500000.0  2*   85.0 /
+/
+
+DATES
+ 1 'JAN' 2019 /
+/
+
+WELSPECS
+ 'P4'  'M1'   7   4   1*      'GAS'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'P4'   7  4   1 5    'OPEN'   0    1*  0.216  3*   'Z' 1* /
+/
+
+WCONPROD
+ 'P4'  'OPEN'   'GRAT'  2*   500000.0  2*   85.0 /
+/
+
+DATES
+ 1 'FEB' 2019 /
+/
+
+WELSPECS
+ 'P5'  'M2'   9   8   1*      'GAS'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'P5'   9  8  1  5   'OPEN'   0    1*  0.216  3*   'Z' 1* /
+/
+
+WCONPROD
+ 'P5'  'OPEN'   'GRAT'  2*   500000.0  2*   85.0 /
+/
+
+DATES
+ 1 'MAR' 2019 /
+ 1 'APR' 2019 /
+ 1 'MAY' 2019 /
+ 1 'JUN' 2019 /
+ 1 'JUL' 2019 /
+ 1 'AUG' 2019 /
+ 1 'SEP' 2019 /
+ 1 'OCT' 2019 /
+ 1 'NOV' 2019 /
+ 1 'JAN' 2020 /
+ 1 'FEB' 2020 /
+ 1 'MAR' 2020 /
+/  
+ 
+END
