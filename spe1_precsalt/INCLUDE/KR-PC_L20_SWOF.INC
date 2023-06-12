@@ -1,4 +1,10 @@
--- L20 model
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2022 Equinor 
+
 SWOF         
 -- SATNUM 4 : 0.046-0.1mD (k_LM=0.068mD, POR=0.119)         
 --Sw    Krw       Kro      J-func_4       Pc drain
