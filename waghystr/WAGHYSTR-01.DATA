@@ -1,0 +1,219 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This test model is testing keyword WAGHYSTR. The model used here is a 1D model, dimension 1x15x1. 
+-- A producer is located at one end of the moel (1,15,1) and one injector at the other end (1,1,1). 
+-- The Injector is shifting between water and gas injection. 
+
+-- A total of 4 cycles is injected. Gas, water, gas and finally water. 
+
+-- Lance parameter is set to 3.0 (item 1) and the secondary drainage reduction factor (item 2) is defaulted to 0.0.
+
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 1 15 1 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'JAN' 2018 /
+
+--
+GRIDOPTS
+ 'YES'	      0 / 
+
+EQLDIMS
+ 1  100  25 /
+
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  3	    15 	          3	     3   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         2         60 /
+
+-- Relative permeability options (enable hysteresis)
+SATOPTS
+ HYSTER /
+
+--
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+--
+INIT
+
+
+INCLUDE
+ 'include/test1.grdecl' /
+
+EQUALS
+ 'PORO' 0.22 /
+ 'PERMX' 200.0 /
+ 'PERMZ' 20.0 /
+/
+ 
+COPY
+ PERMX PERMY /
+/
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/norne_pvt.inc' /
+
+ROCK
+      277.0      6.11423e-05 /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+
+
+WAGHYSTR
+ 3.0 1* YES NO NO /
+
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQUALS
+ 'EQLNUM' 1 /
+ 'PVTNUM' 1 /
+ 'SATNUM' 1 /
+/
+ 
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC=2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2020.00  268.55  2050   0.0  1550    0.0   1   1   0 /  
+
+RSVD
+ 2000.0  122.30
+ 2010.0  122.30 /
+
+RVVD
+ 2000.0  1.1E-4
+ 2010.0  1.1E-4 /
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+RPTRST
+ 'BASIC=2' /
+
+
+WELSPECS
+ 'PROD1'  'PROD'   1   15   1*      'OIL'    0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+ 'INJ_G1'  'INJ'   1    1   1*      'GAS'    0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+ 'INJ_W1'  'INJ'   1    1   1*      'WATER'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'PROD1'    1   15   1   1      'OPEN'   0   1*  0.216  1*   0.00	 1* 'Z' 1* /
+ 'INJ_G1'   1    1   1   1      'OPEN'   0   1*  0.216  1*   0.00	 1* 'Z' 1* /
+ 'INJ_W1'   1    1   1   1      'OPEN'   0   1*  0.216  1*   0.00	 1* 'Z' 1* /
+/
+
+WCONPROD
+ 'PROD1' 'OPEN'  'ORAT'  250   4*  75.0 /
+/
+
+WCONINJE
+ 'INJ_G1' 'GAS'     'OPEN'  'RATE'   60000   1*  350.0  /
+ 'INJ_W1' 'WATER'   'SHUT'  'RATE'   250.0   1*  350.0  /
+/
+
+
+TSTEP
+ 25*4 /
+
+WELOPEN
+ 'INJ_G1' 'SHUT'  / 
+ 'INJ_W1' 'OPEN'  / 
+/
+ 
+TSTEP 
+ 25*4 /
+
+WELOPEN
+ 'INJ_G1' 'OPEN'  / 
+ 'INJ_W1' 'SHUT'  / 
+/
+   
+TSTEP 
+ 25*4 /
+
+WELOPEN
+ 'INJ_G1' 'SHUT'  / 
+ 'INJ_W1' 'OPEN'  / 
+/
+ 
+TSTEP 
+ 25*4 /
+
+
+END
+ 
