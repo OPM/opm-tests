@@ -1,0 +1,310 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- Test model for MULTREGT Item 5 = ALL
+
+-- The model includes an upflank gas zone which are connected to the oil zone
+-- with 8 NNCs. The model also have a numerical aquifer connected 
+-- downflank. The aquifer have 4 connections (keyword AQUCON) which generates 
+-- 4 NNCs. 
+
+-- Multnum is defined as following. Both the upflank gas zone and the numerical 
+-- aquifer is set to MULTNUM=1. The rest (main oil reservoir) is defined as
+-- MULTNUM=2. 
+
+-- When using MULTREGT with Item 5 = ALL (which is default), all NNCs transmisibilities, 
+-- cluding NNC generated from numerical aquifer connections, should be multiplied with 
+-- the multiplier in item 3.  
+
+
+-- ========================================================================
+-- Defines the key parameters for the simulator.
+RUNSPEC 
+-- ========================================================================
+
+
+TITLE
+   NUM AQUIFER AND MULTREGT
+
+ 
+
+-- Grid dimensions
+DIMENS
+  13  4  5 /
+
+-- Start date
+START
+1 'JAN' 2000  /
+
+-- Phases present
+OIL
+WATER
+GAS
+DISGAS           
+VAPOIL
+
+-- Units
+METRIC
+
+-- Activates the negative directional dependent transmissibility multipliers option.
+GRIDOPTS
+  1*  2  /
+
+--------------------------------------------------------------
+-- Dimensions
+--------------------------------------------------------------
+
+-- TABDIMS keyword
+-- Table dimensions
+-- ntsfun: max SATNUM
+-- ntpvt:  max PVTNUM
+-- nssfun: max saturation nodes in any saturation table
+-- nppvt:  max pressure nodes in any PVT table or Rock Compaction table
+-- ntfip:  max FIPNUM, = the fluid in-place region numbers for each grid block. 
+-- nrpvt:  max Rs nodes in a live oil PVT table
+-- ntendp: max saturation end-point versus depth tables, = ntendp in ENDSCALE
+TABDIMS
+-- ntsfun  ntpvt  nssfun  nppvt  ntfip  nrpvt  unused  ntendp
+      1     1       56      36     1*     36 /
+
+-- Dimension of equilibration tables
+-- ntequl: max EQLNUM. EQLNUM=Equilibration region numbers 
+-- ndprvd: max depth nodes in any table of pressure vs depth
+-- ndrxvd: max depth nodes in any RSVD, RVVD, PBVD or PDVD table
+-- nttrvd: max tables of initial tracer concentration vs depth
+-- nstrvd: max depth nodes in any table of initial tracer concentration vs depth
+EQLDIMS
+-- ntequl  ndprvd  ndrxvd  nttrvd  nstrvd  
+   1 /  
+
+-- Regions dimension data
+-- ntfip:  max FIPNUM
+-- nmfipr: max sets of fluid-in-place regions
+-- nrfreg: max independent reservoir regions
+-- ntfreg: max flux regions for the flux options
+REGDIMS
+-- ntfip  nmfipr  nrfreg  ntfreg
+   1    1 /
+
+
+-- Well dimension data
+-- nwmaxz: max wells in the model
+-- ncwmax: max connections per well
+-- ngmaxz: max groups in the model
+-- nwgmax: max wells in any one group
+WELLDIMS
+-- nwmaxz  ncwmax  ngmaxz  nwgmax
+   1       10       10      5 /
+
+AQUDIMS
+-- mxnaqn  mxnaqc  niftbl  nriftb  nanaqu  ncamax  mxnali  mxaaql
+    1      2      1*       1*     1*       50      1*      1*  /
+
+
+--------------------------------------------------------------
+-- Run control settings
+--------------------------------------------------------------
+
+-- Activates the unified input file option 
+UNIFIN
+-- Activates the unified output file option  
+UNIFOUT
+
+
+-- ====================================================================
+-- This section defines the basic grid properties,
+-- including structure, faults and various static rock properties. 
+GRID 
+-- ====================================================================
+
+
+-- Set the grid file output options 
+GRIDFILE
+ 0 1 / 
+
+INIT
+
+-- Transmissibilities calculated from cell corner positions
+NEWTRAN
+
+INCLUDE
+ 'include/test_14x4x5.grdecl' /
+
+PORO
+  260*0.20 /
+  
+PERMX
+  260*1200.0 /
+
+
+-- PERMX defines the permability in the x direction for all the cells.
+-- PERMY and PERMZ does the same in y and z direction. 
+COPY
+ 'PERMX' 'PERMY' /
+ 'PERMX' 'PERMZ' /
+/
+
+MULTIPLY
+ 'PERMZ' 0.1 /
+/
+
+INCLUDE
+ 'include/multnum.inc' /
+ 
+
+AQUNUM
+--AQnr.  I   J  K     Area	Length   PHI	 K     Depth  Initial.Pr   PVTNUM   SATNUM
+   1	13   1  5   10000000.0   10000   0.25	500	2030.00 250.000       1   1  /
+/
+
+AQUCON
+--  Connect numerical aquifer to the reservoir
+--  Id.nr  I1	I2     J1  J2	 K1  K2    Face    Trans.mult.  Trans.opt.
+     1     11	11     1    4	  5   5   'I+'      3.5 	  1  /
+/
+
+MULTREGT
+  1  2  0.001  XYZ  ALL  M  /
+/ 
+
+
+-- ===================================================================
+EDIT
+-- ===================================================================
+
+
+--  ===================================================================
+-- Section that contains the fluid property keywords used
+-- to define the PVT behavior of the fluids.
+PROPS
+--  ===================================================================
+
+-- Rel perm data - SWOF, SGOF
+-- SWOF: Water-oil saturation tables
+-- SGOF: Gas-oil saturation tables versus gas
+INCLUDE
+  'include/sattab_basemod1.sattab' /
+
+-- Activates stone's first three phase oil relative permeability model. 
+-- There is no data required for this keyword. 
+STONE1
+
+-- PVT data - PVTW, ROCK, DENSITY, PVTO, PVTG
+-- PVTW: Define water fluid properties for various regions 
+-- ROCK: Define the rock compressibility for various regions 
+-- Density: Define the surface oil, water gas densities for the fluids 
+-- PVTO: Oil PVT properties for live oil 
+-- PVTG: Gas PVT properties for wet gas
+
+INCLUDE
+ 'include/pvt_basemod1.pvt' /
+
+
+-- ====================================================================
+-- Defines how various properties in the PROPS and SOLUTION 
+-- sections are allocated to individual cells within the model. 
+
+REGIONS
+-- ====================================================================
+
+EQLNUM
+ 260*1 /
+ 
+PVTNUM
+ 260*1 /
+  
+ 
+-- ====================================================================
+SOLUTION
+-- ====================================================================
+
+-- Defines the parameters used to initialize the model for
+-- when equilibration is calculated by OPM flow. 
+-- datum_depth   P_datum    OWC   Pcow    GOC    Pcog    Rsvd  Rvvd  N
+EQUIL
+  2009.000 250.000 2030.00 0.00 2009.000 0.0 1 1 0 / 
+
+
+-- Defines the dissolved gas-oil ratio versus depth tables. 
+RSVD
+ 2009.000 156.324    
+ 2030.000 150.000  /    
+
+
+-- Defines the vaporized oil-gas ratio versus depth tables.
+RVVD
+ 1990.00  0.0000595434
+ 2009.00  0.0000836330 /
+
+
+-- Defines the data in the solution section that is to be 
+-- printed to the output print file.
+
+RPTSOL
+  'THPRES' 'FIP=2' /
+
+RPTRST
+ 'BASIC=2' 'PBPD' /
+ 
+-- ===================================================================
+SUMMARY
+-- ===================================================================
+
+--       FIELD 
+
+FPR
+
+FGOR
+
+--       WELL 
+
+WOPR
+/
+
+WBHP
+/
+
+--       NUMERICAL AQUIFER
+ANQP
+ 1 /
+ANQR
+ 1 /
+ANQT
+ 1 /
+
+
+-- ===================================================================
+SCHEDULE
+-- ===================================================================
+
+TUNING
+ 1.0 1.0 /
+ /
+ /
+
+-- Defines the parameters used for controlling the commercial simulator's
+-- numerical convergence parameters. 
+
+WELSPECS
+   'D-1H'   'TEST'   6   2  1*       'OIL'  2*      'STOP'  4* /
+/
+
+COMPDAT
+-- WELL     I   J  K1   K2            Sat.      CF        DIAM        KH SKIN ND        DIR   Ro
+   'D-1H'   6   2   1   1      'OPEN'  1*      5.505      0.216    510.312  2*         'Z'     15.511 /
+   'D-1H'   6   2   2   2      'OPEN'  1*      5.505      0.216    510.312  2*         'Z'     15.511 /
+/
+
+WCONPROD
+  'D-1H'   OPEN ORAT 1200.0  4*   90.0 /
+/   
+
+TSTEP
+ 1 2 2 5 5 10  /
+ 
+
+  
