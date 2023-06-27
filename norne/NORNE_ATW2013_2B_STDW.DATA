@@ -50,7 +50,7 @@ START
  06  'NOV' 1997 /
 
 EQLDIMS
- 5  100  20 /
+ 5 1*  20 /
 
 EQLOPTS
  'THPRES'  /   no fine equilibration if swatinit is being used

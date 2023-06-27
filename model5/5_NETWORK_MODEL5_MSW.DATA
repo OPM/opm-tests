@@ -34,7 +34,7 @@ GRIDOPTS
  'YES'        0 /
 
 EQLDIMS
- 1  100  25 /
+ 1 1*  25 /
 
 
 NETWORK

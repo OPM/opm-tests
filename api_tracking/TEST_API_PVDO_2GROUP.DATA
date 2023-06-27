@@ -44,7 +44,7 @@ EQLOPTS
  THPRES /
 
 EQLDIMS
- 2  100  25 /
+ 2 1*  25 /
 
 
 REGDIMS
