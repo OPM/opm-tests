@@ -91,8 +91,8 @@ DIMENS
 --                                                                              
 --       MAX     MAX     RSVD    TVDP    TVDP                                   
 --       EQLNUM  DEPTH   NODES   TABLE   NODES                                  
-EQLDIMS                                                                         
-         1       100     25      1       1                                     /                                                                          
+EQLDIMS
+ 1 1*     25      1       1                                     /                                                                          
 --                                                                              
 --       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
 --       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS 

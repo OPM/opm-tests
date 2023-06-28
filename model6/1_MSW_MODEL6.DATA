@@ -44,7 +44,7 @@ DIMENS
 -- Dimensions of equilibration tables
 EQLDIMS
 -- NTEQL   NDPRVD   NDRXVD   NTTRVD   NSTRVD
-     1       50       20       1*        1* /
+     1       1*       20       1*        1* /
 
 -- NTEQUL= Nb of equilibration regions entered using EQLNUM in REGIONS
 -- NDPRVD= Nb of depth nodes in any table of pressure vs depth (def 100)

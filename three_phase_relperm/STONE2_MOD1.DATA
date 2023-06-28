@@ -59,7 +59,7 @@ REGDIMS
 --         equil  internal pdvd 
 --         n reg  n node   mx node
 EQLDIMS
-             1      150     50 /
+ 1 1*     50 /
 
 --         well  compl/w   group  well/grp 
 --         mx no  mx no    mx no  mx no 
