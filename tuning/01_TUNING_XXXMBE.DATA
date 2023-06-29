@@ -1,0 +1,696 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This test case is for testing the effect of the mass balance limit
+-- (XXXMBE) in TUNING (record 2, item 7). 
+-- 
+-- The model is based on model 1, and with --enable-tuning=true the 
+-- mass balance limit for the three report steps should be within the
+-- following limits
+--   * report step 0: max(MB) < 1.0e-6
+--   * report step 1: max(MB) < 1.0e-8
+--   * report step 2: max(MB) < 1.0e-10
+--
+-- ------------------------------------------------------------------------
+-- ----------------------- BASE MODEL 1 -----------------------------------
+-- ------------------------------------------------------------------------
+
+-- ========================================================================
+-- Defines the key parameters for the simulator.
+RUNSPEC 
+-- ========================================================================
+
+
+TITLE
+   BASE MODEL 1
+
+ 
+-- Turns off echoing of all the input files to the print file.  
+NOECHO
+
+
+-- Grid dimensions
+DIMENS
+  6  8 7 /
+
+-- Start date
+START
+1 'JAN' 2000  /
+
+-- Phases present
+OIL
+WATER
+GAS
+DISGAS           
+VAPOIL
+
+
+-- Activates extrapolation warning message for
+-- when extrapolating the PVT and VFP tables.
+-- VFP=vertical flow performance 
+-- PVT=Pressure-Volume-Temperature
+EXTRAPMS
+ 4 /
+
+
+-- Units
+METRIC
+
+-- Activates the negative directional dependent transmissibility multipliers option.
+GRIDOPTS
+  YES  4  /
+
+
+-- Activates the Equilibration Options.
+-- THPRES defines the threshold pressure between the equilibration regions.
+EQLOPTS
+ 'THPRES' /  should be ok with eclipse 2014 version
+
+--------------------------------------------------------------
+-- Dimensions
+--------------------------------------------------------------
+
+-- TABDIMS keyword
+-- Table dimensions
+-- ntsfun: max SATNUM
+-- ntpvt:  max PVTNUM
+-- nssfun: max saturation nodes in any saturation table
+-- nppvt:  max pressure nodes in any PVT table or Rock Compaction table
+-- ntfip:  max FIPNUM, = the fluid in-place region numbers for each grid block. 
+-- nrpvt:  max Rs nodes in a live oil PVT table
+-- ntendp: max saturation end-point versus depth tables, = ntendp in ENDSCALE
+TABDIMS
+-- ntsfun  ntpvt  nssfun  nppvt  ntfip  nrpvt  unused  ntendp
+      6     2       56      36     1*     36 /
+
+-- Dimension of equilibration tables
+-- ntequl: max EQLNUM. EQLNUM=Equilibration region numbers 
+-- ndprvd: max depth nodes in any table of pressure vs depth
+-- ndrxvd: max depth nodes in any RSVD, RVVD, PBVD or PDVD table
+-- nttrvd: max tables of initial tracer concentration vs depth
+-- nstrvd: max depth nodes in any table of initial tracer concentration vs depth
+EQLDIMS
+-- ntequl  ndprvd  ndrxvd  nttrvd  nstrvd  
+   4 /  
+
+-- Regions dimension data
+-- ntfip:  max FIPNUM
+-- nmfipr: max sets of fluid-in-place regions
+-- nrfreg: max independent reservoir regions
+-- ntfreg: max flux regions for the flux options
+REGDIMS
+-- ntfip  nmfipr  nrfreg  ntfreg
+   4    1 /
+
+-- Define maximum number of summary vectors to be written
+SMRYDIMS 
+   40000 /
+
+-- Dimensions for fault data
+-- mfsegs: max number of fault segments
+FAULTDIM
+-- mfsegs
+   23000 /
+
+-- Well dimension data
+-- nwmaxz: max wells in the model
+-- ncwmax: max connections per well
+-- ngmaxz: max groups in the model
+-- nwgmax: max wells in any one group
+WELLDIMS
+-- nwmaxz  ncwmax  ngmaxz  nwgmax
+   6       10       10      5 /
+
+-- Define multi-segment well dimensions
+WSEGDIMS
+-- nswlmx  nsegmx  nlbrmx
+      4       10      3 /
+
+
+-- Injection well VFP table dimensions
+-- mxsflo: max flow values per table
+-- mxsthp: max tubing head pressure values per table 
+-- nmsvft: max injection well VFP tables
+VFPIDIMS
+-- mxsflo  mxsthp  nmsvft
+   11       8       9 /
+
+-- Production well VFP table dimensions.
+-- mxmflo: max flow values per table
+-- mxmthp: max tubing head pressure values per table
+-- mxmwpr: max water fraction values per table
+-- mxmgrp: max gas friction values per table
+-- mxmalq: max artificial lift quantities per table
+-- nmmvft: max production well VFP tables
+VFPPDIMS
+-- mxmflo  mxmthp  mxmwpr  mxmgrp  mxmalq  nmmvft  
+   20      10       12       10      5       18 /
+
+
+--------------------------------------------------------------
+-- Run control settings
+--------------------------------------------------------------
+
+-- Activates the unified input file option 
+UNIFIN
+-- Activates the unified output file option  
+UNIFOUT
+
+-- Stack size for linear solver
+-- No point in nstack > litmax in TUNING
+NSTACK
+ 50 /
+
+
+-- ====================================================================
+-- This section defines the basic grid properties,
+-- including structure, faults and various static rock properties. 
+GRID 
+-- ====================================================================
+
+-- Define the data in the GRID section that is to be printed to the
+-- output print file. 
+RPTGRID
+ 'ROCKVOL' /
+
+-- Set the grid file output options 
+GRIDFILE
+ 0 1 / 
+
+INIT
+
+-- Transmissibilities calculated from cell corner positions
+NEWTRAN
+
+-- Include simulation grid with sloping faults  
+INCLUDE
+ 'include/grid_basemod1.grdecl' /
+
+-- Include permability in the x direction for all the cells 
+INCLUDE
+ 'include/permx_basemod1.inc' /
+
+
+-- Include the porosity values for all the cells 
+INCLUDE
+ 'include/poro_basemod1.inc' /
+
+
+-- PERMX defines the permability in the x direction for all the cells.
+-- PERMY and PERMZ does the same in y and z direction. 
+COPY
+ 'PERMX' 'PERMY' /
+ 'PERMX' 'PERMZ' /
+/
+
+MULTIPLY
+ 'PERMZ' 0.1 /
+/
+
+  
+-- multz - Multiply cell transmissibility in the +z direction
+INCLUDE
+ 'include/multz_basemod1.inc' / 
+
+-- multnum - define the multiple transmissibility region 
+INCLUDE
+ 'include/multnum_basemod1.inc' /
+ 
+
+-- ===================================================================
+EDIT
+-- ===================================================================
+
+
+--  ===================================================================
+-- Section that contains the fluid property keywords used
+-- to define the PVT behavior of the fluids.
+PROPS
+--  ===================================================================
+
+-- Rel perm data - SWOF, SGOF
+-- SWOF: Water-oil saturation tables
+-- SGOF: Gas-oil saturation tables versus gas
+INCLUDE
+  'include/sattab_basemod1.sattab' /
+
+-- Activates stone's first three phase oil relative permeability model. 
+-- There is no data required for this keyword. 
+STONE1
+
+-- PVT data - PVTW, ROCK, DENSITY, PVTO, PVTG
+-- PVTW: Define water fluid properties for various regions 
+-- ROCK: Define the rock compressibility for various regions 
+-- Density: Define the surface oil, water gas densities for the fluids 
+-- PVTO: Oil PVT properties for live oil 
+-- PVTG: Gas PVT properties for wet gas
+
+INCLUDE
+ 'include/pvt_basemod1.pvt' /
+
+-- swatinit: Define the initial water saturation 
+-- array for capillary pressure scaling 
+INCLUDE
+  'include/swatinit.grdecl' / 
+
+
+-- Activate saturation end-point export to the init file. No data required
+FILLEPS
+
+
+-- ====================================================================
+-- Defines how various properties in the PROPS and SOLUTION 
+-- sections are allocated to individual cells within the model. 
+
+REGIONS
+-- ====================================================================
+
+INCLUDE
+ 'include/satnum_basemod1.inc' /
+
+INCLUDE
+ 'include/pvtnum_basemod1.inc' /
+
+INCLUDE
+ 'include/eqlnum_basemod1.inc' /
+
+
+-- ====================================================================
+SOLUTION
+-- ====================================================================
+
+-- Defines the parameters used to initialize the model for
+-- when equilibration is calculated by OPM flow. 
+-- datum_depth   P_datum    OWC   Pcow    GOC    Pcog    Rsvd  Rvvd  N
+EQUIL
+  2650.00 250.000 2700.00 0.00 2650.000 0.00 1 1 0 / 
+  2700.00 253.300 2700.00 0.00 1650.000 0.00 1 1 0 / 
+  2730.00 300.000 2725.00 0.00 1650.000 0.00 1 1 0 / 
+  2730.00 300.000 2715.00 0.00 1650.000 0.00 1 1 0 / 
+
+
+-- Defines the dissolved gas-oil ratio versus depth tables. 
+RSVD
+ 2650.000 156.324    
+ 2660.000 153.000     
+ 2670.000 151.000     
+ 2680.000 149.000     
+ 2690.000 147.000     
+ 2700.000 145.000 /    
+
+ 2600.000 150.000    
+ 2700.000 138.134 /    
+ 2650.000 156.324    
+ 2700.000 138.134 /    
+ 2650.000 156.324    
+ 2700.000 138.134 /   
+
+
+-- Defines the vaporized oil-gas ratio versus depth tables.
+RVVD
+ 2600.00 0.000144250
+ 2650.00 0.000161230 /
+
+ 2600.00 0.00739697
+ 2650.00 0.00639697 /
+ 2600.00 0.00739697
+ 2650.00 0.00639697 /
+ 2600.00 0.00739697
+ 2650.00 0.00639697 /
+
+-- Defines the threshold pressure between various equilibration regions.
+THPRES
+    1	  2	   /
+    3	  4	   /
+ /
+
+-- Defines the data in the solution section that is to be 
+-- printed to the output print file.
+
+RPTSOL
+  'THPRES' 'FIP=2' /
+
+-- ===================================================================
+SUMMARY
+-- ===================================================================
+
+-- STD: Standard inflow equation will be used. 
+INCLUDE
+  'include/std_summary.inc' /
+
+
+-- ===================================================================
+SCHEDULE
+-- ===================================================================
+
+-- Defines the parameters used for controlling the commercial simulator's
+-- numerical convergence parameters. 
+
+-- Max timestep 5 days, 1 day after well modification
+TUNING
+ 1* 5 7* 1 /
+ /
+ /
+
+-- Define data to be written to the RESTART file
+RPTRST
+ 'BASIC=2' /
+
+-- Define well specifications 
+WELSPECS 
+     'INJ-1'     'INJ_N'     1    7  1*       'GAS'  7* /
+     'PROD-2'     'PROD_N'    3    2  1*       'OIL'  7* /
+     'INJ-6'     'INJ_N'     6    7  1*       'WATER'  7* /
+/
+
+
+-- Define well connections to the grid
+COMPDAT 
+-- WELL        I    J    K1  K2            Sat.        CF       DIAM        KH SKIN ND        DIR   Ro 
+     'INJ-1'    1    7    1    1      'OPEN'  1*     88.845      0.216  11305.989  2*         'Z'     98.722 /
+     'INJ-1'    1    7    2    2      'OPEN'  1*     88.867      0.216  11308.735  2*         'Z'     98.722 /
+     'PROD-2'    3    2    1    1      'OPEN'  1*   1033.807      0.216 110773.953  2*         'Y'     33.623 /
+     'PROD-2'    3    3    1    1      'OPEN'  1*   1013.742      0.216 108619.070  2*         'Y'     33.614 /
+     'INJ-6'    5    7    7    7      'OPEN'  1*     76.231      0.211   9700.861  2*         'Z'     98.722 /
+     'INJ-6'    6    7    6    6      'OPEN'  1*     88.872      0.212  11309.282  2*         'Z'     98.722 /
+     'INJ-6'    6    7    5    5      'OPEN'  1*     88.873      0.213  11309.283  2*         'Z'     98.722 /
+     'INJ-6'    6    7    4    4      'OPEN'  1*     88.874      0.214  11309.284  2*         'Z'     98.722 /
+     'INJ-6'    6    7    3    3      'OPEN'  1*     88.865      0.215  11308.365  2*         'Z'     98.722 /
+/
+
+-- Define well connection ordering 
+COMPORD
+ 'INJ-6'  'INPUT' /
+/
+ 
+-- Define group tree hierarcy 
+GRUPTREE 
+---------------------------------------
+   'FIELD_N'     'FIELD'  /
+   'FIELD_S'     'FIELD'  /
+---------------------------------------
+   'PROD_N'     'FIELD_N'  /
+   'INJ_N'      'FIELD_N'  /
+---------------------------------------
+  'PROD_S'     'FIELD_S'  /
+   'INJ_S'      'FIELD_S'  /
+/
+
+-- Define well historical production rates and pressures.
+WCONHIST 
+     'PROD-2'      'OPEN'      'RESV'   1161.290      1.839 181847.097  5* /
+/
+
+-- Well historical observed injection rates and pressures. 
+WCONINJH 
+     'INJ-1'       'GAS'  'OPEN'       145477.742  5* /
+     'INJ-6'     'WATER'  'OPEN'         3870.968  5* /
+/
+
+-- Activate well RFT reporting to the RFT file. 
+-- RFT=repeat formation tester. 
+WRFTPLT
+ 'INJ-6' YES NO /
+/  
+
+-- 31.000000 days from start of simulation ( 1 'JAN' 2000 )
+DATES
+ 1 'FEB' 2000 /
+/
+
+-- Tighten maximum mass balance error to 1.0e-8
+TUNING
+-- 1  5  7*  1 /
+ /
+ 6* 1.0e-8  /
+ /
+
+WELSPECS 
+     'PROD-3'   'PROD_S'    2    2  1*       'OIL'  7* /
+/
+
+COMPDAT 
+-- WELL        I    J    K1  K2            Sat.        CF       DIAM        KH SKIN ND        DIR   Ro 
+     'PROD-3'  2    2    5    5      'OPEN'  1*     88.5      0.215  11305.5  2*         'X'     98.722 /
+     'PROD-3'  2    2    3    3      'OPEN'  1*     88.3      0.213  11309.3  2*         'Z'     98.722 /
+     'PROD-3'  2    2    4    4      'OPEN'  1*     88.4      0.214  11309.4  2*         'Z'     98.722 /
+     'PROD-3'  2    2    2    2      'OPEN'  1*     88.2      0.212  11309.2  2*         'Z'     98.722 /
+     'PROD-3'  2    2    1    1      'OPEN'  1*     88.1      0.211  11306.1  2*         'Z'     98.722 /
+/
+
+WCONHIST 
+     'PROD-2'      'OPEN'      'RESV'   1200.000      1.600 188068.586  5* /
+     'PROD-3'    'OPEN'      'RESV'   1158.621     11.062 340625.655  5* /
+/
+
+WCONINJH 
+     'INJ-1'      'GAS'  'OPEN'       422955.414  5* /
+     'INJ-6'     'WATER'  'OPEN'      	4000.000  5* /
+/
+
+-- 60.000000 days from start of simulation ( 1 'JAN' 2000 )
+DATES
+ 1 'MAR' 2000 /
+/
+
+-- Tighten maximum mass balance error to 1.0e-10
+TUNING
+ /
+ 6* 1.0e-10  /
+ /
+
+WCONHIST 
+     'PROD-2'    'OPEN'      'RESV'   1200.000      1.600 187878.548  5* /
+     'PROD-3'    'OPEN'      'RESV'   1200.000     13.755 531919.806  5* /
+/
+
+WCONINJH 
+     'INJ-1'      'GAS' 'OPEN'     575838.871  5* /
+/
+
+-- 91.000000 days from start of simulation ( 1 'JAN' 2000 )
+DATES
+ 1 'APR' 2000 /
+/
+
+
+
+-- WELSPECS 
+--      'PROD-4'   'PROD_S'    3    6  1*       'OIL'  7* /
+-- /
+
+-- COMPDAT 
+-- -- WELL        I    J    K1  K2            Sat.        CF       DIAM        KH SKIN ND        DIR   Ro 
+--      'PROD-4'  3    6    1    1      'OPEN'  1*     88.876      0.216  11309.722  2*         'Z'     98.707 /
+--      'PROD-4'  3    6    2    2      'OPEN'  1*     88.970      0.216  11318.249  2*         'Z'     98.506 /
+--      'PROD-4'  3    6    3    3      'OPEN'  1*     88.878      0.216  11309.912  2*         'Z'     98.707 /
+-- /
+
+-- -- WELSEGS 
+-- --    'PROD-4' 2643.581   2643.581     65.784       'INC'  2* /
+-- --    2    2    1    1      7.573      7.522      0.178      0.010      0.025      0.188 /
+-- --    3    3    1    2     15.176     15.022      0.178      0.010      0.025      0.378 /
+-- --    4    4    1    3     15.176     15.022      0.178      0.010      0.025      0.378 /
+-- --    5    5    1    4      7.573      7.522      0.178      0.010      0.025      0.188 /
+-- -- /
+
+-- -- COMPSEGS 
+-- --    'PROD-4'/
+-- --    3    6    1    1   2643.581   2658.727  3* /
+-- --    3    6    2    1   2658.727   2673.933  3* /
+-- --    3    6    3    1   2673.933   2689.079  3* /
+-- -- /
+
+
+-- WCONHIST 
+--      'PROD-2'    'OPEN'      'RESV'   1200.000      1.600 187708.900  5* /
+--      'PROD-3'    'OPEN'      'RESV'    620.000      8.970 378130.400  5* /
+--      'PROD-4'    'OPEN'      'RESV'   1160.000     15.793 165309.833  5* /
+-- /
+
+-- WCONINJH 
+--      'INJ-1'      'GAS'  'OPEN'     584919.300  5* /
+-- /
+
+-- -- 121.000000 days from start of simulation ( 1 'JAN' 2000 )
+-- DATES
+--  1 'MAY' 2000 /
+-- /
+
+-- WCONHIST 
+--      'PROD-2'    'OPEN'      'RESV'   1200.000      1.687 187535.774  5* /
+--      'PROD-3'    'OPEN'      'RESV'    600.000     10.655 433595.774  5* /
+--      'PROD-4'    'OPEN'      'RESV'   1200.000     19.177 171032.065  5* /
+-- /
+
+-- WCONINJH 
+--      'INJ-1'      'GAS' 'OPEN'      633731.097  5* /
+-- /
+
+-- -- 152.000000 days from start of simulation ( 1 'JAN' 2000 )
+-- DATES
+--  1 'JUN' 2000 /
+-- /
+
+
+-- WELSPECS 
+--      'INJ-5'     'INJ_S'    6    3  1*       'WATER'  7* /
+-- /
+
+
+-- COMPDAT 
+-- -- WELL        I    J    K1  K2            Sat.        CF       DIAM        KH SKIN ND        DIR   Ro 
+--      'INJ-5'    6    3    4    4      'OPEN'  1*     88.848      0.216  11306.355  2*         'Z'     98.722 /
+--      'INJ-5'    6    3    5    5      'OPEN'  1*     88.871      0.216  11309.283  2*         'Z'     98.722 /
+--      'INJ-5'    6    3    6    6      'OPEN'  1*     88.871      0.216  11309.283  2*         'Z'     98.722 /
+--      'INJ-5'    6    3    7    7      'OPEN'  1*     76.232      0.216   9700.861  2*         'Z'     98.722 /
+-- /
+
+
+-- WCONHIST 
+--      'PROD-2'    'OPEN'      'RESV'   1200.000      1.700 187361.200  5* /
+--      'PROD-3'    'OPEN'      'RESV'    600.000     12.647 460440.600  5* /
+--      'PROD-4'    'OPEN'      'RESV'   1200.000     22.153 171050.433  5* /
+-- /
+
+
+-- WCONINJH 
+--   'INJ-1'  'GAS'    'OPEN'      655081.700  265.0  1* /
+--   'INJ-5'   'WATER'  'OPEN'      3866.667  5* /
+-- /
+
+-- -- 182.000000 days from start of simulation ( 1 'JAN' 2000 )
+-- DATES
+--  1 'JUL' 2000 /
+-- /
+
+-- TUNING
+--  1  5  7*  1 /
+--  6* 1.0e-10 /
+--  12  1  50  1  50  50   /
+
+
+-- WCONHIST 
+--      'PROD-2'    'OPEN'      'RESV'   1200.000      1.700 187176.226  5* /
+--      'PROD-3'    'OPEN'      'RESV'    600.000     15.232 467041.387  5* /
+--      'PROD-4'    'OPEN'      'RESV'   1200.000     25.932 171066.000  5* /
+-- /
+
+
+-- WCONINJH 
+--    'INJ-5'       'WATER' 'OPEN'      4000.000  5* /
+--    'INJ-1'      'GAS'   'OPEN'      660226.839  265.0  1* /
+-- /
+
+-- -- 213.000000 days from start of simulation ( 1 'JAN' 2000 )
+-- DATES
+--  1 'AUG' 2000 /
+-- /
+
+-- WCONHIST 
+--      'PROD-2'    'OPEN'      'RESV'   1200.000      1.713 186990.613  5* /
+--      'PROD-3'    'OPEN'      'RESV'    600.000     18.171 473414.742  5* /
+--      'PROD-4'    'OPEN'      'RESV'   1200.000     30.081 171080.355  5* /
+-- /
+
+
+-- WCONINJH 
+--      'INJ-1'      'GAS'  'OPEN'      665188.548  265.0  1* /
+-- /
+
+-- -- 244.000000 days from start of simulation ( 1 'JAN' 2000 )
+-- DATES
+--  1 'SEP' 2000 /
+-- /
+
+-- TUNING
+--  1  5  7*  1 /
+--  /
+--  12  1  50  1  50  50   /
+
+
+-- WCONHIST 
+--      'PROD-2'    'OPEN'      'RESV'   1200.000      1.800 186813.200  5* /
+--      'PROD-3'    'OPEN'      'RESV'    600.000     21.217 479838.100  5* /
+--      'PROD-4'    'OPEN'      'RESV'   1200.000     34.480 171094.267  5* /
+-- /
+
+
+-- WCONINJH 
+--      'INJ-1'      'GAS'  'OPEN'     670196.467  265.0  1* /
+-- /
+
+-- -- 274.000000 days from start of simulation ( 1 'JAN' 2000 )
+-- DATES
+--  1 'OCT' 2000 /
+-- /
+
+-- WCONHIST 
+--      'PROD-2'    'OPEN'      'RESV'   1200.000      1.813 186640.613  5* /
+--      'PROD-3'    'OPEN'      'RESV'    600.000     24.703 485836.806  5* /
+--      'PROD-4'    'OPEN'      'RESV'   1200.000     39.590 171106.903  5* /
+-- /
+
+
+-- WCONINJH 
+--      'INJ-1'      'GAS'  'OPEN'     679375.033  265.0  1* /
+-- /
+
+
+-- -- 305.000000 days from start of simulation ( 1 'JAN' 2000 )
+-- DATES
+--  1 'NOV' 2000 /
+-- /
+-- TUNING
+--  1  5  7*  1 /
+--  6* 1.0e-6 /
+--  12  1  50  1  50  50   /
+
+-- WCONHIST 
+--      'PROD-2'    'OPEN'      'RESV'   1200.000      1.903 186472.467  5* /
+--      'PROD-3'    'OPEN'      'RESV'    600.000     28.780 491625.633  5* /
+--      'PROD-4'    'OPEN'      'RESV'   1200.000     45.060 171120.600  5* /
+-- /
+
+
+-- WCONINJH 
+--      'INJ-1'      'GAS'  'OPEN'    679375.033  265.0  1* /
+-- /
+
+
+-- -- 335.000000 days from start of simulation ( 1 'JAN' 2000 )
+-- DATES
+--  1 'DEC' 2000 /
+-- /
+
+-- WCONHIST 
+--      'PROD-2'    'OPEN'      'RESV'   1200.000      2.014 186313.793  5* /
+--      'PROD-3'    'OPEN'      'RESV'    600.000     32.962 497580.966  5* /
+--      'PROD-4'    'OPEN'      'RESV'   1200.000     51.148 171132.586  5* /
+-- /
+
+-- WCONINJH 
+--      'INJ-1'      'GAS'  'OPEN'    684021.862  265.0  1* /
+-- /
+
+
+
+-- RPTRST
+--   'BASIC=2'  /
+  
+  
+-- DATES
+--  30 'DEC' 2000 /
+-- /
+
+-- END OF SIMULATION
+
+-- INCLUDE
+--  'include/history_basemod1.sch' /
+
+
+  
