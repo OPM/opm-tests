@@ -8,7 +8,8 @@
 -- This is a model based on model 1, WINJDAM, WINJFCNC and WINJCLN keywords
 -- are used to model formation damage due to filtration of particles during
 -- water injection process. LINEAR geometry type is used for a Standard Well
--- water injector.
+-- water injector. UDA value is used to specify the injection concentration
+-- for keyword WINJFCNC.
 
 -- ========================================================================
 -- Defines the key parameters for the simulator.
@@ -383,10 +384,15 @@ WINJDAM
     INJ-1       LINEAR      10       0.25    1*            1*        3* /
 /
 
+
+UDQ
+ASSIGN FU_VCONC 0.3 /
+/
+
 WINJFCNC
 -- WellName    FCONCPPM
 --               ppm
-    INJ-1        0.3 /
+    INJ-1      FU_VCONC /
 /
 
 -- Activate well RFT reporting to the RFT file.
