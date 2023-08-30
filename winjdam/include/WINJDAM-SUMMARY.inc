@@ -31,8 +31,44 @@ WPI
   'INJ-1' /
 /
 
+WINJFVR
+ 'INJ-1' /
+/
+
+WINJFVT
+ 'INJ-1' /
+/
+
+WINJFC
+ 'INJ-1' /
+/
+
 -- CONNECTION DATA
 CPI
  'INJ-1' /
 /
 
+CINJFVR
+  'INJ-1' /
+/
+CINJFVT
+  'INJ-1' /
+/
+CFCSKIN
+  'INJ-1' /
+/
+CFCWIDTH
+  'INJ-1' /
+/
+CFCPERM
+  'INJ-1' /
+/
+CFCPORO
+  'INJ-1' /
+/
+CFCRAD
+  'INJ-1' /
+/
+CFCAOF
+  'INJ-1' /
+/
