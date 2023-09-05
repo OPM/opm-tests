@@ -1,0 +1,188 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 NORCE
+
+-- Test case for gas + water + disgasw (dissolved gas in water phase)
+-- extended with Dirichlet boundary condition
+----------------------------------------------------------------------------
+RUNSPEC
+----------------------------------------------------------------------------
+TITLE
+   CO2STORE GAS-WATER DISGASW DIRICHLET
+
+DIMENS 
+20 1 20 /
+
+EQLDIMS
+/
+
+TABDIMS
+/
+
+WATER
+GAS
+CO2STORE
+DISGASW
+
+--DISGAS
+--DIFFUSE
+--THERMAL
+
+METRIC
+
+START
+   1 'JAN' 2019 /
+
+WELLDIMS
+   2 10 1 2 /
+
+UNIFIN
+UNIFOUT
+
+----------------------------------------------------------------------------
+GRID
+----------------------------------------------------------------------------
+
+NOECHO
+
+INIT
+
+DX 
+  400*5 /
+
+DY 
+  400*100 /
+
+DZ 
+  400*5 /
+
+TOPS
+  20*0.0 /
+
+PORO 
+  400*0.3/
+
+PERMX 
+  400*2000/
+
+PERMY
+  400*2000/
+  
+PERMZ 
+  400*2000/
+
+BCCON
+1 1 20 1 1 1 1 Z- /
+/
+----------------------------------------------------------------------------
+PROPS
+----------------------------------------------------------------------------
+
+ROCK
+  1.0 1e-6 /
+  
+SGFN
+0	0	0.0
+1	1 	0.0 /
+
+SWFN
+0	0	0.0
+1	1 	0.0 /
+
+SALINITY
+ 0.7/ 35-40g/l  -> 35-40g /kg -> 0.63-0.72 mol/g
+
+----------------------------------------------------------------------------
+SOLUTION
+---------------------------------------------------------------------------
+
+EQUIL
+ 0 200 1000 0 0 0 0 0 0 /
+   
+RTEMPVD
+  0 50
+  100 50
+/
+
+
+RPTRST
+ 'BASIC=2' 'ALLPROPS' BW VISC KRW/
+	
+----------------------------------------------------------------------------	
+SUMMARY
+----------------------------------------------------------------------------
+
+BGSAT
+  10 1 1 /
+  10 1 10 /
+/
+
+BPR
+  10 1 1 /
+  10 1 10 /
+/
+
+BRS
+  10 1 1 /
+  10 1 10 /
+/
+
+FWIP
+FGIP
+FWPR
+FGIR
+
+WGPR
+/
+WGPRF
+/
+WGPRS
+/
+----------------------------------------------------------------------------
+SCHEDULE
+----------------------------------------------------------------------------
+
+RPTRST
+ 'BASIC=2' 'ALLPROPS' BW VISC KRW/
+
+WELSPECS
+-- Item #: 1	 2	3	4	5	 6
+	'INJ'	'G1'	1	1	1*	'GAS' /
+	'PROD'	'G1'	20	1	1*	'WATER' /
+/
+COMPDAT
+-- Item #: 1	2	3	4	5	6	7	8	9
+	'INJ'	1	1	20	20	'OPEN'	1*	1*	0.5 /
+	'PROD'	20	1	1	1	'OPEN'	1*	1*	0.5 /
+/
+
+WCONINJE
+-- Item #:1	 2	 3	 4	5      6  7
+	'INJ'	'GAS'	'OPEN'	'RATE'	100000 1* 400 /
+/
+
+WCONPROD
+-- Item #:1	2      3     4	   5     9
+	'PROD' 'OPEN' 'BHP' 1*     1* 3* 190 /
+/
+
+-- 1 day first
+TSTEP
+1
+/
+
+BCPROP
+1 DIRICHLET WATER 10 200.0 1* /
+/
+
+-- 10 days with boundary condition
+TSTEP
+10*1 /
+
+END
+
+
+
