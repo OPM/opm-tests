@@ -251,7 +251,7 @@ TUNING
 -- WELL  GROUP        BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS  PVT    HYDS  FIP
 -- NAME  NAME   I  J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW   TABLE  DENS  REGN
 WELSPECS
-   D-1H  1*     2  1  1*     OIL    0.0    STD     STOP  YES    0      SEG   0    /
+   D-1H  'TEST' 2  1  1*     OIL    0.0    STD     STOP  YES    0      SEG   0    /
 /
 
 -- WELL                     OPEN   SAT   CONN    WELL   KH     SKIN   D     DIR  Ro
