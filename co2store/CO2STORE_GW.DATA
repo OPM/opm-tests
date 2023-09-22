@@ -5,13 +5,13 @@
 
 -- Copyright (C) 2021 NORCE
 
--- Test case for gas + water + disgasw (dissolved gas in water phase)
+-- Test case for gas + water + disgasw + vapwat (dissolved gas in water phase and vaporized water in gas phase)
 
 ----------------------------------------------------------------------------
 RUNSPEC
 ----------------------------------------------------------------------------
 TITLE
-   CO2STORE GAS-WATER DISGASW
+   CO2STORE GAS-WATER DISGASW VAPWAT
 
 DIMENS 
 20 1 20 /
@@ -26,8 +26,8 @@ WATER
 GAS
 CO2STORE
 DISGASW
+VAPWAT
 
---DISGAS
 --DIFFUSE
 --THERMAL
 
@@ -96,23 +96,13 @@ SOLUTION
 ---------------------------------------------------------------------------
 
 
-PRESSURE
-	400*200.0 /
-SWAT
-	400*1.0 /
-
--- Note: EQUIL is not yet supported for GAS + WATER case
---EQUIL
--- 0 200 1000 0 0 0 0 0 0 /
+EQUIL
+ 0 200 0 0 0 0 0 0 0 /
     
 RTEMPVD
   0 50
   100 50
 /
-
---RSVD
---  0 0.0
---  100 0.0 /
 
 RPTRST
  'BASIC=2' 'ALLPROPS' BW VISC KRW/
