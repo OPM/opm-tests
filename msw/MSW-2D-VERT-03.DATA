@@ -6,17 +6,12 @@
 -- Copyright (c) 2017 SINTEF Digital, Mathematics and Cybernetics.
 -- Copyright (C) 2023 Equinor ASA
 --
--- This model is a simple three-phase (20, 1, 5) Cartesian regular 2D grid model that users the rock and fluid properties from the
--- Norne full field model. The model has one standard water injector (INJE01) and one multi-segment horizontal oil well producer
+-- This model is a simple three-phase (20, 1, 5) Cartesian regular 2D grid model that uses the rock and fluid properties from the
+-- Norne full field model. The model has one standard water injector (INJE01) and one multi-segment vertical oil well producer
 -- (PROD01). 
 --
--- Based on MSW-2D-HZ-01. This model tests that the simulator is able to continue if a multi-segment well has no connections to 
+-- Based on MSW-2D-VERT-01. This model tests that the simulator is able to continue if a multi-segment well has no connections to
 -- the grid (the well will be shut as there are no connections).
--- 
--- ( 1) Base model to test a production horizontal multi-segment well (PROD01) in a 2D grid.
--- ( 2) Maximum well water injection rate set to 1,500 m3/d subject to a maximum BHP of 450 barsa
--- ( 3) Oil production is controlled by a minimum BHP of 260 barsa.
--- ( 4) Multi-segment well SUMMARY vectors that are currently supported are now written out.
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
 --       1         2         3         4         5         6         7         8         9         0         1         2         3
@@ -32,7 +27,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-MSW-2D-HZ: MULTI-SEGMENT WELL 2D GRID HORIZTONAL WELL TEST CASE
+MSW-2D-VERT-03: 2D GRID MSW WITHOUT CONNECTIONS TEST CASE
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -152,10 +147,6 @@ GRIDFILE
 --       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
 --
 NEWTRAN
---
---       SWITCH OFF ECHOING OF INPUT FILES
---
-NOECHO
 --
 --       DEFINE GRID BLOCK X DIRECTION CELL SIZE
 --
@@ -808,9 +799,6 @@ PVTW
 --       --------  --------   -------   ------   ------
          277.0     1.038      4.67E-5    0.318    0.0 /
 --
---       SWITCH ON ECHOING OF INPUT FILES
---
-ECHO
 -- =================================================================================================================================
 --
 -- REGIONS SECTION
