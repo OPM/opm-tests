@@ -309,3 +309,46 @@ Datafile      | Model  | Item 1 | Item 2 | Item 3 | Item 4 | Item 5 | Non-zero<b
 T2A_NOPINCH.DATA | T2A |  |  |  |  |  |   Yes
 T2A_GAP.DATA | T2A | 0.001 | GAP | 1E+20 | TOPBOT | TOP |   Yes
 T2A1_GAP.DATA | T2A | 0.001 | GAP | 0.9 | TOPBOT | TOP |   No
+
+
+### Model T3A Description and Results
+
+Grid dimension: 1 x 1 x 3 
+
+
+Model input properties
+
+ Property      | layer 1 | layer 2 | layer 3 |
+---------------|---------|---------|---------|
+ DX            | 100     | 100     | 100     
+ DY            | 100     | 100     | 100     
+ DZ            | 3.0     | 0.0     | 2.0    
+ PORO          | 0.25    | 0.25    | 0.25    
+ PERMZ         | 210     | 0.0     | 210     
+
+
+Layer 2 cell inactive due to MINPV / fully collapsed. 
+
+	
+![](plots/model_t3a.png)
+
+**T3B**
+same as T3A but MULTZ layer 1 = 0.0
+
+
+**T3C**
+same as T3A but MULTZ layer 2 = 0.0
+
+
+
+Datafile      | Model  | Item 1 | Item 2 | Item 3 | Item 4 | Item 5 | Non-zero<br />TranZ |
+--------------|--------|--------|--------|--------|--------|--------|-------------------|
+T3A_NOPINCH.DATA | T3A |  |  |  |  |  |   No
+T3A1_GAP.DATA | T3A | 0.001 | GAP | 1E+20 | TOPBOT | TOP |   Yes
+T3A2_GAP.DATA | T3A | 0.001 | GAP | 1E+20 | ALL | TOP |   Tes
+T3B1_GAP.DATA | T3B | 0.001 | GAP | 1E+20 | TOPBOT | TOP |   No
+T3C1_GAP.DATA | T3C | 0.001 | GAP | 1E+20 | TOPBOT | ALL |   No
+
+
+
+

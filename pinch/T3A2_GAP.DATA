@@ -6,11 +6,10 @@
 -- Copyright (C) 2023 Equinor
 
 -- This model is used to test Z-transmissibility for a case with a fully collapsed
--- grid cell. PERMZ > 0.0 and PINCH and MINPV is not used. The collapsed cell should
--- act as a vertical barrier (TRANZ = 0.0).
+-- grid cell. PINCH is used with all items defaulted except for item 4 which is det to 
+-- ALL. PERMZ for layer 2 is 0.0 and keyword MULTZ is not used. The collapsed cell 
+-- should not act as a vertical barrier in this case (Z-transmisibility > 0.0).
 
-
-------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
@@ -39,12 +38,6 @@ EQLDIMS
  1 1*  25 /
 
 
---
---REGDIMS
----- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
---   1          4       1*            72    /
-
---
 --
 WELLDIMS
 --max.well  max.con/well  max.grup  max.w/grup
@@ -96,8 +89,6 @@ ZCORN
    2003.00 2003.00 2003.00 2003.00 2003.00 2003.00 2003.00 2003.00
    2003.00 2003.00 2003.00 2003.00 2005.00 2005.00 2005.00 2005.00  /
 
-ACTNUM
- 1 0 1  /
 
 PORO
  3*0.25 /
@@ -106,13 +97,18 @@ PERMX
  3*2100 /
 
 PERMZ
- 3*210 /
+ 210 0.0 210.0 /
 
 
 COPY
  PERMX PERMY /
 /
 
+MINPV
+ 100.0 /
+
+PINCH
+ 1* GAP 1* ALL TOP /
 
 
 ------------------------------------------------------------------------------------------------
