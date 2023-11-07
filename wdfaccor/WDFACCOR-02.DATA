@@ -1,0 +1,282 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This model is testing keyword WDFACCOR. The model includes one well (using standard well model). 
+-- COMPDAT is defined with defaulted Transmisibility (item 8), effective KH (item 10). Skin (item 11) 
+-- is set to 1.0 (all connections) and pressure equivalent radius (item 14) is set to 128.5 
+-- (all connctions). 
+
+-- ************************************************************
+RUNSPEC
+-- ************************************************************
+
+DIMENS
+ 10 12 5 /
+
+GAS
+OIL
+WATER
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+01 MAY 2023 /
+
+TABDIMS
+-- NTSFUN  NTPVT  NSSFUN  NPPVT  NTFIP  NRPVT  NRVPVT
+       1*      1     100    100     1*     30      1* /
+
+WELLDIMS
+-- NWELLS  NCONS NGRPS  NWINGRP
+        2     21     1        2 /
+
+REGDIMS
+ 1 1 /
+
+ROCKCOMP
+ REVERS 1 NO /
+
+UNIFOUT
+UNIFIN
+
+EQLDIMS
+ 1 /
+
+-- ************************************************************
+GRID
+-- ************************************************************
+
+INCLUDE
+ 'include/test_10x12x5.grdecl' /
+
+PORO
+  120*0.21 120*0.08 120*0.28 120*0.27 120*0.25 /
+
+PERMX
+  120*120.0 120*5.4 120*420.0 120*355.0 120*250.0 /
+
+COPY
+  PERMX PERMY /
+  PERMX PERMZ /
+/
+
+MULTIPLY
+  PERMZ 0.10 /
+/
+   
+
+INIT
+
+-- ************************************************************
+EDIT
+-- ************************************************************
+
+
+-- ************************************************************
+PROPS
+-- ************************************************************
+
+SWOF
+--    Sw          Krw         Krow    Pcgw
+0.1683            0.0          1.0     0.0
+1.0               1.0          0.0     0.0
+/
+
+SGOF
+-- Sg          Krg         Krog     Pcog
+0.0            0.0          1.0      0.0
+0.8317         1.0          0.0      0.0
+/
+
+
+ROCKTAB
+ 25.0  0.700  0.500
+500.0  0.897  0.828
+750.0  1.000  1.000
+/
+
+
+INCLUDE
+ 'include/pvt_data.inc' /
+
+
+-- ************************************************************
+REGIONS
+-- ************************************************************
+
+-- ************************************************************
+SOLUTION
+-- ************************************************************
+
+EQUIL
+ 4250.0 700.0  4250.0  0.0  4250.0  0.0  /
+
+PDVD 
+ 4000.0  406.0
+ 4300.0  406.0 /
+
+PBVD 
+ 4000.0  406.0
+ 4300.0  406.0 /
+
+
+RPTRST
+ 'BASIC=2' /
+ 
+-- ************************************************************
+SUMMARY
+-- ************************************************************
+
+WOPR
+/
+
+WGPR
+/
+
+WWPR
+/
+
+WBHP
+/
+
+WGOR
+/
+
+CDFAC
+ PROD1 /
+/ 
+
+CTFAC
+ PROD1 /
+/
+
+BGVIS
+ 3 6 1 /
+ 3 6 2 / 
+ 3 6 3 /
+ 3 6 4 /
+ 4 6 4 /
+ 4 6 5 /
+/
+
+BPR
+ 3 6 1 /
+ 3 6 2 / 
+ 3 6 3 /
+ 3 6 4 /
+ 4 6 4 /
+ 4 6 5 /
+/
+
+WOPRS
+/
+
+WGPRF
+/
+
+-- ************************************************************
+SCHEDULE
+-- ************************************************************
+
+-- start: 01 MAY 2023
+
+TUNING
+ 0.1 1.0 /
+  /
+  /
+    
+WELSPECS
+   PROD1  TEST1     3  6  1*     GAS    0.0    STD     STOP  YES    0      SEG   0    /
+/
+
+-- WELL                      OPEN   SAT   CONN     WELL    KH      SKIN    D     DIR  PEQVR 
+-- NAME    I   J   K1   K2   SHUT   TAB   FACT     DIA     FACT    FACT    FACT  PEN
+COMPDAT
+   PROD1   3   6   1    1    OPEN   1*     1*   0.21600    1*     1.0000   1*  	 'Z'  128.5 /
+   PROD1   3   6   2    2    OPEN   1*     1*   0.21600    1*     1.0000   1*	 'Z'  128.5  /
+   PROD1   3   6   3    3    OPEN   1*     1*   0.21600    1*     1.0000   1*	 'Z'  128.5  /
+   PROD1   3   6   4    4    OPEN   1*     1*   0.21600    1*     1.0000   1* 	 'Z'  128.5  /
+   PROD1   4   6   4    4    OPEN   1*     1*   0.21600    1*     1.0000   1*	 'Z'  128.5  /
+   PROD1   4   6   5    5    OPEN   1*     1*   0.21600    1*     1.0000   1*	 'Z'  128.5  /
+/
+
+
+WDFACCOR
+ 'PROD1'   4.9017716E-6   -1.15      0 /
+/
+
+WCONHIST
+'PROD1'  OPEN  RESV   1165.0 1.25 1467000  / 
+/
+
+DATES
+ 7 MAY 2023 /
+/ 
+ 
+WCONHIST
+'PROD1'  OPEN  RESV   500.0 0.54 629614  / 
+/
+
+DATES
+ 12 MAY 2023 /
+/ 
+ 
+WCONHIST
+'PROD1'  OPEN  RESV   155.0 0.17 195180  / 
+/
+
+DATES
+ 17 MAY 2023 /
+/ 
+
+WCONHIST
+'PROD1'  OPEN  RESV   800.0 0.86 1007382  / 
+/
+
+DATES
+ 22 MAY 2023 /
+/ 
+ 
+
+WCONHIST
+'PROD1'  OPEN  RESV   750.0 0.80 944421  / 
+/
+
+DATES
+ 27 MAY 2023 /
+/ 
+
+WCONHIST
+'PROD1'  OPEN  RESV   1200.0 1.29 1511073  / 
+/
+
+DATES
+  1 JUN 2023 /
+/ 
+
+WCONHIST
+'PROD1'  OPEN  RESV   700.0 0.75 881459  / 
+/
+
+DATES
+  6 JUN 2023 /
+/ 
+ 
+
+WCONHIST
+'PROD1'  OPEN  RESV   500.0 0.54 629614  / 
+/
+
+DATES
+  11 JUN 2023 /
+/ 
+   
+ 
+END
+
