@@ -12,7 +12,7 @@
 
 -- The purpose of this data set is to be a test for LGR grid.
 -- In particular CARFIN and ENDFIN keyword are used.
--- Wells are located in the LGR's using WELSPCL and COMPDATL.
+-- Wells are located in the LGR's using WELSPECL and COMPDATL.
 
 
 
