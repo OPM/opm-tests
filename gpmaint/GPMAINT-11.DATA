@@ -1,0 +1,433 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This deck tests usage of GPMAIN (PROD)
+-- The model includes one dummy well in the NSEG segment which
+-- is producing towards a pressure target set with GPMAIN for region 
+-- FIPNUM=1. The dummy well is part of the group NSEG.
+
+--    GPMAINT
+--     NSEG    PROD   1   1*  260  70  90 /
+--    /
+
+-- This is set up to mimic depletion from a neighboring field. 
+
+-- There is some (but restricted) communication from FIPNUM=1 to 
+-- FIPNUM=2. The "real" producer D-1H is located in FIPNUM=2 and 
+-- this start producing 15 months after the dummy well.
+
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 12  13  7 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+-- Start date
+START
+01 'NOV' 1991  / 
+
+--
+GRIDOPTS
+'YES'		0 / 
+
+EQLDIMS
+ 1  /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  2         10            3        3   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         2         60 /
+
+--
+FAULTDIM
+ 2 / 
+
+--
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+'include/test_12x13x5.grdecl' /
+
+PORO
+ 156*0.25 156*0.22  156*0.17  156*0.28 156*0.14 156*0.23  156*0.22 /
+ 
+PERMX
+ 156*2100 156*1200 156*800 156*2500 156*10 156*1700 156*1200 /
+
+PERMZ
+ 156*210 156*120 156*80 156*250 156*1 156*170 156*120 /
+
+NTG
+ 156*0.95 156*0.88 156*0.85 156*0.70 156*0.14 156*0.77 156*0.82 /
+
+COPY
+ PERMX PERMY /
+/
+
+FAULTS
+ 'F1' 4 4 1 6 1 7 I /
+ 'F2' 1 4 6 6 1 7 J /
+/
+
+MULTFLT
+ 'F1' 0.005 /
+ 'F2' 0.005 /
+/ 
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+INCLUDE
+ 'include/scal_1satnum.inc' /
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 1092*1 /
+ 
+SATNUM
+ 1092*1 /
+
+FIPNUM
+ 4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2 84*2 
+ 4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2 84*2 
+ 4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2 84*2 
+ 4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2 84*2 
+ 4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2 84*2 
+ 4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2 84*2 
+ 4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2  4*1 8*2 84*2 
+/
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+--RPTSOL
+-- SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc      Pc   goc      Pc   Rsvd  Rvvd  N
+ 2040.0  268.56   2040.0   0.0  1800.00  0.0   1      1   0 /  
+
+RSVD
+ 1800.0  122.30
+ 2040.0  122.30 /
+
+RVVD
+ 1800.0  5.0E-05
+ 2040.0  5.0E-05 /
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+FPR
+
+
+GOPR
+/
+
+GGOR
+/
+
+GWCT
+/
+
+WBHP
+/
+
+WOPR
+/
+
+WOPRH
+/
+
+WGPR
+/
+
+WGPRH
+/
+
+WWPR
+/
+
+WWPRH
+/
+
+WGOR
+/
+
+WWCT
+/
+
+RPR
+ 1 2 /
+
+WOPT
+/
+
+WGPT
+/
+
+WWPT
+/
+
+WMCTL
+ 'DMY1' 'D-1H' /
+  
+WSTAT
+ 'DMY1' 'D-1H' /
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+-- start: 1  'OCT' 2018 /
+
+TUNING
+ 0.5 5.0 /
+ /
+ /
+
+GRUPTREE
+  'NSEG'   'FIELD'     /
+  'MOD'    'FIELD'     /
+/
+
+DATES
+ 2 NOV 1991 /
+/
+
+DATES
+ 1 DEC 1991 /
+/
+
+GPMAINT
+   NSEG    PROD   1   1*  260  70  90 /
+/
+
+
+WELSPECS 
+   'DMY1'   'NSEG'   2   2  1*       'OIL'      1*    1*  SHUT   YES    1*    1* /
+/
+
+WCONPROD
+   DMY1   OPEN   GRUP  5*  260 /
+/
+
+
+COMPDAT 
+-- WELL     I   J  K1   K2            Sat.      CF        DIAM        KH SKIN ND        DIR   Ro 
+   'DMY1'   2   2   1	1      'OPEN'  1*      5.505	  0.216    510.312  2*         'Z'     15.511 /
+   'DMY1'   2   2   2	2      'OPEN'  1*      0.101	  0.216      9.456  2*         'Z'     16.532 /
+   'DMY1'   2   2   3	3      'OPEN'  1*      4.938	  0.216    452.905  2*         'Z'     14.704 /
+   'DMY1'   2   2   4	4      'OPEN'  1*     19.086	  0.216   1745.284  2*         'Z'     14.493 /
+/
+
+
+WCONHIST
+--WELL     OP/SH   CTL       ORAT       WRAT       GRAT   VFP        ALQ        THP        BHP
+ 'DMY1'   OPEN  RESV          0          0          0    1*         1*         1*         1* /
+/
+
+WELTARG
+  'DMY1'  'BHP'  25.0 /
+/
+
+DATES
+ 1 JAN 1992 /
+ 1 FEB 1992 /
+/
+
+GPMAINT
+   NSEG   PROD  1  1*   260  70  90 /
+/
+
+WCONPROD
+   DMY1   OPEN   GRUP  5*  260 /
+/
+
+DATES
+ 1 APR 1992 /
+/
+
+GPMAINT
+  NSEG   PROD  1  1*   262  70  90 /
+/
+
+WCONPROD
+   DMY1   OPEN   GRUP  5*  262 /
+/
+
+DATES
+ 1 AUG 1992 /
+/
+
+GPMAINT
+   NSEG   PROD  1  1*   255  70  90 /
+/
+
+WCONPROD
+   DMY1   OPEN   GRUP  5*  255 /
+/
+
+DATES
+ 1 JAN 1993 /
+/
+
+GPMAINT
+   NSEG   PROD  1  1*   248  70  90 /
+/
+
+WCONPROD
+   DMY1   OPEN   GRUP  5*  248 /
+/
+
+DATES
+ 1 APR 1993 /
+/
+
+WELSPECS 
+   'D-1H'   'MOD'   2   2  1*       'OIL'      1*    1*  SHUT   YES    1*    1* /
+/
+
+WCONPROD
+   D-1H   OPEN   GRUP  5*  260 /
+/
+
+COMPDAT 
+-- WELL     I   J  K1   K2            Sat.   CF       DIAM  KH SKIN ND      DIR   Ro 
+   'D-1H'   7   9   1	1      'OPEN'  1*    1*      0.216   1*  2*	    'Z'    1* /
+   'D-1H'   7   9   2	2      'OPEN'  1*    1*      0.216   1*  2*	    'Z'    1* /
+   'D-1H'   7   9   3	3      'OPEN'  1*    1*      0.216   1*  2*	    'Z'    1* /
+   'D-1H'   7   9   4	4      'OPEN'  1*    1*      0.216   1*  2*	    'Z'    1* /
+/
+
+WCONHIST
+--WELL     OP/SH   CTL   ORAT       WRAT       GRAT     VFP     ALQ    THP  
+ 'D-1H'   OPEN  ORAT  1500.00        23.99     156186.3    1*     1*     1*   /
+/
+
+GPMAINT
+   NSEG   NONE  1   /
+/
+
+DATES
+ 1 JUL 1993 /
+/
+
+WCONHIST
+--WELL     OP/SH   CTL   ORAT       WRAT       GRAT     VFP     ALQ    THP  
+ 'D-1H'   OPEN  ORAT  1500.00        83.49     148249.1    1*     1*     1*   /
+/
+
+DATES 
+ 1 AUG 1993 /
+/
+
+WCONHIST
+--WELL     OP/SH   CTL   ORAT       WRAT       GRAT     VFP     ALQ    THP  
+ 'D-1H'   OPEN  ORAT  1420.00       116.84     146493.9    1*     1*     1*   /
+/
+
+DATES 
+ 1 SEP 1993 /
+/
+
+WCONHIST
+--WELL     OP/SH   CTL   ORAT       WRAT       GRAT     VFP     ALQ    THP  
+ 'D-1H'   OPEN  ORAT  1390.00       209.37     203706.8    1*     1*     1*   /
+/
+
+DATES 
+ 1 OCT 1993 /
+/
+
+WCONHIST
+--WELL     OP/SH   CTL   ORAT       WRAT       GRAT     VFP     ALQ    THP  
+ 'D-1H'   OPEN  ORAT  1400.00       300.66     318595.0    1*     1*     1*   /
+/
+
+DATES 
+ 1 NOV 1993 /
+/
+
+WCONHIST
+--WELL     OP/SH   CTL   ORAT       WRAT       GRAT     VFP     ALQ    THP  
+ 'D-1H'   OPEN  ORAT  1237.14       329.18     460495.6    1*     1*     1*   /
+/
+
+DATES 
+ 1 DEC 1993 /
+/
+
+WCONHIST
+--WELL     OP/SH   CTL   ORAT       WRAT       GRAT     VFP     ALQ    THP  
+ 'D-1H'   OPEN  ORAT   832.81       265.80     495834.8    1*     1*     1*   /
+/
+
+DATES 
+ 1 JAN 1994 /
+/
+
+  
+END
+
