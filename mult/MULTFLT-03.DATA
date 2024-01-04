@@ -1,0 +1,272 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2023 Equinor
+
+-- This deck is testing keyword MULTFLT with item1 (fault name) including
+-- an asterisk (*). In this way more that one fault multiplier can be set
+-- with one record.
+
+-- The model includes a total of 6 faults FLT1A, FLT1B, FLT2A, FLT2B, FLT3A
+-- and FLT4A.
+
+-- According to documentation, a fault name ending with asterisk (*) can
+-- select multiple faults. 
+
+-- In this deck the following MULTFLT keyword is used. 
+
+--  MULTFLT
+--   'FLT1A' 0.033 /
+--   'FLT*A' 0.001 /
+--   'FLT*B' 0.01 /
+--  /
+
+-- Notice that for record 2 and 3 the characters after the asterisk (*) should 
+-- be ignored. The keyword should be interpreted like this
+
+--  MULTFLT
+--   'FLT1A' 0.033 /
+--   'FLT*' 0.001 /
+--   'FLT*' 0.01 /
+--  /
+
+-- If a fault is referenced in more that one record in the MULTFLT keyword, 
+-- the last entry should be selected. Hence the MULTFLT keyword can be 
+-- specified like this. 
+
+
+--  MULTFLT
+--   'FLT*' 0.01 /
+--  /
+
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 12 15 5 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'		0 / 
+
+
+EQLDIMS
+ 1  1*  25 /
+
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  2        5            5        5   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         5         60 /
+
+
+-- needed in eclipse
+FAULTDIM
+ 6 /
+
+--
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+ METRES  /
+
+--
+INIT
+
+
+INCLUDE
+'include/test_12x15x5.grdecl' /
+
+PORO
+  900*0.2 /
+ 
+PERMX
+ 900*469.5 /
+
+PERMZ
+ 900*210 /
+
+
+COPY
+ PERMX PERMY /
+/
+
+FAULTS
+  'FLT1A'  6  6   1  7  1 5    'X' / 
+  'FLT1B'  1  6   7  7  1 5    'Y' / 
+  'FLT2A'  8  8   1 10  1 5    'X' / 
+  'FLT2B'  1  8  10 10  1 5    'Y' / 
+  'FLT3A'  9 12  10 10  1 5    'Y' / 
+  'FLT4A'  6  6  11 15  1 5    'X' / 
+/
+
+MULTFLT
+ 'FLT1A' 0.033 /
+ 'FLT*A' 0.001 /
+ 'FLT*B' 0.01 /
+/
+ 
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 900*1 /
+ 
+SATNUM
+ 900*1 /
+
+EQUALS
+ 'FIPNUM'  1  1  6  1  7   1 5 /
+ 'FIPNUM'  2  7  8  1 10  1 5 /
+ 'FIPNUM'  2  1  6  8 10  1 5 /
+ 'FIPNUM'  3  9 12  1 10  1 5 /
+ 'FIPNUM'  4  7 12 11 15  1 5 /
+ 'FIPNUM'  5  1  6 11 15  1 5 /
+/ 
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+2281.00  268.56  2545.0   0.0  2281.00  0.0   1   0   0 /   C,D, and I segments: 		Not 2
+
+RSVD
+ 2581.78  122.30
+ 2597.0   110.00
+ 2660.7   106.77
+ 2697.0   106.77 /
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+FPR
+
+WBHP
+/
+
+WGPR
+/
+
+WOPR
+/
+
+WGOR
+/
+
+WWPR
+/
+
+WMCTL
+/ 
+
+
+BPR
+  3  5 1 /
+  5  9 2 /
+ 12  3 3 /
+ 11 13 4 /
+  3 14 5 /
+/
+
+RPR
+ 1 2 3 4 5 / 
+ 
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+TUNING
+ 1.0 1.0 /
+ /
+ /
+ 
+-- start: 10  'OCT' 2018 /
+
+WELSPECS 
+   'D-1H'   'TEST'   2   2  1*       'OIL'  2*      'STOP'  4* /
+/
+
+COMPDAT 
+-- WELL     I   J  K1   K2            Sat.      CF        DIAM        KH SKIN ND        DIR   Ro 
+   'D-1H'   2   2   1	1      'OPEN'  1*      5.505	  0.216    510.312  2*         'Z'     15.511 /
+   'D-1H'   2   2   2	2      'OPEN'  1*      0.101	  0.216      9.456  2*         'Z'     16.532 /
+   'D-1H'   2   2   3	3      'OPEN'  1*      4.938	  0.216    452.905  2*         'Z'     14.704 /
+   'D-1H'   2   2   4	4      'OPEN'  1*     19.086	  0.216   1745.284  2*         'Z'     14.493 /
+/
+
+
+WCONHIST 
+   'D-1H'  'OPEN'  'RESV'   45.0 0.0    1.19E6  5* /
+/
+
+DATES
+20 OCT 2018 /
+ 1 NOV 2018 /
+ 1 DEC 2018 /
+/
+
+
+END
