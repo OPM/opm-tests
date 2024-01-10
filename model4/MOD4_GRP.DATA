@@ -228,7 +228,7 @@ RSVD
 
 -- basic = 5, every month
 RPTRST
- 'BASIC=5'  'FREQ=6'   'CONV=10' /
+ 'BASIC=5'  'FREQ=6'    /
 
 RPTSOL
  'RESTART=2'  'FIP=3'  'FIPRESV'  'THPRES' /
