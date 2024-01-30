@@ -57,17 +57,23 @@ UNIFOUT
 GRID    ================================================
 INIT
 
+TOPS
+2500*2000/
+
+DXV
+50*50 /
+DYV
+50*50 /
+DZV
+11*20 /
+
 
 EQUALS
-DX   50         /
-DY   50         /
-DZ     20        /
 PORO    0.25      /
 PERMX 100        /
 PERMY 100        /
 PERMZ  100        /
-ACTNUM 1 /
-TOPS  2000 4* 1 1 /	
+ACTNUM 1 /	
 NTG 1 /
 /
 
