@@ -1,0 +1,419 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 TNO
+
+-- Test case for CO2STORE for thermal co2 storage in a depleted gas resrevoir- using CVTYPE.
+----------------------------------------------------------------------------
+RUNSPEC
+---------------------------------------------------------------------------- 
+
+ 
+TITLE
+CO2 Injection in a depleted gas reservoir thermal
+START
+ 1 'JAN' 2027 /
+ 
+METRIC
+
+
+CO2STORE
+THERMAL
+
+
+
+-- components --'CO2' 'H2O' 'C1'
+COMPS
+3 /
+
+
+FULLIMP
+
+
+
+DIMENS
+   50 50 11 /
+
+
+
+EQLDIMS
+ 1 100 20 1 20 /
+ 
+REGDIMS
+ 10 1 0 1 0 /   
+
+WELLDIMS
+2 20/
+
+ 
+TABDIMS
+ 1 1 50 20 /
+
+UNIFOUT
+
+
+GRID    ================================================
+INIT
+
+TOPS
+2500*2000/
+
+DXV
+50*50 /
+DYV
+50*50 /
+DZV
+11*20 /
+
+
+EQUALS
+PORO    0.25      /
+PERMX 100        /
+PERMY 100        /
+PERMZ  100        /
+ACTNUM 1 /	
+NTG 1 /
+/
+
+
+EQUALS
+HEATCR 2125  /                  
+THCONR   300 /                  
+/
+
+PROPS    ======================================================
+
+NOECHO
+
+CNAMES
+'CO2' 'H2O' 'C1'  /
+
+
+
+--SALINITY
+--0.8 /
+
+DENSITY
+1* 1050 1* /
+
+RTEMP
+80 /
+
+--DIFFCGAS
+--0.00027987 0.00013824 0.0001  /
+
+TCRIT
+304.223 647.2 190.556  /
+
+PCRIT
+73.81530056 221.05 46.04320728 /
+
+
+
+PREFT
+1.16 101.5 1.16 
+/
+
+MW
+44.01 18.02 16.04  /
+
+
+
+SPECHA
+0.834944695414749  4.81290845015349  0.0092564
+/
+
+
+SPECHB
+0.00103117086090892    0.0208203197232935  0.001357  
+/
+
+SPECHG
+0.834944695414749    4.81290845015349 0.0184   
+/
+
+
+SPECHH
+ 0.00103117086090892  0.0208203197232935 0.03504  
+
+/
+
+GASVISCT
+10  0.15 0.15 0.15   
+100 0.15 0.15 0.15   /
+
+
+OILVISCT
+10  0.3 0.3 0.3  
+100 0.3 0.3 0.3  /
+
+-- 'CO2' 'H2O' 'C1'
+--KWTEMP
+--50	150 /
+-- I set CH4 K-values to an extremely high value to the extent that they will not be soluble in water as CH4 can not be in aqueous phase in OPM, if needed data can be provided
+--KWTABT1
+--100	1*  1*	1E+20		
+--200	1*  1*	1E+20		
+--300	1*  1*	1E+20		
+--400	1*  1*	1E+20		
+--/
+
+--KWTABT2
+--100	1*  1*	1E+20		
+--200	1*  1*	1E+20		
+--300	1*  1*	1E+20		
+--400	1*  1*	1E+20		
+-- /
+RPTPROPS
+PVTO PVTW /
+
+-- 'CO2' 'H2O' 'C1'
+--KVTEMP
+--50	150/
+-- I set all K-values to an extremely high value to the extent that they will not be soluble in oil , if needed data can be provided
+
+--KVTABT1
+--100	1E+20  1E+20  1E+20  
+--200	1E+20  1E+20  1E+20	
+--300	1E+20  1E+20  1E+20	
+--400	1E+20  1E+20  1E+20	
+--/
+
+
+--KVTABT2
+--100	1E+20  1E+20  1E+20  
+--200	1E+20  1E+20  1E+20	
+--300	1E+20  1E+20  1E+20	
+--400	1E+20  1E+20  1E+20	
+--/
+--'CO2' 'H2O' 'C1'
+CVTYPE
+1* 1* GAS /
+
+--ZI
+--'CO2' 'H2O' 'C1' 
+--0.0 0.01 0.99 /
+
+
+ROCK
+200 5e-05 / 
+
+
+-- relative perms
+
+SWFN
+0.20  0.0  0.0
+0.40  0.1  0.0
+0.80  0.5  0.0
+1.0   1.0  0.0
+/
+
+SGFN
+0.00   0.000   0.0
+0.05   0.000   0.0
+0.1   0.01   0.0
+0.26  0.030   0.00
+0.44  0.10    0.0
+0.53  0.20    0.0
+0.62  0.35    0.0
+0.65   0.39    0.0
+0.71  0.56    0.0
+0.80   1.0    0.0
+/
+
+SOF3
+0.2   0.0     0.0
+0.4   0.12    0.12
+0.6   0.35    0.35
+0.7   0.68    0.68
+0.8   1.0     1.0
+/
+
+
+
+REGIONS  ===============================================================
+
+
+SOLUTION ===============================================================
+
+--EQUIL
+
+--   2000     200    2200     0      2200     0      
+--/
+
+PRESSURE
+27500*50/
+SWAT
+27500*0.2
+/
+SGAS
+27500*0.8
+/
+--'CO2' 'H2O' 'C1' 
+YMF
+27500*0
+27500*0.001
+27500*0.999
+/
+AMF
+27500*0
+27500*0.999
+27500*0.001
+/
+
+RPTRST
+ RESTART PRESSURE SGAS SWAT TEMP ENERGY AMF DENG DENW DENS VGAS VWAT
+  WMF XMF YMF WFW XFW YFW AQSP AQPH  RPORV   /
+
+RPTSOL
+ PRESSURE SGAS SWAT DENG DENW VGAS VWAT XMF WMF YMF TEMP WFW AMF AQSP AQPH   
+       XFW YFW AMF /
+
+SUMMARY  ===========================================================
+
+ALL
+
+WXMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+WYMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+
+WAMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+WZMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+WCMPR
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+WCMIR
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+WCGMR
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+WCOMR
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+
+FWCD
+
+FGCDI
+
+FGCDM
+FPR
+
+FVIR
+
+FWPR
+
+FWIRH
+
+FGIR
+
+FGPR
+
+FGPT
+
+FGDN
+
+FVIT
+
+FWIT
+
+FGIT
+
+FPRP
+
+FRPV
+FPRH
+
+FGSAT
+
+FGIPR
+
+FCGMM
+/
+
+FCGMI
+/
+
+FCWM
+/
+
+FGIPL
+
+FGIPG
+
+WBHP 
+/
+WTEMP
+/
+WGIR
+/
+
+SCHEDULE  ===============================================
+RPTSCHED
+ AMF WMF YMF DENG DENW VWAT VGAS TEMP /
+RPTRST
+PRESSURE SWAT SGAS DENG DENW XMF YMF ZMF VGAS VWAT AMF TEMP/
+TUNING
+2* 0.9/
+/
+30 1 50/
+
+WELLSTRE
+CO2INJ 1.0 0.0 0.0  /
+/
+
+WELSPECS
+INJ1  FIELD 25 25 1*  GAS /
+/
+ 
+COMPDAT 
+ INJ1  25 25   1 11 OPEN 2* 0.3 /
+/
+
+WINJGAS
+ INJ1 STREAM CO2INJ /
+/
+
+WCONINJE
+  INJ1 GAS OPEN RATE 1000000 1* 300 / 
+/
+WINJTEMP
+ INJ1 1* 40.0 200.0 /
+/
+TSTEP
+1 /
+TSTEP
+120*30 /
+WELLSHUT
+INJ1/
+/
+TSTEP
+120*30 /
+END
+
+

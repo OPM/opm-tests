@@ -1,0 +1,319 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 TNO
+
+-- Test case for GASWAT for isothermal co2 storage in a depleted gas resrevoir- fully compositional (EOS).
+----------------------------------------------------------------------------
+RUNSPEC
+---------------------------------------------------------------------------- 
+TITLE
+CO2 Injection in a depleted gas reservoir isothermal
+
+METRIC
+START
+ 1 'JAN' 2027 /
+
+
+GASWAT
+
+AIM
+
+COMPS
+3 /
+
+EOS
+PR /
+
+DIMENS
+50 50 11 /
+
+EQLDIMS
+ 1 100 20 1 20 /
+ 
+REGDIMS
+ 10 1 0 1 0 /   
+
+WELLDIMS
+2 20/
+
+
+TABDIMS
+1 1 40 40 /
+UNIFOUT
+
+--Grid section--------------------------------------------------------
+
+GRID
+INIT
+
+TOPS
+2500*2000/
+
+DXV
+50*50 /
+DYV
+50*50 /
+DZV
+11*20 /
+
+
+EQUALS
+PORO    0.25      /
+PERMX 100        /
+PERMY 100        /
+PERMZ  100        /
+ACTNUM 1 /	
+NTG 1 /
+/
+
+--Properties section-----------------------------------------------
+
+PROPS
+
+--CALVAL
+--10  0.0 0.0 /
+
+EOS
+PR   /
+
+
+CNAMES
+C1 CO2 H2O /
+
+TCRIT
+190.6  304.2 647.3 /
+
+PCRIT
+46.0  73.8 221.2 /
+
+ZCRIT
+0.229  0.229 0.288 /
+
+
+ZCRITVIS
+3*0.215 /
+
+ACF
+0.0108  0.2273 0.3434 /
+
+MW
+16  44 18 /
+
+           
+--ZI 
+--C1 CO2 H2O /
+--0.8 0.0 0.2/
+
+ 
+
+DENAQA 
+/
+VISCAQA 
+/
+
+
+ROCK
+200 0.00005 /
+RTEMP
+80 /
+
+--   C1  CO2 H2O /
+--c1    
+--co2  0.1    
+--h20  0.4850  0.1896
+
+
+BIC
+0.1    
+0.4850 0.1896 /
+
+GSF
+0.0 0.0 0.0
+0.1 0.0 0.0
+0.15 0.05 0.0
+0.2 0.08 0.0
+0.4 0.10 0.0
+0.6 0.40 0.0
+0.85 0.70 0.0
+/
+
+WSF
+0.00 0.0
+0.15 0.0
+0.20 0.05
+0.60 0.30
+0.80 0.70
+1.00 1.00
+/
+
+
+--Solution section------------------------------------------------------
+
+SOLUTION
+
+
+RPTSOL
+PRESSURE SWAT SGAS DENG DENW VWAT XMF AMF ZMF YMF AMF /
+
+
+--EQUIL
+--1240 150 1240 0 2* 3* 2 1  /
+--2000 200 2240 0 2240 0 1* 1* 2 1 /
+PRESSURE
+27500*50/
+SWAT
+27500*0.15
+/
+SGAS
+27500*0.85
+/
+YMF
+27500*0.999
+27500*0
+27500*0.001
+/
+XMF
+27500*0.001
+27500*0
+27500*0.999
+/
+RPTRST
+PRESSURE SWAT SGAS DENG DENW VWAT XMF AMF YMF ZMF AMF/
+SUMMARY      ---==============================
+
+--Well energy production rate and total
+ALL
+ALL
+
+WXMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+
+/
+WYMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+
+/
+
+WZMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+
+/
+
+
+FWCD
+
+FGCDI
+
+FGCDM
+FPR
+
+FVIR
+
+FWPR
+
+FWIRH
+
+FGIR
+
+FGPR
+
+FGPT
+
+FGDN
+
+FVIT
+
+FWIT
+
+FGIT
+
+FPRP
+
+FRPV
+FPRH
+
+FGSAT
+
+FGIPR
+
+FCGMM
+/
+
+FCGMI
+/
+
+FCWM
+/
+
+FGIPL
+
+FGIPG
+
+WBHP 
+/
+
+WGIR
+/
+
+
+RUNSUM
+
+--SCHEDULE section-------------------------------------------------
+
+
+
+SCHEDULE
+RPTRST
+PRESSURE SWAT SGAS DENG DENW VWAT XMF ZMF AMF YMF AMF/
+
+RPTRST
+PRESSURE SWAT SGAS DENG DENW VWAT XMF AMF ZMF YMF AMF/
+
+RPTSCHED
+PRESSURE SWAT SGAS DENG DENW VWAT XMF AMF YMF ZMF AMF /
+TUNING
+2* 0.9/
+/
+30 1 50/
+
+WELSPECS
+INJ1  FIELD 25 25 1*  GAS /
+/
+ 
+COMPDAT 
+ INJ1  25 25 1  11 OPEN 2* 0.3 /
+/
+
+WELLSTRE
+CO2INJ 0 1 0 /
+/
+
+WINJGAS
+ INJ1 STREAM CO2INJ /
+/
+
+WCONINJE
+  INJ1 GAS OPEN RATE 1000000 1* 300 / 
+/
+--WINJTEMP
+-- INJ1 1* 40.0 200.0 /
+--/
+TSTEP
+1 /
+TSTEP
+120*30 /
+WELLSHUT
+INJ1/
+/
+TSTEP
+120*30 /
+END
