@@ -45,7 +45,7 @@ REGDIMS
 --
 TABDIMS
 --ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
-  1          1      150          60         3         60 /
+  1          2      150          60         3         60 /
 
 --
 WELLDIMS
@@ -116,9 +116,6 @@ NOECHO
 INCLUDE
  'include/PVT-WET-GAS.INC' /
 
-
-INCLUDE
- 'include/rock.inc' /
 
 INCLUDE
  'include/relperm.inc' /
