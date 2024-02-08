@@ -1,0 +1,344 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+-- This is a test case for ACTIONX and operator != (not equal). This test case
+-- also includes the keyword NEXTSTEP inside an ACTION block.
+
+-- The model includes one producer D-1H and one water injector F-1H. 
+-- The UDQ FUGASX' is initially set to 40.2, but this should be calculated
+-- based on WBHP for injector 'F-1H' once this is starting to inject. 
+
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 12  15  6 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+  1*  6 / 
+
+
+
+EQLDIMS
+ 1 1*  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          4       1*            1*    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+   5        5            30        30   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         6         60 /
+
+--
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg   max.ALQ    max.tabs
+  25        15        15       15       0          60       /
+
+--
+VFPIDIMS
+--max.rate  max.THP  max.tab
+   30       20       60  /
+
+--
+NSTACK
+ 60 /
+
+
+--
+UNIFIN
+UNIFOUT
+
+--
+
+UDQDIMS
+ 25 1* 1* 5 /
+
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+
+INCLUDE
+'include/grid_12x15x6.grdecl' /
+
+PORO
+ 180*0.25
+ 180*0.22
+ 180*0.17
+ 180*0.28
+ 180*0.14
+ 180*0.23 /
+ 
+PERMX
+ 180*2100
+ 180*1200
+ 180*800
+ 180*2500
+ 180*10
+ 180*1700 /
+ 
+PERMZ
+ 180*210
+ 180*120
+ 180*80
+ 180*250
+ 180*1
+ 180*170 /
+
+NTG
+ 180*0.95
+ 180*0.88
+ 180*0.85
+ 180*0.70
+ 180*0.14
+ 180*0.77 /
+
+COPY
+ PERMX PERMY /
+/
+
+
+INCLUDE
+ 'include/multnum.inc' /
+ 
+MULTREGT
+ 1 2 0.1   XYZ  ALL  'M' /
+ 2 3 0.1   XYZ  ALL  'M' /
+ 3 4 0.1   XYZ  ALL  'M' /
+ 4 5 0.1   XYZ  ALL  'M' /
+ 5 6 0.05  XYZ  ALL  'M' /
+
+ 1 6 0.0   XYZ  ALL  'M' /
+ 2 6 0.0   XYZ  ALL  'M' /
+ 2 5 0.0   XYZ  ALL  'M' /
+ 3 5 0.0   XYZ  ALL  'M' /
+/
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+FILLEPS
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/fipnum.inc' /
+
+
+INCLUDE
+ 'include/fipnum_custom.inc' /
+ 
+ 
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTSOL
+SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc      Pc  Rsvd  Rvvd  N
+2000.00  230.0  2050.0   0.0  2000.00  0.0   1     1    0 /   
+
+PDVD
+ 1990  220.0 
+ 2000  230.0 /
+
+PBVD
+ 2000  230.0 
+ 2050  210.0 /
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+FOPR
+
+FGPR
+
+GGPR
+ 'TEST' /
+ 
+GOPR
+ 'TEST' /
+
+GEFF
+ 'TEST' /
+
+WMCTL
+ 'D-1H' 'F-1H' /
+
+WBHP
+ 'D-1H' 'F-1H' /
+
+WOPR
+ 'D-1H'/
+
+WGPR
+ 'D-1H'/
+
+WWIR
+ 'F-1H' /
+
+RPR
+ 1 2 3 4 5 6 /
+
+
+FUGASX
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+-- start: 10  'OCT' 2018 /
+
+GRUPTREE
+ 'TEST'  'FIELD' /
+/
+
+GEFAC
+ 'TEST'  0.78 /
+/
+  
+
+TUNING
+ 0.1 1.0 /
+ /
+ /
+
+WELSPECS 
+   'D-1H'   'TEST'   6   2  1*       'OIL'    2*      'STOP'  4* /
+   'F-1H'   'TEST'   3  14  1*       'WATER'  2*      'STOP'  4* /
+/
+
+COMPDAT 
+-- WELL     I   J  K1   K2    Flag    Sat.    CF     DIAM    KH  SKIN  ND   DIR   Ro 
+   'D-1H'   6   2   1	5    'OPEN'   1*      1*    0.216    1*   1*   1*   'Z'    1* /
+   'F-1H'   6   2   3	6    'OPEN'   1*      1*    0.216    1*   1*   1*   'Z'    1* /
+/
+
+
+WCONPROD
+ 'D-1H'  'OPEN'  'GRUP'   5000.0 8000.0   2.0E6  2*  135.0 /
+/
+
+WCONINJE
+ 'F-1H'  'WATER'  'SHUT'  'RATE'  8000.0  1*  450.0 /
+/
+
+
+GCONPROD
+ 'TEST'  'ORAT'  2000.0   3*   'RATE' /
+/
+
+TSTEP
+ 1 / 
+
+UDQ
+ DEFINE 'FUGASX' 40.2 /
+/
+
+
+--After F-1H is staring injecting
+ACTIONX
+FUWBOB 1 /
+WMCTL 'F-1H' != 0 /  
+/
+
+UDQ
+ DEFINE 'FUGASX' WBHP 'F-1H' * 0.25 /
+/
+
+NEXTSTEP
+ 0.1 /
+ 
+ENDACTIO
+
+  
+DATES
+ 1 NOV 2018 /
+/
+
+WELOPEN
+ 'F-1H' 'OPEN' /
+/
+
+ 
+DATES 
+ 1 DEC 2018 /
+ 1 JAN 2019 /
+/
+
+
+END
