@@ -1,0 +1,138 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+
+FPR
+
+FOPR
+
+FGPR
+
+FGOR
+
+GOPR
+/
+
+GGPR
+/
+
+GGIR
+/
+
+ 
+WBHP
+/
+
+WOPR
+/
+
+WOPT
+ 'B-1H' 'B-2H' /
+
+WGPT
+ 'B-1H' 'B-2H' /
+
+WWPT
+ 'B-1H' 'B-2H' /
+
+WGIT
+ 'R-1H'  'R-2H' /
+ 
+WGOR
+/
+
+WWCT
+/
+
+WGIR
+/
+
+-- tracer vectors X11
+FTPRX11
+
+GTPRX11
+ 'TEST' /
+
+WTPRX11
+ 'B-1H' 'B-2H' /
+
+FTPTX11
+
+GTPTX11
+ 'TEST' /
+
+WTPTX11
+ 'B-1H' 'B-2H' /
+
+FTPCX11
+
+GTPCX11
+ 'TEST' /
+
+WTPCX11
+ 'B-1H' 'B-2H' /
+
+
+FTIRX11
+
+GTIRX11
+ 'TEST' /
+
+WTIRX11
+ 'R-1H'  /
+
+FTITX11
+
+GTITX11
+ 'TEST' /
+
+WTITX11
+ 'R-1H'  /
+
+
+-- tracer vectors X12
+
+FTPRX12
+
+GTPRX12
+ 'TEST' /
+
+WTPRX12
+ 'B-1H' 'B-2H' /
+
+FTPTX12
+
+GTPTX12
+ 'TEST' /
+
+WTPTX12
+ 'B-1H' 'B-2H' /
+
+FTPCX12
+
+GTPCX12
+ 'TEST' /
+
+WTPCX12
+ 'B-1H' 'B-2H' /
+
+
+FTIRX12
+
+GTIRX12
+ 'TEST' /
+
+WTIRX12
+ 'R-2H' /
+
+FTITX12
+
+GTITX12
+ 'TEST' /
+
+WTITX12
+ 'R-2H' /

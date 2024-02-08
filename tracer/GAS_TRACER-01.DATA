@@ -1,0 +1,881 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+-- This deck is used to test implementation of gas tracer. This is a 3 phase model which 
+-- includes 2 downflank producers and two upflank gas injectors.
+
+-- Tracer X11 (25 kg) is injected in injector R-1H and tracer X12 (50 kg) is injected into R-2H.
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 20 15 9 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'		0 / 
+
+
+EQLDIMS
+ 1 1*  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   1          4       1*            1*    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  10         10            10        10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+
+FAULTDIM
+ 1000 /
+
+
+--
+UNIFIN
+UNIFOUT
+
+
+TRACERS 
+ 0 0 2 0 'NODIFF' /
+
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/grid_20x15x9.grdecl' /
+
+INCLUDE
+ 'include/poro_20x15x9.grdecl' /
+
+INCLUDE
+ 'include/permx_20x15x9.grdecl' /
+
+INCLUDE
+ 'include/permz_20x15x9.grdecl' /
+
+INCLUDE
+ 'include/ntg_20x15x9.grdecl' /
+
+ 
+COPY
+ PERMX PERMY /
+/
+
+FAULTS
+ 'F1'   1  6  9  9  1 9  'J'  / 
+ 'F1'   6  6  9  9  1 9  'I'  / 
+ 'F1'   7  8  8  8  1 9  'J'  / 
+ 'F1'   6  6  8  8  1 9  'I'  / 
+ 'F1'   9 12  7  7  1 9  'J'  / 
+ 'F1'  12 12  7  7  1 9  'I'  / 
+ 'F1'  13 20  6  6  1 9  'J'  / 
+/
+
+MULTFLT
+ 'F1' 0.01 /
+/
+ 
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+
+TRACER
+ 'X11' 'GAS' 'g' /
+ 'X12' 'GAS' 'g' /
+/
+
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc      Pc   Rsvd  Rvvd  N
+2230.00   230.0  2300.0   0.0  2230.00  0.0   1     1    0 /   
+
+PDVD
+ 2190.0  215.0
+ 2230.0  230.0 /
+
+PBVD
+ 2230.0  230.0 
+ 2240.0  222.0 
+ 2250.0  218.0 
+ 2260.0  215.0 
+ 2270.0  213.0 
+ 2280.0  212.0 
+ 2290.0  211.0 
+ 2300.0  210.0 /
+
+TBLKFX11
+ 2700*0 /
+
+TBLKSX11
+ 2700*0 /
+
+TBLKFX12
+ 2700*0 /
+
+TBLKSX12
+ 2700*0 /
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/gt_mod1.smry' /
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+ 
+ 
+VAPPARS
+  1.38405 0 /
+
+
+WELSPECS 
+  'R-1H'   'TEST'  5  2  1*       'GAS'  2*      'SHUT'  4* /
+  'R-2H'   'TEST'  2  7  1*       'GAS'  2*      'SHUT'  4* /
+  'B-1H'   'TEST'  8 12  1*       'OIL'  2*      'SHUT'  4* /
+  'B-2H'   'TEST' 16  2  1*       'OIL'  2*      'SHUT'  4* /
+/
+
+COMPDAT 
+-- WELL     I   J  K1   K2    Flag  Sat.   CF    DIAM   KH  SKIN  ND   DIR   Ro 
+   'R-1H'   5   2   1	3    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'R-2H'   2   7   1	2    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+
+   'B-1H'   8  12   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+   'B-1H'   8  13   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+   'B-1H'   7  13   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+   'B-1H'   6  13   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+   'B-1H'   6  14   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+
+   'B-2H'  16   2   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+   'B-2H'  16   3   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+   'B-2H'  15   3   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+   'B-2H'  14   3   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+   'B-2H'  14   4   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'X'   1* /
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   968.517    0.084  87618.3 / 
+ 'B-2H' 'OPEN'  'RESV'   531.392    0.007  48673.0 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  247298.9 / 
+ 'R-2H' 'GAS'  'OPEN'  106563.1 / 
+/
+
+DATES
+ 11 'OCT' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   976.631    0.085  87606.9 / 
+ 'B-2H' 'OPEN'  'RESV'   523.277    0.007  47004.0 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  246404.9 / 
+ 'R-2H' 'GAS'  'OPEN'  106008.8 / 
+/
+
+
+DATES
+ 12 'OCT' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   976.229    0.086  86746.2 / 
+ 'B-2H' 'OPEN'  'RESV'   523.677    0.007  46654.8 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  245602.8 / 
+ 'R-2H' 'GAS'  'OPEN'  105495.4 / 
+/
+
+-- 25000 g / 245603 Sm3
+WTRACER
+ 'R-1H' 'X11' 0.102 /
+/
+
+DATES
+ 13 'OCT' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   957.927    0.092  82023.7 / 
+ 'B-2H' 'OPEN'  'RESV'   541.973    0.008  47283.8 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  242217.0 / 
+ 'R-2H' 'GAS'  'OPEN'  103817.6 / 
+/
+
+WTRACER
+ 'R-1H' 'X11' 0.0 /
+/
+
+
+DATES
+ 23 'OCT' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   935.929    0.100  77949.7 / 
+ 'B-2H' 'OPEN'  'RESV'   563.963    0.009  48568.8 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  239175.8 / 
+ 'R-2H' 'GAS'  'OPEN'  102641.1 / 
+/
+
+-- 50000 g / 102641 Sm3
+WTRACER
+ 'R-2H' 'X12' 0.487 /
+/
+
+DATES
+ 24 'OCT' 2018 / 
+/
+
+WTRACER
+ 'R-2H' 'X12' 0.0 /
+/
+
+DATES
+  1 'NOV' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   922.922    0.107  76322.1 / 
+ 'B-2H' 'OPEN'  'RESV'   576.963    0.009  49849.3 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  237984.3 / 
+ 'R-2H' 'GAS'  'OPEN'  102282.0 / 
+/
+
+DATES
+ 11 'NOV' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   913.315    0.112  75154.4 / 
+ 'B-2H' 'OPEN'  'RESV'   586.563    0.010  51265.0 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  237325.2 / 
+ 'R-2H' 'GAS'  'OPEN'  102074.7 / 
+/
+
+DATES
+ 21 'NOV' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   904.657    0.115  73811.6 / 
+ 'B-2H' 'OPEN'  'RESV'   595.218    0.011  52659.3 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  236822.3 / 
+ 'R-2H' 'GAS'  'OPEN'  101883.7 / 
+/
+
+DATES
+ 1 'DEC' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   895.079    0.117  72327.4 / 
+ 'B-2H' 'OPEN'  'RESV'   604.793    0.011  54041.6 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  236439.5 / 
+ 'R-2H' 'GAS'  'OPEN'  101720.9 / 
+/
+
+DATES
+ 11 'DEC' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   884.393    0.118  70846.4 / 
+ 'B-2H' 'OPEN'  'RESV'   615.477    0.011  55446.5 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  236206.4 / 
+ 'R-2H' 'GAS'  'OPEN'  101614.7 / 
+/
+
+DATES
+ 21 'DEC' 2018 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   873.378    0.120  69419.1 / 
+ 'B-2H' 'OPEN'  'RESV'   626.490    0.012  56821.4 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  236086.4 / 
+ 'R-2H' 'GAS'  'OPEN'  101551.6 / 
+/
+
+DATES
+ 1 'JAN' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   864.287    0.121  68258.4 / 
+ 'B-2H' 'OPEN'  'RESV'   635.580    0.012  58236.2 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  236338.0 / 
+ 'R-2H' 'GAS'  'OPEN'  101646.7 / 
+/
+
+DATES
+ 11 'JAN' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   864.679    0.124  67936.3 / 
+ 'B-2H' 'OPEN'  'RESV'   635.184    0.013  60491.6 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  237860.8 / 
+ 'R-2H' 'GAS'  'OPEN'  102281.1 / 
+/
+
+DATES
+ 21 'JAN' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   873.495    0.128  68331.1 / 
+ 'B-2H' 'OPEN'  'RESV'   626.363    0.013  64969.7 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  241469.6 / 
+ 'R-2H' 'GAS'  'OPEN'  103821.7 / 
+/
+
+DATES
+ 1 'FEB' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   885.230    0.133  68973.0 / 
+ 'B-2H' 'OPEN'  'RESV'   614.623    0.014  71532.5 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  246719.0 / 
+ 'R-2H' 'GAS'  'OPEN'  106065.7 / 
+/
+
+DATES
+ 11 'FEB' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   890.323    0.137  69100.6 / 
+ 'B-2H' 'OPEN'  'RESV'   609.524    0.015  79170.9 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  252342.0 / 
+ 'R-2H' 'GAS'  'OPEN'  108469.6 / 
+/
+
+DATES
+ 21 'FEB' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   888.952    0.139  68766.9 / 
+ 'B-2H' 'OPEN'  'RESV'   610.895    0.015  85124.3 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  256428.8 / 
+ 'R-2H' 'GAS'  'OPEN'  110212.5 / 
+/
+
+DATES
+ 1 'MAR' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   885.706    0.140  68312.1 / 
+ 'B-2H' 'OPEN'  'RESV'   614.137    0.016  90485.1 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  259995.6 / 
+ 'R-2H' 'GAS'  'OPEN'  111728.9 / 
+/
+
+DATES
+ 11 'MAR' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   881.944    0.142  67834.3 / 
+ 'B-2H' 'OPEN'  'RESV'   617.898    0.016  96132.0 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  263730.4 / 
+ 'R-2H' 'GAS'  'OPEN'  113315.0 / 
+/
+
+DATES
+ 21 'MAR' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   878.547    0.143  67407.2 / 
+ 'B-2H' 'OPEN'  'RESV'   621.292    0.017 102143.4 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  267733.1 / 
+ 'R-2H' 'GAS'  'OPEN'  115014.9 / 
+/
+
+DATES
+ 1 'APR' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   878.612    0.146  67273.1 / 
+ 'B-2H' 'OPEN'  'RESV'   621.225    0.017 108377.3 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  272090.0 / 
+ 'R-2H' 'GAS'  'OPEN'  116866.6 / 
+/
+
+DATES
+ 11 'APR' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   884.589    0.149  67624.2 / 
+ 'B-2H' 'OPEN'  'RESV'   615.243    0.018 115471.9 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  277397.2 / 
+ 'R-2H' 'GAS'  'OPEN'  119132.0 / 
+/
+
+DATES
+ 21 'APR' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   893.377    0.153  68194.4 / 
+ 'B-2H' 'OPEN'  'RESV'   606.452    0.019 124190.3 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  283999.2 / 
+ 'R-2H' 'GAS'  'OPEN'  121951.8 / 
+/
+
+DATES
+ 1 'MAY' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   899.908    0.157  68598.6 / 
+ 'B-2H' 'OPEN'  'RESV'   599.916    0.020 133556.5 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  290921.2 / 
+ 'R-2H' 'GAS'  'OPEN'  124906.0 / 
+/
+
+DATES
+ 11 'MAY' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   903.853    0.160  68804.1 / 
+ 'B-2H' 'OPEN'  'RESV'   595.967    0.020 142857.7 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  297640.4 / 
+ 'R-2H' 'GAS'  'OPEN'  127769.4 / 
+/
+
+DATES
+ 21 'MAY' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   906.838    0.162  68943.3 / 
+ 'B-2H' 'OPEN'  'RESV'   592.979    0.021 152575.1 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  304593.5 / 
+ 'R-2H' 'GAS'  'OPEN'  130723.8 / 
+/
+
+DATES
+ 1 'JUN' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   908.555    0.165  69011.1 / 
+ 'B-2H' 'OPEN'  'RESV'   591.258    0.021 161895.4 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  311217.2 / 
+ 'R-2H' 'GAS'  'OPEN'  133518.4 / 
+/
+
+DATES
+ 11 'JUN' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   909.011    0.167  69000.6 / 
+ 'B-2H' 'OPEN'  'RESV'   590.802    0.022 170454.6 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  317235.2 / 
+ 'R-2H' 'GAS'  'OPEN'  136069.4 / 
+/
+
+DATES
+ 21 'JUN' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   908.569    0.169  68918.4 / 
+ 'B-2H' 'OPEN'  'RESV'   591.242    0.022 178645.4 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  322945.2 / 
+ 'R-2H' 'GAS'  'OPEN'  138488.8 / 
+/
+
+DATES
+ 1 'JUL' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   907.881    0.170  68817.0 / 
+ 'B-2H' 'OPEN'  'RESV'   591.923    0.023 186523.8 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  328420.0 / 
+ 'R-2H' 'GAS'  'OPEN'  140806.2 / 
+/
+
+DATES
+ 11 'JUL' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   907.633    0.172  68755.2 / 
+ 'B-2H' 'OPEN'  'RESV'   592.173    0.023 194509.4 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  333992.0 / 
+ 'R-2H' 'GAS'  'OPEN'  143165.8 / 
+/
+
+DATES
+ 21 'JUL' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   908.045    0.174  68762.0 / 
+ 'B-2H' 'OPEN'  'RESV'   591.759    0.024 203221.5 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  340107.6 / 
+ 'R-2H' 'GAS'  'OPEN'  145754.5 / 
+/
+
+DATES
+ 1 'AUG' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   908.966    0.175  68848.8 / 
+ 'B-2H' 'OPEN'  'RESV'   590.833    0.024 212276.8 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  346504.0 / 
+ 'R-2H' 'GAS'  'OPEN'  148460.4 / 
+/
+
+DATES
+ 11 'AUG' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   909.794    0.177  68939.2 / 
+ 'B-2H' 'OPEN'  'RESV'   590.005    0.025 221006.2 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  352668.0 / 
+ 'R-2H' 'GAS'  'OPEN'  151066.8 / 
+/
+
+DATES
+ 21 'AUG' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   910.557    0.179  69023.5 / 
+ 'B-2H' 'OPEN'  'RESV'   589.239    0.025 230425.8 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  359311.3 / 
+ 'R-2H' 'GAS'  'OPEN'  153877.8 / 
+/
+
+DATES
+ 1 'SEP' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   910.903    0.181  69082.4 / 
+ 'B-2H' 'OPEN'  'RESV'   588.891    0.026 240021.2 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  366052.8 / 
+ 'R-2H' 'GAS'  'OPEN'  156729.2 / 
+/
+
+DATES
+ 11 'SEP' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   911.191    0.182  69148.8 / 
+ 'B-2H' 'OPEN'  'RESV'   588.602    0.026 249237.6 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  372524.0 / 
+ 'R-2H' 'GAS'  'OPEN'  159463.6 / 
+/
+
+DATES
+ 21 'SEP' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   911.428    0.183  69219.2 / 
+ 'B-2H' 'OPEN'  'RESV'   588.364    0.027 258385.6 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  378946.4 / 
+ 'R-2H' 'GAS'  'OPEN'  162176.8 / 
+/
+
+DATES
+ 1 'OCT' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   911.566    0.185  69284.8 / 
+ 'B-2H' 'OPEN'  'RESV'   588.220    0.027 267298.0 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  385201.6 / 
+ 'R-2H' 'GAS'  'OPEN'  164816.0 / 
+/
+
+DATES
+ 11 'OCT' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   911.972    0.186  69382.8 / 
+ 'B-2H' 'OPEN'  'RESV'   587.814    0.027 276331.6 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  391561.6 / 
+ 'R-2H' 'GAS'  'OPEN'  167500.0 / 
+/
+
+DATES
+ 21 'OCT' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   912.599    0.188  69508.2 / 
+ 'B-2H' 'OPEN'  'RESV'   587.186    0.028 285816.7 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  398248.0 / 
+ 'R-2H' 'GAS'  'OPEN'  170321.1 / 
+/
+
+DATES
+ 1 'NOV' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   913.516    0.189  69680.2 / 
+ 'B-2H' 'OPEN'  'RESV'   586.267    0.028 295556.8 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  405128.8 / 
+ 'R-2H' 'GAS'  'OPEN'  173222.8 / 
+/
+
+DATES
+ 11 'NOV' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   914.384    0.191  69889.6 / 
+ 'B-2H' 'OPEN'  'RESV'   585.397    0.028 304940.0 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  411764.8 / 
+ 'R-2H' 'GAS'  'OPEN'  176018.4 / 
+/
+
+DATES
+ 21 'NOV' 2019 / 
+/
+
+WCONHIST
+ 'B-1H' 'OPEN'  'RESV'   915.047    0.192  70214.2 / 
+ 'B-2H' 'OPEN'  'RESV'   584.733    0.029 314606.4 / 
+/
+
+WCONINJH
+ 'R-1H' 'GAS'  'OPEN'  418636.8 / 
+ 'R-2H' 'GAS'  'OPEN'  178906.8 / 
+/
+
+DATES
+ 1 'DEC' 2019 / 
+/
+
+
+
+END
