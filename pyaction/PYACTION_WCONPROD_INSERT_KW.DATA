@@ -35,7 +35,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-OPM_TESTS: ACTIONX_WCONPROD
+OPM_TESTS: PYACTION_WCONPROD_INSERT_KW
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -378,7 +378,7 @@ FIELD    GRAT  1*     1*    275E3   1*     1*     1*    1*     1*     1*      /
 -- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM
 WELSPECS
 OP01     PROD       6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
-OP02     PROD      10    4	  1*	   OIL    0.00	  STD    SHUT   YES 	0     SEG     /
+OP02     PROD      10    4        1*       OIL    0.00    STD    SHUT   YES     0     SEG     /
 OP03     PROD       6   19   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
 GI01     INJE       2   13   1*     GAS    0.00   STD    SHUT   YES  0     SEG     /
 WI01     INJE      12   20   1*     WAT    0.00   STD    SHUT   YES  0     SEG     /
@@ -389,32 +389,32 @@ WI01     INJE      12   20   1*     WAT    0.00   STD    SHUT   YES  0     SEG  
 -- WELL  --- LOCATION ---  OPEN   SAT   CONN   WELL   KH    SKIN   D     DIR
 -- NAME   II  JJ  K1  K2   SHUT   TAB   FACT   DIA    FACT  FACT   FACT  PEN
 COMPDAT
-OP01      6    3   7   7   SHUT    0    6.145  0.216  1*   0.00	 1*    'Z'   /
-OP01      6    3   8   8   SHUT    0    9.703  0.216  1*   0.00	 1*    'Z'   /
-OP01      6    3   9   9   SHUT    0  184.170  0.216  1*   0.00	 1*    'Z'   /
-OP01      6    3  10  10   SHUT    0   24.709  0.216  1*   0.00	 1*    'Z'   /
+OP01      6    3   7   7   SHUT    0    6.145  0.216  1*   0.00  1*    'Z'   /
+OP01      6    3   8   8   SHUT    0    9.703  0.216  1*   0.00  1*    'Z'   /
+OP01      6    3   9   9   SHUT    0  184.170  0.216  1*   0.00  1*    'Z'   /
+OP01      6    3  10  10   SHUT    0   24.709  0.216  1*   0.00  1*    'Z'   /
 
-OP02     10    4   3   3   SHUT	  0   18.     0.216  1*   0.00	 1*    'Z'   /
-OP02     10    4   4   4   SHUT	  0   19.     0.216  1*   0.00	 1*    'Z'   /
-OP02     10    4   7   7   SHUT	  0   20.473  0.216  1*   0.00	 1*    'Z'   /
-OP02     10    4   8   8   SHUT	  0   17.619  0.216  1*   0.00	 1*    'Z'   /
-OP02     10    4   9   9   SHUT	  0   80.721  0.216  1*   0.00	 1*    'Z'   /
-OP02     10    4  10  10   SHUT	  0   11.755  0.216  1*   0.00	 1*    'Z'   /
+OP02     10    4   3   3   SHUT   0   18.     0.216  1*   0.00   1*    'Z'   /
+OP02     10    4   4   4   SHUT   0   19.     0.216  1*   0.00   1*    'Z'   /
+OP02     10    4   7   7   SHUT   0   20.473  0.216  1*   0.00   1*    'Z'   /
+OP02     10    4   8   8   SHUT   0   17.619  0.216  1*   0.00   1*    'Z'   /
+OP02     10    4   9   9   SHUT   0   80.721  0.216  1*   0.00   1*    'Z'   /
+OP02     10    4  10  10   SHUT   0   11.755  0.216  1*   0.00   1*    'Z'   /
 
-OP03      6   19   1   1   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
-OP03      6   19   2   2   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
-OP03      6   19   7   7   SHUT    0   21.629  0.216  1*	  0.00	 1*    'Z'   /
-OP03      6   19   8   8   SHUT    0   12.441  0.216  1*	  0.00	 1*    'Z'   /
-OP03      6   19   9   9   SHUT    0  178.588  0.216  1*	  0.00	 1*    'Z'   /
-OP03      6   19  10  10   SHUT    0   11.149  0.216  1*	  0.00	 1*    'Z'   /
+OP03      6   19   1   1   SHUT    0   21.629  0.216  1*          0.00   1*    'Z'   /
+OP03      6   19   2   2   SHUT    0   21.629  0.216  1*          0.00   1*    'Z'   /
+OP03      6   19   7   7   SHUT    0   21.629  0.216  1*          0.00   1*    'Z'   /
+OP03      6   19   8   8   SHUT    0   12.441  0.216  1*          0.00   1*    'Z'   /
+OP03      6   19   9   9   SHUT    0  178.588  0.216  1*          0.00   1*    'Z'   /
+OP03      6   19  10  10   SHUT    0   11.149  0.216  1*          0.00   1*    'Z'   /
 
-GI01      2   13   1   1   SHUT    0  138.457  0.216  1*   0.00	 1*    'Z'   /
-GI01      2   13   2   2   SHUT    0    0.760  0.216  1*   0.00	 1*    'Z'   /
-GI01      2   13   3   3   SHUT    0   53.129  0.216  1*   0.00	 1*    'Z'   /
-GI01      2   13   8   8   SHUT    0   20.547  0.216  1*	  0.00	 1*    'Z'   /
-GI01      2   13   9   9   SHUT    0   45.709  0.216  1*	  0.00	 1*    'Z'   /
-GI01      2   13  10  10   SHUT    0   25.267  0.216  1*	  0.00	 1*    'Z'   /
-GI01      2   13  11  11   SHUT    0   33.982  0.216  1*	  0.00	 1*    'Z'   /
+GI01      2   13   1   1   SHUT    0  138.457  0.216  1*   0.00  1*    'Z'   /
+GI01      2   13   2   2   SHUT    0    0.760  0.216  1*   0.00  1*    'Z'   /
+GI01      2   13   3   3   SHUT    0   53.129  0.216  1*   0.00  1*    'Z'   /
+GI01      2   13   8   8   SHUT    0   20.547  0.216  1*          0.00   1*    'Z'   /
+GI01      2   13   9   9   SHUT    0   45.709  0.216  1*          0.00   1*    'Z'   /
+GI01      2   13  10  10   SHUT    0   25.267  0.216  1*          0.00   1*    'Z'   /
+GI01      2   13  11  11   SHUT    0   33.982  0.216  1*          0.00   1*    'Z'   /
 
 WI01     12   20   9   9   SHUT    0  139.042  0.216  1*   0.00    1*    'Z'   /
 WI01     12   20  10  10   SHUT    0   18.620  0.216  1*   0.00    1*    'Z'   /
@@ -494,66 +494,6 @@ UNITS       FU_GASFL  Constant                              /
 /  DEFINE END OF USER DEFINED QUANTITY SECTION
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WCONPROD - BEAM BACK OIL RATE IF GOR >= 150 M3/M3 FOR WELL OP01
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-01    500  10                                  /
-        WGOR OP01  >= FU_GOR  AND                          /
-        FU_GASFL    = 0       AND                          /
-        MNTH >= JAN           AND                          /
-        YEAR >= 2019                                       /
-/
---
---       WELL PRODUCTION WELL CONTROLS
---
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
-WCONPROD
-OP01     OPEN   ORAT WU_WOPR  1*     1*    1*    1*      150   1*    5      1* /
-/
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WCONPROD - BEAM BACK OIL RATE IF GOR >= 150 M3/M3 FOR WELL OP02
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-02    500  10                                  /
-        WGOR OP02  >= 150     AND                          /
-        FU_GASFL    = 0       AND                          /
-        MNTH >= JAN           AND                          /
-        YEAR >= 2019                                       /
-/
---
---       WELL PRODUCTION WELL CONTROLS
---
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
-WCONPROD
-OP02     OPEN   ORAT WU_WOPR  1*     1*    1*    1*      150   1*    5      1* /
-/
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WCONPROD - BEAM BACK OIL RATE IF GOR >= 150 M3/M3 FOR WELL OP03
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-03    500  10                                  /
-        WGOR OP03  >= 150     AND                          /
-        FU_GASFL    = 0       AND                          /
-        MNTH >= JAN           AND                          /
-        YEAR >= 2019                                       /
-/
---
---       WELL PRODUCTION WELL CONTROLS
---
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
-WCONPROD
-OP03     OPEN   ORAT WU_WOPR  1*     1*    1*    1*      150   1*    5      1* /
-/
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
 -- ACTIONX GCONPROD - ONCE FOPR <= 500 THEN CONVERT TO GAS FIELD
 -- ---------------------------------------------------------------------------------------------------------------------------------
 ACTIONX
@@ -591,42 +531,11 @@ OP03     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   20   5         /
 /
 
 ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX GCONPROD - GAS FIELD MINIMUM GAS RATE OF 2.0E6 M3/DAY THEN SHUT-IN ALL WELLS AND EXIT
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-05                                             /
-        FGPR    <= 2.0E6      AND                          /  Just to Stop the Run and Check FU_GASFL Works
-        FU_GASFL = 1                                       /
-/
---
---       WELL PRODUCTION WELL CONTROLS
---
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
-WCONPROD
-'OP*'    SHUT   1*     1*     1*     1*    1*     1*     1*                    /
-/
---
---       WELL INJECTION CONTROLS
---
--- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
--- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
-WCONINJE
-'GI*'    GAS    SHUT   GRUP  1*     1*     1*     1*    1*                     /
-'WI*'    WAT    SHUT   GRUP  1*     1*     1*     1*    1*                     /
-/
--- --
--- --       TERMINATE AND EXIT SIMULATION (WORKS BUT NO RSM FILE, SO COMMENT OUT FOR NOW)
--- --
--- EXIT
---          0                              /
---
-ENDACTIO
 
 PYACTION
-PRINT UNLIMITED /
-'actionx_wconprod_print.py' /
+WCONPROD_PYACTION UNLIMITED /
+'pyaction_wconprod_insert_kw.py' /
+
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- SCHEDULE SECTION - 2018-01-01
