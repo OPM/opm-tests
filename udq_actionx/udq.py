@@ -5,7 +5,7 @@
 #   DEFINE WULPRU (WLPR OPU01 - 300) * 0.80 /
 # /
 
-def run(ecl_state, schedule, report_step, summary_state, actionx_callback):
+def run(ecl_state, schedule, report_step, summary_state):
     for udq,var,src_well,target_well, shift,factor in [("WUOPRL", "WOPR", "OPL01", "OPL02", 150, 0.90),
                                                        ("WULPRL", "WLPR", "OPL01", "OPL02", 200, 0.90),
                                                        ("WUOPRU", "WOPR", "OPU01", "OPU02", 250, 0.80),
