@@ -1,0 +1,122 @@
+---------------------------------------------------------------------------
+------------------------ DEFORMED CELL ------------------------------------
+---------------------------------------------------------------------------
+-- Test LGR for a single deformed cell
+--
+RUNSPEC
+---------------------------------------------------------------------------
+
+TITLE
+   DEFORMED CELL
+
+DIMENS
+  1 1 1 /
+
+-- The number of equilibration regions is inferred from the EQLDIMS
+-- keyword.
+EQLDIMS
+/
+
+-- The number of PVTW tables is inferred from the TABDIMS keyword;
+-- when no data is included in the keyword the default values are used.
+TABDIMS
+/
+
+WATER
+
+START
+   1 'JAN' 2015 /
+
+UNIFOUT
+
+GRID
+
+CARFIN
+--NAME I1-I2 J1-J2 K1-K2 NX NY NZ
+'LGR1'  1  1  1  1  1  1  2  2  2 /
+ENDFIN
+
+
+-- The INIT keyword is used to request an .INIT file. The .INIT file
+-- is written before the simulation actually starts, and contains grid
+-- properties and saturation tables as inferred from the input
+-- deck. There are no other keywords which can be used to configure
+-- exactly what is written to the .INIT file.
+INIT
+
+---------------------------------------------------------------------------
+-----  X1 Y1 Z1 X2 Y2 Z2
+-- --- --- ---- --- --- ----
+COORD
+ 0 0 1     0 0 6
+ 6 0 1     6 0 6
+ 0 4 1     0 4 6
+ 6 4 1     6 4 6
+/
+
+ZCORN
+0  0.5 0 0.5  -- deformed top
+0.5 2. 0.5 2. -- deformed bottom
+/
+
+ACTNUM
+1
+/
+
+PORO
+   1*0.3 /
+
+PERMX
+-- The layers have perm. 500mD, 50mD and 200mD, respectively.
+	1*500  /
+
+PERMY
+-- Equal to PERMX
+	1*500 /
+
+PERMZ
+-- Cannot find perm. in z-direction in Odeh's paper
+-- For the time being, we will assume PERMZ equal to PERMX and PERMY:
+	1*500  /
+
+ECHO
+
+PROPS
+
+PVTW
+-- Item 1: pressure reference (psia)
+-- Item 2: water FVF (rb per bbl or rb per stb)
+-- Item 3: water compressibility (psi^{-1})
+-- Item 4: water viscosity (cp)
+-- Item 5: water 'viscosibility' (psi^{-1})
+
+-- Using values from Norne:
+-- In METRIC units:
+-- 	277.0 1.038 4.67E-5 0.318 0.0 /
+-- In FIELD units:
+    	4017.55 1.038 3.22E-6 0.318 0.0 /
+
+DENSITY
+-- Density (lb per ft³) at surface cond. of
+-- oil, water and gas, respectively (in that order)
+
+-- Using values from Norne:
+-- In METRIC units:
+--      859.5 1033.0 0.854 /
+-- In FIELD units:
+	53.66 64.49 0.0533 /
+
+REGIONS
+
+SOLUTION
+
+PRESSURE
+0. /
+
+SCHEDULE
+
+TSTEP
+--Advance the simulater once a month for ONE years:
+31 28 31 30 31 30 31 31 30 31 30 31
+/
+END
