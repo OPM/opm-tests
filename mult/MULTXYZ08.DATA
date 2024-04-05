@@ -1,0 +1,191 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018-2024 Equinor
+
+-- This model is for testing MULTX, MULX-, MULTY, MULTY-, MULTZ, MULTZ- in the SCHEDULE Section
+-- It tests multiple occurences of MULTX there. All multipliers there should be applied cumulatively.
+
+-- ------------------------------------------------------------------------
+-- ----------------------- BASE MODEL 1 -----------------------------------
+-- ------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 3 2 3  /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+--
+GRIDOPTS
+ 'YES'	      2 / 
+
+EQLDIMS
+ 1 1*  25 /
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   1          1       1*            1    /
+
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  1 	    3 	          3	     1   /
+
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         2         60 /
+
+--
+FAULTDIM
+ 10 /         -- max. number os fault segments
+
+
+UNIFIN
+UNIFOUT
+
+--FMTOUT
+
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1 /
+
+--
+INIT
+
+INCLUDE
+ './include/t1_3x2x3.grdecl' /
+
+NTG
+ 18*0.9 /
+
+PORO
+ 18*0.25 /
+ 
+PERMX
+ 18*100.0 /
+  
+PERMZ
+ 18*10.0 /
+
+COPY
+ PERMX PERMY /
+/
+
+RPTGRID
+ 'ALLNNC'  'MULTREGT'  'MULTX'  'TRANX' /
+ 
+
+
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/norne_pvt.inc' /
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTRST
+  'BASIC=2' /
+  
+EQUIL
+-- Datum    P     woc     Pc   goc       Pc  Rsvd  Rvvd N
+ 2100.0  300.0  2100   0.0   1000.00  0.0   1     1   0 /  
+
+
+PBVD
+ 1000   125.0 
+ 3000   125.0 
+/
+
+PDVD
+ 1000   125.0 
+ 3000   125.0 
+/
+ 
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+--INCLUDE
+-- 'include/summary.inc' /
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+ 
+RPTRST
+  'BASIC=2' /
+  
+RPTSCHED
+  'MULT' /
+
+TSTEP
+ 0.1 /
+ 
+MULTX
+ 18*0.3 / 
+
+MULTX
+ 18*0.2 / 
+
+MULTX
+ 18*0.1 / 
+
+TSTEP
+ 0.1 /
+ 
+END
+ 
