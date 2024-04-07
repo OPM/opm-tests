@@ -1,0 +1,227 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+WELSPECS
+ 'E-1H' 'E1' 8 8 2551.76 'GAS' 2* 'STOP' /
+/
+
+COMPDAT
+ 'E-1H' 8 8 1 12 'OPEN' 2* 0.216 3* 'X' /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1855.760    0.000  1053670 / 
+ 'E-2H' SHUT  'RESV'    0.000    0.000        0 / 
+/
+
+DATES
+ 11 'JAN' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1855.760    0.000  1055005 / 
+/
+
+DATES
+ 21 'JAN' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1855.760    0.000  1055850 / 
+/
+
+DATES
+ 26 'JAN' 2019 12:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1855.760    0.000  1056323 / 
+/
+
+DATES
+ 01 'FEB' 2019 00:00:00 /
+/
+
+WELSPECS
+ 'E-2H' 'E1' 7 27 2544.75 'GAS' 2* 'STOP' /
+/
+
+COMPDAT
+ 'E-2H' 7 27 1 10 'OPEN' 2* 0.216 3* 'X' /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1021.448    0.000   581448 / 
+ 'E-2H' OPEN  'RESV'  992.732    0.000   566605 / 
+/
+
+DATES
+ 11 'FEB' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1045.928    0.000   595831 / 
+ 'E-2H' OPEN  'RESV'  968.252    0.000   553996 / 
+/
+
+DATES
+ 20 'FEB' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1052.088    0.000   599757 / 
+ 'E-2H' OPEN  'RESV'  962.092    0.000   551208 / 
+/
+
+DATES
+ 01 'MAR' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1087.260    0.000   620412 / 
+ 'E-2H' OPEN  'RESV'  987.186    0.000   566429 / 
+/
+
+DATES
+ 11 'MAR' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1122.459    0.000   641153 / 
+ 'E-2H' OPEN  'RESV' 1012.252    0.000   581612 / 
+/
+
+DATES
+ 21 'MAR' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1123.942    0.000   642495 / 
+ 'E-2H' OPEN  'RESV' 1010.768    0.000   581283 / 
+/
+
+DATES
+ 26 'MAR' 2019 12:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1124.796    0.000   643283 / 
+ 'E-2H' OPEN  'RESV' 1009.915    0.000   581094 / 
+/
+
+DATES
+ 01 'APR' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1150.836    0.000   658813 / 
+ 'E-2H' OPEN  'RESV' 1031.955    0.000   594426 / 
+/
+
+DATES
+ 11 'APR' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1178.139    0.000   675178 / 
+ 'E-2H' OPEN  'RESV' 1052.730    0.000   607175 / 
+/
+
+DATES
+ 21 'APR' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1178.950    0.000   676189 / 
+ 'E-2H' OPEN  'RESV' 1051.919    0.000   607282 / 
+/
+
+DATES
+ 26 'APR' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1179.331    0.000   676766 / 
+ 'E-2H' OPEN  'RESV' 1051.537    0.000   607435 / 
+/
+
+DATES
+ 01 'MAY' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1199.659    0.000   689002 / 
+ 'E-2H' OPEN  'RESV' 1068.976    0.000   618112 / 
+/
+
+DATES
+ 11 'MAY' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1220.914    0.000   701984 / 
+ 'E-2H' OPEN  'RESV' 1085.491    0.000   628487 / 
+/
+
+DATES
+ 21 'MAY' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1221.409    0.000   702846 / 
+ 'E-2H' OPEN  'RESV' 1084.994    0.000   628783 / 
+/
+
+DATES
+ 26 'MAY' 2019 12:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1221.750    0.000   703389 / 
+ 'E-2H' OPEN  'RESV' 1084.655    0.000   628933 / 
+/
+
+DATES
+ 01 'JUN' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1237.248    0.000   713041 / 
+ 'E-2H' OPEN  'RESV' 1097.754    0.000   637262 / 
+/
+
+DATES
+ 11 'JUN' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1253.903    0.000   723506 / 
+ 'E-2H' OPEN  'RESV' 1109.700    0.000   645029 / 
+/
+
+DATES
+ 21 'JUN' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1254.797    0.000   724661 / 
+ 'E-2H' OPEN  'RESV' 1108.806    0.000   645101 / 
+/
+
+DATES
+ 26 'JUN' 2019 00:00:00 /
+/
+
+WCONHIST
+ 'E-1H' OPEN  'RESV' 1255.737    0.000   725608 / 
+ 'E-2H' OPEN  'RESV' 1107.866    0.000   644941 / 
+/
+
+DATES
+ 01 'JUL' 2019 00:00:00 /
+/
+
