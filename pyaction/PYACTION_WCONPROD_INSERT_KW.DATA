@@ -323,10 +323,6 @@ ALL
 --
 --       USER CREATED EXPORT SUMMARY VARIABLE VECTORS TO FILE
 --
-FU_GASFL
-FU_CUTBK
-FU_EPSL
-FU_GOR
 
 WU_WOPR
 /
@@ -478,10 +474,7 @@ UDQ
 --
 ASSIGN      FU_CUTBK  0.900                                 / Cut Back Ratio
 UNITS       FU_CUTBK  Constant                              /
-ASSIGN      FU_EPSL   1E-10                                 / Value to avoid diving by zero errors
-UNITS       FU_EPSL   Constant                              /
-ASSIGN      FU_GOR    150.0                                 / GOR limit applied to all wells
-UNITS       FU_GOR    SM3/SM3                               /
+
 --
 -- OPERATOR VARIABLE  EXPRESSION
 --
