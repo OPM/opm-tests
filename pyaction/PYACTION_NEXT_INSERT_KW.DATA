@@ -3,10 +3,11 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2021 Equinor
+-- Copyright (C) 2015-2024 Equinor ASA
 
--- This model is based on the MODEL05 (20, 30, 10) model and has been modified to test the NEXT keyword with the ACTIONX 
+-- This model is based on the MODEL05 (20, 30, 10) model and has been modified to test the NEXT keyword with the PYACTION 
 -- keyword.
+-- This model performs the modifications done with ACTIONX keywords in model actionx/ACTIONX_NEXT.DATA, but using PYACTION instead of ACTIONX. 
 --
 -- The model employs Gas Lift with no optimization via the setting a constant gas lift value via the WELTARG keyword, as well
 -- using GCONINJE(GUIPHASE) equal to NETV. NETV defines that guide rates for the group injection and is set according to the groups
@@ -34,8 +35,8 @@
 --      constraint of 20 barsa. The wells are under direct group control.
 -- ( 5) All water injectors are opened with a maximum water injection rate of 4,000 m3/d and a maximum BHP of 225 barsa and are 
 --      subject to group control.  
--- ( 6) ACTIONX – NEXT with 0.5 single step and adds gas lift via WELTARG.
--- ( 7) ACTIONX – NEXT with 1.0 steps going forward, until next NEXT in main deck of 2.5 days.
+-- ( 6) PYACTION – NEXT with 0.5 single step and adds gas lift via WELTARG.
+-- ( 7) PYACTION – NEXT with 1.0 steps going forward, until next NEXT in main deck of 2.5 days.
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
 --       1         2         3         4         5         6         7         8         9         0         1         2         3  
@@ -51,7 +52,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN  
 --
 TITLE                                                                           
-OPM_TESTS: ACTIONX_NEXT
+OPM_TESTS: PYACTION_NEXT_INSERT_KW
 --
 --       DEFINE THE START DATE FOR THE RUN 
 --
@@ -387,52 +388,9 @@ TUNING
 --
 NUPCOL                                                                          
          4                                                                     /
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX – NEXT AND ADD GAS LIFT
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-01                                             /
-        DAY  >= 15            AND                          /
-        MNTH = MAR            AND                          /
-        YEAR = 2021                                        /
-/
---
---       NEXT   ALL
---       STEP   TIME
---       ----   ----
-NEXT
-         0.5    NO                                         / 
---
---       WELL PRODUCTION AND INJECTION TARGETS                                                      
---                                                                              
---  WELL WELL   TARGET                                                       
---  NAME TARG   VALUE                                                        
-WELTARG                                             
-B-1H     LIFT   63000.0                                    /
-B-2H     LIFT   63000.0                                    /
-B-3H     LIFT   63000.0                                    /
-C-1H     LIFT   63000.0                                    /
-C-2H     LIFT   63000.0                                    /
-/                                                                               
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX – NEXT
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-02                                             /
-        DAY  >= 1             AND                          /
-        MNTH = SEP            AND                          /
-        YEAR = 2021                                        /
-/
---
---       NEXT   ALL
---       STEP   TIME
---       ----   ----
-NEXT
-         1.0    YES                                        / 
-
-ENDACTIO
+PYACTION
+COMPDAT_PYACTION UNLIMITED /
+'pyaction_next_insert_kw.py' /
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- GROUP PRODUCTION AND INJECTION CONTROLS                                      
 -- ---------------------------------------------------------------------------------------------------------------------------------
