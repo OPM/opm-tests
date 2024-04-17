@@ -12,7 +12,7 @@ if (not 'setup_done' in locals()):
 current_time = schedule.start + datetime.timedelta(seconds=summary_state.elapsed())
 
 if (current_time.day >= 15 and current_time.month == 3 and current_time.year == 2021 and not executed[0]):
-    print("PYACTION version of ACT-01 triggered at {}\n".format(current_time))
+    opm_embedded.OpmLog.info("PYACTION version of ACT-01 triggered at {}\n".format(current_time))
     kw = """
     --
     --       NEXT   ALL
@@ -36,7 +36,7 @@ if (current_time.day >= 15 and current_time.month == 3 and current_time.year == 
     schedule.insert_keywords(kw)
     executed[0] = True
 if (current_time.day >= 1 and current_time.month == 9 and current_time.year == 2021 and not executed[1]):
-    print("PYACTION version of ACT-02 triggered at {}\n".format(current_time))
+    opm_embedded.OpmLog.info("PYACTION version of ACT-02 triggered at {}\n".format(current_time))
     kw = """
     --
     --       NEXT   ALL
