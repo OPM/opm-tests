@@ -16,7 +16,7 @@ if (not 'setup_done' in locals()):
 
 current_time = schedule.start + datetime.timedelta(seconds=summary_state.elapsed())
 
-days_since_last_update = [(current_time - last_updated_at[0]).total_seconds()/3600/24, (current_time - last_updated_at[1]).total_seconds()/3600/24, (current_time - last_updated_at[2]).total_seconds()/3600/24]
+days_since_last_update = [(current_time - i).total_seconds()/3600/24 for i in last_updated_at]
 wells_WGOR = [summary_state.well_var("OP01", "WGOR"), summary_state.well_var("OP02", "WGOR"), summary_state.well_var("OP03", "WGOR")]
 
 for i in range(3):
