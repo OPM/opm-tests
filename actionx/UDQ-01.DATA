@@ -1,0 +1,223 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+-- This test case is testing ACTIONX with undefined UDQ variables. Before UDQ 
+-- variables are defined/initialized with ASSIGN or DEFINE these are treated as 
+-- undefined variables. Undefined variables should return the value specified 
+-- in keyword UDQPARAM item 3.
+
+-- The variable FUVAR1 is undefined when this is being used as a condition in 
+-- the ACTIONX keyword. 
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 1 1 3 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'		0 /
+
+
+EQLDIMS
+ 1 1*  25 /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 1         20           30        30   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+
+--
+UNIFIN
+UNIFOUT
+
+
+UDQDIMS
+ 16  16 1*  5 /
+
+ACTDIMS
+ 3* 5 /
+ 
+UDQPARAM
+ 2*  0.88 /
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+SPECGRID
+  1  1  3  1  F  /
+
+COORD
+       0.0   0.0 2000.0     0.0   0.0 2009.0
+     100.0   0.0 2000.0   100.0   0.0 2009.0
+       0.0 100.0 2000.0     0.0 100.0 2009.0
+     100.0 100.0 2000.0   100.0 100.0 2009.0 /
+
+
+ZCORN
+   2000.00 2000.00 2000.00 2000.00 2003.00 2003.00 2003.00 2003.00
+   2003.00 2003.00 2003.00 2003.00 2005.00 2005.00 2005.00 2005.00
+   2005.00 2005.00 2005.00 2005.00 2009.00 2009.00 2009.00 2009.00  /
+
+
+PORO
+ 3*0.25 /
+
+PERMX
+ 3*2100 /
+
+PERMZ
+ 3*210  /
+
+
+COPY
+ PERMX PERMY /
+/
+
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+ 'include/PVT-WET-GAS.INC' /
+
+
+SWOF
+ 0.0 0.0 1.0 0.0
+ 0.8 0.7 0.0 0.0
+ 1.0 1.0 0.0 0.0
+/
+
+SGOF
+ 0.0 0.0 1.0 0.0
+ 0.8 1.0 0.0 0.0
+/
+
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTSOL
+SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc      Pc  Rsvd  Rvvd  N
+2000.00  500.56  2100.0   0.0  1281.00  0.0   1    1   0 /
+
+RSVD
+ 2000.0  122.30
+ 2100.0  122.30 /
+
+RVVD
+ 2000.0  1E-4
+ 2100.0  1E-4 /
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+WBHP
+/
+
+WOPR
+/
+
+BPR
+ 1 1 1 /
+ 1 1 3 /
+/
+
+DATE
+
+
+FUVAR1
+
+FUVAR2
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+
+WELSPECS
+   'D-1H'   'TEST'   1   1  1*       'OIL'  2*      'STOP'  4* /
+/
+
+COMPDAT
+-- WELL     I   J  K1   K2            Sat.      CF        DIAM    KH SKIN ND      DIR   Ro
+   'D-1H'   1   1   1	1      'OPEN'  1*       1* 	  0.216    1*  2*         'Z'    1*  /
+/
+
+WCONPROD
+  'D-1H'  OPEN  ORAT  55.0  4*  55.0  /
+/
+
+ACTIONX
+ACT-01 10 0.0 /
+FUVAR1 > 0.25 AND  /
+DAY  >= 20    AND  /
+MNTH = OCT    AND  /
+YEAR = 2018        /
+/
+
+UDQ
+ASSIGN FUVAR2 5.55 /
+/
+
+ENDACTIO
+
+
+TSTEP
+ 0.1 0.2 0.3 0.5 1 10*2  /
+
+
+END
