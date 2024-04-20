@@ -1,0 +1,264 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+-- This deck tests usage of WECON and item 10 = RATE. 
+
+-- The minimum rate limit should not be applied for wells under group control
+-- if the target production rate is 0.0. 
+
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 6 5 7 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'		0 / 
+
+
+EQLDIMS
+ 1 1*  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   1          4       1*            0    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  2        4            10        10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+
+--
+UNIFIN
+UNIFOUT
+
+--
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+'include/mod2_6x5x7.grdecl' /
+
+PORO
+ 30*0.25
+ 30*0.22
+ 30*0.17
+ 30*0.28
+ 30*0.14
+ 30*0.23
+ 30*0.22 /
+ 
+PERMX
+ 30*2100
+ 30*1200
+ 30*800
+ 30*2500
+ 30*10
+ 30*1700
+ 30*1200 /
+
+PERMZ
+ 30*210
+ 30*120
+ 30*80
+ 30*250
+ 30*1
+ 30*170
+ 30*120 /
+
+NTG
+ 30*0.95
+ 30*0.88
+ 30*0.85
+ 30*0.70
+ 30*0.14
+ 30*0.77
+ 30*0.82 /
+
+
+COPY
+ PERMX PERMY /
+/
+
+
+RPTGRID
+ 'ALLNNC' /
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+SWOF
+-- SATNUM: 1 
+-- Sw	  Krw	     Krow    Pcow
+0.150	0.000	   1.000     0.0
+0.800   0.750      0.000     0.0 
+1.000   1.000      0.000     0.0  /
+
+SGOF
+-- Sg    krg    krog    pcgo
+0.000   0.000   1.000   0.000
+0.700     1*    0.000   0.000  
+0.850   1.000   0.000   0.000  /
+
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 210*1 /
+ 
+SATNUM
+ 210*1 /
+
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+2281.00  268.56  2545.0   0.0  2281.00  0.0   1   0   0 /   C,D, and I segments: 		Not 2
+
+RSVD
+ 2581.78  122.30
+ 2597.0   110.00
+ 2660.7   106.77
+ 2697.0   106.77 /
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+WBHP
+ D-1H /
+
+WOPR
+ D-1H /
+
+WMCTL
+ D-1H /
+
+
+
+-----------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+-- Start of Simulation: 10 'OCT' 2018
+
+GRUPTREE
+ 'PLAT-A'  'FIELD' /
+ 'D1'      'PLAT-A' /
+/  
+
+TUNING
+ 1.0 5.0  /
+ /
+ /
+
+WELSPECS 
+  'D-1H'   'D1'   2   2  1*       'OIL'  2*      'SHUT'  4* /
+/
+
+COMPDAT 
+-- WELL     I   J  K1   K2          Sat.   CF   DIAM   KH  SKIN  ND   DIR   Ro 
+  'D-1H'   2   2   1	4    'OPEN'  1*    1*	0.216   1*  1*   1*   'Z'   1* /
+/
+
+
+WCONPROD
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate   RFV  FBHP   WHP  VFP Glift
+  'D-1H'      SHUT    GRUP  150.0  1*     1*    3000.0  1*   100.0  1*   1*   1*  /
+/
+
+DATES
+ 1 NOV 2018 /
+/
+
+GCONPROD
+  'PLAT-A' 'ORAT' 0 3* 'RATE' /
+/
+
+WELOPEN
+  'D-1H' 'OPEN' /
+/
+
+WECON
+  'D-1H' 75 7* 'RATE' /
+/
+
+DATES
+ 1 DEC 2018 /
+/
+
+GCONPROD
+  'PLAT-A' 'ORAT' 100 3* 'RATE' /
+/
+
+DATES
+ 1 JAN 2019 /
+/
+
+
+
+END
