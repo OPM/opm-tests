@@ -3,9 +3,9 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2021 Equinor
+-- Copyright (C) 2015-2024 Equinor ASA
 
--- This simulation is based on the data given in Ninth SPE Comparative Solution Project:
+-- This model is built from the ACTIONX_WTEST.DATA file that is based on the data given in Ninth SPE Comparative Solution Project:
 --
 --    "A Reexamination of Black-Oil Simulation", by J.E. Killough, Journal of Petroleum Technology, 1995
 --
@@ -20,12 +20,12 @@
 --       (2) NEWTRAN has been added to this input deck but is not required as OPM Flow only has this option.
 --       (3) This is the corner-point geometry version of SPE09.
 --
--- The model has been modified to test both the WECON and WTEST keywords as follows:
+-- The model has been modified to test both the WECON and WTEST keywords with the PYACTION keyword as follows:
 -- ( 1) All wells have there initial rates set at the begining of the run with no additional changes and their BHP datum depth
 --      defaulted instead of set to 9110 ft.
 -- ( 2) Initial WECON - defines well economic limits ORAT=NONE     , WCUT=0.95 and GOR=2.0 Mscf/stb.
--- ( 3) ACTIONX WECON - defines well economic limits ORAT=100 stb/d, WCUT=0.95 and GOR=3.0 Mscf/stb.
--- ( 4) ACTIONX WECON - defines well economic limits ORAT=100 stb/d, WCUT=0.95 and GOR=4.0 Mscf/stb.
+-- ( 3) PYACTION WECON - defines well economic limits ORAT=100 stb/d, WCUT=0.95 and GOR=3.0 Mscf/stb.
+-- ( 4) PYACTION WECON - defines well economic limits ORAT=100 stb/d, WCUT=0.95 and GOR=4.0 Mscf/stb.
 --      WELL     TST    TST    NO.    STRT
 --      NAME     INTV   TYPE   TSTS   TIME
 --      ----     ----   ----   ----   ----
@@ -50,7 +50,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-OPM_TESTS: ACTIONX_WTEST
+OPM_TESTS: PYACTION_WTEST
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -423,6 +423,8 @@ BGSAT
 BWSAT
          10   25   15   /
 /
+GOPR
+    'FIELD'/ -- Thís variable needs to be requested specifically, otherwise its not available in the pyaction script.
 
 -- =================================================================================================================================
 --
@@ -440,53 +442,9 @@ RPTSCHED
 --
 RPTRST
          BASIC=5                                                               /
-
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WECON - DEFINE WELL ECONOMIC LIMITS ORAT=100 STB/D, WCUT=0.95 AND GOR=3.0 MSFD/STB
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-01                                             /
-        DAY  >= 1             AND                          /
-        MNTH  = JUN           AND                          /
-        YEAR  = 2021                                       /
-/
---
---       WELL ECONOMIC CRITERIA FOR PRODUCTION WELLS
--- WELL  MIN    MIN    MAX    MAX    MAX    CNTL    END   WELL
--- NAME  ORAT   GRAT   WCUT   GOR    WGR    MODE    RUN   NAME
-WECON
-'OP*'    100    1*     0.95   3.0    1*     CON    'NO'                        /
-/
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WECON - DEFINE WELL ECONOMIC LIMITS ORAT=100 STB/D, WCUT=0.95 AND GOR=4.0 MSFD/STB AND WTEST
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-02                                             /
-        DAY   = 1              AND                         /
-        MNTH >= JAN            AND                         /
-        YEAR >= 2022           AND                         /
-        GOPR 'FIELD' <= 15000                              /
-/
---
---       WELL ECONOMIC CRITERIA FOR PRODUCTION WELLS
--- WELL  MIN    MIN    MAX    MAX    MAX    CNTL    END   WELL
--- NAME  ORAT   GRAT   WCUT   GOR    WGR    MODE    RUN   NAME
-WECON
-'OP*'    100    1*     0.95   4.0    1*     CON    'NO'                        /
-/
---
---       WELL TESTING CRITERIA FOR RE-OPENING CLOSED WELLS
---
--- WELL  TST    TST    NO.    STRT
--- NAME  INTV   TYPE   TSTS   TIME
--- ----  ----   ----   ----   ----
-WTEST
-'OP0*'   30.0   PE     1      0.0                                              /
-'OP1*'   30.0   PE     2     15.0                                              /
-'OP2*'   30.0   PE     3     30.0                                              /
-/
-ENDACTIO
+PYACTION 
+PYACTION_WTEST UNLIMITED /
+'pyaction_wtest_insert_kw.py' /
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- SCHEDULE SECTION - 2021-01-01
