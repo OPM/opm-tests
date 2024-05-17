@@ -3,15 +3,16 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2021 Equinor
+-- Copyright (C) 2015-2024 Equinor ASA
 
--- This model is built from the base case for model2. This case has standard wells, 3 producers and 2 injectors
+-- This model is built from the ACTIONX_GCONSUMP.DATA file that is built from the base case for model2.
+-- This case has standard wells, 3 producers and 2 injectors
 -- Well OP03  has modified completions compared to the base case model
 -- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
 --
--- The model tests the use of the ACTIONX and the GCONSUMP keyword to consume fuel at various stages. In addition, the GCONPROD
+-- The model tests the use of the PYACTION and the GCONSUMP keyword to consume fuel at various stages. In addition, the GCONPROD
 -- keyword is employed to control gas production. This run is a prediction depletion case, with no pressure support from the
--- producers or injectors, and with the field converted to a gas field operation with the ACTIONX ACT-02 block.
+-- producers or injectors, and with the field converted to a gas field operation with the PYACTION ACT-02 block.
 -- ( 1) Production wells with preferred phases.
 --      OP01  - OIL
 --      OP02  - OIL
@@ -19,8 +20,8 @@
 -- ( 2) Injection wells with preferred phases.
 --      GI01 - GAS (not active)
 --      WI01 - WAT (not active)
--- ( 3) ACTIONX GCONSUMP - Set max gas rate for when GOR >= 150 m3/m3 and increase gas consumption.
--- ( 4) ACTIONX GCONSUMP - Once GOR >= 200 m3/m3 and OPR <=1500 m3/d then convert to gas field with increased gas consumption.
+-- ( 3) PYACTION GCONSUMP - Set max gas rate for when GOR >= 150 m3/m3 and increase gas consumption.
+-- ( 4) PYACTION GCONSUMP - Once GOR >= 200 m3/m3 and OPR <=1500 m3/d then convert to gas field with increased gas consumption.
 --
 -- Although the case runs, we are unable to check the gas sales and fuel gas consumption volumes as the required summary vectors
 -- are currently not written out.
@@ -35,7 +36,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-OPM_TESTS: ACTIONX_GCONSUMP
+OPM_TESTS: PYACTION_GCONSUMP
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -287,7 +288,7 @@ THPRES
          1       2                                         / REGN 1 TO REGN 2
 /
 --
---       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)f
 --
 RPTRST
          'BASIC=2'   'PBPD'                                /
@@ -324,6 +325,14 @@ GGCR
 /
 GGCT
 /
+
+GGOR
+    'FIELD'/ -- Thís variable needs to be requested specifically, otherwise its not available in the pyaction script.
+GGOR
+    'PROD'/ -- Thís variable needs to be requested specifically, otherwise its not available in the pyaction script.
+GOPR
+    'PROD'/ -- Thís variable needs to be requested specifically, otherwise its not available in the pyaction script.
+
 
 -- =================================================================================================================================
 --
@@ -462,71 +471,9 @@ WELOPEN
 OP01     OPEN                                                                  /
 OP01     OPEN     0   0    0                                                   /
 /
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX GCONSUMP - SET MAX GAS RATE FOR WHEN GOR >= 150 M3/M3 AND INCREASE GAS CONSUMPTION
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-01                                             /
-        GGOR 'PROD' >= 150    AND                          /
-        MNTH >= JAN           AND                          /
-        YEAR >= 2019                                       /
-/
---
---       GROUP PRODUCTION CONTROLS
---
--- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
--- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
-GCONPROD
-FIELD    GRAT  1*     1*    300E3   1*     1*     1*    1*     1*     1*       /
-/
---
---       GROUP GAS CONSUMPTION (FUEL) AND IMPORT
---
--- GRUP   GAS      GAS
--- NAME   FUEL    IMPORT
---       ------   -------
-GCONSUMP
-PROD     25E3                                                                  /
-/
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX GCONSUMP - CONVERT TO GAS FIELD WITH INCREASED GAS CONSUMPTION
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-02                                             /
-        GGOR 'FIELD' >= 200   AND                          /
-        GOPR 'PROD'  <= 1500                               /
-/
---
---       GROUP PRODUCTION CONTROLS
---
--- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
--- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
-GCONPROD
-FIELD    GRAT  1*     1*     400E3  1*     1*     1*    1*     1*     1*       /
-/
---
---       GROUP GAS CONSUMPTION (FUEL) AND IMPORT
---
--- GRUP   GAS      GAS
--- NAME   FUEL    IMPORT
---       ------   -------
-GCONSUMP
-PROD     50E3                                                                  /
-/
---
---       WELL PRODUCTION WELL CONTROLS
---
--- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
--- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
-WCONPROD
-OP01     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   12   5         /
-OP02     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   12   5         /
-OP03     OPEN   GRUP   1*     1*     1*    1*     1*     50.0   12   5         /
-/
-
-ENDACTIO
+PYACTION
+PYACTION_GCONSUMP UNLIMITED /
+'pyaction_gconsump_insert_kw.py' /
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- SCHEDULE SECTION - 2018-01-01
