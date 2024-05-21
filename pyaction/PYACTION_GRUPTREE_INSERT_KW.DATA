@@ -3,9 +3,12 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2021 Equinor
+-- Copyright (C) 2015-2024 Equinor ASA
 
--- This model is built from the base case for model2. This case has standard wells, 3 producers and 2 injectors
+-- This model is built from the ACTIONX_GRUPTREE.DATA file and has been modified to test the GRUPTREE keyword with the PYACTION keyword.
+-- This model performs the modifications done with ACTIONX keywords in actionx/ACTIONX_GRUPTREE.DATA, but using PYACTION instead of ACTIONX. 
+
+-- This case has standard wells, 3 producers and 2 injectors
 -- Well OP03  has modified completions compared to the base case model
 -- The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development
 --
@@ -18,9 +21,9 @@
 -- ( 2) Injection wells with preferred phase (GAS, WATER)
 --      GI01 - GAS
 --      WI01 - WAT
--- ( 3) ACTIONX WGRUPCON - GI01 and all oil wells on group control with guide rates under the MAIN group.
--- ( 4) ACTIONX GRUPTREE - All producers on group control and each producer is assigned to a different group.
--- ( 5) ACTIONX GRUPTREE - All injectors on group control under separate groups and voidage replacement with water, set to a
+-- ( 3) PYACTION WGRUPCON - GI01 and all oil wells on group control with guide rates under the MAIN group.
+-- ( 4) PYACTION GRUPTREE - All producers on group control and each producer is assigned to a different group.
+-- ( 5) PYACTION GRUPTREE - All injectors on group control under separate groups and voidage replacement with water, set to a
 --      maximum of 4.0E3 m3/day.
 --
 -- =================================================================================================================================
@@ -33,7 +36,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-OPM_TESTS: ACTIONX_GRUPTREE
+OPM_TESTS: PYACTION_GRUPTREE
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -300,7 +303,8 @@ SUMMARY
 --       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION
 --
 ALL
-
+GGOR
+    'FIELD'/ -- Thís variable needs to be requested specifically, otherwise its not available in the pyaction script.
 -- =================================================================================================================================
 --
 -- SCHEDULE SECTION
@@ -436,160 +440,10 @@ WELOPEN
 OP01     OPEN                                                                  /
 OP01     OPEN     0   0    0                                                   /
 /
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WGRUPCON - GI01 AND OIL WELLS ON GROUP CONTROL WITH GUIDE RATES UNDER THE MAIN GROUP
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-01                                             /
-        GGOR 'FIELD' >= 150.0  AND                         /
-        MNTH >= 'FEB'          AND                         /
-        YEAR >= 2018                                       /
-/
---
---       GROUP PRODUCTION CONTROLS
---
--- GRUP  CNTL  OIL    WAT    GAS    LIQ    CNTL  GRUP  GUIDE  GUIDE  CNTL
--- NAME  MODE  RATE   RATE   RATE   RATE   OPT   CNTL  RATE   DEF    WAT
-GCONPROD
-FIELD    GRAT  1*     1*    400E3   1*     1*    1*    1*     1*     1*       /
-MAIN     FLD                                                                  /
-/
---
---       GROUP INJECTION TARGETS AND CONSTRAINTS
---
--- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
--- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
-GCONINJE
-FIELD    GAS   REIN  400E3   1*     0.95   1*    1*    1*     1*    1*    1*   /
-/
---
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
---
---  WELL WELL   --LOCATION--  COMPLETION
---  NAME STAT     I   J    K  FIRST LAST
-WELOPEN
-GI01     OPEN                                                                  /
-GI01     OPEN     0   0    0                                                   /
-/
---
---       DEFINE WELL GUIDES FOR GROUP CONTROL
---
--- WELL  GRUP  GUIDE  GUIDE  SCALE
--- NAME  CNTL  RATE   PHASE  FACT
-WGRUPCON
-'GI*'    YES   0.5    RAT    1.0                           /
-OP01     YES   0.5    OIL    1.0                           /
-OP02     YES   0      OIL    1.0                           /
-OP03     YES   0      OIL    1.0                           /
-/
 
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX GRUPTREE - ALL PRODUCERS ON GROUP CONTROL AND EACH PRODUCER IS ASSIGNED TO A DIFFERENT GROUP
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-02                                             /
-        WGIR  GI01 > 0.0    AND                            /
-        WWIR  WI01 = 0.0    AND                            /
-        MNTH      >= 1.9    AND                            /
-        YEAR      >= 2018.9                                /
-/
---
---       DEFINE GROUP TREE HIERARCHY
---
---       LOWER     HIGHER
---       GROUP     GROUP
-GRUPTREE
-         PROD      FIELD                                  /
-         PROD01    PROD                                   /
-         PROD02    PROD                                   /
-         PROD03    PROD                                   /
-/
---
---       WELL SPECIFICATION DATA
---
--- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP
--- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM
-WELSPECS
-OP01     PROD01     6    3   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
-OP02     PROD02    10    4	  1*	   OIL    0.00	  STD    SHUT   YES 	0     SEG     /
-OP03     PROD03     6   19   1*     OIL    0.00   STD    SHUT   YES  0     SEG     /
-/
---
---       DEFINE WELL GUIDES FOR GROUP CONTROL
---
--- WELL  GRUP  GUIDE  GUIDE  SCALE
--- NAME  CNTL  RATE   PHASE  FACT
-WGRUPCON
-OP01     YES   1*     OIL    1.0                           /
-OP02     YES   1*     OIL    1.0                           /
-OP03     YES   1*     OIL    1.0                           /
-/
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX GRUPTREE - ALL INJECTORS ON GROUP CONTROL UNDER SEPARATE GROUPS AND VOIDAGE REPLACEMENT WITH WATER (MAX 4.0E3 M3/DAY)
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-03                                             /
-        FPR   <= 220.0      AND                            /
-        YEAR  >= 2018                                      /
-/
---
---       GROUP INJECTION TARGETS AND CONSTRAINTS
---
--- GRUP  FLUID CNTL   SURF   RESV   REINJ  VOID  GRUP  GUIDE  GUIDE GRUP  GRUP
--- NAME  TYPE  MODE   RATE   RATE   FRAC   FRAC  CNTL  RATE   DEF   REINJ RESV
-GCONINJE
-FIELD    WAT   VREP  4.0E3   1*     1*     1.0   1*    1*     1*    1*    1*   /
-/
---
---       DEFINE GROUP TREE HIERARCHY
---
---       LOWER     HIGHER
---       GROUP     GROUP
-GRUPTREE
-         INJE      FIELD                                  /
-         GASINJ    INJE                                   /
-         WATINJ    INJE                                   /
-/
---
---       WELL SPECIFICATION DATA
---
--- WELL  GROUP    LOCATION  BHP    PHASE  DRAIN  INFLOW  OPEN  CROSS PVT   DEN  FIP
--- NAME  NAME       I    J  DEPTH  FLUID  AREA   EQUANS  SHUT  FLOW  TABLE CAL  NUM
-WELSPECS
-GI01     GASINJ     2   13   1*     GAS    0.00   STD    SHUT   YES  0     SEG     /
-WI01     WATINJ    12   20   1*     WAT    0.00   STD    SHUT   YES  0     SEG     /
-/
---
---       DEFINE WELL GUIDES FOR GROUP CONTROL
---
--- WELL  GRUP  GUIDE  GUIDE  SCALE
--- NAME  CNTL  RATE   PHASE  FACT
-WGRUPCON
-'GI*'    YES   0      RAT    1.0                           /
-'WI*'    YES   0      RAT    1.0                           /
-/
---
---       DEFINE WELL AND WELL CONNECTIONS FLOWING STATUS
---
---  WELL WELL   --LOCATION--  COMPLETION
---  NAME STAT     I   J    K  FIRST LAST
-WELOPEN
-WI01     OPEN                                                                  /
-WI01     OPEN     0   0    0                                                   /
-/
---
---       WELL INJECTION CONTROLS
---
--- WELL  FLUID  OPEN/  CNTL  SURF   RESV   BHP   THP   VFP
--- NAME  TYPE   SHUT   MODE  RATE   RATE   PRSES PRES  TABLE
-WCONINJE
-WI01     WAT    OPEN   RATE 5.0E3   1*     1*     1*    1*                     /
-/
-
-ENDACTIO
+PYACTION
+GRUPTREE_PYACTION UNLIMITED /
+'pyaction_gruptree_insert_kw.py' /
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- SCHEDULE SECTION - 2018-01-01
