@@ -6,7 +6,7 @@
 -- Copyright (C) 2024 Equinor
 
 -- This model is testing keyword WTMULT. The keyword is used to modify production 
--- constraints for oil, water and liquid.
+-- constraints for gas production and injection.
 
 ------------------------------------------------------------------------------------------------
 
@@ -208,7 +208,7 @@ TUNING
 
 WELSPECS 
   'D-1H'   'TEST'   2   2  1*   'OIL'  2*      'STOP'  4* /
-  'F-1H'   'TEST'   6   4  1*   'WAT'  2*      'STOP'  4* /
+  'F-1H'   'TEST'   6   4  1*   'GAS'  2*      'STOP'  4* /
 /
 
 COMPDAT 
@@ -219,64 +219,52 @@ COMPDAT
 
 
 WCONPROD
- 'D-1H'  'OPEN'  'ORAT'  1000.0  100.0  1* 1100.0  1*  78.0 /
+ 'D-1H'  'OPEN'  'ORAT'  1500.0  1*  0.12E6  1*  1*  78.0 /
 / 
  
 WCONINJE
- 'F-1H'  'WATER'   'OPEN'  'RATE'   3000.0 /
+ 'F-1H'  'GAS'   'OPEN'  'RATE'   3.0E6 /
 / 
 
 GCONINJE
- 'TEST' 'WATER' 'VREP'  10000  2*  1.01 /
+ 'TEST' 'GAS' 'VREP'  5.0E6  2*  1.01 /
 / 
 
 DATES
  12 OCT 2018 /
 /
 
-WTMULT
- 'D-1H'  'ORAT'  0.50 /
-/
 
 DATES
  1 NOV 2018 /
+ 1 DEC 2018 /
+ 1 JAN 2019 /
 /
 
 WTMULT
- 'D-1H'  'ORAT'  1.50 /
- 'D-1H'  'WRAT'  0.50 /
+ 'D-1H'  'GRAT'  1.50 /
 /
 
 DATES
- 1 DEC 2018 /
- 1 JAN 2019 /
  1 FEB 2019 /
  1 MAR 2019 /
  1 APR 2019 /
-/
-
-WTMULT
- 'D-1H'  'WRAT'  2.50 /
-/
-
-DATES 
  1 MAY 2019 /
  1 JUN 2019 /
 /
 
-WTMULT
- 'D-1H'  'LRAT'  0.50 /
-/
- 
-
 DATES 
  1 JUL 2019 /
- 1 AUG 2019 /
- 1 SEP 2019 /
 /
 
 WTMULT
- 'F-1H'  'WRAT'  0.2 /
+ 'F-1H'  'GRAT'  0.05 /
+/
+
+
+DATES
+ 1 AUG 2019 /
+ 1 SEP 2019 /
 /
 
 
