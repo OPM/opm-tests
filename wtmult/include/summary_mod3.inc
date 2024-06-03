@@ -5,6 +5,9 @@
 
 -- Copyright (C) 2024 Equinor
 
+FGPR
+
+FOPR
 
 FPR
 
@@ -51,6 +54,9 @@ WLPRT
 WMCTL
 /
 
+WTHP
+/
+ 
 WWIR
 /
 
@@ -69,3 +75,25 @@ BPR
 
 RPR
 /
+
+GOPR
+/
+
+GWIR
+/
+
+FGLIR
+ 
+GGLIR
+ 'LOWER' /
+ 
+WGLIR
+ 'E-1H' 'E-2H' /
+
+GUGR
+/
+
+GGPR
+/ 
+
+FUGAS
