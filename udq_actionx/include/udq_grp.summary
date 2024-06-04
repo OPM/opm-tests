@@ -1,0 +1,73 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+
+TIMESTEP
+
+WOPR
+/
+
+WWIR
+/
+WGIR
+/
+
+GWIR
+/
+
+GGIR
+/
+
+GOPR
+/
+
+GWPR
+/
+
+GGPR
+/
+
+WBHP
+/
+
+WWCT
+/
+
+WGOR
+/
+
+FPR
+
+RPR
+/
+
+GVPR
+/
+
+GVPT
+/
+
+GVIR
+/
+
+GVIT
+/
+
+ROFT
+ 1 2 /
+/ 
+
+RWFT
+ 1 2 /
+/ 
+
+RGFT
+ 1 2 /
+/ 
+
+GUWIF
+/
