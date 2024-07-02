@@ -219,8 +219,7 @@ NUPCOL
  
 
 NETBALAN
-  -1 0.01 16 1.0e-3 16 /
-
+ -1 0.01 16 1.0E-2 16 /
 
 GRUPTREE
  'PROD'    'FIELD' /
