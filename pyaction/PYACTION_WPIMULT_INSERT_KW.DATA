@@ -3,10 +3,10 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2021 Equinor
+-- Copyright (C) 2015-2024 Equinor ASA
 
 -- This model is built from the base case for model2 to create ../model2/0B_WELPI_MODEL2.DATA and has been modified to test the
--- WPIMULT keyword with the ACTIONX keyword.
+-- WPIMULT keyword with the PYACTION keyword.
 --
 -- The model uses the WELPI keyword to adjust well productivity indices and hence connection factors during the simulation period.
 -- It has five standard wells, 3 producers and 2 injectors, as described below:
@@ -23,13 +23,16 @@
 -- ( 4) Well PROD3 has modified completions compared to the base case model.
 -- ( 5) The water oil contact of equilibrium region 2 has been moved to get a stronger well water cut development.
 --
--- The model has been modified to test the WPIMULT keyword with the ACTIONX keyword, as follows:
+-- The model has been modified to test the WPIMULT keyword with the PYACTION keyword, as follows:
 -- ( 6) The input deck has been re-factored to match the manual style, and with the well declarations declared at the beginning of
 --      the run.
--- ( 7) For this case, instead of the well productivity indices being modified in the deck, they are implemented via the ACTIONX
---      keyword (ACT-01 to ACT04), using the WPIMULT keyword. The multipliers are derived from the WELPI none productivity case
+-- ( 7) For this case, instead of the well productivity indices being modified in the deck, they are implemented via the PYACTION
+--      keyword (pyaction_wpimult_insert_kw.py), using the WPIMULT keyword. The multipliers are derived from the WELPI none productivity case
 --      divided by the WELPI base case run. Thus, results should therefore be close/identical to the original WELPI case.
+
+-- The same modifications using the WPIMULT keyword with the PYACTION keyword are tested with actionx/ACTIONX_WPIMULT.DATA.
 --
+
 -- =================================================================================================================================
 --
 -- RUNSPEC SECTION
@@ -40,7 +43,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN
 --
 TITLE
-OPM_TESTS: ACTIONX_WPIMULT
+OPM_TESTS: PYACTION_WPIMULT
 --
 --       DEFINE THE START DATE FOR THE RUN
 --
@@ -407,84 +410,9 @@ TUNING
 INCLUDE
          '$MODEL2/include/D-1.Ecl'                                             /
 
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WPIMULT CHANGES BASED ON DATE (START DATA 2018-11-01 OR 2018.83561643836)
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-01                                             /
-        DAY  >= 1             AND                          /
-        MNTH = NOV            AND                          /
-        YEAR = 2018                                        /
-/
---
---       DEFINE WELL CONNECTION MULTIPLIERS
---
--- WELL  PI     --LOCATION--  COMPLETION
--- NAME  MULT     I   J    K  FIRST LAST
-WPIMULT
-PROD1    0.773847 1*  1*   1*    1*    1*                  /
-INJ1     0.063754 1*  1*   1*    1*    10                  /
-/
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WPIMULT CHANGES BASED ON DATE
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-02                                             /
-        DAY  = 1              AND                          /
-        MNTH = DEC            AND                          /
-        YEAR = 2018                                        /
-/
---
---       DEFINE WELL CONNECTION MULTIPLIERS
---
--- WELL  PI     --LOCATION--  COMPLETION
--- NAME  MULT     I   J    K  FIRST LAST
-WPIMULT
-PROD1    1.900943 1*  1*   1*    1*    1*                  /
-INJ1     0.045908 1*  1*   1*    1*    10                  /
-/
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WPIMULT CHANGES BASED ON DATE
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-03                                             /
-        DAY  = 1              AND                          /
-        MNTH = JUL            AND                          /
-        YEAR = 2019                                        /
-/
---
---       DEFINE WELL CONNECTION MULTIPLIERS
---
--- WELL  PI     --LOCATION--  COMPLETION
--- NAME  MULT     I   J    K  FIRST LAST
-WPIMULT
-PROD2    2.517075 1*  1*   1*    1*    1*                  /
-PROD3    0.043847 1*  1*   1*    1*    1*                  /
-INJ2     562.7596 1*  1*   1*    1*    10                  /
-/
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX WPIMULT CHANGES BASED ON DATE
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-04                                             /
-        DAY  = 1              AND                          /
-        MNTH = JAN            AND                          /
-        YEAR = 2020                                        /
-/
---
---       DEFINE WELL CONNECTION MULTIPLIERS
---
--- WELL  PI     --LOCATION--  COMPLETION
--- NAME  MULT     I   J    K  FIRST LAST
-WPIMULT
-PROD2    0.438742 1*  1*   1*    1*    1*                  /
-PROD3    0.023196 1*  1*   1*    1*    1*                  /
-INJ2     14.49076 1*  1*   1*    1*    10                  /
-/
-ENDACTIO
+PYACTION
+WPIMULT_PYACTION UNLIMITED                                                     /
+'pyaction_wpimult_insert_kw.py'                                                /
 
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- SCHEDULE SECTION - 2018-11-01
