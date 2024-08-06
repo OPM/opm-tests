@@ -1,3 +1,4 @@
+
 -- This reservoir simulation deck is made available under the Open Database
 -- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
 -- individual contents of the database are licensed under the Database Contents
@@ -113,8 +114,8 @@ VFPPDIMS
 FAULTDIM
 10000 /
 
-PIMTDIMS
-1  51 /
+--PIMTDIMS
+--1 51 /
 
 NSTACK
  30 /
@@ -125,8 +126,8 @@ UNIFOUT
 --FMTOUT
 --FMTIN
 
-OPTIONS
-77* 1 /
+--OPTIONS
+--77* 1 /
 
 ---------------------------------------------------------
 --
@@ -671,8 +672,7 @@ ZIPPY2
 'SIM=4.2' 'MINSTEP=1E-6' /
 
 -- PI reduction in case of water cut
-INCLUDE
-'./INCLUDE/PI/pimultab_low-high_aug-2006.inc' / 
+--'./INCLUDE/PI/pimultab_low-high_aug-2006.inc' / 
 
 
 GRUPTREE 
@@ -693,4 +693,3 @@ INCLUDE
  './INCLUDE/PRED_WINJ_MIN_THP_4B_MSW.SCH' / 
 
 
-END

@@ -1,3 +1,4 @@
+
 -- This reservoir simulation deck is made available under the Open Database
 -- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
 -- individual contents of the database are licensed under the Database Contents
@@ -104,8 +105,8 @@ VFPPDIMS
 FAULTDIM
 10000 /
 
-PIMTDIMS
-1  51 /
+--PIMTDIMS
+--1 51 /
 
 NSTACK
  30 /
@@ -639,12 +640,10 @@ ZIPPY2
 
 -- PI reduction in case of water cut
 -- Not supported in OPM Flow
---INCLUDE
---'./INCLUDE/PI/pimultab_low-high_aug-2006.inc' / 
+----'./INCLUDE/PI/pimultab_low-high_aug-2006.inc' / 
 
 -- Schedule including only well B-1H with re-perforations
 INCLUDE
  './INCLUDE/B1H_RE-PERF.SCH' /
 
 
-END
