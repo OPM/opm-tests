@@ -1,0 +1,261 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+--==============================================================================
+--		Synthetic reservoir simulation model Box (2021)
+--==============================================================================
+
+--------------------------------------------------------------------------------
+--RUNSPEC SECTION
+--------------------------------------------------------------------------------
+
+RUNSPEC
+
+-- Simulation run title
+TITLE
+Simple 2D box model
+
+NOECHO
+
+-- Simulation grid dimension (Imax, Jmax, Kmax)
+DIMENS
+    31  1   31  /
+
+-- Simulation run start
+START
+ 1 JAN 2000 /
+
+--Activates data check only option
+-- NOSIM
+
+-- Fluid phases present
+OIL
+GAS
+DISGAS
+VAPOIL
+WATER
+
+-- type     rock   water
+--          n tab  induction
+ROCKCOMP
+  'REVERS'   1      'NO'    /
+
+-- Measurement unit used
+METRIC
+
+GRIDOPTS
+   'YES'      1*       /
+
+TABDIMS
+            1      1       60     130      1*      100      1*    1* /          
+
+--Regions dimension data
+REGDIMS
+-- NTFIP NMFIPR NRFREG NTFREG
+    1    1      0      0      /
+
+--Dimension for well data
+WELLDIMS
+ 100  100 100 100 /
+
+-- Input and output files format
+UNIFIN
+UNIFOUT
+
+-------------------------------------------------------------------------
+--GRID SECTION
+-------------------------------------------------------------------------
+
+GRID
+
+--Disable echoing of the input file  
+NOECHO
+
+--Requests output of an INIT file
+INIT
+
+--Control output of the Grid geometry file
+GRIDFILE
+  1 1  /
+
+--Message print and stop limits
+MESSAGES
+ 1* 1* 1* 1000 1* 1* 1* 1* 1000000 10000 0 /
+
+NOECHO
+
+--Include simulation grid
+INCLUDE
+  'include/tilted.grdecl' /
+
+EQUALS
+  PORO   0.2  1 31  1 1  1 31 /
+  PERMX   50  1 31  1 1  1 31 /
+  NTG    1.0  1 31  1 1  1 31 /
+/
+
+COPY
+  PERMX PERMY /
+  PERMX PERMZ /
+/
+
+--Set Kv to Kh ratio 
+MULTIPLY
+ PERMZ   1.0e-1   /
+/
+
+-------------------------------------------------------------------------
+--EDIT SECTION
+-------------------------------------------------------------------------
+
+EDIT
+
+------------------------------------------------------------------------
+--PROPS SECTION
+-------------------------------------------------------------------------
+
+PROPS
+
+INCLUDE
+ 'include/global.sgof.inc' /
+
+INCLUDE
+ 'include/global.swof.inc' /
+
+-- Include PVT data
+INCLUDE
+  'include/opm.global.pvt.inc' /
+
+INCLUDE
+  'include/global.pvtw.inc' /
+
+INCLUDE
+ 'include/global.rocktab.inc'  /
+
+------------------------------------------------------------------------
+--REGIONS SECTION
+------------------------------------------------------------------------
+
+REGIONS
+
+EQUALS
+  FIPNUM      1    1 31  1 1  1 31 /
+  SATNUM      1    1 31  1 1  1 31 /
+  PVTNUM      1    1 31  1 1  1 31 /
+/
+
+-------------------------------------------------------------------------
+--SOLUTION SECTION
+-------------------------------------------------------------------------
+
+SOLUTION
+
+EQUIL
+-- Dref(GOC)    Pref      OWC  Pc(OWC)     GOC  Pc(GOC)  INTs 
+      1000.0   699.0   1000.0      0.0  1000.0      0.0    2* -20 /
+
+RPTRST
+  BASIC=2 FLOWS /
+
+------------------------------------------------------------------------
+--SUMMARY SECTION
+------------------------------------------------------------------------
+
+SUMMARY
+
+WGPR
+/
+
+WOPR
+/
+
+WWPR
+/
+WGOR
+/
+
+WWCT
+/
+
+WBHP
+/
+
+GGPR
+/
+
+GOPR
+/
+
+GWPR
+/
+
+FPR
+
+FGPR
+
+FWPR
+
+FOPR
+
+FGOR
+
+FWCT
+
+-------------------------------------------------------------------------
+--SCHEDULE SECTION
+-------------------------------------------------------------------------
+
+SCHEDULE
+
+RPTRST
+  ALLPROPS BASIC=2 FLOWS /
+
+-- TUNING
+--  1.0  1.0  0.01 6*  1 /
+--  1* 0.0001 1* 0.00001 1* 0.001 1* 0.0001 /
+--  24  1  50  1  50  50   /
+
+GRUPTREE
+  A  FIELD /
+  B  FIELD /
+  WELL  A  /
+  SAT   B  /
+/
+
+WELSPECS
+--WELL     GROUP     IHEEL JHEEL       DREF PHASE       DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'PROD'   'WELL'       15     1        0.0   GAS         1*    1*  SHUT   YES    1*    1* /
+/
+
+COMPDAT
+--WELL    I     J    K1    K2 OP/SH  SATN       TRAN      WBDIA         KH       SKIN DFACT   DIR      PEQVR
+------------------------------------------------------------------------------------------------------------
+ 'PROD'  15     1     1    13  OPEN    1*         1*      0.216         1*          0    1*     Z         1* /
+/
+
+WCONPROD
+--WELL   OP/SH   CTL       ORAT       WRAT       GRAT       LRAT       RRAT        BHP        THP   VFP        ALQ
+ 'PROD'   OPEN  GRAT         1*       1000     500000         1*         1*         1*         1*    1*         1* /
+/
+
+GSATPROD
+-- GROUP     OIL   WAT       GAS   RESVOL   GL   CAL
+     SAT  1000.0 500.0 1000000.0       1*   1*    1* /
+/
+
+TSTEP
+ 10*1.0 /
+
+GSATPROD
+-- GROUP     OIL   WAT       GAS   RESVOL   GL   CAL
+     SAT  2000.0 1000.0 2000000.0       1*   1*    1* /
+/
+
+TSTEP
+ 10*1.0 /
+
+END
