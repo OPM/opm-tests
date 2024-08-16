@@ -1,0 +1,826 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+-- This test case is testing well shut-in simulations. This model includes one 
+-- producer (A-2H) with datum depth specified more than 300 meters above depth 
+-- of first connection in the well. This means that the simulator must correct 
+-- well bottom hole pressure (WBHP) and average well pressure (WBP, WBP4, WBP5 and WBP9)
+-- using a representative well bore density. 
+
+
+-- =============================================================================
+RUNSPEC
+-- =============================================================================
+
+START                                  
+  8 'APR' 2023 /
+
+OIL                                    
+GAS                                    
+WATER                                  
+VAPOIL                                 
+DISGAS                                 
+
+
+-- Grid dimension
+DIMENS
+ 9 13 41 /
+
+TABDIMS 
+--ntsfun  ntpvt nssfun   NPPVT   NTFIP  NRPVT.                             
+  1        1    200       60      1     60     / 
+
+-- Dimension of equilibration tables
+EQLDIMS
+  1 /
+
+-- Well dimension data
+WELLDIMS
+  1  50   10   6   /
+
+
+UNIFOUT
+
+ 
+-- =============================================================================
+GRID
+-- =============================================================================
+
+GRIDFILE
+ 0  1  /
+
+INIT
+
+
+INCLUDE                                
+ 'include/s1_grid.grdecl' /
+
+
+EQUALS
+ 'PORO'     0.0 4*  1 1 / 
+ 'PORO'     0.0 4*  2 2 / 
+ 'PORO'  0.1265 4*  3 3 / 
+ 'PORO'  0.1371 4*  4 4 / 
+ 'PORO'  0.1471 4*  5 5 / 
+ 'PORO'  0.1402 4*  6 6 / 
+ 'PORO'  0.1615 4*  7 7 / 
+ 'PORO'  0.1573 4*  8 8 / 
+ 'PORO'  0.1351 4*  9 9 / 
+ 'PORO'  0.1624 4*  10 10 / 
+ 'PORO'  0.1988 4*  11 11 / 
+ 'PORO'  0.1911 4*  12 12 / 
+ 'PORO'  0.1706 4*  13 13 / 
+ 'PORO'  0.1431 4*  14 14 / 
+ 'PORO'  0.1296 4*  15 15 / 
+ 'PORO'   0.143 4*  16 16 / 
+ 'PORO'  0.1501 4*  17 17 / 
+ 'PORO'   0.148 4*  18 18 / 
+ 'PORO'  0.1586 4*  19 19 / 
+ 'PORO'  0.1385 4*  20 20 / 
+ 'PORO'  0.1371 4*  21 21 / 
+ 'PORO'  0.1308 4*  22 22 / 
+ 'PORO'  0.1551 4*  23 23 / 
+ 'PORO'  0.1785 4*  24 24 / 
+ 'PORO'   0.172 4*  25 25 / 
+ 'PORO'  0.1664 4*  26 26 / 
+ 'PORO'  0.1395 4*  27 27 / 
+ 'PORO'  0.1484 4*  28 28 / 
+ 'PORO'  0.1566 4*  29 29 / 
+ 'PORO'  0.1552 4*  30 30 / 
+ 'PORO'  0.1553 4*  31 31 / 
+ 'PORO'  0.1376 4*  32 32 / 
+ 'PORO'  0.1245 4*  33 33 / 
+ 'PORO'  0.1352 4*  34 34 / 
+ 'PORO'   0.147 4*  35 35 / 
+ 'PORO'   0.154 4*  36 36 / 
+ 'PORO'  0.1603 4*  37 37 / 
+ 'PORO'  0.1604 4*  38 38 / 
+ 'PORO'  0.1589 4*  39 39 / 
+ 'PORO'  0.1498 4*  40 40 / 
+ 'PORO'  0.1537 4*  41 41 / 
+/
+
+EQUALS
+ 'PERMX'     0.0 4*  1 1 / 
+ 'PERMX'     0.0 4*  2 2 / 
+ 'PERMX'   2.869 4*  3 3 / 
+ 'PERMX'   3.601 4*  4 4 / 
+ 'PERMX'    3.97 4*  5 5 / 
+ 'PERMX'   3.108 4*  6 6 / 
+ 'PERMX'   13.56 4*  7 7 / 
+ 'PERMX'   40.51 4*  8 8 / 
+ 'PERMX'   8.336 4*  9 9 / 
+ 'PERMX'   15.94 4*  10 10 / 
+ 'PERMX'   73.31 4*  11 11 / 
+ 'PERMX'   46.37 4*  12 12 / 
+ 'PERMX'   20.54 4*  13 13 / 
+ 'PERMX'   5.875 4*  14 14 / 
+ 'PERMX'   3.085 4*  15 15 / 
+ 'PERMX'   5.143 4*  16 16 / 
+ 'PERMX'   8.707 4*  17 17 / 
+ 'PERMX'   6.476 4*  18 18 / 
+ 'PERMX'   12.91 4*  19 19 / 
+ 'PERMX'   4.622 4*  20 20 / 
+ 'PERMX'   4.217 4*  21 21 / 
+ 'PERMX'   3.636 4*  22 22 / 
+ 'PERMX'   11.18 4*  23 23 / 
+ 'PERMX'   26.05 4*  24 24 / 
+ 'PERMX'   25.31 4*  25 25 / 
+ 'PERMX'   14.36 4*  26 26 / 
+ 'PERMX'    4.81 4*  27 27 / 
+ 'PERMX'   6.861 4*  28 28 / 
+ 'PERMX'   9.491 4*  29 29 / 
+ 'PERMX'   10.65 4*  30 30 / 
+ 'PERMX'    10.4 4*  31 31 / 
+ 'PERMX'   4.361 4*  32 32 / 
+ 'PERMX'   2.738 4*  33 33 / 
+ 'PERMX'   5.373 4*  34 34 / 
+ 'PERMX'   7.808 4*  35 35 / 
+ 'PERMX'   10.79 4*  36 36 / 
+ 'PERMX'   10.27 4*  37 37 / 
+ 'PERMX'   12.85 4*  38 38 / 
+ 'PERMX'    18.3 4*  39 39 / 
+ 'PERMX'   9.558 4*  40 40 / 
+ 'PERMX'   13.92 4*  41 41 / 
+/
+
+COPY
+ 'PERMX' 'PERMY' /
+ 'PERMX' 'PERMZ' /
+/
+
+MULTIPLY
+ 'PERMZ' 0.1 /
+/  
+
+-- =============================================================================
+PROPS
+-- =============================================================================
+
+
+ROCK                                   
+      350.0000     7.3E-005 /
+
+ 
+INCLUDE
+ 'include/PVT-WET-GAS.INC' /
+  
+
+INCLUDE
+ 'include/SCAL_NORNE.INC' /
+
+                                   
+-- =============================================================================
+SOLUTION
+-- =============================================================================
+
+
+EQUIL                                  
+       2948  350.15  3055  0   2000    0 4 4 0 / 
+
+
+RSVD                                   
+       2500       305.00
+       4000       305.00  /
+
+RVVD                                   
+      2500   0.0008055
+      4000   0.0008055   /
+
+
+
+-- =============================================================================
+SUMMARY
+-- =============================================================================
+
+INCLUDE
+ 'include/summary.inc' /
+
+-- =============================================================================
+SCHEDULE
+-- =============================================================================
+
+RPTRST
+ BASIC=3 FREQ=5   /
+
+
+DATES
+  9 'APR' 2023 /
+ / 
+
+-- Depth frist cell in well: 6 7 6 is 2882.81 m tvd
+-- Datum depth well is 2574.1 m tvd
+-- Depth correction from upper most connection is 308.71 m tvd
+
+WELSPECS
+ 'A-2H' 'PROD' 6  7 2574.1 'OIL' 2* 'SHUT' /
+/
+
+COMPDAT
+ 'A-2H' 6  7   6  6 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7   7  7 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7   8  8 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7   9  9 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  11 11 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  12 12 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  13 13 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  14 14 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  15 15 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  16 16 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  17 17 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  18 18 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  19 19 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  21 21 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1*/ 
+ 'A-2H' 6  7  22 22 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  23 23 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1*/ 
+ 'A-2H' 6  7  24 24 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1*/ 
+ 'A-2H' 6  7  25 25 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  32 32 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  33 33 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  35 35 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  36 36 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  37 37 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  38 38 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  39 39 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  40 40 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+ 'A-2H' 6  7  41 41 'OPEN' 1*  1* 0.21594 1* 2.3 1* 'Y' 1* / 
+/
+
+
+
+WCONHIST
+ 'A-2H' 'SHUT'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  10 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'SHUT'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  11 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     21.036668     0.000022       6645.1 / 
+/
+
+DATES
+  12 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     50.565904     0.000053      15972.8 / 
+/
+
+DATES
+  13 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     14.869524     0.000016       4697.0 / 
+/
+
+DATES
+  14 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  15 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     26.708171     0.000028       8436.6 / 
+/
+
+DATES
+  16 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     79.314250     0.000084      25053.8 / 
+/
+
+DATES
+  17 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      8.031156     0.000008       2536.9 / 
+/
+
+DATES
+  18 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  19 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  20 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  21 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      1.470166     0.000000        464.4 / 
+/
+
+DATES
+  22 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     42.133911     0.000044      13309.3 / 
+/
+
+DATES
+  23 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     84.140413     0.000089      26578.3 / 
+/
+
+DATES
+  24 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     77.185444     0.000082      24381.3 / 
+/
+
+DATES
+  25 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     74.100400     0.000079      23406.8 / 
+/
+
+DATES
+  26 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     71.312290     0.000076      22526.1 / 
+/
+
+DATES
+  27 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     68.600146     0.000073      21669.4 / 
+/
+
+DATES
+  28 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     66.645293     0.000070      21051.9 / 
+/
+
+DATES
+  29 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     63.875916     0.000067      20177.1 / 
+/
+
+DATES
+  30 'APR' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     61.988684     0.000065      19581.0 / 
+/
+
+DATES
+  1 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     61.209150     0.000064      19334.7 / 
+/
+
+DATES
+  2 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     58.166172     0.000061      18373.5 / 
+/
+
+DATES
+  3 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     25.496203     0.000025       8053.7 / 
+/
+
+DATES
+  4 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     50.933982     0.000052      16089.0 / 
+/
+
+DATES
+  5 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     50.480714     0.000052      15945.8 / 
+/
+
+DATES
+  6 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     48.843029     0.000050      15428.5 / 
+/
+
+DATES
+  7 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     33.253060     0.000033      10504.0 / 
+/
+
+DATES
+  8 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  9 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  10 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  11 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     19.115969     0.000017       6038.4 / 
+/
+
+DATES
+  12 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'     20.917412     0.000019       6607.4 / 
+/
+
+DATES
+  13 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  14 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  15 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  16 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  17 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  18 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  19 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  20 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  21 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  22 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  23 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  24 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  25 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  26 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  27 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  28 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  29 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  30 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  31 'MAY' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  1 'JUN' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  2 'JUN' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  3 'JUN' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  4 'JUN' 2023 /
+ / 
+
+
+
+WCONHIST
+ 'A-2H' 'OPEN'  'ORAT'      0.000000     0.000000          0.0 / 
+/
+
+DATES
+  5 'JUN' 2023 /
+ / 
+
+-- =============================================================================
+END
+-- =============================================================================
+
