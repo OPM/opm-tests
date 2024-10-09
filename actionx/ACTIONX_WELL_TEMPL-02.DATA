@@ -1,0 +1,302 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+-- Test cases with ACTIONX and specifically with well name and well list
+-- template matching.
+
+-- The model includes 7 wells, and these are added in a number of
+-- well lists. These wells are accessed by keyword WCONPROD and ACTIONX with 
+-- different combinations of wild cards, asterisk (*) and the question marks
+-- (?)
+
+-- Available wells : D-1H D-2H D-3H PROD1 PROD2 PROD3 PROD22
+-- Available wells lists : *PROD1 *PROD12 and *LPROD1'
+
+-- Wells which are triggered with the ACTIONX condition will get 
+-- their UDQ parameter (WU_TEST) updated. The well template is also used
+-- to open production wells and put them on gas rate constraint (WMCTL = 3)
+
+-- This deck is using well template '*PROD??'
+
+-- This should trigger well list PROD12
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 6 5 7 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'		0 / 
+
+
+EQLDIMS
+ 1 1*  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   1          4       1*            1*   /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10        10            10        10  6*  2 /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+
+ACTDIMS
+ 10 80 56 /
+ 
+UDQDIMS
+ 16 16 5*  20 /
+
+--
+UNIFIN
+UNIFOUT
+
+
+--
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+
+INCLUDE
+'include/mod2_6x5x7.grdecl' /
+
+PORO
+ 30*0.25
+ 30*0.22
+ 30*0.17
+ 30*0.28
+ 30*0.14
+ 30*0.23
+ 30*0.22 /
+ 
+PERMX
+ 30*2100
+ 30*1200
+ 30*800
+ 30*2500
+ 30*10
+ 30*1700
+ 30*1200 /
+
+PERMZ
+ 30*210
+ 30*120
+ 30*80
+ 30*250
+ 30*1
+ 30*170
+ 30*120 /
+
+NTG
+ 30*0.95
+ 30*0.88
+ 30*0.85
+ 30*0.70
+ 30*0.14
+ 30*0.77
+ 30*0.82 /
+
+
+COPY
+ PERMX PERMY /
+/
+
+
+RPTGRID
+ 'ALLNNC' /
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+
+FILLEPS
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 210*1 /
+ 
+SATNUM
+ 210*1 /
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTSOL
+SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+2281.00  268.56  2545.0   0.0  2281.00  0.0   1   0   0 /   C,D, and I segments: 		Not 2
+
+RSVD
+ 2581.78  122.30
+ 2597.0   110.00
+ 2660.7   106.77
+ 2697.0   106.77 /
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+DATE
+
+
+WBHP
+/
+
+WOPR
+/
+
+WU_TEST
+/
+
+WMCTL
+/
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+-- start: 10  'OCT' 2018 /
+
+WELSPECS 
+   'D-1H'    'TEST'   1   1  1*       'OIL'  2*      'STOP'  4* /
+   'D-2H'    'TEST'   1   2  1*       'OIL'  2*      'STOP'  4* /
+   'D-3H'    'TEST'   1   2  1*       'OIL'  2*      'STOP'  4* /
+   'PROD1'   'TEST'   1   3  1*       'OIL'  2*      'STOP'  4* /
+   'PROD2'   'TEST'   1   4  1*       'OIL'  2*      'STOP'  4* /
+   'PROD3'   'TEST'   1   4  1*       'OIL'  2*      'STOP'  4* /
+   'PROD22'  'TEST'   1   5  1*       'OIL'  2*      'STOP'  4* /
+/
+
+COMPDAT 
+-- WELL      I   J  K1   K2            Sat.   CF  DIAM   KH SKIN ND  DIR  Ro 
+   'D-1H'    1   1   1   4	'OPEN'  1*    1*  0.216  1*  2*      'Z'  1* /
+   'D-2H'    1   2   1   2	'OPEN'  1*    1*  0.216  1*  2*      'Z'  1* /
+   'D-3H'    1   2   3   4	'OPEN'  1*    1*  0.216  1*  2*      'Z'  1* /
+   'PROD1'   1   3   1   4	'OPEN'  1*    1*  0.216  1*  2*      'Z'  1* /
+   'PROD2'   1   4   1   2	'OPEN'  1*    1*  0.216  1*  2*      'Z'  1* /
+   'PROD3'   1   4   3   4	'OPEN'  1*    1*  0.216  1*  2*      'Z'  1* /
+   'PROD22'  1   5   1   4	'OPEN'  1*    1*  0.216  1*  2*      'Z'  1* /
+/
+
+UDQ
+ ASSIGN WU_TEST '*' 0 /
+/ 
+
+WLIST 
+ '*PROD1' NEW PROD1 PROD2 /
+ '*PROD12' NEW D-2H D-3H /
+ '*LPROD1' NEW PROD22 /
+/
+ 
+
+WCONPROD
+ 'D-1H'    'OPEN' 'ORAT'  50.0  4*  90.0 /
+ 'D-2H'    'SHUT' 'ORAT'   0.0  4*  90.0 /
+ 'D-3H'    'SHUT' 'ORAT'   0.0  4*  90.0 /
+ 'PROD1'   'SHUT' 'ORAT'   0.0  4*  90.0 /
+ 'PROD2'   'SHUT' 'ORAT'   0.0  4*  90.0 /
+ 'PROD3'   'SHUT' 'ORAT'   0.0  4*  90.0 /
+ 'PROD22'  'SHUT' 'ORAT'   0.0  4*  90.0 /
+/
+ 
+ACTIONX
+TESTW 25 1 /
+DAY > 10 AND /
+WMCTL '*PROD??' = 0 /
+/
+
+UDQ
+ ASSIGN WU_TEST '?' 1 /
+/ 
+
+ENDACTIO
+
+
+DATES
+ 15 OCT 2018 /
+/
+
+WCONPROD
+ '*PROD??'      'OPEN' 'GRAT'  2*  500.0	 2*  90.0 /
+/
+
+DATES
+ 1 NOV 2018 /
+/
+
+
+END
