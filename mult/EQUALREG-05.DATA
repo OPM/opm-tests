@@ -1,0 +1,266 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor
+
+-- This deck tests usage of keyword EQUALREG. In this deck this keyword is used on 
+-- array MULTY twice (both with region FLUXNUM and MULTNUM) and in combination with 
+-- keyword MULTFLT and MULTIPLY + MULTY. 
+
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 6 5 7 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES' 7 / 
+
+
+
+EQLDIMS
+ 1 1*  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   1          4       1*            6    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 3        10            30        30   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+
+FAULTDIM 
+ 2 /
+ 
+--
+UNIFIN
+UNIFOUT
+
+--
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+
+INCLUDE
+'include/mod2_6x5x7.grdecl' /
+
+PORO
+ 30*0.25
+ 30*0.22
+ 30*0.17
+ 30*0.28
+ 30*0.14
+ 30*0.23
+ 30*0.22 /
+ 
+PERMX
+ 30*2100
+ 30*1200
+ 30*800
+ 30*2500
+ 30*10
+ 30*1700
+ 30*1200 /
+
+PERMZ
+ 30*210
+ 30*120
+ 30*80
+ 30*250
+ 30*1
+ 30*170
+ 30*120 /
+
+NTG
+ 30*0.95
+ 30*0.88
+ 30*0.85
+ 30*0.70
+ 30*0.14
+ 30*0.77
+ 30*0.82 /
+
+
+FAULTS
+ 'F1' 3 3 1 5 1 7 'I' /
+ 'F2' 4 6 3 3 1 7 'J' /
+/ 
+
+
+
+COPY
+ PERMX PERMY /
+/
+
+EQUALS
+ 'FLUXNUM' 2 1 3 1 5 1 5 /
+ 'FLUXNUM' 3 4 6 1 3 1 5 /
+ 'FLUXNUM' 4 4 6 4 5 1 5 /
+ 'FLUXNUM' 5 1 3 1 5 6 7 /
+ 'FLUXNUM' 6 4 6 1 5 6 7 /
+/
+
+EQUALS
+ 'MULTNUM' 1  4* 1 1 /
+ 'MULTNUM' 2  4* 2 2 /
+ 'MULTNUM' 3  4* 3 3 /
+ 'MULTNUM' 4  4* 4 4 /
+ 'MULTNUM' 5  4* 5 5 /
+ 'MULTNUM' 6  4* 6 6 /
+ 'MULTNUM' 7  4* 7 7 /
+/
+
+
+MULTFLT
+ 'F2' 0.254 /
+/
+
+
+EQUALREG
+  'MULTY' 0.15  3  'F' /
+/
+
+MULTIPLY
+ 'MULTY' 5.5 /
+/
+
+EQUALREG
+  'MULTY' 0.1  1  'M' /
+/
+
+
+
+ 
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+
+FILLEPS
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 210*1 /
+ 
+SATNUM
+ 210*1 /
+
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTSOL
+SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+2281.00  268.56  2545.0   0.0  2281.00  0.0   1   0   0 /   C,D, and I segments: 		Not 2
+
+RSVD
+ 2581.78  122.30
+ 2597.0   110.00
+ 2660.7   106.77
+ 2697.0   106.77 /
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+WBHP
+/
+
+WOPR
+/
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+-- start: 10  'OCT' 2018 /
+
+WELSPECS 
+   'D-1H'   'TEST'   2   2  1*       'OIL'  2*      'STOP'  4* /
+/
+
+COMPDAT 
+-- WELL     I   J  K1   K2            Sat.      CF        DIAM     KH SKIN ND        DIR   Ro 
+   'D-1H'   2   2   1	4      'OPEN'  1*       1*	  0.216     1*   2*         'Z'    1* /
+/
+
+
+WCONHIST 
+   'D-1H'      'OPEN'      'RESV'   3601.95 0	    617183.24  5* /
+/
+
+DATES
+ 1 NOV 2018 /
+/
+
+
+END
