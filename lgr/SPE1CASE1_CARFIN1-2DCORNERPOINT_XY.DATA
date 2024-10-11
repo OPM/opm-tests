@@ -3,7 +3,12 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2024 TNO
+-- Copyright (C) 2024 Equinor
+
+-- This simulation is based on the data given in 
+-- 'Comparison of Solutions to a Three-Dimensional
+-- Black-Oil Reservoir Simulation Problem' by Aziz S. Odeh,
+-- Journal of Petroleum Technology, January 1981
 
 -- Test case for LGR grid,  CARFIN and ENDFIN keyword are used. 
 -- 2D CORNER POINT CASE WITH NON-ACTIVE CELL, LGR on grid 6,6,1 and non-active cell is 6,5,1
