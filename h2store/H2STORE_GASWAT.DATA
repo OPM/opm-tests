@@ -19,10 +19,6 @@ METRIC
 H2STORE
 
 
-COMPS
-2
-/
-
 DIMENS
    50 50 10  /
 
@@ -83,17 +79,6 @@ RTEMP
   80 
 /
 
-
-NCOMPS
-
-       2
-/
-CNAMES
-
-   'H2'
-   'H2O'
-
-/
 
 ZMFVD
 -- depth  H2  H2O  

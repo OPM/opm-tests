@@ -19,10 +19,6 @@ METRIC
 CO2STORE
 
 
-COMPS
-2
-/
-
 DIMENS
    50 50 10  /
 
@@ -81,18 +77,6 @@ ROCK
 
 RTEMP
   80 
-/
-
-
-NCOMPS
-
-       2
-/
-CNAMES
-
-   'CO2'
-   'H2O'
-
 /
 
 ZMFVD
