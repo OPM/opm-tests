@@ -487,6 +487,9 @@ DATES   -- 11
  20 'MAY' 2019 /
 /
 
+NEXTSTEP
+2    NO / 
+
 -- loosing injector INJ1, only remaining injector is INJ2
 WELOPEN
  'INJ1' 'SHUT' /
