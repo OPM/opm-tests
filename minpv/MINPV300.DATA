@@ -75,6 +75,13 @@ INCLUDE
 MINPV
  300 /
 
+-- additional 3 cells made inactive with EQUALS + MINPVV 
+EQUALS
+ 'MINPVV' 5000.0 2*7 2*6 2*3 /
+ 'MINPVV' 5000.0 7 7 5 5 3 3 /
+ 'MINPVV' 5000.0 2*11 2*2  2*3 /
+/
+
 PINCH
 / 
 
@@ -136,5 +143,8 @@ SUMMARY
 SCHEDULE
 -- ===================================================================
 
+TSTEP
+ 1.0 /
+ 
 END
 
