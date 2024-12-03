@@ -5,7 +5,7 @@
 
 -- Copyright (C) 2024 OPM-OP AS
 
--- This model is based on the WSEGVALV model and has been modified to test parallel simualtions including a multisegment well.
+-- This model is based on the WSEGVALV model and has been modified to test parallel simulations including a multisegment well.
 --
 -- =================================================================================================================================
 -- 
