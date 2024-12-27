@@ -3,11 +3,13 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2021 Equinor
+-- Copyright (C) 2015-2024 Equinor ASA
 
--- This model is based on the MODEL05 (20, 30, 10) model and has been modified to test the WTMULT keyword with the ACTIONX 
--- keyword.
---
+-- This model is built from the ACTIONX_WTMULT.DATA file that is based on the MODEL05 (20, 30, 10) model and has been modified to
+-- test the WTMULT keyword with the PYACTION keyword.
+-- This model performs the same modifications as done with ACTIONX keywords in model actionx/ACTIONX_WCONPROD.DATA, but using
+-- PYACTION instead of ACTIONX.
+
 -- The model employs Gas Lift with no optimization via the setting a constant gas lift value via the WELTARG keyword, as well
 -- using GCONINJE(GUIPHASE) equal to NETV. NETV defines that guide rates for the group injection and is set according to the groups
 -- net reservoir voidage rate. The model has a total of five oil producers and four water injectors, as well as various groups 
@@ -36,9 +38,9 @@
 --      THP constraint of 20 barsa. The wells are under direct group control.
 -- ( 6) All water injectors are opened with a maximum water injection rate of 1,000 m3/d and a maximum BHP of 225 barsa and are 
 --      subject to group control.  
--- ( 7) ACTIONX – WTMULT INCREASES THE GAS LIFT RATE FOR ALL OIL WELLS.
--- ( 8) ACTIONX – WTMULT INCREASES THE OIL RATE FOR ALL WELLS IN TWO STEPS.
--- ( 9) ACTIONX – WTMULT INCREASES THE WATER INJECTION LIMIT FOR ALL INJECTORS. 
+-- ( 7) Pyaction version of ACT-01 – WTMULT INCREASES THE GAS LIFT RATE FOR ALL OIL WELLS.
+-- ( 8) Pyaction version of ACT-02 – WTMULT INCREASES THE OIL RATE FOR ALL WELLS IN TWO STEPS.
+-- ( 9) Pyaction version of ACT-03 – WTMULT INCREASES THE WATER INJECTION LIMIT FOR ALL INJECTORS.
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
 --       1         2         3         4         5         6         7         8         9         0         1         2         3  
@@ -54,7 +56,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN  
 --
 TITLE                                                                           
-OPM_TESTS: ACTIONX_WTMULT
+OPM_TESTS: PYACTION_WTMULT
 --
 --       DEFINE THE START DATE FOR THE RUN 
 --
@@ -381,6 +383,10 @@ WGLIR
 -- 
 -- =================================================================================================================================
 SCHEDULE
+
+PYACTION
+WTMULT_PYACTION UNLIMITED /
+'pyaction_wtmult_insert_kw.py' /
 --
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
@@ -399,82 +405,8 @@ TUNING
 --
 NUPCOL                                                                          
          4                                                                     /
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX – WTMULT INCREASES THE GAS LIFT RATE FOR ALL OIL WELLS
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-01                                             /
-        DAY  >= 15            AND                          /
-        MNTH = MAR            AND                          /
-        YEAR = 2021                                        /
-/
---
--- WELL TARGET/LIMIT MULTIPLIER                                                      
---                                                                              
--- WELL  WELL   TARGET      REPORT                                                   
--- NAME  TARG   MULTIPLIER  TIMES                                                      
-WTMULT                                                                   
-B-1H     LIFT    3.0                   /
-B-2H     LIFT    3.0                   /
-B-3H     LIFT    3.0                   /
-C-1H     LIFT   10.0                   /
-C-2H     LIFT   10.0                   /
-/                                                                               
 
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX – WTMULT INCREASES THE OIL RATE FOR ALL WELLS IN TWO STEPS
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-02                                             /
-        DAY  >= 1             AND                          /
-        MNTH = JUN            AND                          /
-        YEAR = 2021                                        /
-/
---
--- WELL TARGET/LIMIT MULTIPLIER                                                      
---                                                                              
--- WELL  WELL   TARGET      REPORT                                                   
--- NAME  TARG   MULTIPLIER  TIMES                                                      
-WTMULT                                                                   
-B-1H     ORAT    2.0                   /
-B-2H     ORAT    2.0                   /
-B-3H     ORAT    2.0                   /
-/                                                                               
---
--- WELL TARGET/LIMIT MULTIPLIER                                                      
---                                                                              
--- WELL  WELL   TARGET      REPORT                                                   
--- NAME  TARG   MULTIPLIER  TIMES                                                      
-WTMULT                                                                   
-C-1H     ORAT    3.0                   /
-C-2H     ORAT    3.0                   /
-/                                                                                                                                                             
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX – WTMULT INCREASES THE WATER INJECTION LIMIT FOR ALL INJECTORS
--- ---------------------------------------------------------------------------------------------------------------------------------
-ACTIONX
-        ACT-03                                             /
-        DAY  >= 15            AND                          /
-        MNTH = JUN            AND                          /
-        YEAR = 2021                                        /
-/
---
--- WELL TARGET/LIMIT MULTIPLIER                                                      
---                                                                              
--- WELL  WELL   TARGET      REPORT                                                   
--- NAME  TARG   MULTIPLIER  TIMES                                                      
-WTMULT            
-F-1H     WRAT   4.0                    /
-F-2H     WRAT   4.0                    /
-G-3H     WRAT   4.0                    /
-G-4H     WRAT   4.0                    /
-/                                                                               
-
-ENDACTIO
--- ---------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 -- GROUP PRODUCTION AND INJECTION CONTROLS                                      
 -- ---------------------------------------------------------------------------------------------------------------------------------
 --                    
