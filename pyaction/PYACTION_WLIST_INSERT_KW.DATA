@@ -1,0 +1,449 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2025 Equinor
+
+-- This test case is built from actionx/ACTIONX_WLIST.DATA and tests the keyword WLIST
+-- in a pyaction (see WLIST_PYACTION).
+
+-- *****************************************************
+RUNSPEC
+-- *****************************************************
+
+-- Simulation run title
+TITLE
+Generic Reservoir
+
+NOECHO
+
+--
+-- ----------------------------------------------------
+-- Simulation grid dimension (Imax, Jmax, Kmax)
+DIMENS
+    12  9  11  /
+
+--
+-- ----------------------------------------------------
+-- Simulation run start
+START
+ 1 'JUL' 2020 /
+
+--
+-- ----------------------------------------------------
+--Activate "Data Check Only" option
+--NOSIM
+--
+--
+
+--
+-- ----------------------------------------------------
+-- Fluid phases present
+OIL
+GAS
+WATER
+DISGAS
+
+--
+-- ----------------------------------------------------
+-- Measurement unit used
+METRIC
+
+--
+--Table dimensions
+TABDIMS
+-- NTSFUN NTPVT NSSFUN NPPVT NTFIP NRPVT
+     1      1     130    24    1    20   /
+
+EQLDIMS
+ 2 /
+
+ACTDIMS
+ 5 /
+  
+
+-- ----------------------------------------------------
+--Dimension for well data
+WELLDIMS
+ 3  25 3 3 /
+
+
+-- Dimensions for used defined quantity facility
+-- max functions permitted in a quantity definition
+-- max arguments permitted in a quantity definition
+-- max user defined connection quantities
+-- max user defined field quantities
+-- max user defined group quantities
+-- max user defined region quantities
+-- max user defined segment quantities
+-- max user defined well quantities
+-- max user defined aquifer quantities
+-- max user defined block quantities
+-- whether new randon number generator seed computed for restart runs
+UDQDIMS
+ 200 100 2 500 10 4 4 6 4 4 /
+
+UDADIMS
+ 2 /
+
+-- ----------------------------------------------------
+-- Input and output files format
+UNIFIN
+UNIFOUT
+
+
+
+-- *************************************************************************
+-- In this section simulation grid and static reservoir parameters are given
+-- *************************************************************************
+
+GRID 
+
+-- ****************************************************
+-------------------------------------------------------
+
+--
+--Disable echoing of the input file  
+NOECHO
+
+--
+--Requests output of an INIT file
+INIT
+
+--
+--Control output of the Grid geometry file
+GRIDFILE
+  0 1  /
+
+--Message print and stop limits
+MESSAGES
+ 3* 1000 4* 1000000 1000 /
+
+
+--
+-- ----------------------------------------------------
+--Include simulation grid
+INCLUDE
+  '../udq_actionx/include/test_12x9x11.grdecl' /
+
+
+EQUALS
+ 'PERMX' 10000 /
+ 'PERMY' 10000 /
+ 'PERMZ' 1000  /
+ 'PORO'  0.25  /
+/
+
+EQUALS
+ 'PORO' 0.0 4* 6 6 /
+/ 
+
+-- lower part is for now inactive. Planning to include more
+-- actions related stuff in this part later on. 
+
+EQUALS
+ 'PORO' 0.0 4* 7 11 /
+/ 
+
+-- ***************************************************
+-- In this section simulation grid parameters are edited
+-- ***************************************************
+
+EDIT
+
+-- ***************************************************
+
+
+-- ***************************************************
+-- In this section fluid-rock properties and 
+-- relative permabilities are given
+-- ***************************************************
+
+PROPS
+
+-- ***************************************************
+
+INCLUDE
+ '../udq_actionx/include/sgof.txt' /
+
+
+INCLUDE
+ '../udq_actionx/include/swof.txt' /
+
+-- ---------------------------------------------------
+
+-- Include PVT data
+INCLUDE
+  '../udq_actionx/include/example_pvt.txt' /
+
+-- ***********************************************************
+-- In this section simulation grid region parameters are given
+-- ***********************************************************
+
+REGIONS
+
+-- ***************************************************
+--
+-- ***************************************************
+-- In this section the initialization parameters aand
+-- dynamic parameters are defined
+-- ***************************************************
+
+EQUALS
+ 'EQLNUM' 1 4* 1  6 /
+ 'EQLNUM' 1 4* 7 11 /
+ 'SATNUM' 1 /
+ 'PVTNUM' 1 /
+/
+ 
+SOLUTION
+
+-- ***************************************************
+
+--
+--Simulation model initialisation data
+--
+--   DATUM  DATUM   OWC     OWC    GOC    GOC    RSVD   RVVD   SOLN
+--   Depth  Pres.   Depth   Pcow   Depth  Pcog   Table  Table  Method
+EQUIL
+     1900.0   225.0   2030.0  0.0    500    0.0     1     1      0 / 
+     1900.0   235.0   2050.0  0.0    500    0.0     2     2      0 / 
+    
+
+--
+-- ---------------------------------------------------
+-- Dissolved gas-oil ratio versus depth, 
+
+RSVD
+ 1500 120.0
+ 4000 120.0  /
+ 
+ 1500 120.0
+ 4000 120.0  /
+
+RPTSOL
+  'THPRES' /
+
+
+RPTRST
+ 'BASIC=2'  'PBPD' /
+ 
+
+--
+-- **************************************************************************************
+-- In this section simulation output data to be written to summary file are defined
+-- **************************************************************************************
+
+SUMMARY
+
+-- ***************************************************
+-- ---------------------------------------------------
+-- Summary data to be written to summary file
+--
+-- Outputs the date to the summary file
+
+--
+--
+-- **************************************************************************************
+-- In this section data required to describe history and prediction is given
+-- - well completions, well production/injection, well constraints
+-- - platform/production unit constraints, etc.
+-- **************************************************************************************
+
+FPR 
+
+WBHP
+ P1 WI1 /
+
+WOPR
+ P1 /
+
+WGPR
+/
+
+WWPR
+/
+
+WWIR
+ WI1 /
+
+FU_INJD
+
+WPI
+ P1 WI1 /
+
+WWPI
+ WI1 /
+ 
+CTFAC
+  WI1 /
+/   
+
+FUBHPP1
+
+
+WUDELTA
+/
+
+WUBHPINI
+/
+
+WU_TEST
+/
+
+GVPR
+/
+
+GVIR
+/
+
+FUINJLIM
+
+
+
+SCHEDULE
+
+-- ***************************************************
+
+PYACTION
+WLIST_PYACTION UNLIMITED /
+'pyaction_wlist_insert_kw.py' /
+
+TUNING
+ 0.5 5.0 /
+ /
+ /
+ 
+-- Start: 1 'JUL' 2020 
+ 
+WELSPECS
+-- Well  Grp    I  J  RefDepth  Type    DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   P1    TEST   2  3   1*	 OIL     0.0	 STD	  SHUT      YES    0	     SEG       0	    /
+   WI1   TEST  11  6   1*	 WATER   0.0	 STD	  SHUT      YES    0	     SEG       0	    /
+ /
+
+COMPDAT
+-- Well   I    J   K1   K2   Status   SAT   TR          DIAM      KH    S        Df   DIR
+   P1     2    3   1    5    OPEN     1*    1*        0.21600     1*   0.00000   1*   'Z' /
+   WI1   11    6   1    5    OPEN     1*    1*        0.21600     1*   0.00000   1*   'Z' /
+/
+
+WCONPROD
+  P1  STOP  ORAT  0.0  4*  150.0  /
+/  
+
+WCONINJE    --written by schedule script
+--  Well_name	Type	Status	Ctrl	SRate1	Rrate	BHP	THP	VFP	 
+    'WI1' 	WATER	STOP	GRUP	0.0	 1*	325.0	1*	1*	/
+/
+
+DATES   -- 1
+  2 'JUL' 2020 /
+/
+
+UDQ
+DEFINE FUBHPP1 WBHP 'P1' /
+DEFINE WUBHPINI WBHP '*' /
+/
+
+DATES   -- 2
+  3 'JUL' 2020 /
+/
+
+UDQ
+UPDATE FUBHPP1 OFF /
+UPDATE WUBHPINI OFF /
+DEFINE WUDELTA WBHP '*' - FUBHPP1 /
+DEFINE WU_TEST  WUBHPINI '*' - (WGPR '*')/2000.0 /
+/
+
+
+DATES   -- 3
+  5 'JUL' 2020 /
+/
+
+UDQ
+ASSIGN FUINJLIM 3500.0 /
+ASSIGN FU_INJD 0.0 /
+/
+
+ACTIONX
+INJECTION 10 /
+WBHP P1 < 200.0 /
+/
+WELOPEN
+  'WI1' 'OPEN' 5* /
+/
+
+UDQ
+DEFINE FU_INJD FU_INJD + TIMESTEP /
+/
+
+
+ENDACTIO
+
+
+
+ACTIONX
+PRMAIN1 100000 30 /
+FPR < 195  /
+/
+GCONINJE
+    TEST     'WATER'       'VREP'  FUINJLIM 2*      1.05       'NO'  5* /
+/
+ENDACTIO
+
+
+ACTIONX
+PRMAIN2 100000 30 /
+FPR > 200  /
+/
+
+GCONINJE
+    TEST     'WATER'       'VREP'  FUINJLIM 2*      0.95       'NO'  5* /
+/
+ENDACTIO
+
+
+ACTIONX
+INJ_PI 1000000 /
+WPI '*INJ' > 4020 /
+/
+WELPI
+'?' 4000 /
+/
+ENDACTIO
+
+
+
+-- start: 1 'JUL' 2020 
+ 
+DATES
+  1 AUG 2020 /   -- 4
+ 10 AUG 2020 /   -- 5
+ 20 AUG 2020 /   -- 6
+/
+
+WCONPROD
+  P1  OPEN  ORAT  1500.0  4*  150.0  /
+/  
+
+DATES
+  1 SEP 2020 /   --  7
+ 10 SEP 2020 /   --  8
+ 20 SEP 2020 /   --  9 
+  1 OCT 2020 /   -- 10
+ 10 OCT 2020 /   -- 11
+ 20 OCT 2020 /   -- 12
+  1 NOV 2020 /   -- 13
+  1 DEC 2020 /   -- 14
+  1 JAN 2021 /   -- 15 
+/
+   
+-- 1.5 2 2 5 10 10 30 30 30 30 30 30 30  /
+
+
+END
+
+
