@@ -1,0 +1,348 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2025 Equinor
+
+-- This test case is based on the base case for model5.
+-- The M5S group is an ancestor of the production groups B1 and C1 with B1 an autochoke group.
+-- An oil rate target (8000 m3/day)is set for M5S. Group guide rates are specified so to distribute the rates among B1 and C1.
+-- The target rates of B1 and C1 become in this example 7000 (=8000*35/40) and 1000 (=8000*5/40) respectively.
+-- As soon if one of the groups cannot deliver its target the other group will attempt to compensate so to 
+-- meet the oil rate target of M5S
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 20 30 10 /
+OIL
+WATER
+GAS
+DISGAS
+
+METRIC
+
+START
+ 01 'JAN' 2020 /
+
+GRIDOPTS
+ 'YES'        0 /
+
+EQLDIMS
+ 1  100  25 /
+
+NETWORK
+ 5 4 /
+
+NSTACK
+ 50 /
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   3          2       1*            2    /
+
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      150          60         2         60 /
+
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10         15            9          10   /
+
+--FLOW   THP  WCT  GCT  ALQ  VFP
+VFPPDIMS
+  22     13   10   13    13   50  /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+NEWTRAN
+
+GRIDFILE
+ 0  1/
+
+GRIDUNIT
+METRES  /
+
+INIT
+
+INCLUDE
+ 'include/test1_20x30x10.grdecl' /
+
+PORO
+ 6000*0.28 /
+
+PERMX
+ 6000*10000.0 /
+
+PERMZ
+ 6000*1000.0 /
+
+
+COPY
+  PERMX PERMY /
+/
+
+RPTGRID
+ 'ALLNNC' /
+
+EQUALS
+  'MULTY'  0.01 1 20  14 14  1 10 /
+/
+
+------------------------------------------------------------------------------------------------
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/pvt_live_oil_dgas.ecl' /
+
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm.inc' /
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 6000*1 /
+
+FIPNUM
+ 6000*1 /
+
+SATNUM
+ 6000*1 /
+
+FIPABC
+ 2000*1 2000*2 2000*3 /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2000.00  195.0  2070     0.0  500.00  0.0   1   0   0 /
+
+PBVD
+  2000.00    75.00
+  2150.00    75.00  /
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/summary.inc' /
+
+ALL
+GPR
+/
+WMCTL
+/
+GOPP
+/
+WOPR
+/
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+--
+--                                       FIELD
+--                                         |
+--                                       PLAT-A
+--                          ---------------+---------------------
+--                         |                                    |
+--                        M5S                                  M5N
+--                ---------+----------                     -----+-------
+--               |                   |                    |            |
+--              B1                  C1                   G1           F1
+--           ----+------          ---+---              ---+---       ---+---
+--          |    |     |         |      |             |      |      |      |
+--        B-1H  B-2H  B-3H     C-1H    C-2H         G-3H   G-4H    F-1H   F-2H
+--
+
+TUNING
+ 1.0 5.0 0.01 0.03 /
+ /
+ 20 1 50 1 30 30 /
+
+NUPCOL
+ 10 /
+
+NETBALAN
+-1 0.01 16 1.0e-2 16 /
+
+GRUPTREE
+ 'M5S'    'PLAT-A'  /
+ 'M5N'    'PLAT-A'  /
+ 'C1'     'M5S'  /
+ 'F1'     'M5N'  /
+ 
+ 'B1CHK'  'M5S'  /
+ 'B1'     'B1CHK'  /
+ 'G1'     'M5N'  /
+ /
+
+RPTRST
+ 'BASIC=2' /
+
+
+INCLUDE
+ 'include/well_vfp.ecl' /
+
+INCLUDE
+ 'include/flowl_b_vfp.ecl' /
+
+INCLUDE
+ 'include/flowl_c_vfp.ecl' /
+
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'B-1H'  'B1'   11    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-2H'  'B1'    4    7      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-3H'  'B1'   11   12      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'C-1H'  'C1'   13   20      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'C-2H'  'C1'   12   27      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+/
+
+WELSPECS
+ 'F-1H'  'F1'   19    4      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-2H'  'F1'   19   12      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'G-3H'  'G1'   19   21      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'G-4H'  'G1'   19   25      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+/
+
+COMPDAT
+--WELL      I   J    K1   K2 OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+  'B-1H'   11   3   1    1    OPEN     1*    4.844094E+2   0.21600   1*   0.00000   1*   'Z' /
+  'B-1H'   11   3   2    2    OPEN     1*    5.157880E+2   0.21600   1*   0.00000   1*   'Z' /
+  'B-1H'   11   3   3    3    OPEN     1*    5.157937E+2   0.21600   1*   0.00000   1*   'Z' /
+  'B-1H'   11   3   4    4    OPEN     1*    5.157753E+2   0.21600   1*   0.00000   1*   'Z' /
+  'B-1H'   11   3   5    5    OPEN     1*    4.233329E+2   0.21600   1*   0.00000   1*   'Z' /
+
+  'B-2H'    4   7   1    1    OPEN     1*    5.007011E+2   0.21600   1*	0.00000   1*   'Z' /
+  'B-2H'    4   7   2    2    OPEN     1*    5.151113E+2   0.21600   1*	0.00000   1*   'Z' /
+  'B-2H'    4   7   3    3    OPEN     1*    5.151113E+2   0.21600   1*	0.00000   1*   'Z' /
+  'B-2H'    4   7   4    4    OPEN     1*    5.151113E+2   0.21600   1*	0.00000   1*   'Z' /
+  'B-2H'    4   7   5    5    OPEN     1*    5.151113E+2   0.21600   1*	0.00000   1*   'Z' /
+  'B-2H'    4   7   6    6    OPEN     1*    4.543533E+2   0.21600   1*	0.00000   1*   'Z' /
+
+  'B-3H'   11   12   1	 1    OPEN     1*    4.692175E+2   0.21600   1*   0.00000   1*   'Z' /
+  'B-3H'   11   12   2	 2    OPEN     1*    5.160228E+2   0.21600   1*   0.00000   1*   'Z' /
+  'B-3H'   11   12   3	 3    OPEN     1*    5.160283E+2   0.21600   1*   0.00000   1*   'Z' /
+  'B-3H'   11   12   4	 4    OPEN     1*    3.504692E+2   0.21600   1*   0.00000   1*   'Z' / 
+
+  'C-1H'   13   20   1	 1    OPEN     1*    5.269432E+2   0.21600   1*   0.00000   1*   'Z' /
+  'C-1H'   13   20   2	 2    OPEN     1*    5.367830E+2   0.21600   1*   0.00000   1*   'Z' /
+  'C-1H'   13   20   3	 3    OPEN     1*    5.367813E+2   0.21600   1*   0.00000   1*   'Z' /
+  'C-1H'   13   20   4	 4    OPEN     1*    4.798547E+2   0.21600   1*   0.00000   1*   'Z' /
+
+  'C-2H'   12	27   1    1    OPEN	1*    4.792061E+2   0.21600   1*   0.00000   1*   'Z' /
+  'C-2H'   12	27   2    2    OPEN	1*    5.157981E+2   0.21600   1*   0.00000   1*   'Z' /
+  'C-2H'   12	27   3    3    OPEN	1*    5.158107E+2   0.21600   1*   0.00000   1*   'Z' /
+  'C-2H'   12	27   4    4    OPEN	1*    4.856119E+2   0.21600   1*   0.00000   1*   'Z' /
+/
+
+COMPDAT
+ 'F-1H'    19   4    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'F-2H'    19  12    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'G-3H'    19  21    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+ 'G-4H'    19  25    6   10   OPEN    1*      1*    0.216    1*        0    1*    Z       1* /
+/
+
+WCONPROD
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate   RFV  FBHP   WHP  VFP Glift
+   'B-1H'      OPEN    GRUP  2500.0  1*     1*    1*  	  1*   1*     1*   1   1*  /
+   'B-2H'      SHUT    GRUP  2500.0	 1*     1*    1*      1*   1*     1*   1   1*  /
+   'B-3H'      OPEN    GRUP  2500.0	 1*     1*    1*      1*   1*     1*   1   1*  /
+   'C-1H'      OPEN    ORAT  1200.0  1*     1*    1*      1*   100.0  30.0 1   1*  /
+   'C-2H'      SHUT    ORAT  1200.0  1*     1*    1*      1*   100.0  30.0 1   1*  /
+/
+
+GCONINJE
+ 'FIELD'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+/
+
+GCONPROD
+--  1    2     3     4       5     6     7       8       9       10
+ 'M5S' ORAT  8000  1*       1*    1*  'RATE'  'YES'   40.0   'OIL'    1*   1*   1*   3* /
+ 'B1'  FLD  1*     1*       1*    1*  'RATE'  'YES'   35.0   'OIL'    1*   1*   1*   3* /
+ 'C1'  FLD  1*     1*       1*    1*  'RATE'  'YES'   5.0    'OIL'    1*   1*   1*   3* / 
+ /
+
+WCONINJE
+-- Well_name    Type    Status  Ctrl    SRate1  Rrate   BHP     THP     VFP
+  'F-1H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
+  'F-2H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
+  'G-3H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
+  'G-4H'        WATER   OPEN    GRUP    4000    1*      225.0    1*      1*     /
+/
+
+BRANPROP
+--  Downtree  Uptree   #VFP    ALQ
+    M5S       PLAT-A   5       1* /
+    B1CHK     M5S      9999    1* /
+    B1        B1CHK    9999    1* /
+    C1        PLAT-A   4       1* /
+/
+
+NODEPROP
+--  Node_name  Press  autoChoke?  addGasLift?  Group_name
+     PLAT-A    21.0   NO          NO           1*  /
+	 M5S       1*     NO          NO           1* /
+     B1        1*     YES         NO           1*  /
+     C1        1*     NO          NO           1*  /
+/
+
+WELOPEN
+ 'B-2H' OPEN /
+ 'B-3H' OPEN /
+/
+WELOPEN
+ 'C-2H' OPEN /
+/
+
+DATES
+ 1 FEB 2020 /
+/
+
+DATES
+ 1 MAR 2020 /
+/
+
+DATES
+ 1 APR 2020 /
+/
+
+DATES
+ 15 MAY 2020 /
+/
+
+END
