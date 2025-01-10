@@ -1,0 +1,334 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2025 Equinor
+
+
+-- This is a test case for UDQ and region quantities. The model includes one 
+-- well (producer D-1H). 
+
+-- This test case has a UDQ with maximum string length possible -> FU_TEST
+-- The UDQ FU_CHECK should produce exact same result as the UDQ FU_TEST
+
+
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 12  15  6 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+  1*  6 / 
+
+
+
+EQLDIMS
+ 1 1*  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          4       1*            1*    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+   5        5            30        30   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         6         60 /
+
+--
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg   max.ALQ    max.tabs
+  25        15        15       15       0          60       /
+
+--
+VFPIDIMS
+--max.rate  max.THP  max.tab
+   30       20       60  /
+
+--
+UNIFIN
+UNIFOUT
+
+
+UDQDIMS
+ 25 1* 1* 6 /
+
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+
+INCLUDE
+'include/grid_12x15x6.grdecl' /
+
+PORO
+ 180*0.25
+ 180*0.22
+ 180*0.17
+ 180*0.28
+ 180*0.14
+ 180*0.23 /
+ 
+PERMX
+ 180*2100
+ 180*1200
+ 180*800
+ 180*2500
+ 180*10
+ 180*1700 /
+ 
+PERMZ
+ 180*210
+ 180*120
+ 180*80
+ 180*250
+ 180*1
+ 180*170 /
+
+NTG
+ 180*0.95
+ 180*0.88
+ 180*0.85
+ 180*0.70
+ 180*0.14
+ 180*0.77 /
+
+COPY
+ PERMX PERMY /
+/
+
+
+INCLUDE
+ 'include/multnum.inc' /
+ 
+MULTREGT
+ 1 2 0.1   XYZ  ALL  'M' /
+ 2 3 0.1   XYZ  ALL  'M' /
+ 3 4 0.1   XYZ  ALL  'M' /
+ 4 5 0.1   XYZ  ALL  'M' /
+ 5 6 0.05  XYZ  ALL  'M' /
+
+ 1 6 0.0   XYZ  ALL  'M' /
+ 2 6 0.0   XYZ  ALL  'M' /
+ 2 5 0.0   XYZ  ALL  'M' /
+ 3 5 0.0   XYZ  ALL  'M' /
+/
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/fipnum.inc' /
+
+
+INCLUDE
+ 'include/fipnum_custom.inc' /
+ 
+ 
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTSOL
+SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc      Pc  Rsvd  Rvvd  N
+2000.00  230.0  2050.0   0.0  2000.00  0.0   1     1    0 /   
+
+PDVD
+ 1990  220.0 
+ 2000  230.0 /
+
+PBVD
+ 2000  230.0 
+ 2050  210.0 /
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+WMCTL
+/
+
+WBHP
+/
+
+WOPR
+/
+
+WGPR
+/
+
+FOPR
+
+FGPR
+
+
+GGPR
+ 'TEST' /
+ 
+GOPR
+ 'TEST' /
+
+GEFF
+ 'TEST' /
+
+RPR
+ 1 2 3 4 5 6 /
+
+FUGIRDX
+FU_TMP1
+FU_CHECK
+FU_TEST
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+-- start: 10  'OCT' 2018 /
+
+GRUPTREE
+ 'TEST'  'FIELD' /
+/
+
+GEFAC
+ 'TEST'  0.78 /
+/
+  
+
+TUNING
+ 0.1 1.0 /
+ /
+ /
+
+WELSPECS 
+   'D-1H'   'TEST'   6   2  1*       'OIL'  2*      'STOP'  4* /
+/
+
+COMPDAT 
+-- WELL     I   J  K1   K2    Flag    Sat.    CF     DIAM    KH  SKIN  ND   DIR   Ro 
+   'D-1H'   6   2   1	5    'OPEN'   1*      1*    0.216    1*   1*   1*   'Z'    1* /
+/
+
+
+WCONPROD
+ 'D-1H'  'OPEN'  'GRUP'   5000.0 8000.0   2.0E6  2*  135.0 /
+/
+
+
+GCONPROD
+ 'TEST'  'ORAT'  2000.0   3*   'RATE' /
+/
+
+TSTEP
+ 1 / 
+
+UDQ
+ DEFINE 'FUGASX' -0.15 /
+/
+
+UDQ
+DEFINE FURE2 (ROIP_RE2 2)+(ROIP_RE2 4)+(ROIP_RE2 5) /
+UNITS  FURE2 SM3D /
+/
+
+
+UDQ
+DEFINE FUGIRDX (ROIP_RE2 2)/(FURE2)*(0.3*(RGPR_RE2 1)+(RGPR_RE2 2)+(RGPR_RE2 3))/(GEFF TEST)*(1+FUGASX)  /
+UNITS  FUGIRDX SM3D /
+/
+
+UDQ
+DEFINE FU_TMP1 (1.0*TIME*TIME-75.0*TIME+1250)* 50.0  /
+UNITS  FU_TMP1 SM3D /
+/
+
+UDQ
+DEFINE FU_CHECK FUGIRDX + FU_TMP1  /
+UNITS  FU_CHECK SM3D /
+/
+
+UDQ
+DEFINE FU_TEST (ROIP_RE2 2)/(FURE2)*(0.3*(RGPR_RE2 1)+(RGPR_RE2 2)+(RGPR_RE2 3))/(GEFF TEST)*(1+FUGASX)+((1.0*TIME*TIME-75.0*TIME+1250)*50.123)  /
+UNITS  FU_TEST SM3D /
+/
+
+  
+DATES
+ 1 NOV 2018 /
+ 1 DEC 2018 /
+ 1 JAN 2019 /
+/
+
+
+END
