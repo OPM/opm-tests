@@ -3,11 +3,11 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2021 Equinor
+-- Copyright (C) 2025 Equinor
 
 -- This model is based on the WSEGVALV model and has been modified to test the INCLUDE keyword to load the COMPSEGS, WELSEGS and
--- WSEGVALV keywords within an ACTIONX block. Note that the commercial simulator does not support the INCLUDE keyword in an ACTIONX 
--- block.
+-- WSEGVALV keywords within an PYACTION block. This model is based on actionx/ACTIONX_INCLUDE.DATA and performs a PYACTION instead
+-- of the ACTIONX ACT-01.
 --
 -- The WSEGVALV model is a test case for modeling an Inflow Control Devise ("ICD") for multi-segment wells using the WSEGVALV
 -- keyword in the SCHEDULE section. In addition the COMPSEGS and WELSEGS keywords are used to define PROD1 the single multi-segment 
@@ -28,7 +28,7 @@ RUNSPEC
 --       DEFINE THE TITLE FOR THE RUN  
 --
 TITLE                                                                           
-OPM_TESTS: ACTIONX_INCLUDE
+OPM_TESTS: PYACTION_INCLUDE
 --
 --       DEFINE THE START DATE FOR THE RUN 
 --
@@ -385,22 +385,10 @@ TUNING
          0.5     5.0                                                           /
                                                                                /      
                                                                                /
--- ---------------------------------------------------------------------------------------------------------------------------------
--- ACTIONX – DEFINE WELSEGS, COMPSEGS, AND WSEGVALV
--- ---------------------------------------------------------------------------------------------------------------------------------      
-ACTIONX
-        ACT-01                                             /
-        DAY  >= 1             AND                          /
-        MNTH = FEB            AND                          /
-        YEAR = 2021                                        /
-/
---
---       LOAD INCLUDE FILE - WELSEGS, COMSEGS AND WSEGVALV 
---
-INCLUDE 
-         '$WSEGVALV/prod1_msw_wsegvalv_data.inc'           /
- 
-ENDACTIO
+PYACTION
+INCLUDE_PYACTION UNLIMITED /
+'pyaction_include_insert_kw.py' /
+
 -- ---------------------------------------------------------------------------------------------------------------------------------
 -- WELL SPECIFICATIONS AND COMPLETIONS                                          
 -- ---------------------------------------------------------------------------------------------------------------------------------      
