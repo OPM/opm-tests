@@ -3,13 +3,13 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 --
--- Copyright (C) 2024 Equinor ASA
+-- Copyright (C) 2025 Equinor ASA
 --
 --
 -- boxmodel    ||   1 horizontal producer, standard well completion (no msw)
 --
--- Basic wcycle setup with shorter time steps
 --
+-- Basic wcycle setup, testing multiple WCYCLE blocks including disabling
 --=====================================================================
 RUNSPEC
 --=====================================================================
@@ -237,22 +237,29 @@ DATES
 WELSPECS
 --WELL  GROUP  IHEEL JHEEL       DREF PHASE       DRAD INFEQ SIINS XFLOW PRTAB  DENS
  'OP1' 'PROD'      4     4       2643   OIL         1*    1*  SHUT   YES    1*   SEG /
+ 'OP1G'  'INJ'      7    18       1*     GAS / 
 /
 
 COMPORD
  'OP1'  INPUT /
+ 'OP1G'  INPUT /
 /
 
 COMPDAT
 --WELL     I     J    K1    K2 OP/SH  SATN       TRAN      WBDIA         KH       SKIN DFACT   DIR      PEQVR
 --------------------------------------------------------------------------------------------------------------
  'OP1'     4     4    15    15  OPEN    1* 397.772162      0.248 24635.0747          0    1*     Y 3.42355664 /
+ 'OP1G'     7    18    1     10  OPEN    1*  1*             0.248 /
 --------------------------------------------------------------------------------------------------------------
 /
 
 WCONHIST
 --WELL OP/SH   CTL       ORAT       WRAT       GRAT       
- 'OP1'  OPEN  ORAT       200        0.1       20000      / 
+ 'OP1'  OPEN  ORAT       200        0.1       30000      / 
+/
+WCONINJE
+--WELL  PHASE OP/SH  CTL     RATE
+ 'OP1G'  'GAS' 'SHUT'   'RATE'  20000  /
 /
 
 DATES
@@ -263,14 +270,10 @@ DATES
  10 'OCT' 2003 /
 /
 
-WCONINJE
---WELL  PHASE OP/SH  CTL     RATE
- 'OP1'  'GAS' 'SHUT'   'RATE'  20000  /
-/
 
 WCYCLE
 -- Name   OnTime OffTime RampUpTime MaxDtOn DtRespectOnOff
-  'OP1'    20       40        3        0.5        'YES'  /
+  'OP1G'    20       40        3        1        'YES'  /
 /
 
 
@@ -280,7 +283,7 @@ DATES
 
 
 WELOPEN
- 'OP1' OPEN /
+ 'OP1G' OPEN /
 /
 
 DATES
@@ -291,12 +294,54 @@ DATES
   1  'DEC' 2003  /
 /
 
+WELOPEN
+  'OP1G' SHUT /
+/
+
+WCYCLE
+  'OP1G' 0.0 100000 /
+/
+
 DATES
   1  'JAN' 2004  /
 /
 
+GCONINJE
+'INJ'       'GAS'         'REIN' 10000  1* 1.000 4* 'PROD' /
+/
+
+WELTARG
+  'OP1G' 'GRAT' 25000 /
+/
+
 DATES
   1  'MAR' 2004  /
+/
+
+WELOPEN
+  'OP1G' OPEN /
+/
+WCYCLE
+-- Name   OnTime OffTime RampUpTime MaxDtOn DtRespectOnOff
+  'OP1G'    20       40        3        1        'YES'  /
+/
+
+DATES
+  21 'MAR' 2004 /
+/
+WELOPEN
+  'OP1' OPEN /
+/
+
+WCYCLE
+-- Name   OnTime OffTime RampUpTime MaxDtOn DtRespectOnOff
+  'OP1'    40       20        3        1        'YES'  /
+/
+
+
+
+DATES
+  1  'DEC' 2004  /
 /
 
 END

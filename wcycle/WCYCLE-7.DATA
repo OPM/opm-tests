@@ -3,7 +3,7 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 --
--- Copyright (C) 2018 Equinor
+-- Copyright (C) 2024 Equinor ASA
 --
 --
 -- boxmodel    ||   1 horizontal producer, standard well completion (no msw)
@@ -40,10 +40,6 @@ ENDSCALE
 GRIDOPTS
  'YES'  15 /
  
-PATHS
- 'ECLPATH' '../../eclipse/include' /
-/
-
 --SAVE
 --/ 
 -----------------------------------------------------
