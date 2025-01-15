@@ -43,7 +43,7 @@ if (GGOR_PROD >= 150 and current_time.month >= 1 and current_time.year >= 2019 a
     schedule.insert_keywords(kw)
     executed[0] = True
 
-if (GGOR_FIELD >= 200 and GOPR_PROD <= 1500 and not executed[0]):
+if (GGOR_FIELD >= 200 and GOPR_PROD <= 1500 and not executed[1]):
     opm_embedded.OpmLog.info("PYACTION version of ACT-02 triggered at {}\n".format(current_time))
     kw = """
     --
