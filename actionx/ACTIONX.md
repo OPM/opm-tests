@@ -15,7 +15,7 @@ GRUPTARG     | -                                                                
 GRUPTREE     | GCONPROD, GCONINJE, WCONINJE, WELOPEN, WELSSPECS, WGRUPCON          | ACTIONX_GRUPTREE   | Prediction | MODEL02    | No    | 
 GSATINJE     | -                                                                   | -                  | -          | -          | -     | Keyword not supported in deck.
 GSATPROD     | -                                                                   | -                  | -          | -          | -     | Keyword not supported in deck.
-INCLUDE      | COMPSEGS, WELSEGS                                                   | ACTIONX_INCLUDE    | Prediction | WSEGVALV   | Yes   | 
+INCLUDE      | COMPSEGS, WELSEGS                                                   | ACTIONX_INCLUDE    | Prediction | WSEGVALV   | Yes   | Users must be cautious about the contents of the included file, as conflicts with the base DATA file (e.g., time progression settings) or keywords unsupported by ACTIONX may cause issues.
 MULT         |                                                                     | ACTIONX_MULT       | Prediction | MULT       | Yes   | 
 MULT-        | BOX, ENDBOX, MULTX-, MULTY-, MULTZ-                                 | ACTIONX_MULT-      | Prediction | MULT       | No    |  
 MULT+        | BOX, ENDBOX  MULTX, MULTY, MULTZ                                    | ACTIONX_MULT+      | Prediction | MULT       | No    | 
