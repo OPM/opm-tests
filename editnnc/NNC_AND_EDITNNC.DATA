@@ -210,7 +210,7 @@ RPTSOL
 SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
 
 RPTRST
- BASIC=2 /
+ BASIC=2 RESIDUAL /
 
 EQUIL
 -- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
