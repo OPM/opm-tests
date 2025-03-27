@@ -17,17 +17,8 @@
 ----------------------------------------------------------------------------
 RUNSPEC
 ----------------------------------------------------------------------------
-TITLE
-   MICP
-
 DIMENS
-  100 1 1 /
-
-EQLDIMS
-  /
-
-TABDIMS
-  /
+100 1 1 /
 
 WATER
 
@@ -35,249 +26,235 @@ MICP
 
 METRIC
 
-START
-  18 'Jan' 1991 /
-
 WELLDIMS
-  10 60 10 20 /
+2 1 2 2 /
 
 UNIFIN
 UNIFOUT
-
 ----------------------------------------------------------------------------
 GRID
 ----------------------------------------------------------------------------
 INIT
 
 DX
-  100*1 /
+100*1 /
 
 DY
-  100*1 /
+100*1 /
 
 DZ
-  100*1 /
+100*1 /
 
 TOPS
-  100*1 /
+100*0 /
 
 PORO
-  100*0.15 /
+100*0.15 /
 
 PERMX
-  100*10.13 /
+100*10.13 /
 
-PERMY
-  100*10.13 /
-
-PERMZ
-  100*10.13 /
-
+COPY 
+PERMX PERMY /
+PERMX PERMZ /
+/
 ----------------------------------------------------------------------------
 PROPS
 ----------------------------------------------------------------------------
+PERMFACT
+-- PORO PERM
+-- FACTOR FACTOR
+0.0 0.005
+0.4 0.005
+0.6  0.01
+0.9   0.1
+1.0     1 /
+
 ROCK
-  1.0 1e-6 /
+276.0 1.95E-04 /
 
 DENSITY
-  1045 /
+1045 /
 
 PVTW
-  1.0 1 0.0 0.254 0.0 /
+277 1.038 4.67E-05 0.254 0 /
 
-MICPPARA
-  35. 2710. 2.6e-13 0.1 3.0 2e-05 21.3 3.6 0.04 300. 1391. 0.0735 0.0275
-  1.0133e-05 0.5 1e-04 0.5 /
-
+BIOFPARA
+-- BDEN DEATH GROWTH HALF YIELD FACTOR ATACH DETRAT DETEXP UREA HALF CDEN YUTOC
+35 0.0275 3.6 2E-05 0.5 0.5 0.0735 2.6E-13 0.58 1391 21.3 2710 1.67 /
 ----------------------------------------------------------------------------
 SOLUTION
 ---------------------------------------------------------------------------
+RPTRST
+'BASIC=2' DEN FLOWS FLORES /
+
 PRESSURE
-  100*4800 /
-
-SMICR
-  100*0 /
-
-SOXYG
-  100*0 /
-
-SUREA
-  100*0 /
-
-SBIOF
-  100*0 /
-
-SCALC
-  100*0 /
-
+100*10 /
 ----------------------------------------------------------------------------
 SCHEDULE
 ----------------------------------------------------------------------------
 RPTRST
- 'BASIC=2'/
+'BASIC=2' DEN FLOWS FLORES /
 
 WELSPECS
-  'INJE01' 'INJE' 1 1 1* 'WATER' 0.15 /
-  'PROD01' 'PROD' 100 1 1* 'WATER' 0.15 /
-  /
+'INJE01' 'G1' 1   1 1* 'WATER' 0.15 /
+'PROD01' 'G1' 100 1 1* 'WATER' 0.15 /
+/
 
 COMPDAT
-  'INJE01' 1 1 1 1 'OPEN' 1* 1* /
-  'PROD01' 100 1 1 1 'OPEN' 1* 1* /
-  /
+'INJE01'   1 1 1 1 'OPEN' /
+'PROD01' 100 1 1 1 'OPEN' /
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'OPEN' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
-WMICP
-  'INJE01' 0 0 0/
-  /
+'PROD01' 'OPEN' 'BHP' 5* 10/
+/
 TSTEP
-  1*0.0001
-  /
+1*0.001
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'OPEN' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
+'PROD01' 'OPEN' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0.01 0 0/
-  /
+'INJE01' 0.01 0 0/
+/
 TSTEP
-  20*0.0417
-  /
+2*0.417
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8  /
-  /
+'INJE01' 'WATER' 'OPEN' 'RATE' 1.5 1* 480  /
+/
 WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
+'PROD01' 'OPEN'  'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0 0/
-  /
+'INJE01' 0 0 0/
+/
 TSTEP
-  20*0.0417
-  /
+2*0.417
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'SHUT' 'RATE' 2.  1* 1E8  /
-  /
+'INJE01' 'WATER' 'SHUT' 'RATE' 1.5 1* 480  /
+/
 WCONPROD
-  'PROD01' 'SHUT'  'BHP' 1* /
-  /
+'PROD01' 'SHUT' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0 0/
-  /
+'INJE01' 0 0 0/
+/
 TSTEP
-  100*0.0417
-  /
+10*0.417
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'OPEN' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
+'PROD01' 'OPEN' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0 0/
-  /
+'INJE01' 0 0 0/
+/
 TSTEP
-  1*0.0001
-  /
+1*0.0001
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'OPEN' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
+'PROD01' 'OPEN' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0.04 0/
-  /
+'INJE01' 0 0.04 0/
+/
 TSTEP
-  20*0.0417
-  /
+2*0.417
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'OPEN' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
+'PROD01' 'OPEN' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0 0/
-  /
+'INJE01' 0 0 0/
+/
 TSTEP
-  20*0.0417
-  /
+2*0.417
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'SHUT' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'SHUT' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'SHUT'  'BHP' 1* /
-  /
+'PROD01' 'SHUT' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0 0/
-  /
+'INJE01' 0 0 0/
+/
 TSTEP
-  50*0.0417
-  /
+5*0.417
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'OPEN' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
+'PROD01' 'OPEN' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0 0/
-  /
+'INJE01' 0 0 0/
+/
 TSTEP
-  1*0.0001
-  /
+1*0.0001
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'OPEN' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
+'PROD01' 'OPEN' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0 300.0/
-  /
+'INJE01' 0 0 300/
+/
 TSTEP
-  20*0.0417
-  /
+2*0.417
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'OPEN' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
+'PROD01' 'OPEN' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0 0/
-  /
+'INJE01' 0 0 0/
+/
 TSTEP
-  20*0.0417
-  /
+2*0.417
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'SHUT' 'RATE' 2.  1* 1E8 /
-  /
+'INJE01' 'WATER' 'SHUT' 'RATE' 1.5 1* 480 /
+/
 WCONPROD
-  'PROD01' 'SHUT'  'BHP' 1* /
-  /
+'PROD01' 'SHUT' 'BHP' 5* 10/
+/
 WMICP
-  'INJE01' 0 0 0/
-  /
+'INJE01' 0 0 0/
+/
 TSTEP
-  230*0.0417
-  /
+23*0.417
+/

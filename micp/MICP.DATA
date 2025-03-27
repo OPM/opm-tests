@@ -3,143 +3,341 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2021 NORCE
+-- Copyright (C) 2025 NORCE
 
+-- 2D horizontal MICP test problem
+-- For details on the mathematical model, see:
+-- https://doi.org/10.1016/j.ijggc.2021.103256
 ----------------------------------------------------------------------------
 RUNSPEC
 ----------------------------------------------------------------------------
-TITLE
-   MICP
-
-DIMENS
-  100 1 1 /
-
-EQLDIMS
-  /
+DIMENS 
+10 9 1 /
 
 TABDIMS
-  /
+2 /
 
 WATER
+
+DIFFUSE
 
 MICP
 
 METRIC
 
 START
-  18 'Jan' 1991 /
+1 'JAN' 2025 /
 
 WELLDIMS
-  10 60 10 20 /
+4 9 2 4 /
 
 UNIFIN
 UNIFOUT
-
 ----------------------------------------------------------------------------
 GRID
 ----------------------------------------------------------------------------
 INIT
-
 DX
-  100*1 /
+90*10 /
 
 DY
-  100*1 /
+90*1 /
 
 DZ
-  100*1 /
+90*1 /
 
 TOPS
-  100*1 /
-
-PORO
-  100*0.15 /
+90*0 /
 
 PERMX
-  100*10.13 /
+90*4E+06 /
 
-PERMY
-  100*10.13 /
+PORO
+90*0.4 /
 
-PERMZ
-  100*10.13 /
+COPY 
+PERMX PERMY /
+PERMX PERMZ /
+/
 
+DISPERC
+30*0.001 30*0.002 30*0.003 /
 ----------------------------------------------------------------------------
 PROPS
 ----------------------------------------------------------------------------
+PERMFACT
+-- PORO PERM
+-- FACTOR FACTOR
+0.0 0.005
+0.4 0.005
+0.6  0.01
+0.9   0.1
+1.0     1 / Table no. 1
+/ Table two is defaulted to table one.
+
 ROCK
-  1.0 1e-6 /
+276.0 1.95E-04 /
 
 DENSITY
-  1045 /
+1045 /
 
 PVTW
-  1.0 1 0.0 0.254 0.0 /
+277 1.038 4.67E-05 0.254 0 /
 
-MICPPARA
-  35. 2710. 2.6e-13 0.1 3.0 2e-05 21.3 3.6 0.04 300. 1391. 0.0735 0.0275
-  1.0133e-05 0.5 1e-04 0.5 /
+BIOFPARA
+-- BDEN DEATH GROWTH HALF YIELD FACTOR ATACH DETRAT DETEXP UREA HALF CDEN YUTOC
+35 0.0275 3.6 2E-05 0.5 0.5 0.0735 2.6E-13 0.58 1391 21.3 2710 1.67 /
+10 0.0275 3.6 2E-05 0.5 0.5 0.0735   1E-05 0.58 1391 21.3 2710 1.67 /
 
-----------------------------------------------------------------------------
+DIFFMICP
+-- MICR OXYG UREA
+2E-04 2E-04 1E-04 /
+---------------------------------------------------------------------------
+REGIONS
+---------------------------------------------------------------------------
+SATNUM
+45*1 45*2 /
+
+FIPNUM
+45*1 45*2 /
+---------------------------------------------------------------------------
 SOLUTION
 ---------------------------------------------------------------------------
-PRESSURE
-  100*4800 /
+RPTRST
+'BASIC=2' DEN FLOWS FLORES /
+
+EQUIL
+0 200 -1 0 0 0 1 1 0 /
 
 SMICR
-  100*0 /
+9*0 0.01 80*0 /
 
 SOXYG
-  100*0 /
+29*0 0.04 60*0 /
 
 SUREA
-  100*0 /
+49*0 10 40*0 /
 
 SBIOF
-  100*1e-4 /
+30*0 4*0 2*0.35 4*0 4*0 2*0.35 4*0 4*0 2*0.35 4*0 30*0 /
 
 SCALC
-  100*0 /
-
+75*0 0.35 14*0 /
 ----------------------------------------------------------------------------
 SUMMARY
 ----------------------------------------------------------------------------
-ALL
+FMMIP
+FMOIP
+FMUIP
+FMBIP
+FMCIP
+RMMIP
+/
+RMOIP
+/
+RMUIP
+/
+RMBIP
+/
+RMCIP
+/
+BMMIP
+6 4 1 /
+/
+BMOIP
+6 4 1 /
+/
+BMUIP
+6 4 1 /
+/
+BMBIP
+6 4 1 /
+/
+BMCIP
+6 4 1 /
+/
+FMMIR
+FMOIR
+FMUIR
+FMMIT
+FMOIT
+FMUIT
+FMMPR
+FMOPR
+FMUPR
+FMMPT
+FMOPT
+FMUPT
+WMMIR
+/
+WMOIR
+/
+WMUIR
+/
+WMMIT
+/
+WMOIT
+/
+WMUIT
+/
+WMMPR
+/
+WMOPR
+/
+WMUPR
+/
+WMMPT
+/
+WMOPT
+/
+WMUPT
+/
+CMMIR
+'INJ1' 1 4 1 /
+/
+CMOIR
+'INJ1' 1 4 1 /
+/
+CMUIR
+'INJ1' 1 4 1 /
+/
+CMMIT
+'INJ1' 1 5 1 /
+/
+CMOIT
+'INJ1' 1 5 1 /
+/
+CMUIT
+'INJ1' 1 5 1 /
+/
+CMMIRL
+'INJ1' /
+/
+CMOIRL
+'INJ1' /
+/
+CMUIRL
+'INJ1' /
+/
+CMMITL
+'INJ1' /
+/
+CMOITL
+'INJ1' /
+/
+CMUITL
+'INJ1' /
+/
+CMMPR
+'PRO0' 10 4 1 /
+/
+CMOPR
+'PRO0' 10 4 1 /
+/
+CMUPR
+'PRO0' 10 4 1 /
+/
+CMMPT
+'PRO0' 10 5 1 /
+/
+CMOPT
+'PRO0' 10 5 1 /
+/
+CMUPT
+'PRO0' 10 5 1 /
+/
+CMMPRL
+'PRO0' /
+/
+CMOPRL
+'PRO0' /
+/
+CMUPRL
+'PRO0' /
+/
+CMMPTL
+'PRO0' /
+/
+CMOPTL
+'PRO0' /
+/
+CMUPTL
+'PRO0' /
+/
 ----------------------------------------------------------------------------
 SCHEDULE
 ----------------------------------------------------------------------------
 RPTRST
- 'BASIC=2'/
+'BASIC=2' DEN FLOWS FLORES /
 
 WELSPECS
-  'INJE01' 'INJE' 1 1 1* 'WATER' 0.15 /
-  'PROD01' 'PROD' 100 1 1* 'WATER' 0.15 /
-  /
+'INJ0' 'HW' 1  1 1* 'WATER' /
+'INJ1' 'HW' 1  4 1* 'WATER' /
+'INJ2' 'HW' 1  7 1* 'WATER' /
+'PRO0' 'HW' 10 1 1* 'WATER' /
+/
 
 COMPDAT
-  'INJE01' 1 1 1 1 'OPEN' 1* 1* /
-  'PROD01' 100 1 1 1 'OPEN' 1* 1* /
-  /
+'INJ0' 1  1 1 1 'OPEN' /
+'INJ0' 1  2 1 1 'OPEN' /
+'INJ0' 1  3 1 1 'OPEN' /
+'INJ1' 1  4 1 1 'OPEN' /
+'INJ1' 1  5 1 1 'OPEN' /
+'INJ1' 1  6 1 1 'OPEN' /
+'INJ2' 1  7 1 1 'OPEN' /
+'INJ2' 1  8 1 1 'OPEN' /
+'INJ2' 1  9 1 1 'OPEN' /
+'PRO0' 10 1 1 1 'OPEN' /
+'PRO0' 10 2 1 1 'OPEN' /
+'PRO0' 10 3 1 1 'OPEN' /
+'PRO0' 10 4 1 1 'OPEN' /
+'PRO0' 10 5 1 1 'OPEN' /
+'PRO0' 10 6 1 1 'OPEN' /
+'PRO0' 10 7 1 1 'OPEN' /
+'PRO0' 10 8 1 1 'OPEN' /
+'PRO0' 10 9 1 1 'OPEN' /
+/
+
+WCONPROD
+'PRO0' OPEN 'BHP' 5* 100 /
+/
 
 WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
-WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
-TSTEP
-  1*0.0001
-  /
+'INJ0' 'WATER' OPEN 'RATE' 3E+04 1* 400 /
+'INJ1' 'WATER' OPEN 'RATE' 3E+04 1* 400 /
+'INJ2' 'WATER' OPEN 'RATE' 3E+04 1* 400 /
+/
 
-WCONINJE
-  'INJE01' 'WATER' 'OPEN' 'RATE' 2.  1* 1E8 /
-  /
-WCONPROD
-  'PROD01' 'OPEN'  'BHP' 1* /
-  /
 WMICP
-  'INJE01' 0.01 0.04 60./
-  /
+'INJ1' 0.01 0 0 /
+/
+
 TSTEP
-  2*0.0417
-  /
+5*0.01 /
+
+WMICP
+'INJ1' 0 0.04 0 /
+/
+
+TSTEP
+5*0.01 /
+
+WMICP
+'INJ1' 0 0 10 /
+/
+
+TSTEP
+5*0.01 /
+
+WCONINJE
+'INJ0' 'WATER' OPEN 'RATE' 3E+05 1* 400 /
+'INJ1' 'WATER' OPEN 'RATE' 3E+05 1* 400 /
+'INJ2' 'WATER' OPEN 'RATE' 3E+05 1* 400 /
+/
+
+WMICP
+'INJ1' 0 0 0 /
+/
+
+TSTEP
+5*0.01 /
