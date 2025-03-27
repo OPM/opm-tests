@@ -378,7 +378,7 @@ WCONINJH
 
 ACTIONX
     WIWI01   1 /
-    DAY  >=   5 AND /
+    DAY  >=   7 AND /
     MNTH >=  JAN AND /
     YEAR >= 2018 /
 /
