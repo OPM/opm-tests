@@ -1,0 +1,522 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024 Equinor and OPM-OP AS
+
+-- This model is based on the WSEGVALV model and has been modified to test parallel simulations including a multisegment well.
+--
+-- =================================================================================================================================
+--
+-- RUNSPEC SECTION
+--
+-- =================================================================================================================================
+RUNSPEC
+--
+--       DEFINE THE TITLE FOR THE RUN
+--
+TITLE
+OPM_TESTS: MSW-SIMPLE
+--
+--       DEFINE THE START DATE FOR THE RUN
+--
+START
+         1 'JAN' 2021                                                         /
+--
+--       SWITCH NO SIMULATION MODE FOR DATA CHECKING COMMENT OUT TO RUN THE MODEL
+--
+-- NOSIM
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- FLUID TYPES AND TRACER OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       OIL PHASE IS PRESENT IN THE RUN
+--
+OIL
+--
+--       GAS PHASE IS PRESENT IN THE RUN
+--
+GAS
+--
+--       DISSOLVED GAS IN LIVE OIL IS PRESENT IN THE RUN
+--
+DISGAS
+--
+--       WATER PHASE IS PRESENT IN THE RUN
+--
+WATER
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GRID AND EQUILBRATION DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX
+--       NDIVIX  NDIVIY  NDIVIZ
+DIMENS
+         12      5       10                                                    /
+--
+--       MAX     MAX     RSVD    TVDP    TVDP
+--       EQLNUM  DEPTH   NODES   TABLE   NODES
+EQLDIMS
+         1       1*      1*      1       1                                     /
+--
+--       MAX     TOTAL   INDEP   FLUX    TRACK  CBM    OPERN  WORK  WORK  POLY
+--       FIPNUM  REGNS   REGNS   REGNS   REGNS  REGNS  REGNS  REAL  INTG  REGNS
+REGDIMS
+         1       4       1       1*      1*     1*     1*     1*    1*    1*   /
+--
+--       NEG      MAX     MAX
+--       MULTS    MULTNUM PINCHNUM
+GRIDOPTS
+         NO       1*      1*                                                   /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- ROCK AND SATURATION TABLES DIMENSIONS AND OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       MAX     MAX     MAX     MAX     MAX     MAX    E300
+--       NTSFUN  NTPVT   NSSFUN  NPPVT   NTFIP   NRPVT  BLANK  NTEND
+TABDIMS
+         1       1       50      50      28      50     1*     1               /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- GROUP, WELL AND VFP TABLE DIMENSIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       WELL    WELL    GRUPS   GRUPS
+--       MXWELS  MXCONS  MXGRPS  MXGRPW
+WELLDIMS
+         1       20      1       1                                             /
+--
+--       PRODUCING VFP TABLES
+--       VFP     VFP     VFP     VFP     VFP     VFP
+--       MXMFLO  MXMTHP  MXMWFR  MXMGFR  MXMALQ  MXVFPTAB
+VFPPDIMS
+         25      12      12      12      5       48                            /
+--
+--       WELL    WELL    BRANCH  SEGMENT
+--       MXWELS  MXSEGS  MXBRAN  MXLINKS
+WSEGDIMS
+         2       30      15      1*                                            /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- MISCELLEOUS OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       ACTION    ACTION   ACTION   ACTION
+--       MXACTNS   MXLINES  MXCHARS  MXSTATMS
+ACTDIMS
+         1         100      128      3                                         /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- INPUT AND OUTPUT OPTIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+--
+--       METRIC SYSTEM OF UNITS FOR BOTH INPUT AND OUTPUT
+--
+METRIC
+--
+--       SWITCH ON THE UNIFIED INPUT FILES OPTION
+--
+UNIFIN
+--
+--       SWITCH ON THE UNIFIED OUTPUT FILES OPTION
+--
+UNIFOUT
+--
+--       PATH       PATH
+--       ALIAS      DIRECTORY FILENAME
+PATHS
+        'WSEGVALV'  '../wsegvalv/include'                                      /
+/
+--
+--       MESS  COMMT WARN  PROBL ERROR BUG   MESS COMMT WARN  PROBL ERROR BUG
+--       LIMIT LIMIT LIMIT LIMIT LIMIT LIMIT STOP STOP  STOP  STOP  STOP  STOP
+MESSAGES
+         1*    1*    1*    1*    1*    1*    1*   1*    1*    1*    10    1    /
+-- =================================================================================================================================
+--
+-- GRID SECTION
+--
+-- =================================================================================================================================
+GRID
+--
+--       ACTIVATE WRITING THE INIT FILE FOR POST-PROCESSING
+--
+INIT
+--
+--       GRID FILE OUTPUT OPTIONS
+--       GRID    EGRID
+--       OPTN    OPTN
+GRIDFILE
+         0       1                                                             /
+--
+--       ACTIVATE IRREGULAR CORNER-POINT GRID TRANSMISSIBILITIES
+--
+NEWTRAN
+--
+--       SWITCH OFF ECHOING OF INPUT FILES
+--
+NOECHO
+--
+--       LOAD INCLUDE FILE
+--
+INCLUDE
+         '$WSEGVALV/grid1.grdecl'      /
+--
+--       SWITCH ON ECHOING OF INPUT FILES
+--
+ECHO
+--
+--       SWITCH ON ECHOING OF INPUT FILES
+--
+--
+--       DEFINE GRID BLOCK NTG DATA FOR ALL CELLS
+--
+NTG
+         600*0.860                                                             /
+--
+--       DEFINE GRID BLOCK PERMX DATA FOR ALL CELLS
+--
+PERMX
+         600*9952                                                              /
+--
+--       DEFINE GRID BLOCK PERMY DATA FOR ALL CELLS
+--
+PERMY
+         600*9952                                                              /
+--
+--       DEFINE GRID BLOCK PERMZ DATA FOR ALL CELLS
+--
+PERMZ
+         600*7053                                                              /
+--
+--       DEFINE GRID BLOCK POROSITY DATA FOR ALL CELLS
+--
+PORO
+         600*0.310                                                             /
+
+-- =================================================================================================================================
+--
+-- EDIT SECTION
+--
+-- =================================================================================================================================
+EDIT
+
+-- =================================================================================================================================
+--
+-- PROPS SECTION
+--
+-- =================================================================================================================================
+PROPS
+--
+--       SWITCH OFF ECHOING OF INPUT FILES
+--
+NOECHO
+--
+--       LOAD INCLUDE FILE - PVT
+--
+INCLUDE
+         '$WSEGVALV/pvto_pvdg.pvt'     /
+--
+--       LOAD INCLUDE FILE - ROCK PROPERTIES
+--
+INCLUDE
+         '$WSEGVALV/relperm.prpecl'    /
+--
+--       SWITCH ON ECHOING OF INPUT FILES
+--
+ECHO
+--
+--       ROCK COMPRESSIBILITY
+--
+--       REFERENCE PRESSURE IS TAKEN FROM THE HCPV WEIGHTED FIELD RESERVOIR PRESSURE
+--       AS THE PORV IS ALREADY AT RESERVOIR CONDITIONS (ECLIPSE USES THE REFERENCE
+--       PRESSURE) TO CONVERT THE GIVEN PORV TO RESERVOIR CONDITIONS USING THE DATA
+--       ON THE ROCK KEYWORD)
+--
+--       REF PRES  CF
+--       PSIA      1/PSIA
+--       --------  --------
+ROCK
+         144.445   5.17557E-4                              / ROCK COMPRESSIBILITY
+
+-- =================================================================================================================================
+--
+-- REGIONS SECTION
+--
+-- =================================================================================================================================
+REGIONS
+--
+--       DEFINE FIPNUM REGIONS FOR ALL CELLS
+--
+FIPNUM
+         600*1                                                                 /
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+COPY
+         FIPNUM      EQLNUM       1*  1*   1*  1*   1*  1* / CREATE EQLNUM
+         FIPNUM      PVTNUM       1*  1*   1*  1*   1*  1* / CREATE PVTNUM
+/
+
+-- =================================================================================================================================
+--
+-- SOLUTION SECTION
+--
+-- =================================================================================================================================
+SOLUTION
+--
+--       DATUM   DATUM   OWC     PCOW   GOC    PCGO   RS   RV   N
+--       DEPTH   PRESS   DEPTH   ----   DEPTH  ----   OPT  OPT  OPT
+EQUIL
+         1185.0  150.4   1260.0  0.0    610.0  1*     1    1*   1*              /
+--
+--       DEPTH    RS
+--                MSCF/STB
+--       ------   --------
+RSVD
+          610.0   24.650
+         1830.0   24.650                                   / RS VS DEPTH EQUIL REGN 01
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST
+         'BASIC=2'                                                             /
+--
+--       DEFINE SOLUTION SECTION REPORT OPTIONS
+--
+RPTSOL
+         'FIP=3'   'FIPRESV'  'THPRES'                                         /
+
+-- =================================================================================================================================
+--
+-- SUMMARY SECTION
+--
+-- =================================================================================================================================
+SUMMARY
+--
+--       ACTIVATE COLUMNAR SUMMARY DATA REPORTING OPTION
+--
+SEPARATE
+--
+--       EXPORT STANDARD SUMMARY VARIABLE VECTORS TO FILE
+--
+ALL
+--
+--       EXPORT LIQUID RATES AND TOTALS
+--
+FLPR
+FLPT
+GLPR
+/
+GLPT
+/
+WLPR
+/
+WLPT
+/
+--
+--       WELL MULTI-SEGMENT FLOW VARIABLES
+--
+SOFR
+'PROD1' /
+/
+-- SOFRF
+-- 'PROD1' /
+-- /
+-- SOFRS
+-- 'PROD1' /
+-- /
+SWFR
+'PROD1' /
+/
+SGFR
+'PROD1' /
+/
+-- SGFRF
+-- 'PROD1' /
+-- /
+-- SGFRS
+-- 'PROD1' /
+-- /
+SWCT
+'PROD1' /
+/
+-- SGOR
+-- 'PROD1' /
+-- /
+-- SOGR
+-- 'PROD1' /
+-- /
+--
+--       WELL MULTI-SEGMENT PRESSURE VARIABLES
+--
+SPR
+'PROD1' /
+/
+SPRD
+'PROD1' /
+/
+
+-- =================================================================================================================================
+--
+-- SCHEDULE SECTION
+--
+-- =================================================================================================================================
+SCHEDULE
+--
+--       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
+--
+RPTRST
+         BASIC=2                                                               /
+--
+--       DEFAULT TUNING PARAMETERS
+--
+--         1       2      3        4    5      6       7       8       9   10
+TUNING
+         0.5     5.0                                                           /
+                                                                               /
+                                                                               /
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- WELL SPECIFICATIONS AND COMPLETIONS
+-- ---------------------------------------------------------------------------------------------------------------------------------
+WELSPECS
+-- Well   Grp  I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+   PROD1  TEST   2  2  1*        OIL   0.0       STD      SHUT      YES    0         SEG       0            /
+    /
+
+COMPDAT
+-- Well    I   J   K1   K2   Status   SAT   TR            DIAM      KH   S         Df   DIR
+-- ---- Completions for completion type Perforation ----
+-- Perforation Completion : MD In: 0 - MD Out: 49.3654 Transmissibility: 4691.86
+   PROD1   2   2   1    1    OPEN     1*    4.691865E+3   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 49.3654 - MD Out: 79.5556 Transmissibility: 5551.23
+   PROD1   3   2   1    1    OPEN     1*    5.551235E+3   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 79.5556 - MD Out: 131.158 Transmissibility: 2865.37
+   PROD1   3   2   2    2    OPEN     1*    2.865370E+3   0.21600   1*   0.00000   1*   'Z' /
+-- Perforation Completion : MD In: 131.158 - MD Out: 160.019 Transmissibility: 736.519
+   PROD1   3   3   2    2    OPEN     1*    7.365187E+2   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 160.019 - MD Out: 186.888 Transmissibility: 1343.29
+   PROD1   4   3   2    2    OPEN     1*    1.343294E+3   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 186.888 - MD Out: 263.847 Transmissibility: 2085.07
+   PROD1   4   3   3    3    SHUT     1*    2.085070E+3   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 263.847 - MD Out: 364.256 Transmissibility: 1894.88
+   PROD1   5   3   3    3    SHUT     1*    1.894876E+3   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 364.256 - MD Out: 464.305 Transmissibility: 2942.19
+   PROD1   6   3   3    3    SHUT     1*    2.942194E+3   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 464.305 - MD Out: 564.42 Transmissibility: 2632.39
+   PROD1   7   3   3    3    SHUT     1*    2.632392E+3   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 564.42 - MD Out: 585.298 Transmissibility: 484.957
+   PROD1   8   3   3    3    SHUT     1*    4.849574E+2   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 585.298 - MD Out: 664.581 Transmissibility: 9241.69
+   PROD1   8   3   4    4    SHUT     1*    9.241692E+3   0.21600   1*   0.00000   1*   'X' /
+-- Perforation Completion : MD In: 664.581 - MD Out: 726.104 Transmissibility: 6876.02
+   PROD1   9   3   4    4    SHUT     1*    6.876024E+3   0.21600   1*   0.00000   1*   'X' /
+    /
+
+--
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+PROD1    SHUT   ORAT   300.0  1*     1*    1*     1*     60    2*              /
+/
+-- ---------------------------------------------------------------------------------------------------------------------------------
+-- SCHEDULE SECTION - 2021-01-01
+-- ---------------------------------------------------------------------------------------------------------------------------------
+RPTSCHED
+         'WELLS=2'    'WELSPECS'    'CPU=2'     'FIP=2'                        /
+
+DATES
+         15 JAN   2021  /
+         1  FEB   2021  /
+/
+WELSEGS
+-- Name      Dep 1          Tlen 1      Vol 1     Len&Dep     PresDrop
+PROD1     1203.20924     0.00000     1*        INC         'HF-'    /
+-- First Seg     Last Seg     Branch Num     Outlet Seg     Length        Depth Change     Diam        Rough
+-- Main Stem Segments
+   2             2            1              1              49.36537      3.56589          0.15200     0.00001 /
+   3             3            1              2              30.19023      2.18078          0.15200     0.00001 /
+   4             4            1              3              51.60245      3.50733          0.15200     0.00001 /
+   5             5            1              4              28.86132      1.74377          0.15200     0.00001 /
+   6             6            1              5              26.86858      1.47015          0.15200     0.00001 /
+   7             7            1              6              76.95933      3.36675          0.15200     0.00001 /
+   8             8            1              7              100.40827     1.64935          0.15200     0.00001 /
+   9             9            1              8              100.04913     1.24179          0.15200     0.00001 /
+   10            10           1              9              100.11563     4.65494          0.15200     0.00001 /
+   11            11           1              10             20.87728      0.98829          0.15200     0.00001 /
+   12            12           1              11             79.28369      3.20814          0.15200     0.00001 /
+   13            13           1              12             61.52252      2.31993          0.15200     0.00001 /
+-- Perforation Valve Segments
+-- Diam: MSW - Tubing Radius
+-- Rough: MSW - Open Hole Roughness Factor
+-- Combined Valve for segment #2 with contribution from: 10 ICDs: 0 - 726.104 #1, 10 ICDs: 0 - 726.104 #2
+   14            14           2              2              0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #3 with contribution from: 10 ICDs: 0 - 726.104 #2
+   15            15           3              3              0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #4 with contribution from: 10 ICDs: 0 - 726.104 #2, 10 ICDs: 0 - 726.104 #3
+   16            16           4              4              0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #5 with contribution from: 10 ICDs: 0 - 726.104 #3
+   17            17           5              5              0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #6 with contribution from: 10 ICDs: 0 - 726.104 #3
+   18            18           6              6              0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #7 with contribution from: 10 ICDs: 0 - 726.104 #3, 10 ICDs: 0 - 726.104 #4
+   19            19           7              7              0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #8 with contribution from: 10 ICDs: 0 - 726.104 #4, 10 ICDs: 0 - 726.104 #5, 10 ICDs: 0 - 726.104 #6
+   20            20           8              8              0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #9 with contribution from: 10 ICDs: 0 - 726.104 #6, 10 ICDs: 0 - 726.104 #7
+   21            21           9              9              0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #10 with contribution from: 10 ICDs: 0 - 726.104 #7, 10 ICDs: 0 - 726.104 #8
+   22            22           10             10             0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #11 with contribution from: 10 ICDs: 0 - 726.104 #8
+   23            23           11             11             0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #12 with contribution from: 10 ICDs: 0 - 726.104 #8, 10 ICDs: 0 - 726.104 #9
+   24            24           12             12             0.10000       0                0.15200     0.00001 /
+-- Combined Valve for segment #13 with contribution from: 10 ICDs: 0 - 726.104 #9, 10 ICDs: 0 - 726.104 #10
+   25            25           13             13             0.10000       0                0.15200     0.00001 /
+/
+COMPSEGS
+-- Name
+   PROD1 /
+-- I     J     K     Branch no     Start Length     End Length     Dir Pen     End Range     Connection Depth
+   2     2     1     2             0.00000          0.10000         /
+   3     2     1     3             0.00000          0.10000         /
+   3     2     2     4             1.12260          1.22260         /
+   3     3     2     5             0.00000          0.10000         /
+   4     3     2     6             1.33703          1.43703         /
+   4     3     3     7             55.14666         55.24666        /
+   5     3     3     8             58.86552         58.96552        /
+   6     3     3     9             39.13545         39.23545        /
+   7     3     3     10            19.76452         19.86452        /
+   8     3     3     11            0.32709          0.42709         /
+   8     3     4     12            60.12801         60.22801        /
+   9     3     4     13            0.00000          0.10000         /
+    /
+
+DATES
+         1  MAR   2021  /
+/
+--
+--       WELL PRODUCTION WELL CONTROLS
+--
+-- WELL  OPEN/  CNTL   OIL    WAT    GAS   LIQ    RES    BHP   THP   VFP    VFP
+-- NAME  SHUT   MODE   RATE   RATE   RATE  RATE   RATE   PRES  PRES  TABLE  ALFQ
+WCONPROD
+PROD1    OPEN   ORAT   400.0  1*     1*    1*     1*     60    2*              /
+/
+
+DATES
+         1  APR   2021  /
+         1  MAY   2021  /
+         1  JUN   2021  /
+         1  JLY   2021  /
+         1  AUG   2021  /
+         1  SEP   2021  /
+         1  OCT   2021  /
+         1  NOV   2021  /
+         1  DEC   2021  /
+/
+ECHO
+--
+-- *********************************************************************************************************************************
+-- END OF FILE
+-- *********************************************************************************************************************************
