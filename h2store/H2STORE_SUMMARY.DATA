@@ -303,6 +303,57 @@ WGMPR
 /
 WGMPT
 /
+
+FWMAIP
+RWMAIP
+/
+BWMAIP
+1 1 1 /
+/
+FWMAIR
+FWMAIT
+FWMAPR
+FWMAPT
+GWMAIR
+/
+GWMAIT
+/
+WWMAIR
+/
+WWMAIT
+/
+GWMAPR
+/
+GWMAPT
+/
+WWMAPR
+/
+WWMAPT
+/
+CWMAIR
+'INJ' 1 1 20 /
+/
+CWMAIT
+'INJ' 1 1 20 /
+/
+CWMAIRL
+'INJ' /
+/
+CWMAITL
+'INJ' /
+/
+CWMAPR
+'PRO' 20 1 20 /
+/
+CWMAPT
+'PRO' 20 1 20 /
+/
+CWMAPRL
+'PRO' /
+/
+CWMAPTL
+'PRO' /
+/
 ----------------------------------------------------------------------------
 SCHEDULE
 ----------------------------------------------------------------------------
