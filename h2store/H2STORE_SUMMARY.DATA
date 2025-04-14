@@ -303,6 +303,57 @@ WGMPR
 /
 WGMPT
 /
+
+FAMIP
+RAMIP
+/
+BAMIP
+1 1 1 /
+/
+FAMIR
+FAMIT
+FAMPR
+FAMPT
+GAMIR
+/
+GAMIT
+/
+WAMIR
+/
+WAMIT
+/
+GAMPR
+/
+GAMPT
+/
+WAMPR
+/
+WAMPT
+/
+CAMIR
+'INJ' 1 1 20 /
+/
+CAMIT
+'INJ' 1 1 20 /
+/
+CAMIRL
+'INJ' /
+/
+CAMITL
+'INJ' /
+/
+CAMPR
+'PRO' 20 1 20 /
+/
+CAMPT
+'PRO' 20 1 20 /
+/
+CAMPRL
+'PRO' /
+/
+CAMPTL
+'PRO' /
+/
 ----------------------------------------------------------------------------
 SCHEDULE
 ----------------------------------------------------------------------------
