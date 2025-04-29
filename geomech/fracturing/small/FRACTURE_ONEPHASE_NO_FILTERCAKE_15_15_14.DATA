@@ -1,0 +1,298 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2025 Equinor
+
+-- Base case for fracturing and geo-mechanical effects.  Single, low
+-- temperature, injector in the centre of the formation.
+
+---------------------------------------------------------
+RUNSPEC
+---------------------------------------------------------
+TITLE
+Single Phase Water With Thermal Effects and Fracturing
+
+DIMENS
+15       15       14
+/
+
+EQLDIMS
+1      100       50        1       50
+/
+
+TABDIMS
+1        1       50       50       16       30
+/
+
+WELLDIMS
+1        5       10        1
+/
+
+OIL
+GAS
+WATER
+
+THERMAL
+MECH
+
+METRIC
+UNIFOUT
+
+START
+01 'JAN' 2023
+/
+
+---------------------------------------------------------
+GRID
+---------------------------------------------------------
+INIT
+
+SPECGRID
+15 15 14 1 F /
+
+INCLUDE
+'grid/COORD.INC'
+/
+
+INCLUDE
+'grid/ZCORN.INC'
+/
+
+INCLUDE
+'grid/PERMX.INC'
+/
+
+INCLUDE
+'grid/PERMY.INC'
+/
+
+INCLUDE
+'grid/PERMZ.INC'
+/
+
+INCLUDE
+'grid/PORO.INC'
+/
+
+INCLUDE
+'grid/ACTNUM.INC'
+/
+
+INCLUDE
+'grid/PRATIO.INC'
+/
+
+INCLUDE
+'grid/YMODULE.INC'
+/
+
+CSTRESS
+3150*600
+/
+
+INCLUDE
+'grid/POELCOEF.INC'
+/
+
+INCLUDE
+'grid/THELCOEF.INC'
+/
+
+INCLUDE
+'grid/THCONR.INC'
+/
+
+INCLUDE
+'grid/BCCON.INC'
+/
+
+---------------------------------------------------------
+EDIT
+---------------------------------------------------------
+
+---------------------------------------------------------
+PROPS
+---------------------------------------------------------
+INCLUDE
+'props/DENSITY.INC'
+/
+
+INCLUDE
+'props/PVTW.INC'
+/
+
+INCLUDE
+'props/SWOF.INC'
+/
+
+INCLUDE
+'props/SGOF.INC'
+/
+
+INCLUDE
+'props/PVDO.INC'
+/
+
+INCLUDE
+'props/PVDG.INC'
+/
+
+INCLUDE
+'props/SPECROCK.INC'
+/
+
+INCLUDE
+'props/SPECHEAT.INC'
+/
+
+---------------------------------------------------------
+REGIONS
+---------------------------------------------------------
+
+---------------------------------------------------------
+SOLUTION
+---------------------------------------------------------
+INCLUDE
+'solution/DATUM.INC'
+/
+
+INCLUDE
+'solution/EQUIL.INC'
+/
+
+INCLUDE
+'solution/RPTRST.INC'
+/
+
+INCLUDE
+'solution/RPTSOL.INC'
+/
+
+INCLUDE
+'solution/RTEMPVD.INC'
+/
+
+INCLUDE
+'solution/STREQUIL.INC'
+/
+
+---------------------------------------------------------
+SUMMARY
+---------------------------------------------------------
+
+ALL
+/
+
+CWIR
+* * /
+/
+
+CTFAC
+* * /
+/
+
+CPR
+* */
+/
+
+BTEMP
+8 8 8	/
+8 8 9	/
+8 8 10  /
+8 8 11  /
+8 8 12 /
+/
+
+BPR
+8 8 8 /
+8 8 9 /
+8 8 10 /
+8 8 11 /
+8 8 12 /
+/
+
+BSTRSSXX
+8 8 8 /
+8 8 9 /
+8 8 10 /
+8 8 11 /
+8 8 12 /
+/
+
+BSTRSSYY
+8 8 8 /
+8 8 9 /
+8 8 10 /
+8 8 11 /
+8 8 12 /
+/
+
+BSTRSSZZ
+8 8 8 /
+8 8 9 /
+8 8 10 /
+8 8 11 /
+8 8 12 /
+/
+
+CFRPMAX
+'P1' * /
+/
+
+CFRPMIN
+'P1' * /
+/
+
+CFRPAVG
+'P1' * /
+/
+
+CFRPSTD
+'P1' * /
+/
+
+CFRIRMAX
+'P1' * /
+/
+
+CFRIRMIN
+'P1' * /
+/
+
+CFRIRAVG
+'P1' * /
+/
+
+CFRIRSTD
+'P1' * /
+/
+
+CFRWDMAX
+'P1' * /
+/
+
+CFRWDMIN
+'P1' * /
+/
+
+CFRWDAVG
+'P1' * /
+/
+
+CFRWDSTD
+'P1' * /
+/
+
+---------------------------------------------------------
+SCHEDULE
+---------------------------------------------------------
+
+RPTRST
+BASIC=2 ALLPROPS
+/
+
+INCLUDE
+'schedule/SCHEDULE.INC'
+/
