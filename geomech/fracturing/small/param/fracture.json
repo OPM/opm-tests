@@ -1,0 +1,41 @@
+{
+    "hasfractures":true,
+    "add_perfs_to_schedule":true,
+    "fractureparam":{
+	"reduce_boundary":false,
+        "addconnections":true,
+	"include_fracture_contributions":false,
+        "config":{
+            "type":"well_seed",
+	    "well": "P1",
+	    "cell_ijk": [8,8,10],
+	    "normal": [0,1,0],
+            "initial_fracture_width":0.3048e-4,
+            "axis_scale": 0.61
+        },
+        "solver":{
+            "method":"only_pressure",
+            "max_iter":1,
+            "min_width":1e-10,
+            "max_width":5e+100,
+            "max_change":1e-3
+        },
+        "reservoir":{
+            "dist":10,
+            "mobility":1.3e-3,
+            "perm":1e-13
+        },
+        "control":{
+            "type":"perf_pressure",
+            "rate":1e2,
+            "bhp":200e5,
+            "pressure": 300e5
+        },
+        "extended_fractures":false,
+        "fractureWI":0.01,
+        "write_pressure_system":false,
+        "write_fracture_system":false,
+        "pressuresolver": "umfpack",
+        "fracturesolver": "notused"
+    }
+}
