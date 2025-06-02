@@ -3,7 +3,7 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2025 Equinor and OPM-OP AS
+-- Copyright (C) 2024-2025 Equinor and OPM-OP AS
 
 -- This model is based on the MSW-SIMPLE and has been modified to test parallel simulations including a multisegment well that
 -- has two branches:

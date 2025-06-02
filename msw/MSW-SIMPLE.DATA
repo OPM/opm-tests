@@ -5,7 +5,9 @@
 
 -- Copyright (C) 2024 Equinor and OPM-OP AS
 
--- This model is based on the WSEGVALV model and has been modified to test parallel simulations including a multisegment well.
+-- This model has been created to test parallel simulations including one multisegment well with 25 segments, segments 1-12 are
+-- not attached to the grid and contained in branch 1, segments 13-25 are attached to the grid and contained in branches 2-13, as
+-- defined by the COMPDAT, WELSEGS and COMPSEGS keywords.
 --
 -- =================================================================================================================================
 --
