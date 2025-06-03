@@ -5,10 +5,11 @@
 
 -- Copyright (C) 2024-2025 Equinor and OPM-OP AS
 
--- This model is based on the MSW-SIMPLE model and has been modified to test parallel simulations including a multisegment well that
--- has only shut perforation on rank 0 and only open perforations on rank 1 when running this model as:
--- mpirun -np 4 ./flow_distribute_z --solver-max-time-step-in-days=15 --allow-distributed-wells=true
--- For this, the data in the COMPDAT keyword has been modified.
+-- This model is based on the MSW-SIMPLE and has been modified to test parallel simulations including a multisegment well that
+-- has two branches:
+-- - branch 1 with segments 1-12, not attached to the grid
+-- - branch 2 with segments 13-25 with 9 perforations, attached to the grid.
+-- For this, the data in the WELSEGS and COMPSEGS keywords has been modified.
 --
 -- =================================================================================================================================
 --
@@ -389,15 +390,15 @@ COMPDAT
 -- Well    I   J   K1   K2   Status   SAT   TR            DIAM      KH   S         Df   DIR
 -- ---- Completions for completion type Perforation ----
 -- Perforation Completion : MD In: 0 - MD Out: 49.3654 Transmissibility: 4691.86
-   PROD1   2   2   1    1    SHUT     1*    4.691865E+3   0.21600   1*   0.00000   1*   'Z' /
+   PROD1   2   2   1    1    OPEN     1*    4.691865E+3   0.21600   1*   0.00000   1*   'Z' /
 -- Perforation Completion : MD In: 49.3654 - MD Out: 79.5556 Transmissibility: 5551.23
-   PROD1   3   2   1    1    SHUT     1*    5.551235E+3   0.21600   1*   0.00000   1*   'Z' /
+   PROD1   3   2   1    1    OPEN     1*    5.551235E+3   0.21600   1*   0.00000   1*   'Z' /
 -- Perforation Completion : MD In: 79.5556 - MD Out: 131.158 Transmissibility: 2865.37
-   PROD1   3   2   2    2    SHUT     1*    2.865370E+3   0.21600   1*   0.00000   1*   'Z' /
+   PROD1   3   2   2    2    OPEN     1*    2.865370E+3   0.21600   1*   0.00000   1*   'Z' /
 -- Perforation Completion : MD In: 131.158 - MD Out: 160.019 Transmissibility: 736.519
-   PROD1   3   3   2    2    SHUT     1*    7.365187E+2   0.21600   1*   0.00000   1*   'X' /
+   PROD1   3   3   2    2    OPEN     1*    7.365187E+2   0.21600   1*   0.00000   1*   'X' /
 -- Perforation Completion : MD In: 160.019 - MD Out: 186.888 Transmissibility: 1343.29
-   PROD1   4   3   2    2    SHUT     1*    1.343294E+3   0.21600   1*   0.00000   1*   'X' /
+   PROD1   4   3   2    2    OPEN     1*    1.343294E+3   0.21600   1*   0.00000   1*   'X' /
 -- Perforation Completion : MD In: 186.888 - MD Out: 263.847 Transmissibility: 2085.07
    PROD1   4   3   3    3    OPEN     1*    2.085070E+3   0.21600   1*   0.00000   1*   'X' /
 -- Perforation Completion : MD In: 263.847 - MD Out: 364.256 Transmissibility: 1894.88
@@ -454,45 +455,23 @@ PROD1     1203.20924     0.00000     1*        INC         'HF-'    /
 -- Rough: MSW - Open Hole Roughness Factor
 -- Combined Valve for segment #2 with contribution from: 10 ICDs: 0 - 726.104 #1, 10 ICDs: 0 - 726.104 #2
    14            14           2              2              0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #3 with contribution from: 10 ICDs: 0 - 726.104 #2
-   15            15           3              3              0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #4 with contribution from: 10 ICDs: 0 - 726.104 #2, 10 ICDs: 0 - 726.104 #3
-   16            16           4              4              0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #5 with contribution from: 10 ICDs: 0 - 726.104 #3
-   17            17           5              5              0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #6 with contribution from: 10 ICDs: 0 - 726.104 #3
-   18            18           6              6              0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #7 with contribution from: 10 ICDs: 0 - 726.104 #3, 10 ICDs: 0 - 726.104 #4
-   19            19           7              7              0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #8 with contribution from: 10 ICDs: 0 - 726.104 #4, 10 ICDs: 0 - 726.104 #5, 10 ICDs: 0 - 726.104 #6
-   20            20           8              8              0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #9 with contribution from: 10 ICDs: 0 - 726.104 #6, 10 ICDs: 0 - 726.104 #7
-   21            21           9              9              0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #10 with contribution from: 10 ICDs: 0 - 726.104 #7, 10 ICDs: 0 - 726.104 #8
-   22            22           10             10             0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #11 with contribution from: 10 ICDs: 0 - 726.104 #8
-   23            23           11             11             0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #12 with contribution from: 10 ICDs: 0 - 726.104 #8, 10 ICDs: 0 - 726.104 #9
-   24            24           12             12             0.10000       0                0.15200     0.00001 /
--- Combined Valve for segment #13 with contribution from: 10 ICDs: 0 - 726.104 #9, 10 ICDs: 0 - 726.104 #10
-   25            25           13             13             0.10000       0                0.15200     0.00001 /
 /
 COMPSEGS
 -- Name
    PROD1 /
 -- I     J     K     Branch no     Start Length     End Length     Dir Pen     End Range     Connection Depth
    2     2     1     2             0.00000          0.10000         /
-   3     2     1     3             0.00000          0.10000         /
-   3     2     2     4             1.12260          1.22260         /
-   3     3     2     5             0.00000          0.10000         /
-   4     3     2     6             1.33703          1.43703         /
-   4     3     3     7             55.14666         55.24666        /
-   5     3     3     8             58.86552         58.96552        /
-   6     3     3     9             39.13545         39.23545        /
-   7     3     3     10            19.76452         19.86452        /
-   8     3     3     11            0.32709          0.42709         /
-   8     3     4     12            60.12801         60.22801        /
-   9     3     4     13            0.00000          0.10000         /
+   3     2     1     2             0.00000          0.10000         /
+   3     2     2     2             1.12260          1.22260         /
+   3     3     2     2             0.00000          0.10000         /
+   4     3     2     2             1.33703          1.43703         /
+   4     3     3     2             55.14666         55.24666        /
+   5     3     3     2             58.86552         58.96552        /
+   6     3     3     2             39.13545         39.23545        /
+   7     3     3     2            19.76452         19.86452        /
+   8     3     3     2            0.32709          0.42709         /
+   8     3     4     2            60.12801         60.22801        /
+   9     3     4     2            0.00000          0.10000         /
     /
 
 DATES

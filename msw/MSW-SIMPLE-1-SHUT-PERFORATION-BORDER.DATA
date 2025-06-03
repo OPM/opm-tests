@@ -3,9 +3,12 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2024 Equinor and OPM-OP AS
+-- Copyright (C) 2024-2025 Equinor and OPM-OP AS
 
--- This model is based on the WSEGVALV model and has been modified to test parallel simulations including a multisegment well.
+-- This model is based on the MSW-SIMPLE model and has been modified to test parallel simulations including a multisegment well that
+-- has one shut perforation at the process border between rank 0 and rank 1 when running this model as:
+-- mpirun -np 4 ./flow_distribute_z --solver-max-time-step-in-days=15 --allow-distributed-wells=true
+-- For this, the data in the COMPDAT keyword has been modified.
 --
 -- =================================================================================================================================
 --
