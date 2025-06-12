@@ -1,3 +1,10 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2025 Equinor
+
 SWOF
 0.0340400 0.0000000 1.0000000 10.0000000
 0.0440400 0.0000000 0.9909713 5.7834408
