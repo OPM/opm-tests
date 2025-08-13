@@ -6,12 +6,12 @@
 -- Copyright (C) 2023 Equinor
 
 -- This test case is for testing the effect of the mass balance limit
--- (XXXMBE) in TUNING (record 2, item 7). 
+-- (TRGMBE) in TUNING (record 2, item 3). 
 -- 
 -- The model is based on model 1, and with --enable-tuning=true the 
 -- mass balance limit for the three report steps should be within the
 -- following limits
---   * report step 0: max(MB) < 1.0e-6
+--   * report step 0: max(MB) < 1.0e-7
 --   * report step 1: max(MB) < 1.0e-8
 --   * report step 2: max(MB) < 1.0e-10
 --
@@ -26,7 +26,7 @@ RUNSPEC
 
 
 TITLE
-   TUNING XXXMBE TEST
+   TUNING TRGMBE TEST
 
  
 -- Grid dimensions
@@ -422,7 +422,7 @@ DATES
 TUNING
 -- 1  5  7*  1 /
  /
- 6* 1.0e-8  /
+ 2* 1.0e-8  /
  /
 
 WELSPECS 
@@ -456,7 +456,7 @@ DATES
 -- Tighten maximum mass balance error to 1.0e-10
 TUNING
  /
- 6* 1.0e-10  /
+ 2* 1.0e-10  /
  /
 
 WCONHIST 
