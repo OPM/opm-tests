@@ -415,6 +415,24 @@ WWPT
   'INJ'
   'PROD'
 /
+WTPCHEA
+  'PROD'
+/
+WTPRHEA
+  'PROD'
+/
+WTPTHEA
+  'PROD'
+/
+WTIRHEA
+   'INJ'
+/
+WTITHEA
+   'INJ'
+/
+WTICHEA
+   'INJ'
+/
 SCHEDULE
 -- -------------------------------------------------------------------------
 RPTSCHED
