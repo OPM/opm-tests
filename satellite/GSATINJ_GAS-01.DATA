@@ -1,0 +1,304 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2025 Equinor
+
+-- This is a test case for keyword GSATINJE. The group SAT1 is a satellite group 
+-- connected to group PLAT-A. SAT1 has a fixed gas injection profile which is 
+-- implemented with this keyword.
+
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 6 5 7 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'		0 / 
+
+
+EQLDIMS
+ 1 1*  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   1          4       1*            1*    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  5         10            7        5   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60          1         60 /
+
+--
+
+--
+UNIFIN
+UNIFOUT
+
+--
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+
+INCLUDE
+'include/mod2_6x5x7.grdecl' /
+
+PORO
+ 30*0.25
+ 30*0.22
+ 30*0.17
+ 30*0.28
+ 30*0.14
+ 30*0.23
+ 30*0.22 /
+ 
+PERMX
+ 30*2100
+ 30*1200
+ 30*800
+ 30*2500
+ 30*10
+ 30*1700
+ 30*1200 /
+
+PERMZ
+ 30*210
+ 30*120
+ 30*80
+ 30*250
+ 30*1
+ 30*170
+ 30*120 /
+
+NTG
+ 30*0.95
+ 30*0.88
+ 30*0.85
+ 30*0.70
+ 30*0.14
+ 30*0.77
+ 30*0.82 /
+
+
+COPY
+ PERMX PERMY /
+/
+
+
+RPTGRID
+ 'ALLNNC' /
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 210*1 /
+ 
+SATNUM
+ 210*1 /
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTSOL
+SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc      Pc   goc       Pc  Rsvd  Rvvd  N
+ 2515.00  278.0  2595.0   0.0  2515.00  0.0   1      1    0 /  
+
+
+PBVD
+  2515.00  278.0   
+  2595.0   270.0   /
+
+PDVD
+  2500.00  275.0  
+  2515.00  278.0    /
+
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+FPR
+
+FOPR
+
+FGOR
+
+FVPR
+
+FVIR
+
+GVPR
+/
+
+GVIR
+/
+
+GGIR
+/
+
+WBHP
+/
+
+WOPR
+/
+
+BPR
+ 5 3 1 /
+/
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+-- start: 10  'OCT' 2018 /
+
+TUNING
+ 1.0 1.0 /
+ /
+ /
+
+GRUPTREE
+ 'PLAT-A' 'FIELD' /
+
+ 'MAIN'   'PLAT-A'  /
+ 'SAT1'   'PLAT-A'  /
+
+ 'M5E'    'MAIN'  /
+ 'M5S'    'MAIN'  /
+ 'M5N'    'MAIN'  /
+
+ /
+
+
+WELSPECS 
+  'C-1H'   'M5E'   1   2  1*     'GAS'  2*      'STOP'  4* /
+  'D-1H'   'M5S'   5   1  1*     'OIL'  2*      'STOP'  4* /
+  'D-2H'   'M5N'   5   4  1*     'OIL'  2*      'STOP'  4* /
+/
+
+COMPDAT 
+-- WELL     I   J  K1   K2            Sat.    CF    DIAM    KH  SKIN ND    DIR  Ro 
+   'C-1H'   1   2   1	2      'OPEN'  1*     1*    0.216   1*   1*   1*   'Z'  1* /
+   'D-1H'   5   1   4	7      'OPEN'  1*     1*    0.216   1*   1*   1*   'Z'  1* /
+   'D-2H'   5   4   3	7      'OPEN'  1*     1*    0.216   1*   1*   1*   'Z'  1* /
+/
+
+GCONINJE
+ 'PLAT-A'   'GAS'    'RATE'  2.50E6   /
+ 'MAIN'     'GAS'    'VREP'    1*    2*  1.000  /
+/
+
+GSATINJE
+ 'SAT1'  'GAS'  0.25E6 /
+/
+
+
+WCONINJE
+ 'C-1H'  'GAS' 'OPEN'  'RATE'   3.5E6   1*  380.0 / 
+/
+  
+
+WCONPROD
+ 'D-1H'  'OPEN'  'ORAT' 2500.0 4*  75.0 / 
+ 'D-2H'  'OPEN'  'ORAT' 2500.0 4*  75.0 / 
+/
+  
+DATES
+ 1 NOV 2018 /
+/
+
+GSATINJE
+ 'SAT1'  'GAS'  1.35E6 /
+/
+
+
+DATES
+ 1 DEC 2018 /
+/
+
+GSATINJE
+ 'SAT1'  'GAS'  0.55E6 /
+/
+
+DATES
+ 1 JAN 2019 /
+/
+
+
+END
