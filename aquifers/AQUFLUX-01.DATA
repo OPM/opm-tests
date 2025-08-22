@@ -159,7 +159,7 @@ EQUALS
 SOLUTION
 
 RPTRST
-  'BASIC = 2' 'PBPD' 'FIP' /
+  'BASIC = 2' 'PBPD' /
 
 EQUIL
 -- Datum    P     woc       Pc   goc     Pc  Rsvd  Rvvd
