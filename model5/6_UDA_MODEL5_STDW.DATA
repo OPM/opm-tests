@@ -201,7 +201,7 @@ SCHEDULE
 TUNING
  0.5 1  /
  /
- 2* 50 1*  20 /
+ 20 2 50 1*  20 /
 
 
 GRUPTREE

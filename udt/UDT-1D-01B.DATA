@@ -138,7 +138,7 @@ SCHEDULE
 TUNING
  0.1 1 /
  /
- /
+ 20 2 /
 
 WELSPECS 
    'PROD'   'TEST'   5   1  1*       'OIL'  2*      'STOP'  4* /
