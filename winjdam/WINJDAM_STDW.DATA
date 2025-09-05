@@ -334,7 +334,7 @@ SCHEDULE
 TUNING
  1  5  7*  1 /
  /
- /
+ 20 2 /
 
 
 -- Define data to be written to the RESTART file

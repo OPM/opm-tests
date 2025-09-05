@@ -226,7 +226,7 @@ RPTSCHED
 TUNING 
 1* 1. /
 /
-/
+20 2 /
 
 RPTRST
  'BASIC=2' /
