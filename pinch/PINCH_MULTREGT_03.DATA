@@ -40,7 +40,7 @@ TABDIMS
 /
 
 REGDIMS
-  3*  2 /
+  2  2*  2 /
 
 OIL
 GAS
@@ -53,19 +53,17 @@ START
 
 WELLDIMS
 -- Item 1: maximum number of wells in the model
---         - there are no wells in the problem;
 -- Item 2: maximum number of grid blocks connected to any one well
---         - must be one as the wells are located at specific grid blocks
 -- Item 3: maximum number of groups in the model
---         - we are dealing with only one 'group'
 -- Item 4: maximum number of wells in any one group
---         - there must be two wells in a group as there are two wells in total
- 2 /
+  2  1  1  2 /
 
 UNIFIN
 UNIFOUT
 
+------------------------------------------------------------------------------------------------
 GRID
+------------------------------------------------------------------------------------------------
 
 NOECHO
 
@@ -107,46 +105,47 @@ PERMY
 PERMZ
         5*100 /
 
-ECHO
-
 FLUXNUM
   1  4*2 /
 /
+
+ECHO
 
 MULTREGT
 -- 'From' region 'To' region Transmissibility Directions NNCs
  1  2  0.0  1*  ALL  F  /
 /
 
+------------------------------------------------------------------------------------------------
 PROPS
--- -------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 
 PVTW
 -- Item 1: pressure reference (atma)
--- Item 2: water FVF (rcc per scc)
--- Item 3: water compressibility (amt^{-1})
+-- Item 2: water FVF (rcc/scc)
+-- Item 3: water compressibility (atm^{-1})
 -- Item 4: water viscosity (cp)
 -- Item 5: water 'viscosibility' (atm^{-1})
 -- In LAB units:
-        1.0 1.0 4E-5 0.5 0.0 /
+        200.0 1.0 4E-5 0.5 0.0 /
 
 ROCK
--- Item 1: reference pressure (psia)
--- Item 2: rock compressibility (psi^{-1})
-        1.0 1.0 /
+-- Item 1: reference pressure (atma)
+-- Item 2: rock compressibility (atm^{-1})
+        200.0 1.0E-5 /
 
 SWFN
 -- Column 1: water saturation
 -- Column 2: water relative permeability
--- Column 3: water-oil capillary pressure (psi)
-0.0     0       0.0
-1.0     1.00     0.0 /
+-- Column 3: water-oil capillary pressure (atm)
+0.0     0.0     0.0
+1.0     1.0     0.0 /
 
 SGFN
 -- Column 1: gas saturation
 -- Column 2: gas relative permeability
--- Column 3: oil-gas capillary pressure (psi)
-0       0.0     0
+-- Column 3: oil-gas capillary pressure (atm)
+0.0     0.0     0.0
 1.0     1.0     0.0/
 
 SOF3
@@ -154,14 +153,13 @@ SOF3
 -- Column 2: oil relative permeability when oil, gas and connate water are present
 -- Column 3: oil relative permeability when only oil and water are present
 --  SOIL     KROW     KROG
-0       0.0     0.0
+0.0     0.0     0.0
 1.0     1.0     1.0 /
 
 
 DENSITY
--- Density (lb per ft³) at surface cond. of
+-- Density (gm/cc) at surface cond. of
 -- oil, water and gas, respectively (in that order)
--- In LAB units:
       0.703 1.0 1.977e-3 /
 
 
@@ -193,42 +191,66 @@ PVDO
 
 /
 
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+COPY
+  FLUXNUM  FIPNUM /
+/
+
+------------------------------------------------------------------------------------------------
 SOLUTION
--- -------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 
+-- DATUM   DATUM   OWC     PCOW    GOC     PCGO    RS  RV  N   E300 RVW
+-- DEPTH   PRESS   DEPTH   ----    DEPTH   ----    OPT OPT OPT OPTS OPT
 EQUIL
--- Item 1: datum depth (ft)
--- Item 2: pressure at datum depth (psia)
--- Item 3: depth of water-oil contact (ft)
---         - chosen to be directly under the reservoir
--- Item 4: oil-water capillary pressure at the water oil contact (psi)
--- Item 5: depth of gas-oil contact (ft)
---         - chosen to be directly above the reservoir
--- Item 6: gas-oil capillary pressure at gas-oil contact (psi)
--- Item 7: RSVD-table
--- Item 8: RVVD-table
--- Item 9: Set to 0 as this is the only value supported by OPM
+   0.0     200.0   1000.0  0.0     0.0     0.0     /
 
--- Item #: 1 2    3    4 5    6 7 8 9
-        0 200 1000 0 0 0 1 0 0 /
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
 
---BC
--- 1 1 1 1 5 10 RATE X- GAS -0.01 /
--- 20 20 1 1 1 10 FREE X /
---/
+ALL
+ROFT
+  2  1 /
+/
+RWFT
+  2  1 /
+/
+RGFT
+  2  1 /
+/
 
---SUMMARY
---ALL
-
-
+------------------------------------------------------------------------------------------------
 SCHEDULE
+------------------------------------------------------------------------------------------------
 
 RPTRST
         'BASIC=1' /
+		
+WELSPECS
+  PRO1  GROUP1  1  1  1*  OIL  1*  /
+  INJ1  GROUP1  1  1  1*  WAT  1*  /
+/
 
--- 1 day
+COMPDAT
+  PRO1  1  1  1  1  OPEN  1*  1*  0.1  1*  0.0  0.0  Z  /
+  INJ1  1  1  5  5  OPEN  1*  1*  0.1  1*  0.0  0.0  Z  /
+/
+
+WCONPROD
+  PRO1  OPEN  ORAT  0.02  1*  1*  0.02  1*  150.0  1*  /
+/
+
+WCONINJE
+  INJ1  WAT  OPEN  RATE  0.0208  1*  250.0  1*  /
+/
+
+-- hours
 TSTEP
-1
+  1  1  2  4  8  8
 /
 
 END
