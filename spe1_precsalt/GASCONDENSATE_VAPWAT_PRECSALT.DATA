@@ -491,7 +491,12 @@ PERMFACT
 0.9217     0.805145875
 0.9478     0.867439852
 0.9739     0.932389004
-1.0        1.0          /
+1.0        1.0          / Table no. 1
+/ Tables two to seven are defaulted to table one.
+/
+/
+/
+/
 /
 
 
