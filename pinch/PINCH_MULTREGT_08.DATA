@@ -1,0 +1,254 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018,2020,2025 Equinor
+-- Copyright (C) 2019 NORCE
+--
+-- The deck is a simple example of 5 vertically stacked cells with MINPV, PINCH,
+-- and MULTREGT directives based on PINCH05_GAP1.DATA.
+--
+-- Cell [1, 1, 2] should be pinched out and an NNC created.
+-- MULTREGT is used to modify the transmissibility of the resulting NNC.
+--
+-- DZ      [1, 1, 2] = 0.0
+-- MINPV   (item  1) = 0.5
+-- PINCH   (item  1) = 1*
+-- PINCH   (item  2) = GAP
+-- PINCH   (item  3) = 1*
+-- PINCH   (item  4) = 1*
+-- PINCH   (item  5) = 1*
+-- MULTREGT(item  3) = 0.1
+-- MULTREGT(item  5) = ALL
+--
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 1 1 5 /
+
+-- The number of equilibration regions is inferred from the EQLDIMS
+-- keyword.
+EQLDIMS
+/
+
+TABDIMS
+/
+
+REGDIMS
+  2  2*  2 /
+
+OIL
+GAS
+WATER
+
+LAB
+
+START
+ 10 'OCT' 2018 /
+
+WELLDIMS
+-- Item 1: maximum number of wells in the model
+-- Item 2: maximum number of grid blocks connected to any one well
+-- Item 3: maximum number of groups in the model
+-- Item 4: maximum number of wells in any one group
+  2  1  1  2 /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INIT
+
+DX
+   5*1 /
+DY
+   5*1 /
+DZ
+   1 0.0 1 1 1 /
+
+TOPS
+-- The depth of the top of each grid block
+   0 /
+
+PORO
+   5*1.0
+/
+
+MINPV
+   0.5
+/
+
+PINCH
+   1*   GAP   1*   1*   1*
+/
+
+ACTNUM
+    5*1
+/
+
+PERMX
+        5*100 /
+
+PERMY
+        5*100 /
+
+PERMZ
+        5*100 /
+
+FLUXNUM
+  1  4*2 /
+/
+
+ECHO
+
+MULTREGT
+-- 'From' region 'To' region Transmissibility Directions NNCs
+ 1  2  0.1  1*  ALL  F  /
+/
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+PVTW
+-- Item 1: pressure reference (atma)
+-- Item 2: water FVF (rcc/scc)
+-- Item 3: water compressibility (atm^{-1})
+-- Item 4: water viscosity (cp)
+-- Item 5: water 'viscosibility' (atm^{-1})
+-- In LAB units:
+        200.0 1.0 4E-5 0.5 0.0 /
+
+ROCK
+-- Item 1: reference pressure (atma)
+-- Item 2: rock compressibility (atm^{-1})
+        200.0 1.0E-5 /
+
+SWFN
+-- Column 1: water saturation
+-- Column 2: water relative permeability
+-- Column 3: water-oil capillary pressure (atm)
+0.0     0.0     0.0
+1.0     1.0     0.0 /
+
+SGFN
+-- Column 1: gas saturation
+-- Column 2: gas relative permeability
+-- Column 3: oil-gas capillary pressure (atm)
+0.0     0.0     0.0
+1.0     1.0     0.0/
+
+SOF3
+-- Column 1: oil saturation
+-- Column 2: oil relative permeability when oil, gas and connate water are present
+-- Column 3: oil relative permeability when only oil and water are present
+--  SOIL     KROW     KROG
+0.0     0.0     0.0
+1.0     1.0     1.0 /
+
+
+DENSITY
+-- Density (gm/cc) at surface cond. of
+-- oil, water and gas, respectively (in that order)
+      0.703 1.0 1.977e-3 /
+
+
+PVDG
+177.646 0.00366771 4.07825e-02
+181.594 0.00358797 4.19988e-02
+185.542 0.00351272 4.29535e-02
+189.489 0.00344747 4.4076e-02
+193.437 0.00338594 4.51018e-02
+197.385 0.00332806 4.59933e-02
+201.332 0.00327625 4.68878e-02
+205.28 0.00322943 4.78366e-02
+209.228 0.00318451 4.87435e-02
+213.175 0.00314264 4.95567e-02
+/
+
+PVDO
+177.646 1.043 0.390672
+181.594 1.04236 0.392326
+185.542 1.04168 0.393986
+189.489 1.04102 0.395651
+193.437 1.0405 0.397258
+197.385 1.03988 0.398881
+201.332 1.03919 0.400553
+205.28 1.03862 0.402196
+209.228 1.03811 0.403768
+213.175 1.03746 0.405411
+/
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+COPY
+  FLUXNUM  FIPNUM /
+/
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+-- DATUM   DATUM   OWC     PCOW    GOC     PCGO    RS  RV  N   E300 RVW
+-- DEPTH   PRESS   DEPTH   ----    DEPTH   ----    OPT OPT OPT OPTS OPT
+EQUIL
+   0.0     200.0   1000.0  0.0     0.0     0.0     /
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+ALL
+ROFT
+  2  1 /
+/
+RWFT
+  2  1 /
+/
+RGFT
+  2  1 /
+/
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+RPTRST
+        'BASIC=1' /
+		
+WELSPECS
+  PRO1  GROUP1  1  1  1*  OIL  1*  /
+  INJ1  GROUP1  1  1  1*  WAT  1*  /
+/
+
+COMPDAT
+  PRO1  1  1  1  1  OPEN  1*  1*  0.1  1*  0.0  0.0  Z  /
+  INJ1  1  1  5  5  OPEN  1*  1*  0.1  1*  0.0  0.0  Z  /
+/
+
+WCONPROD
+  PRO1  OPEN  ORAT  0.02  1*  1*  0.02  1*  150.0  1*  /
+/
+
+WCONINJE
+  INJ1  WAT  OPEN  RATE  0.0208  1*  250.0  1*  /
+/
+
+-- hours
+TSTEP
+  1  1  2  4  8  8
+/
+
+END
