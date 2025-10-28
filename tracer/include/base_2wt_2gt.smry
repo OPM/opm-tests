@@ -1,0 +1,155 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2025 Equinor
+
+
+FPR
+
+RPR
+/
+
+FOPR
+
+FGPR
+
+FGOR
+
+GOPR
+/
+
+GGPR
+/
+
+GGIR
+/
+
+ 
+WBHP
+/
+
+WOPR
+/
+
+WOPT
+ /
+
+WGPR
+/
+
+WGPRS
+/
+
+WGPRF
+/
+
+WGPT
+ /
+
+WWPT
+ /
+
+WGIT
+ /
+ 
+WWIT
+ /
+ 
+WGOR
+/
+
+WWCT
+/
+
+WGIR
+/
+
+WWIR
+/
+
+-- tracer WT1
+
+WTIRWT1
+/
+
+WTITWT1
+/
+
+WTPRWT1
+/
+
+WTPTWT1
+/
+
+WTPCWT1
+/
+
+WTICWT1
+/
+
+-- tracer WT2
+
+WTIRWT2
+/
+
+WTITWT2
+/
+
+WTPRWT2
+/
+
+WTPTWT2
+/
+
+WTPCWT2
+/
+
+WTICWT2
+/
+
+
+
+-- tracer GT1
+
+WTIRGT1
+/
+
+WTITGT1
+/
+
+WTPRGT1
+/
+
+WTPTGT1
+/
+
+WTPCGT1
+/
+
+WTICGT1
+/
+
+-- tracer GT2
+
+WTIRGT2
+/
+
+WTITGT2
+/
+
+WTPRGT2
+/
+
+WTPTGT2
+/
+
+WTPCGT2
+/
+
+WTICGT2
+/
+
+WSTAT
+/

@@ -1,0 +1,369 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2025 Equinor
+
+-- This deck is used to test implementation of gas tracer. This is a 3-phase model which 
+-- two reservoirs (one gas reservoir and one oil reservoir). There is no communication between
+-- these two segments.
+
+-- The oil reservoir includes two water injectors (F-1H and F-2H) and one producer (G-1H).
+-- The gas reservoir includes two gas injectors (R-1H and R-2H) and one producer (B-1H).
+
+-- Gas tracer GT1 is injected in R-1H and gas tracer GT2 is injected in R-2H.
+-- Water tracer WT1 is injected in F-1H and water tracer WT2 is injected in F-2H.
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 20 15 9 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'		0 / 
+
+EQLDIMS
+ 2 1*  25 /
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          4       1*            1*    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  10         10            10        10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+
+FAULTDIM
+ 1000 /
+
+
+--
+UNIFIN
+UNIFOUT
+
+-- oil, water, gas
+TRACERS 
+ 0 2 2 0 'NODIFF' /
+
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/grid_20x15x9.grdecl' /
+
+
+EQUALS
+ 'PERMX' 500.0  /
+ 'PERMZ'  50.0  /
+ 'PORO'    0.28 /
+/
+ 
+COPY
+ PERMX PERMY /
+/
+
+FAULTS
+ 'F1'   1  6  9  9  1 9  'J'  / 
+ 'F1'   6  6  9  9  1 9  'I'  / 
+ 'F1'   7  8  8  8  1 9  'J'  / 
+ 'F1'   6  6  8  8  1 9  'I'  / 
+ 'F1'   9 12  7  7  1 9  'J'  / 
+ 'F1'  12 12  7  7  1 9  'I'  / 
+ 'F1'  13 20  6  6  1 9  'J'  / 
+/
+
+MULTFLT
+ 'F1' 0.0 /
+/
+ 
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+
+TRACER
+ 'GT1'  GAS 'g' /
+ 'GT2'  GAS 'g' /
+ 'WT1'  WAT 'g' /
+ 'WT2'  WAT 'g' /
+/
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQUALS
+ 'EQLNUM' 1  /
+ 'EQLNUM' 2  1  6 10  15 1 9 /
+ 'EQLNUM' 2  7  8  9  15 1 9 /
+ 'EQLNUM' 2  9 12  8  15 1 9 /
+ 'EQLNUM' 2 13 20  7  15 1 9 /
+/ 
+
+COPY
+ 'EQLNUM' 'FIPNUM' /
+/
+ 
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc      Pc   Rsvd  Rvvd  N
+2230.00   250.0  2500.0   0.0  2500.00  0.0   1     1    0 /   
+2230.00   230.0  2290.0   0.0  1800.00  0.0   1     1    0 /   
+
+PDVD
+ 1800.0  200.0
+ 2500.0  200.0 /
+
+ 1000.0  215.0
+ 1800.0  230.0 /
+
+PBVD
+ 1800.0  210.0 
+ 2500.0  210.0 /
+
+ 1800.0  180.0 
+ 2300.0  180.0 /
+ 
+
+-- Initial tracer concentration vs depth for tracer WT1
+TVDPFWT1
+ 1000  0.0
+ 2500  0.0 /
+
+-- Initial tracer concentration vs depth for tracer WT1
+TVDPFWT2
+ 1000  0.0
+ 2500  0.0 /
+
+
+-- Initial tracer concentration vs depth for tracer GT1
+TVDPFGT1
+ 1000  0.0
+ 2500  0.0 /
+
+TVDPSGT1
+ 1000  0.0
+ 2500  0.0 /
+
+-- Initial tracer concentration vs depth for tracer GT1
+TVDPFGT2
+ 1000  0.0
+ 2500  0.0 /
+
+TVDPSGT2
+ 1000  0.0
+ 2500  0.0 /
+
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/base_2wt_2gt.smry' /
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+
+TUNING
+ 1.0 1.0 /
+ /
+ /
+
+WELSPECS 
+  'R-1H'   'TEST'  5  2  1*       'GAS'  2*      'SHUT'  4* /
+  'R-2H'   'TEST'  2  7  1*       'GAS'  2*      'SHUT'  4* /
+  'G-1H'   'TEST'  8 12  1*       'OIL'  2*      'SHUT'  4* /
+  'F-1H'   'TEST' 19 14  1*       'WAT'  2*      'SHUT'  4* /
+  'B-1H'   'TEST' 16  2  1*       'GAS'  2*      'SHUT'  4* /
+  'F-2H'   'TEST' 16 15  1*       'WAT'  2*      'SHUT'  4* /
+/
+
+ 
+COMPDAT 
+-- WELL     I   J  K1   K2    Flag  Sat.   CF    DIAM   KH  SKIN  ND   DIR   Ro 
+   'R-1H'   5   2   1	3    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'R-2H'   2   7   1	2    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+
+   'G-1H'   8  12   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'G-1H'   8  13   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'G-1H'   7  13   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'G-1H'   6  13   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'G-1H'   6  14   8	8    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+
+   'B-1H'  16   2   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'B-1H'  16   3   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'B-1H'  15   3   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'B-1H'  14   3   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+   'B-1H'  14   4   6	6    'OPEN'  1*    1*	 0.216   1*  1*   1*   'Z'   1* /
+
+   'F-1H'  19  14   7   9    'OPEN'  1*    1*	0.216	1*  1*   1*   'Z'   1* /
+   'F-2H'  16  15   7   9    'OPEN'  1*    1*	0.216	1*  1*   1*   'Z'   1* /
+/
+
+WCONPROD
+ 'B-1H' 'OPEN' 'GRAT'  2*  250000.0  2*  75.0 /
+ 'G-1H' 'OPEN' 'ORAT'  5000.0  4*  75.0 /
+/
+
+WCONINJE
+ 'R-1H' 'GAS' 'OPEN' 'RATE'  1000000.0 1*  425.0 /
+ 'R-2H' 'GAS' 'OPEN' 'RATE'   700000.0 1*  425.0 /
+ 'F-1H' 'WAT' 'OPEN' 'RATE'     1250.0 1*  425.0 /
+ 'F-2H' 'WAT' 'OPEN' 'RATE'      750.0 1*  425.0 /
+/
+
+-- R-1H 5500 g / 1000000 Sm3  => 0.0055
+-- R-1H 7750 g /  700000 Sm3  => 0.011071
+-- F-1H 4333 g /  1250 Sm3    => 3.4664
+-- F-2H 1234 g /   750 Sm3    => 1.64533
+
+WTRACER
+ 'R-1H' 'GT1' 0.0055 /
+ 'R-2H' 'GT2' 0.011071 /
+ 'F-1H' 'WT1' 3.4664 /
+ 'F-2H' 'WT2' 1.64533 /
+/
+
+DATES
+ 11 'OCT' 2018 / 
+/
+
+ 
+DATES
+ 12 'OCT' 2018 / 
+/
+
+WTRACER
+ 'R-1H' 'GT1' 0.0 /
+/
+
+DATES
+ 13 'OCT' 2018 / 
+/
+
+WTRACER
+ 'R-2H' 'GT2' 0.0 /
+/
+
+
+DATES
+ 14 'OCT' 2018 / 
+/
+
+WTRACER
+ 'F-1H' 'WT1' 0.0 /
+/
+
+
+DATES
+ 15 'OCT' 2018 / 
+/
+
+WTRACER
+ 'F-2H' 'WT2' 0.0 /
+/
+
+DATES
+  1 'NOV' 2018 / 
+  1 'DEC' 2018 / 
+  1 'JAN' 2019 / 
+  1 'FEB' 2019 / 
+  1 'MAR' 2019 / 
+  1 'APR' 2019 / 
+  1 'MAY' 2019 / 
+  1 'JUN' 2019 / 
+  1 'JUL' 2019 / 
+  1 'AUG' 2019 / 
+  1 'SEP' 2019 / 
+  1 'OCT' 2019 / 
+  1 'NOV' 2019 / 
+  1 'DEC' 2019 / 
+  
+  1 'JAN' 2020 / 
+  1 'FEB' 2020 / 
+  1 'MAR' 2020 / 
+  1 'APR' 2020 / 
+  1 'MAY' 2020 / 
+  1 'JUN' 2020 / 
+  1 'JUL' 2020 / 
+  1 'AUG' 2020 / 
+  1 'SEP' 2020 / 
+  1 'OCT' 2020 / 
+  1 'NOV' 2020 / 
+  1 'DEC' 2020 / 
+
+  1 'JAN' 2021 / 
+  1 'FEB' 2021 / 
+  1 'MAR' 2021 / 
+  1 'APR' 2021 / 
+  1 'MAY' 2021 /
+/
+
+END
+
