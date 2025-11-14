@@ -417,6 +417,25 @@ WWPT
   'INJ'
   'PROD'
 /
+WTPCHEA
+  'PROD'
+/
+WTPRHEA
+  'PROD'
+/
+WTPTHEA
+  'PROD'
+/
+WTIRHEA
+   'INJ'
+/
+WTITHEA
+   'INJ'
+/
+WTICHEA
+   'INJ'
+/
+
 SCHEDULE
 -- -------------------------------------------------------------------------
 RPTSCHED
@@ -471,16 +490,12 @@ WCONINJE
 
 -- well injection temperature
 WTEMP
- 'INJ' 200 /
---		'INJ' 161.667 /
+        'INJ' 200 /
 --        'PROD' 60 /
 /
 
 TSTEP
---Advance the simulater once a month for TEN years:
+--Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31 /
-
---Advance the simulator once a year for TEN years:
---10*365 /
 
 END

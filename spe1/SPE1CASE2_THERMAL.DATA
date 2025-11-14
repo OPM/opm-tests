@@ -10,6 +10,7 @@
 -- Black-Oil Reservoir Simulation Problem' by Aziz S. Odeh,
 -- Journal of Petroleum Technology, January 1981
 
+-- Extended with energy modeling using the THERMAL option
 ---------------------------------------------------------------------------
 ------------------------ SPE1 - CASE 2 ------------------------------------
 ---------------------------------------------------------------------------
@@ -18,7 +19,7 @@ RUNSPEC
 -- -------------------------------------------------------------------------
 
 TITLE
-   SPE1 - CASE 2
+   SPE1 - CASE 2 THERMAL
 
 DIMENS
    10 10 3 /
@@ -35,8 +36,6 @@ TABDIMS
 
 -- request a black-oil simulation with the thermal option (not supported by E100!)
 THERMAL
--- request the temperature option instead (NOT supported by OPM!)
---TEMP
 BLACKOIL
 
 OIL
@@ -289,6 +288,10 @@ PVTO
 SOLUTION
 -- -------------------------------------------------------------------------
 
+RPTRST
+ BASIC = 2
+/
+
 EQUIL
 -- Item 1: datum depth (ft)
 -- Item 2: pressure at datum depth (psia)
@@ -492,19 +495,7 @@ WTEMP
 /
 
 TSTEP
---Advance the simulater once a month for TEN years:
-31 28 31 30 31 30 31 31 30 31 30 31 
-31 28 31 30 31 30 31 31 30 31 30 31 
-31 28 31 30 31 30 31 31 30 31 30 31 
-31 28 31 30 31 30 31 31 30 31 30 31 
-31 28 31 30 31 30 31 31 30 31 30 31 
-31 28 31 30 31 30 31 31 30 31 30 31 
-31 28 31 30 31 30 31 31 30 31 30 31 
-31 28 31 30 31 30 31 31 30 31 30 31 
-31 28 31 30 31 30 31 31 30 31 30 31 
+--Advance the simulater once a month for ONE years:
 31 28 31 30 31 30 31 31 30 31 30 31 /
-
---Advance the simulator once a year for TEN years:
---10*365 /
 
 END
