@@ -10,7 +10,7 @@
 -- Black-Oil Reservoir Simulation Problem' by Aziz S. Odeh,
 -- Journal of Petroleum Technology, January 1981
 
--- Extended with energy modeling using the THERMAL option
+-- Extended with energy modeling using the TEMP option
 ---------------------------------------------------------------------------
 ------------------------ SPE1 - CASE 2 ------------------------------------
 ---------------------------------------------------------------------------
@@ -19,7 +19,7 @@ RUNSPEC
 -- -------------------------------------------------------------------------
 
 TITLE
-   SPE1 - CASE 2 THERMAL
+   SPE1 - CASE 2 - TEMP
 
 DIMENS
    10 10 3 /
@@ -34,8 +34,7 @@ EQLDIMS
 TABDIMS
 /
 
--- request a black-oil simulation with the thermal option (not supported by E100!)
-THERMAL
+TEMP
 BLACKOIL
 
 OIL
@@ -291,7 +290,7 @@ SOLUTION
 RPTRST
  BASIC = 2
 /
-
+ 
 EQUIL
 -- Item 1: datum depth (ft)
 -- Item 2: pressure at datum depth (psia)
@@ -436,6 +435,7 @@ WTITHEA
 WTICHEA
    'INJ'
 /
+
 SCHEDULE
 -- -------------------------------------------------------------------------
 RPTSCHED
@@ -482,7 +482,7 @@ WCONPROD
 
 WCONINJE
 -- Item #:1	 2	 3	 4	5      6  7
-	'INJ'	'GAS'	'OPEN'	'RATE'	100000 1* 9014 /
+	'INJ'	'GAS'	'OPEN' 	'RATE'	100000 1* 9014 /
 /
 -- Stated in Odeh that gas inj. rate (item 5) is 100MMscf per day
 -- BHP upper limit (item 7) should not be exceeding the highest
