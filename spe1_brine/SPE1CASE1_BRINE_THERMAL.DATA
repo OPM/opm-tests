@@ -34,7 +34,7 @@ EQLDIMS
 TABDIMS
 --ntsfun ntpvt nssfun nppvt ntfip nrpvt ntendp
    1     1     33     60   16    60 /
-/
+
 
 OIL
 GAS
@@ -75,7 +75,6 @@ INIT
 
 
 -- -------------------------------------------------------------------------
-NOECHO
 
 DX 
 	300*300 /
@@ -103,8 +102,6 @@ PERMZ
 THCONR
 300*112/
 	
-ECHO
-
 PROPS
 -- -------------------------------------------------------------------------
 INCLUDE
@@ -162,7 +159,7 @@ SWOF
 	0.900000	0.397060	0.000120000	0.07961
 	0.950000	0.461030	0.00001		0.06161
 	1.00000		0.500000	0.000000	0.04408 /
-/
+
 SGOF
 
 --  Sg	Krg	Kro	Pc	
@@ -189,40 +186,34 @@ SGOF
  	0.9999		0.9499		0.000000	0.000000	
 	1.00000		0.950000	0.000000	0.000000 /
 
-/
 
 SOLUTION
 -- -------------------------------------------------------------------------
 
 EQUIL
--- Item 1: datum depth (ft)
--- Item 2: pressure at datum depth (psia)
+-- Item 1: datum depth [m]
+-- Item 2: pressure at datum depth [barsa]
 -- 	   - Odeh's table 1 says that initial reservoir pressure is 
 -- 	     4800 psi at 8400ft, which explains choice of item 1 and 2
--- Item 3: depth of water-oil contact (ft)
+-- Item 3: depth of water-oil contact [m]
 -- 	   - chosen to be directly under the reservoir
--- Item 4: oil-water capillary pressure at the water oil contact (psi)
+-- Item 4: oil-water capillary pressure at the water oil contact [barsa]
 -- 	   - given to be 0 in Odeh's paper
--- Item 5: depth of gas-oil contact (ft)
+-- Item 5: depth of gas-oil contact [m]
 -- 	   - chosen to be directly above the reservoir
--- Item 6: gas-oil capillary pressure at gas-oil contact (psi)
--- 	   - given to be 0 in Odeh's paper
+-- Item 6: gas-oil capillary pressure at gas-oil contact [barsa]
 -- Item 7: RSVD-table
 -- Item 8: RVVD-table
--- Item 9: Set to 0 as this is the only value supported by OPM
+-- Item 9: Set to 0 (default value)
 
--- Item #: 1 2    3    4 5    6 7 8 9
-    2560.32 331 2575.56 0 2560.32 0 1 0 0 /
+-- Item #: 1  2    3     4   5     6 7 8 9
+     2560.32 331 2575.56 0 2560.32 0 1 0 0 /
 
 SALTVD
  2529.84  9
  2575.56  9 /
 
 RSVD
--- Dissolved GOR is initially constant with depth through the reservoir.
--- The reason is that the initial reservoir pressure given is higher 
----than the bubble point presssure of 4014.7psia, meaning that there is no 
--- free gas initially present.
 2529.84 120.25
 2575.56 106.77  /
 
@@ -367,24 +358,21 @@ WCONPROD
 /
 
 WCONINJE
--- Item #:1	 2	 3	 4	5      6  7
+-- Item #:1	 2	 3	      4	      5      6  7
 'INJ'	'WATER'	'OPEN'	'RATE'	15898.7 1* 621.5 /
 /
--- Stated in Odeh that gas inj. rate (item 5) is 100MMscf per day
--- BHP upper limit (item 7) should not be exceeding the highest
--- pressure in the PVT table=9014.7psia (default is 100 000psia)
-
 
 WSALT
  'INJ'  10.0 /
 /
+
 -- well injection temperature
 WTEMP
         'INJ' 30 /
 /
 
 TSTEP
---Advance the simulater once a month for TEN years:
-1 1 1 1 1 1 1 1 1 1 31 28 31 30 31 30 31 31 30 31 30 31 /
+-- Advance the simulater once a month for one years:
+31 28 31 30 31 30 31 31 30 31 30 31 /
 
 END
