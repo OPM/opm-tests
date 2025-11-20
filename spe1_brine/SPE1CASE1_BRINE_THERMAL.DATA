@@ -1,0 +1,378 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2015 Statoil 
+-- Copyright (C) 2019 Norce
+-- Copyright (C) 2025 Equinor  
+
+
+-- Note: this is a modified version of SPE1CASE1_BRINE, to test the combination of BRINE + TEMP.
+-- In particular to test the implementation of the viscosity depending on p, T and salt concentration 
+
+---------------------------------------------------------------------------
+------------------------ SPE1 - CASE 1 ------------------------------------
+---------------------------------------------------------------------------
+
+RUNSPEC
+-- -------------------------------------------------------------------------
+
+TITLE
+   SPE1 - CASE 1
+
+DIMENS
+   10 10 3 /
+
+-- The number of equilibration regions is inferred from the EQLDIMS
+-- keyword.
+EQLDIMS
+/
+
+-- The number of PVTW tables is inferred from the TABDIMS keyword;
+-- when no data is included in the keyword the default values are used.
+TABDIMS
+--ntsfun ntpvt nssfun nppvt ntfip nrpvt ntendp
+   1     1     33     60   16    60 /
+
+
+OIL
+GAS
+WATER
+BRINE
+DISGAS
+
+VAPOIL
+
+TEMP
+
+METRIC
+
+START
+   1 'JAN' 2015 /
+
+WELLDIMS
+-- Item 1: maximum number of wells in the model
+-- 	   - there are two wells in the problem; injector and producer
+-- Item 2: maximum number of grid blocks connected to any one well
+-- 	   - must be one as the wells are located at specific grid blocks
+-- Item 3: maximum number of groups in the model
+-- 	   - we are dealing with only one 'group'
+-- Item 4: maximum number of wells in any one group
+-- 	   - there must be two wells in a group as there are two wells in total
+   2 3 1 2 /
+
+UNIFOUT
+
+GRID
+
+-- The INIT keyword is used to request an .INIT file. The .INIT file
+-- is written before the simulation actually starts, and contains grid
+-- properties and saturation tables as inferred from the input
+-- deck. There are no other keywords which can be used to configure
+-- exactly what is written to the .INIT file.
+INIT
+
+
+-- -------------------------------------------------------------------------
+
+DX 
+	300*300 /
+DY
+	300*300 /
+DZ
+	100*6 100*9 100*15 /
+
+TOPS
+	100*2545 /
+
+PORO
+   	300*0.3 /
+
+PERMX
+	100*500 100*50 100*200 /
+
+PERMY
+	100*500 100*50 100*200 /
+
+PERMZ
+	100*500 100*50 100*200 /
+	
+-- total thermal conductivity
+THCONR
+300*112/
+	
+PROPS
+-- -------------------------------------------------------------------------
+INCLUDE
+'./include/PVT_SPE1CASE1_BRINE_THERMAL.INC' / 
+
+SPECHEAT
+-- Column 1: Temperature [deg C]
+-- Column 2: Specific heat capacity of oil [KJ / (kg * K)]
+-- Column 3: Specific heat capacity of water [KJ / (kg * K)]
+-- Column 4: Specific heat capacity of gas [KJ / (kg * K)]
+   25.0    1.000   4.200   2.0
+  100.0    1.000   4.200   2.0 /
+
+SPECROCK
+-- Column 1: Temperature [deg C]
+-- Column 2: Volumetric heat capacity of rock [KJ / (m^3 * K)]
+  25   1200
+  100 1200 /
+  
+-- Oil/Water Viscosity as a function of temperature
+VISCREF
+ 300 0.93 /
+
+WATVISCT
+30	1.2
+40	1.06
+50	0.92
+60	0.78
+70	0.64
+80	0.5
+/
+
+SWOF
+
+--	Sw	Krw	Kro	Pc						
+	0.000000	0.000000	1.00000		3.75633	
+	0.0001		0.000000	0.999		3.75632						
+	0.0500000	0.000860000	0.847820	1.86981						
+	0.100000	0.00263000	0.697460	1.23731						
+	0.150000	0.00524000	0.557170	0.91821						
+	0.200000	0.00877000	0.432860	0.72451						
+	0.250000	0.0133800	0.327570	0.59341						
+	0.300000	0.0192700	0.241770	0.49811
+	0.350000	0.0267200	0.174150	0.42511
+	0.400000	0.0360800	0.122370	0.36691
+	0.450000	0.0478100	0.0837400	0.31911
+	0.500000	0.0625000	0.0556500	0.27881
+	0.550000	0.0809000	0.0357200	0.24401
+	0.600000	0.103940	0.0219900	0.21351
+	0.650000	0.132770	0.0128400	0.18631
+	0.700000	0.168690	0.00699000	0.16161
+	0.750000	0.213020	0.00346000	0.13901
+	0.800000	0.266670	0.00149000	0.11801
+	0.850000	0.329180	0.000510000	0.09831
+	0.900000	0.397060	0.000120000	0.07961
+	0.950000	0.461030	0.00001		0.06161
+	1.00000		0.500000	0.000000	0.04408 /
+
+SGOF
+
+--  Sg	Krg	Kro	Pc	
+	0.000000	0.000000	1.00000		0.000000
+	0.0500000	0.00165500	0.806888	0.000000
+	0.100000	0.00691300	0.633562	0.000000
+	0.150000	0.0162130	0.485506	0.000000
+	0.200000	0.0299900	0.364043	0.000000
+	0.250000	0.0486550	0.267589	0.000000
+	0.300000	0.0725730	0.192992	0.000000
+	0.350000	0.102046	0.136554	0.000000
+	0.400000	0.137287	0.0946710	0.000000
+	0.450000	0.178402	0.0641510	0.000000
+	0.500000	0.225368	0.0423240	0.000000
+	0.550000	0.278030	0.0270350	0.000000
+	0.600000	0.336093	0.0165860	0.000000
+	0.650000	0.399135	0.00966200	0.000000
+	0.700000	0.466631	0.00525400	0.000000
+	0.750000	0.538000	0.00259700	0.000000
+	0.800000	0.612665	0.00111700	0.000000
+	0.850000	0.690169	0.000384000	0.000000
+	0.900000	0.770395	0.000088	0.000000
+	0.950000	0.854218	0.000007	0.000000
+ 	0.9999		0.9499		0.000000	0.000000	
+	1.00000		0.950000	0.000000	0.000000 /
+
+
+SOLUTION
+-- -------------------------------------------------------------------------
+
+EQUIL
+-- Item 1: datum depth [m]
+-- Item 2: pressure at datum depth [barsa]
+-- 	   - Odeh's table 1 says that initial reservoir pressure is 
+-- 	     4800 psi at 8400ft, which explains choice of item 1 and 2
+-- Item 3: depth of water-oil contact [m]
+-- 	   - chosen to be directly under the reservoir
+-- Item 4: oil-water capillary pressure at the water oil contact [barsa]
+-- 	   - given to be 0 in Odeh's paper
+-- Item 5: depth of gas-oil contact [m]
+-- 	   - chosen to be directly above the reservoir
+-- Item 6: gas-oil capillary pressure at gas-oil contact [barsa]
+-- Item 7: RSVD-table
+-- Item 8: RVVD-table
+-- Item 9: Set to 0 (default value)
+
+-- Item #: 1  2    3     4   5     6 7 8 9
+     2560.32 331 2575.56 0 2560.32 0 1 0 0 /
+
+SALTVD
+ 2529.84  9
+ 2575.56  9 /
+
+RSVD
+2529.84 120.25
+2575.56 106.77  /
+
+--
+-- Define the initial reservoir temperature
+--
+RTEMP
+ 80 /
+  
+SUMMARY
+-- -------------------------------------------------------------------------	 
+FOPR
+
+FGOR
+
+BPR
+1	1	1/
+2	2	1/
+3	3	1/
+4	4	1/
+5	5	1/
+6	6	1/
+7	7	1/
+8	8	1/
+9	9	1/
+10	10	1/
+10 	10 	3 /
+/
+
+BTEMP
+1	1	1/
+2	2	1/
+3	3	1/
+4	4	1/
+5	5	1/
+6	6	1/
+7	7	1/
+8	8	1/
+9	9	1/
+10	10	1/
+/
+
+BVWAT
+1	1	1/
+2	2	1/
+3	3	1/
+4	4	1/
+5	5	1/
+6	6	1/
+7	7	1/
+8	8	1/
+9	9	1/
+10	10	1/
+/
+
+WBHP
+  'INJ'
+  'PROD'
+/
+WGIR
+  'INJ'
+  'PROD'
+/
+WGIT
+  'INJ'
+  'PROD'
+/
+WGPR
+  'INJ'
+  'PROD'
+/
+WGPT
+  'INJ'
+  'PROD'
+/
+WOIR
+  'INJ'
+  'PROD'
+/
+WOIT
+  'INJ'
+  'PROD'
+/
+WOPR
+  'INJ'
+  'PROD'
+/
+WOPT
+  'INJ'
+  'PROD'
+/
+WWIR
+  'INJ'
+  'PROD'
+/
+WWIT
+  'INJ'
+  'PROD'
+/
+WWPR
+  'INJ'
+  'PROD'
+/
+WWPT
+  'INJ'
+  'PROD'
+/
+WTPCHEA
+  'PROD'
+/
+WTICHEA
+  'INJ'
+/
+
+SCHEDULE
+-- -------------------------------------------------------------------------
+RPTSCHED
+	'PRES' 'SGAS' 'RS' /
+
+RPTRST
+	'BASIC=1' /
+
+DRSDT
+ 0 /
+
+WELSPECS
+-- Item #: 1	 2	3	4	5	 6
+	'PROD'	'G1'	10	10	2560.32	 'OIL' /
+	'INJ'	'G1'	1	1	2540.508	'WATER' /
+/
+
+COMPDAT
+-- Item #: 1	2	3	4	5	6	7	8	9
+	'PROD'	10	10	1	3	'OPEN'	1*	1*	0.216 /
+	'INJ'	1	1	1	3	'OPEN'	1*	1*	0.216 /
+/
+
+WCONPROD
+-- Item #:1	2      3     4	   5  9
+--	'PROD' 'OPEN' 'ORAT' 20000 4* 1000 /
+'PROD' 'OPEN' 'ORAT' 3179.75 4* 68.9/
+/
+
+WCONINJE
+-- Item #:1	 2	 3	      4	      5      6  7
+'INJ'	'WATER'	'OPEN'	'RATE'	15898.7 1* 621.5 /
+/
+
+WSALT
+ 'INJ'  10.0 /
+/
+
+-- well injection temperature
+WTEMP
+        'INJ' 30 /
+/
+
+TSTEP
+-- Advance the simulater once a month for one years:
+31 28 31 30 31 30 31 31 30 31 30 31 /
+
+END
