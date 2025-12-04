@@ -1,0 +1,133 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2025 NORCE Research AS
+
+-- Single phase flow + TPSA with fixed-stress coupling
+---------------------------------------------------------------------------
+RUNSPEC
+---------------------------------------------------------------------------
+DIMENS
+5 5 5 /
+
+EQLDIMS
+/
+TABDIMS
+/
+
+WATER
+METRIC
+MECH
+
+TPSA
+FIXED-STRESS /
+
+START
+1 'JAN' 2025 /
+
+WELLDIMS
+2 10 1 2 /
+
+UNIFOUT
+
+---------------------------------------------------------------------------
+GRID
+---------------------------------------------------------------------------
+INIT
+
+DX
+125*20.0 /
+DY
+125*20.0 /
+DZ
+125*20.0 /
+TOPS
+25*1000.0 /
+
+PORO
+125*0.3 /
+
+PERMX
+125*500.0 /
+COPY
+PERMX PERMY /
+PERMX PERMZ /
+/
+
+BIOTCOEF
+125*0.87 /
+SMODULUS
+125*3.5 /
+LAME
+125*4.0 /
+
+---------------------------------------------------------------------------
+PROPS
+---------------------------------------------------------------------------
+PVTW
+1.0 /
+
+ROCK
+1.0132  1.0E-6 /
+
+ROCKOPTS
+1* STORE /
+
+DENSITY
+859.5 1033.0 0.854 /
+
+---------------------------------------------------------------------------
+SOLUTION
+---------------------------------------------------------------------------
+EQUIL
+1000 100 /
+
+RPTRST
+'BASIC=2' /
+
+---------------------------------------------------------------------------
+SUMMARY
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+SCHEDULE
+---------------------------------------------------------------------------
+RPTRST
+'BASIC=2' /
+
+WELSPECS
+INJE G 2 2 1* WAT /
+PROD G 4 4 1* WAT /
+/
+COMPDAT
+INJE 1* 1* 1 5 OPEN 1* 1* 0.2 /
+PROD 1* 1* 1 5 OPEN 1* 1* 0.2 /
+/
+WCONINJE
+INJE WAT OPEN RATE 1000.0 1* 900 /
+/
+WCONPROD
+PROD OPEN WRAT 1* 1000.0 /
+/
+
+TSTEP
+5*1
+/
+WCONPROD
+PROD OPEN WRAT 1* 900.0 /
+/
+
+TSTEP
+5*1
+/
+WCONPROD
+PROD OPEN WRAT 1* 950.0 /
+/
+
+TSTEP
+5*1
+/
+
+END
