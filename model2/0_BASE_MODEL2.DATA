@@ -195,6 +195,10 @@ SUMMARY
 INCLUDE
  'include/summary.inc' /
 
+BPR
+ 2 11 3 /
+/
+
 
 ------------------------------------------------------------------------------------------------
 SCHEDULE
@@ -211,5 +215,7 @@ INCLUDE
 INCLUDE
  'include/hist_schedule.sch' /
 
+TSTEP
+  31 /
  
 END
