@@ -3,6 +3,7 @@
 
 # this is using program summay found in opm-common
 SUMMARY=$1/summary
+JOBS=${BUILDTHREADS:-16}
 
 DIRS="$2"
 test -z "$DIRS" && DIRS="ECL.2014.2 opm-simulation-reference/flow_legacy"
@@ -45,6 +46,7 @@ for W in $ALLWELLS; do
 done
 
 # create a file for each well for all specified wells
+JOBLIST=""
 for DIR in $DIRS; do
   if ! test -d $DIR ; then
     echo "ERROR: directory $DIR does not exist"
@@ -56,19 +58,21 @@ for DIR in $DIRS; do
     for OPT in $OPTS; do
       WELLOPTS="$WELLOPTS $OPT:$WELL"
     done
-    $SUMMARY $DIR/$DECK TIME $WELLOPTS > $DIR/$WELL.gnu
+    JOBLIST+="-o $DIR/$WELL.gnu $DIR/$DECK TIME $WELLOPTS\\n"
   done
 done
+echo -e $JOBLIST | xargs -L1 -P${JOBS} ${SUMMARY}
 
 WELLLISTEX=$OUTPUT-list.tex
 echo "" > $WELLLISTEX
 
-PLOTFILE=$OUTPUT.gnu
-
 PICCOUNT=1 # 1 is days
+mkdir -p plot_files
+JOBLIST=""
 for WELL in $WELLS ; do
   COUNT=2 # 1 is days
   for OPT in $OPTS; do
+    PLOTFILE="plot_files/${WELL}_${OPT}.gnu"
     echo "set terminal postscript color" > $PLOTFILE
     echo "set output \"well-${WELL}-${OPT}.eps\"" >> $PLOTFILE
     echo "set xlabel \"days\"" >> $PLOTFILE
@@ -86,7 +90,7 @@ for WELL in $WELLS ; do
       PLOTS="$PLOTS \"${DIR}/$WELL.gnu\" u 1:${COUNT} title \"$title\" w l lw $LW lc $LC"
     done
     echo "plot $PLOTS" >> $PLOTFILE
-    gnuplot $PLOTFILE
+    JOBLIST+="$PLOTFILE\\n"
 
     echo "\\begin{figure}" >> $WELLLISTEX
     echo "\\rotatebox{270}{\\includegraphics[width=0.65\\textwidth]{well-$WELL-$OPT}}\\\\" >> $WELLLISTEX
@@ -99,6 +103,7 @@ for WELL in $WELLS ; do
     PICCOUNT=`expr $PICCOUNT + 1`
   done
 done
+echo -e $JOBLIST | xargs -L1 -P${JOBS} gnuplot
 
 WELLTEX=$OUTPUT.tex
 
@@ -125,7 +130,7 @@ test -f texput.dvi && dvipdf texput $OUTPUT.pdf
 
 # remove temporary files
 rm -f $WELLLISTEX
-rm -f $PLOTFILE
+rm -rf plot_files
 for DIR in $DIRS; do
   rm -f $DIR/*.gnu
 done
