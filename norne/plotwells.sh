@@ -11,9 +11,11 @@ OUTPUT=$3
 test -z "$OUTPUT" && OUTPUT=norne-wells
 DECK=NORNE_ATW2013
 
+PROCS=${4:-4}
+
 test -d flow_legacy && DIRS="$DIRS flow_legacy"
 test -d flow && DIRS="$DIRS flow"
-test -d flow_4_proc && DIRS="$DIRS flow_4_proc"
+test -d flow_${PROCS}_proc && DIRS="$DIRS flow_${PROCS}_proc"
 
 # if empty all options will be plotted
 OPTS="WBHP WOPR WGPR WWPR"
