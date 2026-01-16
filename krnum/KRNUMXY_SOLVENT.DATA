@@ -22,9 +22,8 @@
 
 RUNSPEC
 -- -------------------------------------------------------------------------
-
 TITLE
-   SPE1 - CASE 1
+KRNUMXY_SOLVENT: BASED ON SPE01 - CASE 1
 
 DIMENS
    10 10 3 /

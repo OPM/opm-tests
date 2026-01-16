@@ -3,12 +3,12 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2022 Equinor
+-- Copyright (C) 2023 Equinor
 
 -- This model is testing directional relperm with focuse on oil water (SWOF).
--- The dominating flow direction (by far) in this model, is in X-direction.
+-- The dominating flow direction (by far) in this model, is in Y-direction.
 -- The model is divided into 4 segments which are identical in size, properties,
--- well lauout, etc. Only difference for these segments are KRNUMX, KRNUMY and KRNUMZ
+-- well lauout, etc. Only difference for these segments are KRNUMX-, KRNUMY- and KRNUMZ-
 -- definitions.  A total of 16 relative permeability curves are provided but only 3
 -- of thse are being used. Table-1 for COMPDAT connections and Table-5 and Table-9
 -- sat with KRNUM keywords. The table below shows table number used in X-,Y- and Z-
@@ -19,19 +19,23 @@
 ------------+------+------+------+------+
 --          | B-1H | B-2H | B-3H | B-4H |
 ------------+------+------+------+------+
--- KRNUMX   |   5  |   5  |   5  |   9  |
--- KRNUMY   |   5  |   9  |   9  |   9  |
+-- KRNUMX   |   5  |   9  |   9  |   9  |
+-- KRNUMY   |   5  |   5  |   5  |   9  |
 -- KRNUMZ   |   5  |   5  |   9  |   9  |
 ------------+------+------+------+------+
 
--- table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
--- table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- KRNUM-02Y table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
+-- KRNUM-02Y table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- Same as KRNUM-02Y, but in addition the negative versons of KRNUM, that is KRNUMX-, KRNUMY-
+-- and KRNUMZ- are used. Thus, instead of tables 5 and 9, we use tables 9 and 5 for KRNUM-
+-- Carlson Hysteresis Model with hysteresis modeling applied to both relative permeability,
+-- and capillary pressure curves.
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
 ------------------------------------------------------------------------------------------------
 TITLE
-KRNUM-02X: REGRESSION TEST
+KRNUM-02Y-: NOT CURRENTLY SUPPORTED
 
 DIMENS
  20 20 10 /
@@ -52,14 +56,14 @@ START
 --
 GRIDOPTS
  'YES'        0 /
-
+--
+--       ACTIVATE RELATIVE PERMEABILITY ASSIGNMENT HYSTERESIS OPTIONS
+--       DIRECTTIONAL(DIRECT) IRREVERSIBLE(IRREVERS) HYSTERESIS(HYSTER)
 SATOPTS
- 'DIRECT'
-/
-
+         'DIRECT'   'IRREVERS'                                                 /
 
 EQLDIMS
- 1 1*  25 /
+ 1  100  25 /
 
 
 REGDIMS
@@ -96,7 +100,7 @@ INIT
 
 
 INCLUDE
- 'include/KRNUM-MODEL-X.inc' /
+ 'include/KRNUM-MODEL-Y.inc' /
 
 PERMX
  4000*500 /
@@ -111,17 +115,14 @@ COPY
 
 -- no flow in z-direction
 MULTIPLY
-  PERMZ 0.0 /
+  PERMZ 10E-10 /
 /
-
-RPTGRID
- 'ALLNNC' /
 
 -- setting up 4 identical compartments
 EQUALS
-  'MULTY'  0.0 1 20   5  5  1 10 /
-  'MULTY'  0.0 1 20  10 10  1 10 /
-  'MULTY'  0.0 1 20  15 15  1 10 /
+  'MULTX'  0.0   5  5 1 20  1 10 /
+  'MULTX'  0.0  10 10 1 20  1 10 /
+  'MULTX'  0.0  15 15 1 20  1 10 /
 /
 
 
@@ -134,18 +135,14 @@ EDIT
 PROPS
 ------------------------------------------------------------------------------------------------
 
-NOECHO
+INCLUDE
+ 'include/KRNUM-MODEL-PVT-01.inc'      / PRESSURE CLIPPED PVT
 
 INCLUDE
- 'include/KRNUM-MODEL-PVT.inc' /
-
-
-INCLUDE
- 'include/KRNUM-MODEL-ROCK.inc' /
+ 'include/KRNUM-MODEL-ROCK.inc'        /
 
 INCLUDE
- 'include/KRNUM-MODEL-RELPERM.inc' /
-
+ 'include/KRNUM-MODEL-RELPERM.inc'     / IMBIBITION SATURATION FUNCTIONS
 
 ------------------------------------------------------------------------------------------------
 REGIONS
@@ -155,8 +152,10 @@ EQLNUM
  4000*1 /
 
 INCLUDE
- 'include/KRNUM-02X+.inc' /
+ 'include/KRNUM-02Y+.inc' /
 
+INCLUDE
+ 'include/KRNUM-02Y-.inc' /
 
 ------------------------------------------------------------------------------------------------
 SOLUTION
@@ -164,7 +163,7 @@ SOLUTION
 
 
 RPTRST
-  'BASIC = 2' 'PBPD' /
+  'BASIC=2' 'PBPD' /
 
 EQUIL
 -- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
@@ -182,7 +181,7 @@ SUMMARY
 
 
 INCLUDE
- 'include/KRNUM-MODEL-SUMMARY.inc' /
+ 'include/KRNUM-MODEL-SUMMARY-01.inc' /
 
 
 ------------------------------------------------------------------------------------------------
@@ -197,30 +196,30 @@ TUNING
 WELSPECS
 --WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
  'B-1H'  'S1'   3    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
- 'B-2H'  'S2'   3    8      1*   OIL     1*   1*   SHUT 1* 1* 1* /
- 'B-3H'  'S3'   3   13      1*   OIL     1*   1*   SHUT 1* 1* 1* /
- 'B-4H'  'S4'   3   18      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-2H'  'S2'   8    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-3H'  'S3'  13    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-4H'  'S4'  18    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
 /
 
 WELSPECS
- 'F-1H'  'S1'  18    3      1*   WATER   1*   1*   SHUT 1* 1* 1* /
- 'F-2H'  'S2'  18    8      1*   WATER   1*   1*   SHUT 1* 1* 1* /
- 'F-3H'  'S3'  18   13      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-1H'  'S1'   3   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-2H'  'S2'   8   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-3H'  'S3'  13   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
  'F-4H'  'S4'  18   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
 /
 
 COMPDAT
 --WELL      I   J    K1   K2  OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
- 'B-1H'    3   3    1    10   OPEN    1     1*    0.216    1* 0    1*    Z   1* /
- 'B-2H'    3   8    1    10   OPEN    1     1*    0.216    1* 0    1*    Z   1* /
- 'B-3H'    3   13    1    10   OPEN    1     1*    0.216    1* 0    1*    Z     1* /
- 'B-4H'    3   18    1    10   OPEN    1     1*    0.216    1* 0    1*    Z     1* /
+ 'B-1H'     3   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+ 'B-2H'     8   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+ 'B-3H'    13   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+ 'B-4H'    18   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
 /
 
 COMPDAT
- 'F-1H'    18   3    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
- 'F-2H'    18   8    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
- 'F-3H'    18  13    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+ 'F-1H'     3  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+ 'F-2H'     8  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+ 'F-3H'    13  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
  'F-4H'    18  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
 /
 
