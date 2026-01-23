@@ -51,9 +51,6 @@ FPR
 
 FOPT
 
-GPR
-/
-
 GVPR
 /
 
