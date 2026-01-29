@@ -1,0 +1,2360 @@
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    422169.9  1*  425.0  / 
+/
+
+DATES
+ 11 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    421131.1  1*  425.0  / 
+/
+
+DATES
+ 12 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420932.1  1*  425.0  / 
+/
+
+DATES
+ 13 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420850.0  1*  425.0  / 
+/
+
+DATES
+ 14 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420795.8  1*  425.0  / 
+/
+
+DATES
+ 15 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420745.5  1*  425.0  / 
+/
+
+DATES
+ 16 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420695.0  1*  425.0  / 
+/
+
+DATES
+ 17 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420642.0  1*  425.0  / 
+/
+
+DATES
+ 18 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420588.8  1*  425.0  / 
+/
+
+DATES
+ 19 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420543.5  1*  425.0  / 
+/
+
+DATES
+ 20 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420497.5  1*  425.0  / 
+/
+
+DATES
+ 21 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420464.0  1*  425.0  / 
+/
+
+DATES
+ 22 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420430.5  1*  425.0  / 
+/
+
+DATES
+ 23 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420399.5  1*  425.0  / 
+/
+
+DATES
+ 24 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420369.0  1*  425.0  / 
+/
+
+DATES
+ 25 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420336.5  1*  425.0  / 
+/
+
+DATES
+ 26 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420302.5  1*  425.0  / 
+/
+
+DATES
+ 27 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420268.5  1*  425.0  / 
+/
+
+DATES
+ 28 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420232.5  1*  425.0  / 
+/
+
+DATES
+ 29 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420195.0  1*  425.0  / 
+/
+
+DATES
+ 30 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420159.0  1*  425.0  / 
+/
+
+DATES
+ 31 'OCT' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420119.0  1*  425.0  / 
+/
+
+DATES
+ 1 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420080.0  1*  425.0  / 
+/
+
+DATES
+ 2 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420042.0  1*  425.0  / 
+/
+
+DATES
+ 3 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420007.0  1*  425.0  / 
+/
+
+DATES
+ 4 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419972.0  1*  425.0  / 
+/
+
+DATES
+ 5 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419938.0  1*  425.0  / 
+/
+
+DATES
+ 6 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419904.0  1*  425.0  / 
+/
+
+DATES
+ 7 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419870.0  1*  425.0  / 
+/
+
+DATES
+ 8 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419836.0  1*  425.0  / 
+/
+
+DATES
+ 9 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419803.0  1*  425.0  / 
+/
+
+DATES
+ 10 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419770.0  1*  425.0  / 
+/
+
+DATES
+ 11 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419733.0  1*  425.0  / 
+/
+
+DATES
+ 12 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419702.0  1*  425.0  / 
+/
+
+DATES
+ 13 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419669.0  1*  425.0  / 
+/
+
+DATES
+ 14 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419636.0  1*  425.0  / 
+/
+
+DATES
+ 15 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419602.0  1*  425.0  / 
+/
+
+DATES
+ 16 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419569.0  1*  425.0  / 
+/
+
+DATES
+ 17 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419535.0  1*  425.0  / 
+/
+
+DATES
+ 18 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419501.0  1*  425.0  / 
+/
+
+DATES
+ 19 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419468.0  1*  425.0  / 
+/
+
+DATES
+ 20 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419434.0  1*  425.0  / 
+/
+
+DATES
+ 21 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419400.0  1*  425.0  / 
+/
+
+DATES
+ 22 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419370.0  1*  425.0  / 
+/
+
+DATES
+ 23 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419336.0  1*  425.0  / 
+/
+
+DATES
+ 24 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419306.0  1*  425.0  / 
+/
+
+DATES
+ 25 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419276.0  1*  425.0  / 
+/
+
+DATES
+ 26 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419244.0  1*  425.0  / 
+/
+
+DATES
+ 27 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419212.0  1*  425.0  / 
+/
+
+DATES
+ 28 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419180.0  1*  425.0  / 
+/
+
+DATES
+ 29 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419146.0  1*  425.0  / 
+/
+
+DATES
+ 30 'NOV' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419114.0  1*  425.0  / 
+/
+
+DATES
+ 1 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419082.0  1*  425.0  / 
+/
+
+DATES
+ 2 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419048.0  1*  425.0  / 
+/
+
+DATES
+ 3 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419016.0  1*  425.0  / 
+/
+
+DATES
+ 4 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418982.0  1*  425.0  / 
+/
+
+DATES
+ 5 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418954.0  1*  425.0  / 
+/
+
+DATES
+ 6 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418922.0  1*  425.0  / 
+/
+
+DATES
+ 7 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418892.0  1*  425.0  / 
+/
+
+DATES
+ 8 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418864.0  1*  425.0  / 
+/
+
+DATES
+ 9 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418840.0  1*  425.0  / 
+/
+
+DATES
+ 10 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418816.0  1*  425.0  / 
+/
+
+DATES
+ 11 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418812.0  1*  425.0  / 
+/
+
+DATES
+ 12 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418816.0  1*  425.0  / 
+/
+
+DATES
+ 13 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418866.0  1*  425.0  / 
+/
+
+DATES
+ 14 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    418980.0  1*  425.0  / 
+/
+
+DATES
+ 15 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    419358.0  1*  425.0  / 
+/
+
+DATES
+ 16 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    420064.0  1*  425.0  / 
+/
+
+DATES
+ 17 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    421256.0  1*  425.0  / 
+/
+
+DATES
+ 18 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    423168.0  1*  425.0  / 
+/
+
+DATES
+ 19 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    426088.0  1*  425.0  / 
+/
+
+DATES
+ 20 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    430324.0  1*  425.0  / 
+/
+
+DATES
+ 21 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    436198.0  1*  425.0  / 
+/
+
+DATES
+ 22 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    444094.0  1*  425.0  / 
+/
+
+DATES
+ 23 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    453906.0  1*  425.0  / 
+/
+
+DATES
+ 24 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    465328.0  1*  425.0  / 
+/
+
+DATES
+ 25 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    477994.0  1*  425.0  / 
+/
+
+DATES
+ 26 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    491888.0  1*  425.0  / 
+/
+
+DATES
+ 27 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    505966.0  1*  425.0  / 
+/
+
+DATES
+ 28 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    519580.0  1*  425.0  / 
+/
+
+DATES
+ 29 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    533300.0  1*  425.0  / 
+/
+
+DATES
+ 30 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    545992.0  1*  425.0  / 
+/
+
+DATES
+ 31 'DEC' 2018 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    558536.0  1*  425.0  / 
+/
+
+DATES
+ 1 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    569708.0  1*  425.0  / 
+/
+
+DATES
+ 2 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    580512.0  1*  425.0  / 
+/
+
+DATES
+ 3 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    590528.0  1*  425.0  / 
+/
+
+DATES
+ 4 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    599504.0  1*  425.0  / 
+/
+
+DATES
+ 5 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    607768.0  1*  425.0  / 
+/
+
+DATES
+ 6 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    616136.0  1*  425.0  / 
+/
+
+DATES
+ 7 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    623880.0  1*  425.0  / 
+/
+
+DATES
+ 8 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    630928.0  1*  425.0  / 
+/
+
+DATES
+ 9 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    637372.0  1*  425.0  / 
+/
+
+DATES
+ 10 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    643520.0  1*  425.0  / 
+/
+
+DATES
+ 11 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    649216.0  1*  425.0  / 
+/
+
+DATES
+ 12 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    655216.0  1*  425.0  / 
+/
+
+DATES
+ 13 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    660708.0  1*  425.0  / 
+/
+
+DATES
+ 14 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    666104.0  1*  425.0  / 
+/
+
+DATES
+ 15 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    671124.0  1*  425.0  / 
+/
+
+DATES
+ 16 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    675928.0  1*  425.0  / 
+/
+
+DATES
+ 17 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    680628.0  1*  425.0  / 
+/
+
+DATES
+ 18 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    685260.0  1*  425.0  / 
+/
+
+DATES
+ 19 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    689616.0  1*  425.0  / 
+/
+
+DATES
+ 20 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    694168.0  1*  425.0  / 
+/
+
+DATES
+ 21 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    698672.0  1*  425.0  / 
+/
+
+DATES
+ 22 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    703464.0  1*  425.0  / 
+/
+
+DATES
+ 23 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    708228.0  1*  425.0  / 
+/
+
+DATES
+ 24 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    712984.0  1*  425.0  / 
+/
+
+DATES
+ 25 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    717768.0  1*  425.0  / 
+/
+
+DATES
+ 26 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    722724.0  1*  425.0  / 
+/
+
+DATES
+ 27 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    727572.0  1*  425.0  / 
+/
+
+DATES
+ 28 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    732640.0  1*  425.0  / 
+/
+
+DATES
+ 29 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    737904.0  1*  425.0  / 
+/
+
+DATES
+ 30 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    743308.0  1*  425.0  / 
+/
+
+DATES
+ 31 'JAN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    748972.0  1*  425.0  / 
+/
+
+DATES
+ 1 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    755096.0  1*  425.0  / 
+/
+
+DATES
+ 2 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    761692.0  1*  425.0  / 
+/
+
+DATES
+ 3 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    768424.0  1*  425.0  / 
+/
+
+DATES
+ 4 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    775444.0  1*  425.0  / 
+/
+
+DATES
+ 5 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    782660.0  1*  425.0  / 
+/
+
+DATES
+ 6 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    790100.0  1*  425.0  / 
+/
+
+DATES
+ 7 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    797824.0  1*  425.0  / 
+/
+
+DATES
+ 8 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    805340.0  1*  425.0  / 
+/
+
+DATES
+ 9 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    812844.0  1*  425.0  / 
+/
+
+DATES
+ 10 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    821284.0  1*  425.0  / 
+/
+
+DATES
+ 11 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    829688.0  1*  425.0  / 
+/
+
+DATES
+ 12 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    838280.0  1*  425.0  / 
+/
+
+DATES
+ 13 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    846628.0  1*  425.0  / 
+/
+
+DATES
+ 14 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    855016.0  1*  425.0  / 
+/
+
+DATES
+ 15 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    863464.0  1*  425.0  / 
+/
+
+DATES
+ 16 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    871928.0  1*  425.0  / 
+/
+
+DATES
+ 17 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    880408.0  1*  425.0  / 
+/
+
+DATES
+ 18 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    889112.0  1*  425.0  / 
+/
+
+DATES
+ 19 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    898600.0  1*  425.0  / 
+/
+
+DATES
+ 20 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    908456.0  1*  425.0  / 
+/
+
+DATES
+ 21 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    918696.0  1*  425.0  / 
+/
+
+DATES
+ 22 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    929488.0  1*  425.0  / 
+/
+
+DATES
+ 23 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    941128.0  1*  425.0  / 
+/
+
+DATES
+ 24 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    953648.0  1*  425.0  / 
+/
+
+DATES
+ 25 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    967160.0  1*  425.0  / 
+/
+
+DATES
+ 26 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    981832.0  1*  425.0  / 
+/
+
+DATES
+ 27 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'    997160.0  1*  425.0  / 
+/
+
+DATES
+ 28 'FEB' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1013008.0  1*  425.0  / 
+/
+
+DATES
+ 1 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1029888.0  1*  425.0  / 
+/
+
+DATES
+ 2 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1046952.0  1*  425.0  / 
+/
+
+DATES
+ 3 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1064544.0  1*  425.0  / 
+/
+
+DATES
+ 4 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1081808.0  1*  425.0  / 
+/
+
+DATES
+ 5 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1099552.0  1*  425.0  / 
+/
+
+DATES
+ 6 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1116784.0  1*  425.0  / 
+/
+
+DATES
+ 7 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1134608.0  1*  425.0  / 
+/
+
+DATES
+ 8 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1152120.0  1*  425.0  / 
+/
+
+DATES
+ 9 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1169296.0  1*  425.0  / 
+/
+
+DATES
+ 10 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1187064.0  1*  425.0  / 
+/
+
+DATES
+ 11 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1204232.0  1*  425.0  / 
+/
+
+DATES
+ 12 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1221504.0  1*  425.0  / 
+/
+
+DATES
+ 13 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1238216.0  1*  425.0  / 
+/
+
+DATES
+ 14 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1255688.0  1*  425.0  / 
+/
+
+DATES
+ 15 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1272752.0  1*  425.0  / 
+/
+
+DATES
+ 16 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1289720.0  1*  425.0  / 
+/
+
+DATES
+ 17 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1306256.0  1*  425.0  / 
+/
+
+DATES
+ 18 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1322520.0  1*  425.0  / 
+/
+
+DATES
+ 19 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1338888.0  1*  425.0  / 
+/
+
+DATES
+ 20 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1355368.0  1*  425.0  / 
+/
+
+DATES
+ 21 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1371880.0  1*  425.0  / 
+/
+
+DATES
+ 22 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1388328.0  1*  425.0  / 
+/
+
+DATES
+ 23 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1404392.0  1*  425.0  / 
+/
+
+DATES
+ 24 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1420272.0  1*  425.0  / 
+/
+
+DATES
+ 25 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1435952.0  1*  425.0  / 
+/
+
+DATES
+ 26 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1451304.0  1*  425.0  / 
+/
+
+DATES
+ 27 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1466472.0  1*  425.0  / 
+/
+
+DATES
+ 28 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1482120.0  1*  425.0  / 
+/
+
+DATES
+ 29 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1497432.0  1*  425.0  / 
+/
+
+DATES
+ 30 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1512488.0  1*  425.0  / 
+/
+
+DATES
+ 31 'MAR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1527544.0  1*  425.0  / 
+/
+
+DATES
+ 1 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1542480.0  1*  425.0  / 
+/
+
+DATES
+ 2 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1557192.0  1*  425.0  / 
+/
+
+DATES
+ 3 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1571456.0  1*  425.0  / 
+/
+
+DATES
+ 4 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1585464.0  1*  425.0  / 
+/
+
+DATES
+ 5 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1599392.0  1*  425.0  / 
+/
+
+DATES
+ 6 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1613184.0  1*  425.0  / 
+/
+
+DATES
+ 7 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1627000.0  1*  425.0  / 
+/
+
+DATES
+ 8 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1640944.0  1*  425.0  / 
+/
+
+DATES
+ 9 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1654632.0  1*  425.0  / 
+/
+
+DATES
+ 10 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1668480.0  1*  425.0  / 
+/
+
+DATES
+ 11 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1682544.0  1*  425.0  / 
+/
+
+DATES
+ 12 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1696352.0  1*  425.0  / 
+/
+
+DATES
+ 13 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1710432.0  1*  425.0  / 
+/
+
+DATES
+ 14 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1723824.0  1*  425.0  / 
+/
+
+DATES
+ 15 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1737808.0  1*  425.0  / 
+/
+
+DATES
+ 16 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1751824.0  1*  425.0  / 
+/
+
+DATES
+ 17 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1765360.0  1*  425.0  / 
+/
+
+DATES
+ 18 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1778944.0  1*  425.0  / 
+/
+
+DATES
+ 19 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1792592.0  1*  425.0  / 
+/
+
+DATES
+ 20 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1805968.0  1*  425.0  / 
+/
+
+DATES
+ 21 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1819744.0  1*  425.0  / 
+/
+
+DATES
+ 22 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1833040.0  1*  425.0  / 
+/
+
+DATES
+ 23 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1846560.0  1*  425.0  / 
+/
+
+DATES
+ 24 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1860160.0  1*  425.0  / 
+/
+
+DATES
+ 25 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1873984.0  1*  425.0  / 
+/
+
+DATES
+ 26 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1888272.0  1*  425.0  / 
+/
+
+DATES
+ 27 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1902144.0  1*  425.0  / 
+/
+
+DATES
+ 28 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1916528.0  1*  425.0  / 
+/
+
+DATES
+ 29 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1931696.0  1*  425.0  / 
+/
+
+DATES
+ 30 'APR' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1946224.0  1*  425.0  / 
+/
+
+DATES
+ 1 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1961904.0  1*  425.0  / 
+/
+
+DATES
+ 2 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1977488.0  1*  425.0  / 
+/
+
+DATES
+ 3 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   1994160.0  1*  425.0  / 
+/
+
+DATES
+ 4 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2011504.0  1*  425.0  / 
+/
+
+DATES
+ 5 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2029152.0  1*  425.0  / 
+/
+
+DATES
+ 6 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2047872.0  1*  425.0  / 
+/
+
+DATES
+ 7 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2067168.0  1*  425.0  / 
+/
+
+DATES
+ 8 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2086928.0  1*  425.0  / 
+/
+
+DATES
+ 9 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2105792.0  1*  425.0  / 
+/
+
+DATES
+ 10 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2125440.0  1*  425.0  / 
+/
+
+DATES
+ 11 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2145520.0  1*  425.0  / 
+/
+
+DATES
+ 12 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2163568.0  1*  425.0  / 
+/
+
+DATES
+ 13 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2184592.0  1*  425.0  / 
+/
+
+DATES
+ 14 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2205872.0  1*  425.0  / 
+/
+
+DATES
+ 15 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2225536.0  1*  425.0  / 
+/
+
+DATES
+ 16 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2246080.0  1*  425.0  / 
+/
+
+DATES
+ 17 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2266224.0  1*  425.0  / 
+/
+
+DATES
+ 18 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2286432.0  1*  425.0  / 
+/
+
+DATES
+ 19 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2307280.0  1*  425.0  / 
+/
+
+DATES
+ 20 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2328048.0  1*  425.0  / 
+/
+
+DATES
+ 21 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2349024.0  1*  425.0  / 
+/
+
+DATES
+ 22 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2370864.0  1*  425.0  / 
+/
+
+DATES
+ 23 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2392960.0  1*  425.0  / 
+/
+
+DATES
+ 24 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2415200.0  1*  425.0  / 
+/
+
+DATES
+ 25 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2437632.0  1*  425.0  / 
+/
+
+DATES
+ 26 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2460656.0  1*  425.0  / 
+/
+
+DATES
+ 27 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2483696.0  1*  425.0  / 
+/
+
+DATES
+ 28 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2507120.0  1*  425.0  / 
+/
+
+DATES
+ 29 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2531184.0  1*  425.0  / 
+/
+
+DATES
+ 30 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2556400.0  1*  425.0  / 
+/
+
+DATES
+ 31 'MAY' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2580544.0  1*  425.0  / 
+/
+
+DATES
+ 1 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2605744.0  1*  425.0  / 
+/
+
+DATES
+ 2 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2630784.0  1*  425.0  / 
+/
+
+DATES
+ 3 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2656192.0  1*  425.0  / 
+/
+
+DATES
+ 4 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2681920.0  1*  425.0  / 
+/
+
+DATES
+ 5 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2707616.0  1*  425.0  / 
+/
+
+DATES
+ 6 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2733328.0  1*  425.0  / 
+/
+
+DATES
+ 7 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2759968.0  1*  425.0  / 
+/
+
+DATES
+ 8 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2786912.0  1*  425.0  / 
+/
+
+DATES
+ 9 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2813888.0  1*  425.0  / 
+/
+
+DATES
+ 10 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2840544.0  1*  425.0  / 
+/
+
+DATES
+ 11 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2867296.0  1*  425.0  / 
+/
+
+DATES
+ 12 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2894528.0  1*  425.0  / 
+/
+
+DATES
+ 13 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2921568.0  1*  425.0  / 
+/
+
+DATES
+ 14 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2948032.0  1*  425.0  / 
+/
+
+DATES
+ 15 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   2974336.0  1*  425.0  / 
+/
+
+DATES
+ 16 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3001632.0  1*  425.0  / 
+/
+
+DATES
+ 17 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3030112.0  1*  425.0  / 
+/
+
+DATES
+ 18 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3059328.0  1*  425.0  / 
+/
+
+DATES
+ 19 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3088928.0  1*  425.0  / 
+/
+
+DATES
+ 20 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3119200.0  1*  425.0  / 
+/
+
+DATES
+ 21 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3149408.0  1*  425.0  / 
+/
+
+DATES
+ 22 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3179808.0  1*  425.0  / 
+/
+
+DATES
+ 23 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3210176.0  1*  425.0  / 
+/
+
+DATES
+ 24 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3240640.0  1*  425.0  / 
+/
+
+DATES
+ 25 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3271648.0  1*  425.0  / 
+/
+
+DATES
+ 26 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3303392.0  1*  425.0  / 
+/
+
+DATES
+ 27 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3336800.0  1*  425.0  / 
+/
+
+DATES
+ 28 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3370240.0  1*  425.0  / 
+/
+
+DATES
+ 29 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3404320.0  1*  425.0  / 
+/
+
+DATES
+ 30 'JUN' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3439936.0  1*  425.0  / 
+/
+
+DATES
+ 1 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3475712.0  1*  425.0  / 
+/
+
+DATES
+ 2 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3512000.0  1*  425.0  / 
+/
+
+DATES
+ 3 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3548672.0  1*  425.0  / 
+/
+
+DATES
+ 4 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3585632.0  1*  425.0  / 
+/
+
+DATES
+ 5 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3622176.0  1*  425.0  / 
+/
+
+DATES
+ 6 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3658944.0  1*  425.0  / 
+/
+
+DATES
+ 7 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3695200.0  1*  425.0  / 
+/
+
+DATES
+ 8 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3730400.0  1*  425.0  / 
+/
+
+DATES
+ 9 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3765056.0  1*  425.0  / 
+/
+
+DATES
+ 10 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3799072.0  1*  425.0  / 
+/
+
+DATES
+ 11 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3832640.0  1*  425.0  / 
+/
+
+DATES
+ 12 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3865312.0  1*  425.0  / 
+/
+
+DATES
+ 13 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3897088.0  1*  425.0  / 
+/
+
+DATES
+ 14 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3928320.0  1*  425.0  / 
+/
+
+DATES
+ 15 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3958816.0  1*  425.0  / 
+/
+
+DATES
+ 16 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   3988896.0  1*  425.0  / 
+/
+
+DATES
+ 17 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4018912.0  1*  425.0  / 
+/
+
+DATES
+ 18 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4048640.0  1*  425.0  / 
+/
+
+DATES
+ 19 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4078272.0  1*  425.0  / 
+/
+
+DATES
+ 20 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4108032.0  1*  425.0  / 
+/
+
+DATES
+ 21 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4138144.0  1*  425.0  / 
+/
+
+DATES
+ 22 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4168576.0  1*  425.0  / 
+/
+
+DATES
+ 23 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4198432.0  1*  425.0  / 
+/
+
+DATES
+ 24 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4229376.0  1*  425.0  / 
+/
+
+DATES
+ 25 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4260672.0  1*  425.0  / 
+/
+
+DATES
+ 26 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4292160.0  1*  425.0  / 
+/
+
+DATES
+ 27 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4323264.0  1*  425.0  / 
+/
+
+DATES
+ 28 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4354784.0  1*  425.0  / 
+/
+
+DATES
+ 29 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4386624.0  1*  425.0  / 
+/
+
+DATES
+ 30 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4418528.0  1*  425.0  / 
+/
+
+DATES
+ 31 'JUL' 2019 / 
+/
+
+WCONINJE
+ 'F-1H' 'GAS' 'OPEN' 'RATE'   4450656.0  1*  425.0  / 
+/
+
+DATES
+ 1 'AUG' 2019 / 
+/
+
