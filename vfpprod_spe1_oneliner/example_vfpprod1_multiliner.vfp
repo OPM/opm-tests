@@ -1,0 +1,54 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 SINTEF
+
+-- This file is one of the include files for SPE1CASE1_METRIC_VFP1_MULTILINER.DATA.
+
+-- -------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------
+
+-- This table should give the same result as in "example_vfpprod_oneliner.vfp"
+-- VFP TABLE for PRODUCER -- Example Simulation run
+VFPPROD
+ 1 2525 'LIQ' 'WCT' 'GOR' /
+   1.0    1000.0   6000.0  /
+   10.0    67.0     /
+   0.0     1.0      /
+   100.0   10000.0  /
+   0.0     400000.0 /
+-- THP=10.0, WFR=0.0, GFR=100.0, ALQ=0.0
+1 1 1 1   187.441   79.736   177.209   /
+-- THP=10.0, WFR=0.0, GFR=100.0, ALQ=400000.0
+1 1 1 2   187.441   79.736   177.209   /
+-- THP=10.0, WFR=0.0, GFR=10000.0, ALQ=0.0
+1 1 2 1   187.441   79.736   177.209   /
+-- THP=10.0, WFR=0.0, GFR=10000.0, ALQ=400000.0
+1 1 2 2   187.441   79.736   177.209   /
+-- THP=10.0, WFR=1.0, GFR=100.0, ALQ=0.0
+1 2 1 1   187.441   79.736   177.209   /
+-- THP=10.0, WFR=1.0, GFR=100.0, ALQ=400000.0
+1 2 1 2   187.441   79.736   177.209   /
+-- THP=10.0, WFR=1.0, GFR=10000.0, ALQ=0.0
+1 2 2 1   187.441   79.736   177.209   /
+-- THP=10.0, WFR=1.0, GFR=10000.0, ALQ=400000.0
+1 2 2 2   187.441   79.736   177.209   /
+-- THP=67.0, WFR=0.0, GFR=100.0, ALQ=0.0
+2 1 1 1   244.441   136.736   234.209   /
+-- THP=67.0, WFR=0.0, GFR=100.0, ALQ=400000.0
+2 1 1 2   244.441   136.736   234.209   /
+-- THP=67.0, WFR=0.0, GFR=10000.0, ALQ=0.0
+2 1 2 1   244.441   136.736   234.209   /
+-- THP=67.0, WFR=0.0, GFR=10000.0, ALQ=400000.0
+2 1 2 2   244.441   136.736   234.209   /
+-- THP=67.0, WFR=1.0, GFR=100.0, ALQ=0.0
+2 2 1 1   244.441   136.736   234.209   /
+-- THP=67.0, WFR=1.0, GFR=100.0, ALQ=400000.0
+2 2 1 2   244.441   136.736   234.209   /
+-- THP=67.0, WFR=1.0, GFR=10000.0, ALQ=0.0
+2 2 2 1   244.441   136.736   234.209   /
+-- THP=67.0, WFR=1.0, GFR=10000.0, ALQ=400000.0
+2 2 2 2   244.441   136.736   234.209   /
+/
