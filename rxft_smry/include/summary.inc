@@ -152,3 +152,79 @@ WWIR
  
 WWIT
  WI_1 /  
+
+BFLOGI
+4 4 2 /
+1 1 3 /
+3 2 3 /
+8 9 5 /
+2 2 2 /
+/
+
+BFLOGJ
+8 9 6 /
+/
+
+BFLOGK
+7 7 7 /
+/
+
+BFLOOI
+7 9 6 /
+/
+
+BFLOOJ
+5 5 4 /
+/
+
+BFLOOK
+10 12 2 /
+/
+
+BFLOWI
+8 12 8 /
+/
+
+BFLOWJ
+10 9 8 /
+/
+
+BFLOWK
+10 12 5 /
+/
+
+BFLOGI-
+2 1 1 /
+/
+
+BFLOGJ-
+1 2 1 /
+/
+
+BFLOGK-
+1 1 2 /
+/
+
+BFLOOI-
+3 1 1 /
+/
+
+BFLOOJ-
+1 3 1 /
+/
+
+BFLOOK-
+2 2 4 /
+/
+
+BFLOWI-
+4 1 1 /
+/
+
+BFLOWJ-
+1 4 1 /
+/
+
+BFLOWK-
+2 2 3 /
+/
