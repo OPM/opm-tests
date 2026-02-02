@@ -10,7 +10,7 @@
 -- Black-Oil Reservoir Simulation Problem' by Aziz S. Odeh,
 -- Journal of Petroleum Technology, January 1981
 
-- VFPROD table was modified to test oneliner lift curves
+-- VFPROD table was modified to test oneliner lift curves
 -- delta pressure (BHP - THP) constant for all other combinations of sensitivity data.
 -- Reducerd single-liner VFPPROD tale are used in "SPE1CASE1_METRIC_VFP1_ONELINER.DATA"
 ---------------------------------------------------------------------------
