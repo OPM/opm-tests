@@ -3,7 +3,7 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2026 Equinor
+-- Copyright (C) 2026 Equinor ASA
 
 -- Test model for MINPV and PINCH. Grid with dimension 1x1x4 with cells in layer 
 -- 2 and 3 inactive due to minpv.   
