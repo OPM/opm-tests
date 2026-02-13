@@ -228,3 +228,79 @@ BFLOWJ-
 BFLOWK-
 2 2 3 /
 /
+
+BVELGI
+4 4 2 /
+1 1 3 /
+3 2 3 /
+8 9 5 /
+2 2 2 /
+/
+
+BVELGJ
+8 9 6 /
+/
+
+BVELGK
+7 7 6 /
+/
+
+BVELOI
+7 9 6 /
+/
+
+BVELOJ
+5 5 5 /
+/
+
+BVELOK
+10 12 2 /
+/
+
+BVELWI
+8 12 8 /
+/
+
+BVELWJ
+10 9 8 /
+/
+
+BVELWK
+10 12 5 /
+/
+
+BVELGI-
+2 1 1 /
+/
+
+BVELGJ-
+1 2 1 /
+/
+
+BVELGK-
+1 1 2 /
+/
+
+BVELOI-
+3 1 1 /
+/
+
+BVELOJ-
+1 3 1 /
+/
+
+BVELOK-
+2 2 6 /
+/
+
+BVELWI-
+4 1 1 /
+/
+
+BVELWJ-
+1 4 1 /
+/
+
+BVELWK-
+2 2 3 /
+/
