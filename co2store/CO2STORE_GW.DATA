@@ -128,6 +128,22 @@ BRS
   10 1 10 /
 /
 
+BFLOGI
+  1 1 2 /
+/
+
+BFLOWK
+  2 1 2 /
+/
+
+BVELGI-
+  3 1 2 /
+/
+
+BVELWK-
+  4 1 2 /
+/
+
 FWIP
 FGIP
 FWPR
