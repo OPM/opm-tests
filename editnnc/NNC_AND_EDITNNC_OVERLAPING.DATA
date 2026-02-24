@@ -1,0 +1,107 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- This deck tests usage of NNC in combination with EDITNNC for an overlaping
+-- value. The deck has only two active cells [1,1,1] and [2,1,2], i.e., only
+-- one TRANNNC is internally generated with value 0.10000000E+01 (i.e., using
+-- the permeability and geometry information from the cells), which is then
+-- set to 0 using EDITNNC 1 1 1 2 1 2 0. However, by using NNC, one can set
+-- a desired value, in this case 6666 (NNC 1 1 1 2 1 2 6666), which internally
+-- in the simulator is used and written to the INIT (0.66660000E+04). In sum,
+-- this is useful to overwritte NNCs computed internally in the simulator.
+
+----------------------------------------------------------------------------
+RUNSPEC
+----------------------------------------------------------------------------
+DIMENS 
+2 1 2 /
+
+CO2STORE
+GAS
+WATER
+
+EQLDIMS
+/
+
+TABDIMS
+/
+
+WELLDIMS
+/
+
+UNIFOUT
+----------------------------------------------------------------------------
+GRID
+----------------------------------------------------------------------------
+INIT
+
+COORD
+     0   0 0      0   0 2E3
+ 2.5E3   0 0  2.5E3   0 2E3
+   5E3   0 0    5E3   0 2E3
+     0 1E3 0      0 1E3 2E3
+ 2.5E3 1E3 0  2.5E3 1E3 2E3
+   5E3 1E3 0    5E3 1E3 2E3 /
+
+ZCORN
+2*0    2*5E2    2*0 2*5E2
+2*10E2 2*5E2 2*10E2 2*5E2
+2*10E2 2*5E2 2*10E2 2*5E2
+8*10E2 /
+
+PORO
+4*0.1 /
+
+PERMX
+4*0.58637152 /
+
+COPY
+PERMX PERMY /
+PERMX PERMZ /
+/
+
+NNC
+1 1 1 2 1 2 6666 /
+/
+----------------------------------------------------------------------------
+EDIT
+----------------------------------------------------------------------------
+EDITNNC
+1 1 1 2 1 2 0 /
+/
+----------------------------------------------------------------------------
+PROPS
+----------------------------------------------------------------------------
+SGWFN
+0 0 1 0
+1 1 0 0 /
+----------------------------------------------------------------------------
+SOLUTION
+----------------------------------------------------------------------------
+RPTRST
+BASIC=2 /
+
+EQUIL
+0 200 0 0 0 0 1 1 0 /
+----------------------------------------------------------------------------
+SUMMARY
+----------------------------------------------------------------------------
+BPR
+2 1 2 /
+/
+----------------------------------------------------------------------------
+SCHEDULE
+----------------------------------------------------------------------------
+RPTRST
+BASIC=2 /
+
+SOURCE
+1 1 1 WATER 1E8 /
+/
+
+TSTEP
+1 /
