@@ -5,13 +5,14 @@
 
 -- Copyright (C) 2026 Equinor
 
--- This deck tests usage of NNC in combination with EDITNNC for an overlaping
+-- This deck tests usage of NNC in combination with EDITNNCR for an overlapping
 -- value. The deck has only three active cells [1,1,1], [2,1,2], [2,1,3], i.e.,
 -- two TRANNNC are internally generated with values 0.10000000E+01 (i.e., using
 -- the permeability and geometry information from the cells). Two NNCs are
--- set using the NNC keyword, with values 1111 and 3333. Using the EDITNNC
--- value of 1 1 1 2 1 2 2, results in the following values written to the INIT
--- for TRANNNC: 0.22220000E+04 0.33330000E+04 0.20000000E+01 0.10000000E+01
+-- set using the NNC keyword, with values 1111 and 3333. Using the EDITNNCR
+-- value of 1 1 1 2 1 2 5555, and applying a MULTREGT of value 2 between the
+-- cells [1,1,1] and [2,1,3], results in the following values written to the INIT
+-- for TRANNNC: 0.55550000E+04 0.66660000E+04 0.20000000E+01
 
 ----------------------------------------------------------------------------
 RUNSPEC
@@ -22,6 +23,9 @@ DIMENS
 CO2STORE
 GAS
 WATER
+
+REGDIMS
+4 4 1* 2 /
 
 EQLDIMS
 /
@@ -65,9 +69,16 @@ PERMX PERMY /
 PERMX PERMZ /
 /
 
+MULTNUM
+5*1 2 /
+
 NNC
 1 1 1 2 1 2 1111 /
 1 1 1 2 1 3 3333 /
+/
+
+MULTREGT
+2* 2 /
 /
 ----------------------------------------------------------------------------
 EDIT
@@ -75,8 +86,8 @@ EDIT
 TRANZ
 6*0 /
 
-EDITNNC
-1 1 1 2 1 2 2 /
+EDITNNCR
+1 1 1 2 1 2 5555 /
 /
 ----------------------------------------------------------------------------
 PROPS
