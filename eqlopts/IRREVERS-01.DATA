@@ -1,0 +1,283 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- This model is testing EQLOPTS +  IRREVERS
+
+-- The model is initialized with 3 equilibrium regions. These regions have same 
+-- PVT properties but different initial pressure. Reservoir pressure in region 2 
+-- is higher than in region 1, and reservoir pressure in region 3 is higher than 
+-- in region 2. At the start of the simulation the production is from 
+-- region 3, giving flow in the direction from reg1 -> reg2 -> reg3. 
+-- Mid way into the simulation the flow direction is switched to flow 
+-- from reg3 -> reg2 to reg1.
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 20 30 10 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01 'JAN' 2020 /
+
+--
+GRIDOPTS
+ 'YES'        0 /
+
+EQLDIMS
+ 3 1*  25 /
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   3          1       1*            1*    /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      150          60         3         60 /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  2         6             5          3   /
+
+
+UNIFIN
+UNIFOUT
+
+EQLOPTS
+ THPRES  IRREVERS /
+
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/test1_20x30x10.grdecl' /
+
+INCLUDE
+ 'include/actnum_20x30x10.grdecl' /
+
+INCLUDE
+ 'include/permx_model5.grdecl' /
+
+PORO
+ 6000*0.28 / 
+
+COPY
+  PERMX PERMY /
+  PERMX PERMZ /
+/
+
+MULTIPLY
+  PERMZ 0.1 /
+/ 
+
+RPTGRID
+ 'ALLNNC' /
+
+EQUALS
+  'MULTY'  0.01 1 20  14 14  1 10 /
+/
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+  'include/norne_pvt.inc' /
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQUALS
+  FIPNUM  1  1 20   1  9  1 10 /
+  FIPNUM  2  1 20   9 22  1 10 /
+  FIPNUM  3  1 20  22 30  1 10 /
+/ 
+
+COPY
+ 'FIPNUM' 'EQLNUM' /
+/ 
+
+SATNUM
+ 6000*1 /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+RPTSOL
+ 'THPRES' / 
+
+EQUIL
+-- Datum    P     woc      Pc    goc    Pc   Rsvd  Rvvd  N
+ 2070.00  295.0   2070.0   0.0  1000.0  0.0   1     1    0 /
+ 2070.00  300.0   2070.0   0.0  1000.0  0.0   2     2    0 /
+ 2070.00  303.0   2070.0   0.0  1000.0  0.0   3     3    0 /
+
+PDVD
+  1000.0    120.0
+  2070.0    120.0 /
+  /
+  /    
+
+PBVD
+  1000.0    120.0 
+  2150.0    120.0   /
+  /
+  /
+
+
+THPRES
+ 2 1 /
+ 3 2 /
+/
+ 
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+WBHP
+ /
+ 
+WOPR
+ /
+  
+ROFT
+ 1 2 /
+ 2 3 /
+/
+ 
+RWFT
+ 1 2 /
+ 2 3 /
+/
+
+RGFT
+ 1 2 /
+ 2 3 /
+/
+
+BPR
+ 8 5 1 /
+ 8 15 1 /
+ 7 26 1 /
+/ 
+ 
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+TUNING
+ 1.0 1.0 /
+ /
+ /
+
+GRUPTREE
+ 'B1' 'FIELD' /
+/
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'B-3H'  'B1'   3   27      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+/
+
+COMPDAT
+--WELL      I   J    K1   K2 OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+ 'B-3H'     3   27    1    5   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+/
+
+WCONPROD
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate   RFV  FBHP   WHP  VFP Glift
+   'B-3H'      OPEN    ORAT   3500  3*     1*	   100.0  1*   1*  1*  /
+/
+
+DATES 
+  05 'JAN' 2020 /
+  10 'JAN' 2020 /
+  20 'JAN' 2020 /
+  01 'FEB' 2020 /
+  01 'MAR' 2020 /
+  01 'APR' 2020 /
+/
+  
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'B-2H'  'B1'   5    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+/
+
+COMPDAT
+--WELL      I   J    K1   K2 OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+ 'B-2H'     5    3    1    6   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+/
+
+WCONPROD
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate   RFV  FBHP   WHP  VFP Glift
+   'B-2H'      OPEN    ORAT   2500  3*     1*	   100.0  1*   1*  1*  /
+/
+
+WELOPEN
+ 'B-3H' SHUT /
+/
+  
+DATES 
+  01 'MAY' 2020 /
+  01 'JUN' 2020 /
+/
+
+WELTARG
+ 'B-2H' 'ORAT' 4000.0 /
+/
+  
+DATES  
+  01 'JUL' 2020 /
+  01 'AUG' 2020 /
+/
+   
