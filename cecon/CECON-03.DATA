@@ -1,0 +1,214 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+
+-- This model is used to test CECON + item 7 (maximum gas oil ratio, GOR). This model 
+-- has 3 down flank oil producers and an up flank gas cap.
+-- Individual connections will be shut when GOR exceeds 400 for connections in 
+-- well B-2H. Well B-3H will be shut when GOR exceeds 400 for any of the connections 
+-- in the well. 
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 20 30 10 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01 'JAN' 2020 /
+
+--
+GRIDOPTS
+ 'YES'        0 /
+
+EQLDIMS
+ 1 1*  25 /
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          1       1*            1*    /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      150          60         3         60 /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+  6         10            5          3   /
+
+
+UNIFIN
+UNIFOUT
+
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+INCLUDE
+ 'include/test1_20x30x10.grdecl' /
+
+INCLUDE
+ 'include/actnum_20x30x10.grdecl' /
+
+INCLUDE
+ 'include/permx_model5.grdecl' /
+
+PORO
+ 6000*0.28 / 
+
+COPY
+  PERMX PERMY /
+  PERMX PERMZ /
+/
+
+MULTIPLY
+  PERMZ 0.1 /
+/ 
+
+RPTGRID
+ 'ALLNNC' /
+
+EQUALS
+  'MULTY'  0.01 1 20  14 14  1 10 /
+/
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+  'include/norne_pvt.inc' /
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 6000*1 /
+
+EQUALS
+  FIPNUM  1  1 20   1 14  1 10 /
+  FIPNUM  2  1 20  15 30  1 10 /
+/ 
+
+SATNUM
+ 6000*1 /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc      Pc    goc    Pc   Rsvd  Rvvd  N
+ 2070.00  295.0   2120.0   0.0  2050.0  0.0   1     1    0 /
+
+PDVD
+  2000.0    290.0
+  2050.0    295.0 /
+
+PBVD
+  2050.0    295.0 
+  2120.0    285.0   /
+
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ './include/summary-03.inc' /
+ 
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+TUNING
+ 1.0 2.0 /
+ /
+ /
+
+
+WELSPECS
+--WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
+ 'B-1H'  'B1'  18    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-2H'  'B1'  14    7      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-3H'  'B1'  15   19      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+/
+
+COMPDAT
+--WELL      I   J    K1   K2 OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
+ 'B-1H'    18    3    4   10   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+ 'B-2H'    14    7    3   10   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+ 'B-3H'    15   19    2   10   OPEN    1*      1*    0.216    1*	0    1*    Z	   1* /
+/
+
+WCONPROD
+--  Well_name  Status  Ctrl  Orate   Wrate  Grate Lrate  RFV  FBHP   WHP  VFP Glift
+   'B-1H'      OPEN    ORAT  3500.0   1*    1*    1*     1*   100.0  1*   1*  1*  /
+   'B-2H'      OPEN    ORAT  3500.0   1*    1*    1*     1*   100.0  1*   1*  1*  /
+   'B-3H'      OPEN    ORAT  3500.0   1*    1*    1*     1*   100.0  1*   1*  1*  /
+/
+
+CECON
+ 'B-2H' 2* 3 10 1*  400  1* 'CON' /
+ 'B-3H' 2* 2  4 1*  400  1* 'WELL' /
+/
+
+
+DATES 
+  05 'JAN' 2020 /
+  10 'JAN' 2020 /
+  20 'JAN' 2020 /
+  01 'FEB' 2020 /
+  01 'MAR' 2020 /
+  01 'APR' 2020 /
+/
