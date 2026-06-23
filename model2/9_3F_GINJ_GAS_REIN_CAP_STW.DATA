@@ -3,10 +3,10 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2018 Equinor
+-- Copyright (C) 2026 Equinor
 
 -- ------------------------------------------------------------------------
--- Prediction case based on model2/9_EDITNNC_MODEL2.DATA
+-- Prediction case based on model2/9_3B_GINJ_GAS_EXPORT_STW.DATA
 -- ------------------------------------------------------------------------
 
 -- Gas injection case. 100 % reinjection of produced gas from start of 
@@ -14,6 +14,8 @@
 -- from 1st of June 1999.
 
 -- GCONPROD with constraints on one group level, and standard well model.
+-- It adds a binding maximum gas injection rate (item 4) to the GCONINJE GAS REIN
+-- control, so reinjection is capped and GCONSALE reduces gas production to meet sales.
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
