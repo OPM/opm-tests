@@ -3,32 +3,12 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2026 Equinor
+-- Copyright (C) 2026 Equinor ASA
 
--- This model is used for testing keyword GSATPROD including Oil, Gas, Water 
--- and Gas Lift Injection rate. The model includes two satellite group. Gas 
--- lift injection is controlled by the gas lift optimization facility. When 
--- gas lift rates are coming in to the model via GSATPROD, gas lift for 
--- group M5N and M5S will be reduced due to maximum gas lift injection rate
--- (GLIFTOPT item 2). 
-
--- Lift Gas from the C-wells and from the satellite SAT2 should enter the 
--- node C1. Lift gas from satellite SAT1 should not enter the node B1, but lift gas 
--- from B-wells should. 
-
--- The production network looks like this. 
-
-
---   o (PLAT-A) --[4]-- +(C1) --- +(C) :  C-1H C-2H
---                      \
---                       --[5]-- +(SAT2) : 
---   \
---    --[5]-- +(B1) --- +(B) :  B-1H B-2H B-3H
---            \
---             --[4]-- +(SAT1) : 
-
-
--- Fixed pressure nodes:  PLAT-A = 21.00
+-- This deck is used to test restarting a case with satellite groups.
+--
+-- In this case GSATPROD6.DATA is restarted from step 4 (1 MAY 2020) with no 
+-- changes to the schedule.  
 
 
 ------------------------------------------------------------------------------------------------

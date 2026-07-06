@@ -3,14 +3,17 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2024 Equinor
+-- Copyright (C) 2026 Equinor ASA
 
 --==============================================================================
 --		Synthetic reservoir simulation model Box (2021)
 --==============================================================================
 
 
--- GSATPROD1.DATA + GCONPROD with ORAT to check interaction with group rate control
+-- This deck is used to test restarting a case with satellite groups.
+--
+-- In this case GSATPROD2.DATA is restarted from step 5 (5 days) with no 
+-- changes to the schedule.  
 
 --------------------------------------------------------------------------------
 --RUNSPEC SECTION
