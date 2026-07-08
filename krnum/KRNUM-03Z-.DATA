@@ -3,12 +3,12 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2022 Equinor
+-- Copyright (C) 2023 Equinor
 
 -- This model is testing directional relperm with focuse on gas oil (SGOF).
 -- The dominating flow direction (by far) in this model, is in Z-direction.
 -- The model is divided into 4 segments which are identical in size, properties,
--- well lauout, etc. Only difference for these segments are KRNUMX, KRNUMY and KRNUMZ
+-- well lauout, etc. Only difference for these segments are KRNUMX-, KRNUMY- and KRNUMZ-
 -- definitions.  A total of 16 relative permeability curves are provided but only 3
 -- of thse are being used. Table-1 for COMPDAT connections and Table-3 and Table-6
 -- sat with KRNUM keywords. The table below shows table number used in X-,Y- and Z-
@@ -24,16 +24,18 @@
 -- KRNUMZ   |   6  |   6  |   6  |   3  |
 ------------+------+------+------+------+
 
--- table  6 optimistic with respect to gor  : SGOF  krg = curved , krog = linear
--- table  3 persimistic with respect to gor : SGOF  krg = linear , krog = curved
-
-
+-- KRNUM-03Z table  6 optimistic with respect to gor  : SGOF  krg = curved , krog = linear
+-- KRNUM-03Z table  3 persimistic with respect to gor : SGOF  krg = linear , krog = curved
+-- Same as KRNUM-03Z, but in addition the negative versons of KRNUM, that is KRNUMX-, KRNUMY-
+-- and KRNUMZ- are used. Thus, instead of Tables 6 and 3, we use Tables 3 and 6 for KRNUM-
+-- Carlson Hysteresis Model with hysteresis modeling applied to both relative permeability,
+-- and capillary pressure curves.
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
 ------------------------------------------------------------------------------------------------
 TITLE
-KRNUM-03Z: REGRESSION TEST
+KRNUM-03Z-: NOT CURRENTLY SUPPORTED
 
 DIMENS
  10 20 18 /
@@ -54,14 +56,14 @@ START
 --
 GRIDOPTS
  'YES'        0 /
-
+--
+--       ACTIVATE RELATIVE PERMEABILITY ASSIGNMENT HYSTERESIS OPTIONS
+--       DIRECTTIONAL(DIRECT) IRREVERSIBLE(IRREVERS) HYSTERESIS(HYSTER)
 SATOPTS
- 'DIRECT'
-/
-
+         'DIRECT'   'IRREVERS'                                                 /
 
 EQLDIMS
- 1 1*  25 /
+ 1  100  25 /
 
 
 REGDIMS
@@ -117,9 +119,6 @@ MULTIPLY
   PERMY 0.001 /
 /
 
-RPTGRID
- 'ALLNNC' /
-
 -- setting up 4 identical compartments
 EQUALS
   'MULTY'  0.0 1 10   5  5  1 18 /
@@ -137,18 +136,14 @@ EDIT
 PROPS
 ------------------------------------------------------------------------------------------------
 
-NOECHO
+INCLUDE
+ 'include/KRNUM-MODEL-PVT-01.inc'      / PRESSURE CLIPPED PVT
 
 INCLUDE
- 'include/KRNUM-MODEL-PVT.inc' /
-
-
-INCLUDE
- 'include/KRNUM-MODEL-ROCK.inc' /
+ 'include/KRNUM-MODEL-ROCK.inc'        /
 
 INCLUDE
- 'include/KRNUM-MODEL-RELPERM.inc' /
-
+ 'include/KRNUM-MODEL-RELPERM.inc'     / IMBIBITION SATURATION FUNCTIONS
 
 ------------------------------------------------------------------------------------------------
 REGIONS
@@ -160,6 +155,8 @@ EQLNUM
 INCLUDE
  'include/KRNUM-03Z+.inc' /
 
+INCLUDE
+ 'include/KRNUM-03Z-.inc' /
 
 ------------------------------------------------------------------------------------------------
 SOLUTION
@@ -167,7 +164,7 @@ SOLUTION
 
 
 RPTRST
-  'BASIC = 2' 'PBPD' /
+  'BASIC=2' 'PBPD' /
 
 EQUIL
 -- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
@@ -185,7 +182,7 @@ SUMMARY
 
 
 INCLUDE
- 'include/KRNUM-MODEL-SUMMARY.inc' /
+ 'include/KRNUM-MODEL-SUMMARY-01.inc' /
 
 
 ------------------------------------------------------------------------------------------------
