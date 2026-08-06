@@ -44,6 +44,13 @@ FMCTG
 
 FGLIR
 
+-- Field tracer data
+FTPTWT1
+FTITWT1
+FTPCWT1
+FTICWT1
+FTPRWT1
+FTIRWT1
 
 -----------------
 --  Region data
@@ -218,7 +225,7 @@ GOPR
 
 
 GWPR
- 'B1' 'C1' 'M5N'  'M5S'  'PLAT-A' /
+ 'B1' 'C1' 'M5N'  'M5S'  'PLAT-A' 'BMID' /
 
 
 GGPR
@@ -272,7 +279,7 @@ GLPT
 
 
 GWIR
- 'F1' 'G1' 'M5N'  'M5S'  'PLAT-A' /
+ 'F1' 'G1' 'M5N'  'M5S'  'PLAT-A' 'FMID' /
 
 GGIR
  'F1' 'G1' 'M5N'  'M5S'  'PLAT-A' /
@@ -307,3 +314,19 @@ GVIR
 GVPR
  'M5N'  'M5S'  'PLAT-A' /
  
+
+-- Group tracer data
+
+GTPRWT1
+/
+GTPTWT1
+/
+GTPCWT1
+/
+GTIRWT1
+/
+GTITWT1
+/
+GTICWT1
+/
+
