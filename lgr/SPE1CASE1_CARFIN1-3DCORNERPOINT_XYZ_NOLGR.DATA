@@ -107,10 +107,9 @@ RPTGRIDL
   'TRANY' 
   'TRANZ'
  / 
-CARFIN
--- NAME I1-I2 J1-J2 K1-K2 NX NY NZ
-'LGR1'  6  6  6  6  1  3  2  2  6 /
-ENDFIN
+-- No refinement.  Unrefined twin of SPE1CASE1_CARFIN1-3DCORNERPOINT_XYZ:
+-- refining the grid must not change the field totals, which is what the
+-- comparison test asserts.
 
 
 RPTGRIDL
