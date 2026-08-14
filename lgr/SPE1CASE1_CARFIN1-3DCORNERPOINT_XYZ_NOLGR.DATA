@@ -8,8 +8,11 @@
 -- This simulation is based on the data given in 'Comparison of Solutions to a Three-Dimensional
 -- Black-Oil Reservoir Simulation Problem' by Aziz S. Odeh, Journal of Petroleum Technology, January 1981
 
--- Test case for LGR grid,  CARFIN and ENDFIN keyword are used. 
---3D CORNER POINT CASE WITH NON-ACTIVE CELL, LGR on grids 6,6,1:3 and non-active cells are 6,5,1:3
+-- Unrefined reference for SPE1CASE1_CARFIN1-3DCORNERPOINT_XYZ.  No local grid
+-- refinement: the two decks are identical apart from the CARFIN block, so the
+-- field totals they report must agree.  That is what the comparison test
+-- asserts, and it is the only reason this deck exists.
+--3D CORNER POINT CASE WITH NON-ACTIVE CELL, non-active cells are 6,5,1:3
 
 ---------------------------------------------------------------------------
 ------------------------ SPE1 - CASE 1 ------------------------------------
