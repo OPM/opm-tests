@@ -1,0 +1,303 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- This deck is used to test stopping a well with WCONPROD + item 2 = STOP and 
+-- WELOPEN + item 2 = STOP. The well should be closed above formation when 
+-- using the flag STOP. 
+
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 6 5 7 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 10 'OCT' 2018 /
+
+--
+GRIDOPTS
+'YES'		0 / 
+
+
+EQLDIMS
+ 2 1*  25 /
+
+
+--
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          4       1*              1*    /
+
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10        10            30        10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+--
+
+
+--
+UNIFIN
+UNIFOUT
+
+--
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+
+INCLUDE
+'include/mod2_6x5x7.grdecl' /
+
+PORO
+ 30*0.25
+ 30*0.22
+ 30*0.17
+ 30*0.28
+ 30*0.14
+ 30*0.23
+ 30*0.22 /
+ 
+PERMX
+ 30*2100
+ 30*1200
+ 30*800
+ 30*2500
+ 30*10
+ 30*1700
+ 30*1200 /
+
+PERMZ
+ 30*210
+ 30*120
+ 30*0
+ 30*250
+ 30*1
+ 30*170
+ 30*120 /
+
+NTG
+ 30*0.95
+ 30*0.88
+ 30*0.85
+ 30*0.70
+ 30*0.14
+ 30*0.77
+ 30*0.82 /
+
+
+COPY
+ PERMX PERMY /
+/
+
+
+RPTGRID
+ 'ALLNNC' /
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'include/PVT-WET-GAS.INC' /
+
+
+
+INCLUDE
+ 'include/scal_mod2.inc' /
+
+
+FILLEPS
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+EQLNUM
+ 90*1 120*2 /
+
+COPY
+ 'EQLNUM' 'FIPNUM' /
+/
+  
+SATNUM
+ 210*1 /
+
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+RPTSOL
+SWAT FIP=3 THPRES EQUIL RECOV FIPRESV /
+
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+2281.00  268.56  2545.0   0.0  2281.00  0.0   1   0   0 /  
+2281.00  278.56  2545.0   0.0  2281.00  0.0   2   0   0 /  
+
+RSVD
+ 2581.78  122.30
+ 2597.0   110.00
+ 2660.7   106.77
+ 2697.0   106.77 /
+
+ 2581.78  122.30
+ 2597.0   110.00
+ 2660.7   106.77
+ 2697.0   106.77 /
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+FOPR
+
+GOPR
+/
+
+
+WBHP
+/
+
+WOPR
+/
+
+WOPT
+/
+
+WMCTL
+/
+
+COFR
+ 'D-1H' /
+ 'D-2H' /
+/ 
+ 
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+-- start: 10  'OCT' 2018 /
+
+TUNING
+ 1.0 1.0 /
+ /
+ /
+ 
+GRUPTREE
+ 'MOD'   'FIELD' /
+ 'TEST'  'MOD'  /
+/
+
+WELSPECS 
+   'D-1H'   'TEST'   2   1  1*       'OIL'  2*      'STOP'  4* /
+   'D-2H'   'TEST'   1   3  1*       'OIL'  2*      'STOP'  4* /
+/
+
+COMPDAT 
+-- WELL    I  J K1  K2         Sat.  CF    DIAM   KH  SKIN  ND  DIR   Ro 
+  'D-1H'   2  1  1  1   'OPEN'  1*    1*   0.216   1*   1*  1*  'Z'   1* /
+  'D-1H'   2  1  2  2   'OPEN'  1*    1*   0.216   1*   1*  1*  'Z'   1* /
+  'D-1H'   2  1  4  4   'OPEN'  1*    1*   0.216   1*   1*  1*  'Z'   1* /
+  'D-2H'   1  3  1  1	'OPEN'  1*    1*   0.216   1*	1*  1*  'Z'   1* /
+  'D-2H'   1  3  2  2	'OPEN'  1*    1*   0.216   1*	1*  1*  'Z'   1* /
+  'D-2H'   1  3  4  4	'OPEN'  1*    1*   0.216   1*	1*  1*  'Z'   1* /
+/
+
+GCONPROD
+ 'MOD'  'ORAT'  750.0  3*  'RATE'  /
+/ 
+ 
+
+WCONPROD
+ 'D-1H' 'OPEN' 'GRUP'  500  4*   75.0 /
+ 'D-2H' 'OPEN' 'GRUP'  500  4*   75.0 /
+/
+ 
+DATES
+ 1 NOV 2018 /
+/
+
+WCONPROD
+ 'D-1H' 'STOP' 'GRUP'  500  4*   75.0 /
+/
+
+DATES
+ 10 NOV 2018 /
+/
+
+WCONPROD
+ 'D-1H' 'OPEN' 'GRUP'  500  4*   75.0 /
+/
+
+DATES
+ 20 NOV 2018 /
+/
+
+WELOPEN
+ 'D-2H' 'STOP' /
+/
+
+
+DATES 
+ 1 DEC 2018 /
+/
+
+WELOPEN
+ 'D-2H' 'OPEN' /
+/
+
+
+DATES 
+ 1 JAN 2019 /
+/
+
+
+END
