@@ -40,12 +40,21 @@
 -- Compare against WELDRAW-01 to isolate the effect of the drawdown limit.
 
 --
--- To verify the drawdown limit from the summary output: WUDD is the drawdown
--- (defined as WBP - WBHP), so it should sit on the WELDRAW value while WMCTL
--- reports the rate control the limit imposes (4 = LRAT, 3 = GRAT).  The rate
--- divided by the productivity index, WLPR / WPIL for a liquid target phase or
--- WGPR / WPIG for a gas one, reproduces the same limit, since the limit enters
--- as Qmax = Dmax * sum_j(Tw_j * M_j).
+-- To verify the drawdown limit from the summary output: WMCTL reports 12
+-- (drawdown control) while the limit is what holds the well back, and the
+-- rate divided by the productivity index, WLPR / WPIL for a liquid target
+-- phase or WGPR / WPIG for a gas one, reproduces the drawdown limit exactly,
+-- since the limit enters as Qmax = Dmax * sum_j(Tw_j * M_j).  That ratio is
+-- the exact check.
+--
+-- WUDD, defined below as WBP - WBHP, tracks the drawdown closely but is not
+-- the same quantity that the limit is applied to: with the default WPAVE it
+-- weights the connections by their transmissibility factor alone, whereas
+-- the AVG option of WELDRAW weights them by transmissibility times mobility.
+-- The two coincide when the mobility is the same in every connection.  In
+-- these cases the difference stays below 0.02 bar for the liquid target
+-- phase and below 0.1 bar for the gas one, so WUDD is a good diagnostic,
+-- but small departures from the limit are expected and are not failures.
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
@@ -247,9 +256,11 @@ SUMMARY
 
 -- ---------------------------------------------------------------------------
 -- Drawdown.  This is what WELDRAW limits, so these are the primary vectors.
--- WUDD is defined in the SCHEDULE section as WBP - WBHP and therefore gives
--- the drawdown directly; the limit is being honoured when WUDD sits on the
--- WELDRAW value while WMCTL reports the rate control mode the limit imposes.
+-- WUDD is defined in the SCHEDULE section as WBP - WBHP.  With the default
+-- WPAVE, WBP is the connection-transmissibility weighted average of the
+-- connecting block pressures, corrected to the bottom hole reference depth,
+-- which is close to, but not the same as, the quantity the AVG limit is
+-- applied to.  See the note at the top of the file.
 -- ---------------------------------------------------------------------------
 WBHP
  /
@@ -260,9 +271,11 @@ WBP
 WUDD
  /
 
--- The alternative well block averaging procedures.  WBP is a plain average
--- while the limit itself uses a connection-transmissibility-weighted average,
--- so these differ slightly for wells completed in contrasting layers.
+-- The same average taken over more blocks around each connection: the four
+-- neighbouring blocks (WBP4), the connecting block and those four (WBP5),
+-- and the connecting block and all eight surrounding it (WBP9).  The spread
+-- between these and WBP shows how much the apparent drawdown depends on the
+-- averaging procedure rather than on the well.
 WBP4
  /
 
@@ -273,9 +286,9 @@ WBP9
  /
 
 -- ---------------------------------------------------------------------------
--- Well control mode and status.  A well cut back by its drawdown limit
--- switches to the rate control the limit imposes: WMCTL 4 (LRAT) for a
--- liquid target phase, 3 (GRAT) for a gas target.
+-- Well control mode and status.  A well held back by its drawdown limit
+-- reports WMCTL 12, drawdown control, rather than the rate control which
+-- carries the converted limit.
 -- ---------------------------------------------------------------------------
 WMCTL
  /
