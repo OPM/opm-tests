@@ -183,7 +183,31 @@ RPTSOL
 ------------------------------------------------------------------------
 SUMMARY
 ------------------------------------------------------------------------
-ALL
+-- Field average pressure, plus the block quantities that follow the gas-oil
+-- contact: the saturations in the cells either side of it (10 and 11), the
+-- pressures at the top, contact and bottom of the column, and the phase
+-- densities, which respond to the changing composition.
+FPR
+
+BPR
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BSGAS
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+/
+
+BDENG
+ 1 1 1 /
+/
+
+BDENO
+ 1 1 20 /
+/
 
 ------------------------------------------------------------------------
 SCHEDULE
