@@ -192,6 +192,95 @@ SUMMARY
 ------------------------------------------------------------------------
 ALL
 
+-- Exercise compositional block-summary extraction and its Eclipse aliases.
+-- The deck has active oil/gas phases and no active water phase.
+BPR
+  1 1 1 /
+/
+BGPR
+  1 1 1 /
+/
+BWPR
+  1 1 1 /
+/
+
+BRPV
+  1 1 1 /
+/
+BWPV
+  1 1 1 /
+/
+BOPV
+  1 1 1 /
+/
+BGPV
+  1 1 1 /
+/
+
+BSOIL
+  1 1 1 /
+/
+BOSAT
+  1 1 1 /
+/
+BSGAS
+  1 1 1 /
+/
+BGSAT
+  1 1 1 /
+/
+BSWAT
+  1 1 1 /
+/
+BWSAT
+  1 1 1 /
+/
+
+BDENO
+  1 1 1 /
+/
+BODEN
+  1 1 1 /
+/
+BDENG
+  1 1 1 /
+/
+BGDEN
+  1 1 1 /
+/
+BDENW
+  1 1 1 /
+/
+BWDEN
+  1 1 1 /
+/
+
+BVOIL
+  1 1 1 /
+/
+BOVIS
+  1 1 1 /
+/
+BVGAS
+  1 1 1 /
+/
+BGVIS
+  1 1 1 /
+/
+BVWAT
+  1 1 1 /
+/
+BWVIS
+  1 1 1 /
+/
+
+BTEMP
+  1 1 1 /
+/
+BTCNFHEA
+  1 1 1 /
+/
+
 ------------------------------------------------------------------------
 SCHEDULE
 ------------------------------------------------------------------------
