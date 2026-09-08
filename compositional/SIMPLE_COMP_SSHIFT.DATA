@@ -1,0 +1,351 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026, SINTEF Digital, TNO
+
+-- A one-dimensional CO2 flood used to test the SSHIFT volume shift.  Three
+-- components (CO2, methane, decane) in two phases on a row of 30 cells, with
+-- a gas injector in cell (1, 1, 1) and a producer in cell (30, 1, 1).  Both
+-- wells run on BHP control.
+--
+-- SSHIFT corrects the volume the equation of state predicts.  The correction
+-- changes the oil and gas densities, and because the viscosity correlation
+-- uses density, it changes the viscosities as well.  It does not change which
+-- components end up in which phase.  This deck therefore checks both places
+-- the shift is used.  The values in PROPS have mixed signs on purpose, so the
+-- correction makes the volume larger for some components and smaller for
+-- others.
+--
+-- Running the same deck in a reference simulator gives the same gas viscosity
+-- and densities to five decimal places.  Setting the shifts to zero changes
+-- the densities by several percent, so the case will fail clearly if the
+-- shift stops reaching either the densities or the viscosities.
+
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   SIMPLE CO2 with volume shift (sshift dynamics test)
+
+METRIC
+
+TABDIMS
+/
+OIL
+GAS
+DIMENS
+30 1 1
+/
+
+COMPS
+3 /
+
+FULLIMP
+
+WELLDIMS
+2 2 1* 2/
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INIT
+
+DX
+30*10
+/
+DY
+30*1
+/
+DZ
+30*1
+/
+
+TOPS
+30*0
+/
+
+
+PERMX
+30*100
+/
+
+PERMY
+30*100
+/
+
+PERMZ
+30*100
+/
+
+PORO
+30*0.1
+/
+------------------------------------------------------------------------
+EDIT
+------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+
+CNAMES
+CO2
+METHANE
+DECANE
+/
+
+ROCK
+68.9476
+0
+/
+
+
+EOS
+PR /
+
+BIC
+0
+0
+0
+/
+
+ACF
+0.22394 0.01142 0.4884
+/
+-- Volume shifts for CO2, C1 and C10; see the note at the top of the file.
+SSHIFT
+-0.0817 -0.1540 0.0855
+/
+PCRIT
+73.773
+45.992
+21.03
+/
+TCRIT
+304.128
+190.564
+617.7
+/
+MW
+44.00
+16.04
+142.28
+/
+
+VCRIT
+0.09412
+0.09863
+0.60980
+/
+
+SGOF
+0.0000 0.0000 1.0000 0.0000
+0.0500 0.0025 0.9025 0.0000
+0.1000 0.0100 0.8100 0.0000
+0.1500 0.0225 0.7225 0.0000
+0.2000 0.0400 0.6400 0.0000
+0.2500 0.0625 0.5625 0.0000
+0.3000 0.0900 0.4900 0.0000
+0.3500 0.1225 0.4225 0.0000
+0.4000 0.1600 0.3600 0.0000
+0.4500 0.2025 0.3025 0.0000
+0.5000 0.2500 0.2500 0.0000
+0.5500 0.3025 0.2025 0.0000
+0.6000 0.3600 0.1600 0.0000
+0.6500 0.4225 0.1225 0.0000
+0.7000 0.4900 0.0900 0.0000
+0.7500 0.5625 0.0625 0.0000
+0.8000 0.6400 0.0400 0.0000
+0.8500 0.7225 0.0225 0.0000
+0.9000 0.8100 0.0100 0.0000
+0.9500 0.9025 0.0025 0.0000
+1.0000 1.0000 0.0000 0.0000
+/
+
+
+STCOND
+15.0 1.0 /
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+
+
+PRESSURE
+30*75.
+/
+
+SGAS
+30*1.
+/
+
+TEMPI
+30*150
+/
+
+
+ZMF
+30*0.1
+30*0.3
+30*0.6
+/
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+ALL
+
+WXMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+WYMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+
+WAMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+WZMF
+'*' 1 /
+'*' 2 /
+'*' 3 /
+/
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+
+
+RPTRST
+BASIC = 1
+PRESSURE
+SGAS
+SOIL
+VMF -- Vapor mole fraction
+XMF
+YMF
+ZMF
+DENO
+DENG
+VGAS
+VOIL
+KRW
+/
+
+WELSPECS
+INJ FIELD 1 1 1* GAS /
+PROD FIELD 30 1 1* GAS /
+/
+COMPDAT
+INJ  1  1 1 1 OPEN 2* 0.0151 /
+PROD 30 1 1 1 OPEN 2* 0.0151 /
+/
+TSTEP
+    0.0100
+    0.0200
+    0.0400
+    0.0400
+/
+WCONINJE
+INJ GAS OPEN BHP 100000 1* 150 /
+/
+
+WELLSTRE
+ISTR 1.0 0.0 0.0 /
+/
+
+WINJGAS
+INJ STREAM ISTR /
+/
+
+WCONPROD
+PROD OPEN BHP 2* 100000 2* 50/
+/
+
+
+-- These report times are the ones the reference simulator used for this deck,
+-- so the two runs can be compared step by step.
+TSTEP
+    0.080000
+    0.040000
+    0.020000
+    0.033106
+    0.033447
+    0.033447
+    0.053294
+    0.065320
+    0.076273
+    0.062557
+    0.062556
+    0.113146
+    0.129406
+    0.098724
+    0.098724
+    0.173961
+    0.201614
+    0.223642
+    0.140391
+    0.140392
+    0.120000
+    0.240000
+    0.328860
+    0.215570
+    0.215570
+    0.403046
+    0.298477
+    0.298477
+    0.475870
+    0.262065
+    0.262065
+    0.490360
+    0.254820
+    0.254820
+    0.480503
+    0.259749
+    0.259748
+    0.492657
+    0.507343
+    0.500000
+    0.500000
+    0.500000
+    0.500000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000001
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+    1.000000
+/
+END
