@@ -1,0 +1,144 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Storra Dynamics GmbH
+
+-- Test case is testing constant flux aquifer - AQUFLUX, gas/water (no oil phase).
+--
+-- A 5x1x1 water-filled box with a single constant flux aquifer connected to one
+-- cell face, drained by one BHP-controlled water producer. The gas/water contact
+-- is placed above the model, so the pore volume is fully water saturated and no
+-- free gas is present at any time.
+--
+-- Invariants: FGIP stays identically zero, and the field water balance closes as
+-- d(FWIP) + FWPT = AAQT:1.
+
+RUNSPEC
+
+TITLE
+ Constant flux aquifer in a gas/water model
+
+DIMENS
+ 5 1 1 /
+
+WATER
+GAS
+METRIC
+
+TABDIMS
+/
+
+AQUDIMS
+ 1 1 1 1 1 10 /
+
+WELLDIMS
+ 2 5 1 2 /
+
+EQLDIMS
+ 1 /
+
+START
+ 1 'JAN' 2020 /
+
+UNIFOUT
+
+GRID
+
+INIT
+
+DX
+ 5*100 /
+DY
+ 5*100 /
+DZ
+ 5*10 /
+TOPS
+ 5*1500 /
+
+PORO
+ 5*0.2 /
+PERMX
+ 5*400 /
+PERMY
+ 5*400 /
+PERMZ
+ 5*400 /
+
+PROPS
+
+PVTW
+ 159 1.0133 3.10E-05 0.880 1.87E-05 /
+
+PVDG
+  50   0.0250  0.0150
+ 400   0.0038  0.0280 /
+
+DENSITY
+ 600 1119 0.76695 /
+
+ROCK
+ 159 0.0001 /
+
+SWFN
+ 0.2 0.0 0
+ 1.0 1.0 0 /
+
+SGFN
+ 0.0 0.0 0
+ 0.8 1.0 0 /
+
+SOLUTION
+
+-- gas/water contact above the model: the box is 100% water, Sg = 0 everywhere
+EQUIL
+ 1500 159 1400 0 1* 0 0 0 0 /
+/
+
+--      ID   FLUX
+--      NUM  RATE
+AQUFLUX
+        1    0.5 /
+/
+
+--       ID     ---------- BOX ---------   CONNECT  AQF    AQF     ADJOIN
+--       NUMBER I1  I2   J1  J2   K1  K2   FACE     INFLX  MULTI   CELLS
+AQUANCON
+         1      5   5    1   1    1   1    I+                              /
+/
+
+RPTRST
+ BASIC=2 /
+
+SUMMARY
+
+FPR
+FGIP
+FWIP
+FWPT
+FWIT
+
+AAQR
+ 1 /
+AAQT
+ 1 /
+
+SCHEDULE
+
+WELSPECS
+ 'PROD' 'G1' 1 1 1* 'WAT' /
+/
+
+COMPDAT
+ 'PROD' 1 1 1 1 'OPEN' 2* 0.2 /
+/
+
+WCONPROD
+ 'PROD' 'OPEN' 'BHP' 5* 120 /
+/
+
+TSTEP
+ 10*10 /
+
+END
