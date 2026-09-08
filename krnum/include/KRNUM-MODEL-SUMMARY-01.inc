@@ -9,6 +9,11 @@
 
 -- Summary file for the base case, specific version
 
+--
+--       SWITCH OFF ECHOING OF INPUT FILES
+--
+NOECHO
+
 -- Field Data
 -----------------
 -- Production rates
@@ -37,15 +42,25 @@ FWCT
 -----------------
 -- Production rates
 WOPR
- 'B-1' 'B-2H' 'B-3H' 'B-4H'  /
+ 'B-1H' 'B-2H' 'B-3H' 'B-4H'  /
 
 WWPR
- 'B-1' 'B-2H' 'B-3H' 'B-4H'  /
+ 'B-1H' 'B-2H' 'B-3H' 'B-4H'  /
 
 WWCT
- 'B-1' 'B-2H' 'B-3H' 'B-4H'  /
+ 'B-1H' 'B-2H' 'B-3H' 'B-4H'  /
 
 WGPR
+ 'B-1H' 'B-2H' 'B-3H' 'B-4H'  /
+
+-- Production totals
+WOPT
+ 'B-1H' 'B-2H' 'B-3H' 'B-4H'  /
+
+WWPT
+ 'B-1H' 'B-2H' 'B-3H' 'B-4H'  /
+
+WGPT
  'B-1H' 'B-2H' 'B-3H' 'B-4H'  /
 
 -- Production ratios
@@ -57,7 +72,7 @@ WGOR
 
 WGIR
  'F-1H' 'F-2H' 'F-3H' 'F-4H' /
- 
+
 WWIR
  'F-1H' 'F-2H' 'F-3H' 'F-4H' /
 
@@ -97,3 +112,9 @@ GOPT
 GWPT
  'S1' 'S2' 'S3'  'S4' /
 
+ECHO
+--
+-- *********************************************************************************************************************************
+-- END OF INCLUDE FILE PROCESSING
+-- *********************************************************************************************************************************
+ENDINC

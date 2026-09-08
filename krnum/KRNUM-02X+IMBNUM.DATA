@@ -3,7 +3,7 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2022 Equinor
+-- Copyright (C) 2023 Equinor
 
 -- This model is testing directional relperm with focuse on oil water (SWOF).
 -- The dominating flow direction (by far) in this model, is in X-direction.
@@ -24,14 +24,18 @@
 -- KRNUMZ   |   5  |   5  |   9  |   9  |
 ------------+------+------+------+------+
 
--- table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
--- table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- KRNUM  table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
+-- KRNUM  table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- IMBNUM table 21 optimistic with respect to wct: SWOF krw = curved , krow = linear
+-- IMBNUM table 25 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- Carlson Hysteresis Model with hysteresis modeling applied to both relative permeability,
+-- and capillary pressure curves.
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
 ------------------------------------------------------------------------------------------------
 TITLE
-KRNUM-02X: REGRESSION TEST
+KRNUM-02X+IMBNUM: DIRECTIONAL SATURATION FUNCTION AND HYSTERESIS TEST
 
 DIMENS
  20 20 10 /
@@ -52,14 +56,14 @@ START
 --
 GRIDOPTS
  'YES'        0 /
-
+--
+--       ACTIVATE RELATIVE PERMEABILITY ASSIGNMENT HYSTERESIS OPTIONS
+--       DIRECTTIONAL(DIRECT) IRREVERSIBLE(IRREVERS) HYSTERESIS(HYSTER)
 SATOPTS
- 'DIRECT'
-/
-
+         'DIRECT'   'HYSTER'                                                   /
 
 EQLDIMS
- 1 1*  25 /
+ 1  100  25 /
 
 
 REGDIMS
@@ -69,7 +73,7 @@ REGDIMS
 --
 TABDIMS
 --ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
-  16          1      150          60         3         60 /
+  32          1      150          60         3         60 /
 
 --
 WELLDIMS
@@ -111,11 +115,8 @@ COPY
 
 -- no flow in z-direction
 MULTIPLY
-  PERMZ 0.0 /
+  PERMZ 10E-10     / RESET PERMZ TO MINIMUM VALUE TO AVOID WARNING MESSAGES
 /
-
-RPTGRID
- 'ALLNNC' /
 
 -- setting up 4 identical compartments
 EQUALS
@@ -134,18 +135,26 @@ EDIT
 PROPS
 ------------------------------------------------------------------------------------------------
 
-NOECHO
+INCLUDE
+ 'include/KRNUM-MODEL-PVT-01.inc'      / PRESSURE CLIPPED PVT
 
 INCLUDE
- 'include/KRNUM-MODEL-PVT.inc' /
-
-
-INCLUDE
- 'include/KRNUM-MODEL-ROCK.inc' /
+ 'include/KRNUM-MODEL-ROCK.inc'        /
 
 INCLUDE
- 'include/KRNUM-MODEL-RELPERM.inc' /
-
+ 'include/KRNUM-MODEL-RELPERM-01.inc'  / DRAINAGE AND IMBIBITION SATURATION FUNCTIONS
+--
+--       HYSTERESIS MODEL AND PARAMETERS
+--
+--       PC-CUR  MODEL   RELPERM TRAPPED OPTION  SHAPE    MOBILIT  WET
+--       HYSTRCP HYSTMOD HYSTREL HYSTSGR HYSTOPT HYSTSCAN HYSTMOB  HYSTWET
+EHYSTR
+         1*      1       1*      1*      BOTH    1*       1*       1*          /
+--
+--       ACTIVATE HYSTERESIS INHIBITION AND DRAINAGE END-POINT VALIDATION
+--
+-- HYSTCHCK
+-- /
 
 ------------------------------------------------------------------------------------------------
 REGIONS
@@ -156,7 +165,22 @@ EQLNUM
 
 INCLUDE
  'include/KRNUM-02X+.inc' /
-
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+COPY
+         KRNUMX      IMBNUMX      1*  1*   1*  1*   1*  1* / CREATE IBMNUMX
+         KRNUMY      IMBNUMY      1*  1*   1*  1*   1*  1* / CREATE IBMNUMY
+         KRNUMZ      IMBNUMZ      1*  1*   1*  1*   1*  1* / CREATE IBMNUMZ
+/
+--
+--       ARRAY      CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+ADD
+         IMBNUMX    16            1*  1*   1*  1*   1*  1* / SET IMBNUMX
+         IMBNUMY    16            1*  1*   1*  1*   1*  1* / SET IMBNUMY
+         IMBNUMZ    16            1*  1*   1*  1*   1*  1* / SET IMBNUMZ
+/
 
 ------------------------------------------------------------------------------------------------
 SOLUTION
@@ -164,7 +188,7 @@ SOLUTION
 
 
 RPTRST
-  'BASIC = 2' 'PBPD' /
+  'BASIC=2' 'PBPD' /
 
 EQUIL
 -- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
@@ -182,7 +206,7 @@ SUMMARY
 
 
 INCLUDE
- 'include/KRNUM-MODEL-SUMMARY.inc' /
+ 'include/KRNUM-MODEL-SUMMARY-01.inc' /
 
 
 ------------------------------------------------------------------------------------------------

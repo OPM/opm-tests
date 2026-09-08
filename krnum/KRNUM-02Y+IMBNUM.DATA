@@ -3,10 +3,10 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2022 Equinor
+-- Copyright (C) 2023 Equinor
 
 -- This model is testing directional relperm with focuse on oil water (SWOF).
--- The dominating flow direction (by far) in this model, is in X-direction.
+-- The dominating flow direction (by far) in this model, is in Y-direction.
 -- The model is divided into 4 segments which are identical in size, properties,
 -- well lauout, etc. Only difference for these segments are KRNUMX, KRNUMY and KRNUMZ
 -- definitions.  A total of 16 relative permeability curves are provided but only 3
@@ -19,19 +19,23 @@
 ------------+------+------+------+------+
 --          | B-1H | B-2H | B-3H | B-4H |
 ------------+------+------+------+------+
--- KRNUMX   |   5  |   5  |   5  |   9  |
--- KRNUMY   |   5  |   9  |   9  |   9  |
+-- KRNUMX   |   5  |   9  |   9  |   9  |
+-- KRNUMY   |   5  |   5  |   5  |   9  |
 -- KRNUMZ   |   5  |   5  |   9  |   9  |
 ------------+------+------+------+------+
 
--- table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
--- table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- KRNUM  table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
+-- KRNUM  table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- IMBNUM table 21 optimistic with respect to wct: SWOF krw = curved , krow = linear
+-- IMBNUM table 25 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- Carlson Hysteresis Model with hysteresis modeling applied to both relative permeability,
+-- and capillary pressure curves.
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
 ------------------------------------------------------------------------------------------------
 TITLE
-KRNUM-02X: REGRESSION TEST
+KRNUM-02Y+IMBNUM: DIRECTIONAL SATURATION FUNCTION AND HYSTERESIS TEST
 
 DIMENS
  20 20 10 /
@@ -52,14 +56,14 @@ START
 --
 GRIDOPTS
  'YES'        0 /
-
+--
+--       ACTIVATE RELATIVE PERMEABILITY ASSIGNMENT HYSTERESIS OPTIONS
+--       DIRECTTIONAL(DIRECT) IRREVERSIBLE(IRREVERS) HYSTERESIS(HYSTER)
 SATOPTS
- 'DIRECT'
-/
-
+         'DIRECT'   'HYSTER'                                                   /
 
 EQLDIMS
- 1 1*  25 /
+ 1  100  25 /
 
 
 REGDIMS
@@ -69,7 +73,7 @@ REGDIMS
 --
 TABDIMS
 --ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
-  16          1      150          60         3         60 /
+  32          1      150          60         3         60 /
 
 --
 WELLDIMS
@@ -96,7 +100,7 @@ INIT
 
 
 INCLUDE
- 'include/KRNUM-MODEL-X.inc' /
+ 'include/KRNUM-MODEL-Y.inc' /
 
 PERMX
  4000*500 /
@@ -111,17 +115,14 @@ COPY
 
 -- no flow in z-direction
 MULTIPLY
-  PERMZ 0.0 /
+  PERMZ 10E-10     / RESET PERMZ TO MINIMUM VALUE TO AVOID WARNING MESSAGES
 /
-
-RPTGRID
- 'ALLNNC' /
 
 -- setting up 4 identical compartments
 EQUALS
-  'MULTY'  0.0 1 20   5  5  1 10 /
-  'MULTY'  0.0 1 20  10 10  1 10 /
-  'MULTY'  0.0 1 20  15 15  1 10 /
+  'MULTX'  0.0   5  5 1 20  1 10 /
+  'MULTX'  0.0  10 10 1 20  1 10 /
+  'MULTX'  0.0  15 15 1 20  1 10 /
 /
 
 
@@ -134,18 +135,26 @@ EDIT
 PROPS
 ------------------------------------------------------------------------------------------------
 
-NOECHO
+INCLUDE
+ 'include/KRNUM-MODEL-PVT-01.inc'      / PRESSURE CLIPPED PVT
 
 INCLUDE
- 'include/KRNUM-MODEL-PVT.inc' /
-
-
-INCLUDE
- 'include/KRNUM-MODEL-ROCK.inc' /
+ 'include/KRNUM-MODEL-ROCK.inc'        /
 
 INCLUDE
- 'include/KRNUM-MODEL-RELPERM.inc' /
-
+ 'include/KRNUM-MODEL-RELPERM-01.inc'  / DRAINAGE AND IMBIBITION SATURATION FUNCTIONS
+--
+--       HYSTERESIS MODEL AND PARAMETERS
+--
+--       PC-CUR  MODEL   RELPERM TRAPPED OPTION  SHAPE    MOBILIT  WET
+--       HYSTRCP HYSTMOD HYSTREL HYSTSGR HYSTOPT HYSTSCAN HYSTMOB  HYSTWET
+EHYSTR
+         1*      1       1*      1*      BOTH    1*       1*       1*          /
+--
+--       ACTIVATE HYSTERESIS INHIBITION AND DRAINAGE END-POINT VALIDATION
+--
+-- HYSTCHCK
+-- /
 
 ------------------------------------------------------------------------------------------------
 REGIONS
@@ -155,8 +164,23 @@ EQLNUM
  4000*1 /
 
 INCLUDE
- 'include/KRNUM-02X+.inc' /
-
+ 'include/KRNUM-02Y+.inc' /
+--
+--       SOURCE      DESTIN.      ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+COPY
+         KRNUMX      IMBNUMX      1*  1*   1*  1*   1*  1* / CREATE IBMNUMX
+         KRNUMY      IMBNUMY      1*  1*   1*  1*   1*  1* / CREATE IBMNUMY
+         KRNUMZ      IMBNUMZ      1*  1*   1*  1*   1*  1* / CREATE IBMNUMZ
+/
+--
+--       ARRAY      CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+ADD
+         IMBNUMX    16            1*  1*   1*  1*   1*  1* / SET IMBNUMX
+         IMBNUMY    16            1*  1*   1*  1*   1*  1* / SET IMBNUMY
+         IMBNUMZ    16            1*  1*   1*  1*   1*  1* / SET IMBNUMZ
+/
 
 ------------------------------------------------------------------------------------------------
 SOLUTION
@@ -164,7 +188,7 @@ SOLUTION
 
 
 RPTRST
-  'BASIC = 2' 'PBPD' /
+  'BASIC=2' 'PBPD' /
 
 EQUIL
 -- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
@@ -182,7 +206,7 @@ SUMMARY
 
 
 INCLUDE
- 'include/KRNUM-MODEL-SUMMARY.inc' /
+ 'include/KRNUM-MODEL-SUMMARY-01.inc' /
 
 
 ------------------------------------------------------------------------------------------------
@@ -197,30 +221,30 @@ TUNING
 WELSPECS
 --WELL     GROUP  IHEEL JHEEL   DREF PHASE   DRAD INFEQ SIINS XFLOW PRTAB  DENS
  'B-1H'  'S1'   3    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
- 'B-2H'  'S2'   3    8      1*   OIL     1*   1*   SHUT 1* 1* 1* /
- 'B-3H'  'S3'   3   13      1*   OIL     1*   1*   SHUT 1* 1* 1* /
- 'B-4H'  'S4'   3   18      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-2H'  'S2'   8    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-3H'  'S3'  13    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
+ 'B-4H'  'S4'  18    3      1*   OIL     1*   1*   SHUT 1* 1* 1* /
 /
 
 WELSPECS
- 'F-1H'  'S1'  18    3      1*   WATER   1*   1*   SHUT 1* 1* 1* /
- 'F-2H'  'S2'  18    8      1*   WATER   1*   1*   SHUT 1* 1* 1* /
- 'F-3H'  'S3'  18   13      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-1H'  'S1'   3   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-2H'  'S2'   8   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
+ 'F-3H'  'S3'  13   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
  'F-4H'  'S4'  18   18      1*   WATER   1*   1*   SHUT 1* 1* 1* /
 /
 
 COMPDAT
 --WELL      I   J    K1   K2  OP/SH  SATN    TRAN    WBDIA    KH     SKIN DFACT   DIR    PEQVR
- 'B-1H'    3   3    1    10   OPEN    1     1*    0.216    1* 0    1*    Z   1* /
- 'B-2H'    3   8    1    10   OPEN    1     1*    0.216    1* 0    1*    Z   1* /
- 'B-3H'    3   13    1    10   OPEN    1     1*    0.216    1* 0    1*    Z     1* /
- 'B-4H'    3   18    1    10   OPEN    1     1*    0.216    1* 0    1*    Z     1* /
+ 'B-1H'     3   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+ 'B-2H'     8   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+ 'B-3H'    13   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
+ 'B-4H'    18   3    1    10  OPEN  1     1*    0.216    1* 0    1*    Z      1* /
 /
 
 COMPDAT
- 'F-1H'    18   3    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
- 'F-2H'    18   8    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
- 'F-3H'    18  13    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+ 'F-1H'     3  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+ 'F-2H'     8  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
+ 'F-3H'    13  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
  'F-4H'    18  18    1   10   OPEN    1      1*    0.216    1*        0    1*    Z    1* /
 /
 

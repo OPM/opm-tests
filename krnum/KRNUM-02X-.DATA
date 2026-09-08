@@ -3,12 +3,12 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2022 Equinor
+-- Copyright (C) 2023 Equinor
 
 -- This model is testing directional relperm with focuse on oil water (SWOF).
 -- The dominating flow direction (by far) in this model, is in X-direction.
 -- The model is divided into 4 segments which are identical in size, properties,
--- well lauout, etc. Only difference for these segments are KRNUMX, KRNUMY and KRNUMZ
+-- well lauout, etc. Only difference for these segments are KRNUMX-, KRNUMY- and KRNUMZ-
 -- definitions.  A total of 16 relative permeability curves are provided but only 3
 -- of thse are being used. Table-1 for COMPDAT connections and Table-5 and Table-9
 -- sat with KRNUM keywords. The table below shows table number used in X-,Y- and Z-
@@ -24,14 +24,18 @@
 -- KRNUMZ   |   5  |   5  |   9  |   9  |
 ------------+------+------+------+------+
 
--- table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
--- table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- KRUM-02X table  5 optimistic with respect to wct: SWOF krw = curved , krow = linear
+-- KRUM-02X table  9 persimistic with respect to wct: SWOF krw = linear , krow = curved
+-- Same as KRNUM-02X, but in addition the negative versons of KRNUM, that is KRNUMX-, KRNUMY-
+-- and KRNUMZ- are used. Thus, instead of tables 5 and 9, we use tables 9 and 5 for KRNUM-
+-- Carlson Hysteresis Model with hysteresis modeling applied to both relative permeability,
+-- and capillary pressure curves.
 
 ------------------------------------------------------------------------------------------------
 RUNSPEC
 ------------------------------------------------------------------------------------------------
 TITLE
-KRNUM-02X: REGRESSION TEST
+KRNUM-02X-: NOT CURRENTLY SUPPORTED
 
 DIMENS
  20 20 10 /
@@ -52,19 +56,19 @@ START
 --
 GRIDOPTS
  'YES'        0 /
-
+--
+--       ACTIVATE RELATIVE PERMEABILITY ASSIGNMENT HYSTERESIS OPTIONS
+--       DIRECTTIONAL(DIRECT) IRREVERSIBLE(IRREVERS) HYSTERESIS(HYSTER)
 SATOPTS
- 'DIRECT'
-/
-
+         'DIRECT'   'IRREVERS'                                                 /
 
 EQLDIMS
- 1 1*  25 /
+ 1  100  25 /
 
 
 REGDIMS
 -- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
-   3          2       1*             1*  /
+   4          2       1*             1*  /
 
 --
 TABDIMS
@@ -111,11 +115,8 @@ COPY
 
 -- no flow in z-direction
 MULTIPLY
-  PERMZ 0.0 /
+  PERMZ 10E-10 /
 /
-
-RPTGRID
- 'ALLNNC' /
 
 -- setting up 4 identical compartments
 EQUALS
@@ -134,18 +135,14 @@ EDIT
 PROPS
 ------------------------------------------------------------------------------------------------
 
-NOECHO
+INCLUDE
+ 'include/KRNUM-MODEL-PVT-01.inc'      / PRESSURE CLIPPED PVT
 
 INCLUDE
- 'include/KRNUM-MODEL-PVT.inc' /
-
-
-INCLUDE
- 'include/KRNUM-MODEL-ROCK.inc' /
+ 'include/KRNUM-MODEL-ROCK.inc'        /
 
 INCLUDE
- 'include/KRNUM-MODEL-RELPERM.inc' /
-
+ 'include/KRNUM-MODEL-RELPERM.inc'     / IMBIBITION SATURATION FUNCTIONS
 
 ------------------------------------------------------------------------------------------------
 REGIONS
@@ -153,10 +150,21 @@ REGIONS
 
 EQLNUM
  4000*1 /
+--
+--       ARRAY       CONSTANT     ---------- BOX ---------
+--                                I1  I2   J1  J2   K1  K2
+EQUALS
+         FIPNUM      1            1*  1*    1   5   1*  1* / DEFINE FIPNUM 1 REGION
+         FIPNUM      2            1*  1*    6  10   1*  1* / DEFINE FIPNUM 2 REGION
+         FIPNUM      3            1*  1*   11  15   1*  1* / DEFINE FIPNUM 3 REGION
+         FIPNUM      4            1*  1*   16  20   1*  1* / DEFINE FIPNUM 3 REGION
+/
 
 INCLUDE
  'include/KRNUM-02X+.inc' /
 
+INCLUDE
+ 'include/KRNUM-02X-.inc' /
 
 ------------------------------------------------------------------------------------------------
 SOLUTION
@@ -164,7 +172,7 @@ SOLUTION
 
 
 RPTRST
-  'BASIC = 2' 'PBPD' /
+  'BASIC=2' 'PBPD' /
 
 EQUIL
 -- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
@@ -182,7 +190,7 @@ SUMMARY
 
 
 INCLUDE
- 'include/KRNUM-MODEL-SUMMARY.inc' /
+ 'include/KRNUM-MODEL-SUMMARY-01.inc' /
 
 
 ------------------------------------------------------------------------------------------------
