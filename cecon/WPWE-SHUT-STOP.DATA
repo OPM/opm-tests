@@ -1,0 +1,44 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- All connections closed overrides STOP policy: B-1H must report WPWE7.
+-- A whole-well workover with crossflow allowed stops B-2H (WPWE4).
+-- Disallowing crossflow forces B-3H shut (WPWE7), despite its STOP policy.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 0.1 1.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+WELSPECS
+-- WELL   GROUP I J DEPTH PHASE DRAD INFEQ SIINS XFLOW
+ 'B-1H' 'B1' 15 3  1* 'OIL' 2* 'STOP' 'YES' /
+ 'B-2H' 'B1' 8  7  1* 'OIL' 2* 'STOP' 'YES' /
+ 'B-3H' 'B1' 14 12 1* 'OIL' 2* 'STOP' 'NO' /
+/
+
+CECON
+ 'B-1H' 2* 1 4 1* 1.0 1* 'CON' /
+ 'B-2H' 2* 1 1 1* 1.0 1* 'WELL' /
+ 'B-3H' 2* 1 1 1* 1.0 1* 'WELL' /
+/
+
+-- One accepted timestep suffices to observe all three closure decisions.
+TSTEP
+ 0.1 /
+END

@@ -1,0 +1,34 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- A CON closure and an independent +CON closure occur in the same timestep.
+-- Expected for B-1H: WPWE2=1 and WPWE3=1, then both reset to zero.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 0.1 1.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+CECON
+ 'B-1H' 2* 3 3 1* 1.0 1* 'CON' /
+ 'B-1H' 2* 4 4 1* 1.0 1* '+CON' /
+/
+
+TSTEP
+ 3*1 /
+END

@@ -70,4 +70,29 @@ COFR
  'B-3H' /
  'C-1H' /
  'C-2H' /
-/ 
+/
+
+-- Well performance events: include automatic workovers and exclude deck reopens.
+WPWE0
+/
+
+WPWE1
+/
+
+WPWE2
+/
+
+WPWE3
+/
+
+WPWE4
+/
+
+WPWE5
+/
+
+WPWE6
+/
+
+WPWE7
+/

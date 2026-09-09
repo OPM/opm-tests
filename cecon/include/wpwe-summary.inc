@@ -5,51 +5,8 @@
 
 -- Copyright (C) 2026 Equinor
 
+-- Timestep event indicators and rates/status used to interpret them.
 
-FWPR
-
-WWPR
-/
-
-WWGR
-/
-
-FWGR
-
-WBHP
-/
-
-WWGR
-/
-
-CWFR
- 'B-1H' /
- 'B-3H' /
- 'C-1H' /
- 'C-2H' /
-/ 
-
-CGFR
- 'B-1H' /
- 'B-3H' /
- 'C-1H' /
- 'C-2H' /
-/ 
-
-COFR
- 'B-1H' /
- 'B-3H' /
- 'C-1H' /
- 'C-2H' /
-/ 
-CWGR
- 'B-1H' /
- 'B-3H' /
- 'C-1H' /
- 'C-2H' /
-/
-
--- Well performance events: include automatic workovers and exclude deck reopens.
 WPWE0
 /
 
@@ -72,4 +29,15 @@ WPWE6
 /
 
 WPWE7
+/
+
+WOPR
+/
+WWIR
+/
+WSTAT
+/
+WWCT
+/
+WGOR
 /
