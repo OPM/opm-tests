@@ -167,6 +167,28 @@ ALL
 --------------------------------------------------------------------------------
 
 
+-- Well performance evaluation indicators.  These decks are the only WECON
+-- coverage in opm-tests: PROD01/PROD02 exercise the well level workover loop,
+-- which can close several completions inside a single timestep.
+WPWE0
+/
+WPWE1
+/
+WPWE2
+/
+WPWE3
+/
+WPWE4
+/
+WPWE5
+/
+WPWE6
+/
+WPWE7
+/
+WSTAT
+/
+
 SCHEDULE
 
 RPTRST

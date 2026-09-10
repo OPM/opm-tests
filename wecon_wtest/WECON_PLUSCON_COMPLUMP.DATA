@@ -329,6 +329,28 @@ FWPT
 
 
 NOECHO
+-- Well performance evaluation indicators.  PROD2's lumped completion spans
+-- four connections, so WPWE2 distinguishes a count of connections from a
+-- count of completions in a configuration where the two differ by three.
+WPWE0
+/
+WPWE1
+/
+WPWE2
+/
+WPWE3
+/
+WPWE4
+/
+WPWE5
+/
+WPWE6
+/
+WPWE7
+/
+WSTAT
+/
+
 -- ========================================================================
 -- = SECTION SCHEDULE : definition of operations to simulate              =
 -- ========================================================================
