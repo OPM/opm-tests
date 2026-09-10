@@ -1,0 +1,63 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Open question: does a deck driven status change or type conversion count
+-- as a WPWE event?  No CECON, no WTEST: every status change below comes from
+-- the SCHEDULE section alone, so any nonzero indicator is deck driven.
+--
+--   B-1H  WELOPEN SHUT             -> WPWE7?
+--   B-2H  WCONPROD STOP            -> WPWE4?
+--   B-3H  producer becomes injector-> WPWE6?
+--   C-1H  injector becomes producer-> WPWE5?
+--
+-- Flow currently reports zero for B-1H and B-2H and one for B-3H and C-1H.
+-- The reference run decides whether that asymmetry is correct.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 0.1 1.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+-- C-1H starts on injection so that its change below is a genuine
+-- injector to producer conversion.
+WCONINJE
+ 'C-1H' 'WATER' 'OPEN' 'RATE' 1000.0 1* 400.0 /
+/
+
+TSTEP
+ 1 /
+
+WELOPEN
+ 'B-1H' 'SHUT' /
+/
+
+WCONPROD
+ 'B-2H' 'STOP' 'ORAT' 1500.0 4* 100.0 /
+/
+
+WCONINJE
+ 'B-3H' 'WATER' 'OPEN' 'RATE' 1000.0 1* 400.0 /
+/
+
+WCONPROD
+ 'C-1H' 'OPEN' 'ORAT' 1500.0 4* 100.0 /
+/
+
+TSTEP
+ 2*1 /
+END

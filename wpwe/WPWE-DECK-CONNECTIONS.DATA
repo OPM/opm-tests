@@ -1,0 +1,69 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Open question: do deck driven connection changes count towards WPWE1 and
+-- WPWE2, and is WPWE1 suppressed while the well is stopped?  No CECON and no
+-- WTEST, so every connection change below comes from WELOPEN alone.
+--
+--   B-1H  open producer, one connection shut  -> WPWE2?
+--   B-2H  open producer, one connection opened-> WPWE1?
+--   B-3H  stopped producer, same reopen       -> WPWE1, or gated off?
+--
+-- The manual qualifies WPWE1 with "if the well is not shut or stopped", so
+-- B-2H against B-3H isolates that gate.  Flow reports zero for all three
+-- because it absorbs deck driven changes.
+--
+-- Because the expected result for those three wells is silence, C-1H carries a
+-- CECON CON workover as an internal control: it must report WPWE2, WPWE3 and
+-- WPWE7.  Without it a run that reported nothing at all would be
+-- indistinguishable from one that worked.  The control is the only economic
+-- limit in the deck and touches no other well, so the three probes above stay
+-- purely deck driven.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 0.1 1.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+-- Part of the initial state: no timestep has elapsed, so these closures are
+-- not themselves events under any reading.
+WELOPEN
+ 'B-2H'  'SHUT'  8  7 3 2* /
+ 'B-3H'  'SHUT' 14 12 3 2* /
+/
+
+WCONPROD
+ 'B-3H' 'STOP' 'ORAT' 1500.0 4* 100.0 /
+/
+
+CECON
+ 'C-1H' 2* 1 5 1* 1.0 1* 'CON' /
+/
+
+TSTEP
+ 1 /
+
+WELOPEN
+ 'B-1H'  'SHUT' 15  3 2 2* /
+ 'B-2H'  'OPEN'  8  7 3 2* /
+ 'B-3H'  'OPEN' 14 12 3 2* /
+/
+
+TSTEP
+ 2*1 /
+END

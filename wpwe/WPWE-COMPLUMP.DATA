@@ -1,0 +1,48 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Open question: are WPWE1 and WPWE2 counts of connections or of completions?
+-- The manual says "the number of connections", but the workover that closes
+-- them acts on a completion, and COMPLUMP lets one completion span several
+-- connections.
+--
+--   B-1H  COMPLUMP lumps its four connections into two completions.  A CON
+--         workover closes completion 2, i.e. two connections at once:
+--         WPWE2 = 2 counts connections, WPWE2 = 1 counts completions.
+--   B-2H  no COMPLUMP, one connection closed -> WPWE2 = 1 either way, so the
+--         well shows the workover fired at all.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 0.1 1.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+COMPLUMP
+--WELL      I  J K1 K2 N
+ 'B-1H'    15  3  1  2  1 /
+ 'B-1H'    15  3  3  4  2 /
+/
+
+CECON
+ 'B-1H' 2* 3 4 1* 1.0 1* 'CON' /
+ 'B-2H' 2* 6 6 1* 1.0 1* 'CON' /
+/
+
+TSTEP
+ 3*0.1 /
+END

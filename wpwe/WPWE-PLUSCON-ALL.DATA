@@ -1,0 +1,40 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- A '+CON' workover on the topmost completion closes the whole well, which is
+-- the extreme reading of "this will not include connections closed by a CON+
+-- workover": every closure is excluded, so B-1H should report WPWE2 = 0 even
+-- though it loses all four connections and shuts.  Expect WPWE3 = 1 and
+-- WPWE7 = 1 alongside it.
+--
+-- B-2H is the same situation driven by CON instead, where the same four
+-- closures must all be counted: WPWE2 = 4, WPWE3 = 1, WPWE7 = 1.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 0.1 1.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+CECON
+ 'B-1H' 2* 1 1 1* 1.0 1* '+CON' /
+ 'B-2H' 2* 1 6 1* 1.0 1* 'CON' /
+/
+
+TSTEP
+ 3*0.1 /
+END
