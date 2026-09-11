@@ -1,0 +1,50 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Convert B-1H to injection mid-run and back again, each time in the middle
+-- of a monthly report interval.  WPWE6 must accompany the first injecting
+-- timestep and WPWE5 the return to production, neither of them deferred to
+-- the report boundary that follows.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 2.0 3.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+ACTIONX
+ 'TOINJ' 1 /
+ TIME > 45 /
+/
+WCONINJE
+ 'B-1H' 'WATER' 'OPEN' 'RATE' 100.0 1* 400.0 /
+/
+ENDACTIO
+
+ACTIONX
+ 'TOPROD' 1 /
+ TIME > 115 /
+/
+WCONPROD
+ 'B-1H' 'OPEN' 'ORAT' 1500.0 4* 100.0 /
+/
+ENDACTIO
+
+DATES
+  30 'AUG' 2020 /
+/
+END

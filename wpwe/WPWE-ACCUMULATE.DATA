@@ -1,0 +1,71 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Are the indicators reported for the timestep that produced them, or summed
+-- over the report interval?  Everything below happens inside a single ten day
+-- report step, with timesteps capped at one day.
+--
+--   B-1H  CECON closes two connections on the first timestep.
+--   C-1H  ACTIONX tightens WECON at TIME > 5, closing connections much later
+--         in the same report interval.
+--
+-- Per timestep, each event appears on its own ministep row and the day ten
+-- report row is zero for both wells.  Per report interval, the day ten row
+-- carries both.  The value that matters is therefore which row it lands on,
+-- not the count.  Do not add RPTONLY or summary thinning to this deck: they
+-- discard the ministep rows the comparison needs.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 2.0 3.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+CECON
+ 'B-1H' 2* 3 4 0.6 2* 'CON' /
+/
+
+ACTIONX
+ 'LATECON' 1 /
+ TIME > 100 /
+/
+WECON
+ 'C-1H' 2* 0.6 2* 'CON' /
+/
+ENDACTIO
+
+DATES
+  01 'FEB' 2020 /
+  01 'MAR' 2020 /
+  01 'APR' 2020 /
+  01 'MAY' 2020 /
+  01 'JUN' 2020 /
+  01 'JUL' 2020 /
+  01 'AUG' 2020 /
+  01 'SEP' 2020 /
+  01 'OCT' 2020 /
+  01 'NOV' 2020 /
+  01 'DEC' 2020 /
+  01 'JAN' 2021 /
+  01 'FEB' 2021 /
+  01 'MAR' 2021 /
+  01 'APR' 2021 /
+  01 'MAY' 2021 /
+  01 'JUN' 2021 /
+  01 'JUL' 2021 /
+/
+END

@@ -1,0 +1,51 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Open question: how strictly should WPWE3's first route be read?  The manual
+-- sets it when "all connections are closed by CON workovers", so a well whose
+-- connections were closed by a mixture of causes is the discriminating case.
+--
+--   C-1H  connections 1 to 3 shut from the deck, 4 and 5 closed by CON
+--         workovers -> WPWE3 = 0 on a strict reading, 1 on a loose one.
+--   B-1H  every connection closed by CON workovers
+--         -> WPWE3 = 1 under both readings, so it shows the deck works.
+--
+-- Both wells end with nothing able to flow, so both should report WPWE7,
+-- and WPWE2 should count only the connections the workovers closed.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 2.0 3.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+-- Initial state: C-1H keeps only its two lower connections.
+WELOPEN
+ 'C-1H' 'SHUT' 13 20 1 2* /
+ 'C-1H' 'SHUT' 13 20 2 2* /
+ 'C-1H' 'SHUT' 13 20 3 2* /
+/
+
+CECON
+ 'C-1H' 2* 4 5 0.6 2* 'CON' /
+ 'B-1H' 2* 1 4 0.6 2* 'CON' /
+/
+
+DATES
+  01 'JUL' 2020 /
+/
+END

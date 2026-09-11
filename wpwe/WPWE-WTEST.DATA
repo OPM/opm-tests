@@ -1,0 +1,57 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Initially close all four B-1H connections through CON workovers.
+-- Relax CECON without WELOPEN/WCONPROD, then let WTEST reopen the well.
+-- A successful automatic reopen must produce a nonzero WPWE1.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 2.0 3.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+CECON
+ 'B-1H' 2* 1 4 0.6 2* 'CON' /
+/
+
+WTEST
+ 'B-1H' 10.0 'E' /
+/
+
+-- Water cut climbs past the limit during these months and the workovers
+-- close B-1H one connection at a time.
+DATES
+  01 'FEB' 2020 /
+  01 'MAR' 2020 /
+  01 'APR' 2020 /
+  01 'MAY' 2020 /
+/
+
+-- Changing the limit is not itself an instruction to reopen the well.
+CECON
+ 'B-1H' 2* 1 4 1.0 2* 'CON' /
+/
+
+DATES
+  01 'JUN' 2020 /
+  01 'JUL' 2020 /
+  01 'AUG' 2020 /
+  01 'SEP' 2020 /
+  17 'SEP' 2020 /
+/
+END
