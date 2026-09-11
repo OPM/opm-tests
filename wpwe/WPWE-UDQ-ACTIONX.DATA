@@ -1,0 +1,54 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Exercise WPWE lookup without any explicit WPWE SUMMARY requests.
+-- FUEVENT must spike for the CON closure. ACTIONX must latch FUFIRE to 1.
+-- Do not include wpwe-summary.inc or add WPWE vectors to SUMMARY here.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+FUEVENT
+FUFIRE
+WOPR
+ 'B-1H'
+/
+
+SCHEDULE
+TUNING
+ 2.0 3.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+CECON
+ 'B-1H' 2* 1 4 0.6 2* 'CON' /
+/
+
+UDQ
+ DEFINE FUEVENT WPWE2 'B-1H' > 0 /
+ UNITS FUEVENT 'Constant' /
+ ASSIGN FUFIRE 0 /
+ UNITS FUFIRE 'Constant' /
+/
+
+ACTIONX
+ 'ONCON' 1 /
+ WPWE2 'B-1H' > 0 /
+/
+UDQ
+ ASSIGN FUFIRE 1 /
+/
+ENDACTIO
+
+DATES
+  24 'MAY' 2020 /
+/
+END
