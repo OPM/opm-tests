@@ -201,6 +201,22 @@ ZMF
 30*0.3
 30*0.6
 /
+RPTRST
+BASIC=2
+PRESSURE
+SGAS
+SOIL
+PSAT
+VMF
+XMF
+YMF
+ZMF
+DENO
+DENG
+VGAS
+VOIL
+/
+
 
 ------------------------------------------------------------------------
 SUMMARY
@@ -239,6 +255,7 @@ BASIC = 1
 PRESSURE
 SGAS
 SOIL
+PSAT
 VMF -- Vapor mole fraction
 XMF
 YMF
