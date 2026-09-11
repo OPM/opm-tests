@@ -6,11 +6,13 @@
 -- Copyright (C) 2026, SINTEF Digital, TNO
 
 -- Equilibration of a compositional model with the composition versus depth
--- from ZMFVD (EQUIL item 10 defaulted to 1, a continuous hydrocarbon phase).
--- A 1x1x20 vertical column of a CO2/methane/decane mixture grading from
--- methane-rich at the top to decane-rich at the bottom; the defaulted item 11
--- keeps the pressure hydrostatic from the datum. There are no wells; the few
--- short time steps only verify that the initial state is stable.
+-- from ZMFVD (EQUIL item 10 defaulted to 1: the pressure is integrated from
+-- the datum as a single hydrocarbon phase). A 1x1x20 vertical column of a
+-- CO2/methane/decane mixture grading from methane-rich at the top to
+-- decane-rich at the bottom. The methane-rich top flashes to a gas fraction
+-- under this pressure profile, so the column is not in gravity equilibrium:
+-- there are no wells, and the few short time steps capture the start of the
+-- segregation.
 
 ------------------------------------------------------------------------
 RUNSPEC
@@ -183,7 +185,31 @@ RPTSOL
 ------------------------------------------------------------------------
 SUMMARY
 ------------------------------------------------------------------------
-ALL
+-- Field average pressure, plus the block quantities that follow the gas
+-- moving up the column: the saturations either side of the front, the
+-- pressures at the top, middle and bottom of the column, and the phase
+-- densities, which respond to the changing composition.
+FPR
+
+BPR
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BSGAS
+ 1 1 1 /
+ 1 1 5 /
+ 1 1 10 /
+/
+
+BDENG
+ 1 1 1 /
+/
+
+BDENO
+ 1 1 20 /
+/
 
 ------------------------------------------------------------------------
 SCHEDULE
