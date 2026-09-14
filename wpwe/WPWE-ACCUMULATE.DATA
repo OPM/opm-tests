@@ -41,7 +41,9 @@ CECON
 
 ACTIONX
  'LATECON' 1 /
- TIME > 100 /
+ YEAR = 2020 AND /
+ MNTH = APR  AND /
+ DAY  >= 10      /
 /
 WECON
  'C-1H' 2* 0.6 2* 'CON' /

@@ -26,8 +26,12 @@ WPWE7
 /
 
 -- Well level context.  WSTAT distinguishes a shut well from a stopped one,
--- which is what WPWE4 and WPWE7 turn on.
+-- which is what WPWE4 and WPWE7 turn on.  ALL does not include it everywhere,
+-- so it is requested separately.
 ALL
+
+WSTAT
+/
 
 -- Connection level context.  CECON tests the connection ratios, not the well
 -- ratios, so these are what decide when a workover fires and on which

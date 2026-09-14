@@ -23,14 +23,15 @@ grid or property dataset is introduced. The cases live here rather than in
 | `WPWE-SHUT-STOP.DATA` | B-1H loses its four connections to CON workovers at days 7.1, 19.1, 40.1 and 70.1, and on the last of those reports WPWE2=1, WPWE3=1 and WPWE7=1 together: nothing can flow, so the well shuts despite its STOP policy. C-1H disallows crossflow and a whole-well workover shuts it at day 10.1 (WPWE7=1). B-3H allows crossflow and the same workover merely stops it at day 28.1 (WPWE4=1). | 138 |
 | `WPWE-UDQ-ACTIONX.DATA` | No WPWE vector is requested in SUMMARY. FUEVENT, a UDQ reading WPWE2 on B-1H, is 1 on exactly the four closure timesteps (days 7.1, 19.1, 40.1, 73.1) and 0 on every other row; an ACTIONX on the same condition latches FUFIRE from day 10.1. Shows the indicators reach UDQ and ACTIONX unrequested, and corroborates their one-timestep lifetime independently. | 144 |
 | `WPWE-DRILLED.DATA` | B-1H, B-2H and B-3H exist from the start and never report WPWE0. C-1H enters through WELSPECS in February and reports WPWE0=1 at day 34; C-2H enters in April and reports it at day 94. | 188 |
-| `WPWE-ACTIONX.DATA` | B-1H converts to water injection after TIME>45 and back to production after TIME>115. WPWE6=1 at day 49.1 and WPWE5=1 at day 118.1, each once, each inside a monthly report interval rather than on its boundary. | 242 |
+| `WPWE-ACTIONX.DATA` | B-1H converts to water injection on 15 February and back to production on 25 April. WPWE6=1 at day 49 and WPWE5=1 at day 118, each once, each inside a monthly report interval rather than on its boundary. | 242 |
 | `WPWE-WTEST.DATA` | B-1H closes one connection at a time (days 7.1, 19.1, 40) and shuts at day 72 with WPWE2=1, WPWE3=1, WPWE7=1. The limit is then relaxed without any manual reopen and WTEST cycles the well: re-opened at day 87 (WPWE1=2) and closed again at 94, re-opened at 109 and closed at 115, re-opened at 130 with WPWE1=4. The only source of a nonzero WPWE1. | 260 |
 
 ## Discriminating cases
 
 The cases above pin behaviour that follows directly from the manual. The six
 decks below exist for the opposite reason: the manual is silent or ambiguous,
-Flow had to choose, and only a reference run settles it. Each deck isolates one
+Flow had to choose, and only a cross-check against another simulator settles it.
+Each deck isolates one
 question, so a single vector on a single well decides it. No economic limit or
 well test appears in a deck that asks about deck driven changes, and none of the
 questions is confounded with another.
@@ -55,7 +56,7 @@ WSTAT, not the day numbers.
 
 `WPWE-ACCUMULATE` is the one to read first, because it decides how every other
 table here is interpreted. B-1H loses two connections early, on days 7.1 and
-19.1 of the January interval; an ACTIONX tightens WECON on C-1H at day 100 and
+19.1 of the January interval; an ACTIONX tightens WECON on C-1H on 10 April and
 its limit bites at days 182 and 504, far from either end of the run. Flow puts
 each event on the ministep row that produced it and nothing on any report
 boundary:
@@ -75,7 +76,7 @@ A simulator that accumulated over the report interval would instead show 2 on
 the 31 January row and 1 on each of the boundaries following days 182 and 504.
 Nothing else in the suite separates the two readings, because every other case
 is short enough that the events and the boundaries nearly coincide. Read this
-deck first: if the reference accumulates, every table here has to be re-read
+deck first: if another simulator accumulates, every table here has to be re-read
 against report rows rather than ministep rows.
 
 One caveat on this case. The event at day 182 falls exactly on the 01 July
@@ -96,16 +97,16 @@ connections on the first timestep and it must report WPWE2 = 5, WPWE3 = 1 and
 WPWE7 = 1. If the control is silent, the run says nothing about the probes.
 
 The stopped well gate is answerable only if deck driven connection changes count
-at all: if the reference reports nothing for them, B-2H and B-3H are both silent
-for that reason and the gate stays untested. Flow's own gate is covered by
+at all: if another simulator reports nothing for them, B-2H and B-3H are both
+silent for that reason and the gate stays untested. Flow's own gate is covered by
 `WPWE-WTEST.DATA`, where the reopen is automatic.
 
 The first two rows are the sharpest: Flow suppresses deck driven status and
 connection changes but reports deck driven type conversions, and nothing in the
 manual justifies the asymmetry. It is defensible only because a well type
 conversion always comes from the deck or from ACTIONX, so gating it the same way
-would leave WPWE5 and WPWE6 permanently zero. If the reference disagrees, that
-choice is what has to change.
+would leave WPWE5 and WPWE6 permanently zero. If another simulator disagrees,
+that choice is what has to change.
 
 `WPWE-CON-MIXED-CAUSE` decides how strictly to read "all connections are closed
 by CON workovers". C-1H has three connections shut from the deck and two closed
@@ -159,6 +160,45 @@ workover is self limiting: closing a well's wet connections drops its water cut
 back below the limit, so only B-1H, whose every connection waters out, closes
 down completely.
 
+## Cross-check results
+
+These cases have been run through another simulator. That settles most of the
+questions above, and disagrees with Flow on three of them.
+
+| Question | Other simulator | Flow | Verdict |
+| --- | --- | --- | --- |
+| Deck driven connection changes | reported: WPWE2=1 for B-1H's shut connection and WPWE1=1 for B-2H's reopened one, both at day 34 | silent | **Flow is wrong** |
+| WPWE1 while the well is stopped | suppressed: B-3H reopens a connection and reports nothing, where B-2H reports 1 | suppressed | agree, but Flow never reaches the gate |
+| Deck driven status changes | silent for B-1H's WELOPEN SHUT and B-2H's WCONPROD STOP | silent | agree |
+| Deck driven type conversions | reported at day 34, and again at time zero for a well that starts as an injector | reported at day 34 only | agree on the change, differ at time zero |
+| What sets WPWE3 | the well being left with every completion below its topmost one shut | a '+CON' workover, or CON workovers having closed every connection | **Flow is wrong** |
+| Connections or completions | connections: a lumped completion of two connections gives WPWE2=2 | connections | agree |
+| WPWE0 from WELSPECS | not reported at all | reported | **Flow is wrong** |
+
+The WPWE3 rule is the clearest result. B-1H has four completions and they close
+from the bottom up; the other simulator reports nothing on the first two
+closures and WPWE3=1 on the third and fourth, which is exactly when only the
+topmost completion is left. C-1H has five and fires on its fourth closure. The
+COMPLUMP case settles the unit: closing one lumped completion of two
+connections gives WPWE2=2 and WPWE3=1 at once, so the indicator counts
+connections but the "closed to the bottom" test is made over completions.
+
+Two questions the run could not answer. Every '+CON' in these decks fired on the
+lowest connection still open, so "all below" never closed anything extra and
+WPWE2 was 1 either way: whether '+CON' closures are excluded from WPWE2 is still
+open, and testing it needs a '+CON' on a middle connection, which bottom up
+water breakthrough makes hard to arrange. And WPWE1 from an automatic reopen
+went untested because the other simulator's WTEST never re-opened B-1H, so the
+only nonzero WPWE1 seen anywhere came from the deck driven reopen.
+
+Four cases did not complete on the first attempt. Three were portability faults
+in the decks, since fixed: the ACTIONX cases need ACTDIMS and the UDQ case needs
+UDQDIMS, neither of which Flow requires, and the ACTIONX conditions were written
+against TIME, which Flow accepts only because TIME is a summary vector. They now
+use DAY, MNTH and YEAR, which is the form every other deck in opm-tests uses. The fourth, `WPWE-CON-MIXED-CAUSE`,
+aborted on a locked file in the shared run directory rather than on anything in
+the deck, and simply needs re-running.
+
 ## Running and checking
 
 From this `wpwe` directory, run a build containing both source changes:
@@ -190,9 +230,10 @@ the connection vectors are what tie an event to its cause:
 ```
 
 Confirm from WSTAT or the connection ratios that the workover actually fired,
-or read the messages in the PRT file, and only then compare the indicators. The two deck driven cases are the exception -- they contain no
-economic limit at all, and `WPWE-DECK-CONNECTIONS` has one only on its control
-well, so the probes in both are unconditional.
+or read the messages in the PRT file, and only then compare the indicators. The
+two deck driven cases are the exception -- they contain no economic limit at
+all, and `WPWE-DECK-CONNECTIONS` has one only on its control well, so the
+probes in both are unconditional.
 
 `WPWE-UDQ-ACTIONX.DATA` is the deliberate exception: it requests only FUEVENT,
 FUFIRE and WOPR, because its purpose is to show that the indicators reach UDQ
@@ -202,9 +243,8 @@ All five focused cases completed and their event sequences were checked with
 one and two MPI ranks using opm-common `91243fc9d` and opm-simulators
 `7dc3684e6`. The six discriminating cases were re-run the same way and every one
 of them produces an identical sequence of nonzero WPWE rows on one and on two
-ranks, so a difference against the reference cannot be blamed on the
-decomposition. No case here has been compared against commercial simulator
-output; the discriminating cases were written to be sent for exactly that. Their
+ranks, so a difference against another simulator cannot be blamed on the
+decomposition. Their
 "Flow reports" columns were measured with `flow_blackoil`, not predicted. These
 decks do not test restart continuation or deliberately force timestep retries;
 the tracker unit tests cover retry bookkeeping.

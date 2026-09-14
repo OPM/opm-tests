@@ -26,6 +26,18 @@ METRIC
 START
  01 'JAN' 2020 /
 
+-- Not every simulator defaults these the way Flow does; some size their
+-- ACTIONX and UDQ tables from them and refuse the deck when they are too
+-- small.  The ACTIONX cases need item 2 of ACTDIMS at 4 or more, and the UDQ
+-- case needs room for its field quantities in item 4 of UDQDIMS.
+ACTDIMS
+-- MAX_ACTION  MAX_LINES  MAX_CHARS  MAX_COND
+        4         16         80         4    /
+
+UDQDIMS
+-- FUNCS ITEMS CONNS FIELDS GROUPS REGIONS SEGS WELLS AQUIF BLOCKS
+     16    16     0      8      0       0     0     8     0      0  /
+
 --
 GRIDOPTS
  'YES'        0 /

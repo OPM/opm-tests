@@ -28,7 +28,9 @@ INCLUDE
 
 ACTIONX
  'TOINJ' 1 /
- TIME > 45 /
+ YEAR = 2020 AND /
+ MNTH = FEB  AND /
+ DAY  >= 15      /
 /
 WCONINJE
  'B-1H' 'WATER' 'OPEN' 'RATE' 100.0 1* 400.0 /
@@ -37,7 +39,9 @@ ENDACTIO
 
 ACTIONX
  'TOPROD' 1 /
- TIME > 115 /
+ YEAR = 2020 AND /
+ MNTH = APR  AND /
+ DAY  >= 25      /
 /
 WCONPROD
  'B-1H' 'OPEN' 'ORAT' 1500.0 4* 100.0 /
@@ -45,6 +49,13 @@ WCONPROD
 ENDACTIO
 
 DATES
+  01 'FEB' 2020 /
+  01 'MAR' 2020 /
+  01 'APR' 2020 /
+  01 'MAY' 2020 /
+  01 'JUN' 2020 /
+  01 'JUL' 2020 /
+  01 'AUG' 2020 /
   30 'AUG' 2020 /
 /
 END
