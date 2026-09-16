@@ -185,10 +185,13 @@ RPTSOL
 ------------------------------------------------------------------------
 SUMMARY
 ------------------------------------------------------------------------
--- Field average pressure, plus the block quantities that follow the gas
--- moving up the column: the saturations either side of the front, the
--- pressures at the top, middle and bottom of the column, and the phase
--- densities, which respond to the changing composition.
+-- Every block vector the compositional simulator fills, at the top of the
+-- column (1), low in the flashed zone (10) and in the single-phase oil below
+-- it (20), plus the field average pressure. Cell 20 carries no gas, so the gas
+-- vectors there pin the phase-absent path, and the densities sample cells 11
+-- and 12, where the flashed zone ends. Only the saturations move over this
+-- schedule; the rest pin the equilibrated values.
+
 FPR
 
 BPR
@@ -197,17 +200,74 @@ BPR
  1 1 20 /
 /
 
+BGPR
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BRPV
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BOPV
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BGPV
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BSOIL
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
 BSGAS
  1 1 1 /
- 1 1 5 /
+ 1 1 5 /   -- the pivot: cells above gain gas, cells below lose it
  1 1 10 /
+ 1 1 20 /
+/
+
+BDENO
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /   -- the bottom of the flashed zone,
+ 1 1 12 /   -- and the single-phase oil under it
+ 1 1 20 /
 /
 
 BDENG
  1 1 1 /
+ 1 1 10 /
+ 1 1 11 /   -- the bottom of the flashed zone,
+ 1 1 12 /   -- and the single-phase oil under it
+ 1 1 20 /
 /
 
-BDENO
+BVOIL
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BVGAS
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BTEMP
+ 1 1 1 /
+ 1 1 10 /
  1 1 20 /
 /
 

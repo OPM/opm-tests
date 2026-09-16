@@ -183,13 +183,47 @@ RPTSOL
 ------------------------------------------------------------------------
 SUMMARY
 ------------------------------------------------------------------------
--- Field average pressure, plus the block quantities that follow the gas-oil
--- contact: the saturations in the cells either side of it (10 and 11), the
--- pressures at the top, contact and bottom of the column, and the phase
--- densities, which respond to the changing composition.
+-- Every block vector the compositional simulator fills, at the top of the gas
+-- zone (1), the cell above the gas-oil contact (10) and the bottom of the oil
+-- (20), plus the field average pressure. Cells 10 and 11 straddle the contact:
+-- their pressures, saturations and densities are what EQUIL item 10 = 3
+-- determines, the equilibrium vapour above and the contact liquid below.
+-- Nothing moves over this schedule; the vectors pin the equilibrated state.
+
 FPR
 
 BPR
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BGPR
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BRPV
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BOPV
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BGPV
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BSOIL
  1 1 1 /
  1 1 10 /
  1 1 20 /
@@ -199,13 +233,38 @@ BSGAS
  1 1 1 /
  1 1 10 /
  1 1 11 /
+ 1 1 20 /
+/
+
+BDENO
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
 /
 
 BDENG
  1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
 /
 
-BDENO
+BVOIL
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BVGAS
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 20 /
+/
+
+BTEMP
+ 1 1 1 /
+ 1 1 10 /
  1 1 20 /
 /
 
