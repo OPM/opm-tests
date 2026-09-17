@@ -1,0 +1,383 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- -----------------------------------------------------------------------------
+-- Fast variant of model2 to verify potentials are used when sum(guiderates) = 0
+-- Proper fall-back ensures the production target of group RES is not exceeded.
+-- -----------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 13 22 11 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg   max.ALQ    max.tabs
+  40        20        20       20        13         60      /
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+--
+GRIDOPTS
+ 'YES'	      0 / 
+
+EQLDIMS
+ 2 1*  25 /
+
+
+EQLOPTS
+ THPRES  /   
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          1       1*            2    /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10	    15 	          8	     10   /
+
+
+WSEGDIMS
+-- nswlmx  nsegmx  nlbrmx
+  10       20     1 /
+
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  10          1      50          60         2         60 /
+
+--
+FAULTDIM
+120 / max. number os fault segments
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+--
+PINCH
+ 0.001   GAP  1*   TOPBOT   ALL /
+
+MINPVV
+ 1144*100 2002*300 /
+
+
+
+INCLUDE
+ 'include/mod2a_13x22x11.grdecl' /
+
+INCLUDE
+ 'include/fluxmun.grdecl' /
+
+
+INCLUDE
+ 'include/faults.grdecl' /
+
+
+INCLUDE
+ 'include/poro.grdecl' /
+
+INCLUDE
+ 'include/permx.grdecl' /
+
+INCLUDE
+ 'include/ntg.grdecl' /
+
+
+INCLUDE
+ 'include/multz.grdecl' /
+
+INCLUDE
+ 'include/multx.grdecl' /
+
+INCLUDE
+ 'include/multy.grdecl' /
+
+COPY
+ PERMX PERMY /
+/
+
+
+INCLUDE
+ 'include/permz.grdecl'/
+ 
+
+MULTREGT 
+ 1  2	 0.0  2* F / 
+/
+
+
+RPTGRID
+ 'ALLNNC' /
+ 
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/fault_trans_xy.inc' /
+
+MULTIPLY
+ 'TRANZ'   0.05  1  13  1  22  8  8  /
+/
+
+INCLUDE
+ 'include/fault_editnnc.inc' /
+
+MULTFLT
+ 'F1'  0.1 /
+ 'F2'  0.2 /
+ 'F3'  0.3 /
+ 'F4'  0.4 /
+/
+ 
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+  'include/PVT-DRY-GAS-LIVE-OIL.INC' /
+
+INCLUDE
+ 'include/rock.inc' /
+
+INCLUDE
+ 'include/relperm_ow.inc' /
+
+INCLUDE
+ 'include/relperm_go.inc' /
+
+INCLUDE
+ 'include/swatinit.grdecl' /
+
+ 
+INCLUDE
+ 'include/swl.grdecl' /
+
+-- SWCR = SWL
+-- SGU = 1-SWL
+COPY
+  SWL  SWCR /
+  SWL  SGU  /
+/
+
+EQUALS
+ 'SGL' 0.0 /
+/
+
+MULTIPLY
+  SGU -1.0 /
+/
+
+ADD 
+  SGU 1.0 /
+/
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/eqlnum.grdecl' /
+
+INCLUDE
+ 'include/fipnum.grdecl' /
+
+INCLUDE
+ 'include/satnum.grdecl' /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2561.59  268.55  2945.21   0.0 2861.59  0.0   1   0   0 /  
+ 2584.20  268.71 2985.21   0.0 2884.20  0.0   5   0   0 /   
+
+RSVD
+ 2561.59  122.30
+ 2597.0  110.00
+ 2660.7  106.77
+ 2697.0  106.77 /
+
+ 2584.20  122.41
+ 2599.9  110.00
+ 2663.6  106.77
+ 2699.9  106.77 /
+
+
+THPRES
+ 1  2 /
+/
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+
+INCLUDE
+ 'include/summary.inc' /
+
+-- Guide rates and potentials, so the two runs can be compared directly
+WOPP
+/
+WGPP
+/
+WOPGR
+/
+WGPGR
+/
+GOPR
+/
+GGPR
+/
+GWPR
+/
+
+WMCTL
+/
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+TUNING
+ 1* 1 /
+/
+/
+
+
+RPTRST
+ 'BASIC=2' /
+  
+--   			      FIELD
+--   				|
+--   			       RES
+--   		     -----------+-------------------
+--   		    |			                  |	      
+--   		  PROD  		                 INJE     
+--           ---+------------+                |
+--            PRODA        PRODB              |
+--              |            |                |
+--   	     +-----+------+------+            +----+----+ 
+--   	     |     |	  |      |            |	        |  
+--   	  PROD1  PROD2  PROD3  PROD4        INJ1      INJ2
+
+GRUPTREE
+   'RES'     'FIELD' /
+   'INJE'     'RES'  /
+   'PROD'     'RES'  /
+   'PRODA'    'PROD'  /
+   'PRODB'    'PROD'  /
+/
+
+
+GCONPROD
+ 'RES'   GRAT  10000 12000 0.4E6  15000 RATE  'NO'  9* /
+/
+
+-- Check guide rate fall-back to potentials
+--
+--   A = 0.5, B = 1, C = D = E = F = 0   =>   guide rate = sqrt(oil potential)
+--
+-- Since there is no oil in the model, guide rate sums should be zero and fall back to 
+-- gas potentials ensures the target is reached and not exceeded. 
+GUIDERAT
+  0.0 'OIL' 0.5 1 /
+
+GCONINJE
+ 'RES'      'WATER'  'VREP'  3*   1.25  /
+ 'RES'      'GAS'    'REIN'  2*   1.0  /
+/ 
+
+WELSPECS
+-- Well    Grp      I  J  RefDepth  Type  DrainRad  GasInEq  AutoShut  XFlow  FluidPVT  HydSDens  FluidInPlReg
+  'PROD1'  'PRODA'  6  3     1*      OIL    0.0       STD      SHUT      YES    0         SEG       0 /
+  'PROD3'  'PRODB'  11  19   1*      OIL    0.0       STD      SHUT      YES    0         SEG       0 /
+  'PROD4'  'PRODB'  11  6    1*      OIL    0.0       STD      SHUT      YES    0         SEG       0 /
+  'PROD2'  'PRODA'  10  4    1*      OIL    0.0       STD      SHUT      YES    0         SEG       0 /
+  'INJ1'   'INJE'	2  13    1*      GAS    0.0	      STD	   SHUT      YES    0	      SEG       0 /
+  'INJ2'   'INJE'  12  20    1*     WATER   0.0       STD      SHUT      YES    0         SEG       0 /
+/
+
+INCLUDE
+ './include/prod1_compl.inc' /
+INCLUDE
+ './include/prod2_compl.inc' /
+INCLUDE
+ './include/prod3_compl.inc' /
+INCLUDE
+ './include/prod4_compl.inc' /
+
+INCLUDE
+ './include/inj1_compl.inc' /
+INCLUDE
+ './include/inj2_compl.inc' /
+
+
+WCONPROD
+-- WellN  Status  CtrlMode  Qo    Qw     Qg     Qliq    Qresv   bhp   
+ 'PROD1'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  / 
+ 'PROD2'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  / 
+ 'PROD3'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  / 
+ 'PROD4'  'OPEN'  'GRUP'  4000.0    1*  4.0E6    8000.0    1*    60.0  / 
+/
+
+WCONINJE
+-- WellN  Type    Status  CtrlMode   SurfRate  ResVol   bhp    
+ 'INJ1'   'GAS'   'OPEN'    'RATE'      1.6E6    1*     500.0    / 
+ 'INJ2'   'WATER' 'OPEN'    'RATE'     8000.0    1*     500.0    / 
+/
+
+TSTEP
+  10*1 /
+
+END
+
