@@ -1,0 +1,222 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026, SINTEF Digital
+
+-- Equilibration of the six-component SPE5 fluid from COMPVD with a gas-oil
+-- contact inside the column (EQUIL item 10 set to 3). The COMPVD table names
+-- both phases: its liquid rows describe the zone below the contact and its
+-- vapour rows the gas cap above it. The contact pressure is the saturation
+-- pressure of the contact liquid. This is the COMPVD counterpart of
+-- EQUIL_1D_ZMFVD_OIL. There are no wells; the few short time steps only
+-- verify that the initial state is stable.
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   COMPOSITIONAL EQUILIBRATION WITH COMPVD, LIQUID COMPOSITION
+
+METRIC
+TABDIMS
+/
+OIL
+GAS
+DIMENS
+1 1 20 /
+
+COMPS
+6 /
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+EQLDIMS
+/
+
+UNIFIN
+UNIFOUT
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INIT
+GRIDFILE
+0 1 /
+DX
+20*5 /
+
+DY
+20*100 /
+
+DZ
+  20*5 /
+
+TOPS
+  1*2000.0 /
+
+PORO
+  20*0.3/
+
+PERMX
+  20*2000/
+
+PERMY
+  20*2000/
+
+PERMZ
+  20*2000/
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+CNAMES
+C1
+C3
+C6
+C10
+C15
+C20
+/
+
+ROCK
+68.9476 0 /
+
+-- SPE5 six-component fluid (Killough & Kossack, SPE 16000), converted to
+-- METRIC from the published FIELD values.
+EOS
+PR /
+
+BIC
+0.0
+0.0  0.0
+0.0  0.0  0.0
+0.05 0.005 0.0 0.0
+0.05 0.005 0.0 0.0 0.0
+/
+
+ACF
+0.0130
+0.1524
+0.3007
+0.4885
+0.6500
+0.8500
+/
+PCRIT
+46.0432
+42.4924
+30.1232
+20.9601
+13.7895
+11.1695
+/
+TCRIT
+190.556
+369.833
+507.444
+617.667
+705.556
+766.667
+/
+MW
+16.040
+44.100
+86.180
+142.290
+206.000
+282.000
+/
+VCRIT
+0.09979
+0.20045
+0.36976
+0.62969
+1.04228
+1.34114
+/
+
+COMPVD
+-- depth  C1     C3     C6     C10    C15    C20   flag  Psat
+-- The vapour rows carry the gas-cap composition and the liquid rows the
+-- liquid composition of the matching ZMFVD case; the saturation pressure
+-- is the computed value at the 2050 m contact and is approximate away
+-- from it.
+ 2000   0.97482 0.01466 0.00704 0.00314 0.00032 0.00002  0  157.255
+ 2049   0.97482 0.01466 0.00704 0.00314 0.00032 0.00002  0  157.255
+ 2050   0.49800 0.03000 0.07000 0.20060 0.15100 0.05040  1  157.255
+ 2100   0.40000 0.03000 0.07000 0.23000 0.20000 0.07000  1  150.000 /
+
+RTEMP
+-- 344.26 K, the SPE5 reservoir temperature of 160 degF
+71.11
+/
+
+SGOF
+-- Sg    Krg    Kro    Pcgo
+0.0000 0.0000 1.0000 0.0000
+0.1000 0.0100 0.8100 0.0000
+0.2000 0.0400 0.6400 0.0000
+0.3000 0.0900 0.4900 0.0000
+0.4000 0.1600 0.3600 0.0000
+0.5000 0.2500 0.2500 0.0000
+0.6000 0.3600 0.1600 0.0000
+0.7000 0.4900 0.0900 0.0000
+0.8000 0.6400 0.0400 0.0000
+0.9000 0.8100 0.0100 0.0000
+1.0000 1.0000 0.0000 0.0000
+/
+
+STCOND
+15.0 1.0 /
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+RPTRST
+  BASIC=2 PRESSURE SOIL SGAS PSAT XMF YMF VMF ZMF POIL PGAS DENG DENO /
+
+EQUIL
+-- datum  datum   WOC    WOC    GOC    GOC
+-- depth  press   depth  Pcow   depth  Pcog
+   2010     160    2300   0      2050    0  3* 3   /
+
+RPTSOL
+  PRESSURE SOIL SGAS POIL PGAS DENG DENO /
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+ALL
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+RPTSCHED
+  'PRES' SGAS /
+
+RPTRST
+BASIC = 2
+PRESSURE
+SGAS
+SOIL
+PSAT
+XMF
+YMF
+ZMF
+DENO
+DENG
+VGAS
+VOIL
+/
+
+TSTEP
+    0.0100
+    0.0200
+    0.1
+    0.2
+/
+END
