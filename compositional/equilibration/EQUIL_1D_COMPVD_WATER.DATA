@@ -250,7 +250,137 @@ RPTSOL
 ------------------------------------------------------------------------
 SUMMARY
 ------------------------------------------------------------------------
-ALL
+-- Every block vector the compositional simulator fills, at the top of the
+-- column (1), the two cells straddling the water-oil contact (30 and 31) and
+-- the bottom of the water (40), plus the field average pressure. The gas-oil
+-- and water-oil contacts coincide here, so cell 30 holds the vapour COMPVD
+-- names with its connate water and cell 31 holds water alone; the pressure and
+-- density vectors there pin the change of hydrostatic gradient across the
+-- contact. There is no oil zone, so the oil vectors are zero throughout and
+-- pin the phase-absent path. Nothing moves over this schedule; the vectors
+-- pin the equilibrated state.
+
+FPR
+
+BPR
+ 1 1 1 /
+ 1 1 30 /   -- above the water-oil contact
+ 1 1 31 /   -- below it
+ 1 1 40 /
+/
+
+BGPR
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BRPV
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BOPV
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BGPV
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BSOIL
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BSGAS
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BDENO
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BDENG
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BVOIL
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BVGAS
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BTEMP
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BWPR
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BWPV
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BSWAT
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BDENW
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BVWAT
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
 
 ------------------------------------------------------------------------
 SCHEDULE

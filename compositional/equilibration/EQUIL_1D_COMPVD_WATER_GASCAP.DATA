@@ -272,7 +272,169 @@ RPTSOL
 ------------------------------------------------------------------------
 SUMMARY
 ------------------------------------------------------------------------
-ALL
+-- Every block vector the compositional simulator fills, at the top of the gas
+-- cap (1), the two cells straddling the gas-oil contact (24 and 25), the two
+-- straddling the water-oil contact (34 and 35) and the bottom of the water
+-- (40), plus the field average pressure. The COMPVD table names both phases,
+-- so cells 24 and 25 pin the vapour and liquid rows either side of the gas-oil
+-- contact, while 34 and 35 pin the hydrocarbon-to-water transition. Nothing
+-- moves over this schedule; the vectors pin the equilibrated state.
+
+FPR
+
+BPR
+ 1 1 1 /
+ 1 1 24 /   -- above the gas-oil contact
+ 1 1 25 /   -- below it
+ 1 1 34 /   -- above the water-oil contact
+ 1 1 35 /   -- below it
+ 1 1 40 /
+/
+
+BGPR
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BRPV
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BOPV
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BGPV
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BSOIL
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BSGAS
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BDENO
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BDENG
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BVOIL
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BVGAS
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BTEMP
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BWPR
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BWPV
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BSWAT
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BDENW
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
+BVWAT
+ 1 1 1 /
+ 1 1 24 /
+ 1 1 25 /
+ 1 1 34 /
+ 1 1 35 /
+ 1 1 40 /
+/
+
 
 ------------------------------------------------------------------------
 SCHEDULE

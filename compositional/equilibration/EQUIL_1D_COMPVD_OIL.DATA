@@ -190,7 +190,99 @@ RPTSOL
 ------------------------------------------------------------------------
 SUMMARY
 ------------------------------------------------------------------------
-ALL
+-- Every block vector the compositional simulator fills, at the top of the gas
+-- cap (1), the two cells straddling the gas-oil contact (10 and 11) and the
+-- bottom of the liquid (20), plus the field average pressure. Cells 10 and 11
+-- are where EQUIL item 10 = 3 decides the state: the COMPVD vapour rows above
+-- the contact and its liquid rows below. Nothing moves over this schedule; the
+-- vectors pin the equilibrated state.
+
+FPR
+
+BPR
+ 1 1 1 /
+ 1 1 10 /   -- above the gas-oil contact
+ 1 1 11 /   -- below it
+ 1 1 20 /
+/
+
+BGPR
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BRPV
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BOPV
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BGPV
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BSOIL
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BSGAS
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BDENO
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BDENG
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BVOIL
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BVGAS
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
+BTEMP
+ 1 1 1 /
+ 1 1 10 /
+ 1 1 11 /
+ 1 1 20 /
+/
+
 
 ------------------------------------------------------------------------
 SCHEDULE
