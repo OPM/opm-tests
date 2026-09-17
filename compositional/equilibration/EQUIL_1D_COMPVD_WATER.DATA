@@ -20,7 +20,6 @@ RUNSPEC
 TITLE
 COMPOSITIONAL EQUILIBRATION WITH COMPVD OVER A WATER ZONE
 
--- similar to EQLNUM 7, where GOC=WOC, and comp above this depth is given which is in gas phase
 METRIC
 
 TABDIMS
@@ -98,9 +97,7 @@ ROCK
 
 COMPVD
 -- depth  CH4  CO2  C2H6  C3H8  C4-C9 C10-C20  C21+
-2450 0.88583 0.0437 0.034 0.0189 0.0152 0.0023 0.00007 0 195 / 
-
-
+2450 0.88583 0.0437 0.034 0.0189 0.0152 0.0023 0.00007 0 195 /
 
 
 RTEMP
@@ -157,7 +154,7 @@ OMEGAB
    0.0777961
    0.0777961
    0.0777961 /
-   
+
 TBOIL
 111.55	194.55	184.35	230.95	349.09	490	642 /
 
@@ -171,16 +168,6 @@ ZCRIT
 0.250420786731195
 /
 
--- PARACHOR is not supported by opm-common. It affects flow physics,
--- not hydrostatic equilibration, so the initial state is unchanged.
--- PARACHOR
--- 77
--- 78
--- 108
--- 150.3
--- 223.977058
--- 456.6382
--- 780.064 /
 
 SSHIFT
 -0.1595
@@ -235,16 +222,14 @@ RPTRST                                 -- Generated : Petrel
   BASIC=2 PRESSURE SOLVD SOIL SWAT SGAS PSAT XMF YMF VMF ZMF PPCG POIL PGAS DENG DENO/
 
 
---	DATUM	DATUM	OWC	OWC	GOC	GOC	RSVD	RVVD	SOLN			
---	DEPTH	PRESS	DEPTH	PCOW	DEPTH	PCOG	TABLE	TABLE	METH			
-EQUIL												
+--	DATUM	DATUM	OWC	OWC	GOC	GOC	RSVD	RVVD	SOLN
+--	DEPTH	PRESS	DEPTH	PCOW	DEPTH	PCOG	TABLE	TABLE	METH
+EQUIL
 	2500	280	 2450	0	2450	0	3*	1	1	/
 
 
 RPTSOL
   PRESSURE SOLVD SOIL SWAT SGAS PSAT XMF YMF VMF ZMF PPCG POIL PGAS DENG DENO /
-
-
 
 
 ------------------------------------------------------------------------

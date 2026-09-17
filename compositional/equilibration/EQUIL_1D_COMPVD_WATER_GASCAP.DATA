@@ -47,7 +47,6 @@ EQLDIMS
 IMPES
 
 
-
 UNIFIN
 UNIFOUT
 ------------------------------------------------------------------------
@@ -97,21 +96,13 @@ ROCK
 68.9476
 0
 /
--- FACTLI is not supported by opm-common. It affects flow physics,
--- not hydrostatic equilibration, so the initial state is unchanged.
--- FACTLI
---  1*1.0 /
 
 COMPVD
 -- depth  CH4  CO2  C2H6  C3H8  C4-C9 C10-C20  C21+
 
-2573.5	0.73779563 0.04261 0.122439 0.04501 0.04351  0.007502 0.0011211	0	277.56		
-2574.5	0.41	0.045	0.105	0.0527	0.0951	0.0844	0.2078	1	277.76	/	--EQLNUM-lumped	8.
+2573.5	0.73779563 0.04261 0.122439 0.04501 0.04351  0.007502 0.0011211	0	277.56
+2574.5	0.41	0.045	0.105	0.0527	0.0951	0.0844	0.2078	1	277.76	/
 
-
-
-
---277
 
 RTEMP
 100
@@ -167,14 +158,14 @@ OMEGAB
    0.0777961
    0.0777961
    0.0777961 /
-   
+
 TBOIL
-111.55	
-194.55	
-184.35	
-230.95	
-349.09	
-490	
+111.55
+194.55
+184.35
+230.95
+349.09
+490
 642
 /
 
@@ -188,16 +179,6 @@ ZCRIT
 0.250420786731195
 /
 
--- PARACHOR is not supported by opm-common. It affects flow physics,
--- not hydrostatic equilibration, so the initial state is unchanged.
--- PARACHOR
--- 77
--- 78
--- 108
--- 150.3
--- 223.977058
--- 456.6382
--- 780.064 /
 
 SSHIFT
 -0.1595
@@ -256,17 +237,14 @@ RPTRST                                 -- Generated : Petrel
   BASIC=2 PRESSURE SOLVD SOIL SWAT SGAS PSAT XMF TEMP YMF VMF ZMF PPCG POIL PGAS DENG DENO/
 
 
---	DATUM	DATUM	OWC	OWC	GOC	GOC	RSVD	RVVD	SOLN			
---	DEPTH	PRESS	DEPTH	PCOW	DEPTH	PCOG	TABLE	TABLE	METH			
-EQUIL												
-2574.5	277	 2624	0	2574	0	3*	1	1	/	-- EQLNUM	8
-
+--	DATUM	DATUM	OWC	OWC	GOC	GOC	RSVD	RVVD	SOLN
+--	DEPTH	PRESS	DEPTH	PCOW	DEPTH	PCOG	TABLE	TABLE	METH
+EQUIL
+2574.5	277	 2624	0	2574	0	3*	1	1	/
 
 
 RPTSOL
   PRESSURE SOLVD SOIL SWAT SGAS PSAT XMF YMF VMF TEMP ZMF PPCG POIL PGAS DENG DENO /
-
-
 
 
 ------------------------------------------------------------------------
