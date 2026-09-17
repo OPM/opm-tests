@@ -205,8 +205,39 @@ INCLUDE
 ALL
 WTHP
 /
+-- Network node pressure
 GPR
 /
+-- Production network node outlet branch pressure drop
+GPRB
+/
+-- Production network node outlet branch oil rate
+GOPRNB
+/
+-- Production network node outlet branch water rate
+GWPRNB
+/
+-- Production network node outlet branch liquid rate
+GLPRNB
+/
+-- Production network node outlet branch gas rate
+GGPRNB
+/
+-- Node and network quantities above, but evaluated at end of converged time step.
+-- (Vectors differ for networks that are not balanced, see NETBALAN).
+GPR2
+/
+GPRB2
+/
+GOPRNB2
+/
+GWPRNB2
+/
+GLPRNB2
+/
+GGPRNB2
+/
+
 
 ------------------------------------------------------------------------------------------------
 SCHEDULE
