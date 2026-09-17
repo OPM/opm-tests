@@ -1,0 +1,40 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- A CON limit on completion 3 and an independent '+CON' limit on completion 4
+-- of the same well.  The '+CON' fires first, at day 7.1, the CON at day 19.1,
+-- and both report WPWE2 = 1: the workover that closed the connection does not
+-- change the count.  Neither leaves the well on its topmost completion, so
+-- WPWE3 stays silent.  Each event is reported on its own timestep and reset on
+-- the next.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 2.0 3.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+CECON
+ 'B-1H' 2* 3 3 0.6 2* 'CON' /
+ 'B-1H' 2* 4 4 0.6 2* '+CON' /
+/
+
+DATES
+  01 'FEB' 2020 /
+  08 'FEB' 2020 /
+/
+END

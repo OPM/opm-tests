@@ -1,0 +1,86 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Do deck-driven connection changes count towards WPWE1 and WPWE2, and is
+-- WPWE1 suppressed while the well is stopped?  No CECON and no WTEST on the
+-- probes, so every connection change below comes from WELOPEN alone.
+--
+--   B-1H  open producer, one connection shut   -> WPWE2 = 1 at day 34
+--   B-2H  open producer, one connection opened -> WPWE1 = 1 at day 34
+--   B-3H  stopped producer, same reopen        -> silent
+--
+-- So they do count, and the manual's "if the well is not shut or stopped"
+-- qualification on WPWE1 holds: B-2H against B-3H isolates that gate.
+--
+-- C-1H carries a CECON CON workover as an internal control, closing one
+-- connection at a time on days 10.3, 34, 150 and 311, with WPWE3 on the last
+-- of those.  It is the only economic limit in the deck and touches no other
+-- well, so the three probes above stay purely deck-driven.
+
+INCLUDE
+ 'include/wpwe-model.inc' /
+
+SUMMARY
+INCLUDE
+ 'include/wpwe-summary.inc' /
+
+SCHEDULE
+TUNING
+ 2.0 3.0 1.0e-4 /
+ /
+ /
+
+INCLUDE
+ 'include/wpwe-wells.inc' /
+
+-- Part of the initial state: no timestep has elapsed, so these closures are
+-- not themselves events under any reading.
+WELOPEN
+ 'B-2H'  'SHUT'  8  7 3 2* /
+ 'B-3H'  'SHUT' 14 12 3 2* /
+/
+
+WCONPROD
+ 'B-3H' 'STOP' 'ORAT' 1500.0 4* 100.0 /
+/
+
+CECON
+ 'C-1H' 2* 1 5 0.6 2* 'CON' /
+/
+
+-- Produce for a month first, so the deck acts on flowing wells.
+DATES
+  01 'FEB' 2020 /
+/
+
+
+WELOPEN
+ 'B-1H'  'SHUT' 15  3 2 2* /
+ 'B-2H'  'OPEN'  8  7 3 2* /
+ 'B-3H'  'OPEN' 14 12 3 2* /
+/
+
+DATES
+  01 'MAR' 2020 /
+  01 'APR' 2020 /
+  01 'MAY' 2020 /
+  01 'JUN' 2020 /
+  01 'JUL' 2020 /
+  01 'AUG' 2020 /
+  01 'SEP' 2020 /
+  01 'OCT' 2020 /
+  01 'NOV' 2020 /
+  01 'DEC' 2020 /
+  01 'JAN' 2021 /
+  01 'FEB' 2021 /
+  01 'MAR' 2021 /
+  01 'APR' 2021 /
+  01 'MAY' 2021 /
+  01 'JUN' 2021 /
+  01 'JUL' 2021 /
+/
+END
