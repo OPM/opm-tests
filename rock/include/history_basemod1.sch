@@ -14,7 +14,7 @@
 
 -- Define data to be written to the RESTART file
 RPTRST
- 'BASIC=2' /
+ 'BASIC=2' 'RPORV'/
 
 
 -- Define well specifications 
