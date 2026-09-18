@@ -234,9 +234,14 @@ INCLUDE
 -- There is no data required for this keyword. 
 STONE1
 
--- PVT data - PVTW, ROCK, DENSITY, PVTO, PVTG
+-- ROCK: Define the rock compressibility for the two PVTNUM/rock regions.
+ROCK
+-- REF. PRES   COMPRESSIBILITY
+   280.000        5.6E-5 /
+   250.000        5.6E-4 /
+
+-- PVT data - PVTW, DENSITY, PVTO, PVTG
 -- PVTW: Define water fluid properties for various regions 
--- ROCK: Define the rock compressibility for various regions 
 -- Density: Define the surface oil, water gas densities for the fluids 
 -- PVTO: Oil PVT properties for live oil 
 -- PVTG: Gas PVT properties for wet gas
