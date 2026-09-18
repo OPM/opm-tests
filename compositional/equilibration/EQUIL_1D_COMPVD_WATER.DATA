@@ -1,0 +1,403 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024, SINTEF Digital, TNO
+
+-- Equilibration of a seven-component gas condensate from COMPVD over a water
+-- zone. Every COMPVD row names the vapour, so the phase flag - not the datum's
+-- side of the gas-oil contact - selects the equation-of-state root; the datum
+-- at 2500 m lies below the water-oil contact at 2450 m, so it states the water
+-- pressure and the hydrocarbon takes its pressure at the contact. Above the
+-- contact the column keeps the connate water of the saturation function, below
+-- it the pore space holds water alone. There are no wells; the few short time
+-- steps only verify that the initial state is stable.
+
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+COMPOSITIONAL EQUILIBRATION WITH COMPVD OVER A WATER ZONE
+
+METRIC
+
+TABDIMS
+/
+OIL
+GAS
+WATER
+DIMENS
+1 1 40 /
+
+COMPS
+7 /
+
+WELLDIMS
+2 2 1* 2/
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+EQLDIMS
+/
+IMPES
+UNIFIN
+UNIFOUT
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INIT
+GRIDFILE
+0 1 /
+DX
+40*100 /
+
+DY
+40*100 /
+
+DZ
+  40*5 /
+
+TOPS
+  1*2300.0 /
+
+PORO
+  40*0.3/
+
+PERMX
+  40*2000/
+
+PERMY
+  40*2000/
+
+PERMZ
+  40*2000/
+
+------------------------------------------------------------------------
+EDIT
+------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+
+CNAMES
+CH4  CO2  C2H6  C3H8  C4-C9 C10-C20  C21+
+/
+
+ROCK
+68.9476
+0
+/
+
+COMPVD
+-- depth  CH4  CO2  C2H6  C3H8  C4-C9 C10-C20  C21+
+2450 0.88583 0.0437 0.034 0.0189 0.0152 0.0023 0.00007 0 195 /
+
+
+RTEMP
+120
+/
+
+EOS
+PR /
+
+BIC
+            1.0500000E-01
+            2.6890022E-03  1.3000000E-01
+            8.5370405E-03  1.2500000E-01  1.6620489E-03
+            2.2915937E-02  0.0000000E+00  1.0088696E-02  3.5952572E-03
+            5.4875390E-02  0.0000000E+00  3.4227722E-02  2.1174720E-02  7.4706799E-03
+            8.1972182E-02  0.0000000E+00  5.6906187E-02  4.0015457E-02  2.0180685E-02  3.1846386E-03
+/
+
+ACF
+8.0000000E-03  2.2500000E-01  9.8000000E-02  1.5200000E-01  2.5490000E-01
+5.5100000E-01  9.0900000E-01
+/
+PCRIT
+4.5400000E+01  7.2800000E+01  4.8200000E+01  4.1900000E+01  3.2400000E+01
+2.0420000E+01  1.4500000E+01
+/
+TCRIT
+1.9060000E+02  3.0420000E+02  3.0540000E+02  3.6980000E+02  4.7470000E+02
+6.4600000E+02  8.1200000E+02
+/
+MW
+ 1.6043000E+01  4.4010000E+01  3.0070000E+01  4.4097000E+01  7.6900000E+01
+1.6300000E+02  3.1085000E+02
+/
+
+VCRIT
+9.9000000E-02  9.4000000E-02  1.4800000E-01  2.0300000E-01  3.2321204E-01
+6.3255728E-01  9.7988801E-01
+/
+OMEGAA
+   0.4572400
+   0.4572400
+   0.4572400
+   0.4572400
+   0.4572356
+   0.4572355
+   0.4572356 /
+-- OmegaB
+OMEGAB
+   0.0778000
+   0.0778000
+   0.0778000
+   0.0778000
+   0.0777961
+   0.0777961
+   0.0777961 /
+
+TBOIL
+111.55	194.55	184.35	230.95	349.09	490	642 /
+
+ZCRIT
+0.2876
+0.2736
+0.2789
+0.2763
+0.250711098445488
+0.23338268298063
+0.250420786731195
+/
+
+
+SSHIFT
+-0.1595
+-0.0817
+-0.1134
+-0.0863
+-0.0243568
+0.10784125400986
+0.206892761354429/
+
+SGFN
+--Sg Krg Pcg
+0.0 0.00 0.0
+0.1 0.00 0.0
+0.2 0.05 0.0
+0.4 0.10 0.0
+0.6 0.40 0.0
+0.8 0.60 0.0
+0.99 0.70 0.0
+/
+
+SWFN
+--Sw Krw Pcw
+0.01 0.0  0.0
+0.20 0.00 0.0
+0.40 0.01 0.0
+0.60 0.20 0.0
+0.80 0.80 0.0
+1.00 1.00 0.0
+/
+
+
+SOF3
+--So  Kro(o-w) Kro (o-g-wi)
+  0.0 0.00 0.0
+0.1 0.00 0.0
+0.2 0.05 0.05
+0.4 0.10 0.10
+0.6 0.40 0.40
+0.8 0.60 0.60
+0.99 0.70 0.70
+/
+
+
+STCOND
+15.0 1.0 /
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+RPTRST                                 -- Generated : Petrel
+  BASIC=2 PRESSURE SOLVD SOIL SWAT SGAS PSAT XMF YMF VMF ZMF PPCG POIL PGAS DENG DENO/
+
+
+--	DATUM	DATUM	OWC	OWC	GOC	GOC	RSVD	RVVD	SOLN
+--	DEPTH	PRESS	DEPTH	PCOW	DEPTH	PCOG	TABLE	TABLE	METH
+EQUIL
+	2500	280	 2450	0	2450	0	3*	1	1	/
+
+
+RPTSOL
+  PRESSURE SOLVD SOIL SWAT SGAS PSAT XMF YMF VMF ZMF PPCG POIL PGAS DENG DENO /
+
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+-- Every block vector the compositional simulator fills, at the top of the
+-- column (1), the two cells straddling the water-oil contact (30 and 31) and
+-- the bottom of the water (40), plus the field average pressure. The gas-oil
+-- and water-oil contacts coincide here, so cell 30 holds the vapour COMPVD
+-- names with its connate water and cell 31 holds water alone; the pressure and
+-- density vectors there pin the change of hydrostatic gradient across the
+-- contact. There is no oil zone, so the oil vectors are zero throughout and
+-- pin the phase-absent path. Nothing moves over this schedule; the vectors
+-- pin the equilibrated state.
+
+FPR
+
+BPR
+ 1 1 1 /
+ 1 1 30 /   -- above the water-oil contact
+ 1 1 31 /   -- below it
+ 1 1 40 /
+/
+
+BGPR
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BRPV
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BOPV
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BGPV
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BSOIL
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BSGAS
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BDENO
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BDENG
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BVOIL
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BVGAS
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BTEMP
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BWPR
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BWPV
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BSWAT
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BDENW
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+BVWAT
+ 1 1 1 /
+ 1 1 30 /
+ 1 1 31 /
+ 1 1 40 /
+/
+
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+RPTSCHED
+	'PRES' 'SWAT' 'TEMP' SGAS  /
+--RPTSCHED
+--'PRESSURE' /
+
+RPTRST
+BASIC = 2
+PRESSURE
+SGAS
+SOIL
+SWAT
+XMF
+YMF
+ZMF
+DENO
+DENG
+VGAS
+VOIL
+/
+
+TSTEP
+    0.0100
+    0.0200
+    -- 0.0400
+    -- 0.0400
+    0.1
+    0.2
+    1.
+    2.
+/
+END
