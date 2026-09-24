@@ -1,3 +1,11 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2015 Statoil
+-- Copyright (C) 2026 Equinor ASA
+
 -- Parallel WPWE regression based on SPE9_CP_SHORT.  With four ranks and the
 -- simple partitioner, PRODU16 spans ranks 1 and 2 while PRODU17 stays on rank 2.
 -- CECON CON closes PRODU17's bottom completion at day 3; +CON closes PRODU16's top

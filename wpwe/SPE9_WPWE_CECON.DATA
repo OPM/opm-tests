@@ -86,7 +86,7 @@ RSVD
 SUMMARY
 
 INCLUDE
- '../spe9/SUMMARY.INC' /
+ 'include/SUMMARY.INC' /
 
 WPWE0
 /

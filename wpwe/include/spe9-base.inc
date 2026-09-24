@@ -1,3 +1,11 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2015 Statoil
+-- Copyright (C) 2026 Equinor ASA
+
 -- SPE9 base data, with nested include paths relative to this WPWE deck.
 RUNSPEC
 
@@ -55,7 +63,7 @@ NOECHO
 INIT
 
 INCLUDE
-	'../spe9/SPE9.GRDECL' /
+	'include/SPE9.GRDECL' /
 
 PORO
 -- Porosity in each level is constant
@@ -78,7 +86,7 @@ PORO
 
 -- PERMX, PERMY & PERMZ
 INCLUDE
-	'../spe9/PERMVALUES.DATA' /
+	'include/PERMVALUES.DATA' /
 
 ECHO
 
