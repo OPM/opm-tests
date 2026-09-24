@@ -1,0 +1,133 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024, SINTEF Digital, TNO
+-- Copyright (C) 2026, SINTEF Digital
+
+-- A CO2 flood with mobile water in a 30-cell row with one connection per well.
+-- The producer has a water-rate limit (WRAT) that takes over from bottom-hole
+-- pressure control when the water rate reaches it. This tests the control
+-- change while water is produced with hydrocarbons. The schedule spans 50
+-- days in 36 report steps.
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   SIMPLE CO2 INJECTION WITH MOBILE WATER AND A WATER RATE LIMIT
+
+METRIC
+
+TABDIMS
+/
+OIL
+GAS
+WATER
+DIMENS
+30 1 1
+/
+
+COMPS
+3 /
+
+FULLIMP
+
+WELLDIMS
+2 2 1* 2/
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INCLUDE
+ 'include/GRID.inc' /
+
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+INCLUDE
+ 'include/PROPS.inc' /
+
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+
+PRESSURE
+30*75.
+/
+
+SGAS
+30*0.5
+/
+
+SWAT
+30*0.5
+/
+
+TEMPI
+30*150
+/
+
+ZMF
+30*0.1
+30*0.3
+30*0.6
+/
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+INCLUDE
+ 'include/SUMMARY.inc' /
+
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+
+INCLUDE
+ 'include/REPORTING.inc' /
+
+
+WELSPECS
+INJ  FIELD  1 1 1* GAS /
+PROD FIELD 30 1 1* GAS /
+/
+COMPDAT
+INJ   1 1 1 1 OPEN 2* 0.0151 /
+PROD 30 1 1 1 OPEN 2* 0.0151 /
+/
+
+WELLSTRE
+ISTR 1.0 0.0 0.0 /
+/
+
+WINJGAS
+INJ STREAM ISTR /
+/
+
+WCONINJE
+INJ GAS OPEN BHP 100000 1* 150 /
+/
+
+WCONPROD
+PROD OPEN BHP 1* 0.1 100000 2* 50 /
+/
+
+TSTEP
+0.01 0.02 0.04 0.08 0.15 0.3 0.4
+9*1.0
+20*2.0
+/
+END
