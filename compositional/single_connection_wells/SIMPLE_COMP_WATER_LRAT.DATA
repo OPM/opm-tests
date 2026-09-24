@@ -1,0 +1,124 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024, SINTEF Digital, TNO
+-- Copyright (C) 2026, SINTEF Digital
+
+-- A water flood of undersaturated oil in a 30-cell row. Each well has one
+-- connection. Unlike SIMPLE_COMP_WATERFLOOD, the producer requests liquid
+-- rate control (LRAT) with a bottom-hole pressure limit. This tests the
+-- control as water breaks through and contributes to the produced liquid.
+-- The schedule spans 200 days in 83 report steps.
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   COMPOSITIONAL WATER FLOOD WITH LIQUID RATE CONTROL
+
+METRIC
+
+TABDIMS
+/
+OIL
+GAS
+WATER
+DIMENS
+30 1 1
+/
+
+COMPS
+3 /
+
+FULLIMP
+
+WELLDIMS
+2 2 1* 2/
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INCLUDE
+ 'include/GRID.inc' /
+
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+INCLUDE
+ 'include/PROPS.inc' /
+
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+
+PRESSURE
+30*150.
+/
+
+SGAS
+30*0.0
+/
+
+SWAT
+30*0.2
+/
+
+TEMPI
+30*150
+/
+
+ZMF
+30*0.05
+30*0.15
+30*0.80
+/
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+INCLUDE
+ 'include/SUMMARY.inc' /
+
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+
+INCLUDE
+ 'include/REPORTING.inc' /
+
+
+WELSPECS
+INJ  FIELD  1 1 1* WATER /
+PROD FIELD 30 1 1* OIL /
+/
+COMPDAT
+INJ   1 1 1 1 OPEN 2* 0.0151 /
+PROD 30 1 1 1 OPEN 2* 0.0151 /
+/
+
+WCONINJE
+INJ WATER OPEN RATE 0.4 1* 175 /
+/
+
+WCONPROD
+PROD OPEN LRAT 3* 0.3 1* 120 /
+/
+
+TSTEP
+0.1 0.4 0.5 1.0 3.0
+78*2.5
+/
+END

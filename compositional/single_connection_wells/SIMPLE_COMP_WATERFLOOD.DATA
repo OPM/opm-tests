@@ -1,0 +1,128 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024, SINTEF Digital, TNO
+-- Copyright (C) 2026, SINTEF Digital
+
+-- A water flood of undersaturated oil in a 30-cell compositional row.
+-- A single-connection injector and producer sit at opposite ends. Water starts
+-- at its connate saturation (krw = 0), so the producer initially lifts oil
+-- alone, then oil and water after breakthrough around day 40.
+--
+-- The injector is on rate control with a pressure limit it reaches around day
+-- 25, as the water bank builds up ahead of it. It stays on the limit until the
+-- breakthrough improves its injectivity and returns to its rate at day 47.
+-- The schedule spans 200 days in 83 report steps.
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   SIMPLE COMPOSITIONAL WATER FLOOD
+
+METRIC
+
+TABDIMS
+/
+OIL
+GAS
+WATER
+DIMENS
+30 1 1
+/
+
+COMPS
+3 /
+
+FULLIMP
+
+WELLDIMS
+2 2 1* 2/
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INCLUDE
+ 'include/GRID.inc' /
+
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+INCLUDE
+ 'include/PROPS.inc' /
+
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+
+PRESSURE
+30*150.
+/
+
+SGAS
+30*0.0
+/
+
+SWAT
+30*0.2
+/
+
+TEMPI
+30*150
+/
+
+ZMF
+30*0.05
+30*0.15
+30*0.80
+/
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+INCLUDE
+ 'include/SUMMARY.inc' /
+
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+
+INCLUDE
+ 'include/REPORTING.inc' /
+
+
+WELSPECS
+INJ  FIELD  1 1 1* WATER /
+PROD FIELD 30 1 1* OIL /
+/
+COMPDAT
+INJ   1 1 1 1 OPEN 2* 0.0151 /
+PROD 30 1 1 1 OPEN 2* 0.0151 /
+/
+
+WCONINJE
+INJ WATER OPEN RATE 0.4 1* 175 /
+/
+
+WCONPROD
+PROD OPEN BHP 5* 120 /
+/
+
+TSTEP
+0.1 0.4 0.5 1.0 3.0
+78*2.5
+/
+END
