@@ -1,0 +1,310 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2024, SINTEF Digital, TNO
+-- Copyright (C) 2026, SINTEF Digital
+
+-- One-dimensional, three-component, three-phase compositional case for
+-- comparing how simulators initialize and evolve water saturation from
+-- explicit SWAT and overall composition (ZMF). The no-well setup avoids
+-- well-model effects so the phase behavior can be examined directly.
+-- The components are CO2, methane, and decane. Large pore volumes in the
+-- first and last cells approximate fixed pressure/composition end states.
+
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   THREE-PHASE COMPOSITIONAL SWAT COMPARISON
+
+METRIC
+
+TABDIMS
+/
+OIL
+GAS
+WATER
+DIMENS
+30 1 1
+/
+
+COMPS
+3 /
+
+FULLIMP /
+
+WELLDIMS
+2 2 1* 2/
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+UNIFOUT
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INIT
+
+DXV
+ 30*10
+/
+DYV
+ 10
+/
+DZV
+ 1
+/
+
+TOPS
+30*10
+/
+
+
+PERMX
+30*100
+/
+
+PERMY
+30*100
+/
+
+PERMZ
+30*100
+/
+
+PORO
+1*1. 28*0.1 1*1.
+/
+------------------------------------------------------------------------
+EDIT
+------------------------------------------------------------------------
+
+MULTIPLY
+PORV 10000000 1 1 1 1 1 1/ --first gridblock
+PORV 10000000 30 30 1 1 1 1/ --last gridblock
+/
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+
+CNAMES
+CO2
+METHANE
+DECANE
+/
+
+ROCK
+68.9476
+0
+/
+
+DENSITY
+1* 1000.0 1* /
+
+PVTW
+1.0 1.0 4e-5 0.5 /
+
+--RTEMP
+--150
+--/
+
+EOS
+--PR /
+SRK /
+
+BIC
+0
+0
+0
+/
+
+ACF
+0.22394
+0.01142
+0.4884
+/
+PCRIT
+73.773
+45.992
+21.03
+/
+TCRIT
+304.128
+190.564
+617.7
+/
+MW
+44.00
+16.04
+142.28
+/
+
+VCRIT
+0.09412
+0.09863
+0.60980
+/
+
+SGOF
+-- Sg    Krg    Kro    Pcgo
+   0.0   0.0    1.0    0.0
+   0.1   0.1    0.9    0.0
+   0.2   0.2    0.8    0.0
+   0.3   0.3    0.7    0.0
+   0.4   0.4    0.6    0.0
+   0.5   0.5    0.5    0.0
+   0.6   0.6    0.4    0.0
+   0.7   0.7    0.3    0.0
+   0.8   0.8    0.2    0.0
+   0.9   0.9    0.1    0.0
+   1.0   1.0    0.0    0.0
+/
+
+SWOF
+   0.0   0.0    1.0    0.0
+   0.1   0.1    0.9    0.0
+   0.2   0.2    0.8    0.0
+   0.3   0.3    0.7    0.0
+   0.4   0.4    0.6    0.0
+   0.5   0.5    0.5    0.0
+   0.6   0.6    0.4    0.0
+   0.7   0.7    0.3    0.0
+   0.8   0.8    0.2    0.0
+   0.9   0.9    0.1    0.0
+   1.0   1.0    0.0    0.0
+/
+
+
+STCOND
+15.0 1.0 /
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+
+
+PRESSURE
+1*150 28*75. 1*37.5
+/
+SGAS
+30*0.8
+/
+SWAT
+30*0.2
+/
+TEMPI
+30*150
+/
+ZMF
+1*0.99 29*0.5
+1*0.009 29*0.3
+1*0.001 29*0.2
+/
+
+-- Write an initial restart and print the initialized cell fluid state for
+-- comparison with other simulators before the first time step.
+RPTSOL
+  RESTART=2
+  PRESSURE SWAT SGAS SOIL
+  XMF YMF ZMF
+  DENO DENG DENW
+  BOIL BGAS BWAT
+  VOIL VGAS VWAT FIP=2
+/
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+
+-- Sample both large-pore-volume end cells, their interior neighbors, and a
+-- middle cell. Pressure, phase saturations, densities, and viscosities give
+-- time series for comparing initialization and subsequent phase behavior.
+BPR
+  1 1 1 /
+  2 1 1 /
+  15 1 1 /
+  29 1 1 /
+  30 1 1 /
+/
+BSWAT
+  1 1 1 /
+  2 1 1 /
+  15 1 1 /
+  29 1 1 /
+  30 1 1 /
+/
+BSGAS
+  1 1 1 /
+  2 1 1 /
+  15 1 1 /
+  29 1 1 /
+  30 1 1 /
+/
+BSOIL
+  1 1 1 /
+  2 1 1 /
+  15 1 1 /
+  29 1 1 /
+  30 1 1 /
+/
+BDENO
+  1 1 1 /
+  2 1 1 /
+  15 1 1 /
+  29 1 1 /
+  30 1 1 /
+/
+BDENG
+  1 1 1 /
+  2 1 1 /
+  15 1 1 /
+  29 1 1 /
+  30 1 1 /
+/
+BVOIL
+  1 1 1 /
+  2 1 1 /
+  15 1 1 /
+  29 1 1 /
+  30 1 1 /
+/
+BVGAS
+  1 1 1 /
+  2 1 1 /
+  15 1 1 /
+  29 1 1 /
+  30 1 1 /
+/
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+
+--RPTSCHED
+--'PRESSURE' /
+
+RPTRST
+BASIC = 2
+PRESSURE
+SGAS
+SOIL
+SWAT
+-- VMF -- Vapor mole fraction
+XMF
+YMF
+ZMF
+DENO
+DENG
+VGAS
+VOIL
+/
+
+TSTEP
+100*0.01
+/
+END
