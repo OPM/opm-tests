@@ -33,7 +33,7 @@ DIMENS
 COMPS
 3 /
 
--- FULLIMP /
+FULLIMP /
 
 WELLDIMS
 2 2 1* 2/
@@ -206,7 +206,16 @@ ZMF
 1*0.001 29*0.2
 /
 
-
+-- Write an initial restart and print the initialized cell fluid state for
+-- comparison with other simulators before the first time step.
+RPTSOL
+  RESTART=2
+  PRESSURE SWAT SGAS SOIL
+  XMF YMF ZMF
+  DENO DENG DENW
+  BOIL BGAS BWAT
+  VOIL VGAS VWAT FIP=2
+/
 
 ------------------------------------------------------------------------
 SUMMARY
