@@ -3,11 +3,16 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2023 Equinor
+-- Copyright (C) 2026 Equinor
 
--- Test of the ROCK keyword for the case of multiple regions with different
--- properties and default rock region definition (i.e., no alternative rock 
--- number region defined in item 3 of the ROCKOPTS keyword).
+-- Test of the ROCKCOMP/ROCKTABH keywords (rock compaction hysteresis) for
+-- the case of multiple regions with different rock compaction properties.
+-- ROCKTABH tables are always indexed by ROCKNUM; this deck sets ROCKNUM
+-- explicitly equal to PVTNUM (via COPY in the REGIONS section) to keep the
+-- same two-region layout used elsewhere in the deck. Each ROCKTABH table's
+-- deflation curve (the first row of each of its elastic curves) matches the
+-- corresponding ROCKTAB table in the companion ROCKTAB.DATA test case, so
+-- results can be compared directly.
 
 -- Based on model1/BASE_MODEL_1.DATA
 
@@ -18,7 +23,7 @@ RUNSPEC
 
 
 TITLE
-   ROCK TEST 1
+   ROCKTABH TEST 1
 
  
 -- Turns off echoing of all the input files to the print file.  
@@ -97,6 +102,17 @@ EQLDIMS
 REGDIMS
 -- ntfip  nmfipr  nrfreg  ntfreg
    4    1 /
+
+-- Activates the rock compaction option: pore-volume and transmissibility
+-- multipliers are read from ROCKTABH, tabulated versus pressure, for each of
+-- the NTROCC rock regions (2, indexed by ROCKNUM, explicitly set equal to
+-- PVTNUM below).
+-- HYSTER: below the lowest pressure a cell has ever reached, the virgin
+-- (deflation) curve is followed; above it, the reversible elastic reload
+-- curve anchored at that historical minimum pressure is used instead.
+ROCKCOMP
+-- HYSTERESIS  NTROCC
+   HYSTER      2 /
 
 -- Define maximum number of summary vectors to be written
 SMRYDIMS 
@@ -241,11 +257,42 @@ STONE1
 -- PVTO: Oil PVT properties for live oil
 -- PVTG: Gas PVT properties for wet gas
 
--- ROCK: Define the rock compressibility for the two PVTNUM/rock regions.
-ROCK
--- REF. PRES   COMPRESSIBILITY
-   280.000        5.6E-5 /
-   250.000        5.6E-4 /
+-- ROCKTABH: Rock compaction hysteresis tables for the two rock regions
+-- (PVTNUM 1 and 2), replacing the plain ROCK compressibility keyword used in
+-- ROCK_REGIONS_DEFAULT.DATA. Each table is a sequence of "elastic" curves -
+-- one per historical pressure reversal ("turning pressure") - each its own
+-- "/"-terminated record, with an additional, standalone "/" closing the
+-- table itself (the same convention PVTO/PVTG use for multiple regions).
+-- The first row of each elastic curve is a point on that table's deflation
+-- (virgin/plastic loading) curve, which here is set to match the
+-- corresponding ROCKTAB table in ROCKTAB.DATA; the elastic curves themselves
+-- are flat two-point segments for simplicity, based on the worked example in
+-- the reference manual's ROCKTABH section.
+ROCKTABH
+-- PRESS   PORV MULT   TRAN MULT
+    50.0      0.9700      0.9750
+   150.0      0.9700      0.9750 /
+   150.0      0.9850      0.9880
+   280.0      0.9850      0.9880 /
+   280.0      1.0000      1.0000
+   350.0      1.0000      1.0000 /
+   350.0      1.0050      1.0060
+   450.0      1.0050      1.0060 /
+   450.0      1.0100      1.0120
+   500.0      1.0100      1.0120 /
+/
+-- PRESS   PORV MULT   TRAN MULT
+    50.0      0.8500      0.8700
+   150.0      0.8500      0.8700 /
+   150.0      0.9300      0.9400
+   250.0      0.9300      0.9400 /
+   250.0      1.0000      1.0000
+   350.0      1.0000      1.0000 /
+   350.0      1.0700      1.0800
+   450.0      1.0700      1.0800 /
+   450.0      1.1400      1.1500
+   500.0      1.1400      1.1500 /
+/
 
 INCLUDE
   'include/pvt_basemod1_different_rocks.pvt' /
@@ -278,6 +325,13 @@ INCLUDE
 INCLUDE
  'include/eqlnum_basemod1.inc' /
 
+-- Explicitly set ROCKNUM equal to PVTNUM so the ROCKTABH tables (indexed by
+-- ROCKNUM) are still allocated per the two PVTNUM regions used elsewhere in
+-- this deck (region 1: gentle-slope ROCKTABH curve, region 2: steep-slope
+-- ROCKTABH curve).
+COPY
+  'PVTNUM' 'ROCKNUM' /
+/
 
 -- ====================================================================
 SOLUTION
