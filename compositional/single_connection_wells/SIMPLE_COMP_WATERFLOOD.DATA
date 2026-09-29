@@ -11,9 +11,7 @@
 -- at its connate saturation (krw = 0), so the producer initially lifts oil
 -- alone, then oil and water after breakthrough around day 40.
 --
--- The injector is on rate control with a pressure limit it reaches around day
--- 25, as the water bank builds up ahead of it. It stays on the limit until the
--- breakthrough improves its injectivity and returns to its rate at day 47.
+-- The injector stays on rate control, well below its pressure limit.
 -- The schedule spans 200 days in 83 report steps.
 ------------------------------------------------------------------------
 RUNSPEC
@@ -114,7 +112,7 @@ PROD 30 1 1 1 OPEN 2* 0.0151 /
 /
 
 WCONINJE
-INJ WATER OPEN RATE 0.4 1* 175 /
+INJ WATER OPEN RATE 0.4 1* 250 /
 /
 
 WCONPROD
