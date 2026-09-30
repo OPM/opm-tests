@@ -9,11 +9,12 @@
 -- split into two blocks of ten, each its own equilibration region: the upper
 -- block is equilibrated at 250 bar and the lower at 155 bar, each with a water
 -- zone at its base.  Layer 11, the top of the lower block, has a vertical
--- permeability of 1 mD, so the blocks equalise slowly through it.
+-- permeability of 100 mD, so the blocks equalise through a tight layer.
 --
--- Water drains from the upper water zone into layer 11.  Once the pressures
--- have met, the oil of layer 11 rises into layer 10, which until then holds
--- water alone, while water keeps sinking the other way.
+-- Once the pressures have met, the water of the upper zone sinks through the
+-- oil of the lower block while oil rises into the cells above, which until
+-- then hold water alone.  Within three years the water joins the lower water
+-- zone and leaves behind the saturation at which it stops moving.
 
 ------------------------------------------------------------------------
 RUNSPEC
@@ -72,7 +73,7 @@ PERMY
 20*2000 /
 -- A tight layer at the top of the lower block.
 PERMZ
-10*2000 1 9*2000 /
+10*2000 100 9*2000 /
 
 ------------------------------------------------------------------------
 PROPS
@@ -241,6 +242,6 @@ DENW
 /
 
 TSTEP
-0.01 0.02 0.1 0.2 1.0 5.0
+0.01 0.02 0.1 0.2 1.0 5.0 10*10 10*100
 /
 END
