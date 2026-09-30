@@ -1,0 +1,246 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026, SINTEF Digital
+
+-- Oil flowing into a cell that holds only water.  A column of 20 cells is
+-- split into two blocks of ten, each its own equilibration region: the upper
+-- block is equilibrated at 250 bar and the lower at 155 bar, each with a water
+-- zone at its base.  Layer 11, the top of the lower block, has a vertical
+-- permeability of 1 mD, so the blocks equalise slowly through it.
+--
+-- Water drains from the upper water zone into layer 11.  Once the pressures
+-- have met, the oil of layer 11 rises into layer 10, which until then holds
+-- water alone, while water keeps sinking the other way.
+
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   OIL FLOWING INTO A WATER-FILLED CELL
+
+METRIC
+
+TABDIMS
+/
+OIL
+GAS
+WATER
+DIMENS
+1 1 20 /
+
+COMPS
+3 /
+
+FULLIMP /
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+EQLDIMS
+2 200 /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INIT
+
+GRIDFILE
+0 1 /
+
+DX
+20*5 /
+DY
+20*100 /
+DZ
+20*5 /
+TOPS
+1*2000.0 /
+PORO
+20*0.3 /
+PERMX
+20*2000 /
+PERMY
+20*2000 /
+-- A tight layer at the top of the lower block.
+PERMZ
+10*2000 1 9*2000 /
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+CNAMES
+CO2
+METHANE
+DECANE
+/
+
+EOS
+PR /
+
+BIC
+0
+0
+0
+/
+
+ACF
+0.22394 0.01142 0.4884
+/
+
+PCRIT
+73.773
+45.992
+21.03
+/
+
+TCRIT
+304.128
+190.564
+617.7
+/
+
+MW
+44.00
+16.04
+142.28
+/
+
+VCRIT
+0.09412
+0.09863
+0.60980
+/
+
+SGFN
+0.0 0.00 0.0
+0.1 0.00 0.0
+0.2 0.05 0.0
+0.4 0.10 0.0
+0.6 0.40 0.0
+0.8 0.60 0.0
+0.99 0.70 0.0
+/
+
+SWFN
+0.01 0.0  0.0
+0.20 0.00 0.0
+0.40 0.01 0.0
+0.60 0.20 0.0
+0.80 0.80 0.0
+1.00 1.00 0.0
+/
+
+SOF3
+0.0 0.00 0.0
+0.1 0.00 0.0
+0.2 0.05 0.05
+0.4 0.10 0.10
+0.6 0.40 0.40
+0.8 0.60 0.60
+0.99 0.70 0.70
+/
+
+STCOND
+15.0 1.0 /
+
+ROCK
+    68.9476  0.0 /
+
+PVTW
+    75.0  1.03  4.0E-5  0.3  0.0 /
+
+DENSITY
+    800.0  1000.0  1.0 /
+
+-- One table per equilibration region.
+ZMFVD
+ 2000   0 0.7 0.3
+ 2100   0 0.3 0.7  /
+ 2000   0 0.7 0.3
+ 2100   0 0.3 0.7  /
+
+RTEMP
+100
+/
+
+------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------
+EQLNUM
+10*1 10*2
+/
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+
+-- The water-oil contact of each block lies three layers above its base.
+EQUIL
+   2010  250  2035  0  2000  0  /
+   2060  155  2085  0  2050  0  /
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+ALL
+
+-- Block values at the top and the base of each block; layer 10 is the water
+-- cell the oil flows into and layer 11 the tight layer.
+BPR
+1 1 1 /
+1 1 10 /
+1 1 11 /
+1 1 20 /
+/
+
+BGSAT
+1 1 1 /
+1 1 10 /
+1 1 11 /
+1 1 20 /
+/
+
+BOSAT
+1 1 1 /
+1 1 10 /
+1 1 11 /
+1 1 20 /
+/
+
+BWSAT
+1 1 1 /
+1 1 10 /
+1 1 11 /
+1 1 20 /
+/
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+RPTRST
+BASIC=1
+PRESSURE
+SGAS
+SOIL
+SWAT
+XMF
+YMF
+ZMF
+DENO
+DENG
+DENW
+/
+
+TSTEP
+0.01 0.02 0.1 0.2 1.0 5.0
+/
+END
