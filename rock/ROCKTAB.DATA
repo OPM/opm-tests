@@ -3,11 +3,15 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2023 Equinor
+-- Copyright (C) 2026 Equinor
 
--- Test of the ROCK keyword for the case of multiple regions with different
--- properties and default rock region definition (i.e., no alternative rock 
--- number region defined in item 3 of the ROCKOPTS keyword).
+-- Test of the ROCKCOMP/ROCKTAB keywords for the case of multiple regions with
+-- different rock compaction properties. ROCKTAB tables are always indexed by
+-- ROCKNUM; this deck sets ROCKNUM explicitly equal to PVTNUM (via COPY in the
+-- REGIONS section) to keep the same two-region layout used elsewhere in the
+-- deck. The ROCKTAB tables below are the (non-hysteretic) deflation curves
+-- used by the companion ROCKTABH.DATA hysteresis test case, so results can be
+-- compared directly.
 
 -- Based on model1/BASE_MODEL_1.DATA
 
@@ -18,7 +22,7 @@ RUNSPEC
 
 
 TITLE
-   ROCK TEST 1
+   ROCKTAB TEST 1
 
  
 -- Turns off echoing of all the input files to the print file.  
@@ -97,6 +101,16 @@ EQLDIMS
 REGDIMS
 -- ntfip  nmfipr  nrfreg  ntfreg
    4    1 /
+
+-- Activates the rock compaction option: pore-volume and transmissibility
+-- multipliers are read from ROCKTAB, tabulated versus pressure, for each of
+-- the NTROCC rock regions (2, indexed by ROCKNUM, explicitly set equal to
+-- PVTNUM below).
+-- REVERS: the multiplier follows the ROCKTAB curve reversibly with the
+-- current cell pressure (no hysteresis - see ROCKTABH.DATA for that).
+ROCKCOMP
+-- HYSTERESIS  NTROCC
+   REVERS      2 /
 
 -- Define maximum number of summary vectors to be written
 SMRYDIMS 
@@ -241,11 +255,26 @@ STONE1
 -- PVTO: Oil PVT properties for live oil
 -- PVTG: Gas PVT properties for wet gas
 
--- ROCK: Define the rock compressibility for the two PVTNUM/rock regions.
-ROCK
--- REF. PRES   COMPRESSIBILITY
-   280.000        5.6E-5 /
-   250.000        5.6E-4 /
+-- ROCKTAB: Pore-volume and transmissibility multiplier vs. pressure tables
+-- for the two rock regions (PVTNUM 1 and 2), replacing the plain ROCK
+-- compressibility keyword used in ROCK_REGIONS_DEFAULT.DATA. Region 1 uses
+-- the lower rock compressibility (gentle slope), region 2 the higher one
+-- (steep slope), matching the two ROCK compressibility values in
+-- ROCK_REGIONS_DEFAULT.DATA. Reference (multiplier = 1.0) pressure matches
+-- each region's ROCK reference pressure there (280 and 250 bara).
+ROCKTAB
+-- PRESS   PORV MULT   TRAN MULT
+    50.0      0.9700      0.9750
+   150.0      0.9850      0.9880
+   280.0      1.0000      1.0000
+   350.0      1.0050      1.0060
+   450.0      1.0100      1.0120 /
+-- PRESS   PORV MULT   TRAN MULT
+    50.0      0.8500      0.8700
+   150.0      0.9300      0.9400
+   250.0      1.0000      1.0000
+   350.0      1.0700      1.0800
+   450.0      1.1400      1.1500 /
 
 INCLUDE
   'include/pvt_basemod1_different_rocks.pvt' /
@@ -278,6 +307,13 @@ INCLUDE
 INCLUDE
  'include/eqlnum_basemod1.inc' /
 
+-- Explicitly set ROCKNUM equal to PVTNUM so the ROCKTAB tables (indexed by
+-- ROCKNUM) are still allocated per the two PVTNUM regions used elsewhere in
+-- this deck (region 1: gentle-slope ROCKTAB curve, region 2: steep-slope
+-- ROCKTAB curve).
+COPY
+  'PVTNUM' 'ROCKNUM' /
+/
 
 -- ====================================================================
 SOLUTION
