@@ -1,0 +1,105 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026, SINTEF Digital
+
+-- Rock compressibility by PVT region in a compositional run.  A row of 30 cells
+-- holds oil of three components (CO2, methane, decane) and water, with the same
+-- water in both PVT regions.  The ROCK record of region 1 (cells 1-15) has no
+-- compressibility, and that of region 2 (cells 16-30) a compressibility of
+-- 5E-4 /bar; both take 150 bar as the reference pressure.  There are no wells:
+-- region 1 starts at 170 bar and region 2 at 130 bar, so the pressure evens out.
+--
+-- The pore volume of each cell follows the rock compressibility of its region.
+-- As region 2 fills, its pores expand and take up more of the fluid, so the
+-- pressure evens out at about 138.5 bar rather than the 149.4 bar that rock
+-- without compressibility would give.
+
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   COMPOSITIONAL TWO ROCK COMPRESSIBILITY REGIONS
+
+METRIC
+
+TABDIMS
+1* 2 /
+OIL
+GAS
+WATER
+DIMENS
+30 1 1
+/
+
+COMPS
+3 /
+
+FULLIMP /
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INCLUDE
+ 'include/ROW_GRID.inc' /
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+INCLUDE
+ 'include/PROPS.inc' /
+
+-- One record per PVT region.
+ROCK
+    150.0  0.0 /
+    150.0  5.0E-4 /
+
+PVTW
+    75.0  1.03  4.0E-5  0.3  0.0 /
+    75.0  1.03  4.0E-5  0.3  0.0 /
+
+DENSITY
+    800.0  1000.0  1.0 /
+    800.0  1000.0  1.0 /
+
+------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------
+PVTNUM
+15*1 15*2
+/
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+INCLUDE
+ 'include/ROW_SOLUTION.inc' /
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+INCLUDE
+ 'include/ROW_SUMMARY.inc' /
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+INCLUDE
+ 'include/REPORTING.inc' /
+
+TSTEP
+0.1 0.4 0.5 1.0 1.0 2.0
+10*2.5
+/
+END
