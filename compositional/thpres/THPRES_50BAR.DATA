@@ -1,0 +1,107 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026, SINTEF Digital
+
+-- A threshold pressure between two equilibration regions in a compositional
+-- run.  The column of MULTZ_BARRIER without the barrier: 20 cells split into
+-- two blocks of ten, each its own equilibration region, the upper block
+-- equilibrated at 250 bar and the lower at 155 bar, each with a water zone at
+-- its base.
+--
+-- THPRES lets fluid cross the region boundary only where the potential
+-- difference exceeds 50 bar, and reduces the difference by that amount.
+-- Layer 10 at the base of the upper block holds water and layer 11 at the top
+-- of the lower block holds hydrocarbon, so water flows down across the
+-- boundary, and the hydrocarbon would have to flow against the potential
+-- difference to cross upwards.  The upper block loses pressure and the lower
+-- block gains it until, within the first two report steps, the potential
+-- difference of about 98 bar has fallen to 50 bar.  The water that crossed
+-- stays in layer 11, below the critical water saturation, and both blocks are
+-- at rest from then on.  Without THPRES the blocks equalise within the first
+-- report step.
+
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   A 50 BAR THRESHOLD PRESSURE BETWEEN TWO COMPOSITIONAL BLOCKS
+
+METRIC
+
+TABDIMS
+/
+OIL
+GAS
+WATER
+DIMENS
+1 1 20 /
+
+COMPS
+3 /
+
+FULLIMP /
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+EQLDIMS
+2 200 /
+
+EQLOPTS
+'THPRES' /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INCLUDE
+ 'include/grid.inc' /
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+INCLUDE
+ 'include/props.inc' /
+
+------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------
+EQLNUM
+10*1 10*2
+/
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+
+-- The water-oil contact of each block lies three layers above its base.
+EQUIL
+   2010  250  2035  0  2000  0  /
+   2060  155  2085  0  2050  0  /
+
+-- Flow between the regions needs a potential difference above 50 bar.
+THPRES
+ 1 2 50.0 /
+/
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+INCLUDE
+ 'include/summary.inc' /
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+INCLUDE
+ 'include/schedule.inc' /
+
+END

@@ -1,0 +1,102 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026, SINTEF Digital
+
+-- A defaulted threshold pressure between two equilibration regions in a
+-- compositional run.  The column of MULTZ_BARRIER without the barrier: 20
+-- cells split into two blocks of ten, each its own equilibration region, the
+-- upper block equilibrated at 250 bar and the lower at 155 bar, each with a
+-- water zone at its base.
+--
+-- THPRES gives no value for the two regions, so the threshold is the largest
+-- potential difference between them in the initial state: that of the water,
+-- about 98 bar from layer 10 down to layer 11.  No potential difference ever
+-- exceeds it, so no fluid crosses the boundary, and both blocks stay at rest
+-- in their equilibrated states.  Without THPRES the blocks equalise within the
+-- first report step.
+
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   A DEFAULTED THRESHOLD PRESSURE BETWEEN TWO COMPOSITIONAL BLOCKS
+
+METRIC
+
+TABDIMS
+/
+OIL
+GAS
+WATER
+DIMENS
+1 1 20 /
+
+COMPS
+3 /
+
+FULLIMP /
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+EQLDIMS
+2 200 /
+
+EQLOPTS
+'THPRES' /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INCLUDE
+ 'include/grid.inc' /
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+INCLUDE
+ 'include/props.inc' /
+
+------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------
+EQLNUM
+10*1 10*2
+/
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+
+-- The water-oil contact of each block lies three layers above its base.
+EQUIL
+   2010  250  2035  0  2000  0  /
+   2060  155  2085  0  2050  0  /
+
+-- No value: the threshold follows from the equilibrated state.
+THPRES
+ 1 2 /
+/
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+INCLUDE
+ 'include/summary.inc' /
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+INCLUDE
+ 'include/schedule.inc' /
+
+END
