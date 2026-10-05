@@ -64,8 +64,13 @@ DY
 DZ
   40*5 /
 
+BOX
+  1 1 1 1 1 1 /
+
 TOPS
   1*2454 /
+
+ENDBOX
 
 PORO
   40*0.3/
