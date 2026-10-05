@@ -277,6 +277,13 @@ PVTGW
                   0.000000E+00   0.394820E-02   0.343647E-01  /
 /
 	
+REGIONS
+-- -------------------------------------------------------------------------
+-- Report the interior separately from the two boundary cells, whose large
+-- pore volumes would otherwise dominate every field total
+FIPNUM
+1 58*2 3 /
+
 SOLUTION
 -- -------------------------------------------------------------------------
 PRESSURE
@@ -298,6 +305,55 @@ RVW
 
 SUMMARY
 -- -------------------------------------------------------------------------	 
+
+-- Interior region: pressure, gas and water in place, water vaporised into
+-- the gas, water left in the brine, and pore volume
+RPR
+2 /
+RGIP
+2 /
+RWIP
+2 /
+RWIPG
+2 /
+RWIPL
+2 /
+RRPV
+2 /
+
+-- Cells across the drying front, which moves from cell 14 to cell 24
+-- during the year
+BPR
+ 2 1 1 /
+10 1 1 /
+20 1 1 /
+25 1 1 /
+40 1 1 /
+/
+
+BSWAT
+ 2 1 1 /
+10 1 1 /
+20 1 1 /
+25 1 1 /
+40 1 1 /
+/
+
+BWIPG
+ 2 1 1 /
+10 1 1 /
+20 1 1 /
+25 1 1 /
+40 1 1 /
+/
+
+BRPV
+ 2 1 1 /
+10 1 1 /
+20 1 1 /
+25 1 1 /
+40 1 1 /
+/
 
 SCHEDULE
 -- -------------------------------------------------------------------------
