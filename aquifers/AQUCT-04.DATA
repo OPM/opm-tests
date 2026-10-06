@@ -1,0 +1,120 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Storra Dynamics GmbH
+
+-- Test case is testing analytical aquifer - Carter-Tracy, gas/water with CO2SOL
+-- (WATER GAS SOLVENT CO2SOL, CH4 as gas, CO2 as solvent).
+--
+-- A 5x1x1 water-filled box with a single Carter-Tracy aquifer connected to one
+-- cell face, drained by one BHP-controlled water producer. Same geometry and
+-- aquifer as AQUCT-02.
+
+RUNSPEC
+TITLE
+ Carter-Tracy aquifer in a gas/water CO2SOL model
+DIMENS
+  5 1 1 /
+WATER
+GAS
+SOLVENT
+CO2SOL
+METRIC
+TABDIMS
+/
+AQUDIMS
+  1 1 1 1 1 10 /
+WELLDIMS
+  2 5 1 2 /
+EQLDIMS
+  1 /
+START
+  1 'JAN' 2020 /
+UNIFIN
+UNIFOUT
+
+GRID
+INIT
+DX
+  5*100 /
+DY
+  5*100 /
+DZ
+  5*10 /
+TOPS
+  5*1500 /
+PORO
+  5*0.2 /
+PERMX
+  5*400 /
+PERMY
+  5*400 /
+PERMZ
+  5*400 /
+
+PROPS
+PVDG
+   50.0   0.0210896   0.0129302
+  100.0   0.0099236   0.0147000
+  150.0   0.0064300   0.0171300
+  200.0   0.0046300   0.0199700
+  250.0   0.0040107   0.0229702 /
+DENSITY
+-- oil    water     gas = CH4
+   600.0  1118.86   0.76695 /
+SSFN
+  0.0  0.0  0.0
+  1.0  1.0  1.0 /
+SALINITY
+  3.37 /
+RTEMP
+  50.0 /
+SWFN
+  0.2  0.0  0.0
+  1.0  1.0  0.0 /
+SGFN
+  0.0  0.0  0.0
+  0.8  1.0  0.0 /
+ROCK
+  159.0  0.0001 /
+
+SOLUTION
+-- contacts above the model: fully water saturated
+EQUIL
+  1500 159 1400 0 1* 0 0 0 0 /
+-- id datum p0 perm poro ct       r0     h   theta pvt inf-tab salt
+AQUCT
+   1  1500  1* 400  0.24 1.192e-4 13000  100 180   1   1*      0 /
+/
+AQUANCON
+   1  5 5  1 1  1 1  'I+' /
+/
+RPTRST
+  'BASIC=2' /
+
+SUMMARY
+FPR
+FWPR
+FWPT
+WBHP
+  'PROD' /
+AAQR
+  1 /
+AAQT
+  1 /
+
+SCHEDULE
+WELSPECS
+  'PROD' 'G1' 1 1 1* 'WATER' /
+/
+COMPDAT
+  'PROD' 1 1 1 1 'OPEN' 2* 0.2 /
+/
+WCONPROD
+  'PROD' 'OPEN' 'BHP' 5* 120 /
+/
+TSTEP
+  10*10 /
+END
