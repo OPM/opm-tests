@@ -1,0 +1,144 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Storra Dynamics GmbH
+
+-- Gas-water-solvent (CO2SOL) box with a producer under group control.
+-- Phase 1: CO2 is injected by a well under GCONINJE.
+-- Phase 2: the injector shuts and a producer goes on 'GRUP' under GCONPROD GRAT.
+
+RUNSPEC
+TITLE
+  GRUP_SOLVENT
+EQLDIMS
+  1 /
+DIMENS
+  10 1 1 /
+WATER
+GAS
+SOLVENT
+CO2SOL
+METRIC
+START
+  1 'JAN' 2025 /
+TABDIMS
+  1 1 20 20 /
+WELLDIMS
+  2 1 1 2 /
+UNIFOUT
+
+GRID
+INIT
+DX
+  10*50.0 /
+DY
+  10*50.0 /
+DZ
+  10*10.0 /
+TOPS
+  10*1500.0 /
+PORO
+  10*0.20 /
+PERMX
+  10*200 /
+PERMY
+  10*200 /
+PERMZ
+  10*20 /
+
+PROPS
+SGFN
+  0.0   0.0   0.0
+  0.8   1.0   0.0 /
+
+SWFN
+  0.2   0.0   0.0
+  1.0   1.0   0.0 /
+
+PVTW
+  159.0   1.0059   3.22E-05   0.861   0.0 /
+
+DENSITY
+-- oil    water     gas = CH4
+   600.0  1118.86   0.76695 /
+
+PVDG
+   50.0   0.0210896   0.0129302
+  100.0   0.0099236   0.0147000
+  150.0   0.0064300   0.0171300
+  200.0   0.0046300   0.0199700
+  250.0   0.0040107   0.0229702 /
+
+ROCK
+  159.0   0.0001 /
+
+SSFN
+  0.0  0.0  0.0
+  1.0  1.0  1.0 /
+
+SALINITY
+  3.37 /
+
+RTEMP
+  50.0 /
+
+SOLUTION
+EQUIL
+-- datum  p     GWC (below box: all gas at Swl)
+  1500.0  159.0 1600.0 0.0 /
+
+RPTRST
+  'BASIC=2' /
+
+SUMMARY
+FPR
+FGPR
+FGIR
+FNPR
+FNIR
+WGPR
+  'PROD' /
+WNPR
+  'PROD' /
+
+SCHEDULE
+WELSPECS
+  'INJ'  'G' 1  1 1* 'GAS' /
+  'PROD' 'G' 10 1 1* 'GAS' /
+/
+COMPDAT
+  'INJ'  1  1 1 1 'OPEN' 1* 1* 0.2 /
+  'PROD' 10 1 1 1 'OPEN' 1* 1* 0.2 /
+/
+
+-- Phase 1: CO2 injection, injector under group control
+GCONINJE
+  'G' 'GAS' 'RATE' 50000 /
+/
+WCONINJE
+  'INJ' 'GAS' 'OPEN' 'GRUP' 1* 1* 300.0 /
+/
+WSOLVENT
+  'INJ' 1.0 /
+/
+WCONPROD
+  'PROD' 'SHUT' 'BHP' 5* 50.0 /
+/
+TSTEP
+  3*10.0 /
+
+-- Phase 2: withdrawal, producer under group control
+WCONINJE
+  'INJ' 'GAS' 'SHUT' 'RATE' 0.0 1* 300.0 /
+/
+GCONPROD
+  'G' 'GRAT' 2* 50000 /
+/
+WCONPROD
+  'PROD' 'OPEN' 'GRUP' 5* 50.0 /
+/
+TSTEP
+  3*10.0 /
+END
