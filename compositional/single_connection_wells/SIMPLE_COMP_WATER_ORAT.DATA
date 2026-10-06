@@ -6,18 +6,16 @@
 -- Copyright (C) 2024, SINTEF Digital, TNO
 -- Copyright (C) 2026, SINTEF Digital
 
--- A water flood of undersaturated oil in a 30-cell compositional row.
--- A single-connection injector and producer sit at opposite ends. Water starts
--- at its connate saturation (krw = 0), so the producer initially lifts oil
--- alone, then oil and water after breakthrough around day 40.
---
--- The injector stays on rate control, well below its pressure limit.
--- The schedule spans 200 days in 83 report steps.
+-- A water flood of undersaturated oil in a 30-cell row. Each well has one
+-- connection. The producer requests oil rate control (ORAT) and holds it
+-- until water breaks through around day 75, when its bottom-hole pressure
+-- limit takes over. The injector is on bottom-hole pressure control
+-- throughout. The schedule spans 200 days in 83 report steps.
 ------------------------------------------------------------------------
 RUNSPEC
 ------------------------------------------------------------------------
 TITLE
-   SIMPLE COMPOSITIONAL WATER FLOOD
+   COMPOSITIONAL WATER FLOOD WITH OIL RATE CONTROL
 
 METRIC
 
@@ -112,11 +110,11 @@ PROD 30 1 1 1 OPEN 2* 0.0151 /
 /
 
 WCONINJE
-INJ WATER OPEN RATE 0.4 1* 250 /
+INJ WATER OPEN BHP 2* 175 /
 /
 
 WCONPROD
-PROD OPEN BHP 5* 120 /
+PROD OPEN ORAT 0.2 4* 120 /
 /
 
 TSTEP

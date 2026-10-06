@@ -10,6 +10,7 @@
 -- connection. Unlike SIMPLE_COMP_WATERFLOOD, the producer requests liquid
 -- rate control (LRAT) with a bottom-hole pressure limit. This tests the
 -- control as water breaks through and contributes to the produced liquid.
+-- The injector is on bottom-hole pressure control throughout.
 -- The schedule spans 200 days in 83 report steps.
 ------------------------------------------------------------------------
 RUNSPEC
@@ -110,7 +111,7 @@ PROD 30 1 1 1 OPEN 2* 0.0151 /
 /
 
 WCONINJE
-INJ WATER OPEN RATE 0.4 1* 175 /
+INJ WATER OPEN BHP 2* 175 /
 /
 
 WCONPROD

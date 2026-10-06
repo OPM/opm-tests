@@ -9,8 +9,8 @@
 -- A CO2 flood with mobile water in a 30-cell row with one connection per well.
 -- The producer has a water-rate limit (WRAT) that takes over from bottom-hole
 -- pressure control when the water rate reaches it. This tests the control
--- change while water is produced with hydrocarbons. The schedule spans 50
--- days in 36 report steps.
+-- change while water is produced with hydrocarbons. The schedule spans 20
+-- days in 21 report steps.
 ------------------------------------------------------------------------
 RUNSPEC
 ------------------------------------------------------------------------
@@ -128,6 +128,6 @@ PROD OPEN BHP 1* 0.1 100000 2* 50 /
 TSTEP
 0.01 0.02 0.04 0.08 0.15 0.3 0.4
 9*1.0
-20*2.0
+5*2.0
 /
 END

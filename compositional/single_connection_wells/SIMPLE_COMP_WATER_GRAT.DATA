@@ -6,18 +6,16 @@
 -- Copyright (C) 2024, SINTEF Digital, TNO
 -- Copyright (C) 2026, SINTEF Digital
 
--- A water flood of undersaturated oil in a 30-cell compositional row.
--- A single-connection injector and producer sit at opposite ends. Water starts
--- at its connate saturation (krw = 0), so the producer initially lifts oil
--- alone, then oil and water after breakthrough around day 40.
---
--- The injector stays on rate control, well below its pressure limit.
--- The schedule spans 200 days in 83 report steps.
+-- CO2 injection into a 30-cell compositional row with one connection per
+-- well. Initial water saturation is 0.5 (krw = 0.105), so the producer lifts
+-- mobile water along with hydrocarbons. The producer is on gas rate control
+-- (GRAT) and stays above its bottom-hole pressure limit; the injector is on
+-- bottom-hole pressure control. The schedule spans 50 days in 36 report steps.
 ------------------------------------------------------------------------
 RUNSPEC
 ------------------------------------------------------------------------
 TITLE
-   SIMPLE COMPOSITIONAL WATER FLOOD
+   SIMPLE CO2 INJECTION WITH MOBILE WATER AND GAS RATE CONTROL
 
 METRIC
 
@@ -66,15 +64,15 @@ SOLUTION
 ------------------------------------------------------------------------
 
 PRESSURE
-30*150.
+30*75.
 /
 
 SGAS
-30*0.0
+30*0.5
 /
 
 SWAT
-30*0.2
+30*0.5
 /
 
 TEMPI
@@ -82,9 +80,9 @@ TEMPI
 /
 
 ZMF
-30*0.05
-30*0.15
-30*0.80
+30*0.1
+30*0.3
+30*0.6
 /
 
 ------------------------------------------------------------------------
@@ -103,24 +101,33 @@ INCLUDE
 
 
 WELSPECS
-INJ  FIELD  1 1 1* WATER /
-PROD FIELD 30 1 1* OIL /
+INJ  FIELD  1 1 1* GAS /
+PROD FIELD 30 1 1* GAS /
 /
 COMPDAT
 INJ   1 1 1 1 OPEN 2* 0.0151 /
 PROD 30 1 1 1 OPEN 2* 0.0151 /
 /
 
+WELLSTRE
+ISTR 1.0 0.0 0.0 /
+/
+
+WINJGAS
+INJ STREAM ISTR /
+/
+
 WCONINJE
-INJ WATER OPEN RATE 0.4 1* 250 /
+INJ GAS OPEN BHP 100000 1* 150 /
 /
 
 WCONPROD
-PROD OPEN BHP 5* 120 /
+PROD OPEN GRAT 2* 10 2* 50 /
 /
 
 TSTEP
-0.1 0.4 0.5 1.0 3.0
-78*2.5
+0.01 0.02 0.04 0.08 0.15 0.3 0.4
+9*1.0
+20*2.0
 /
 END
