@@ -8,7 +8,7 @@
 -- Shared restart output requests.
 
 RPTRST
-BASIC=1
+BASIC=2
 PRESSURE
 SGAS
 SOIL
