@@ -5,6 +5,7 @@ Case Name  | Case Desciption                                  | Base Model | Tes
 AQUCT-01   | Carter-Tracy aquifer (2D_OW_CTAQUIFER).          | AQUCT-01   | Reg  | Yes     | 
 AQUCT-02   | Carter-Tracy aquifer, gas/water model.           | AQUCT-02   | Reg  | Yes     | 
 AQUCT-03   | Carter-Tracy aquifer, single-phase water model.  | AQUCT-03   | Reg  | Yes     | 
+AQUCT-04   | Carter-Tracy aquifer, gas/water CO2SOL model.    | AQUCT-04   | Reg  | Yes     | Also used as a restart test.
 AQUFET-01  | Fetkovich aquifer (2D_FETKOVICHAQUIFER).         | AQUFET-01  | Reg  | Yes     | 
 AQUNUM-01  | Numerical aquifer (3D_1AQU_3CELLS).              | AQUNUM-01  | Reg  | Yes     | 
 AQUNUM-02  | Numerical aquifer (3D_2AQU_NUM).                 | AQUNUM-02  | Reg  | Yes     | 
@@ -15,7 +16,7 @@ AQUFLUX-03 | Constant flux aquifer, gas/water model.          | AQUFLUX-03 | Reg
 1. _Test Type_ column shows if the case is used for integration testing (_Int_), or regression testing (_Reg_).
 
 
-**Version: 4 September 2026**
+**Version: 6 October 2026**
     
 ### AQUCT-01 Description and Results
 
@@ -62,7 +63,7 @@ closes as d(FWIP) + FWPT = AAQT:1.
    5 x 1 x 1 grid, 100 x 100 x 10 m cells, top at 1500 m, fully water saturated.
 ```
 
-AQUCT-03 and AQUFLUX-03 use the same geometry.
+AQUCT-03, AQUCT-04 and AQUFLUX-03 use the same geometry.
 
 ```
 --      ID   DATUM   AQF    AQF    AQF    AQF       AQF    AQF  INFL   PVT  AQU
@@ -84,6 +85,20 @@ AQUANCON
 Carter-Tracy aquifer in a single-phase water model. WATER is the only active phase,
 so the model carries a single conservation equation. The field water balance closes
 as d(FWIP) + FWPT = AAQT:1. The aquifer description is identical to AQUCT-02.
+
+---
+
+### AQUCT-04 Description and Results
+
+Carter-Tracy aquifer in a gas/water CO2SOL model (WATER GAS SOLVENT CO2SOL, CH4 as
+gas and CO2 as solvent). Same geometry and aquifer as AQUCT-02, fully water
+saturated. There is no PVTW: under CO2SOL the brine properties come from the internal
+brine model (SALINITY 3.37 mol/kg, RTEMP 50 C), and the aquifer uses them as it does
+under CO2STORE. The aquifer influx is the same as for the equivalent CO2STORE model.
+
+The case is also used as a restart test (restart at report step 5). CO2SOL is
+isothermal and the restart file has no TEMP, so the restarted run takes its
+temperature from TEMPI (RTEMP).
 
 ---
 
