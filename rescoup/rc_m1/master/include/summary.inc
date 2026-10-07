@@ -77,7 +77,8 @@ GOPGR
 /
 
 -- Group vectors that the reservoir coupling master reports for its master
--- groups from the data sent by the slaves, compared to those of the slaves.
+-- groups from the data sent by the slaves, so that they can be compared with
+-- the slaves' group vectors.
 GOPP
 /
 
@@ -94,4 +95,22 @@ GVPT
 /
 
 GGLIR
+/
+
+GGIRH
+/
+
+GWIRH
+/
+
+GMWIN
+/
+
+GGPI
+/
+
+GWPI
+/
+
+GVIT
 /
