@@ -1,0 +1,179 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026, SINTEF Digital
+
+-- One equilibration region spans two PVT regions in a compositional run.
+-- Two separate columns of ten cells share the hydrocarbon datum and water-oil
+-- contact.  Column 1 holds fresh water (PVT region 1, 1000 kg/m3 at surface),
+-- and column 2 brine (PVT region 2, 1150 kg/m3 at surface).  There is no
+-- flow between the columns: MULTX closes their shared faces.
+--
+-- The hydrocarbon pressures at matching depths are the same in both columns.
+-- Each water column starts from that common pressure at the contact, then
+-- follows its own PVT properties: the brine pressure gradient is steeper than
+-- the fresh-water gradient, despite both columns sharing EQLNUM = 1.
+-- The top cell of each column starts with about 1% gas, below the critical gas
+-- saturation: the ZMFVD composition there is at its bubble point.
+
+------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------
+TITLE
+   COMPOSITIONAL ONE EQUILIBRATION REGION OVER TWO PVT REGIONS
+
+METRIC
+
+TABDIMS
+1* 2 /
+OIL
+GAS
+WATER
+DIMENS
+2 1 10 /
+
+COMPS
+3 /
+
+FULLIMP /
+
+START
+  1 'JAN' 2016  /
+
+REGDIMS
+1 1 0 0 /
+
+EQLDIMS
+1 200 /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------
+INIT
+
+GRIDFILE
+0 1 /
+
+DX
+20*5 /
+DY
+20*100 /
+DZ
+20*5 /
+BOX
+1 2 1 1 1 1 /
+TOPS
+2*2000.0 /
+ENDBOX
+PORO
+20*0.3 /
+PERMX
+20*2000 /
+PERMY
+20*2000 /
+PERMZ
+20*2000 /
+-- Close each positive-X face of column 1; every vertical connection stays open.
+MULTX
+0 1  0 1  0 1  0 1  0 1
+0 1  0 1  0 1  0 1  0 1
+/
+
+------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------
+INCLUDE
+ 'include/PROPS.inc' /
+
+-- One record per PVT region.
+ROCK
+    68.9476  0.0 /
+    68.9476  0.0 /
+
+PVTW
+    75.0  1.03  4.0E-5  0.3  0.0 /
+    75.0  1.01  2.5E-5  0.9  0.0 /
+
+DENSITY
+    800.0  1000.0  1.0 /
+    800.0  1150.0  1.0 /
+
+-- A single profile belongs to the shared equilibration region.
+ZMFVD
+ 2000   0 0.7 0.3
+ 2100   0 0.3 0.7  /
+
+RTEMP
+100
+/
+
+------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------
+EQLNUM
+20*1
+/
+-- I varies fastest, so each layer lists region 1, then region 2.
+PVTNUM
+1 2  1 2  1 2  1 2  1 2
+1 2  1 2  1 2  1 2  1 2
+/
+
+------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------
+
+-- The shared datum lies above the water-oil contact.  Both water zones occupy
+-- the bottom three layers.
+EQUIL
+   2010  250  2035  0  2000  0  /
+
+------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------
+ALL
+
+-- Paired cells above the contact and in the water zones.  Pressures at K = 3
+-- agree; the differences between K = 9 and K = 10 follow each water density.
+BPR
+1 1 3 /
+2 1 3 /
+1 1 9 /
+2 1 9 /
+1 1 10 /
+2 1 10 /
+/
+
+BWSAT
+1 1 3 /
+2 1 3 /
+1 1 9 /
+2 1 9 /
+1 1 10 /
+2 1 10 /
+/
+
+BDENW
+1 1 3 /
+2 1 3 /
+1 1 9 /
+2 1 9 /
+1 1 10 /
+2 1 10 /
+/
+
+------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------
+INCLUDE
+ 'include/REPORTING.inc' /
+
+TSTEP
+0.01 0.02 0.1 0.2 1.0 5.0
+/
+END
