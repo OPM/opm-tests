@@ -1,0 +1,117 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 UiB and NORCE
+
+-- 1D oil tracer test with RATE inflow and RATE outflow.
+-- Oil tracer OT in an oil filled column (connate water 0.2). The oil rate is
+-- 0.1 ft3/day/ft2 at surface conditions (5 lb/day/ft2 / 50 lb/ft3) and Bo = 1.2, so
+-- the interstitial velocity is 0.1*1.2/(0.3*0.8) = 0.5 ft/day and the front
+-- (c = 0.5) is at x = 10 ft after 20 days.
+
+RUNSPEC
+DIMENS
+40 1 1 /
+
+OIL
+WATER
+
+FIELD
+
+TABDIMS
+1 1 40 40 /
+
+TRACERS
+1 0 0 0 8*
+/
+
+GRID
+DX
+  40*0.5 /
+DY
+  40*1 /
+DZ
+  40*1 /
+TOPS
+  40*5000 /
+PORO
+  40*0.3 /
+PERMX
+  40*100 /
+PERMY
+  40*100 /
+PERMZ
+  40*100 /
+
+-- Boundary regions: index 1 = left face of first cell, index 2 = right face of last cell
+BCCON
+-- index I1  I2  J1 J2 K1 K2 dir
+   1     1   1   1  1  1  1  X- /
+   2     40  40  1  1  1  1  X+ /
+/
+
+INIT
+
+PROPS
+
+TRACER
+  'OT' 'OIL' /
+/
+
+PVDO
+14.7   1.20001 1.0
+3000   1.2     1.0
+9014.7 1.19999 1.0 /
+
+PVTW
+3000 1.0 0.0 0.5 0 /
+
+SWOF
+0.2 0.0 1.0 0.0
+1.0 1.0 0.0 0.0 /
+
+ROCK
+14.7 0.0 /
+
+DENSITY
+50.0 62.0 0.07 /
+
+SOLUTION
+
+PRESSURE
+  40*3000 /
+SWAT
+  40*0.2 /
+TBLKFOT
+  40*0.0 /
+
+SUMMARY
+FOPR
+FGPR
+
+SCHEDULE
+
+RPTRST
+BASIC=2 /
+
+-- Left: constant oil rate into the domain (negative rate is into the domain).
+-- Right: constant oil rate out of the domain.
+BCPROP
+-- index type component rate
+   1     RATE OIL -5.0 /
+   2     RATE OIL 5.0 /
+/
+
+-- OT enters through the left boundary with concentration 1
+BCTRACER
+-- index tracer concentration
+   1     OT    1.0 /
+/
+
+TSTEP
+  40*0.5 /
+/
+
+END

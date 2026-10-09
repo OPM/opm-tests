@@ -1,0 +1,124 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 UiB and NORCE
+
+-- 1D gas tracer test with RATE inflow and FREE outflow.
+-- Gas tracer GT in a gas filled column (connate water 0.2). The gas rate is
+-- 10 scf/day/ft2 at surface conditions (0.7 lb/day/ft2 / 0.07 lb/ft3) and
+-- Bg = 2 rb/Mscf = 0.011229 ft3/scf, so the interstitial velocity is
+-- 10*0.011229/(0.3*0.8) = 0.468 ft/day and the front (c = 0.5) is at x = 9.36 ft
+-- after 20 days.
+
+RUNSPEC
+DIMENS
+40 1 1 /
+
+GAS
+WATER
+
+FIELD
+
+TABDIMS
+1 1 40 40 /
+
+TRACERS
+0 0 1 0 8*
+/
+
+GRID
+DX
+  40*0.5 /
+DY
+  40*1 /
+DZ
+  40*1 /
+TOPS
+  40*5000 /
+PORO
+  40*0.3 /
+PERMX
+  40*100 /
+PERMY
+  40*100 /
+PERMZ
+  40*100 /
+
+-- Boundary regions: index 1 = left face of first cell, index 2 = right face of last cell
+BCCON
+-- index I1  I2  J1 J2 K1 K2 dir
+   1     1   1   1  1  1  1  X- /
+   2     40  40  1  1  1  1  X+ /
+/
+
+INIT
+
+PROPS
+
+TRACER
+  'GT' 'GAS' /
+/
+
+PVDG
+14.7   2.0001 0.02
+3000   2.0    0.02
+9014.7 1.9999 0.02 /
+
+PVTW
+3000 1.0 0.0 0.5 0 /
+
+SWFN
+0.2 0.0 0.0
+1.0 1.0 0.0 /
+
+SGFN
+0.0 0.0 0.0
+0.8 1.0 0.0 /
+
+ROCK
+14.7 0.0 /
+
+DENSITY
+50.0 62.0 0.07 /
+
+SOLUTION
+
+PRESSURE
+  40*3000 /
+SWAT
+  40*0.2 /
+SGAS
+  40*0.8 /
+TBLKFGT
+  40*0.0 /
+
+SUMMARY
+FOPR
+FGPR
+
+SCHEDULE
+
+RPTRST
+BASIC=2 /
+
+-- Left: constant gas rate into the domain (negative rate is into the domain).
+-- Right: FREE boundary.
+BCPROP
+-- index type component rate
+   1     RATE GAS -0.7 /
+   2     FREE /
+/
+
+-- GT enters through the left boundary with concentration 1
+BCTRACER
+-- index tracer concentration
+   1     GT    1.0 /
+/
+
+TSTEP
+  40*0.5 /
+/
+
+END
