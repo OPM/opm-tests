@@ -71,3 +71,42 @@ WWIT
 
 WEFFG
 /
+
+-- Group vectors that the reservoir coupling master reports for its master
+-- groups from the data sent by the slaves, so that they can be compared with
+-- the slaves' group vectors.
+GOPP
+/
+
+GOPRH
+/
+
+GOPTH
+/
+
+GMWPR
+/
+
+GVPT
+/
+
+GGLIR
+/
+
+GGIRH
+/
+
+GWIRH
+/
+
+GMWIN
+/
+
+GGPI
+/
+
+GWPI
+/
+
+GVIT
+/
