@@ -1,0 +1,360 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2015 Statoil
+-- Copyright (C) 2026 Equinor ASA
+
+-- SPE1 with producers which are shut under each of ORAT, WRAT, GRAT,
+-- LRAT, RESV, BHP, THP and GRUP, or stopped under ORAT and GRUP, and water
+-- injectors which are shut under RATE, BHP and GRUP. The P-* and I-* wells
+-- are shut from the start and never open. The F-* and FI-* wells flow for
+-- a month and are then shut with WELOPEN. F-OLIM asks for an oil rate it
+-- cannot reach, so it flows under its BHP limit before it is shut. S-ORAT
+-- and S-GRUP are stopped from the start and never flow. FS-ORAT and
+-- FS-GRUP are completed in all three layers, flow for a month and are then
+-- stopped with WELOPEN, so that they may crossflow. A restart file is
+-- written at every report step, so the case covers the control mode and
+-- status written for shut and stopped wells. The schedule sets these
+-- statuses:
+--   report step 1 (day 1)  : F-*, FI-* and FS-* open, S-* stopped,
+--                            all other wells shut
+--   report step 2 (day 31) : as step 1
+--   report step 3 (day 32) : S-* and FS-* stopped, all other wells shut
+--   report step 4 (day 62) : as step 3
+
+---------------------------------------------------------------------------
+RUNSPEC
+---------------------------------------------------------------------------
+
+TITLE
+   SPE1 - SHUT WELLS UNDER EACH CONTROL MODE
+
+DIMENS
+   10 10 3 /
+
+EQLDIMS
+/
+
+TABDIMS
+/
+
+OIL
+GAS
+WATER
+DISGAS
+
+FIELD
+
+START
+   1 'JAN' 2015 /
+
+WELLDIMS
+-- Max wells, max connections per well, max groups, max wells per group
+   25 3 5 25 /
+
+VFPPDIMS
+-- Max rates, THPs, WFRs, GFRs, ALQs, tables
+   3 3 2 2 1 1 /
+
+UNIFIN
+UNIFOUT
+
+---------------------------------------------------------------------------
+GRID
+---------------------------------------------------------------------------
+
+INIT
+
+DX
+   300*1000 /
+DY
+   300*1000 /
+DZ
+   100*20 100*30 100*50 /
+
+TOPS
+   100*8325 /
+
+PORO
+   300*0.3 /
+
+PERMX
+   100*500 100*50 100*200 /
+PERMY
+   100*500 100*50 100*200 /
+PERMZ
+   100*500 100*50 100*200 /
+
+---------------------------------------------------------------------------
+PROPS
+---------------------------------------------------------------------------
+
+PVTW
+   4017.55 1.038 3.22E-6 0.318 0.0 /
+
+ROCK
+   14.7 3E-6 /
+
+SWOF
+0.12  0                      1       0
+0.18  4.64876033057851E-008  1       0
+0.24  0.000000186            0.997   0
+0.3   4.18388429752066E-007  0.98    0
+0.36  7.43801652892562E-007  0.7     0
+0.42  1.16219008264463E-006  0.35    0
+0.48  1.67355371900826E-006  0.2     0
+0.54  2.27789256198347E-006  0.09    0
+0.6   2.97520661157025E-006  0.021   0
+0.66  3.7654958677686E-006   0.01    0
+0.72  4.64876033057851E-006  0.001   0
+0.78  0.000005625            0.0001  0
+0.84  6.69421487603306E-006  0       0
+0.91  8.05914256198347E-006  0       0
+1     0.00001                0       0 /
+
+SGOF
+0     0      1       0
+0.001 0      1       0
+0.02  0      0.997   0
+0.05  0.005  0.980   0
+0.12  0.025  0.700   0
+0.2   0.075  0.350   0
+0.25  0.125  0.200   0
+0.3   0.190  0.090   0
+0.4   0.410  0.021   0
+0.45  0.60   0.010   0
+0.5   0.72   0.001   0
+0.6   0.87   0.0001  0
+0.7   0.94   0.000   0
+0.85  0.98   0.000   0
+0.88  0.984  0.000   0 /
+
+DENSITY
+   53.66 64.49 0.0533 /
+
+PVDG
+14.700  166.666  0.008000
+264.70  12.0930  0.009600
+514.70  6.27400  0.011200
+1014.7  3.19700  0.014000
+2014.7  1.61400  0.018900
+2514.7  1.29400  0.020800
+3014.7  1.08000  0.022800
+4014.7  0.81100  0.026800
+5014.7  0.64900  0.030900
+9014.7  0.38600  0.047000 /
+
+PVTO
+0.0010  14.7    1.0620  1.0400 /
+0.0905  264.7   1.1500  0.9750 /
+0.1800  514.7   1.2070  0.9100 /
+0.3710  1014.7  1.2950  0.8300 /
+0.6360  2014.7  1.4350  0.6950 /
+0.7750  2514.7  1.5000  0.6410 /
+0.9300  3014.7  1.5650  0.5940 /
+1.2700  4014.7  1.6950  0.5100
+        9014.7  1.5790  0.7400 /
+1.6180  5014.7  1.8270  0.4490
+        9014.7  1.7370  0.6310 /
+/
+
+---------------------------------------------------------------------------
+SOLUTION
+---------------------------------------------------------------------------
+
+EQUIL
+   8400 4800 8450 0 8300 0 1 0 0 /
+
+RSVD
+   8300 1.270
+   8450 1.270 /
+
+---------------------------------------------------------------------------
+SUMMARY
+---------------------------------------------------------------------------
+
+FOPR
+FWIR
+GOPR
+   'GP' /
+GWIR
+   'GI' /
+WMCTL
+/
+WSTAT
+/
+WBHP
+/
+WOPR
+/
+WWIR
+/
+-- Connection oil rates of the wells which may crossflow when stopped.
+COFR
+   'FS-ORAT' /
+   'FS-GRUP' /
+/
+
+-- Tabulated summary vectors in a separate RSM file.
+RUNSUM
+SEPARATE
+
+---------------------------------------------------------------------------
+SCHEDULE
+---------------------------------------------------------------------------
+
+RPTSCHED
+   'WELLS=2' /
+
+RPTRST
+   'BASIC=2' /
+
+-- Producer VFP table, only for the THP limit of P-THP.
+VFPPROD
+-- Table  Datum  Rate   WFR    GFR    THP    ALQ   Units    Quantity
+   1      8400   'LIQ'  'WCT'  'GOR'  'THP'  ' '   'FIELD'  'BHP' /
+-- Liquid rates (stb/day)
+   100 1000 5000 /
+-- THP values (psia)
+   200 500 1000 /
+-- Water cuts
+   0 0.5 /
+-- Gas-oil ratios (Mscf/stb)
+   0.5 1.5 /
+-- Artificial lift quantities
+   0 /
+-- THP WFR GFR ALQ  BHP at each liquid rate
+   1   1   1   1    2700 2800 3300 /
+   1   1   2   1    2400 2500 3000 /
+   1   2   1   1    3200 3300 3800 /
+   1   2   2   1    2900 3000 3500 /
+   2   1   1   1    3000 3100 3600 /
+   2   1   2   1    2700 2800 3300 /
+   2   2   1   1    3500 3600 4100 /
+   2   2   2   1    3200 3300 3800 /
+   3   1   1   1    3500 3600 4100 /
+   3   1   2   1    3200 3300 3800 /
+   3   2   1   1    4000 4100 4600 /
+   3   2   2   1    3700 3800 4300 /
+
+-- GP and GI hold the wells under group control, IND those under their own
+-- control.  IND has no targets.
+GRUPTREE
+   'GP'   'FIELD' /
+   'GI'   'FIELD' /
+   'IND'  'FIELD' /
+/
+
+WELSPECS
+-- Producers which never open
+   'P-ORAT'    'IND'   2  2  8400  'OIL' /
+   'P-WRAT'    'IND'   2  4  8400  'OIL' /
+   'P-GRAT'    'IND'   2  6  8400  'OIL' /
+   'P-LRAT'    'IND'   2  8  8400  'OIL' /
+   'P-RESV'    'IND'   4  2  8400  'OIL' /
+   'P-BHP'     'IND'   4  4  8400  'OIL' /
+   'P-THP'     'IND'   4  6  8400  'OIL' /
+   'P-GRUP'    'GP'    4  8  8400  'OIL' /
+-- Water injectors which never open
+   'I-RATE'    'IND'   6  2  8400  'WATER' /
+   'I-BHP'     'IND'   6  4  8400  'WATER' /
+   'I-GRUP'    'GI'    6  6  8400  'WATER' /
+-- Wells which flow for a month and are then shut
+   'F-ORAT'    'IND'   8  2  8400  'OIL' /
+   'F-BHP'     'IND'   8  4  8400  'OIL' /
+   'F-OLIM'    'IND'   8  6  8400  'OIL' /
+   'F-GRUP'    'GP'    8  8  8400  'OIL' /
+   'FI-RATE'   'IND'  10  2  8400  'WATER' /
+   'FI-GRUP'   'GI'   10  4  8400  'WATER' /
+-- Wells which are stopped from the start
+   'S-ORAT'    'IND'   6  8  8400  'OIL' /
+   'S-GRUP'    'GP'    6 10  8400  'OIL' /
+-- Wells which flow for a month and are then stopped
+   'FS-ORAT'   'IND'  10  6  8400  'OIL' /
+   'FS-GRUP'   'GP'   10  8  8400  'OIL' /
+/
+
+COMPDAT
+   'P-ORAT'     2  2  3  3  'OPEN'  1*  1*  0.5 /
+   'P-WRAT'     2  4  3  3  'OPEN'  1*  1*  0.5 /
+   'P-GRAT'     2  6  3  3  'OPEN'  1*  1*  0.5 /
+   'P-LRAT'     2  8  3  3  'OPEN'  1*  1*  0.5 /
+   'P-RESV'     4  2  3  3  'OPEN'  1*  1*  0.5 /
+   'P-BHP'      4  4  3  3  'OPEN'  1*  1*  0.5 /
+   'P-THP'      4  6  3  3  'OPEN'  1*  1*  0.5 /
+   'P-GRUP'     4  8  3  3  'OPEN'  1*  1*  0.5 /
+   'I-RATE'     6  2  3  3  'OPEN'  1*  1*  0.5 /
+   'I-BHP'      6  4  3  3  'OPEN'  1*  1*  0.5 /
+   'I-GRUP'     6  6  3  3  'OPEN'  1*  1*  0.5 /
+   'F-ORAT'     8  2  3  3  'OPEN'  1*  1*  0.5 /
+   'F-BHP'      8  4  3  3  'OPEN'  1*  1*  0.5 /
+   'F-OLIM'     8  6  3  3  'OPEN'  1*  1*  0.5 /
+   'F-GRUP'     8  8  3  3  'OPEN'  1*  1*  0.5 /
+   'FI-RATE'   10  2  3  3  'OPEN'  1*  1*  0.5 /
+   'FI-GRUP'   10  4  3  3  'OPEN'  1*  1*  0.5 /
+   'S-ORAT'     6  8  3  3  'OPEN'  1*  1*  0.5 /
+   'S-GRUP'     6 10  3  3  'OPEN'  1*  1*  0.5 /
+   'FS-ORAT'   10  6  1  3  'OPEN'  1*  1*  0.5 /
+   'FS-GRUP'   10  8  1  3  'OPEN'  1*  1*  0.5 /
+/
+
+GCONPROD
+   'GP'  'ORAT'  800 /
+/
+
+GCONINJE
+   'GI'  'WATER'  'RATE'  400 /
+/
+
+WCONPROD
+-- Well          Status  Ctrl    ORAT   WRAT  GRAT  LRAT  RESV  BHP   THP  VFP
+   'P-ORAT'      'SHUT'  'ORAT'  1000   4*                      1000 /
+   'P-WRAT'      'SHUT'  'WRAT'  1*     500   3*                1000 /
+   'P-GRAT'      'SHUT'  'GRAT'  2*           2000  2*          1000 /
+   'P-LRAT'      'SHUT'  'LRAT'  3*                 1000  1*    1000 /
+   'P-RESV'      'SHUT'  'RESV'  4*                       1500  1000 /
+   'P-BHP'       'SHUT'  'BHP'   5*                             1000 /
+   'P-THP'       'SHUT'  'THP'   5*                             1000  500  1 /
+   'P-GRUP'      'SHUT'  'GRUP'  1000   4*                      1000 /
+   'F-ORAT'      'OPEN'  'ORAT'  500    4*                      1000 /
+   'F-BHP'       'OPEN'  'BHP'   5*                             4200 /
+   'F-OLIM'      'OPEN'  'ORAT'  50000  4*                      4300 /
+   'F-GRUP'      'OPEN'  'GRUP'  1000   4*                      1000 /
+   'S-ORAT'      'STOP'  'ORAT'  1000   4*                      1000 /
+   'S-GRUP'      'STOP'  'GRUP'  1000   4*                      1000 /
+   'FS-ORAT'     'OPEN'  'ORAT'  500    4*                      1000 /
+   'FS-GRUP'     'OPEN'  'GRUP'  1000   4*                      1000 /
+/
+
+WCONINJE
+-- Well        Type     Status  Ctrl    Rate  RESV  BHP
+   'I-RATE'    'WATER'  'SHUT'  'RATE'  1000  1*    6000 /
+   'I-BHP'     'WATER'  'SHUT'  'BHP'   1000  1*    6000 /
+   'I-GRUP'    'WATER'  'SHUT'  'GRUP'  1000  1*    6000 /
+   'FI-RATE'   'WATER'  'OPEN'  'RATE'  500   1*    6000 /
+   'FI-GRUP'   'WATER'  'OPEN'  'GRUP'  1000  1*    6000 /
+/
+
+-- Report steps 1 and 2: the F-*, FI-* and FS-* wells flow.
+TSTEP
+   1 30 /
+
+WELOPEN
+   'F-ORAT'      'SHUT' /
+   'F-BHP'       'SHUT' /
+   'F-OLIM'      'SHUT' /
+   'F-GRUP'      'SHUT' /
+   'FI-RATE'     'SHUT' /
+   'FI-GRUP'     'SHUT' /
+   'FS-ORAT'     'STOP' /
+   'FS-GRUP'     'STOP' /
+/
+
+-- Report steps 3 and 4: the S-* and FS-* wells are stopped, all other
+-- wells are shut.
+TSTEP
+   1 30 /
+
+END
