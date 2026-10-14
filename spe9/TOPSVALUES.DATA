@@ -19,6 +19,8 @@
 -- is only determined by it I-value
 
 -- From the above, the following TOPS-values can be deduced:
+BOX
+1 24 1 25 1 1 /
 TOPS
 -- I=1:24, J=1, K=1
 9000
@@ -670,6 +672,7 @@ TOPS
 10163.75807262
 10216.65616683
 /
+ENDBOX
 
 
 -- Alternatively, the TOPS-values can be specified using the EQUALS keyword

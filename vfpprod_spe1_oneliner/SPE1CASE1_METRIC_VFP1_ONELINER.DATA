@@ -95,11 +95,16 @@ DZ
 -- METRIC: The layers are 6, 9 and 15 m thick, in each layer there are 100 cells
 	100*6 100*9 100*15 /
 
+BOX
+	1 10 1 10 1 1 /
+
 TOPS
 -- The depth of the top of each grid block, in top layer
 -- FIELD: 8325 ft
 -- METRIC: 2537 m
 	100*2537 /
+
+ENDBOX
 
 PORO
 -- Constant porosity of 0.3 throughout all 300 grid cells

@@ -67,9 +67,14 @@ DY
 DZ
    1 .1 .2 1 1 /
 
+BOX
+   1 1 1 1 1 1 /
+
 TOPS
 -- The depth of the top of each grid block
    0 /
+
+ENDBOX
 
 PORO
    5*1.0
