@@ -173,8 +173,11 @@ PORO
 --
 --       DEFINE GRID BLOCK TOPS FOR THE TOP LAYER
 --
+BOX
+         1 100 1 1 1 1 /
 TOPS
          100*0                                                                 /
+ENDBOX
 --
 --       SWITCH OFF ECHOING OF INPUT FILES
 --

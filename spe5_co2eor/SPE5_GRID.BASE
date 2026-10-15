@@ -22,9 +22,14 @@ DZ
 -- The layers are 20, 30 and 50 ft thick, in each layer there are 49 cells
 	49*20 49*30 49*50 /
 
+BOX
+	1 7 1 7 1 1 /
+
 TOPS
 -- The depth of the top of each grid block
 	49*8325 /
+
+ENDBOX
 
 PORO
 -- Constant porosity of 0.3 throughout all 147 grid cells

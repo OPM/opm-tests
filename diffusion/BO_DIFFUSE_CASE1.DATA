@@ -40,8 +40,13 @@ GRID
 
 INIT
 
+BOX
+  1 1 1 1 1 1 /
+
 TOPS
   1*400  /
+
+ENDBOX
 
 DX
   200*10  /

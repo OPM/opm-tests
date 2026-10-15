@@ -63,9 +63,14 @@ DY
 DZ
         200*0.86 /
 
+BOX
+        1 20 1 1 1 1 /
+
 TOPS
 -- The depth of the top of each grid block
         20*0 /
+
+ENDBOX
 
 PORO
 -- Constant porosity of 0.1

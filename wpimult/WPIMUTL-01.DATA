@@ -178,8 +178,11 @@ DZ
 --
 --       DEFINE GRID BLOCK TOPS FOR THE TOP LAYER
 --
+BOX
+         1 10 1 10 1 1 /
 TOPS
          100*8325                                                              /
+ENDBOX
 --
 --       DEFINE GRID BLOCK POROSITY DATA FOR ALL CELLS
 --
