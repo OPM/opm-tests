@@ -210,7 +210,7 @@ EQUIL
 SCHEDULE
 
 RPTRST
-        'BASIC=1' /
+        'BASIC=2' /
 
 -- 1 day
 TSTEP

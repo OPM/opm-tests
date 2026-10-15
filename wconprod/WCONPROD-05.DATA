@@ -416,7 +416,7 @@ RPTSCHED
 --       RESTART CONTROL BASIC = 4 (ALL=2, YEARLY=4, MONTHLY=5, TSTEP=6)
 --
 RPTRST
-         'BASIC=1'                                                             /
+         'BASIC=2'                                                             /
 --
 --       SOLUTION GAS (RS) MAXIMUM RATE OF INCREASE FOR MODEL
 --       CASE 2 NO GAS RESOLUTION

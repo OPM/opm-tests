@@ -332,7 +332,7 @@ RSVD
 
 
 RPTRST
-	'BASIC=1' ALLPROPS /
+	'BASIC=2' ALLPROPS /
 
 SUMMARY
 -- -------------------------------------------------------------------------	 
@@ -451,7 +451,7 @@ RPTSCHED
 	'FIP' 'PRES' 'SGAS' 'RS' 'WELLS' /
 
 RPTRST
-	'BASIC=1' /
+	'BASIC=2' /
 
 --Including VFPPROD table 1
 INCLUDE

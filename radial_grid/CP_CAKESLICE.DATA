@@ -347,7 +347,7 @@ RPTSCHED
 	'PRES' 'SOIL' 'WELLS' /
 
 RPTRST
-	'BASIC=1' /
+	'BASIC=2' /
 
 
 -- If no resolution (i.e. case 1), the two following lines must be added:
