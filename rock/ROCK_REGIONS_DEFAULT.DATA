@@ -235,11 +235,17 @@ INCLUDE
 STONE1
 
 -- PVT data - PVTW, ROCK, DENSITY, PVTO, PVTG
--- PVTW: Define water fluid properties for various regions 
--- ROCK: Define the rock compressibility for various regions 
--- Density: Define the surface oil, water gas densities for the fluids 
--- PVTO: Oil PVT properties for live oil 
+-- PVTW: Define water fluid properties for various regions
+-- ROCK: Define the rock compressibility for various regions
+-- Density: Define the surface oil, water gas densities for the fluids
+-- PVTO: Oil PVT properties for live oil
 -- PVTG: Gas PVT properties for wet gas
+
+-- ROCK: Define the rock compressibility for the two PVTNUM/rock regions.
+ROCK
+-- REF. PRES   COMPRESSIBILITY
+   280.000        5.6E-5 /
+   250.000        5.6E-4 /
 
 INCLUDE
   'include/pvt_basemod1_different_rocks.pvt' /
