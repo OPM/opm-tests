@@ -125,10 +125,10 @@ NOECHO
 
 
 INCLUDE
-'include/PVT-WET-GAS.INC' /
+'../../common/master/PVT-WET-GAS.INC' /
 
 INCLUDE
- 'include/scal_mod2.inc' /
+ '../../common/master/scal_mod2.inc' /
 
 
 FILLEPS
@@ -164,13 +164,13 @@ TUNING
  /
 
 INCLUDE
- 'include/b1_vfp_flowline.inc' /
+ '../../common/master/b1_vfp_flowline.inc' /
 
 INCLUDE
- 'include/d1_vfp_flowline.inc' /
+ '../../common/master/d1_vfp_flowline.inc' /
 
 INCLUDE
- './include/flowline_e1_vfp.inc' /
+ '../../common/master/flowline_e1_vfp.inc' /
 
 
 GRUPTREE
