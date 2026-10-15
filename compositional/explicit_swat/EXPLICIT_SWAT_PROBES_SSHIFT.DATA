@@ -65,9 +65,12 @@ DZV
  1
 /
 
+BOX
+1 9 1 1 1 1 /
 TOPS
 9*10
 /
+ENDBOX
 
 PERMX
 9*100
