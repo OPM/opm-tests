@@ -1,0 +1,356 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- This deck tests usage of reservoir coupling. 
+
+-- This case is a pure prediction case (no history). The master model includes one grid cell 
+-- and no wells. The master deck is used only for controlling production and injection 
+-- from the two slave models. 
+
+-- rc_m2/slavenet, case 1: as rc_m2/t2a, but PLAT-A is at 66 bar (21 bar in t2a), so that the THP
+-- limits of the wells of the slave RES-1 bind, and the slave RES-1 has a network of its own
+-- (T2A_SN_MOD1_FLOW.DATA) with MANI-B and MANI-D as fixed-pressure nodes, and its wells directly in
+-- these groups.  The pressure the master computes for B1_M and D1_M is the fixed pressure of these
+-- nodes in the slave at every exchange.  Tests that this pressure exchange converges and that the
+-- wells follow the pressure of the master.
+
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+RUNSPEC
+------------------------------------------------------------------------------------------------
+
+DIMENS
+ 1 1 1 /
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 1 'OCT' 2018 /
+
+
+EQLDIMS
+ 1 1*  25 /
+
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg   max.ALQ    max.tabs
+  25        15        15       15       0          60       /
+
+
+UDQDIMS
+ 16 16 0 5 /
+
+UDADIMS
+ 5 /
+--
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 5        10            10        10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  1          1      50          60         72         60 /
+
+
+--
+UNIFIN
+UNIFOUT
+
+NETWORK
+ 5 3 /
+
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+ 0  1 /
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+SPECGRID
+ 1 1 1 1 F /
+
+COORD
+  2000.0000  2000.0000  2000.0000   2000.0000  2000.0000  2002.5000
+  2100.0000  2000.0000  2000.0000   2100.0000  2000.0000  2002.5000
+  2000.0000  2100.0000  2000.0000   2000.0000  2100.0000  2002.5000
+  2100.0000  2100.0000  2000.0000   2100.0000  2100.0000  2002.5000
+/
+
+ZCORN
+  2000.0000  2000.0000  2000.0000  2000.0000  2002.5000  2002.5000
+  2002.5000  2002.5000 /
+
+
+PORO
+ 0.25 /
+  
+PERMX
+ 2100 /
+
+COPY
+ PERMX PERMY /
+ PERMX PERMZ /
+/
+
+MULTIPLY
+ 'PERMZ' 0.1 /
+/
+
+RPTGRID
+ 'ALLNNC' /
+
+------------------------------------------------------------------------------------------------  
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+
+INCLUDE
+'../../../common/master/PVT-WET-GAS.INC' /
+
+INCLUDE
+ '../../../common/master/scal_mod2.inc' /
+
+
+FILLEPS
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+  
+RPTRST
+ BASIC=2 /
+
+EQUIL
+-- Datum    P     woc     Pc   goc      Pc  Rsvd  Rvvd  N
+2300.00   300.0  2300.0   0.0  1800.00  0.0   1     1   0 /   
+
+PBVD
+ 2000.0 100.0
+ 2300.0 100.0 /
+
+PDVD
+ 2000.0 100.0
+ 2300.0 100.0 /
+
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+-----------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/summary.inc' /
+
+GPR
+/
+
+FUQOMAX
+FUGT1
+FUGIM1
+
+FWIR
+
+GWIR
+/
+
+GWIRT
+/
+
+GMCTW
+/
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+
+TUNING
+ 1.0  5.0 /
+ /
+ /
+
+INCLUDE
+ '../../../common/master/b1_vfp_flowline.inc' /
+
+INCLUDE
+ '../../../common/master/d1_vfp_flowline.inc' /
+
+INCLUDE
+ '../../../common/master/flowline_e1_vfp.inc' /
+
+
+--TSTEP
+-- 1.0 /
+
+
+GRUPTREE
+ 'PLAT-A' 'FIELD' /
+ 
+ 'MOD1'   'PLAT-A' /
+
+ 'B1_M'   'MOD1' /
+ 'D1_M'   'MOD1' /
+ 'C1_M'   'MOD1' /
+ 'F1_M'   'MOD1' /
+ 
+ 'E1_M'   'PLAT-A' /
+/
+
+SLAVES
+  'RES-1'  'T2A_SN_MOD1_FLOW'   '*'  '../mod1'  4 /
+  'RES-2'  'T2A_MOD2_FLOW'   '*'  '../mod2'  1 /
+/
+
+GRUPMAST
+ 'D1_M' 'RES-1'  'MANI-D'  1*  / 
+ 'B1_M' 'RES-1'  'MANI-B'  1*  / 
+ 'C1_M' 'RES-1'  'MANI-C'  1*  / 
+ 'F1_M' 'RES-1'  'MANI-F'  1*  / 
+ 'E1_M' 'RES-2'  'E1'  1*  / 
+/
+
+BRANPROP
+--  Downtree  Uptree	  #VFP  ALQ
+    B1_M	'PLAT-A'    3   1* /
+    D1_M	'PLAT-A'    4   1* /
+    E1_M	'PLAT-A'    5	1* /
+/
+
+-- slavenet case 1: PLAT-A is at 66 bar here (21 bar in t2a), so that the THP limits the
+-- network imposes on the slave wells bind.
+NODEPROP
+--  Node_name  Press  autoChoke?  addGasLift?  Group_name
+     PLAT-A	66.0   NO        NO	    1*  /
+     B1_M	1*     NO	 NO	    1*  /
+     D1_M	1*     NO	 NO	    1*  /
+     E1_M	1*     NO	 NO	    1*  /
+/
+
+UDQ
+ ASSIGN FUQOMAX 9000.0 /
+/ 
+
+DATES
+ 2 'OCT' 2018 /
+/
+
+DATES
+ 5 'OCT' 2018 /
+/
+
+DATES
+ 10 'OCT' 2018 /
+/
+
+DATES
+ 15 'OCT' 2018 /
+/
+
+
+
+GUIDERAT
+ 30.0 OIL 1.0 1.0 1* 1*  1.0  0.2  1*  0.1  /
+
+
+GCONPROD
+ 'FIELD' 'ORAT'   FUQOMAX  1*  6.9E6   1*   'RATE'  /
+
+ 'D1_M'  'ORAT'   9200.0  1*  6.9E6   1*   'RATE'  1*  1*  'FORM'  /
+ 'B1_M'  'ORAT'   9200.0  1*  6.9E6   1*   'RATE'  1*  1*  'FORM'  /
+ 'C1_M'  'ORAT'   9200.0  1*  6.9E6   1*   'RATE'  1*  1*  'FORM'  /
+ 'F1_M'  'ORAT'   9200.0  1*  6.9E6   1*   'RATE'  1*  1*  'FORM'  /
+ 'E1_M'  'ORAT'   9200.0  1*  6.9E6   1*   'RATE'  1*  1*  'FORM'  /
+/
+
+GCONSUMP
+  'FIELD'  200000 /
+/
+
+GCONINJE
+-- 'FIELD' 'GAS'   'REIN'   4.0E6  1*  1.0  / 
+-- 'D1_M'  'GAS'   'RATE'   4.0E6  4*  1.0  'RATE' /
+-- 'B1_M'  'GAS'   'RATE'   4.0E6  4*  1.0  'RATE' /
+-- 'C1_M'  'GAS'   'RATE'   4.0E6  4*  1.0  'RATE' /
+-- 'E1_M'  'GAS'   'RATE'   4.0E6  4*  1.0  'RATE' /
+ 'D1_M'  'WATER' 'RATE'   4.0E6  4*  1.0  'RATE' /
+ 'B1_M'  'WATER' 'RATE'   4.0E6  4*  1.0  'RATE' /
+
+ 'MOD1'  'WATER' 'RATE' 15000.0 /
+
+ 'C1_M'  'WATER' 'NONE' 5* 0 'NETV' /
+ 'F1_M'  'WATER' 'NONE' 5* 0 'NETV' /
+ 
+ 'E1_M'  'WATER' 'RATE'   4.0E6  4*  1.0  'RATE' /
+
+/
+
+DATES
+ 19 'OCT' 2018 /
+/
+
+DATES
+ 20 'OCT' 2018 /
+/
+
+
+DATES
+ 1 NOV 2018 /
+/
+
+ 
+DATES 
+ 1 DEC 2018 /
+ 1 JAN 2019 /
+/
+
+
+DATES
+ 1 FEB 2019 /
+/
+ 
+DATES
+ 1 MAR 2019 /
+ 1 APR 2019 /
+ 1 MAY 2019 /
+ 1 JUN 2019 /
+ 1 JUL 2019 /
+/
+
+END
+
