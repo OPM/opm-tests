@@ -11,11 +11,13 @@
 -- and no wells. The master deck is used only for controlling production and injection 
 -- from the two slave models. 
 
--- rc_m2/slavenet, case 2: as case 1 (TEST2A_SN_FLOW.DATA), but the wells of the slave RES-1 are in
--- groups WG-B and WG-D below the fixed-pressure nodes MANI-B and MANI-D (T2A_SN2_MOD1_FLOW.DATA),
--- and PLAT-A is at 45 bar.  Tests that the pressure of the master reaches wells that are not in the
--- node itself: the THP limit of such a well is the pressure of its group's node, that is the master's
--- pressure plus the pressure drop in the branch.
+-- rc_m2/slavenet2: as rc_m2/slavenet (TEST2A_SN_FLOW.DATA), but the wells of the slave RES-1 are in
+-- groups WG-B and WG-D below the fixed-pressure nodes MANI-B and MANI-D (T2A_SN2_MOD1_FLOW.DATA), and
+-- PLAT-A is at 40 bar.  Tests that the pressure of the master reaches wells that are not in the node
+-- itself: the THP limit of such a well is the pressure of its group's node, that is the master's
+-- pressure plus the pressure drop in the branch.  At 40 bar the wells keep producing, at a lower rate
+-- than without the pressure of the master on them.  At a pressure above about 44 bar the limit is more
+-- than the D wells can deliver, and they shut.  The slave RES-2 is the one of rc_m2/t2a.
 
 ------------------------------------------------------------------------------------------------
 
@@ -174,7 +176,7 @@ SUMMARY
 -----------------------------------------------------------------------------------------------
 
 INCLUDE
- 'include/summary.inc' /
+ '../../t2a/master/include/summary.inc' /
 
 GPR
 /
@@ -233,7 +235,7 @@ GRUPTREE
 
 SLAVES
   'RES-1'  'T2A_SN2_MOD1_FLOW'   '*'  '../mod1'  4 /
-  'RES-2'  'T2A_MOD2_FLOW'   '*'  '../mod2'  1 /
+  'RES-2'  'T2A_MOD2_FLOW'   '*'  '../../t2a/mod2'  1 /
 /
 
 GRUPMAST
@@ -251,11 +253,11 @@ BRANPROP
     E1_M	'PLAT-A'    5	1* /
 /
 
--- slavenet case 2: PLAT-A is at 45 bar here (21 bar in t2a), so that the THP limits the
+-- slavenet2: PLAT-A is at 40 bar here (21 bar in t2a), so that the THP limits the
 -- network imposes on the slave wells bind.
 NODEPROP
 --  Node_name  Press  autoChoke?  addGasLift?  Group_name
-     PLAT-A	45.0   NO        NO	    1*  /
+     PLAT-A	40.0   NO        NO	    1*  /
      B1_M	1*     NO	 NO	    1*  /
      D1_M	1*     NO	 NO	    1*  /
      E1_M	1*     NO	 NO	    1*  /

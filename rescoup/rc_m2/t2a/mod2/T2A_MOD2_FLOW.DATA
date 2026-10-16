@@ -6,8 +6,8 @@
 -- Copyright (C) 2026 Equinor 
 
 -- This deck is used for testing reservoir coupling.  It is the slave RES-2 (12x33x14 cells, group
--- E1), one of 2 slave decks started with the master deck TEST2A_FLOW.DATA.  It is a pure prediction
--- case (no history).
+-- E1), one of 2 slave decks started with the master deck TEST2A_FLOW.DATA, and by the master decks of
+-- the other rc_m2 cases.  It is a pure prediction case (no history).
 
 ------------------------------------------------------------------------------------------------
 

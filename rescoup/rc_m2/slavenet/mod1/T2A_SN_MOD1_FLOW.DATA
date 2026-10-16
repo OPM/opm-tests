@@ -5,12 +5,11 @@
 
 -- Copyright (C) 2026 Equinor 
 
--- This deck is used for testing reservoir coupling.  It is the slave RES-1 of case 1 of
--- rc_m2/slavenet, started with the master deck TEST2A_SN_FLOW.DATA.  As the slave RES-1 of rc_m2/t2a,
--- but with a network of its own (NETWORK, BRANPROP and NODEPROP in the SCHEDULE section): MANI-B and
--- MANI-D are fixed-pressure nodes, with the wells in these groups, and the pressure of the master is
--- their fixed pressure.  The two branches carry no flow (MANI-C and MANI-F have no producers); a
--- network needs a branch.
+-- This deck is used for testing reservoir coupling.  It is the slave RES-1 of rc_m2/slavenet, started
+-- with the master deck TEST2A_SN_FLOW.DATA.  As the slave RES-1 of rc_m2/t2a, but with a network of its
+-- own (NETWORK, BRANPROP and NODEPROP in the SCHEDULE section): MANI-B and MANI-D are fixed-pressure
+-- nodes, with the wells in these groups, and the pressure of the master is their fixed pressure.  The
+-- two branches carry no flow (MANI-C and MANI-F have no producers); a network needs a branch.
 
 RUNSPEC
 
@@ -59,7 +58,7 @@ REGDIMS
 WELLDIMS
   10  36  10  5 /
 
--- slavenet case 1: this slave has a network of its own, see BRANPROP/NODEPROP in SCHEDULE.
+-- slavenet: this slave has a network of its own, see BRANPROP/NODEPROP in SCHEDULE.
 NETWORK
  4 2 /
 
@@ -368,7 +367,7 @@ MLINEARS
 
 --
 INCLUDE
- 'include/summary.data' / 
+ '../../t2a/mod1/include/summary.data' / 
 
 --
 INCLUDE
@@ -435,7 +434,7 @@ GRUPSLAV
  'MANI-F'  'F1_M' /
 /
 
--- slavenet case 1: MANI-B and MANI-D are fixed-pressure nodes, so the node pressures the
+-- slavenet: MANI-B and MANI-D are fixed-pressure nodes, so the node pressures the
 -- master sends for B1_M and D1_M are applied as dynamic THP limits on their wells.
 -- The two branches carry no flow (MANI-C and MANI-F have no producers); they are only
 -- there because a network needs a branch.  The pressure of 25 bar is replaced by the

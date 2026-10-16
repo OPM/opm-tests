@@ -11,12 +11,12 @@
 -- and no wells. The master deck is used only for controlling production and injection 
 -- from the two slave models. 
 
--- rc_m2/slavenet, case 1: as rc_m2/t2a, but PLAT-A is at 66 bar (21 bar in t2a), so that the THP
--- limits of the wells of the slave RES-1 bind, and the slave RES-1 has a network of its own
--- (T2A_SN_MOD1_FLOW.DATA) with MANI-B and MANI-D as fixed-pressure nodes, and its wells directly in
--- these groups.  The pressure the master computes for B1_M and D1_M is the fixed pressure of these
--- nodes in the slave at every exchange.  Tests that this pressure exchange converges and that the
--- wells follow the pressure of the master.
+-- rc_m2/slavenet: as rc_m2/t2a, but PLAT-A is at 66 bar (21 bar in t2a), so that the THP limits of the
+-- wells of the slave RES-1 bind, and the slave RES-1 has a network of its own (T2A_SN_MOD1_FLOW.DATA)
+-- with MANI-B and MANI-D as fixed-pressure nodes, and its wells directly in these groups.  The
+-- pressure the master computes for B1_M and D1_M is the fixed pressure of these nodes in the slave at
+-- every exchange.  Tests that this pressure exchange converges and that the wells follow the pressure
+-- of the master.  The slave RES-2 is the one of rc_m2/t2a.
 
 ------------------------------------------------------------------------------------------------
 
@@ -175,7 +175,7 @@ SUMMARY
 -----------------------------------------------------------------------------------------------
 
 INCLUDE
- 'include/summary.inc' /
+ '../../t2a/master/include/summary.inc' /
 
 GPR
 /
@@ -234,7 +234,7 @@ GRUPTREE
 
 SLAVES
   'RES-1'  'T2A_SN_MOD1_FLOW'   '*'  '../mod1'  4 /
-  'RES-2'  'T2A_MOD2_FLOW'   '*'  '../mod2'  1 /
+  'RES-2'  'T2A_MOD2_FLOW'   '*'  '../../t2a/mod2'  1 /
 /
 
 GRUPMAST
@@ -252,7 +252,7 @@ BRANPROP
     E1_M	'PLAT-A'    5	1* /
 /
 
--- slavenet case 1: PLAT-A is at 66 bar here (21 bar in t2a), so that the THP limits the
+-- slavenet: PLAT-A is at 66 bar here (21 bar in t2a), so that the THP limits the
 -- network imposes on the slave wells bind.
 NODEPROP
 --  Node_name  Press  autoChoke?  addGasLift?  Group_name

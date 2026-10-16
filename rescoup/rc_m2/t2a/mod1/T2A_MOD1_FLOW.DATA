@@ -7,7 +7,8 @@
 
 -- This deck is used for testing reservoir coupling.  It is the slave RES-1 (46x28x22 cells, four
 -- processes, groups MANI-B, MANI-D, MANI-C and MANI-F), one of 2 slave decks started with the master
--- deck TEST2A_FLOW.DATA.  It is a pure prediction case (no history) and has no network of its own.
+-- deck TEST2A_FLOW.DATA, and by the master decks of rc_m2/injcap and rc_m2/netroot.  It is a pure
+-- prediction case (no history) and has no network of its own.
 
 RUNSPEC
 
