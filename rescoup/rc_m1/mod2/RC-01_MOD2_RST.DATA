@@ -96,16 +96,16 @@ INIT
 
 
 INCLUDE
- 'include/grid_12x33x14.grdecl' /
+ '../../common/mod2/grid_12x33x14.grdecl' /
 
 INCLUDE
- 'include/test_12x33x14.poro' /
+ '../../common/mod2/test_12x33x14.poro' /
 
 INCLUDE
- 'include/test_12x33x14.permx' /
+ '../../common/mod2/test_12x33x14.permx' /
  
 INCLUDE
- 'include/test_12x33x14.ntg' /
+ '../../common/mod2/test_12x33x14.ntg' /
 
 COPY
  PERMX PERMY /
@@ -135,10 +135,10 @@ ROCK
 
 
 INCLUDE
- './include/pvt_mod2.inc' /
+ '../../common/mod2/pvt_mod2.inc' /
 
 INCLUDE
- 'include/scal_mod2.inc' /
+ '../../common/mod2/scal_mod2.inc' /
 
 
 
@@ -187,10 +187,10 @@ GRUPSLAV
 
 
 INCLUDE
- 'include/well_e1h_vfp.inc' /
+ '../../common/mod2/well_e1h_vfp.inc' /
 
 INCLUDE
- 'include/well_e2h_vfp.inc' /
+ '../../common/mod2/well_e2h_vfp.inc' /
 
 
 WCONPROD
