@@ -277,7 +277,7 @@ RPTSCHED
 	'PRES' 'SGAS' 'RS' 'WELLS' /
 
 RPTRST
-	'BASIC=1' 'DENSITY' 'ALLPROPS' /
+	'BASIC=2' 'DENSITY' 'ALLPROPS' /
 
 
 -- If no resolution (i.e. case 1), the two following lines must be added:

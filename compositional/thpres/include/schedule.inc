@@ -6,7 +6,7 @@
 -- Copyright (C) 2026, SINTEF Digital
 
 RPTRST
-BASIC=1
+BASIC=2
 PRESSURE
 SGAS
 SOIL

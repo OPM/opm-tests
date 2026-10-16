@@ -9,7 +9,7 @@
 -- Shared restart output requests for well and reservoir diagnostics.
 
 RPTRST
-BASIC=1
+BASIC=2
 PRESSURE
 SGAS
 SOIL
