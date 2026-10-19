@@ -12,6 +12,7 @@
 -- water pressure, and the hydrocarbon takes its pressure at the contacts with
 -- the vapour root the single COMPVD row names. No liquid lies between the
 -- contacts, so the constant composition leaves nothing to label as oil.
+-- FACTLI states the default Li correlation factor of one.
 -- There are no wells; the few short time steps only verify that the initial
 -- state is stable.
 
@@ -185,6 +186,9 @@ SSHIFT
 -0.0243568
 0.10784125400986
 0.206892761354429/
+
+FACTLI
+1.0 /
 
 SGFN
 --Sg Krg Pcg

@@ -6,7 +6,7 @@
 -- Copyright (C) 2026, SINTEF Digital, TNO
 
 -- EQUIL_1D_COMPVD_WATER_GASCAP_CONTACT_MISMATCH with the first liquid COMPVD
--- row moved from 2574.5 m to 2594.5 m and without FACTLI. The gas-oil contact
+-- row moved from 2574.5 m to 2594.5 m. The gas-oil contact
 -- at 2576.21 m then lies inside the gap between the last vapour row at 2573.5 m
 -- and the first liquid row. With EQUIL item 10 = 1 the rows give the total
 -- composition versus depth, interpolated linearly across that gap as well, and
@@ -197,6 +197,9 @@ SSHIFT
 -0.0243568
 0.10784125400986
 0.206892761354429/
+
+FACTLI
+1.0 /
 
 SGFN
 --Sg Krg Pcg
