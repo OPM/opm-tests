@@ -64,6 +64,11 @@ def run(ecl_state, schedule, report_step, summary_state, actionx_callback):
 
     if (not "FU_VAR40" in summary_state):
         summary_state["FU_VAR40"] =  0.0
+
+    # = DEFINE FU_VAR40 inserted by ACT1, evaluated at FU_VAR40's UDQ position
+    if globals().get("action_executed", False):
+        summary_state["FU_VAR40"] = summary_state["FU_VAR71"]*summary_state["FU_VAR73"]+(summary_state["FU_VAR72"]*summary_state["FU_VAR73"]/7)
+
     summary_state["FU_VAR41"] =  (summary_state["FU_VAR40"]*19.0/70000/365) 
     summary_state["FU_VAR42"] = summary_state["FU_VAR41"]*summary_state["TIMESTEP"] 
     if (not "FU_VAR43" in summary_state):
@@ -117,5 +122,4 @@ def run(ecl_state, schedule, report_step, summary_state, actionx_callback):
     if (not globals()["action_executed"] and summary_state["FOPR"] > 2):
         current_time = schedule.start + datetime.timedelta(seconds=summary_state.elapsed())
         print("PYACTION version of ACT1 triggered at {}\n".format(current_time))
-        summary_state["FU_VAR40"] = summary_state["FU_VAR71"]*summary_state["FU_VAR73"]+(summary_state["FU_VAR72"]*summary_state["FU_VAR73"]/7)        
         globals()["action_executed"] = True
