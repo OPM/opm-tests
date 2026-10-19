@@ -10,7 +10,9 @@
 -- fixed-pressure nodes of a network of its own, but the wells are in the groups WG-B and WG-D below
 -- them.  The flowline VFP tables 13 and 14 of these groups (include/wgb_vfp_flowline.inc and
 -- include/wgd_vfp_flowline.inc) are copies of the master's tables 3 and 4 with the table number
--- changed.  They are only there to give the branches a pressure drop.
+-- changed.  They are only there to give the branches a pressure drop.  The time step is limited to 1
+-- day (TUNING), so that a sync step has several time steps, of which only the first gets the pressures
+-- of the master.
 
 RUNSPEC
 
@@ -407,6 +409,11 @@ WBP4
 
 
 SCHEDULE
+
+TUNING
+ 0.5 1.0 /
+ /
+ /
 
 
 INCLUDE
