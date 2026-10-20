@@ -6,16 +6,16 @@
 -- Copyright (C) 2023 Equinor
 
 -- Originally, this file was an include file for model1/BASE_MODEL_1.DATA.
--- Modified with different values in the second record of the ROCK keyword. 
+
+-- The ROCK keyword used to live here (with different values in the second
+-- record for the two PVTNUM regions), but it has been moved into each .DATA
+-- file that includes this file instead, so that the same PVT data can be
+-- reused unchanged across test models that vary only in how rock compaction
+-- is modelled (plain ROCK vs. ROCKCOMP+ROCKTAB vs. ROCKCOMP+ROCKTABH).
 
 -- ----------------------------------------------------------------------------
 -- ----------------------------------------------------------------------------
 
-ROCK
--- REF. PRES   COMPRESSIBILITY
-   280.000        5.6E-5 /
-   250.000        5.6E-4 /
- 
 PVTW
 --     RefPres        Bw          Cw           Vw         dVw
 --       bara       rm3/m3       1/bara        cP        1/bara
