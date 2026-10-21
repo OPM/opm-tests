@@ -1,0 +1,495 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+
+-- -------------------------------------------------------------------------------------------------------
+-- Extended network test case for GSATPROD and GCONSUMP, based on NETWORK-01.
+--
+-- Group tree and extended network:
+--
+--     FIELD   (fixed node pressure 80 barsa)
+--       |  branch PLAT -> FIELD, VFP 2
+--     PLAT    (platform node, GCONSUMP gas consumption)
+--       |----------------------------.
+--       |  branch PROD -> PLAT, VFP 2  |  branch SAT -> PLAT, VFP 2
+--     PROD    (wells PROD1-3)        SAT  (satellite group, GSATPROD, no wells)
+--
+--     INJE    (water injectors, not part of the network)
+--
+-- Schedule events:
+--   01 DEC 2018: PROD1/PROD2 open on THP-limited group control.  The
+--                satellite group SAT produces via GSATPROD and its rates flow
+--                through branch SAT->PLAT and then branch PLAT->FIELD.
+--   15 DEC 2018: GCONSUMP removes 2.5E5 sm3/d gas at PLAT.  PLAT is not a
+--                source node, so GCONSUMP item 4 names node PLAT explicitly
+--                (a defaulted item 4 would not affect the network).  The gas
+--                rate is reduced in branch PLAT->FIELD only.
+--   01 JAN 2019: SAT starts receiving 1.0E5 sm3/d lift gas (GSATPROD item 6),
+--                which NODEPROP item 4 adds to the gas rate at node SAT.
+--   05 JAN 2019: PROD3 opens.  GCONSUMP removes 1.0E5 sm3/d gas at the
+--                source node PROD (item 4 defaulted), which reduces the gas
+--                rate in branches PROD->PLAT and PLAT->FIELD.
+--   01 FEB 2019: Wells switch to 1000 sm3/d ORAT, no longer network limited.
+--   15 FEB 2019: GCONSUMP item 4 for PLAT set to 'NO-NODES', i.e. PLAT's
+--                consumption no longer affects the network.
+--
+-- Expected network gas rates (GGCR:PLAT includes PROD's consumption):
+--   15 DEC 2018 - 05 JAN 2019:
+--     GGPRNB:PROD = GGPR:PROD
+--     GGPRNB:PLAT = GGPRNB:PROD + GGPRNB:SAT - 2.5E5
+--   05 JAN 2019 - 15 FEB 2019:
+--     GGPRNB:PROD = GGPR:PROD - 1.0E5
+--     GGPRNB:PLAT = GGPRNB:PROD + GGPRNB:SAT - 2.5E5
+--   15 FEB 2019 onwards:
+--     GGPRNB:PROD = GGPR:PROD - 1.0E5
+--     GGPRNB:PLAT = GGPRNB:PROD + GGPRNB:SAT
+--
+-- Effect of the consumption at PLAT at 15 DEC 2018 (wells THP limited):
+--   lower GOR in branch PLAT->FIELD.  VFP 2 is hydrostatically dominated
+--   (datum depth 114.6 m), so the heavier fluid gives a LARGER pressure drop
+--   PLAT->FIELD (about 10.3 -> 10.8 bar) => higher GPR:PLAT and GPR:PROD
+--   => higher WTHP:PROD1/2 => lower WOPR/WGPR:PROD1/2.
+-- -------------------------------------------------------------------------------------------------------
+RUNSPEC
+---------------------------------------------------------------------------------------------------------
+
+
+DIMENS
+ 13 22 11 /
+
+
+OIL
+WATER
+GAS
+DISGAS
+VAPOIL
+
+METRIC
+
+START
+ 01  'NOV' 2018 /
+
+NSTACK
+  50 /
+
+--
+GRIDOPTS
+ 'YES'	      0 /
+
+EQLDIMS
+ 2 1*  25 /
+
+
+EQLOPTS
+ THPRES  /
+
+
+REGDIMS
+-- max. ntfip  nmfipr  max. nrfreg   max. ntfreg
+   2          1       1*            2    /
+
+--
+WELLDIMS
+--max.well  max.con/well  max.grup  max.w/grup
+ 10	    15 	          6	     10   /
+
+--
+TABDIMS
+--ntsfun     ntpvt  max.nssfun  max.nppvt  max.ntfip  max.nrpvt
+  10          1      50          60         2         60 /
+
+
+VFPPDIMS
+--max.rate  max.THP   max.fw   max.fg	max.ALQ    max.tabs
+  40	    20        20       20	 13	    60	    /
+
+--
+FAULTDIM
+120 / max. number os fault segments
+
+NETWORK
+  5  5  /
+
+UNIFIN
+UNIFOUT
+
+------------------------------------------------------------------------------------------------
+GRID
+------------------------------------------------------------------------------------------------
+
+--
+NEWTRAN
+
+--
+GRIDFILE
+0  1/
+
+--
+GRIDUNIT
+METRES  /
+
+--
+INIT
+
+
+--
+
+
+
+INCLUDE
+ 'include/MODEL02-GRID.inc' /
+
+INCLUDE
+ 'include/MODEL02-FLUXNUM.inc' /
+
+
+INCLUDE
+ 'include/MODEL02-PORO.inc' /
+
+INCLUDE
+ 'include/MODEL02-PERMX.inc' /
+
+INCLUDE
+ 'include/MODEL02-NTG.inc' /
+
+
+COPY
+ PERMX PERMY /
+/
+
+
+INCLUDE
+ 'include/MODEL02-PERMZ.inc'/
+
+
+RPTGRID
+ 'ALLNNC' /
+
+------------------------------------------------------------------------------------------------
+EDIT
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+PROPS
+------------------------------------------------------------------------------------------------
+
+NOECHO
+
+INCLUDE
+ 'include/MODEL02-PVT.inc' /
+
+INCLUDE
+ 'include/MODEL02-ROCK.inc' /
+
+INCLUDE
+ 'include/MODEL02-SWOF.inc' /
+
+INCLUDE
+ 'include/MODEL02-SGOF.inc' /
+
+
+------------------------------------------------------------------------------------------------
+REGIONS
+------------------------------------------------------------------------------------------------
+
+INCLUDE
+ 'include/MODEL02-EQLNUM.inc' /
+
+INCLUDE
+ 'include/MODEL02-FIPNUM.inc' /
+
+INCLUDE
+ 'include/MODEL02-SATNUM.inc' /
+
+------------------------------------------------------------------------------------------------
+SOLUTION
+------------------------------------------------------------------------------------------------
+
+
+RPTRST
+  'BASIC = 2' 'PBPD' /
+
+EQUIL
+-- Datum    P     woc     Pc   goc    Pc  Rsvd  Rvvd
+ 2561.59  268.55  2645.21   0.0 2561.59  0.0   1   0   0 /
+ 2584.20  268.71 2685.21   0.0 2584.20  0.0   5   0   0 /
+
+RSVD
+ 2561.59  122.30
+ 2597.0  110.00
+ 2660.7  106.77
+ 2697.0  106.77 /
+
+ 2584.20  122.41
+ 2599.9  110.00
+ 2663.6  106.77
+ 2699.9  106.77 /
+
+
+THPRES
+ 1  2 /
+/
+
+
+------------------------------------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------------------------------------
+
+
+INCLUDE
+ 'include/MODEL02-SUMMARY.inc' /
+
+ALL
+WTHP
+/
+-- Network node pressure
+GPR
+/
+-- Production network node outlet branch pressure drop
+GPRB
+/
+-- Production network node outlet branch oil rate
+GOPRNB
+/
+-- Production network node outlet branch water rate
+GWPRNB
+/
+-- Production network node outlet branch liquid rate
+GLPRNB
+/
+-- Production network node outlet branch gas rate
+GGPRNB
+/
+-- Node and network quantities above, but evaluated at end of converged time step.
+-- (Vectors differ for networks that are not balanced, see NETBALAN).
+GPR2
+/
+GPRB2
+/
+GOPRNB2
+/
+GWPRNB2
+/
+GLPRNB2
+/
+GGPRNB2
+/
+
+-- Group rates, including the satellite group SAT
+GOPR
+/
+GWPR
+/
+GGPR
+/
+-- Gas consumption and import (GCONSUMP)
+GGCR
+/
+GGIMR
+/
+FGCR
+FGSR
+-- Gas lift supply (including GSATPROD item 6 for SAT)
+GGLIR
+/
+
+
+------------------------------------------------------------------------------------------------
+SCHEDULE
+------------------------------------------------------------------------------------------------
+
+RPTRST
+ 'BASIC=2' /
+
+
+INCLUDE
+ 'include/MODEL02-D-1.inc' /
+
+INCLUDE
+ 'include/flowline_netbalance.inc' /
+
+TUNING
+ 0.1 2 /
+ /
+ 20 2 50 1 30 30 /
+
+-- start date:  01  'NOV' 2018 /
+
+GRUPTREE
+   'INJE'     'FIELD'  /
+   'PLAT'     'FIELD'  /
+   'PROD'     'PLAT'   /
+   'SAT'      'PLAT'   /
+/
+
+WELSPECS
+ 'PROD1'  'PROD'   6    3   1*      'OIL'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+ 'PROD2'  'PROD'  10   4	1*	'OIL'  0.00	 'STD'     'SHUT'      'YES'	0      'SEG' /
+ 'PROD3'  'PROD'  6 19   1*      'OIL'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+ 'INJ1'   'INJE'   2    13   1*    'WATER'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+ 'INJ2'  'INJE'     12 20   1*    'WATER'  0.00      'STD'     'SHUT'      'YES'    0      'SEG' /
+/
+
+COMPDAT
+ 'PROD1'   6   3   7   7      'OPEN'   0      6.145  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD1'   6   3   8   8      'OPEN'   0      9.703  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD1'   6   3   9   9      'OPEN'   0    184.170  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD1'   6   3   10  10     'OPEN'   0     24.709  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD2'   10   4   7   7      'OPEN'	0    20.473  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD2'   10   4   8   8      'OPEN'	0    17.619  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD2'   10   4   9   9      'OPEN'	0    80.721  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD2'   10   4   10  10     'OPEN'	0    11.755  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'PROD3'   6 19   7   7      'OPEN'   0     21.629  0.216  1*	0.00	0.0 'Z' 1* /
+ 'PROD3'   6 19   8   8      'OPEN'   0     12.441  0.216  1*	0.00	0.0 'Z' 1* /
+ 'PROD3'   6 19   9   9      'OPEN'   0    178.588  0.216  1*	0.00	0.0 'Z' 1* /
+ 'PROD3'   6 19   10  10     'OPEN'   0     11.149  0.216  1*	0.00	0.0 'Z' 1* /
+ 'INJ1'    2   13   1  1      'OPEN'   0    138.457  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'INJ1'    2   13   2  2      'OPEN'   0      0.760  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'INJ1'    2   13   3  3      'OPEN'   0     53.129  0.216  1*   0.00	 0.0 'Z' 1* /
+ 'INJ1'   2   13    8   8     'OPEN'   0    20.547  0.216  1*	0.00	0.0 'Z' 1* /
+ 'INJ1'   2   13    9   9     'OPEN'   0    45.709  0.216  1*	0.00	0.0 'Z' 1* /
+ 'INJ1'   2   13   10  10     'OPEN'   0    25.267  0.216  1*	0.00	0.0 'Z' 1* /
+ 'INJ1'   2   13   11  11     'OPEN'   0    33.982  0.216  1*	0.00	0.0 'Z' 1* /
+ 'INJ2'   12 20   9   9     'OPEN'   0    139.042  0.216  1*   0.00    0.0 'Z' 1* /
+ 'INJ2'   12 20  10  10     'OPEN'   0     18.620  0.216  1*   0.00    0.0 'Z' 1* /
+ 'INJ2'   12 20  11  11     'OPEN'   0     77.048  0.216  1*   0.00    0.0 'Z' 1* /
+/
+
+BRANPROP
+--  DOWNTREE  UPTREE   VFP
+  'PLAT'    'FIELD'  2 /
+  'PROD'    'PLAT'   2 /
+  'SAT'     'PLAT'   2 /
+/
+
+NODEPROP
+--  NODE     PRESSURE  AS_CHOKE  ADD_GAS_LIFT_GAS
+  'FIELD'  80.0      /
+  'PLAT'   1*        /
+  'PROD'   1*        /
+  'SAT'    1*        'NO'      'YES' /
+/
+
+-- SAT must be a leaf group without wells.
+GSATPROD
+--  GROUP  OIL     WATER  GAS     RESV  LIFT_GAS
+  'SAT'    2000.0  500.0  3.0E5   1*    0.0 /
+/
+
+WCONPROD
+--  WELL   OPEN/  CNTL  OIL   WATER  GAS   LIQU  VOID  BHP  THP  TAB
+--  NAME   SHUT   MODE  RATE  RATE   RATE  RATE  RATE            NO
+  'PROD*'  'SHUT'  'ORAT'  0.0  4*                     100.0 /
+/
+WCONINJE
+--  WELL   INJ   OPEN/   CNTL   FLOW   RESV  BHP
+--  NAME   TYPE  SHUT    MODE   RATE   RATE
+  'INJ*'   'WATER'  'SHUT'  'RATE'  0.0  1*     400.0 /
+/
+
+NETBALAN
+  -1  0.1 10 /
+
+DATES
+  01 'DEC' 2018 /
+/
+
+WCONPROD
+--  WELL   OPEN/  CNTL  OIL   WATER  GAS   LIQU  VOID  BHP  THP  TAB
+--  NAME   SHUT   MODE  RATE  RATE   RATE  RATE  RATE            NO
+
+  'PROD1'  'OPEN' 'GRUP'  5000.0   2*         2*          100.0  20.0  5 /
+  'PROD2'  'OPEN' 'GRUP'  5000.0   2*         2*          100.0  20.0  5 /
+/
+WCONINJE
+--  WELL   INJ   OPEN/   CNTL   FLOW   RESV  BHP
+--  NAME   TYPE  SHUT    MODE   RATE   RATE
+  'I*' 'WATER'  'OPEN' 'GRUP'  6500.0  1*  350.0 /
+/
+
+GCONPROD
+--  GROUP      CNTL   OIL   WATER  GAS   LIQU   LIMIT    AVAIL  GUID
+--  NAME       MODE   RATE  RATE   RATE  RATE   ACTION   FLD    RATE
+    'FIELD' 'ORAT' 19000.0 3* 'RATE'/
+	'PROD'  'NONE' 4*    'RATE'  'YES' /
+/
+GCONINJE
+--  GROUP    PHASE    CNTL   SRAT VRAT REIN VREP AVAIL GUID  GRAT
+--  NAME      INJ     MODE                        FLD  RATE  DEFN
+  'INJE'    'WATER'  'VREP'  3*              0.95  4*               'PROD' /
+/
+
+DATES
+  15 'DEC' 2018 /
+/
+
+-- Gas consumption at the platform node.  PLAT is not a source node, so
+-- item 4 must name the node for the consumption to affect the network.
+GCONSUMP
+--  GROUP   CONSUMPTION  IMPORT  NODE
+  'PLAT'  2.5E5        0.0     'PLAT' /
+/
+
+DATES
+  01 'JAN' 2019 /
+/
+
+-- Lift gas supplied to the satellite group, added to node SAT via
+-- NODEPROP item 4 (ADD_GAS_LIFT_GAS = YES).
+GSATPROD
+--  GROUP  OIL     WATER  GAS     RESV  LIFT_GAS
+  'SAT'    2000.0  500.0  3.0E5   1*    1.0E5 /
+/
+
+DATES
+  02 'JAN' 2019 /
+/
+
+DATES
+  05 'JAN' 2019 /
+/
+
+WCONPROD
+--  WELL   OPEN/  CNTL  OIL   WATER  GAS   LIQU  VOID  BHP  THP  TAB
+--  NAME   SHUT   MODE  RATE  RATE   RATE  RATE  RATE            NO
+
+  'PROD3'  'OPEN' 'GRUP'  5000.0   2*         2*          100.0  20.0  5 /
+/
+
+-- Gas consumption at the source node PROD, item 4 defaulted.
+GCONSUMP
+--  GROUP   CONSUMPTION  IMPORT
+  'PROD'  1.0E5        0.0 /
+/
+
+DATES
+  01 'FEB' 2019/
+/
+
+WCONPROD
+--  WELL   OPEN/  CNTL  OIL   WATER  GAS   LIQU  VOID  BHP  THP  TAB
+--  NAME   SHUT   MODE  RATE  RATE   RATE  RATE  RATE            NO
+
+  'P*'  'OPEN' 'GRUP'  1000.0   2*         2*          100.0  20.0  5 /
+/
+
+DATES
+  15 'FEB' 2019 /
+/
+
+-- PLAT's consumption no longer applied to the network.
+GCONSUMP
+--  GROUP   CONSUMPTION  IMPORT  NODE
+  'PLAT'  2.5E5        0.0     'NO-NODES' /
+/
+
+DATES
+  01 'MAR' 2019 /
+/
+
+END
