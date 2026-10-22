@@ -203,13 +203,14 @@ SOLUTION
 EQUIL
  0 200 0 0 0 0 0 0 0 /
    
+-- Geothermal gradient of 30 K/km: T = 10 + 0.03 * depth
 RTEMPVD
-  0 50
-  100 50
+  0 10
+  2000 70
 /
 
 RPTRST
- 'BASIC=2' 'ALLPROPS' BW VISC KRW/
+ 'BASIC=2' 'ALLPROPS' 'TEMP' BW VISC KRW/
 	
 ----------------------------------------------------------------------------	
 SUMMARY
@@ -248,7 +249,7 @@ SCHEDULE
 ----------------------------------------------------------------------------
 
 RPTRST
- 'BASIC=2' 'ALLPROPS' BW VISC KRW/
+ 'BASIC=2' 'ALLPROPS' 'TEMP' BW VISC KRW/
 
 WELSPECS
 -- Item #: 1	 2	3	4	5	 6
