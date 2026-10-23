@@ -1,0 +1,472 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2018 Equinor
+
+-- This deck uses User defined quantities (UDQ).
+-- These user defined quanteties are written to the summary to be compared with
+-- referense simulation results. This example includes defining a UDQ expression
+-- within an ACTIONX.
+
+
+--------------------------------------------------------
+
+
+-- *****************************************************
+RUNSPEC
+-- *****************************************************
+
+-- Simulation run title
+TITLE
+Generic Reservoir
+
+NOECHO
+
+--
+-- ----------------------------------------------------
+-- Simulation grid dimension (Imax, Jmax, Kmax)
+DIMENS
+   15  10   7  /
+
+--
+-- ----------------------------------------------------
+-- Simulation run start
+START
+ 1 'AUG' 2020 /
+
+--
+-- ----------------------------------------------------
+--Activate "Data Check Only" option
+--NOSIM
+--
+--
+-- ----------------------------------------------------
+-- Fluid phases present
+OIL
+GAS
+WATER
+DISGAS
+
+--
+-- ----------------------------------------------------
+-- Measurement unit used
+METRIC
+
+--
+--
+--Table dimensions
+TABDIMS
+-- NTSFUN NTPVT NSSFUN NPPVT NTFIP NRPVT
+     1      1     130    24    1    20   /
+--
+-- ----------------------------------------------------
+-- Dimensions for equilibration tables
+EQLDIMS
+ 1 1*  20  /
+--
+--
+-- ----------------------------------------------------
+--Dimension for well data
+WELLDIMS
+ 5  10 3 5 /
+
+
+--FLOW   THP  WCT  GCT  ALQ  VFP
+VFPPDIMS
+  22     13   10   13    13   50  /
+
+
+
+
+--
+--
+--
+-- ----------------------------------------------------
+-- Input and output files format
+UNIFIN
+UNIFOUT
+
+--PARALLEL
+-- 2 /
+
+-- *************************************************************************
+-- In this section simulation grid and static reservoir parameters are given
+-- *************************************************************************
+
+GRID 
+
+-- ****************************************************
+-------------------------------------------------------
+
+--
+--Disable echoing of the input file  
+NOECHO
+
+--
+--Requests output of an INIT file
+INIT
+
+--
+--Control output of the Grid geometry file
+GRIDFILE
+  0 1  /
+
+
+--
+--Input of pre-processor map origin (X1, Y1, X2, Y2, X3, Y3)
+--X1 Y1 The X and Y coordinates of one point of the grid Y-axis relative to the map
+--X2 Y2 The X and Y coordinates of the grid origin relative to the map origin
+--X3 Y3 The X and Y coordinates of one point of the grid X-axis relative to the map
+MAPAXES
+ 0.0 100.0 0.0 0.0 100.0 0.0  /
+--
+--
+
+-- ----------------------------------------------------
+
+--Include simulation grid
+INCLUDE
+  './../udq_actionx/include/test_15x10x7.grdecl' /
+
+
+PORO
+ 150*0.25
+ 150*0.20 
+ 150*0.23 
+ 150*0.18 
+ 150*0.22 
+ 150*0.21 
+ 150*0.19 
+/ 
+
+PERMX
+ 150*5000 
+ 150*1000 
+ 150*10000 
+ 150*2500 
+ 150*12500 
+ 150*1750 
+ 150*150 
+/ 
+
+-- ---------------------------------------------------
+-- Copy PERMX to PERMY  & PERMZ 
+COPY
+ PERMX   PERMY   /
+ PERMX   PERMZ   /
+/
+--
+-- ---------------------------------------------------
+-- Set Kv/Kh 
+MULTIPLY
+ PERMZ   0.1     /
+/
+ 
+
+ 
+
+
+-- ***************************************************
+-- In this section simulation grid parameters are edited
+-- ***************************************************
+
+EDIT
+
+-- ***************************************************
+
+-- ***************************************************
+-- In this section fluid-rock properties and 
+-- relative permabilities are given
+-- ***************************************************
+
+PROPS
+
+-- ***************************************************
+
+INCLUDE
+ '../udq_actionx/include/sgof.txt' /
+
+
+INCLUDE
+ '../udq_actionx/include/swof.txt' /
+
+-- ---------------------------------------------------
+
+-- Include PVT data
+INCLUDE
+  '../udq_actionx/include/example_pvt.txt' /
+
+-- ***********************************************************
+-- In this section simulation grid region parameters are given
+-- ***********************************************************
+
+REGIONS
+
+-- ***************************************************
+
+EQLNUM
+ 1050*1 /
+
+-- ***************************************************
+-- In this section the initialization parameters and
+-- dynamic parameters are defined
+-- ***************************************************
+
+SOLUTION
+
+--INCLUDE
+--  '../udq_actionx/include/solution.txt' /
+
+-- ***************************************************
+
+
+------------------------------------------------------
+--
+--Simulation model initialisation data
+--
+--   DATUM  DATUM   OWC     OWC    GOC    GOC    RSVD   RVVD   SOLN
+--   Depth  Pres.   Depth   Pcow   Depth  Pcog   Table  Table  Method
+EQUIL
+     2030   222.4   2044  0.0    500    0.0     1     1      0 / 
+    
+--
+-- ---------------------------------------------------
+-- Dissolved gas-oil ratio versus depth, 
+
+RSVD
+ 1500 180.0
+ 4000 180.0  /
+ 
+
+RPTRST
+ 'BASIC=2'  'PBPD' /
+
+--
+-- **************************************************************************************
+-- In this section simulation output data to be written to sumTESTy file are defined
+-- **************************************************************************************
+
+SUMMARY
+
+-- ***************************************************
+
+-- ---------------------------------------------------
+-- Summary data to be written to summary file
+--
+--
+-- **************************************************************************************
+-- In this section data required to describe history and prediction is given
+-- - well completions, well production/injection, well constraints
+-- - platform/production unit constraints, etc.
+-- **************************************************************************************
+
+FPR
+FWCT
+
+FGOR
+
+FGLIR
+
+WOPR
+ PROD1 PROD2 PROD3 /
+
+WWCT
+ PROD1 PROD2 PROD3 /
+
+WGOR
+ PROD1 PROD2 PROD3 /
+
+WTHP
+ PROD1 PROD2 PROD3 /
+
+WBHP
+ PROD1 PROD2 PROD3 INJ1 INJ2 /
+
+WGLIR 
+ PROD1 PROD2 PROD3 / 
+
+FU_CPO18 
+
+FU_VAR1
+FU_TIME
+FU_VAR3
+FU_VAR4
+FU_VAR5
+FU_VAR6
+FU_VAR7
+FU_VAR8
+FU_VAR9
+FU_VAR10
+FU_VAR11
+FU_VAR12
+FU_VAR13
+FU_VAR14
+FU_VAR15
+FU_VAR16
+FU_VAR17
+FU_VAR18
+FU_VAR19
+FU_VAR20
+FU_VAR21
+FU_VAR22
+FU_VAR23
+FU_VAR24
+FU_VAR25
+FU_VAR26
+FU_VAR27
+FU_VAR28
+FU_VAR29
+FU_VAR30
+FU_VAR31
+FU_VAR32
+FU_VAR33
+FU_VAR34
+FU_VAR35
+FU_VAR36
+FU_VAR37
+FU_VAR38
+FU_VAR39
+FU_VAR40
+FU_VAR41
+FU_VAR42
+FU_VAR43
+FU_VAR44
+FU_VAR45
+FU_VAR46
+FU_VAR47
+FU_VAR48
+FU_VAR49
+FU_VAR50
+FU_VAR51
+FU_VAR52
+FU_VAR53
+FU_VAR54
+FU_VAR55
+FU_VAR56
+FU_VAR57
+FU_VAR58
+FU_VAR59
+FU_VAR60
+FU_VAR61
+FU_VAR62
+FU_VAR63
+FU_VAR64
+FU_VAR65
+FU_VAR66
+FU_VAR67
+FU_VAR68
+FU_VAR69
+FU_VAR70
+FU_VAR71
+FU_VAR72
+FU_VAR73
+
+
+WWIR
+ 'INJ1' 'INJ2' /
+ 
+FOPR
+
+FWIR
+ 
+SCHEDULE
+
+
+INCLUDE
+ '../udq_actionx/include/well_vfp.ecl' /
+
+ 
+-- ***************************************************
+
+WELSPECS
+ 'PROD1'         'TEST'    3   2   2002      'OIL' 0.00      'STD'     'SHUT'    'YES'    0    'SEG' /
+ 'PROD2'         'TEST'    4   5   2002      'OIL' 0.00      'STD'     'SHUT'    'YES'    0    'SEG' /
+ 'PROD3'         'TEST'    3   8   2002      'OIL' 0.00      'STD'     'SHUT'    'YES'    0    'SEG' /
+ 'INJ1'          'TEST'   12   3   2002      'OIL' 0.00      'STD'     'SHUT'    'YES'    0    'SEG' /
+ 'INJ2'          'TEST'   12   7   2002      'OIL' 0.00      'STD'     'SHUT'    'YES'    0    'SEG' /
+/ 
+
+COMPDAT
+-- --------------------------------------------------------------------------------------------------
+ 'PROD1'       3   2   1  5     'OPEN'   0    1*   0.241  1*    2.50    0.0 'Z'  1* /
+ 'PROD2'       4   5   1  5     'OPEN'   0    1*   0.241  1*    2.50    0.0 'Z'  1* /
+ 'PROD3'       3   8   1  5     'OPEN'   0    1*   0.241  1*    2.50    0.0 'Z'  1* /
+ 'INJ1'       12   3   3  7     'OPEN'   0    1*   0.241  1*    2.50    0.0 'Z'  1* /
+ 'INJ2'       12   7   3  7     'OPEN'   0    1*   0.241  1*    2.50    0.0 'Z'  1* /
+/
+
+-- Well production rate targets/limits:
+WCONPROD
+-- name      status   ctrl     qo     qw   qg    ql  qr     bhp   thp    vfp  alq 
+  'PROD1'    'SHUT'  'ORAT'   5000.    1*   1*   5000  1*   120.0  50.0   1   25000.0  / 
+  'PROD2'    'SHUT'  'ORAT'   5000.    1*   1*   5000  1*   120.0  50.0   1   35000.0  / 
+  'PROD3'    'SHUT'  'ORAT'   5000.    1*   1*   5000  1*   120.0  50.0   1   45000.0  / 
+/
+
+
+WCONINJE
+-- name   inj type  status   ctrl    surface_qw   res_qw  BHPmax
+  'INJ1'  'WATER'   'SHUT'  'GRUP'    10000.0      1*      400. /
+  'INJ2'  'WATER'   'SHUT'  'GRUP'    10000.0      1*      400. /
+/
+
+PYACTION
+UDQ_M3_PYACTION UNLIMITED /
+'udq_m3_pyaction.py' /
+
+DATES
+ 2 'AUG' 2020 / 
+/
+
+
+WCONINJE
+-- name   inj type  status   ctrl    surface_qw   res_qw  BHPmax
+  'INJ1'  'WATER'   'OPEN'  'RATE'     1000.0      1*      400. /
+/
+
+
+DATES
+ 5 'AUG' 2020 / 
+/
+
+GCONINJE
+ 'TEST'   'WATER'    'VREP'  3*      1.020    'NO'  5* /
+/
+
+WCONINJE
+-- name   inj type  status   ctrl    surface_qw   res_qw  BHPmax
+  'INJ1'  'WATER'   'OPEN'  'GRUP'    10000.0      1*      400. /
+  'INJ2'  'WATER'   'OPEN'  'GRUP'    10000.0      1*      400. /
+/
+
+WELOPEN 
+ 'PROD1' 'OPEN' /
+/
+
+DATES
+ 10 'AUG' 2020 / 
+/
+
+WELOPEN 
+ 'PROD2' 'OPEN' /
+/
+
+DATES
+ 12 'AUG' 2020 /
+/
+
+WELOPEN 
+ 'PROD3' 'OPEN' /
+/
+
+
+DATES 
+ 15 'AUG' 2020 / 
+  1 'SEP' 2020 / 
+  1 'OCT' 2020 / 
+  1 'NOV' 2020 / 
+  1 'DEC' 2020 / 
+/
+
