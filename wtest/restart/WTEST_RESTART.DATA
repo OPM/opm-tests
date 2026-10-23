@@ -1,0 +1,168 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026, Equinor ASA
+
+-- Restarting with wells closed by WTEST, adapted from MIN_QOIL_1.  A minimum
+-- oil rate closes both producers at the end of the first day, the restart
+-- step.  The limit is then removed: WCONPROD reopens OP_1 at the restart
+-- step, and WTEST reopens OP_2 30 days after its closure, on 1 AUG.
+
+RUNSPEC
+
+TITLE
+WTEST restart
+
+DIMENS
+    4  5   8  /
+
+START
+ 1 'JUL' 2018 /
+
+OIL
+GAS
+WATER
+DISGAS
+
+METRIC
+
+TABDIMS
+     1      1     130    24    1    20   /
+
+WELLDIMS
+ 2  25 2 2 /
+
+UNIFIN
+UNIFOUT
+
+GRID
+
+INIT
+
+INCLUDE
+  '../include/test1_4x5x8.grdecl' /
+
+EQUALS
+ 'PORO' 0.22 /
+/
+
+PERMX
+ 20*2000
+ 20*1000
+ 20*500
+ 20*100
+ 20*50
+ 20*10000
+ 20*1000
+ 20*200
+/
+
+COPY
+ PERMX   PERMY   /
+ PERMX   PERMZ   /
+/
+
+MULTIPLY
+ PERMZ   0.3     /
+/
+
+PROPS
+
+INCLUDE
+ '../include/sgof.txt' /
+
+INCLUDE
+ '../include/swof.txt' /
+
+INCLUDE
+  '../include/example_pvt.txt' /
+
+REGIONS
+
+EQUALS
+ 'EQLNUM' 1 /
+ 'SATNUM' 1 /
+/
+
+SOLUTION
+
+EQUIL
+     2500   382.4   2550  0.0    500    0.0     1     1      0 /
+
+RSVD
+ 1500 180.0
+ 4000 180.0  /
+
+RPTRST
+ 'BASIC=2' /
+
+SUMMARY
+
+FOPR
+FOPT
+WOPR
+/
+WOPT
+/
+WSTAT
+/
+
+SCHEDULE
+
+TUNING
+ 1 5 /
+ /
+ 20 2 /
+
+GRUPTREE
+   'OP'     'FIELD'  /
+/
+
+WELSPECS
+   'OP_1'  'OP'  4  1  1*  'OIL'  7* /
+   'OP_2'  'OP'  1  5  1*  'OIL'  7* /
+/
+
+COMPDAT
+   'OP_1'  4  1  1  8  'OPEN'  1*  1*  0.311  1*  2*  'Z' /
+   'OP_2'  1  5  1  8  'OPEN'  1*  1*  0.311  1*  2*  'Z' /
+/
+
+WCONPROD
+  'OP_1' OPEN ORAT 400.0  4*  100.0 /
+  'OP_2' OPEN ORAT 400.0  4*  100.0 /
+/
+
+WECON
+ 'OP_1' 1000000  4*  WELL /
+ 'OP_2' 1000000  4*  WELL /
+/
+
+WTEST
+ 'OP_1' 30  E  3 /
+ 'OP_2' 30  E  3 /
+/
+
+DATES
+ 2 'JUL' 2018 /
+/
+
+WECON
+ 'OP_1' 0  4*  WELL /
+ 'OP_2' 0  4*  WELL /
+/
+
+WCONPROD
+  'OP_1' OPEN ORAT 400.0  4*  100.0 /
+/
+
+DATES
+  3 'JUL' 2018 /
+ 30 'JUL' 2018 /
+  1 'AUG' 2018 /
+  2 'AUG' 2018 /
+/
+
+END
