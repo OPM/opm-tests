@@ -74,6 +74,20 @@ PERMY
 PERMZ 
   990*2000/
 
+-- Large pore volume multipliers on the first and last column of cells
+-- act as open boundaries and limit the pressure build up
+BOX
+  1 1 1 1 1 10 /
+MULTPV
+  10*12000 /
+ENDBOX
+
+BOX
+  99 99 1 1 1 10 /
+MULTPV
+  10*12000 /
+ENDBOX
+
 -- 5% sloping aquifer
 EDIT
 ADD
@@ -201,7 +215,7 @@ SOLUTION
 ---------------------------------------------------------------------------
 
 EQUIL
- 0 200 0 0 0 0 0 0 0 /
+ 1000 100 0 0 0 0 0 0 0 /
    
 -- Geothermal gradient of 30 K/km: T = 10 + 0.03 * depth
 RTEMPVD
@@ -269,6 +283,10 @@ WCONINJE
 -- 100 days with injection
 TSTEP
 10*10 /
+
+WELOPEN
+	'INJ' 'SHUT' /
+/
 
 --1900 days of post injection
 TSTEP
