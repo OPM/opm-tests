@@ -102,8 +102,9 @@ summary_state["FU_VAR54"] = summary_state["FU_VAR54"] + summary_state["FU_VAR53"
 summary_state["FU_VAR55"] = (summary_state["FU_VAR54"]/1000)*summary_state["FU_VAR34"]
 
 summary_state["FU_VAR56"] = (summary_state["FU_VAR54"] + summary_state["FU_VAR38"])
-summary_state["FU_CPO18"] = 0.0 # This variable is zero - checked with ResInsight
-summary_state["FU_VAR57"] = 0.0 # This variable is zero, even if it is summary_state["FU_CPO18"]+summary_state["FU_VAR4"]+summary_state["FU_VAR15"]+summary_state["FU_VAR5"]+summary_state["FU_VAR6"]+summary_state["FU_VAR7"]+summary_state["FU_VAR39"]+summary_state["FU_VAR55"]+summary_state["FU_VAR24"]+summary_state["FU_VAR21"]+summary_state["FU_VAR31"]
+# FU_VAR57 (and FU_VAR68, which uses it) is NOT really tested here. In UDQ_M3.DATA, FU_CPO18 is used in DEFINE FU_VAR57 FU_CPO18+FU_VAR4+...+FU_VAR31, but never assigned or defined. This makes FU_VAR57 also undefined. Since the UDQ undefined value (UDQPARAM default 0) is 0, we set 0 here to match that reference result
+summary_state["FU_CPO18"] = 0.0
+summary_state["FU_VAR57"] = 0.0
 
 summary_state["FU_VAR58"] = 0.3613
 summary_state["FU_VAR59"] = 0.8218
