@@ -1,0 +1,160 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 NORCE
+
+-- Diffusion (TRCDIFF) of the free and the solution tracer in the steady two phase flow of
+-- BC_GT_TRACER_SOLUTION, gas-oil only as the diffusion binary has no water. Saturated oil and
+-- free gas (Sg = 0.3) flow through FREE boundaries, driven by an initial pressure gradient. The
+-- gas tracer GT enters with concentration 1 in the free gas through the left boundary. The free
+-- tracer is 1 everywhere after a few days, and the outflow must not change it in the last cell.
+
+RUNSPEC
+DIMENS
+40 1 1 /
+
+OIL
+GAS
+DISGAS
+DIFFUSE
+
+FIELD
+
+UNIFOUT
+
+TABDIMS
+1 1 40 40 /
+
+TRACERS
+0 0 1 0 8*
+/
+
+EQLDIMS
+1 100 20 /
+
+START
+1 JAN 2020 /
+
+GRID
+DX
+  40*0.5 /
+DY
+  40*1 /
+DZ
+  40*1 /
+TOPS
+  40*5000 /
+PORO
+  40*0.3 /
+PERMX
+  40*100 /
+PERMY
+  40*100 /
+PERMZ
+  40*100 /
+
+-- Boundary regions: index 1 = left face of first cell, index 2 = right face of last cell
+BCCON
+-- index I1  I2  J1 J2 K1 K2 dir
+   1     1   1   1  1  1  1  X- /
+   2     40  40  1  1  1  1  X+ /
+/
+
+INIT
+
+PROPS
+
+TRACER
+  'GT' 'GAS' /
+/
+
+-- Molecular diffusion coefficient of the tracer (ft2/day in FIELD units)
+TRCDIFF
+  GT 0.05 /
+/
+
+DIFFC
+  100.0 16.0 0.05 0.05 /
+
+SGOF
+0.0  0.0  1.0  0.0
+0.1  0.0  0.8  0.0
+0.3  0.15 0.35 0.0
+1.0  1.0  0.0  0.0 /
+
+ROCK
+14.7 3.0E-6 /
+
+DENSITY
+56.0 64.79 0.0702 /
+
+PVDG
+14.7   166.666 0.008
+264.7  12.093  0.0096
+514.7  6.274   0.0112
+1014.7 3.197   0.014
+2014.7 1.614   0.0189
+2514.7 1.294   0.0208
+3014.7 1.080   0.0228
+4014.7 0.811   0.0268
+5014.7 0.649   0.0309
+9014.7 0.386   0.047 /
+
+PVTO
+0.001 14.7   1.0620 1.04 /
+0.0905 264.7 1.15   0.975 /
+0.18  514.7  1.207  0.91 /
+0.371 1014.7 1.295  0.83 /
+0.636 2014.7 1.435  0.695 /
+0.775 2514.7 1.5    0.641 /
+0.93  3014.7 1.565  0.594 /
+1.270 4014.7 1.695  0.51
+      9014.7 1.579  0.74 /
+1.618 5014.7 1.827  0.449
+      9014.7 1.671  0.64 /
+/
+
+REGIONS
+FIPNUM
+  40*1 /
+
+SOLUTION
+
+PRESSURE
+  4009.8750 4009.6250 4009.3750 4009.1250 4008.8750 4008.6250 4008.3750 4008.1250 4007.8750 4007.6250 4007.3750 4007.1250 4006.8750 4006.6250 4006.3750 4006.1250 4005.8750 4005.6250 4005.3750 4005.1250 4004.8750 4004.6250 4004.3750 4004.1250 4003.8750 4003.6250 4003.3750 4003.1250 4002.8750 4002.6250 4002.3750 4002.1250 4001.8750 4001.6250 4001.3750 4001.1250 4000.8750 4000.6250 4000.3750 4000.1250 /
+SGAS
+  40*0.3 /
+RS
+  40*1.265 /
+TBLKFGT
+  40*0.0 /
+TBLKSGT
+  40*0.0 /
+
+SUMMARY
+FOPR
+FGPR
+
+SCHEDULE
+
+RPTRST
+BASIC=2 /
+
+BCPROP
+-- index type
+   1     FREE /
+   2     FREE /
+/
+
+BCTRACER
+-- index tracer concentration
+   1     GT    1.0 /
+/
+
+TSTEP
+  240*0.5 /
+/
+
+END
