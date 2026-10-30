@@ -5,10 +5,12 @@
 
 -- Copyright (C) 2026 Equinor
 
--- Negative test: as ROCKTAB_ROCKNUM.DATA, but ROCK is given before ROCKOPTS.
--- ROCK then has NTPVT (2) records only, while it is allocated through the
--- three ROCKNUM regions. The simulator must stop with an error instead of
--- reading past the end of the ROCK data for cells in ROCKNUM region 3.
+-- Negative test: as ROCKTAB_ROCKNUM.DATA, but without ROCKOPTS and without
+-- TABDIMS item 13 (NTROCC). ROCK then has NTPVT (2) records, while the
+-- explicit ROCKNUM array with three regions allocates both the ROCKTAB and
+-- the ROCK tables to the cells. The simulator must stop with an error
+-- instead of reading past the end of the ROCK data for cells in ROCKNUM
+-- region 3.
 
 -- Based on rock/ROCKTAB_ROCKNUM.DATA
 
@@ -76,10 +78,9 @@ EQLOPTS
 -- ntfip:  max FIPNUM, = the fluid in-place region numbers for each grid block. 
 -- nrpvt:  max Rs nodes in a live oil PVT table
 -- ntendp: max saturation end-point versus depth tables, = ntendp in ENDSCALE
--- ntrocc: max ROCKNUM (item 13)
 TABDIMS
--- ntsfun  ntpvt  nssfun  nppvt  ntfip  nrpvt  unused  ntendp  (items 9-12)  ntrocc
-      6     2       56      36     1*     36    1*      1*       4*          3 /
+-- ntsfun  ntpvt  nssfun  nppvt  ntfip  nrpvt
+      6     2       56      36     1*     36 /
 
 -- Dimension of equilibration tables
 -- ntequl: max EQLNUM. EQLNUM=Equilibration region numbers 
@@ -246,18 +247,12 @@ INCLUDE
 -- There is no data required for this keyword. 
 STONE1
 
--- ROCK: given before ROCKOPTS, so it has NTPVT (TABDIMS item 2) records,
--- which is fewer than the three ROCKNUM regions it is allocated through.
+-- ROCK: without ROCKOPTS and TABDIMS item 13, ROCK has NTPVT (TABDIMS item 2)
+-- records, which is fewer than the three ROCKNUM regions.
 ROCK
 -- REF. PRES   COMPRESSIBILITY
    280.0        1.0E-5 /
    250.0        2.0E-5 /
-
--- ROCKOPTS: item 3 set to ROCKNUM so that the ROCK and ROCKTAB tables are
--- allocated through the ROCKNUM array.
-ROCKOPTS
--- PRESS/STRESS  NOSTORE/STORE  ARRAY
-   2*                           'ROCKNUM' /
 
 -- ROCKTAB: Pore-volume and transmissibility multiplier vs. pressure tables
 -- for the three ROCKNUM regions, with increasingly steep slopes. Tables 1
