@@ -1,0 +1,163 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 NORCE
+
+-- 1D gas tracer GT with dispersion (DISPERC) in a column with gas saturation 0.5 and
+-- immobile oil. The front is the one for D = alpha * v = 0.2 * 180 = 36 cm2/hr.
+
+-- Grid and properties
+RUNSPEC
+DIMENS
+500 1 1
+/
+
+OIL
+GAS
+VAPOIL
+LAB
+
+UNIFOUT
+
+TRACERS
+  0 0 1 0 8*
+/
+
+DIFFUSE
+
+EQLDIMS
+1 4*
+/
+
+REGDIMS
+10 10 2*
+/
+
+TABDIMS
+1 1* 1* 1*
+/
+
+-- Grid properties
+GRID
+DX
+  500*0.2 /
+DY
+  500*1 /
+DZ
+  500*1 /
+TOPS
+  500*0.02 /
+PORO
+  500*0.2 /
+PERMX
+  500*100 /
+PERMY
+  500*100 /
+PERMZ
+  500*100 /
+-- Dispersivity alpha [cm]; D = alpha * v_interstitial = 0.2 * 180 = 36 cm2/hr
+DISPERC
+  500*0.2 /
+
+-- Boundary regions: index 1 = left face of first cell, index 2 = right face of last cell
+BCCON
+-- index I1  I2  J1 J2 K1 K2 dir
+   1     1   1   1  1  1  1  X- /
+   2     500 500 1  1  1  1  X+ /
+/
+
+INIT
+
+EDIT
+
+PROPS
+
+-- Activate tracer
+TRACER
+  'GT' 'GAS' /
+/
+
+-- Gas and oil with immobile oil (kro = 0 at Sg = 0.5): only the gas moves, in a column with Sg = 0.5
+-- Wet gas table with a negligible vaporized oil (Rv = 1e-8), as the flow diffusion needs a wet gas PVT model
+PVTG
+1    1.0E-8 1.0001 0.02
+     0.0    1.0001 0.02 /
+300  1.0E-8 1.0    0.02
+     0.0    1.0    0.02 /
+/
+
+-- Diffusion coefficients of the flow equations (no effect: no oil in the gas)
+DIFFC
+  100.0 16.0 36.0 36.0 /
+
+PVDO
+1   1.0001 2.0
+300 1.0    2.0 /
+
+SGOF
+0.0 0.0 1.0 0.0
+0.5 0.5 0.0 0.0
+1.0 1.0 0.0 0.0 /
+
+-- Specify constant rock compressibility.
+ROCK
+1.0 4.35D-11 /
+
+DENSITY
+0.7 1.02 0.0018475
+/
+
+REGIONS
+FIPNUM
+500*1
+/
+
+SOLUTION
+
+-- Initial conditions
+PRESSURE
+  500*50.0 /
+RV
+  500*0.0 /
+SGAS
+  500*0.5 /   -- Initial gas saturation (the rest is immobile oil)
+TBLKFGT
+  0.0 499*0.0 / -- Initial free tracer concentrations
+TBLKSGT
+  500*0.0 /   -- Initial solute tracer concentrations
+
+SUMMARY
+ALL
+--TCNFIW1
+--TIPTIW1
+/
+
+SCHEDULE
+
+RPTRST
+BASIC=3 FREQ=100 /
+
+-- Constant water rate from left to right through the boundary faces.
+-- Positive rate is out of the domain, negative is into the domain.
+-- 0.033255 g/(hr cm2) over 1 cm2 with surface density 0.0018475 g/cm3 is 18 scc/hr, and
+-- with Bg = 1 an interstitial velocity of 18/(0.2*0.5) = 180 cm/hr (porosity 0.2, gas saturation 0.5). The front reaches x = 40 cm of 100 cm
+-- after 0.2222 hr. Cell size 0.2 cm and CFL = 0.5.
+BCPROP
+-- index type component rate
+   1     RATE GAS       -0.033255 /
+   2     RATE GAS        0.033255 /
+/
+
+-- Tracer GT (gas phase) enters through the left boundary with concentration 1
+BCTRACER
+-- index tracer concentration
+   1     GT     1.0 /
+/
+
+TSTEP
+  400*5.5556E-4 /
+/
+
+END
