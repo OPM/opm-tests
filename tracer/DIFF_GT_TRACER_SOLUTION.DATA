@@ -5,7 +5,7 @@
 
 -- Copyright (C) 2026 NORCE
 
--- Diffusion (TRCDIFF) of the free and the solution tracer in the steady two phase flow of
+-- Diffusion (TRDIFxxx) of the free and the solution tracer in the steady two phase flow of
 -- BC_GT_TRACER_SOLUTION, gas-oil only as the diffusion binary has no water. Saturated oil and
 -- free gas (Sg = 0.3) flow through FREE boundaries, driven by an initial pressure gradient. The
 -- gas tracer GT enters with concentration 1 in the free gas through the left boundary. The free
@@ -71,9 +71,9 @@ TRACER
 /
 
 -- Molecular diffusion coefficient of the tracer (ft2/day in FIELD units)
-TRCDIFF
-  GT 0.05 /
-/
+TRDIFGT
+-- free  solution (default: as free)
+   0.05 /
 
 DIFFC
   100.0 16.0 0.05 0.05 /

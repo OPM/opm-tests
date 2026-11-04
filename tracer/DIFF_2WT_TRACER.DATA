@@ -5,7 +5,7 @@
 
 -- Copyright (C) 2026 UiB and NORCE
 
--- 1D water tracers IW1 and IW2 where only IW1 has molecular diffusion (TRCDIFF = 36 cm2/hr), so
+-- 1D water tracers IW1 and IW2 where only IW1 has molecular diffusion (TRDIFIW1 = 36 cm2/hr), so
 -- the two tracers are solved in separate batches. Run with flow_onephase. Both tracers enter through
 -- the left boundary (BCCON, BCPROP and BCTRACER) at a constant water rate.
 
@@ -76,11 +76,10 @@ TRACER
   'IW2' 'WAT' /
 /
 
--- Molecular diffusion coefficient of the tracer (cm2/hr in LAB units)
-TRCDIFF
--- tracer D_mol
-   IW1    36.0 /
-/
+-- Molecular diffusion coefficient of the tracer (cm2/hr in LAB units), TRDIF followed by the tracer name
+TRDIFIW1
+-- free  solution (default: as free)
+   36.0 /
 
 PVTW
 276.8 1.0 4.54E-11 0.31 0
@@ -138,7 +137,7 @@ BCPROP
 /
 
 -- Tracers IW1 and IW2 (water phase) enter through the left boundary with concentration 1.
--- Only IW1 diffuses (TRCDIFF), so the two tracers are solved in separate batches.
+-- Only IW1 diffuses (TRDIFxxx), so the two tracers are solved in separate batches.
 BCTRACER
 -- index tracer concentration
    1     IW1    1.0 /
