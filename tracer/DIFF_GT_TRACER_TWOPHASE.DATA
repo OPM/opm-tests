@@ -12,7 +12,7 @@
 -- Grid and properties
 RUNSPEC
 DIMENS
-500 1 1
+  500 1 1
 /
 
 OIL
@@ -29,15 +29,15 @@ TRACERS
 DIFFUSE
 
 EQLDIMS
-1 4*
+  1 4*
 /
 
 REGDIMS
-10 10 2*
+  10 10 2*
 /
 
 TABDIMS
-1 1* 1* 1*
+  1 1* 1* 1*
 /
 
 -- Grid properties
@@ -85,9 +85,9 @@ TRDIFGT
 -- Gas and oil with immobile oil (kro = 0 at Sg = 0.5): only the gas moves, in a column with Sg = 0.5
 -- Wet gas table with a negligible vaporized oil (Rv = 1e-8), as the flow diffusion needs a wet gas PVT model
 PVTG
-1    1.0E-8 1.0001 0.02
+  1    1.0E-8 1.0001 0.02
      0.0    1.0001 0.02 /
-300  1.0E-8 1.0    0.02
+  300  1.0E-8 1.0    0.02
      0.0    1.0    0.02 /
 /
 
@@ -96,25 +96,25 @@ DIFFC
   100.0 16.0 36.0 36.0 /
 
 PVDO
-1   1.0001 2.0
-300 1.0    2.0 /
+  1   1.0001 2.0
+  300 1.0    2.0 /
 
 SGOF
-0.0 0.0 1.0 0.0
-0.5 0.5 0.0 0.0
-1.0 1.0 0.0 0.0 /
+  0.0 0.0 1.0 0.0
+  0.5 0.5 0.0 0.0
+  1.0 1.0 0.0 0.0 /
 
 -- Specify constant rock compressibility.
 ROCK
-1.0 4.35D-11 /
+  1.0 4.35E-11 /
 
 DENSITY
-0.7 1.02 0.0018475
+  0.7 1.02 0.0018475
 /
 
 REGIONS
 FIPNUM
-500*1
+  500*1
 /
 
 SOLUTION
@@ -127,7 +127,7 @@ RV
 SGAS
   500*0.5 /   -- Initial gas saturation (the rest is immobile oil)
 TBLKFGT
-  0.0 499*0.0 / -- Initial free tracer concentrations
+  500*0.0 / -- Initial free tracer concentrations
 TBLKSGT
   500*0.0 /   -- Initial solute tracer concentrations
 
@@ -140,7 +140,7 @@ ALL
 SCHEDULE
 
 RPTRST
-BASIC=3 FREQ=100 /
+  BASIC=3 FREQ=100 /
 
 -- Constant water rate from left to right through the boundary faces.
 -- Positive rate is out of the domain, negative is into the domain.

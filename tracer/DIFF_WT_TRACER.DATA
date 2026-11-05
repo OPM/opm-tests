@@ -12,7 +12,7 @@
 -- Grid and properties
 RUNSPEC
 DIMENS
-500 1 1
+  500 1 1
 /
 
 WATER
@@ -21,21 +21,21 @@ LAB
 UNIFOUT
 
 TRACERS
-  0 2 0 0 8*
+  0 1 0 0 8*
 /
 
 DIFFUSE
 
 EQLDIMS
-1 4*
+  1 4*
 /
 
 REGDIMS
-10 10 2*
+  10 10 2*
 /
 
 TABDIMS
-1 1* 1* 1*
+  1 1* 1* 1*
 /
 
 -- Grid properties
@@ -81,20 +81,20 @@ TRDIFIW1
    36.0 /
 
 PVTW
-276.8 1.0 4.54E-11 0.31 0
+  276.8 1.0 4.54E-11 0.31 0
 /
 
 -- Specify constant rock compressibility.
 ROCK
-1.0 4.35D-11 /
+  1.0 4.35E-11 /
 
 DENSITY
-0.7 1.02 0.0018475
+  0.7 1.02 0.0018475
 /
 
 REGIONS
 FIPNUM
-500*1
+  500*1
 /
 
 SOLUTION
@@ -106,8 +106,6 @@ SWAT
   500*1.0 /   -- Initial water saturations
 TBLKFIW1
   500*0.0 /   -- Initial free tracer concentrations
-TBLKSIW1
-  500*0.0 /   -- Initial solute tracer concentrations
 
 SUMMARY
 ALL
@@ -118,7 +116,7 @@ ALL
 SCHEDULE
 
 RPTRST
-BASIC=3 FREQ=100 /
+  BASIC=3 FREQ=100 /
 
 -- Constant water rate from left to right through the boundary faces.
 -- Positive rate is out of the domain, negative is into the domain.
