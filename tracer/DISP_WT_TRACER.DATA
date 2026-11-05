@@ -38,32 +38,11 @@ TABDIMS
 
 -- Grid properties
 GRID
-DX
-  500*0.2 /
-DY
-  500*1 /
-DZ
-  500*1 /
-TOPS
-  500*0.02 /
-PORO
-  500*0.2 /
-PERMX
-  500*100 /
-PERMY
-  500*100 /
-PERMZ
-  500*100 /
+INCLUDE
+  'include/grid_1d_500.grdecl' /
 -- Dispersivity alpha [cm]; D = alpha * v_interstitial = 0.2 * 180 = 36 cm2/hr
 DISPERC
   500*0.2 /
-
--- Boundary regions: index 1 = left face of first cell, index 2 = right face of last cell
-BCCON
--- index I1  I2  J1 J2 K1 K2 dir
-   1     1   1   1  1  1  1  X- /
-   2     500 500 1  1  1  1  X+ /
-/
 
 INIT
 
@@ -76,17 +55,8 @@ TRACER
   'IW1' 'WAT' /
 /
 
-PVTW
-  276.8 1.0 4.54E-11 0.31 0
-/
-
--- Specify constant rock compressibility.
-ROCK
-  1.0 4.35E-11 /
-
-DENSITY
-  0.7 1.02 0.0018475
-/
+INCLUDE
+  'include/props_water_lab.inc' /
 
 REGIONS
 FIPNUM
