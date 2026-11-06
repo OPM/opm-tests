@@ -1,0 +1,32 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 UiB and NORCE
+
+-- 1D grid of 500 cells with a boundary region at each end (LAB units)
+
+DX
+  500*0.2 /
+DY
+  500*1 /
+DZ
+  500*1 /
+TOPS
+  500*0.02 /
+PORO
+  500*0.2 /
+PERMX
+  500*100 /
+PERMY
+  500*100 /
+PERMZ
+  500*100 /
+
+-- Boundary regions: index 1 = left face of first cell, index 2 = right face of last cell
+BCCON
+-- index I1  I2  J1 J2 K1 K2 dir
+   1     1   1   1  1  1  1  X- /
+   2     500 500 1  1  1  1  X+ /
+/
