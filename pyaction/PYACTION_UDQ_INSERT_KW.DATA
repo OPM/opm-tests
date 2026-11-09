@@ -28,9 +28,10 @@
 -- ( 4) ACTIONX WCONPROD - beam back oil rate if GOR >= 3.0 Mscf/stb for all oil wells.
 -- ( 5) ACTIONX WCONPROD - beam back oil rate if GOR >= 4.0 mscf/stb for all oil wells.
 -- ( 6) Minimum economic oil rate set to 25 stb/d and shut-in well.
--- ( 7) PYACTION UDQ      - inserts DEFINE WU_NEW and ASSIGN WU_FLAG 'OP01' if GOR >= 2.0 Mscf/stb for one of OP01-OP09,
---                        the same as ACT-UDQ in actionx/ACTIONX_UDQ_INSERT_KW.DATA.
+-- ( 7) PYACTION UDQ      - inserts DEFINE WU_NEW and ASSIGN WU_FLAG 'OP01' if GOR >= 2.0 Mscf/stb for one of OP01-OP09.
 --                        It also inserts DEFINE WU_NEW2 and ASSIGN FU_NEW2, which are not declared in the UDQ section.
+--                        The inserted UDQs do not change the simulation, so the results must be the same as in
+--                        actionx/ACTIONX_UDQ.DATA.
 --
 -- 456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012
 --       1         2         3         4         5         6         7         8         9         0         1         2         3

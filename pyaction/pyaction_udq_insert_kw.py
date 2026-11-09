@@ -3,7 +3,8 @@
 # individual contents of the database are licensed under the Database Contents
 # License: http://opendatacommons.org/licenses/dbcl/1.0/
 
-# PYACTION version of ACT-UDQ in actionx/ACTIONX_UDQ_INSERT_KW.DATA
+# Inserts UDQ keywords. They do not change the simulation, so the results
+# must be the same as in actionx/ACTIONX_UDQ.DATA.
 import opm_embedded
 
 summary_state = opm_embedded.current_summary_state
