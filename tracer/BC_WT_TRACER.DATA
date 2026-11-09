@@ -74,17 +74,8 @@ TRACER
   'IW1' 'WAT' /
 /
 
-PVTW
-276.8 1.0 4.54E-11 0.31 0
-/
-
--- Specify constant rock compressibility.
-ROCK
-1.0 4.35D-11 /
-
-DENSITY
-0.7 1.02 0.0018475
-/
+INCLUDE
+  'include/props_water_lab.inc' /
 
 REGIONS
 FIPNUM

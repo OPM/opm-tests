@@ -1,0 +1,115 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 NORCE
+
+-- As DIFF_GT_TRACER_SOLUTION, but with different diffusion coefficients (TRDIFxxx) of the free
+-- tracer and of the tracer in solution (dissolved gas): 0.05 and 0.5 ft2/day. The front of the
+-- solution tracer, which moves with the oil, is then wider than the one with equal
+-- coefficients, while the free tracer is not changed. Gas-oil only as the diffusion binary has no
+-- water. Saturated oil and free gas (Sg = 0.3) flow through FREE boundaries, driven by an initial
+-- pressure gradient. The gas tracer GT enters with concentration 1 in the free gas through the
+-- left boundary.
+
+RUNSPEC
+DIMENS
+  40 1 1 /
+
+OIL
+GAS
+DISGAS
+DIFFUSE
+
+FIELD
+
+UNIFOUT
+
+TABDIMS
+  1 1 40 40 /
+
+TRACERS
+  0 0 1 0 8*
+/
+
+EQLDIMS
+  1 100 20 /
+
+START
+  1 JAN 2020 /
+
+GRID
+INCLUDE
+  'include/grid_1d_40.grdecl' /
+
+INIT
+
+PROPS
+
+TRACER
+  'GT' 'GAS' /
+/
+
+-- Molecular diffusion coefficient of the tracer (ft2/day in FIELD units)
+TRDIFGT
+-- free  solution
+   0.05 0.5 /
+
+DIFFC
+  100.0 16.0 0.05 0.05 /
+
+SGOF
+  0.0  0.0  1.0  0.0
+  0.1  0.0  0.8  0.0
+  0.3  0.15 0.35 0.0
+  1.0  1.0  0.0  0.0 /
+
+INCLUDE
+  'include/props_gas_oil_solution_field.inc' /
+
+REGIONS
+FIPNUM
+  40*1 /
+
+SOLUTION
+
+PRESSURE
+  4009.8750 4009.6250 4009.3750 4009.1250 4008.8750 4008.6250 4008.3750 4008.1250 4007.8750 4007.6250
+  4007.3750 4007.1250 4006.8750 4006.6250 4006.3750 4006.1250 4005.8750 4005.6250 4005.3750 4005.1250
+  4004.8750 4004.6250 4004.3750 4004.1250 4003.8750 4003.6250 4003.3750 4003.1250 4002.8750 4002.6250
+  4002.3750 4002.1250 4001.8750 4001.6250 4001.3750 4001.1250 4000.8750 4000.6250 4000.3750 4000.1250 /
+SGAS
+  40*0.3 /
+RS
+  40*1.265 /
+TBLKFGT
+  40*0.0 /
+TBLKSGT
+  40*0.0 /
+
+SUMMARY
+FOPR
+FGPR
+
+SCHEDULE
+
+RPTRST
+  BASIC=2 /
+
+BCPROP
+-- index type
+   1     FREE /
+   2     FREE /
+/
+
+BCTRACER
+-- index tracer concentration
+   1     GT    1.0 /
+/
+
+TSTEP
+  240*0.5 /
+/
+
+END

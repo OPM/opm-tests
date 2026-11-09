@@ -31,29 +31,8 @@ TRACERS
 /
 
 GRID
-DX
-  40*0.5 /
-DY
-  40*1 /
-DZ
-  40*1 /
-TOPS
-  40*5000 /
-PORO
-  40*0.3 /
-PERMX
-  40*100 /
-PERMY
-  40*100 /
-PERMZ
-  40*100 /
-
--- Boundary regions: index 1 = left face of first cell, index 2 = right face of last cell
-BCCON
--- index I1  I2  J1 J2 K1 K2 dir
-  1     1   1   1  1  1  1  X- /
-  2     40  40  1  1  1  1  X+ /
-/
+INCLUDE
+  'include/grid_1d_40.grdecl' /
 
 INIT
 
@@ -68,8 +47,8 @@ PVDG
 3000   2.0    0.02
 9014.7 1.9999 0.02 /
 
-PVTW
-3000 1.0 0.0 0.5 0 /
+INCLUDE
+  'include/props_fluid_bc_field.inc' /
 
 SWFN
 0.2 0.0 0.0
@@ -78,12 +57,6 @@ SWFN
 SGFN
 0.0 0.0 0.0
 0.8 1.0 0.0 /
-
-ROCK
-14.7 0.0 /
-
-DENSITY
-50.0 62.0 0.07 /
 
 SOLUTION
 
