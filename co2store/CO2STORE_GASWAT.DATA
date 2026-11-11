@@ -5,7 +5,7 @@
 
 -- Copyright (C) 2023 TNO
 
--- Test case for CO2STORE in combination with GASWAT.
+-- Test case for CO2STORE in combination with GASWAT and DISGASW.
 ----------------------------------------------------------------------------
 RUNSPEC
 ---------------------------------------------------------------------------- 
@@ -17,7 +17,8 @@ START
 METRIC
 
 CO2STORE
-
+GASWAT
+DISGASW
 
 COMPS
 2
@@ -37,9 +38,7 @@ REGDIMS
 
 WELLDIMS
 2 30 1 1/
- 
 
-GASWAT
 UNIFOUT
 UNIFIN
 
