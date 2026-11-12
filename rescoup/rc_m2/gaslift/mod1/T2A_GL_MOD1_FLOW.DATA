@@ -664,8 +664,10 @@ WLIFTOPT
   'D-2H'   YES       2.0E5     1*      0.0 /
 /
 
--- Every slave group that holds gas-lift wells needs a GLIFTOPT record; see
--- README.md and T2A_GL_NOGRP_MOD1_FLOW.DATA.
+-- Limits on the lift gas of the slave groups.  A slave group with gas-lift wells does not need a
+-- GLIFTOPT record (see T2A_GL_NOGRP_MOD1_FLOW.DATA); they are here to test the limits of the
+-- slave groups themselves.  Where the master gives a limit as well (TEST2A_GL_MGL_*_FLOW.DATA),
+-- the slave applies the smaller of the two.
 GLIFTOPT
 -- group    max.lift.gas  max.total.gas
   'MANI-D'  2.5E5         1* /
