@@ -8,7 +8,7 @@
 -- This deck is used for testing reservoir coupling.  It is the slave RES-1 of rc_m2/gaslift, started
 -- with the master decks TEST2A_GL_*_FLOW.DATA.  As the slave RES-1 of rc_m2/t2a, with gas lift: the
 -- VFP tables of B-2H, D-1H and D-2H (include/B2H_GL.Ecl, D1CH_GL.Ecl and D2H_GL.Ecl, made from the
--- tables of ../common/mod1 with an ALQ axis added) have an ALQ axis for the lift gas rate (0 to
+-- tables in rescoup/common/mod1 with an ALQ axis added, see the headers of the files) have an ALQ axis for the lift gas rate (0 to
 -- 400000 Sm3/d, VFPPDIMS item 5 is 6).  The THP limit of the wells is 100 bar instead of 25, so that
 -- they cannot meet the target of the master without lift gas, and LIFTOPT, WLIFTOPT and GLIFTOPT are
 -- added.

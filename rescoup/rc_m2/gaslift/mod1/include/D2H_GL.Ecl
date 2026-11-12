@@ -1,5 +1,13 @@
--- From D2H.Ecl of ../common/mod1: lift-gas ALQ axis added.
+-- From D2H.Ecl in rescoup/common/mod1: lift-gas ALQ axis added.
 -- ALQ=0 slice is identical to the original table.
+--
+-- The axes of the original table (liquid rate, THP, WCT and GOR) and its settings are kept, and
+-- the ALQ axis (type GRAT, lift gas rate in Sm3/day) is 0, 25000, 50000, 100000, 200000 and
+-- 400000.  The lift gas is treated as extra gas in the tubing: for each THP, WCT, GOR, ALQ and
+-- liquid rate Q_liq, the BHP is that of the original table at the effective GOR
+--     GOR_eff = GOR + ALQ / (Q_liq * max(1 - WCT, 0.05)),
+-- found by linear interpolation in the GOR axis of the original table, and the BHP at its first
+-- or last GOR if GOR_eff is outside the axis.  The records are in the order THP, WCT, GOR, ALQ.
 
 VFPPROD
 
