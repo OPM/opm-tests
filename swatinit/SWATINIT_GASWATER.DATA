@@ -1,0 +1,176 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Two-phase gas-water cross section initialised with SWATINIT.  In gas-water
+-- runs SWATINIT scales the gas-water capillary pressure curve, which has a
+-- maximum of 1 bar in the table.  The gas-water contact is in layer 9, and
+-- SWATINIT differs from the equilibrium saturation of the unscaled curve, so
+-- the curve is scaled up in some layers and down in others:
+--
+--   Layer  SWATINIT  Equilibrium Pcgw  Scaled maximum Pcgw (PPCW)
+--   1-3    0.25      3.2-2.4 bar       4.0-3.0 bar  (scaled up)
+--   4      0.40      2.0 bar           5.0 bar      (scaled up)
+--   5      0.50      1.6 bar           6.3 bar      (scaled up)
+--   6      0.30      1.2 bar           2.0 bar      (scaled up)
+--   7      0.25      0.77 bar          0.97 bar     (scaled down)
+--   8      0.30      0.37 bar          0.61 bar     (scaled down)
+--   9-10   1.0       below contact     1.0 bar      (not scaled)
+--
+-- The scaled maximum capillary pressure is reported as PPCW, and must be
+-- restored from PPCW at restart.  Gas is injected into layers 1-4 at one
+-- end, and water and gas are produced from layers 9-10 at the other end.
+-- EQUIL item 9 is 0 (saturations at the cell centres).
+
+RUNSPEC
+
+TITLE
+   SWATINIT IN GAS-WATER SYSTEM
+
+DIMENS
+   10 1 10 /
+
+GAS
+WATER
+
+METRIC
+
+START
+   1 'JAN' 2020 /
+
+TABDIMS
+   1 1 20 20 1 20 /
+
+EQLDIMS
+   1 100 20 /
+
+WELLDIMS
+   2 10 1 2 /
+
+UNIFIN
+UNIFOUT
+
+GRID
+
+INIT
+
+DX
+   100*50 /
+DY
+   100*50 /
+DZ
+   100*5 /
+
+BOX
+   1 10 1 1 1 1 /
+TOPS
+   10*2000 /
+ENDBOX
+
+PORO
+   100*0.25 /
+PERMX
+   100*200 /
+PERMY
+   100*200 /
+PERMZ
+   100*20 /
+
+PROPS
+
+SWFN
+-- Sw    Krw       Pcgw (bar)
+   0.20  0.000000  1.000
+   0.30  0.003906  0.600
+   0.40  0.015625  0.400
+   0.50  0.062500  0.250
+   0.60  0.140625  0.160
+   0.70  0.250000  0.100
+   0.80  0.390625  0.060
+   0.90  0.562500  0.030
+   1.00  1.000000  0.000 /
+
+SGFN
+-- Sg    Krg       Pcgw
+   0.00  0.000000  0.0
+   0.05  0.000000  0.0
+   0.20  0.060000  0.0
+   0.40  0.250000  0.0
+   0.60  0.550000  0.0
+   0.80  1.000000  0.0 /
+
+SWATINIT
+   10*0.25 10*0.25 10*0.25
+   10*0.40 10*0.50 10*0.30
+   10*0.25 10*0.30
+   10*1.0  10*1.0 /
+
+PVTW
+   200  1.02  4.0E-05  0.4  0 /
+
+PVDG
+   100  0.0120  0.017
+   200  0.0060  0.021
+   300  0.0042  0.025 /
+
+DENSITY
+   800  1000  0.9 /
+
+ROCK
+   200  5.0E-05 /
+
+SOLUTION
+
+EQUIL
+-- Datum  P    GWC   Pc   GWC   Pc   Rs  Rv  N
+   2000   200  2042  0    2042  0    1*  1*  0 /
+
+SUMMARY
+
+FPR
+FGPR
+FWPR
+FGIR
+FGPT
+FWPT
+FGIT
+FGIP
+FWIP
+
+WBHP
+/
+WGPR
+/
+WWPR
+/
+
+SCHEDULE
+
+RPTRST
+   'BASIC=2' /
+
+WELSPECS
+   'INJ'   'G1'   1  1  1*  'GAS' /
+   'PROD'  'G1'  10  1  1*  'WATER' /
+/
+
+COMPDAT
+   'INJ'    1  1  1  4  'OPEN'  1*  1*  0.2 /
+   'PROD'  10  1  9 10  'OPEN'  1*  1*  0.2 /
+/
+
+WCONINJE
+   'INJ'  'GAS'  'OPEN'  'RATE'  15000  1*  300 /
+/
+
+WCONPROD
+   'PROD'  'OPEN'  'WRAT'  1*  100  15000  1*  1*  100 /
+/
+
+TSTEP
+   12*30 /
+
+END
