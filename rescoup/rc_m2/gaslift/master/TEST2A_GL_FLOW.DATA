@@ -17,9 +17,14 @@
 -- axis.  The slave groups MANI-B and MANI-D have no oil rate control of their own: the targets come
 -- from the master groups B1_M and D1_M through GRUPMAST and GRUPSLAV, and the gas lift of the slave
 -- must keep to them instead of lifting up to its own maxima.  The slave sends its lift gas rate to
--- the master, which reports it as FGLIR and GGLIR.  The wells of the excluded master groups can take
--- more lift gas, so that this is also where the targets given to such groups must not add up to
--- more than the target of FIELD (FOPR).  The slave RES-2 is the one of rc_m2/t2a.
+-- the master, which reports it as FGLIR and GGLIR.
+--
+-- A master group is excluded from the distribution of the target of FIELD when none of the
+-- producers of its slave group are under group control, i.e. they all produce at their own limits.
+-- The master then gives it the part of the target that is not used.  Lift gas lets the wells of
+-- such a group produce more, so this deck also checks that the targets of the excluded master
+-- groups do not add up to more than the target of FIELD (FOPR).  The slave RES-2 is the one of
+-- rc_m2/t2a.
 
 ------------------------------------------------------------------------------------------------
 
