@@ -662,9 +662,8 @@ WLIFTOPT
   'D-2H'   YES       2.0E5     1*      0.0 /
 /
 
--- Reproducer: MANI-B holds the gas-lift well B-2H but has no GLIFTOPT record
--- and no local GCONPROD.  Its ORAT control comes from the master (GRUPSLAV),
--- so GasLiftGroupInfo never registers it and GasLiftStage2 throws map::at.
+-- MANI-B holds the gas-lift well B-2H but has no GLIFTOPT record and no
+-- local GCONPROD: its ORAT control comes from the master (GRUPSLAV) only.
 GLIFTOPT
 -- group    max.lift.gas  max.total.gas
   'MANI-D'  2.5E5         1* /
