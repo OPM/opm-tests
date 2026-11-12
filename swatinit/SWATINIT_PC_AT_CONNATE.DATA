@@ -1,0 +1,197 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Oil-water cross section initialised with SWATINIT, testing the scaling of
+-- the oil-water capillary pressure curve in cells where SWATINIT is at or
+-- below the connate water saturation (0.2).  The water-oil contact is at
+-- the bottom of the model, and the equilibrium capillary pressure exceeds
+-- the maximum capillary pressure of the table (1 bar) in layers 1-5:
+--
+--   Layer  SWATINIT  Equilibrium Pcow  Capillary pressure curve
+--   1-3    0.15      1.86-1.47 bar     at connate, not scaled up (*)
+--   4-5    0.20      1.27-1.08 bar     at connate, not scaled up (*)
+--   6      0.20      0.88 bar          at connate, scaled down
+--   7      0.15      0.69 bar          at connate, scaled down
+--   8-10   0.3-0.8   0.49-0.10 bar     above connate, scaled to SWATINIT
+--
+-- (*) Scaled up to honour the equilibrium capillary pressure with
+--     --swatinit-pc-scale-up-at-connate=true.
+--
+-- Water is injected into layers 1-5 at one end and oil and water are
+-- produced from layers 1-5 at the other end, so the water imbibes into
+-- cells where the capillary pressure curves differ.
+
+RUNSPEC
+
+TITLE
+   SWATINIT AT CONNATE WATER SATURATION
+
+DIMENS
+   10 1 10 /
+
+OIL
+WATER
+
+METRIC
+
+TABDIMS
+/
+
+EQLDIMS
+/
+
+START
+   1 'JAN' 2020 /
+
+WELLDIMS
+   2 5 1 2 /
+
+UNIFIN
+UNIFOUT
+
+GRID
+
+INIT
+
+DX
+   100*20 /
+DY
+   100*100 /
+DZ
+   100*10 /
+
+BOX
+   1 10 1 1 1 1 /
+TOPS
+   10*2000 /
+ENDBOX
+
+PORO
+   100*0.25 /
+
+PERMX
+   100*200 /
+PERMY
+   100*200 /
+PERMZ
+   100*20 /
+
+PROPS
+
+DENSITY
+   800 1000 1.0 /
+
+PVDO
+   100 1.012 1.0
+   300 1.000 1.0 /
+
+PVTW
+   200 1.0 4.0E-5 0.5 0.0 /
+
+ROCK
+   200 4.0E-5 /
+
+SWOF
+-- Sw   krw   krow  Pcow
+   0.20 0.0   1.0   1.0
+   0.30 0.02  0.65  0.5
+   0.40 0.06  0.40  0.3
+   0.50 0.13  0.22  0.2
+   0.60 0.23  0.10  0.12
+   0.70 0.36  0.03  0.06
+   0.80 0.50  0.0   0.02
+   1.00 1.00  0.0   0.0 /
+
+SWATINIT
+   30*0.15
+   20*0.20
+   10*0.20
+   10*0.15
+   10*0.30
+   10*0.50
+   10*0.80 /
+
+SOLUTION
+
+EQUIL
+   2000 200 2100 0 1* 0 1* 1* 0 /
+
+SUMMARY
+
+FPR
+FOPR
+FWPR
+FWCT
+FOPT
+FWPT
+FWIT
+FOIP
+FWIP
+
+WBHP
+  'INJ'
+  'PROD'
+/
+WWIR
+  'INJ'
+/
+WOPR
+  'PROD'
+/
+WWPR
+  'PROD'
+/
+WWCT
+  'PROD'
+/
+
+BPR
+   1 1 1 /
+   5 1 3 /
+  10 1 5 /
+/
+
+BWSAT
+   5 1 1 /
+   5 1 3 /
+   5 1 5 /
+   5 1 6 /
+/
+
+SCHEDULE
+
+RPTRST
+   'BASIC=2' /
+
+WELSPECS
+   'INJ'   'G1'   1  1  1*  'WATER' /
+   'PROD'  'G1'  10  1  1*  'OIL' /
+/
+
+COMPDAT
+   'INJ'    1  1  1  5  'OPEN'  1*  1*  0.2 /
+   'PROD'  10  1  1  5  'OPEN'  1*  1*  0.2 /
+/
+
+WCONINJE
+   'INJ'  'WATER'  'OPEN'  'RATE'  300  1*  400 /
+/
+
+WCONPROD
+   'PROD'  'OPEN'  'LRAT'  3*  300  1*  100 /
+/
+
+TSTEP
+   12*30.5 /
+
+TSTEP
+   12*30.5 /
+
+TSTEP
+   12*30.5 /
+
+END
