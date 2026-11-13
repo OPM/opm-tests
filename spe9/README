@@ -10,3 +10,8 @@ Changes implemeted from last spe9_new files:
 - Last line of PVTO is calculated @ 4600 psi, not 5000psi, because the SPE paper specify a way to calculate Bo 1000psi over Psta which is 3600psi (during simulation, P does not exceed 3600 psi).
 
 - The grid has been made on Excel.
+
+SPE9.DATA (block-centred grid from DX, DY, DZ and TOPSVALUES.DATA) and SPE9_CP.DATA are the same
+apart from the grid, so the results can be compared. The grids differ slightly in the dip: the tops in
+TOPSVALUES.DATA step 300*tan(10 deg) = 52.898 ft per cell in the x-direction, the corner-point grid
+steps 300*sin(10 deg) = 52.094 ft per cell.
