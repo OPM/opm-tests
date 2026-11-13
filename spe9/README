@@ -12,6 +12,7 @@ Changes implemeted from last spe9_new files:
 - The grid has been made on Excel.
 
 SPE9.DATA (block-centred grid from DX, DY, DZ and TOPSVALUES.DATA) and SPE9_CP.DATA are the same
-apart from the grid, so the results can be compared. The grids differ slightly in the dip: the tops in
-TOPSVALUES.DATA step 300*tan(10 deg) = 52.898 ft per cell in the x-direction, the corner-point grid
-steps 300*sin(10 deg) = 52.094 ft per cell.
+apart from the grid, so the results can be compared. Both grids have a dip of 10 degrees in the
+x-direction with 300 ft horizontal block size, i.e. a depth step of 300*tan(10 deg) = 52.898 ft per
+cell. (SPE9.GRDECL earlier used 300*sin(10 deg) = 52.094 ft, a dip of 9.85 degrees. The ECLIPSE
+results in eclipse-simulation/ and the OPM reference results were made with that grid.)
