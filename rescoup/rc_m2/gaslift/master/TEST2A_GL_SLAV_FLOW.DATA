@@ -14,10 +14,12 @@
 -- rc_m2/gaslift, SLAV: as TEST2A_GL_FLOW.DATA, but the slave RES-1 (T2A_GL_SLAV_MOD1_FLOW.DATA)
 -- has the GRUPSLAV oil flag SLAV for MANI-B and MANI-D, and an oil rate target of its own for both
 -- groups.  The gas flag keeps its default MAST.  The master changes the rate type of its targets
--- for these groups between oil and gas during the run: a gas target puts the slave groups on gas
--- rate control (flag MAST), and when the master returns to an oil target (flag SLAV), the slave
--- groups must leave gas rate control again, since they have no gas limit of their own.  The slave
--- RES-2 is the one of rc_m2/t2a.
+-- for these groups from oil to gas on 1 Dec 2018 (GCONPROD with GRAT for D1_M and B1_M, below
+-- their gas rates, so that the targets bind), and back to oil on 1 Feb 2019.  The gas target puts
+-- the slave groups on gas rate control (flag MAST), and when the master returns to an oil target
+-- (flag SLAV), the slave groups must leave gas rate control again, since they have no gas limit of
+-- their own.  GMCTP in the master and in the slave shows the control modes.  The slave RES-2 is
+-- the one of rc_m2/t2a.
 
 ------------------------------------------------------------------------------------------------
 
@@ -196,6 +198,9 @@ GWIRT
 GMCTW
 /
 
+GMCTP
+/
+
 ------------------------------------------------------------------------------------------------
 SCHEDULE
 ------------------------------------------------------------------------------------------------
@@ -335,12 +340,28 @@ DATES
  
 DATES 
  1 DEC 2018 /
+/
+
+-- Gas targets for D1_M and B1_M, below their gas rates, so that they bind.  Item 8 'NO' keeps the
+-- groups on their own targets instead of the guide-rate share of the oil target of FIELD.
+GCONPROD
+ 'D1_M'  'GRAT'   9200.0  1*  450000.0   1*   'RATE'  'NO'  1*  'FORM'  /
+ 'B1_M'  'GRAT'   9200.0  1*  300000.0   1*   'RATE'  'NO'  1*  'FORM'  /
+/
+
+DATES
  1 JAN 2019 /
 /
 
 
 DATES
  1 FEB 2019 /
+/
+
+-- Back to the oil targets.
+GCONPROD
+ 'D1_M'  'ORAT'   9200.0  1*  6.9E6   1*   'RATE'  1*  1*  'FORM'  /
+ 'B1_M'  'ORAT'   9200.0  1*  6.9E6   1*   'RATE'  1*  1*  'FORM'  /
 /
  
 DATES
