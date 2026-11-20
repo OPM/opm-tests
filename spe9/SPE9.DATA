@@ -80,6 +80,9 @@ GRID
 -- coordinates without corner point geometry or local grid refinements'
 
 NOECHO
+
+INIT
+
 DX 
 -- There are in total 9000 cells with length 300ft in x-direction	
    	9000*300 /
@@ -199,12 +202,13 @@ PVTO
 1.270	 3200	 1.0985	 0.98 /
 1.390	 3600	 1.1100	 0.95 /
 1.500	 4000	 1.1200	 0.94 
-	 5000	 1.1189	 0.94 /
+         4600    1.1089  0.94 /
+--	 5000	 1.1189	 0.94 /
 /
 -- Comment in regards to the last row in PVTO:
 --   Killough says that 'at 1000psi above the saturation
 --   pressure the Bo is 0.999 times that of the Bo at Psat'
---   which means that the FVF (i.e. Bo) at 5000psia is 0.999*0.1200=1.1189
+--   which means that the FVF (i.e. Bo) at 4600psia is 0.999*0.1100=1.1089
 --   Killough also says that 'the oil viscosity does not 
 --   increase with increasing pressure in undersaturated conditions'
 --   which explains why the oil viscosity is 0.94.
@@ -388,29 +392,36 @@ WGIR
 --/
 WGPR
 /
---WGPT
---/
+WGPT
+/
 WOIR
 /
 --WOIT
 --/
 WOPR
 /
---WOPT
---/
+WOPT
+/
 WWIR
 /
 --WWIT
 --/
 WWPR
 /
---WWPT
---/
+WWPT
+/
 
 SCHEDULE
 
 RPTRST
-	'BASIC=4' /
+	'BASIC=2' /
+
+TUNING
+ 4.0  60.0  0.1    /
+                   /
+  12 2 15          /
+
+
 WELSPECS
 -- Column 3: I-value of well head or heel
 -- Column 4: J-value of well head or heel
@@ -424,32 +435,32 @@ WELSPECS
 --	     - stated to be 60ft in Killough
 
 -- #: 1	       2   3  4 5	 6	7  
-    'INJE1'   'G' 24 25	9110    'WATER' 60   /
-    'PRODU2'  'G'  5  1	9110	'OIL'   60   /
-    'PRODU3'  'G'  8  2	9110	'OIL'   60   /
-    'PRODU4'  'G' 11  3	9110	'OIL'   60   /
-    'PRODU5'  'G' 10  4	9110	'OIL'   60   /
-    'PRODU6'  'G' 12  5	9110	'OIL'   60   /
-    'PRODU7'  'G'  4  6	9110	'OIL'   60   /
-    'PRODU8'  'G'  8  7	9110	'OIL'   60   /
-    'PRODU9'  'G' 14  8	9110	'OIL'   60   /
-    'PRODU10' 'G' 11  9	9110	'OIL'   60   /
-    'PRODU11' 'G' 12 10	9110	'OIL'   60   /
-    'PRODU12' 'G' 10 11	9110	'OIL'   60   /
-    'PRODU13' 'G'  5 12	9110	'OIL'   60   /  
-    'PRODU14' 'G'  8 13	9110	'OIL'   60   /
-    'PRODU15' 'G' 11 14	9110	'OIL'   60   /
-    'PRODU16' 'G' 13 15	9110	'OIL'   60   /
-    'PRODU17' 'G' 15 16	9110	'OIL'   60   /
-    'PRODU18' 'G' 11 17	9110	'OIL'   60   /
-    'PRODU19' 'G' 12 18	9110	'OIL'   60   /
-    'PRODU20' 'G'  5 19	9110	'OIL'   60   /
-    'PRODU21' 'G'  8 20	9110	'OIL'   60   /
-    'PRODU22' 'G' 11 21	9110	'OIL'   60   /
-    'PRODU23' 'G' 15 22	9110	'OIL'   60   /
-    'PRODU24' 'G' 12 23	9110	'OIL'   60   /
-    'PRODU25' 'G' 10 24	9110	'OIL'   60   /
-    'PRODU26' 'G' 17 25	9110	'OIL'   60   /
+    'INJE1'   'P' 24 25	9110    'WATER' 60   /
+    'PRODU2'  'P'  5  1	9110	'OIL'   60   /
+    'PRODU3'  'P'  8  2	9110	'OIL'   60   /
+    'PRODU4'  'P' 11  3	9110	'OIL'   60   /
+    'PRODU5'  'P' 10  4	9110	'OIL'   60   /
+    'PRODU6'  'P' 12  5	9110	'OIL'   60   /
+    'PRODU7'  'P'  4  6	9110	'OIL'   60   /
+    'PRODU8'  'P'  8  7	9110	'OIL'   60   /
+    'PRODU9'  'P' 14  8	9110	'OIL'   60   /
+    'PRODU10' 'P' 11  9	9110	'OIL'   60   /
+    'PRODU11' 'P' 12 10	9110	'OIL'   60   /
+    'PRODU12' 'P' 10 11	9110	'OIL'   60   /
+    'PRODU13' 'P'  5 12	9110	'OIL'   60   /
+    'PRODU14' 'P'  8 13	9110	'OIL'   60   /
+    'PRODU15' 'P' 11 14	9110	'OIL'   60   /
+    'PRODU16' 'P' 13 15	9110	'OIL'   60   /
+    'PRODU17' 'P' 15 16	9110	'OIL'   60   /
+    'PRODU18' 'P' 11 17	9110	'OIL'   60   /
+    'PRODU19' 'P' 12 18	9110	'OIL'   60   /
+    'PRODU20' 'P'  5 19	9110	'OIL'   60   /
+    'PRODU21' 'P'  8 20	9110	'OIL'   60   /
+    'PRODU22' 'P' 11 21	9110	'OIL'   60   /
+    'PRODU23' 'P' 15 22	9110	'OIL'   60   /
+    'PRODU24' 'P' 12 23	9110	'OIL'   60   /
+    'PRODU25' 'P' 10 24	9110	'OIL'   60   /
+    'PRODU26' 'P' 17 25	9110	'OIL'   60   /
 /
 
 COMPDAT
