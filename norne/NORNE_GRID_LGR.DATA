@@ -1,0 +1,63 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Norne corner-point grid (INCLUDE/GRID/IRAP_1005 + ACTNUM_0704) with one
+-- CARFIN box on faulted, slanted cells. Uniform rock, simple oil-water fluid,
+-- no wells: tests that the conforming LGR leaf builds and is closed.
+RUNSPEC
+DIMENS
+ 46 112 22 /
+OIL
+WATER
+METRIC
+TABDIMS
+/
+EQLDIMS
+/
+START
+ 1 'JAN' 2020 /
+UNIFOUT
+
+GRID
+INCLUDE
+ 'INCLUDE/GRID/IRAP_1005.GRDECL' /
+INCLUDE
+ 'INCLUDE/GRID/ACTNUM_0704.prop' /
+CARFIN
+ 'LGRN' 4 12 76 82 6 12 27 21 7 /
+ENDFIN
+
+EQUALS
+ PORO 0.2 /
+ PERMX 100 /
+ PERMY 100 /
+ PERMZ 10 /
+/
+INIT
+
+PROPS
+PVTW
+ 270 1.03 4.5E-5 0.32 0 /
+PVDO
+ 100 1.20 1.0
+ 400 1.15 1.1 /
+ROCK
+ 270 5.0E-5 /
+DENSITY
+ 850 1030 1.0 /
+SWOF
+ 0.2 0.0 1.0 0
+ 1.0 1.0 0.0 0 /
+
+SOLUTION
+EQUIL
+ 2600 270 3000 0 /
+
+SCHEDULE
+TSTEP
+ 1 /
+END
