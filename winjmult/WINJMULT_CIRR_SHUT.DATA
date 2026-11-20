@@ -1,0 +1,121 @@
+-- This reservoir simulation deck is made available under the Open Database
+-- License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in
+-- individual contents of the database are licensed under the Database Contents
+-- License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+-- Copyright (C) 2026 Equinor
+
+-- Small oil-water model with one injector using WINJMULT in CIRR mode for
+-- two of its three connections.  The injector's BHP limit is reduced, and
+-- the well is then stopped, shut, and reopened.  Intended for restart
+-- testing: The irreversible injectivity multipliers must be retained
+-- across the pressure decrease and the stopped and shut intervals.
+
+RUNSPEC
+TITLE
+ WINJMULT CIRR retention across decline, STOP and SHUT
+DIMENS
+ 5 5 3 /
+OIL
+WATER
+METRIC
+START
+ 1 'JAN' 2020 /
+WELLDIMS
+ 2 3 1 2 /
+UNIFOUT
+UNIFIN
+GRID
+DX
+ 75*100 /
+DY
+ 75*100 /
+DZ
+ 75*10 /
+BOX
+ 1 5 1 5 1 1 /
+TOPS
+ 25*2000 /
+ENDBOX
+PORO
+ 75*0.25 /
+PERMX
+ 75*100 /
+PERMY
+ 75*100 /
+PERMZ
+ 75*20 /
+PROPS
+PVTW
+ 250 1.0 4e-5 0.5 0 /
+PVDO
+ 100 1.10 1.0
+ 300 1.08 1.1 /
+ROCK
+ 250 5e-5 /
+DENSITY
+ 850 1000 1 /
+SWOF
+ 0.2 0.0 1.0 0
+ 0.5 0.3 0.3 0
+ 0.8 1.0 0.0 0 /
+SOLUTION
+EQUIL
+ 2000 250 2100 0 /
+
+SUMMARY
+WBHP
+/
+WWIR
+/
+WOPR
+/
+FPR
+CWIR
+ 'INJ' /
+/
+SCHEDULE
+
+RPTRST
+ 'BASIC=2' /
+WELSPECS
+ 'INJ' 'G' 1 1 1* 'WATER' /
+ 'PROD' 'G' 5 5 1* 'OIL' /
+/
+COMPDAT
+ 'INJ' 1 1 1 3 'OPEN' 2* 0.2 /
+ 'PROD' 5 5 1 3 'OPEN' 2* 0.2 /
+/
+WCONPROD
+ 'PROD' 'OPEN' 'BHP' 5* 150 /
+/
+WCONINJE
+ 'INJ' 'WATER' 'OPEN' 'BHP' 1* 1* 400 /
+/
+WINJMULT
+ 'INJ' 265 0.015 'CIRR' 0 0 2 /
+ 'INJ' 266 0.016 'CIRR' 0 0 3 /
+/
+TSTEP
+ 2*30 /
+WCONINJE
+ 'INJ' 'WATER' 'OPEN' 'BHP' 1* 1* 320 /
+/
+TSTEP
+ 30 /
+WELOPEN
+ 'INJ' 'STOP' /
+/
+TSTEP
+ 30 /
+WELOPEN
+ 'INJ' 'SHUT' /
+/
+TSTEP
+ 30 /
+WELOPEN
+ 'INJ' 'OPEN' /
+/
+TSTEP
+ 2*30 /
+END
