@@ -3,77 +3,16 @@
 -- individual contents of the database are licensed under the Database Contents
 -- License: http://opendatacommons.org/licenses/dbcl/1.0/
 
--- Copyright (C) 2024 Equinor
+-- Copyright (C) 2026 Equinor
 
+-- Summary vectors of the gaslift master decks: those of rc_m2/t2a, and the
+-- lift gas rates.
+--
+-- The relative paths in INCLUDE are resolved from the directory of the deck that is run, so
+-- this file only works in a deck at rescoup/rc_m2/<case>/master/.
 
-TCPU
-
-TIMESTEP
-
-FOPR
-
-FGPR
-
-FGIR
-
-
-FGOR
-
-FWCT
-
-GOPR
-  /
-
-GGPR
-  /
-
-GGIR
- /
-
-GGOR
- /
-
-WGIR
-/
-
-WBHP
-/
-
-WOPR
-/
-
-ROIP
-/
-
-FOIP
-
-FPR
-
-FOPT
-
-GVPR
-/
-
-GVIR
-/
-
-GWIR
-/
-
-FVIR
-
-
-GGIR
-/
-
-FGIR
-/
-
-
-FGSR
-
-GOPGR
-/
+INCLUDE
+ '../../t2a/master/include/summary.inc' /
 
 FGLIR
 GGLIR
