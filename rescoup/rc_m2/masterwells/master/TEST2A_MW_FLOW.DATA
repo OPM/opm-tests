@@ -122,17 +122,8 @@ EDIT
 PROPS
 ------------------------------------------------------------------------------------------------
 
-NOECHO
-
-
 INCLUDE
-'../../../common/master/PVT-WET-GAS.INC' /
-
-INCLUDE
- '../../../common/master/scal_mod2.inc' /
-
-
-FILLEPS
+ '../../t2a/master/include/props.inc' /
 
 ------------------------------------------------------------------------------------------------
 REGIONS
@@ -180,23 +171,8 @@ WMCTL
 WOPGR
  'M-*' /
 
-GPR
-/
-
-FUQOMAX
-FUGT1
-FUGIM1
-
-FWIR
-
-GWIR
-/
-
-GWIRT
-/
-
-GMCTW
-/
+INCLUDE
+ '../../t2a/master/include/summary_groups.inc' /
 
 ------------------------------------------------------------------------------------------------
 SCHEDULE
@@ -243,13 +219,8 @@ SLAVES
   'RES-2'  'T2A_MOD2_FLOW'   '*'  '../../t2a/mod2'  1 /
 /
 
-GRUPMAST
- 'D1_M' 'RES-1'  'MANI-D'  1*  /
- 'B1_M' 'RES-1'  'MANI-B'  1*  /
- 'C1_M' 'RES-1'  'MANI-C'  1*  /
- 'F1_M' 'RES-1'  'MANI-F'  1*  /
- 'E1_M' 'RES-2'  'E1'  1*  /
-/
+INCLUDE
+ '../../t2a/master/include/grupmast.inc' /
 
 BRANPROP
 --  Downtree  Uptree	  #VFP  ALQ
