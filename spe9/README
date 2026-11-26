@@ -14,14 +14,14 @@ Changes implemeted from last spe9_new files:
 SPE9.DATA (block-centred grid from DX, DY, DZ and TOPSVALUES.DATA) and SPE9_CP.DATA are the same
 apart from the grid, so the results can be compared. Both grids have a dip of 10 degrees in the
 x-direction with 300 ft horizontal block size, i.e. a depth step of 300*tan(10 deg) = 52.898 ft per
-cell. (SPE9.GRDECL earlier used 300*sin(10 deg) = 52.094 ft, a dip of 9.85 degrees. The ECLIPSE
+cell. (SPE9_REF.GRDECL uses 300*sin(10 deg) = 52.094 ft, a dip of 9.85 degrees. The ECLIPSE
 results in eclipse-simulation/ and the OPM reference results were made with that grid.)
 
-SPE9_REF.DATA and SPE9_REF.GRDECL keep the old corner-point grid (depth step 300*sin(10 deg) = 52.094 ft,
-dip 9.85 degrees) and give the same results as the old SPE9_CP.DATA. They are the reference for the stored
-results: eclipse-simulation/SPE9_CP.* (ECLIPSE), opm-simulation-reference/ and SPE9_CP_SHORT.UNRST.
+SPE9_REF.GRDECL is the corner-point grid with the depth step 300*sin(10 deg) = 52.094 ft (dip 9.85
+degrees). SPE9_REF.DATA is the same as SPE9_CP.DATA apart from this grid. They are the reference for the
+stored results: eclipse-simulation/SPE9_CP.* (ECLIPSE), opm-simulation-reference/ and SPE9_CP_SHORT.UNRST.
 SPE9_CP_SHORT.DATA (via BASE.INC) uses SPE9_REF.GRDECL for the same reason.
 The three decks:
-- SPE9_REF.DATA: old corner-point grid, dip 9.85 degrees, matches the stored results.
+- SPE9_REF.DATA: corner-point grid SPE9_REF.GRDECL, dip 9.85 degrees, matches the stored results.
 - SPE9_CP.DATA: corner-point grid SPE9.GRDECL with dip 10 degrees (as in the paper).
 - SPE9.DATA: block-centred grid (DX, DY, DZ, TOPSVALUES.DATA), dip 10 degrees. Same as SPE9_CP.DATA apart from the grid.

@@ -1,7 +1,7 @@
 -- SPE9_REF.DATA: reference case for the stored simulation results.
 --
--- This deck is identical to the previous SPE9_CP.DATA and gives the same
--- results. It uses SPE9_REF.GRDECL, the corner-point grid with a depth step of
+-- This deck is the same as SPE9_CP.DATA apart from the grid.
+-- It uses SPE9_REF.GRDECL, the corner-point grid with a depth step of
 -- 300*sin(10 deg) = 52.094 ft per cell (dip 9.85 degrees), which is the grid
 -- the stored ECLIPSE results in eclipse-simulation/SPE9_CP.* (and the results
 -- in opm-simulation-reference/ and SPE9_CP_SHORT.UNRST) were made with.
