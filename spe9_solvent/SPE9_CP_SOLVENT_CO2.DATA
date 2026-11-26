@@ -95,7 +95,7 @@ NOECHO
 INIT
 
 INCLUDE
-	'../spe9/SPE9.GRDECL' /
+	'../spe9/SPE9_REF.GRDECL' /
 
 PORO
 -- Porosity in each level is contant
