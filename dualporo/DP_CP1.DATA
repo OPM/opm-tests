@@ -1,5 +1,7 @@
 -- ===========================================================================
 --  DP_CP1: dual porosity waterflood, oil-water, METRIC.
+--  The corner-point version of DP_BASIC.DATA: the same grid, given in
+--  COORD/ZCORN form, and otherwise the same deck.
 --
 --  DIMENS 5 5 4 holds two continua on the same 5x5x2 geometry:
 --    K = 1-2   matrix cells   (porosity 0.20, permeability 1 mD)
